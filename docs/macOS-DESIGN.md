@@ -807,6 +807,19 @@ Same rule as iOS-DESIGN 5.1c: the collection grid carries Browse's Sort picker
 hover tag and accessibility label; no fixed point sizes (the iPhone's §2.5c,
 measured on the Mac at 960pt: "1: 0…" for five-minute cartoons).
 
+## §B8b — Up and down change channel (2026-09-29)
+
+Owner: *"Yes on up and down for Apple TV and Mac channels players."* In a
+channel's player: bare **↑ / ↓** move one channel, taken by a local key monitor
+because AVKit's player view would otherwise see the key first (the same reason
+the Studio's scroll uses one, Decision 135); **Controls ▸ Previous Channel ⇧⌘↑ /
+Next Channel ⇧⌘↓** carry the same verbs, because §B14 keeps bare keys out of
+the menu bar (the pattern of Next / Previous Episode ⇧⌘→ / ⇧⌘←); and the
+iPad's strip — ▲, the channel and what is on, ▼ — sits over the picture on
+tune-in, after each change and whenever the pointer moves, then fades. A
+change joins the program where it is now (`GuideChannel.surf`, shared with iPad
+and Apple TV). Party Play and Cartoons are not channels and do not surf.
+
 ## §B9 — Sync touch-points
 
 Removals propagate via `Tombstone` keys: `fav:<id>` (DetailView favorites), `ch:<id>` (user channels);

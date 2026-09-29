@@ -42,3 +42,25 @@ struct GuideChannel: Identifiable {
     let icon: String
     let slots: [ScheduledProgram]
 }
+
+extension GuideChannel {
+    /// Channel surfing, one rule for iPad, Apple TV and Mac (iOS-DESIGN §2.5d,
+    /// tvOS-DESIGN §9.1c, macOS-DESIGN §B8b): `step` channels away (-1 up, +1
+    /// down, wrapping), the program airing now from its current second — or
+    /// that channel's next program if it is between two — skipping a channel
+    /// with nothing scheduled.
+    static func surf(_ channels: [GuideChannel], from index: Int, step: Int, now: Date = Date())
+        -> (index: Int, programs: [Catalog.Item], offset: TimeInterval)? {
+        guard !channels.isEmpty else { return nil }
+        for k in 1...channels.count {
+            let i = ((index + step * k) % channels.count + channels.count) % channels.count
+            let ch = channels[i]
+            guard let slot = ch.slots.first(where: { $0.contains(now) })
+                ?? ch.slots.first(where: { $0.start > now }) else { continue }
+            let programs = ch.slots.drop { $0.id != slot.id }.map(\.item)
+            let offset = slot.contains(now) ? max(0, now.timeIntervalSince(slot.start)) : 0
+            return (i, Array(programs), offset)
+        }
+        return nil
+    }
+}

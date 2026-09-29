@@ -316,6 +316,8 @@ detail."
 
 9.1b **A guide block fits its row** (2026-09-28): the row is a fixed height, so a program block carries at most one meta line ("ON NOW · 1936") and two title lines ending in an ellipsis; focus widens it (to 460pt), never lengthens it. Text taller than the block is cropped by the card shape mid-glyph, which is worse than an ellipsis.
 
+9.1c **Up and down change channel** (owner, 2026-09-29: *"Yes on up and down for Apple TV and Mac channels players."*). In a channel's player, an up or down CLICK on the clickpad (`UIPress.PressType.upArrow` / `.downArrow`, `ChannelSurfPresses`) moves one channel and joins its program where it is now; a banner names the channel and the program for four seconds, inside the overscan band. Presses, not swipes: a swipe down still opens the player's info panel, and left/right keep scrubbing. The rule for which program and where is one function for every platform (`GuideChannel.surf`). Party Play and Cartoons are not channels and do not surf.
+
 9.1a **One clock.** Owner, 2026-09-27: *"Move forward with a single clock. If you need a time zone to organize around, you can choose UTC, but all times should show as their local times when they look at channels. This should only be to sync all titles to the same time."* Preset channels play the ONE UTC timeline the
 pipeline publishes (`channel-schedule.json`, `tools/build_channel_schedule.py`),
 read through `Services/ChannelSchedule.swift` and cached in Caches; a program

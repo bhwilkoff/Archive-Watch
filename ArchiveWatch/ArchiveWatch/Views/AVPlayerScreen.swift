@@ -33,6 +33,9 @@ import UIKit
 /// Owns the live-caption engine + its label for a tvOS player.
 @MainActor
 final class CaptionCoordinator {
+    /// Channel surfing's press listener (tvOS-DESIGN §9.1c), held for the
+    /// player's life.
+    var surfPresses: ChannelSurfPresses?
     private var captions: LiveCaptions?
     private var label: UILabel?
     private var loop: Task<Void, Never>?
@@ -482,6 +485,25 @@ final class CaptionCoordinator {
     }
 }
 
+/// Up and down CLICKS on the clickpad change channel (tvOS-DESIGN §9.1c).
+/// Presses, not swipes: a swipe down still opens the player's info panel, and
+/// the edges' left/right keep scrubbing.
+@MainActor
+final class ChannelSurfPresses: NSObject {
+    private let step: (Int) -> Void
+    init(step: @escaping (Int) -> Void) { self.step = step }
+    @objc private func up() { step(-1) }
+    @objc private func down() { step(1) }
+    func install(on view: UIView) {
+        for (action, press) in [(#selector(up), UIPress.PressType.upArrow),
+                                (#selector(down), UIPress.PressType.downArrow)] {
+            let g = UITapGestureRecognizer(target: self, action: action)
+            g.allowedPressTypes = [NSNumber(value: press.rawValue)]
+            view.addGestureRecognizer(g)
+        }
+    }
+}
+
 struct AVPlayerContainer: UIViewControllerRepresentable {
     /// Source URL for live captions. When present and the title has no subtitle
     /// track, the audio is transcribed AHEAD of playback and drawn over the
@@ -504,10 +526,17 @@ struct AVPlayerContainer: UIViewControllerRepresentable {
     /// The viewer's per-film caption-type choice from the transport menu;
     /// nil = follow the system caption preference (Decision 070).
     var captionChoice: CaptionCoordinator.CaptionChoice? = nil
+    /// Set on a channel: an up/down click moves one channel (-1 up, +1 down).
+    var onChannelStep: ((Int) -> Void)? = nil
 
     func makeUIViewController(context: Context) -> AVPlayerViewController {
         let vc = AVPlayerViewController()
         vc.player = player
+        if let onChannelStep {
+            let presses = ChannelSurfPresses(step: onChannelStep)
+            presses.install(on: vc.view)
+            context.coordinator.surfPresses = presses
+        }
         // FOLLOW A ROOM (§11), if the viewer joined one on the Watch Together
         // screen. Here because this is where the television's `AVPlayer`
         // actually reaches a surface — the same reason every other Studio

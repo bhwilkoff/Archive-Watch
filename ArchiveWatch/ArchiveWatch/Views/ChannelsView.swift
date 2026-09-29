@@ -50,11 +50,26 @@ struct ChannelsView: View {
         .background(Color.black.ignoresSafeArea())
         .task { await load() }
         .fullScreenCover(item: $playing) { box in
-            if let screen = PlayerScreen(lineup: box.items, startOffset: box.startOffset,
-                                         channelContext: true) {
+            if let cid = box.channelID, let start = guide.firstIndex(where: { $0.id == cid }) {
+                TVSurfPlayer(channels: guide, index: start, first: box,
+                             weave: weaveCommercials(into:))
+            } else if let screen = PlayerScreen(lineup: box.items, startOffset: box.startOffset,
+                                                channelContext: true) {
                 screen
             } else { ChannelUnavailable() }
         }
+        #if DEBUG
+        // Harness door: AW_TUNE_CHANNEL=N tunes the guide's Nth channel where
+        // it is now (with AW_START_TAB=channels), so surfing can be measured
+        // without walking the guide with the remote.
+        .task(id: guide.count) {
+            guard playing == nil, !guide.isEmpty,
+                  let n = Int(ProcessInfo.processInfo.environment["AW_TUNE_CHANNEL"] ?? ""),
+                  guide.indices.contains(n) else { return }
+            let ch = guide[n], now = Date()
+            if let slot = ch.slots.first(where: { $0.contains(now) }) { tune(ch, from: slot) }
+        }
+        #endif
         // fullScreenCover (not .sheet): a tvOS sheet leaves the TabView sidebar
         // visible at the edge, overlapping the modal's title (#4).
         .fullScreenCover(isPresented: $showCreate, onDismiss: rebuild) { CreateChannelSheet() }
@@ -161,7 +176,8 @@ struct ChannelsView: View {
         // #92: if the tapped slot is the one airing NOW, join it in progress.
         let now = Date()
         let offset = slot.contains(now) ? max(0, now.timeIntervalSince(slot.start)) : 0
-        playing = ChannelLineup(items: weaveCommercials(into: Array(programs)), startOffset: offset)
+        playing = ChannelLineup(items: weaveCommercials(into: Array(programs)), startOffset: offset,
+                                channelID: channel.id)
     }
 
     /// #89: drop a vintage PD commercial between programs (gated by setting).
@@ -183,6 +199,96 @@ struct ChannelLineup: Identifiable {
     let id = UUID()
     let items: [Catalog.Item]
     var startOffset: TimeInterval = 0
+    /// The guide channel this lineup came from; nil for lineups that are not
+    /// a channel, which cannot be surfed.
+    var channelID: String? = nil
+}
+
+// MARK: - Channel surfing (tvOS-DESIGN §9.1c)
+//
+// Owner, 2026-09-29: "Yes on up and down for Apple TV and Mac channels
+// players." An up or down CLICK on the clickpad moves one channel and joins
+// its program where it is now — the iPad's rule (iOS-DESIGN §2.5d) — and a
+// banner names the channel and the program for four seconds. Swipes are
+// untouched: a swipe down still opens the info panel.
+
+private struct TVSurfPlayer: View {
+    let channels: [GuideChannel]
+    @State var index: Int
+    @State var lineup: ChannelLineup
+    @State private var bannerVisible = true
+    @State private var hideTask: Task<Void, Never>?
+    let weave: ([Catalog.Item]) -> [Catalog.Item]
+
+    init(channels: [GuideChannel], index: Int, first: ChannelLineup,
+         weave: @escaping ([Catalog.Item]) -> [Catalog.Item]) {
+        self.channels = channels
+        _index = State(initialValue: index)
+        _lineup = State(initialValue: first)
+        self.weave = weave
+    }
+
+    var body: some View {
+        ZStack(alignment: .top) {
+            if let screen = screen() {
+                screen.id(lineup.id)
+            } else {
+                ChannelUnavailable()
+            }
+            if bannerVisible { banner.transition(.opacity) }
+        }
+        .onAppear { showBanner() }
+        #if DEBUG
+        // Harness door: AW_SURF=N changes channel N times, 8 s apart.
+        .task {
+            let n = Int(ProcessInfo.processInfo.environment["AW_SURF"] ?? "") ?? 0
+            for _ in 0..<n {
+                try? await Task.sleep(for: .seconds(8))
+                surf(1)
+            }
+        }
+        #endif
+    }
+
+    private func screen() -> PlayerScreen? {
+        var s = PlayerScreen(lineup: lineup.items, startOffset: lineup.startOffset, channelContext: true)
+        s?.onChannelStep = { surf($0) }
+        return s
+    }
+
+    private var banner: some View {
+        let channel = channels[index]
+        let onNow = channel.slots.first { $0.contains(Date()) }
+        return VStack(spacing: 4) {
+            Text(channel.title).font(.headline)
+            if let onNow {
+                Text(onNow.item.title).font(.subheadline).foregroundStyle(.secondary).lineLimit(1)
+            }
+        }
+        .padding(.horizontal, 36).padding(.vertical, 16)
+        .background(.ultraThinMaterial, in: .capsule)
+        .padding(.top, 60)   // inside the overscan-safe band
+        .allowsHitTesting(false)
+    }
+
+    private func showBanner() {
+        withAnimation(.easeInOut(duration: 0.2)) { bannerVisible = true }
+        hideTask?.cancel()
+        hideTask = Task {
+            try? await Task.sleep(for: .seconds(4))
+            guard !Task.isCancelled else { return }
+            withAnimation(.easeInOut(duration: 0.3)) { bannerVisible = false }
+        }
+    }
+
+    /// The shared rule (GuideChannel.surf).
+    private func surf(_ step: Int) {
+        guard let hop = GuideChannel.surf(channels, from: index, step: step) else { return }
+        index = hop.index
+        lineup = ChannelLineup(items: weave(hop.programs), startOffset: hop.offset,
+                               channelID: channels[hop.index].id)
+        showBanner()
+    }
 }
 
 // MARK: - Commercial-break length control (Channels view + Settings)

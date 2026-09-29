@@ -796,6 +796,8 @@ struct PlayerScreen: View {
     /// DELIBERATE lineup and keeps resume — the distinction fix #2 needed and
     /// "lineup == nil" was too blunt to draw.
     var ephemeralLineup: Bool = false
+    /// Channels: an up/down click changes channel (tvOS-DESIGN §9.1c).
+    var onChannelStep: ((Int) -> Void)? = nil
     @Environment(\.modelContext) private var modelContext
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
@@ -1776,7 +1778,8 @@ struct PlayerScreen: View {
                                   archiveID: current?.archiveID ?? archiveID,
                                   liveCaptionURL: liveCaptionSource,
                                   reviewSource: subtitleReviewSource,
-                                  captionChoice: captionChoice)
+                                  captionChoice: captionChoice,
+                                  onChannelStep: onChannelStep)
                     .ignoresSafeArea()
                     .onAppear { player.play() }
                     // VHS: analog overlay over channel playback (opt-in, channels only).

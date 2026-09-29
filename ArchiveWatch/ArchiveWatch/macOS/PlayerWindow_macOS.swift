@@ -977,6 +977,9 @@ final class ChannelEngine {
         guard idx < items.count, let url = items[idx].videoURLParsed else { failed = true; return }
         let p = AVPlayer(playerItem: makeItem(for: url))
         p.isMuted = muted
+        #if DEBUG
+        if ProcessInfo.processInfo.environment["AW_MUTE"] != nil { p.isMuted = true }
+        #endif
         nowTitle = items[idx].title
         if startOffset > 5 { p.seek(to: CMTime(seconds: startOffset, preferredTimescale: 600)) }
         p.play()

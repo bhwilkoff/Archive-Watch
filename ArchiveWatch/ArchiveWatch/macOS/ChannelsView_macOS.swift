@@ -72,9 +72,27 @@ struct ChannelsView: View {
         .task(id: store.dbVersion) { await load() }
         .onChange(of: userChannels.count) { rebuild() }
         .sheet(item: $playing) { box in
-            ChannelPlayer(lineup: box.items, startOffset: box.startOffset)
-                .frame(minWidth: 760, minHeight: 480)
+            Group {
+                if let cid = box.channelID, let start = guide.firstIndex(where: { $0.id == cid }) {
+                    ChannelSurfPlayer(channels: guide, index: start, first: box,
+                                      weave: weaveCommercials(into:))
+                } else {
+                    ChannelPlayer(lineup: box.items, startOffset: box.startOffset)
+                }
+            }
+            .frame(minWidth: 760, minHeight: 480)
         }
+        #if DEBUG
+        // Harness door: AW_TUNE_CHANNEL=N tunes the guide's Nth channel where
+        // it is now (with AW_START_TAB=channels); AW_SURF=N then surfs.
+        .task(id: guide.count) {
+            guard playing == nil, !guide.isEmpty,
+                  let n = Int(ProcessInfo.processInfo.environment["AW_TUNE_CHANNEL"] ?? ""),
+                  guide.indices.contains(n) else { return }
+            let ch = guide[n], now = Date()
+            if let slot = ch.slots.first(where: { $0.contains(now) }) { tune(ch, from: slot) }
+        }
+        #endif
         .sheet(isPresented: $showCreate, onDismiss: rebuild) { CreateChannelSheet() }
     }
 
@@ -319,7 +337,8 @@ struct ChannelsView: View {
         let programs = channel.slots.drop { $0.id != slot.id }.map(\.item)
         let now = Date()
         let offset = slot.contains(now) ? max(0, now.timeIntervalSince(slot.start)) : 0
-        playing = ChannelLineup(items: weaveCommercials(into: Array(programs)), startOffset: offset)
+        playing = ChannelLineup(items: weaveCommercials(into: Array(programs)), startOffset: offset,
+                                channelID: channel.id)
     }
 
     /// #89: drop a vintage PD commercial between programs (gated by the setting).
@@ -354,6 +373,155 @@ struct ChannelLineup: Identifiable {
     let id = UUID()
     let items: [Catalog.Item]
     var startOffset: TimeInterval = 0
+    /// The guide channel this came from; nil lineups (Party Play, Cartoons)
+    /// cannot be surfed.
+    var channelID: String? = nil
+}
+
+// MARK: - Channel surfing (macOS-DESIGN §B8b)
+//
+// Owner, 2026-09-29: "Yes on up and down for Apple TV and Mac channels
+// players." Bare up/down change channel while the player is in front — taken
+// by a local key monitor, which sees the press before AVKit's player view
+// can use it; the Controls menu carries the same verbs on ⇧⌘↑ / ⇧⌘↓ (Rule
+// B14 keeps bare keys out of the menu bar), and a strip over the picture shows
+// them, as on the iPad.
+
+struct ChannelSurfPlayer: View {
+    let channels: [GuideChannel]
+    @State private var index: Int
+    @State private var lineup: ChannelLineup
+    @State private var bannerVisible = true
+    @State private var hideTask: Task<Void, Never>?
+    let weave: ([Catalog.Item]) -> [Catalog.Item]
+
+    init(channels: [GuideChannel], index: Int, first: ChannelLineup,
+         weave: @escaping ([Catalog.Item]) -> [Catalog.Item]) {
+        self.channels = channels
+        _index = State(initialValue: index)
+        _lineup = State(initialValue: first)
+        self.weave = weave
+    }
+
+    var body: some View {
+        ChannelPlayer(lineup: lineup.items, startOffset: lineup.startOffset)
+            .id(lineup.id)
+            .overlay(alignment: .top) {
+                if bannerVisible { strip.transition(.opacity) }
+            }
+            // The strip returns whenever the pointer moves over the picture —
+            // the way the player's own controls do.
+            .onContinuousHover { phase in
+                if case .active = phase { showBanner() }
+            }
+            .background(ArrowKeyMonitor { surf($0) })
+            .focusedSceneValue(\.channelSurfing, ChannelSurfing(previous: { surf(-1) }, next: { surf(1) }))
+            .onAppear { showBanner() }
+            #if DEBUG
+            .task {
+                let n = Int(ProcessInfo.processInfo.environment["AW_SURF"] ?? "") ?? 0
+                for _ in 0..<n {
+                    try? await Task.sleep(for: .seconds(8))
+                    surf(1)
+                }
+            }
+            #endif
+    }
+
+    /// The iPad's strip (iOS-DESIGN §2.5d): previous, the channel and what is
+    /// on, next.
+    private var strip: some View {
+        let channel = channels[index]
+        let onNow = channel.slots.first { $0.contains(Date()) }
+        let count = channels.count
+        return HStack(spacing: 12) {
+            Button { surf(-1) } label: {
+                Image(systemName: "chevron.up").font(.title3.weight(.semibold)).frame(width: 36, height: 36)
+            }
+            .buttonStyle(.borderless)
+            .help("Previous Channel (↑)")
+            .accessibilityLabel("Previous channel, \(channels[(index - 1 + count) % count].title)")
+            VStack(spacing: 2) {
+                Text(channel.title).font(.headline)
+                if let onNow {
+                    Text(onNow.item.title).font(.subheadline).foregroundStyle(.secondary).lineLimit(1)
+                }
+            }
+            .frame(minWidth: 200)
+            Button { surf(1) } label: {
+                Image(systemName: "chevron.down").font(.title3.weight(.semibold)).frame(width: 36, height: 36)
+            }
+            .buttonStyle(.borderless)
+            .help("Next Channel (↓)")
+            .accessibilityLabel("Next channel, \(channels[(index + 1) % count].title)")
+        }
+        .padding(.horizontal, 8).padding(.vertical, 4)
+        .foregroundStyle(.white)
+        .background(.ultraThinMaterial, in: .capsule)
+        .environment(\.colorScheme, .dark)
+        .padding(.top, 16)
+    }
+
+    private func showBanner() {
+        withAnimation(.easeInOut(duration: 0.2)) { bannerVisible = true }
+        hideTask?.cancel()
+        hideTask = Task {
+            try? await Task.sleep(for: .seconds(4))
+            guard !Task.isCancelled else { return }
+            withAnimation(.easeInOut(duration: 0.3)) { bannerVisible = false }
+        }
+    }
+
+    private func surf(_ step: Int) {
+        guard let hop = GuideChannel.surf(channels, from: index, step: step) else { return }
+        index = hop.index
+        lineup = ChannelLineup(items: weave(hop.programs), startOffset: hop.offset,
+                               channelID: channels[hop.index].id)
+        showBanner()
+    }
+}
+
+/// Bare up/down in the window this view is in: -1 for up, +1 for down.
+/// A local monitor sees the key before the first responder does, so AVKit's
+/// player view cannot take it first (the same reason the Studio's scroll
+/// uses one, Decision 135). Only unmodified arrows, only in this window.
+private struct ArrowKeyMonitor: NSViewRepresentable {
+    let onStep: (Int) -> Void
+
+    func makeNSView(context: Context) -> MonitorView { MonitorView(onStep: onStep) }
+    func updateNSView(_ view: MonitorView, context: Context) { view.onStep = onStep }
+    static func dismantleNSView(_ view: MonitorView, coordinator: ()) { view.stop() }
+
+    final class MonitorView: NSView {
+        var onStep: (Int) -> Void
+        private var monitor: Any?
+        init(onStep: @escaping (Int) -> Void) {
+            self.onStep = onStep
+            super.init(frame: .zero)
+        }
+        required init?(coder: NSCoder) { fatalError() }
+
+        override func viewDidMoveToWindow() {
+            super.viewDidMoveToWindow()
+            stop()
+            guard window != nil else { return }
+            monitor = NSEvent.addLocalMonitorForEvents(matching: .keyDown) { [weak self] event in
+                guard let self, event.window === self.window,
+                      event.modifierFlags.intersection([.command, .option, .control, .shift]).isEmpty
+                else { return event }
+                switch event.keyCode {
+                case 126: self.onStep(-1); return nil   // up
+                case 125: self.onStep(1); return nil    // down
+                default: return event
+                }
+            }
+        }
+
+        func stop() {
+            if let monitor { NSEvent.removeMonitor(monitor) }
+            monitor = nil
+        }
+    }
 }
 
 // MARK: - Create a channel (native macOS Form sheet)

@@ -367,7 +367,7 @@ private struct SurfPlayer: View {
     private var strip: some View {
         let now = Date()
         let onNow = channel.slots.first { $0.contains(now) }
-        // Regular width (IPAD-DESIGN §5c): a finger-sized capsule on a 13-inch
+        // Regular width (iOS-DESIGN §2.5d): a finger-sized capsule on a 13-inch
         // screen, where the phone's 44pt chevrons were the smallest thing on it.
         let wide = hSize == .regular
         let button: CGFloat = wide ? 60 : 44
@@ -408,22 +408,13 @@ private struct SurfPlayer: View {
         }
     }
 
-    /// Tune the neighboring channel where it is now: the program airing, from
-    /// its current second, or the next one if the channel is between programs.
+    /// The shared rule (GuideChannel.surf).
     private func surf(_ step: Int) {
-        let now = Date()
-        for k in 1...channels.count {
-            let i = (index + step * k + channels.count * k) % channels.count
-            let ch = channels[i]
-            guard let slot = ch.slots.first(where: { $0.contains(now) })
-                ?? ch.slots.first(where: { $0.start > now }) else { continue }
-            let programs = ch.slots.drop { $0.id != slot.id }.map(\.item)
-            let offset = slot.contains(now) ? max(0, now.timeIntervalSince(slot.start)) : 0
-            index = i
-            lineup = ChannelLineup(items: weave(Array(programs)), startOffset: offset, channelID: ch.id)
-            showStrip()
-            return
-        }
+        guard let hop = GuideChannel.surf(channels, from: index, step: step) else { return }
+        index = hop.index
+        lineup = ChannelLineup(items: weave(hop.programs), startOffset: hop.offset,
+                               channelID: channels[hop.index].id)
+        showStrip()
     }
 }
 

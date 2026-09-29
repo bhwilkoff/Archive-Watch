@@ -48,6 +48,12 @@ struct EpisodeNavigation {
     let next: (() -> Void)?
 }
 struct EpisodeNavigationKey: FocusedValueKey { typealias Value = EpisodeNavigation }
+/// A channel player's surfing (macOS-DESIGN §B8b).
+struct ChannelSurfing {
+    let previous: () -> Void
+    let next: () -> Void
+}
+struct ChannelSurfingKey: FocusedValueKey { typealias Value = ChannelSurfing }
 struct FilmActionsKey: FocusedValueKey { typealias Value = FilmActions }
 
 extension FocusedValues {
@@ -66,6 +72,10 @@ extension FocusedValues {
     var episodeNavigation: EpisodeNavigation? {
         get { self[EpisodeNavigationKey.self] }
         set { self[EpisodeNavigationKey.self] = newValue }
+    }
+    var channelSurfing: ChannelSurfing? {
+        get { self[ChannelSurfingKey.self] }
+        set { self[ChannelSurfingKey.self] = newValue }
     }
 }
 
@@ -174,6 +184,7 @@ struct ControlsCommands: Commands {
     let router: AppRouter
     @FocusedValue(\.playbackControls) private var playback
     @FocusedValue(\.episodeNavigation) private var episodes
+    @FocusedValue(\.channelSurfing) private var channels
 
     private static let speeds: [Double] = [0.5, 1.0, 1.25, 1.5, 2.0]
 
@@ -198,6 +209,14 @@ struct ControlsCommands: Commands {
             Button("Previous Episode") { episodes?.previous?() }
                 .keyboardShortcut(.leftArrow, modifiers: [.command, .shift])
                 .disabled(episodes?.previous == nil)
+            // A modified key here (Rule B14: no bare keys in the menu bar); the
+            // channel player itself also takes bare up/down (§B8b).
+            Button("Previous Channel") { channels?.previous() }
+                .keyboardShortcut(.upArrow, modifiers: [.command, .shift])
+                .disabled(channels == nil)
+            Button("Next Channel") { channels?.next() }
+                .keyboardShortcut(.downArrow, modifiers: [.command, .shift])
+                .disabled(channels == nil)
             Divider()
             Menu("Speed") {
                 ForEach(Self.speeds, id: \.self) { s in
