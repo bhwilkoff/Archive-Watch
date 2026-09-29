@@ -76,13 +76,15 @@ struct ChannelsView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbar {
             ToolbarItem(placement: .topBarTrailing) {
-                Button {
-                    store.channelCommercialBreaks.toggle()
-                } label: {
-                    Image(systemName: store.channelCommercialBreaks ? "tv.fill" : "tv.slash")
-                        .accessibilityLabel(store.channelCommercialBreaks
-                            ? "Commercial breaks on" : "Commercial breaks off")
+                // A real toggle (the Mac loop, v1.42.816): an icon that swaps
+                // pictures does not read as on/off; a toggle button shows its
+                // state, and VoiceOver says "Commercial Breaks, on".
+                @Bindable var store = store
+                Toggle(isOn: $store.channelCommercialBreaks) {
+                    Label("Commercial Breaks", systemImage: "tv")
                 }
+                .toggleStyle(.button)
+                .help("Commercial Breaks")
             }
             ToolbarItem(placement: .topBarTrailing) {
                 Button { showCreate = true } label: {

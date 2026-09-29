@@ -96,16 +96,7 @@ struct DetailView: View {
             // this film, so it stays on the row rather than inside More.
             Menu {
                 // SharePlay starts on the phone, where the FaceTime call is.
-                Button {
-                    Task {
-                        switch await WatchTogether.shared.share(
-                            archiveID: item.archiveID, title: item.title, year: item.year) {
-                        case .started: playing = true
-                        case .needsCall: startingSharePlay = true
-                        case .cancelled: break
-                        }
-                    }
-                } label: { Label("With friends…", systemImage: "shareplay") }
+                Button { watchWithFriends() } label: { Label("With friends…", systemImage: "shareplay") }
                 // Always offered; the sheet explains a film it cannot air (§8.8).
                 Button { goingLive = true } label: {
                     Label("With the world…", systemImage: "dot.radiowaves.left.and.right")
@@ -599,6 +590,18 @@ struct DetailView: View {
         else { store.completedArchiveIDs.remove(item.archiveID) }
     }
 
+    /// SharePlay starts on this device, where the FaceTime call is.
+    private func watchWithFriends() {
+        Task {
+            switch await WatchTogether.shared.share(
+                archiveID: item.archiveID, title: item.title, year: item.year) {
+            case .started: playing = true
+            case .needsCall: startingSharePlay = true
+            case .cancelled: break
+            }
+        }
+    }
+
     /// What the menu bar's Film menu acts on (IPAD-DESIGN §8.2).
     private var menuActions: FilmMenuActions {
         FilmMenuActions(
@@ -610,6 +613,9 @@ struct DetailView: View {
             toggleWatched: { toggleWatched() },
             openInNewWindow: supportsMultipleWindows
                 ? { openWindow(id: FilmWindow.id, value: item.archiveID) } : nil,
+            subtitles: item.videoURLParsed != nil ? { gettingSubtitles = true } : nil,
+            watchWithFriends: { watchWithFriends() },
+            watchWithTheWorld: { goingLive = true },
             pageURL: shareURL, archiveURL: archiveOrgURL,
             reportURL: FilmProblem.url(archiveID: item.archiveID))
     }

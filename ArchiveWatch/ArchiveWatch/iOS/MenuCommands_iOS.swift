@@ -19,6 +19,10 @@ struct FilmMenuActions {
     let addToPlaylist: () -> Void
     let toggleWatched: () -> Void
     let openInNewWindow: (() -> Void)?
+    /// Subtitles… when the film offers them (the Mac's Film menu item).
+    var subtitles: (() -> Void)? = nil
+    var watchWithFriends: () -> Void = {}
+    var watchWithTheWorld: () -> Void = {}
     let pageURL: URL
     let archiveURL: URL
     let reportURL: URL?
@@ -126,10 +130,20 @@ struct FilmCommands_iOS: Commands {
             .disabled(film == nil)
             Button("Add to Playlist…") { film?.addToPlaylist() }
                 .disabled(film == nil)
+            Button("Subtitles…") { film?.subtitles?() }
+                .disabled(film?.subtitles == nil)
             Button(film?.isWatched == true ? "Mark as Not Watched" : "Mark as Watched") {
                 film?.toggleWatched()
             }
             .keyboardShortcut("u", modifiers: [.command, .shift])
+            .disabled(film == nil)
+            Divider()
+            // The Mac's Watch Together submenu, the same two actions as the
+            // page's Together button.
+            Menu("Watch Together") {
+                Button("With Friends…") { film?.watchWithFriends() }
+                Button("With the World…") { film?.watchWithTheWorld() }
+            }
             .disabled(film == nil)
             Divider()
             Button("Open in New Window") { film?.openInNewWindow?() }
