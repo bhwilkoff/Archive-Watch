@@ -142,9 +142,19 @@ Harness:
 - P. A channel program with minutes left (or a short cartoon) is drawn as a
   sliver whose title wraps a letter a line: "I • 1" on the Google TV,
   "P A ' T" in Cartoon Classics on the Pixel.
-- R. "Autoplay next" is read by NOTHING that plays: the switch in Settings
-  and in both options panels writes a preference no player consults. Apple's
-  MovieAutoplayQueue plays a next film when one ends.
+- R. ✅ v1.42.943 "Autoplay next" was read by NOTHING that plays: the switch
+  in Settings and both options panels wrote a preference no player consulted.
+  Now a film chosen by the viewer that ends with it on shows an Up Next card
+  (the first unwatched More Like This film, 8 s, Play Now / Cancel; the web's
+  end card, Apple's More Like This mode); never for a channel, lineup, room
+  or live broadcast. Seen on both: Coughs and Sneezes -> So Much for So
+  Little, muted; TV focus lands on Play Now. The owner's setting (Off) was
+  restored on both devices and read back from the DataStore file.
+- S. Player Options > Copies: names start mid-word ("and_sneezes_TNA_512kb",
+  "sneezes_TNA_300K_512kb") and no row marks the copy that is playing
+  (Coughs and Sneezes, phone and TV).
+- T. Phone Detail: the action row runs off the right edge (a cut icon at the
+  edge on Coughs and Sneezes).
 
 ## Queue
 

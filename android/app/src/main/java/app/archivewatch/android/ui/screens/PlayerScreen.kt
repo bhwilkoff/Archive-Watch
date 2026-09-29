@@ -429,6 +429,12 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
     // tracks the CURRENT item so a binged episode updates it on advance.
     var controlsVisible by remember { mutableStateOf(true) }
     var playerViewRef by remember { mutableStateOf<PlayerView?>(null) }
+    // Autoplay next (the Apple apps' "More Like This" mode, the web's opt-in
+    // end card): a film chosen by the viewer, not a channel, a lineup or a
+    // room, and never under a live broadcast.
+    val autoplayOn = container.settings.autoplayNext.collectAsState(initial = false)
+    val autoplayEligible = spec.queue.isEmpty() && spec.persistProgress && spec.channelIndex == null
+    var upNext by remember { mutableStateOf<app.archivewatch.android.data.CatalogItem?>(null) }
     var nowTitle by remember { mutableStateOf(spec.title) }
     var nowDescription by remember { mutableStateOf(spec.description) }
     // Surfaced only once recovery is spent — a film that recovers should say
@@ -491,8 +497,13 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                 if (state == Player.STATE_READY && player.isPlaying) {
                     StudioController.filmEnded = false
                 }
-                if (state == Player.STATE_ENDED && isTv && !player.hasNextMediaItem()) {
-                    nav.pop()
+                if (state == Player.STATE_ENDED && !player.hasNextMediaItem()) {
+                    if (autoplayOn.value && autoplayEligible && !followingRoom && !StudioController.isLive) {
+                        scope.launch {
+                            val next = nextFilm(container, spec.id)
+                            if (next != null) upNext = next else if (isTv) nav.pop()
+                        }
+                    } else if (isTv) nav.pop()
                 }
             }
 
@@ -1039,6 +1050,26 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
         // connection states and accessibility for free), placed in the phone
         // top bar above. Renders nothing when Cast is unusable.
 
+        upNext?.let { next ->
+            UpNextCard(
+                title = next.title,
+                isTv = isTv,
+                onPlay = {
+                    val at = nav.stack.indexOfLast { it is app.archivewatch.android.ui.Route.Player }
+                    if (at >= 0) nav.stack[at] = app.archivewatch.android.ui.Route.Player(PlaySpec(
+                        id = next.archiveID,
+                        title = next.title,
+                        description = next.synopsis,
+                        url = next.downloadURL!!,
+                        captions = next.captions ?: emptyList(),
+                        runtimeSeconds = next.runtimeSeconds,
+                    ))
+                },
+                onCancel = { upNext = null; if (isTv) nav.pop() },
+                modifier = Modifier.align(Alignment.BottomEnd),
+            )
+        }
+
         if (!isTv && showPhoneMenu) {
             PhonePlayerOptionsSheet(
                 player = player,
@@ -1410,4 +1441,57 @@ private fun TvMenuRow(
                 modifier = Modifier.padding(start = 10.dp))
         }
     }
+}
+
+/** The first More Like This film the viewer has not finished, playable. */
+private suspend fun nextFilm(container: AppContainer, id: String): app.archivewatch.android.data.CatalogItem? {
+    val db = container.catalog.awaitDb()
+    val current = db.item(id) ?: return null
+    val done = container.userState.completedIDs()
+    for (candidate in db.related(current, 20)) {
+        if (candidate.archiveID == id || candidate.archiveID in done) continue
+        val full = db.item(candidate.archiveID) ?: continue
+        if (full.downloadURL != null) return full
+    }
+    return null
+}
+
+/** Up next, with a countdown that can be stopped (the web's end card). */
+@Composable
+private fun UpNextCard(
+    title: String,
+    isTv: Boolean,
+    onPlay: () -> Unit,
+    onCancel: () -> Unit,
+    modifier: Modifier = Modifier,
+) {
+    var seconds by remember(title) { mutableStateOf(8) }
+    LaunchedEffect(title) {
+        while (seconds > 0) { delay(1_000); seconds -= 1 }
+        onPlay()
+    }
+    val playFocus = remember { androidx.compose.ui.focus.FocusRequester() }
+    Column(
+        modifier
+            .zIndex(20f)
+            .windowInsetsPadding(WindowInsets.systemBars)
+            .padding(if (isTv) TvDims.OverscanH else 16.dp)
+            .background(Color(0xE6141414), androidx.compose.foundation.shape.RoundedCornerShape(16.dp))
+            .padding(20.dp)
+            .widthIn(max = 420.dp),
+    ) {
+        Text("Up next · $seconds s", style = MaterialTheme.typography.labelLarge, color = Color.White.copy(alpha = 0.8f))
+        Text(title, style = MaterialTheme.typography.titleMedium, color = Color.White,
+             maxLines = 2, overflow = TextOverflow.Ellipsis, modifier = Modifier.padding(top = 4.dp, bottom = 12.dp))
+        Row(horizontalArrangement = Arrangement.spacedBy(12.dp)) {
+            if (isTv) {
+                app.archivewatch.android.ui.tv.TvActionPill("Play Now", onPlay, focusRequester = playFocus, primary = true)
+                app.archivewatch.android.ui.tv.TvActionPill("Cancel", onCancel)
+            } else {
+                androidx.compose.material3.Button(onClick = onPlay) { Text("Play now") }
+                androidx.compose.material3.TextButton(onClick = onCancel) { Text("Cancel", color = Color.White) }
+            }
+        }
+    }
+    if (isTv) LaunchedEffect(Unit) { runCatching { playFocus.requestFocus() } }
 }
