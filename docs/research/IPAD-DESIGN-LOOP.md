@@ -329,7 +329,7 @@ platforms is informing the other platforms."* Each line cites code, not docs.
 19. Open Film intent on tvOS and macOS (none on Mac at all)
 20. Mac drag of films onto playlists/Favorites — needs a macOS-DESIGN rule
 21. ▲/▼ surfing on tvOS/Mac players — OWNER CALL (Siri Remote conflicts)
-22. tvOS poster caption reserves no lines (PosterTile.swift:43)
+22. ✅ v1.42.907 (seen on Kitchen: the Movies row's posters share a top edge) tvOS poster caption reserves no lines (PosterTile.swift:43)
 
 Found on the way (v1.42.900): **214 archive.org reviews are stored garbled**
 (mojibake — "doesnÃÂt"; one French review almost entirely "ÃÂÃÂ"),

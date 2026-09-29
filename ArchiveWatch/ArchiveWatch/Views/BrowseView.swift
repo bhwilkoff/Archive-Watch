@@ -496,19 +496,20 @@ struct CompactTile: View {
             .focused($isFocused)
 
             VStack(alignment: .leading, spacing: 2) {
+                // Two title lines and the year line ALWAYS laid out (see
+                // PosterTile): a grid centers its cells, so Voyage to the
+                // Planet rode higher and The Pink Panther (no year) lower.
                 Text(item.title)
                     .scaledFont(19, weight: .semibold)
                     .foregroundStyle(.white)
-                    .lineLimit(2)
+                    .lineLimit(2, reservesSpace: true)
                     .multilineTextAlignment(.leading)
                     .minimumScaleFactor(0.78)
                     .truncationMode(.tail)
-                    .fixedSize(horizontal: false, vertical: true)
-                if let year = item.year {
-                    Text(String(year))
-                        .scaledFont(17, weight: .regular)
-                        .foregroundStyle(.white.opacity(0.55))
-                }
+                Text(verbatim: item.year.map(String.init) ?? " ")
+                    .scaledFont(17, weight: .regular)
+                    .foregroundStyle(.white.opacity(0.55))
+                    .accessibilityHidden(item.year == nil)
             }
             .frame(width: cardWidth, alignment: .leading)
             .opacity(isFocused ? 1.0 : 0.85)

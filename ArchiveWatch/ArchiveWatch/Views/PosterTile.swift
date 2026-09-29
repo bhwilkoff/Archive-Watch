@@ -40,19 +40,25 @@ struct PosterTile: View {
             .focused($isFocused)
 
             VStack(alignment: .leading, spacing: 4) {
+                // Two title lines and the fact line are ALWAYS laid out: a
+                // grid centers its cells, so a two-line title rode higher and
+                // a film with no year sat lower than its row (Voyage to the
+                // Planet, The Pink Panther on Kitchen; the Mac's v1.42.804).
                 Text(item.title)
                     .scaledFont(19, weight: .semibold)
                     .foregroundStyle(.white)
-                    .lineLimit(2)
+                    .lineLimit(2, reservesSpace: true)
                     .multilineTextAlignment(.leading)
                     .minimumScaleFactor(0.78)
                     .truncationMode(.tail)
-                    .fixedSize(horizontal: false, vertical: true)
                 HStack(spacing: 8) {
                     if let year = item.year { Text(String(year)) }
                     if let r = item.runtimeSeconds, r > 0 {
                         Text("·")
                         Text(formatRuntime(r))
+                    }
+                    if item.year == nil && (item.runtimeSeconds ?? 0) <= 0 {
+                        Text(verbatim: " ").accessibilityHidden(true)
                     }
                 }
                 .scaledFont(17, weight: .regular)
