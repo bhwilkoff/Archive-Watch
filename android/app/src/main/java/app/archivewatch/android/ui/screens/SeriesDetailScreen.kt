@@ -20,6 +20,7 @@ import androidx.compose.material.icons.automirrored.filled.ArrowBack
 import androidx.compose.material.icons.filled.Favorite
 import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.ArrowDropDown
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
@@ -197,12 +198,15 @@ fun SeriesDetailScreen(container: AppContainer, nav: Nav, slug: String) {
                     )
                 }
                 current.overview?.takeIf { it.isNotBlank() }?.let {
+                    // A tap opens the whole text: cut at four lines with no way
+                    // to read the rest ("…together they ser…", Adam-12).
+                    var expanded by remember(current.seriesID) { mutableStateOf(false) }
                     Text(
                         it,
                         style = MaterialTheme.typography.bodyMedium,
-                        maxLines = 4,
+                        maxLines = if (expanded) Int.MAX_VALUE else 4,
                         overflow = TextOverflow.Ellipsis,
-                        modifier = Modifier.padding(top = 8.dp),
+                        modifier = Modifier.padding(top = 8.dp).clickable { expanded = !expanded },
                     )
                 }
                 if (seasons.size > 1) {
@@ -240,15 +244,19 @@ fun SeriesDetailScreen(container: AppContainer, nav: Nav, slug: String) {
 private fun SeasonMenu(seasonNumbers: List<Int?>, selected: Int, onSelect: (Int) -> Unit) {
     var open by remember { mutableStateOf(false) }
     val only = seasonNumbers.size == 1
-    TextButton(onClick = { open = true }) {
-        Text(seasonLabel(seasonNumbers.getOrNull(selected), only))
-    }
-    DropdownMenu(expanded = open, onDismissRequest = { open = false }) {
-        seasonNumbers.forEachIndexed { index, number ->
-            DropdownMenuItem(
-                text = { Text(seasonLabel(number, only)) },
-                onClick = { onSelect(index); open = false },
-            )
+    // Anchored with its button (a sibling menu opens from the header's corner).
+    Box {
+        TextButton(onClick = { open = true }) {
+            Text(seasonLabel(seasonNumbers.getOrNull(selected), only))
+            if (!only) Icon(androidx.compose.material.icons.Icons.Default.ArrowDropDown, contentDescription = null)
+        }
+        DropdownMenu(expanded = open, onDismissRequest = { open = false }) {
+            seasonNumbers.forEachIndexed { index, number ->
+                DropdownMenuItem(
+                    text = { Text(seasonLabel(number, only)) },
+                    onClick = { onSelect(index); open = false },
+                )
+            }
         }
     }
 }

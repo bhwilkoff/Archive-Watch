@@ -357,6 +357,12 @@ Harness:
   were siblings of their buttons, so each opened against the scrolling row's
   left edge (the Keyword list covered the status bar on the left, far from its
   button). Each is anchored in a Box with its button now. Seen on the Pixel.
+- AP. ✅ v1.42.968 Phone Series page: the season menu had the same missing
+  anchor (it would open from the header's corner) — anchored, and it carries a
+  dropdown arrow so it reads as a menu. The show's synopsis was cut at four
+  lines with no way to read the rest ("…together they ser…", Adam-12); a tap
+  opens and closes the whole text. All unanchored menus in the app are now
+  checked (Search's sit in their own Column and were fine). Seen on the Pixel.
 
 ## Queue
 
