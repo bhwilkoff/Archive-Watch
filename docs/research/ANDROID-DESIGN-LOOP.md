@@ -330,6 +330,15 @@ Harness:
   next publish.
   Player Options now offers "Autoplay next" only on a film the viewer chose:
   on a marathon, a lineup or an episode run it did nothing.
+- AK. ✅ v1.42.963 Phone Create a Channel: the Type chips were raw ids
+  ("feature film", "silent fi…") and the lists were shorter than Apple's;
+  they are Apple's words and lists now (16 genres; Documentary in place of TV
+  Special, since a channel is built of films). Deleting a user channel was a
+  long press with no question; it asks. Created "Comedy Feature Film" on the
+  Pixel (it led the guide: A Bucket of Blood, …), deleted it through the
+  dialog: channels 0 again, a `ch` tombstone written so Drive drops it too.
+- AL. (data, next pass) "Evenings on the farm near Dikanka, the." — a
+  library-style inverted article left in a title.
 
 ## Queue
 

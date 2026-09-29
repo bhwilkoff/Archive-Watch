@@ -343,6 +343,22 @@ private fun ChannelGuideRow(channel: GuideChannel, startMs: Long, endMs: Long,
     val fmt = rememberTimeFormat()
     val scope = androidx.compose.runtime.rememberCoroutineScope()
     val isTv = LocalIsTelevision.current
+    var confirmDelete by remember { mutableStateOf(false) }
+    if (confirmDelete && onDelete != null) {
+        androidx.compose.material3.AlertDialog(
+            onDismissRequest = { confirmDelete = false },
+            title = { Text("Delete “${channel.title}”?") },
+            confirmButton = {
+                androidx.compose.material3.TextButton(onClick = {
+                    confirmDelete = false
+                    scope.launch { onDelete() }
+                }) { Text("Delete") }
+            },
+            dismissButton = {
+                androidx.compose.material3.TextButton(onClick = { confirmDelete = false }) { Text("Cancel") }
+            },
+        )
+    }
     // Claimed by the airing block below, so the guide — not the header's "+"
     // button and not the nav rail — owns focus when Channels opens.
     val nowFocus = remember { FocusRequester() }
@@ -361,7 +377,9 @@ private fun ChannelGuideRow(channel: GuideChannel, startMs: Long, endMs: Long,
                         interactionSource = railInteraction,
                         indication = null,
                         onClick = {},
-                        onLongClick = { scope.launch { onDelete() } },
+                        // Asks first, as a playlist and a clip do: one long
+                        // press deleted the channel on every synced device.
+                        onLongClick = { confirmDelete = true },
                     )
                 } else Modifier),
             horizontalAlignment = Alignment.CenterHorizontally,
@@ -509,13 +527,19 @@ private fun CreateChannelDialog(container: AppContainer, onDone: () -> Unit) {
     var genre by remember { mutableStateOf<String?>(null) }
     var type by remember { mutableStateOf<String?>(null) }
     var decade by remember { mutableStateOf<Int?>(null) }
-    val genres = listOf("Drama", "Comedy", "Crime", "Thriller", "Horror",
-                        "Western", "Science Fiction", "Romance", "Mystery")
-    val types = listOf("feature-film", "animation", "silent-film",
-                       "short-film", "newsreel", "tv-special")
+    // Apple's lists and words (ChannelsView_iOS): the chips read "feature film"
+    // and "silent fi…", raw type ids, where every other surface says "Feature
+    // Film". Documentary, not TV Special: a channel is built from films.
+    val genres = listOf("Drama", "Comedy", "Crime", "Thriller", "Romance",
+                        "Action", "Horror", "Mystery", "Western", "Documentary",
+                        "Adventure", "War", "Fantasy", "Family", "Music", "Science Fiction")
+    val typeLabels = linkedMapOf(
+        "feature-film" to "Feature Film", "animation" to "Animation", "silent-film" to "Silent Film",
+        "short-film" to "Short Film", "newsreel" to "Newsreel", "documentary" to "Documentary",
+    )
     val decades = (1900..2010 step 10).toList()
     val autoName = listOfNotNull(decade?.let { "" + it + "s" }, genre,
-        type?.replace('-', ' ')).joinToString(" ").ifEmpty { "My Channel" }
+        type?.let { typeLabels[it] }).joinToString(" ").ifEmpty { "My Channel" }
 
     androidx.compose.material3.AlertDialog(
         onDismissRequest = onDone,
@@ -538,8 +562,8 @@ private fun CreateChannelDialog(container: AppContainer, onDone: () -> Unit) {
         text = {
             Column {
                 PickRow("Genre", genres, genre) { genre = it }
-                PickRow("Type", types.map { it.replace('-', ' ') }, type?.replace('-', ' ')) { sel ->
-                    type = sel?.replace(' ', '-')
+                PickRow("Type", typeLabels.values.toList(), type?.let { typeLabels[it] }) { sel ->
+                    type = typeLabels.entries.firstOrNull { it.value == sel }?.key
                 }
                 PickRow("Era", decades.map { "" + it + "s" }, decade?.let { "" + it + "s" }) { sel ->
                     decade = sel?.removeSuffix("s")?.toIntOrNull()
