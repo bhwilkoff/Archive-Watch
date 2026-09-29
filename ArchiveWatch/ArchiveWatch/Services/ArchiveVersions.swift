@@ -238,6 +238,15 @@ enum ArchiveVersions {
     /// on wired gigabit and a phone on cellular should not have to agree.
     /// Stored by file NAME rather than URL so it survives archive.org moving
     /// its storage nodes around (Decisions 031/034).
+    /// Is `v` the copy that plays? The viewer's choice when there is one;
+    /// otherwise the catalog's own file (never a copy from another upload).
+    /// One rule for every Apple platform's version menu (tvOS v1.42.854): a
+    /// menu that checked only an explicit choice showed every circle empty.
+    static func isPlaying(_ v: Version, chosen: String?, defaultURL: URL?) -> Bool {
+        if let chosen { return chosen == v.choiceKey }
+        return !v.isOtherUpload && defaultURL?.lastPathComponent.removingPercentEncoding == v.name
+    }
+
     static func chosenName(for archiveID: String) -> String? {
         defaults.dictionary(forKey: key)?[archiveID] as? String
     }

@@ -458,7 +458,7 @@ struct DetailView: View {
             // where someone is most likely to care about the difference
             // between transfers, and least likely to accept the app deciding.
             Menu { versionMenuContents } label: {
-                Label("Version", systemImage: "rectangle.stack")
+                Label("Choose Version", systemImage: "rectangle.stack")
             }
             .controlSize(.large).fixedSize()
             .help("Choose which copy of this film to play")
@@ -498,7 +498,7 @@ struct DetailView: View {
             }
         case .version:
             Menu { versionMenuContents } label: {
-                Label("Version", systemImage: "rectangle.stack")
+                Label("Choose Version", systemImage: "rectangle.stack")
             }
             .task(id: item.archiveID) { await loadVersions() }
         case .download:
@@ -527,7 +527,9 @@ struct DetailView: View {
                     chosenVersionName = v.choiceKey
                 } label: {
                     Label(v.label, systemImage:
-                        chosenVersionName == v.choiceKey ? "checkmark.circle.fill" : "circle")
+                        ArchiveVersions.isPlaying(v, chosen: chosenVersionName,
+                                                  defaultURL: item.videoURLParsed)
+                            ? "checkmark.circle.fill" : "circle")
                 }
             }
             Divider()

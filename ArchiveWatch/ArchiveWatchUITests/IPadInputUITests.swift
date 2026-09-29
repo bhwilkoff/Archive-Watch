@@ -355,4 +355,25 @@ final class IPadInputUITests: XCTestCase {
         XCTAssertEqual(previous.label, "Previous channel, Drama Theater", "▼ did not tune the next channel")
         app.terminate()
     }
+
+    /// Choose Version shows which copy plays even when none was chosen
+    /// (tvOS v1.42.854's rule, shared as ArchiveVersions.isPlaying). Looks
+    /// only; nothing is chosen.
+    func test_26_versionMenuChecksThePlayingCopy() {
+        launch(["AW_START_ITEM": "Nosferatu_most_complete_version_93_mins."])
+        let more = app.buttons.matching(NSPredicate(format: "label == 'More'")).firstMatch
+        XCTAssertTrue(more.waitForExistence(timeout: 20))
+        sleep(4)   // the copies load after the page
+        more.tap()
+        let choose = app.buttons.matching(NSPredicate(format: "label == 'Choose Version'")).firstMatch
+        XCTAssertTrue(choose.waitForExistence(timeout: 5), "no Choose Version in More")
+        choose.tap()
+        sleep(2)
+        snap("version menu")
+        let checked = app.descendants(matching: .any)
+            .matching(NSPredicate(format: "identifier CONTAINS 'checkmark.circle.fill' OR label CONTAINS 'checkmark.circle.fill'")).count
+        let items = app.buttons.matching(NSPredicate(format: "label CONTAINS[c] 'MB' OR label CONTAINS[c] 'GB' OR label CONTAINS[c] 'p'")).count
+        print("AWVER checked=\(checked) items=\(items)")
+        app.typeKey(XCUIKeyboardKey.escape, modifierFlags: [])
+    }
 }

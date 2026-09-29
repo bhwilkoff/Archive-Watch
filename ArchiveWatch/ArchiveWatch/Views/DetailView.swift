@@ -2387,13 +2387,11 @@ struct PlayerScreen: View {
         // it costs the viewer their place.
         if playerVersions.count > 1, !StudioRoomCopy.isActive(for: activeArchiveID) {
             let chosen = ArchiveVersions.chosenName(for: activeArchiveID)
-            let pipelineName = (current ?? catalogItem)?.videoURLParsed?
-                .lastPathComponent.removingPercentEncoding
             let versionActions = playerVersions.map { version in
                 UIAction(title: version.menuTitle,
                          subtitle: version.menuSubtitle,
-                         state: (chosen.map { $0 == version.choiceKey }
-                                 ?? (!version.isOtherUpload && pipelineName == version.name))
+                         state: ArchiveVersions.isPlaying(version, chosen: chosen,
+                                    defaultURL: (current ?? catalogItem)?.videoURLParsed)
                                 ? .on : .off) { _ in
                     switchToVersion(version)
                 }

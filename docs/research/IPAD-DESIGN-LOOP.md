@@ -313,7 +313,7 @@ platforms is informing the other platforms."* Each line cites code, not docs.
 3. ✅ v1.42.895 (seen: iPad and Mac Home, 7-film hero) Hero chosen in SQL — iOS HomeView_iOS.swift:250, Mac HomeView_macOS.swift:64 still decode dbBrowse(limit: 3000)
 4. ✅ v1.42.897 (seen on the Mac: Play S1, E1 · Favorite · More) Series page Play/Resume + Favorite — Mac SeriesDetail_macOS.swift:66-76
 5. ✅ v1.42.898 (seen on the iPad: bars + "1h 32m left"; Mac built, the row below its window's fold) Continue Watching time-left/progress — iOS HomeView_iOS.swift:51, Mac HomeView_macOS.swift:34
-6. Version menu checks the playing copy; one name ("Choose Version") — iOS DetailView_iOS.swift:153/163, Mac DetailView_macOS.swift:527
+6. ✅ v1.42.901 built (NOT seen: the iPad asked for its passcode to re-enable UI Automation, the owner's to enter) Version menu checks the playing copy; one name ("Choose Version") — iOS DetailView_iOS.swift:153/163, Mac DetailView_macOS.swift:527
 7. ✅ v1.42.896 (measured: hung >20 s on a 3 s timeout; now 3.2 s) RTMPPublisher task-group timeout waits on cancellation-blind children (Studio/RTMPPublisher.swift:931) — test with a server that never answers
 8. VoiceOver headings on iOS section titles (HomeView_iOS:361, DetailView_iOS:621/658/729, SearchView_iOS:120/133)
 9. Mac poster/guide menus lack Favorites/Share (Cards_macOS.swift:54, ChannelsView_macOS.swift:243)

@@ -151,17 +151,18 @@ struct DetailView: View {
                                     chosenVersionName = v.choiceKey
                                 } label: {
                                     Label(v.label, systemImage:
-                                        chosenVersionName == v.choiceKey ? "checkmark.circle.fill" : "circle")
+                                        ArchiveVersions.isPlaying(v, chosen: chosenVersionName,
+                                                  defaultURL: item.videoURLParsed)
+                            ? "checkmark.circle.fill" : "circle")
                                 }
                             }
                             Button(role: .destructive) {
                                 ArchiveVersions.choose(nil, for: item.archiveID)
                                 chosenVersionName = nil
-                            } label: { Label("Use the default copy", systemImage: "arrow.uturn.backward") }
+                            } label: { Label("Use the Default Copy", systemImage: "arrow.uturn.backward") }
                         }
                     } label: {
-                        Label(chosenVersionName == nil ? "Choose a Copy" : "Choose a Copy (chosen)",
-                              systemImage: "rectangle.stack")
+                        Label("Choose Version", systemImage: "rectangle.stack")
                     }
                 }
                 // A film in its own window (IPAD-DESIGN §9.1); never on iPhone.
