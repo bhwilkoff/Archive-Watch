@@ -300,6 +300,12 @@ channel-surf ↑/↓ (three routes failed; control first),  Spotlight indexing (
   25-record page (Pink Panther's renewal is record 54 of 5,525). Match rule 2
   fixes both and re-checks every title under it; 3/3 known renewals match,
   0/17 public-domain controls do.
+  **Measured** (rights-audit run 36510976309, 2026-09-28 20:53 MT): 15,391
+  kept titles rechecked, **258 more renewals**, copyright_claim_evidence
+  985 -> 1,243 (hidden at the next publish). A 25-title sample and a scan
+  against ~45 public-domain classics found no wrong catch. Owner question
+  raised: Sita Sings the Blues (Nina Paley's own CC BY-SA/CC0 release) is
+  hidden by the commercial-votes gate, which runs before licence evidence.
 - Browse shows Yojimbo (1961), The Pink Panther, Gentlemen Prefer Blondes; the
   Classic TV channel carries Monty Python's Flying Circus and Rumpole of the
   Bailey (1978-); the Documentary channel carries Triumph des Willens (the
