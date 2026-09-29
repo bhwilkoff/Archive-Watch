@@ -68,8 +68,10 @@ Parity gaps (another platform has it, Android does not):
   way: progress saved under a merged-away id found its card and lost its
   numbers (Alice in Wonderland, Caligari showed a year) — keyed now by the
   card shown (CatalogDatabase.itemsByIDsKeyed). Seen on both devices.
-- D. Phone Series page: no Share or Favorite (the TV one has both; Apple's
-  has Play-with-episode + Favorite).
+- D. ✅ v1.42.938 Phone Series page: Favorite and Share beside the title,
+  under the series card's own `series:<slug>` id as on TV and tvOS, sharing
+  archivewatch.org/series/<slug>. On the Pixel (The Lucy Show): the heart
+  filled and favorites went 13 -> 14, and back to 13 on the second tap.
 - E. Cartoons and Party Play are TV rail entries; the owner's 2026-09-28
   answer puts the modes in Surprise on every platform.
 - F. Downloads (PARITY ⏳, six rows) — the largest gap.

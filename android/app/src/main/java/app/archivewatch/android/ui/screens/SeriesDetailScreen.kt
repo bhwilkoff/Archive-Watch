@@ -17,7 +17,10 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
+import androidx.compose.material.icons.filled.Favorite
+import androidx.compose.material.icons.filled.FavoriteBorder
 import androidx.compose.material.icons.filled.PlayArrow
+import androidx.compose.material.icons.filled.Share
 import androidx.compose.material3.DropdownMenu
 import androidx.compose.material3.DropdownMenuItem
 import androidx.compose.material3.Icon
@@ -25,7 +28,12 @@ import androidx.compose.material3.IconButton
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.material3.TextButton
+import android.content.Intent
 import androidx.compose.runtime.Composable
+import androidx.compose.runtime.LaunchedEffect
+import androidx.compose.runtime.rememberCoroutineScope
+import androidx.compose.ui.platform.LocalContext
+import kotlinx.coroutines.launch
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
@@ -87,6 +95,13 @@ fun SeriesDetailScreen(container: AppContainer, nav: Nav, slug: String) {
     val seasons = current.seasons
     val season = seasons.getOrNull(seasonIndex)
 
+    // The series card's own id, as on TV and tvOS, so every island agrees.
+    val seriesFavID = "series:$slug"
+    var favorite by remember(seriesFavID) { mutableStateOf(false) }
+    LaunchedEffect(seriesFavID) { favorite = container.userState.isFavorite(seriesFavID) }
+    val scope = rememberCoroutineScope()
+    val context = LocalContext.current
+
     LazyColumn(Modifier.fillMaxSize()) {
         item(key = "header") {
             Box(Modifier.fillMaxWidth().aspectRatio(16f / 9f)) {
@@ -136,11 +151,30 @@ fun SeriesDetailScreen(container: AppContainer, nav: Nav, slug: String) {
                 }
             }
             Column(Modifier.padding(horizontal = 16.dp)) {
-                Text(
-                    current.title,
-                    style = MaterialTheme.typography.headlineSmall,
-                    fontWeight = FontWeight.Bold,
-                )
+                Row(verticalAlignment = Alignment.CenterVertically) {
+                    Text(
+                        current.title,
+                        style = MaterialTheme.typography.headlineSmall,
+                        fontWeight = FontWeight.Bold,
+                        modifier = Modifier.weight(1f),
+                    )
+                    IconButton(onClick = { scope.launch { favorite = container.userState.toggleFavorite(seriesFavID) } }) {
+                        Icon(
+                            if (favorite) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
+                            contentDescription = "Favorite",
+                            tint = MaterialTheme.colorScheme.primary,
+                        )
+                    }
+                    IconButton(onClick = {
+                        val send = Intent(Intent.ACTION_SEND).apply {
+                            type = "text/plain"
+                            putExtra(Intent.EXTRA_TEXT, "${current.title} — https://archivewatch.org/series/$slug")
+                        }
+                        context.startActivity(Intent.createChooser(send, null))
+                    }) {
+                        Icon(Icons.Default.Share, contentDescription = "Share", tint = MaterialTheme.colorScheme.primary)
+                    }
+                }
                 val meta = listOfNotNull(
                     listOfNotNull(current.yearStart, current.yearEnd).distinct()
                         .joinToString("–").ifEmpty { null },
