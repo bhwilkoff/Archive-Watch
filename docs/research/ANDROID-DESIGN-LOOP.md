@@ -242,6 +242,14 @@ Harness:
   surface in the archive." repeated the header's "1 of 144 episodes" and
   explained itself; removed on both. Seen on the Google TV; tvOS, iOS and
   macOS build clean, not run on an Apple TV.
+- AC. ✅ v1.42.955 TV Search results: four fixed columns beside the keyboard
+  squeezed each tile to ~80 dp, so titles broke inside words ("Dishonor / ed
+  Lady"); now adaptive, three across. And the grid anchored on its first
+  visible KEY as the query grew ("noi" -> "noir"), so a new search opened
+  scrolled past its first results; the grid state is keyed on the query and
+  filters now. Seen on the Google TV: "noir" opens on Noir (1946).
+- Y (more): "Messe noire" shows nudity in its poster in TV search results
+  with mature content hidden; the same owner call as Devil In Miss Jonas.
 
 ## Queue
 

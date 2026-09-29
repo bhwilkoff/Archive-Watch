@@ -225,8 +225,18 @@ fun TvSearchScreen(container: AppContainer, nav: Nav) {
                             }
                         }
                     }
+                    // A new query starts at the top. The grid anchors on the
+                    // first visible KEY, so typing "noi" -> "noir" kept the old
+                    // first result at the top and hid four new ones above it.
+                    val resultsState = remember(query, typeFilter, decadeFilter) {
+                        androidx.compose.foundation.lazy.grid.LazyGridState()
+                    }
                     LazyVerticalGrid(
-                        columns = GridCells.Fixed(4),
+                        // Adaptive, not four fixed: four columns beside the
+                        // keyboard squeezed each tile to ~80 dp and broke titles
+                        // inside words ("Dishonor / ed Lady").
+                        columns = GridCells.Adaptive(100.dp),
+                        state = resultsState,
                         contentPadding = PaddingValues(
                             end = TvDims.OverscanH,
                             bottom = TvDims.OverscanV * 2,
