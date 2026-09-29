@@ -128,6 +128,17 @@ struct RootView: View {
         // held only in the full catalog, not the bundled seed.
         .task(id: store.dbVersion) { routeSharePlayJoin() }
         .onChange(of: WatchTogether.shared.pendingJoin) { routeSharePlayJoin() }
+        // Siri / Shortcuts' Open Film (Services/FilmIntents.swift): the same
+        // shape as the join above, so a cold launch still lands on the film.
+        .task(id: store.dbVersion) { routeIntentFilm() }
+        .onChange(of: MacIntentInbox.shared.openItemID) { routeIntentFilm() }
+    }
+
+    private func routeIntentFilm() {
+        guard let id = MacIntentInbox.shared.openItemID,
+              let item = store.itemsByIDs([id]).first else { return }
+        MacIntentInbox.shared.openItemID = nil
+        router.openDetail(item)
     }
 
     private func routeSharePlayJoin() {

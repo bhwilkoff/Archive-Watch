@@ -101,6 +101,11 @@ struct RandomCategoryIntent: AppIntent {
 struct ArchiveWatchShortcuts: AppShortcutsProvider {
     static var appShortcuts: [AppShortcut] {
         AppShortcut(
+            intent: OpenFilmIntent(),
+            phrases: ["Open a film in \(.applicationName)", "Find a film in \(.applicationName)"],
+            shortTitle: "Open Film", systemImageName: "film"
+        )
+        AppShortcut(
             intent: SurpriseMeIntent(),
             phrases: [
                 "Surprise me on \(.applicationName)",
