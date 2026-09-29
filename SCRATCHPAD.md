@@ -730,6 +730,33 @@ keep serving it.
 
 ## Session Log
 
+### 2026-09-29 — the Android audit loop: phone and Google TV, fix what is found
+
+Owner: *"a full audit of the android surfaces and app ... both a full rundown of
+all features that show on Android Phone as well as all features and interface
+elements on the Android/Google TV implementation"*, then *"The goal of the audit
+is to fix every incorrect thing you are finding."* v1.42.932 -> .969, one commit
+a finding; the log is `docs/research/ANDROID-DESIGN-LOOP.md` (findings A-AQ).
+
+**Features Android lacked, built and seen on the glass**: channel up/down (phone
+capsule, TV Up/Down and CH+/-), Commercial breaks, Autoplay next that plays (the
+switch had been read by nothing), Continue Watching progress everywhere, the own
+stream key (YouTube or Twitch; Android's only route to YouTube), Favorite/Share
+on the phone Series page. **Real defects**: Back lost the viewer's place (per-tab
+state + a Home payload cache + TV focus return); decade/collection grids stopped
+at 240 and counted 240; the Clip Studio filmstrip never drew and its result page
+hid Save/Share; exported clips claimed 1970 with no source link; a channel-surf
+entered the history (also on tvOS); deletes with no question (playlists, clips,
+channels); four menus opened far from their buttons; the TV Watch Together
+keypad ran off the screen; TV Search broke titles mid-word and opened scrolled.
+**Catalog (next publish)**: `match_rejects.json` (new, wrong matches named with
+a reason), the @handle rule, inverted sort titles, and cleared-match animation
+typing (5 live-action films left Cartoon Mode).
+
+**Open for the owner**: Remove-from-history (my Pixel test entries synced to
+Drive); two mature-content titles; the "Public Domain" clip credit on presumed
+titles; YouTube sign-in on Android (a Google client, after the quota review).
+
 ### 2026-09-28 — the tvOS design loop: truncation, the 2nd-gen box, and older Apple TVs
 
 Owner: *"complete a similar design audit and feature evaluation on the tvOS
@@ -763,32 +790,5 @@ in appstore-build refuses a floor of 27. Unverified on an A8.
 late SNL etc. episodes never checked) — fixed; wrong TMDb matches by runtime
 cleared (Bomber wore Dive Bomber); Deploy Pages was red (MCP data build) —
 fixed. Fireplace's microphone: owner chose Allow (the prompt outlived the app).
-
-### 2026-09-29 — the Android audit loop: phone and Google TV, fix what is found
-
-Owner: *"a full audit of the android surfaces and app ... both a full rundown of
-all features that show on Android Phone as well as all features and interface
-elements on the Android/Google TV implementation"*, then *"The goal of the audit
-is to fix every incorrect thing you are finding."* v1.42.932 -> .969, one commit
-a finding; the log is `docs/research/ANDROID-DESIGN-LOOP.md` (findings A-AQ).
-
-**Features Android lacked, built and seen on the glass**: channel up/down (phone
-capsule, TV Up/Down and CH+/-), Commercial breaks, Autoplay next that plays (the
-switch had been read by nothing), Continue Watching progress everywhere, the own
-stream key (YouTube or Twitch; Android's only route to YouTube), Favorite/Share
-on the phone Series page. **Real defects**: Back lost the viewer's place (per-tab
-state + a Home payload cache + TV focus return); decade/collection grids stopped
-at 240 and counted 240; the Clip Studio filmstrip never drew and its result page
-hid Save/Share; exported clips claimed 1970 with no source link; a channel-surf
-entered the history (also on tvOS); deletes with no question (playlists, clips,
-channels); four menus opened far from their buttons; the TV Watch Together
-keypad ran off the screen; TV Search broke titles mid-word and opened scrolled.
-**Catalog (next publish)**: `match_rejects.json` (new, wrong matches named with
-a reason), the @handle rule, inverted sort titles, and cleared-match animation
-typing (5 live-action films left Cartoon Mode).
-
-**Open for the owner**: Remove-from-history (my Pixel test entries synced to
-Drive); two mature-content titles; the "Public Domain" clip credit on presumed
-titles; YouTube sign-in on Android (a Google client, after the quota review).
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).
