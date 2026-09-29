@@ -1,5 +1,44 @@
 # Archive Watch — Session Log (archive)
 
+### 2026-09-27 (evening) — the macOS audit loop: menus, the Creation Studio, and two real defects
+
+Owner: *"conduct a similar audit and design iteration loop on the MacOS
+version ... pay close attention to every single feature within the Creation
+Studio ... make sure that all features that should have menu items ... are
+well represented in the menu structure."* v1.42.784 -> .822, one commit a
+tick; the log is `docs/research/MAC-DESIGN-LOOP.md`.
+
+**Two defects that lost work or hung**, both found because archive.org
+refused this network for most of the afternoon: (1) an outage DELETED every
+clip on a timeline — the give-up meant for a dead source cannot tell an
+outage from one; a give-up now removes only while another clip has loaded,
+and a removal is announced and undoable; (2) Export sat at "Caching clips…"
+forever — `withTimeout` raced in a task group, which waits for a child that
+ignores cancellation; it is a once-only continuation now, and Export ends in
+~3 min saying none of the clips could be downloaded.
+
+**Menus**: Go follows the sidebar; Film, Controls, Clip (with Look and
+Transition Style), Mark, a customizable editor toolbar with View's Show /
+Customize Toolbar, Title Case throughout, Esc closes every sheet. **Undo**:
+every inspector edit is undoable (none were), coalesced per burst.
+**VoiceOver**: the timeline, poster cards, clip rows, hero dots and section
+headings all reachable. **Verified on real footage** while archive.org was
+up: J/L/K shuttle, the player and its Controls menu.
+
+**The archive.org refusals were the app's own doing** (measured with
+nettop, v1.42.829–.834): every cached clip kept streaming its whole film
+(542 MB on one connection), and the editor fetched all 191 saved clips'
+stills at every open — `.dragContainer` defeats LazyVStack. Fixed with a
+loader `invalidate()`, a disk cache for stills, main-host pacing and
+visible-rows-only loading; an editor open now makes 0 main-host requests
+and archive.org stays open. iOS Clip Studio had the same leak (.837).
+**Verified after**: a real Export (19 MB, 1080p H.264 + AAC), the mark-in/
+out sheet, the removal notice + undo, slider undo.
+
+**Owner, new**: which films the Creation Studio may PUBLISH as CC0 (item
+0-NEW-2026-09-27-B); playback fetching ~45 min ahead in its first 15 s
+(item 0-NEW-2026-09-27-C, measured, not changed).
+
 ### 2026-09-27 — Channels on one clock, collections in archive.org's words, and the owner's five answers
 
 Owner, answering five questions: one clock ("you can choose UTC, but all times
