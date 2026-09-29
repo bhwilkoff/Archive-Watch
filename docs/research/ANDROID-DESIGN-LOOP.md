@@ -504,6 +504,14 @@ Harness:
   yet the system's own Cast provider lists no routes. Blocked on a receiver the
   phone can discover — an owner call (see the loop's report).
 
+- BE. ✅ v1.42.984 The amazon (Fire TV) flavor after the whole dependency pass:
+  no Fire TV on the bench, so it ran on the Google TV in place of the google
+  build (same debug package; data kept, google build restored after) — Home,
+  then Sherlock Jr. muted with the AudioTrack started, no crash. The GMS audit
+  on its APK: zero GMS/Firebase classes, and the control finds Cast in the
+  google release. Fire OS itself (Decision 115's Fire OS 7 floor) is still
+  verified only by the store's device count.
+
 ## Queue
 
 1. ✅ J — phone launch doors: one shared `Nav.collectStartDoors()` in both roots (v1.42.933); the Pixel opened Library, the TV Search
