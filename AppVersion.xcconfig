@@ -14,7 +14,7 @@
 //                             so every archive/TestFlight upload is unique + monotonic.
 // All targets (app + widgets + top shelf) inherit both via the project base configuration.
 MARKETING_VERSION = 1.42.930
-CURRENT_PROJECT_VERSION = 1942
+CURRENT_PROJECT_VERSION = 1943
 
 // Optional per-developer secrets (gitignored). The `?` makes it optional so
 // the project still builds on machines where Secrets.xcconfig is absent.
