@@ -96,9 +96,13 @@ Harness:
 
 - L. Google TV Home: the "Silent Era" category tile draws with no background
   while its neighbors are colored.
-- M. "1m left" on Nosferatu (93 min) and Alice in Wonderland: Continue
-  Watching lists a film under 95% watched, so the recorded duration must be
-  under 20 minutes — check what duration progress stores.
+- M. ✅ v1.42.936 "1m left" on Nosferatu (93 min) and Alice in Wonderland: the
+  TV's user.sqlite (copied off with run-as) stores a ~2-minute duration for
+  both, and for Four Horsemen (100% of it, so "watched"), all 2026-09-18 —
+  written by the DEBUG `aw_play_url` door, which plays a local sync clip
+  under the film's id during the Studio bench runs. The door no longer
+  writes progress. The three records are still on the Google TV (owner's
+  call whether to remove them).
 
 ## Queue
 

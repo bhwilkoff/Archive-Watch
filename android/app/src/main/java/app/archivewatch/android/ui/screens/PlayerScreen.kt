@@ -338,10 +338,18 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
         }
     }
 
+    // A DEBUG `aw_play_url` override plays a TEST clip under the film's id:
+    // its progress is the clip's, not the film's. It saved "1m left" for a
+    // 93-minute Nosferatu on the Google TV from a 2-minute sync clip
+    // (Android loop, 2026-09-29), so an override never writes progress.
+    val playURLOverride = remember(spec.url) {
+        app.archivewatch.android.ui.DeepLinks.pendingPlayURL.value != null
+    }
+
     // Persist progress every 10s — against the CURRENT queue item, so each
     // binged episode resumes independently.
     LaunchedEffect(spec.id) {
-        if (!spec.persistProgress) return@LaunchedEffect
+        if (!spec.persistProgress || playURLOverride) return@LaunchedEffect
         while (true) {
             delay(5_000)
             val duration = player.duration
@@ -377,7 +385,7 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
             val endedTitle = player.currentMediaItem?.mediaMetadata?.title?.toString() ?: spec.title
             android.util.Log.i("AWTV", "player dispose id=$id pos=$position dur=$duration persist=${spec.persistProgress}")
             player.release()
-            if (duration > 0 && spec.persistProgress) {
+            if (duration > 0 && spec.persistProgress && !playURLOverride) {
                 // container.scope, NOT the composable's rememberCoroutineScope:
                 // this runs in onDispose, when the composition scope is being
                 // cancelled — a launch on it silently never executes (the
