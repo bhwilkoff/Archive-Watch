@@ -23,6 +23,7 @@ struct PosterCard: View {
             .onHover { hovering = $0 }
             .animation(.easeOut(duration: 0.12), value: hovering)
             .accessibilityLabel([item.title, item.year.map(String.init)].compactMap { $0 }.joined(separator: ", "))
+            .draggable(FilmTransfer(archiveID: item.archiveID))   // §B15
             .filmContextMenu(item)
             .help(item.title)
     }

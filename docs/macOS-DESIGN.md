@@ -1002,6 +1002,22 @@ no menu item and no key.
   there (not pointer clicks): Go ▸ Channels switched the window; Go ▸ Search put
   the cursor in the field and typed text landed in it.
 
+## §B15 — A film can be dragged (2026-09-28)
+
+The iPad's rule (IPAD-DESIGN §12), on the Mac's shape.
+
+- **Picked up**: every poster card is `.draggable`; the payload is the film's
+  archivewatch.org link (`FilmTransfer`, shared with iPad), so a film dropped
+  into Notes, Mail, Messages or the Finder arrives as a link a person can open.
+- **Put down**: on the Library's **Favorites** shelf (favorites it) and on a
+  **playlist** shelf (adds it). The Mac sidebar has one Library entry, not a
+  Favorites entry, so the shelves are the targets; a sidebar entry that meant
+  "Favorites" only when something is dropped on it would be a hidden verb.
+- A dropped archive.org or archivewatch.org link to a film we keep counts the
+  same as a dragged card; any other drop is refused, never guessed.
+- A drop is a PLACEMENT, never a play: nothing starts, and the card's click
+  still opens Detail.
+
 ## §B12 — Capabilities, identifiers, Info.plist
 
 - **Shared with tvOS/iOS** (one ASC record, Decision 042): bundle id `app.archivewatch.tvos`, CloudKit

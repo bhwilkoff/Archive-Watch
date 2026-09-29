@@ -27,6 +27,8 @@ struct LibraryView: View {
 
                 let favItems = store.itemsByIDs(favorites.map(\.archiveID))
                 ShelfRow(title: "Favorites", items: favItems)
+                    // §B15: a film dropped on Favorites is favorited.
+                    .dropDestination(for: URL.self) { urls, _ in addFavorites(urls) }
 
                 ForEach(playlists) { pl in
                     let url = PlaylistShare.url(name: pl.name, archiveIDs: pl.archiveIDs)
@@ -43,6 +45,8 @@ struct LibraryView: View {
                                 .accessibilityLabel("Share \(pl.name)")
                         }
                     }
+                        // §B15: a film dropped on a playlist joins it.
+                        .dropDestination(for: URL.self) { urls, _ in add(urls, to: pl) }
                         .contextMenu {
                             if let url {
                                 ShareLink(item: url) {
@@ -98,6 +102,26 @@ struct LibraryView: View {
     /// Rows, not a poster shelf: a download has a state and a size, and a shelf
     /// of artwork can show neither. Kept in the same ScrollView as the shelves
     /// rather than a List, so the page stays one scrolling surface.
+    private func addFavorites(_ urls: [URL]) -> Bool {
+        let have = Set(favorites.map(\.archiveID))
+        let ids = urls.compactMap(FilmTransfer.archiveID(from:))
+            .filter { store.item($0) != nil && !have.contains($0) }
+        guard !ids.isEmpty else { return false }
+        for id in ids { ctx.insert(Favorite(archiveID: id)) }
+        try? ctx.save()
+        return true
+    }
+
+    private func add(_ urls: [URL], to pl: Playlist) -> Bool {
+        let ids = urls.compactMap(FilmTransfer.archiveID(from:))
+            .filter { store.item($0) != nil && !pl.archiveIDs.contains($0) }
+        guard !ids.isEmpty else { return false }
+        pl.archiveIDs.append(contentsOf: ids)
+        pl.touch()
+        try? ctx.save()
+        return true
+    }
+
     @ViewBuilder private var downloadsSection: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(alignment: .firstTextBaseline) {
