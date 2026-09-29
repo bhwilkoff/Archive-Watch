@@ -115,8 +115,15 @@ Harness:
   so nothing restores them); Continue Watching now reads Morocco, Caligari,
   Sherlock Jr., Battleship Potemkin.
 
-- N. Google TV Surprise on a cold launch reads "Opening twelve doors…" for
-  ~30 s before the grid fills. Measure where the time goes.
+- N. ✅ v1.42.941 Surprise took 6.3 s to fill on the Google TV (measured:
+  twelve picks at ~350 ms, the first 2.4 s; the DB was already open). Each
+  pick joined every matching row's JSON blob before the random sort, then
+  decoded twenty to keep one. Ids are now drawn first, verified-playable
+  only (a playable row always has a URL), one per pick, and the seven
+  feature films come from one query: 1.6-2.3 s over two cold launches. One
+  shared `surpriseDoors()` serves the phone and the TV, which had copies.
+  Also "Broken Stings" (1940) -> "Broken Strings" (id, poster, IMDb
+  tt0135173), seen in the phone's Surprise.
 - O. A title missing its first letter: "tate Speeds Case Against Hauptmann"
   (1935), as archive.org's own title spells it; its id says "State". Fixed
   by title_corrections.json (takes effect at the next publish). 133 visible

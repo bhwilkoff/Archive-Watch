@@ -759,26 +759,41 @@ class CatalogDatabase private constructor(
         // FULL rows, not lite: this filters on downloadURL, which the list row
         // does not carry — so every pick was null and the Surprise grid came up
         // EMPTY on every Android device (measured on the Google TV 2026-09-03).
-        return items(
-            "SELECT j.json FROM items i JOIN item_json j ON j.archiveID = i.archiveID" +
-                " WHERE $where ORDER BY RANDOM() LIMIT 20",
-            binds,
-        ).firstOrNull { it.downloadURL != null }
+        return items(randomJsonSQL(where), binds).firstOrNull { it.downloadURL != null }
     }
 
     /** A random FULL-LENGTH film (Random Film). Feature/silent FEATURES with a runtime floor, so it
      *  never lands on a short / cartoon / newsreel (the old randomPlayable(null) admitted those). */
-    suspend fun randomFeatureFilm(): CatalogItem? {
+    suspend fun randomFeatureFilm(): CatalogItem? = randomFeatureFilms(1).firstOrNull()
+
+    private suspend fun randomFeatureFilms(count: Int): List<CatalogItem> {
         var where = "i.contentType IN ('feature-film','silent-film') AND " +
             "(i.runtimeSeconds IS NULL OR i.runtimeSeconds >= 2400)"
         where += adultAnd + typeAnd + noRecAnd
         // FULL rows — see randomPlayable: the downloadURL filter needs the blob.
-        return items(
-            "SELECT j.json FROM items i JOIN item_json j ON j.archiveID = i.archiveID" +
-                " WHERE $where ORDER BY RANDOM() LIMIT 20",
-            emptyList(),
-        ).firstOrNull { it.downloadURL != null }
+        return items(randomJsonSQL(where, count), emptyList())
+            .filter { it.downloadURL != null }.shuffled().take(count)
     }
+
+    /** Surprise's twelve doors, phone and TV: a feature, one of each other
+     *  kind, then feature films as filler (never random anything — shorts and
+     *  newsreels are not what a filler slot promises). */
+    suspend fun surpriseDoors(): List<CatalogItem> {
+        val features = randomFeatureFilms(7)
+        val kinds = listOf("silent-film", "animation", "short-film", "newsreel", "ephemeral")
+            .mapNotNull { randomPlayable(contentType = it) }
+        return (features.take(1) + kinds + features.drop(1)).distinctBy { it.archiveID }
+    }
+
+    /** Random rows' JSON, ids drawn from `items` FIRST: joined before the
+     *  sort, every matching row's blob was read, and twenty were decoded to
+     *  keep one — ~350 ms a pick on the Google TV, twelve picks a Surprise
+     *  roll. A verified-playable row always has a downloadURL, so `count` is
+     *  enough; an older DB without the column draws nineteen spare. */
+    private fun randomJsonSQL(where: String, count: Int = 1) =
+        "SELECT j.json FROM item_json j WHERE j.archiveID IN " +
+            "(SELECT i.archiveID FROM items i WHERE $where$verifiedAnd ORDER BY RANDOM() " +
+            "LIMIT ${if (hasPlayableColumn) count else count + 19})"
 
     suspend fun randomSeries(): CatalogItem? = itemsLite(
         "$itemSelect WHERE i.contentType = 'tv-series'$typeAnd ORDER BY RANDOM() LIMIT 1",
