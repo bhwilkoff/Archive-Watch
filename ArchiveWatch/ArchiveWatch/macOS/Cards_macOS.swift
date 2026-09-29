@@ -220,20 +220,24 @@ struct ShelfRow<Trailing: View>: View {
     let items: [Catalog.Item]
     var accent: Color = .primary
     var progressByID: [String: WatchProgress] = [:]
+    /// Shown in place of the posters when there are none; nil hides the shelf.
+    /// A playlist uses it: hidden, a playlist whose films all left the catalog
+    /// could not be seen, added to (§B15) or deleted.
+    var emptyText: String? = nil
     // A visible control beside the title (a playlist's Share). A row verb
     // that lives only behind right-click cannot be found — iOS learned the
     // same lesson with a swipe, so the shelf offers the slot.
     @ViewBuilder var trailing: () -> Trailing
 
     init(title: String, items: [Catalog.Item], accent: Color = .primary,
-         progressByID: [String: WatchProgress] = [:],
+         progressByID: [String: WatchProgress] = [:], emptyText: String? = nil,
          @ViewBuilder trailing: @escaping () -> Trailing) {
         self.title = title; self.items = items; self.accent = accent
-        self.progressByID = progressByID; self.trailing = trailing
+        self.progressByID = progressByID; self.emptyText = emptyText; self.trailing = trailing
     }
 
     var body: some View {
-        if !items.isEmpty {
+        if !items.isEmpty || emptyText != nil {
             VStack(alignment: .leading, spacing: 8) {
                 HStack(spacing: 10) {
                     // A heading, so VoiceOver can jump shelf to shelf (VO-⌘-H); as plain text the
@@ -241,11 +245,17 @@ struct ShelfRow<Trailing: View>: View {
                     Text(title).font(.title3).fontWeight(.semibold).foregroundStyle(accent).accessibilityAddTraits(.isHeader)
                     trailing()
                 }
-                ScrollView(.horizontal, showsIndicators: false) {
-                    LazyHStack(spacing: 14) {
-                        ForEach(items) { PosterCard(item: $0, progress: progressByID[$0.archiveID]).frame(width: 150) }
+                if items.isEmpty, let emptyText {
+                    Text(emptyText).font(.callout).foregroundStyle(.secondary)
+                        .frame(maxWidth: .infinity, minHeight: 60, alignment: .leading)
+                        .contentShape(Rectangle())
+                } else {
+                    ScrollView(.horizontal, showsIndicators: false) {
+                        LazyHStack(spacing: 14) {
+                            ForEach(items) { PosterCard(item: $0, progress: progressByID[$0.archiveID]).frame(width: 150) }
+                        }
+                        .padding(.horizontal, 2)
                     }
-                    .padding(.horizontal, 2)
                 }
             }
         }

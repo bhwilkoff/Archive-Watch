@@ -327,7 +327,7 @@ platforms is informing the other platforms."* Each line cites code, not docs.
 17. ✅ v1.42.906 built iPad Film menu lacks Subtitles… and Watch Together (MenuCommands_iOS:113)
 18. ✅ v1.42.908 (seen on Kitchen: Film Noir leads with archive.org's description) tvOS collection page lacks its description; card title 1 line (BrowseView.swift:163, CollectionsView.swift:98)
 19. ✅ v1.42.909 (in both apps' App Intents metadata; not yet run by voice) Open Film intent on tvOS and macOS (none on Mac at all)
-20. ✅ v1.42.917 Mac drag of films onto playlists/Favorites — macOS-DESIGN §B15 written first; FilmTransfer shared; built on all three, not yet dragged (no pointer automation on the owner's Mac)
+20. ✅ v1.42.917 Mac drag of films onto playlists/Favorites — macOS-DESIGN §B15 written first; FilmTransfer shared; built on all three, not yet dragged (no pointer automation on the owner's Mac); ✅ v1.42.918 an empty Mac playlist shelf keeps its title and says "Empty playlist" (it had vanished, so a playlist whose films all left the catalog could not be seen, dropped on or deleted)
 21. ▲/▼ surfing on tvOS/Mac players — OWNER CALL (Siri Remote conflicts)
 22. ✅ v1.42.907 (seen on Kitchen: the Movies row's posters share a top edge) tvOS poster caption reserves no lines (PosterTile.swift:43)
 

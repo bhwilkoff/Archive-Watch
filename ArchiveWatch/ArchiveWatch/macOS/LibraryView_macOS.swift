@@ -37,7 +37,8 @@ struct LibraryView: View {
                     // us. A visible icon beside the shelf title, because a verb
                     // that exists only under right-click cannot be found (the
                     // owner could not find the iOS swipe; same defect here).
-                    ShelfRow(title: pl.name, items: store.itemsByIDs(pl.archiveIDs)) {
+                    ShelfRow(title: pl.name, items: store.itemsByIDs(pl.archiveIDs),
+                             emptyText: "Empty playlist") {
                         if let url {
                             ShareLink(item: url) { Image(systemName: "square.and.arrow.up") }
                                 .buttonStyle(.borderless)
