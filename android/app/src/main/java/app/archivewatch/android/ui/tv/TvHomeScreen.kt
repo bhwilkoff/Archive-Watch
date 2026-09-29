@@ -186,6 +186,7 @@ fun TvHomeScreen(container: AppContainer, nav: Nav) {
                     TvShelfRow(
                         "Continue Watching",
                         payload.continueWatching,
+                        progressByID = payload.continueProgress,
                         onItem = { nav.openItem(it.archiveID, it.seriesID, it.contentType) },
                         onItemFocused = onItemFocused,
                     )

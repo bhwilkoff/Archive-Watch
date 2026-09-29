@@ -61,6 +61,8 @@ internal data class HomePayload(
     val hero: List<CatalogItem> = emptyList(),
     val tonightID: String? = null,
     val continueWatching: List<CatalogItem> = emptyList(),
+    /** Progress per Continue Watching item, for the bar and the time left. */
+    val continueProgress: Map<String, app.archivewatch.android.data.WatchProgress> = emptyMap(),
     val shelves: List<Pair<String, List<CatalogItem>>> = emptyList(),
     val topRated: List<CatalogItem> = emptyList(),
     val watchingNow: List<CatalogItem> = emptyList(),
@@ -151,7 +153,13 @@ internal fun rememberHomePayload(container: AppContainer): State<HomePayload> {
 
         // Continue Watching claims first so its titles never resurface below.
         val cw = container.userState.continueWatching()
-        val continueWatching = db.itemsByIDs(cw.map { it.archiveID })
+        val cwItems = db.itemsByIDsKeyed(cw.map { it.archiveID })
+        val continueWatching = cw.mapNotNull { cwItems[it.archiveID] }
+        // Keyed by the card that SHOWS: a record saved under a merged-away id
+        // found its card and lost its progress (Alice in Wonderland and
+        // Caligari showed a year on the Google TV). Newest record wins.
+        val continueProgress = cw.mapNotNull { p -> cwItems[p.archiveID]?.let { it.archiveID to p } }
+            .distinctBy { it.first }.toMap()
         continueWatching.forEach { seen.add(it.dedupKey) }
 
         // Featured shelves in the CANONICAL Apple-TV order (not featured.json file order) — owner
@@ -232,6 +240,7 @@ internal fun rememberHomePayload(container: AppContainer): State<HomePayload> {
             hero = heroFinal,
             tonightID = tonight?.archiveID,
             continueWatching = continueWatching,
+            continueProgress = continueProgress,
             shelves = shelves,
             topRated = claim(db.topRated().filter { it.hasProfessionalArtwork }),
             watchingNow = claim(db.watchingNow().filter { it.hasProfessionalArtwork }),
@@ -298,7 +307,8 @@ fun HomeScreen(container: AppContainer, nav: Nav) {
             }
             if (payload.continueWatching.isNotEmpty()) {
                 item(key = "continue") {
-                    ShelfRow("Continue Watching", payload.continueWatching, onItem = {
+                    ShelfRow("Continue Watching", payload.continueWatching,
+                        progressByID = payload.continueProgress, onItem = {
                         nav.openItem(it.archiveID, it.seriesID, it.contentType)
                     })
                 }

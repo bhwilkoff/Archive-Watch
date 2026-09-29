@@ -308,13 +308,21 @@ class CatalogDatabase private constructor(
 
     /** Curated lists bypass filters; result reordered to the requested order. */
     suspend fun itemsByIDs(ids: List<String>): List<CatalogItem> {
-        if (ids.isEmpty()) return emptyList()
+        val found = itemsByIDsKeyed(ids)
+        return ids.mapNotNull { found[it] }
+    }
+
+    /** Each requested id -> the item it now names, following merged-away ids
+     *  to their survivor (Decision 085). Keyed by the REQUESTED id, so a
+     *  record saved under an old id (watch progress) still finds its card. */
+    suspend fun itemsByIDsKeyed(ids: List<String>): Map<String, CatalogItem> {
+        if (ids.isEmpty()) return emptyMap()
         val found = itemsByIDsDirect(ids).associateBy { it.archiveID }.toMutableMap()
         val missing = ids.filter { !found.containsKey(it) }
         if (missing.isNotEmpty()) {
             for ((old, item) in resolveAliases(missing)) found[old] = item
         }
-        return ids.mapNotNull { found[it] }
+        return found
     }
 
     suspend fun item(archiveID: String): CatalogItem? =

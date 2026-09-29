@@ -30,6 +30,21 @@ data class WatchProgress(
 
     /** "Have I watched this?" — durable: a rewatch never removes it. */
     val isWatched: Boolean get() = everCompleted || isComplete
+
+    /** Share watched: the bar along a Continue Watching poster's foot. */
+    val fraction: Float
+        get() = if (durationMs > 0) (positionMs.toFloat() / durationMs).coerceIn(0f, 1f) else 0f
+
+    /** What a Continue Watching card says in place of the year — the Apple
+     *  apps' wording exactly (WatchProgress.remainingLabel). */
+    val remainingLabel: String
+        get() {
+            if (durationMs > 0) {
+                val m = maxOf(0L, durationMs - positionMs) / 60_000
+                return if (m >= 60) "${m / 60}h ${m % 60}m left" else "${m}m left"
+            }
+            return "${positionMs / 60_000}m watched"
+        }
 }
 
 data class UserChannelRec(

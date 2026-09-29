@@ -51,6 +51,7 @@ fun TvPosterTile(
     focusRequester: FocusRequester? = null,
     exitLeftTo: FocusRequester? = null,
     onFocused: () -> Unit = {},
+    progress: app.archivewatch.android.data.WatchProgress? = null,
 ) {
     Column(modifier = modifier.width(TvDims.PosterWidth)) {
         // Focus lives on the ARTWORK only (the native card grammar): the ring
@@ -70,6 +71,17 @@ fun TvPosterTile(
                 .background(BrandSurface),
         ) {
             PosterImage(item, Modifier.fillMaxSize())
+            progress?.let { p ->
+                androidx.compose.material3.LinearProgressIndicator(
+                    progress = { p.fraction },
+                    color = app.archivewatch.android.ui.theme.BrandPrimary,
+                    trackColor = Color.White.copy(alpha = 0.25f),
+                    modifier = Modifier
+                        .align(androidx.compose.ui.Alignment.BottomCenter)
+                        .fillMaxWidth()
+                        .padding(horizontal = 10.dp, vertical = 10.dp),
+                )
+            }
         }
         Text(
             item.title,
@@ -80,9 +92,9 @@ fun TvPosterTile(
             overflow = TextOverflow.Ellipsis,
             modifier = Modifier.padding(top = 10.dp),
         )
-        item.year?.let {
+        (progress?.remainingLabel ?: item.year?.toString())?.let {
             Text(
-                it.toString(),
+                it,
                 fontSize = 12.sp,
                 color = Color(0xFFB0B0B0),
                 modifier = Modifier.padding(top = 2.dp),
@@ -105,6 +117,7 @@ fun TvShelfRow(
     firstItemFocusRequester: FocusRequester? = null,
     state: LazyListState = rememberLazyListState(),
     onItemFocused: ((CatalogItem) -> Unit)? = null,
+    progressByID: Map<String, app.archivewatch.android.data.WatchProgress> = emptyMap(),
 ) {
     if (items.isEmpty()) return
     val scope = rememberCoroutineScope()
@@ -142,6 +155,7 @@ fun TvShelfRow(
                 TvPosterTile(
                     item = item,
                     onClick = { onItem(item) },
+                    progress = progressByID[item.archiveID],
                     focusRequester = if (index == 0) firstItemFocusRequester else null,
                     // §3.4 — the leftmost tile is the door back to the nav rail.
                     exitLeftTo = if (index == 0) railFocus else null,

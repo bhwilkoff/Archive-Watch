@@ -217,6 +217,7 @@ fun PosterTile(
     item: CatalogItem,
     onClick: () -> Unit,
     modifier: Modifier = Modifier,
+    progress: app.archivewatch.android.data.WatchProgress? = null,
 ) {
     val isTv = LocalIsTelevision.current
     Column(
@@ -241,6 +242,18 @@ fun PosterTile(
                 .background(BrandSurface),
         ) {
             PosterImage(item, Modifier.fillMaxSize())
+            // Continue Watching: how far in (the Apple apps' bar).
+            progress?.let { p ->
+                androidx.compose.material3.LinearProgressIndicator(
+                    progress = { p.fraction },
+                    color = app.archivewatch.android.ui.theme.BrandPrimary,
+                    trackColor = Color.White.copy(alpha = 0.25f),
+                    modifier = Modifier
+                        .align(Alignment.BottomCenter)
+                        .fillMaxWidth()
+                        .padding(horizontal = 6.dp, vertical = 6.dp),
+                )
+            }
         }
         Text(
             item.title,
@@ -249,9 +262,9 @@ fun PosterTile(
             overflow = TextOverflow.Ellipsis,
             modifier = Modifier.padding(top = 4.dp),
         )
-        item.year?.let {
+        (progress?.remainingLabel ?: item.year?.toString())?.let {
             Text(
-                it.toString(),
+                it,
                 style = MaterialTheme.typography.labelSmall,
                 color = MaterialTheme.colorScheme.onSurfaceVariant,
             )
@@ -281,6 +294,7 @@ fun ShelfRow(
     onItem: (CatalogItem) -> Unit,
     subtitle: String? = null,
     onHeader: (() -> Unit)? = null,
+    progressByID: Map<String, app.archivewatch.android.data.WatchProgress> = emptyMap(),
 ) {
     if (items.isEmpty()) return
     Column {
@@ -294,7 +308,8 @@ fun ShelfRow(
             horizontalArrangement = Arrangement.spacedBy(10.dp),
         ) {
             items(items.uniqueBy { it.archiveID }, key = { it.archiveID }) { item ->
-                PosterTile(item, onClick = { onItem(item) }, modifier = Modifier.width(110.dp))
+                PosterTile(item, onClick = { onItem(item) }, modifier = Modifier.width(110.dp),
+                    progress = progressByID[item.archiveID])
             }
         }
     }

@@ -63,8 +63,11 @@ Parity gaps (another platform has it, Android does not):
 - A. Channel up/down surfing, phone and TV (PARITY ⏳); on TV, D-pad Up opens
   the player's options panel today.
 - B. Commercial Breaks on/off: no setting on Android (PARITY ⏳).
-- C. Continue Watching time left + progress: to check on the glass (phone
-  showed the year).
+- C. ✅ v1.42.935 Continue Watching shows the time left and a progress bar on
+  phone and TV, in the Apple apps' words ("1h 8m left", "43m left"). On the
+  way: progress saved under a merged-away id found its card and lost its
+  numbers (Alice in Wonderland, Caligari showed a year) — keyed now by the
+  card shown (CatalogDatabase.itemsByIDsKeyed). Seen on both devices.
 - D. Phone Series page: no Share or Favorite (the TV one has both; Apple's
   has Play-with-episode + Favorite).
 - E. Cartoons and Party Play are TV rail entries; the owner's 2026-09-28
@@ -90,6 +93,12 @@ Harness:
   overscan margin for six 58 dp keys that need 388; the column is now sized
   from its keys. The decade doors run to the 2020s and every decade has
   titles in the live index (2020s: 84), from db.decadeCounts() — kept.
+
+- L. Google TV Home: the "Silent Era" category tile draws with no background
+  while its neighbors are colored.
+- M. "1m left" on Nosferatu (93 min) and Alice in Wonderland: Continue
+  Watching lists a film under 95% watched, so the recorded duration must be
+  under 20 minutes — check what duration progress stores.
 
 ## Queue
 
