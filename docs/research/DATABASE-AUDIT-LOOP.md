@@ -473,3 +473,16 @@ serializes workflows with each other. catalog_release now keeps the fetched file
 three-way merge: this run's changes onto the newer catalog, everything else
 theirs. --if-unchanged keeps refusing (exit 3). test_catalog_merge.py holds the
 E16 case with a no-base control; gate 52/52.
+
+### Y — Prelinger's standing no longer outranks a printed renewal (2026-09-30)
+After the CCE fix, seven served titles matching a renewal stayed visible: all in
+"prelinger", which audit_rights kept as safe_gov before any claim, and which
+corroborate_copyright never even checked. Read one by one: six real — MGM's
+Escape (1940) reel, Warner's Boulder Dam (1936, renewed by United Artists
+Associated), Monogram's Junior Prom (1946), Castle's News Parade of 1945, ERPI's
+Sound Waves and Their Sources (1933, University of Chicago), Make Mine Freedom
+(1948, MGM) — and one false: Prelinger's Free and Easy is a gearshift industrial,
+not MGM's 1941 feature (copyright_evidence_overrides.json). A title only in the
+Prelinger collections now gets the claim check first; a government collection
+stays first, since a government work cannot be copyrighted.
+test_prelinger_claim.py (four controls) in the gate, 53/53.

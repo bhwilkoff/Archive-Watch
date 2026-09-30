@@ -114,6 +114,8 @@ _PD_RENEWAL_ZONE = [
 ]
 
 GOV = R._GOV_PD_COLLECTIONS
+# A private archive's public-domain standing, not a government's: a claim can outrank it.
+CURATED_PD = {"prelinger", "prelingerhomemovies"}
 EXTERNAL = {"tmdb", "omdb"}
 
 MODERN_ID_RE = re.compile(
@@ -489,6 +491,16 @@ def bucket(it):
         return "uploader_copyright_claim", "hide"
 
     # ---- always-safe ----
+    # Prelinger's collections sit beside the government ones as public domain,
+    # and for his ephemera that holds. But a studio's printed renewal is a claim
+    # a reader can open (Decision 151), and it outranks a collection's standing:
+    # MGM's Escape (1940), Castle's News Parade of 1945 and Monogram's Junior
+    # Prom are all in "prelinger" and all renewed (2026-09-30). A government
+    # work cannot be copyrighted, so a government collection stays first.
+    if (cl & GOV and not (cl & (GOV - CURATED_PD)) and it.get("copyrightClaimEvidence")
+            and isinstance(yi, int) and yi >= PD_BY_AGE
+            and it.get("archiveID") not in copyright_overrides()):
+        return "copyright_claim_evidence", "hide"
     if cl & GOV:
         return "safe_gov", "keep"
     # Promotional fragments (trailer/clip/teaser/featurette/excerpt) matched to a MAJOR film

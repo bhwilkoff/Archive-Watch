@@ -234,7 +234,10 @@ def targets(items, today):
         y = it.get("year")
         if not isinstance(y, int) or y < AR.PD_BY_AGE:
             continue
-        if AR.bucket(it)[0] not in CHECKED_BUCKETS:
+        b = AR.bucket(it)[0]
+        cl = set(it.get("collections") or [])
+        prelinger_only = b == "safe_gov" and not (cl & (AR.GOV - AR.CURATED_PD))
+        if b not in CHECKED_BUCKETS and not prelinger_only:
             continue
         seen = it.get("copyrightChecked")
         # The match is by title AND year, so a verdict belongs to the pair it was
