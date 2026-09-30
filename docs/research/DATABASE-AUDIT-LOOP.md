@@ -236,6 +236,10 @@ tables, a scheduled workflow), never only in one published catalog.
   Penny Serenade, The Man Who Laughs... under their English titles). A football
   club's anthem dated 1900 to not_films; UfA-Tonwoche to propaganda.json.
 
+- T5. ✅ Translation batch 5 (39: mostly Argentine features, each from its own
+  "Sinopsis" with director and stars; Go for Broke!, My Dear Secretary under
+  their English titles). ~38 remain.
+
 ## Queue
 
 
