@@ -54,6 +54,13 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python tools/catalog_release.py fetch
 
+      # Judge the catalog the apps SEE: hand-corrected titles and years
+      # (title/year_corrections.json) are applied by remediate, and the
+      # Copyright Office check matches on title and year — until 2026-09-29 it
+      # checked "Frankenstein Doblada Al Español", not Frankenstein (1931).
+      - name: Remediate (apply hand corrections before judging)
+        run: python tools/remediate_catalog.py | tail -3
+
       - name: Confirm rights via Archive licenseurl + date
         run: |
           python tools/audit_rights.py \

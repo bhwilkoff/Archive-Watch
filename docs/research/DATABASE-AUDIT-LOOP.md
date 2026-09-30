@@ -208,6 +208,14 @@ tables, a scheduled workflow), never only in one published catalog.
   with a source; a 1925 erotic short marked mature ("erotic short" joins the
   adult synopsis markers, narrowly — "erotic film" would have caught Häxan).
 
+- T2. ✅ Translation batch 2 (30 more; English titles for The Unknown, The Phantom
+  Carriage, L'Âge d'Or, The Lodger, The Property Man, Get Carter...; "Das
+  Kybalion" 1908 is a modern video about a book, to not_films).
+- U. ✅ **The rights audit judged uncorrected titles.** title/year corrections are
+  applied by remediate at build time; rights-audit read catalog.json raw, so
+  the Copyright Office check (title + year) looked for "Frankenstein Doblada Al
+  Español". rights-audit now runs remediate first.
+
 ## Queue
 
 - T. ~200 non-English uploader summaries with no English source: faithful translation by hand, in batches.
