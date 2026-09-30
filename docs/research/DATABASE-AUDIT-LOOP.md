@@ -367,3 +367,6 @@ Story for Christmas played a 2013 episode).
 
 ### E12 — review batch (2026-09-29)
 40 summaries (1913-17): 22 rewritten, 17 kept, 1 bundle out (Maurice Tourneur films in decorative lettering). Shot lists and "(?)" guesses cleaned; 16 titles lose archival can numbers and filename debris. Jack London's last footage dated 1916 (the summary said he died in 1915), the Joffre/Somme reel 1916, Chaplin's Shanghaied 1915.
+
+### E13 — review batch (2026-09-29)
+40 summaries (1917-22): 35 rewritten — timecoded shot lists, "to be logged" notes, a public-domain boilerplate, trolling ("all of the trolls can keep quiet ... ROFL"), a Polish Caligari summary, reviewer asides on the Lingerie films; 1 placeholder removed; 4 kept. 13 titles cleaned (Easy Street, Tarzan of the Apes, The Jack-Knife Man, The Cabinet of Dr. Caligari). The Arctic expedition film is 1922 (its own text says so).
