@@ -2228,6 +2228,7 @@ struct StudioDestinationSection: View {
     }
 
     var body: some View {
+        VStack(alignment: .leading, spacing: 10) {
         Group {
             if show.film == nil {
                 Text("Choose a film first.")
@@ -2248,6 +2249,16 @@ struct StudioDestinationSection: View {
             } else {
                 form
             }
+        }
+        // UPCOMING IS ALWAYS IN VIEW off air — with no film chosen, another
+        // platform selected, or signed out — because a reopened Studio has no
+        // film and the list is how the host finds their way back to a show
+        // (owner, 2026-09-30: "always be able to see the upcoming shows ... and
+        // load them from a previous session ... rather than having to find the
+        // movie"). Go Live on This Show… loads the film and selects the show.
+        if !studio.isOnAir {
+            StudioUpcomingList()
+        }
         }
         // §D39 — the list is pruned when the Studio opens, and the go-live
         // choice follows the film, the platform and the list.
@@ -2598,9 +2609,6 @@ struct StudioDestinationSection: View {
             } else {
                 goLiveButton
             }
-            if canOfferSchedule {
-                StudioUpcomingList()
-            }
         }
     }
 
@@ -2637,6 +2645,7 @@ struct StudioDestinationSection: View {
         [show.film?.archiveID ?? "", show.platform.rawValue, show.connectWithKey ? "key" : "signin",
          signedIn ? "in" : "out"].joined(separator: "|") + "|"
             + schedule.shows.map { $0.broadcastID }.joined(separator: ",")
+            + "|" + (schedule.goLiveRequest ?? "")
     }
 
     /// Scheduling is a YouTube API feature: signed in, never a pasted key,
@@ -2660,6 +2669,12 @@ struct StudioDestinationSection: View {
     /// choice that no longer exists is dropped.
     private func refreshScheduleChoice() {
         let matches = scheduledMatches
+        // "Go Live on This Show…" names the broadcast outright.
+        if let asked = schedule.goLiveRequest, matches.contains(where: { $0.broadcastID == asked }) {
+            scheduleChoice = asked
+            schedule.goLiveRequest = nil
+            return
+        }
         if let c = scheduleChoice, c == Self.newBroadcast
             || matches.contains(where: { $0.broadcastID == c }) {
             if !matches.isEmpty { return }

@@ -13,6 +13,11 @@ final class StudioMacSchedule {
     private(set) var shows: [StudioScheduledShow] = StudioSchedule.prune()
     /// One line after a write: a refused thumbnail, a failed cancel.
     var note: String?
+    /// "Go Live on This Show…" from Upcoming: the broadcast the go-live form
+    /// selects once the show's film is loaded, then clears. The list survives a
+    /// relaunch but the Studio's film does not, so without this a reopened
+    /// Studio showed the show and offered no way onto it (owner, 2026-09-30).
+    var goLiveRequest: String?
 
     private init() {}
 
@@ -232,6 +237,9 @@ struct StudioRescheduleSheet: View {
 /// UPCOMING — every show this Mac scheduled, with Reschedule and Cancel.
 struct StudioUpcomingList: View {
     private var schedule: StudioMacSchedule { StudioMacSchedule.shared }
+    private var studio: StudioSession { StudioSession.shared }
+    @Environment(AppStore.self) private var store
+    @Environment(AppRouter.self) private var router
     @State private var moving: StudioScheduledShow?
     @State private var cancelling: StudioScheduledShow?
 
@@ -246,9 +254,11 @@ struct StudioUpcomingList: View {
                         Text(show.start.formatted(date: .abbreviated, time: .shortened)
                              + " \u{00B7} " + (YouTubePrivacy(rawValue: show.privacy)?.label ?? show.privacy))
                             .font(.caption).foregroundStyle(.secondary)
-                        HStack(spacing: 8) {
-                            Button("Reschedule…") { moving = show }.fixedSize()
-                            Button("Cancel Show…", role: .destructive) { cancelling = show }.fixedSize()
+                        // §D13: three labels outgrow a narrow column, so the
+                        // row stacks rather than cutting a word.
+                        ViewThatFits(in: .horizontal) {
+                            HStack(spacing: 8) { actions(show) }
+                            VStack(alignment: .leading, spacing: 4) { actions(show) }
                         }
                         .controlSize(.small)
                     }
@@ -272,6 +282,29 @@ struct StudioUpcomingList: View {
                 Text("The listing and its reminders are deleted from YouTube.")
             }
         }
+    }
+
+    @ViewBuilder
+    private func actions(_ show: StudioScheduledShow) -> some View {
+        Button("Go Live on This Show…") { prepare(show) }
+            .fixedSize()
+            .disabled(studio.isOnAir)
+        Button("Reschedule…") { moving = show }.fixedSize()
+        Button("Cancel Show…", role: .destructive) { cancelling = show }.fixedSize()
+    }
+
+    /// Loads the show's film into the Studio and asks the go-live form to
+    /// select this broadcast. Going live is still the host's own press.
+    private func prepare(_ show: StudioScheduledShow) {
+        guard let item = store.db?.item(show.archiveID) else {
+            schedule.note = "This show's film is not in the catalog on this Mac."
+            return
+        }
+        let mac = StudioMacShow.shared
+        mac.take(item, from: router)
+        mac.platform = .youtube
+        mac.connectWithKey = false
+        schedule.goLiveRequest = show.broadcastID
     }
 }
 #endif

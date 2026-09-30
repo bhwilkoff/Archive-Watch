@@ -2944,6 +2944,23 @@ units (stream 50, broadcast 50, bind 50, thumbnail 50); reschedule 50; cancel
 **Proof so far**: §8.73 (`tools/test_studio_schedule.swift`) against a LOCAL
 mock of the endpoints, with a control. **Not yet run against a real channel.**
 
+**§D39 amendment (2026-09-30) — Upcoming is always in view, and a show loads itself.**
+The owner, after reopening the Studio: *"I had closed the studio and re-opened it,
+so while I could see the upcoming show, there was no way to select it to go
+live"*, then *"It actually would be great to always be able to see the upcoming
+shows that you have set up ahead of time and load them from a previous session
+you've been working on rather than having to find the movie you want again in
+order to be able to see the upcoming show with that movie on it."* The list
+survived a relaunch and the Studio's film did not, and the go-live choice only
+appeared for the chosen film. So: the Upcoming list shows whenever the Studio is
+off air — with no film chosen, another platform selected, or signed out — and
+each show carries **Go Live on This Show…**, which loads the show's film,
+selects YouTube (signed in, not a pasted key) and selects that broadcast in
+"Go live on". Going live is still the host's own press. The row of three
+buttons stacks when the column is too narrow (§D13). Not restored: the exact
+copy the show was scheduled with; the existing one-line warning says when the
+Studio plays a different copy.
+
 ## §D40 — Sources: any number of cameras and calls, and each scene chooses its tiles (2026-09-30)
 
 Owner, 2026-09-30: *"You should be able to have full control over which camera
