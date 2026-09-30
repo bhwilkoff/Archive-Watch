@@ -297,3 +297,16 @@ tables, a scheduled workflow), never only in one published catalog.
 - G. 3,115 archive-thumbnail posters: any professional source.
 - I. Rights: renewal_zone / commercial_keep / unknown_year spot audits.
 - J. Workflow health across every catalog writer; the wants pipeline.
+
+### O — the compilation sweep (2026-09-29)
+Served titles matching collection words or running over 4 hours: 235, judged by
+the FILE each one plays. 36 hidden (not_films): 1980s broadcast airchecks, eight
+Dance Party USA tapes, cartoon "seasons" whose played file is a copyrighted short
+(Get a Horse! 2013, Mother Pluto 1936, Topsy TV 1957, A Pain in the Pullman 1936),
+a game walkthrough dated 1916, DVD-set discs. 10 collections retitled to the one
+film they play (The Barn Dance, All Wet, Trolley Troubles, Sick Cylinders, The
+Winged Scourge, Colonel Heeza Liar's African Hunt, Knock on Any Door 1949 — now
+open to the renewal check); their collection summaries rejected. Faces of Death
+dated 1978 (was 1900) and hidden pending confirm. Kept: serials, complete-series
+TV (owner rule), real single-reel compilations (British WWII PIFs). Visibility
+diffed: 0 un-hidden.
