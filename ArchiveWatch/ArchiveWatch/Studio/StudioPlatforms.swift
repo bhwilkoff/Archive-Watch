@@ -61,6 +61,8 @@ public enum StudioPlatformError: Error, CustomStringConvertible {
     case http(Int, String)
     case badResponse(String)
     case ineligible(String)
+    /// §D39 — a scheduled broadcast the host removed or ended on YouTube.
+    case scheduledGone(String)
 
     public var description: String {
         switch self {
@@ -71,6 +73,7 @@ public enum StudioPlatformError: Error, CustomStringConvertible {
             return "the platform answered \(code)" + (body.isEmpty ? "" : ": \(body)")
         case .badResponse(let s): return "unexpected answer from the platform: \(s)"
         case .ineligible(let s): return s
+        case .scheduledGone(let s): return s
         }
     }
 }
@@ -682,15 +685,24 @@ private struct HTTP {
 
 public struct YouTubeLive: Sendable {
     let token: String
+    /// Overridable only so the §D39 harness can point every call at a LOCAL
+    /// mock server; the product always takes the defaults.
+    let base: String
+    let uploadBase: String
 
-    private static let base = "https://www.googleapis.com/youtube/v3"
+    public init(token: String) {
+        self.init(token: token, base: "https://www.googleapis.com/youtube/v3",
+                  uploadBase: "https://www.googleapis.com/upload/youtube/v3")
+    }
 
-    public init(token: String) { self.token = token }
+    init(token: String, base: String, uploadBase: String) {
+        self.token = token; self.base = base; self.uploadBase = uploadBase
+    }
 
     private func request(_ path: String, method: String,
                          query: [String: String] = [:],
                          body: [String: Any]? = nil) throws -> URLRequest {
-        var c = URLComponents(string: Self.base + path)!
+        var c = URLComponents(string: base + path)!
         if !query.isEmpty {
             c.queryItems = query.map { URLQueryItem(name: $0.key, value: $0.value) }
         }
@@ -708,10 +720,154 @@ public struct YouTubeLive: Sendable {
     /// address + key. Three calls, in the order YouTube documents: the STREAM
     /// carries the ingest, the BROADCAST carries the title and privacy, and
     /// `bind` joins them. A broadcast with no bound stream can never go live.
+    ///
+    /// Price (Decision 136, Google's quota table, read 2026-09-30):
+    /// liveStreams.insert 50 + liveBroadcasts.insert 50 + bind 50 = 150 units.
     public func prepare(title: String, description: String, privacy: String,
                         resolution: String = "1080p", frameRate: String = "30fps",
                         preferRTMPS: Bool = true) async throws -> StreamCredentials {
-        // 1. The stream — where bytes go.
+        let stream = try await insertStream(title: title, resolution: resolution,
+                                            frameRate: frameRate)
+        let ingest = try Self.ingest(from: stream.info, preferRTMPS: preferRTMPS)
+        let broadcast = try await insertBroadcast(title: title, description: description,
+                                                  privacy: privacy, start: Date())
+        try await bindOrDelete(broadcastID: broadcast.id, streamID: stream.id)
+        return StreamCredentials(server: ingest.server, key: ingest.key,
+                                 backupServer: ingest.backup,
+                                 broadcastID: broadcast.id, liveChatID: broadcast.chatID)
+    }
+
+    // MARK: §D39 — a watch-along scheduled ahead of time
+
+    /// What scheduling leaves behind: the two ids a later go-live needs, and
+    /// the one sentence a refused thumbnail earns. NEVER the key — it is read
+    /// again from the stream at go-live (§D39, WATCH-TOGETHER §5).
+    public struct Scheduled: Sendable, Equatable {
+        public let broadcastID: String
+        public let streamID: String
+        /// Nil when the card was uploaded; otherwise what YouTube said. A
+        /// refusal does not fail the schedule: the listing is what the
+        /// audience needs, and the host's own thumbnail can be set in
+        /// YouTube Studio.
+        public let thumbnailRefusal: String?
+    }
+
+    /// A broadcast in the host's Upcoming, with a countdown and "Notify me".
+    /// The same stream, broadcast and bind as `prepare` — the same
+    /// `contentDetails`, so a scheduled show goes out exactly as a live one
+    /// does — with the START in the future, and the Starting-soon card as its
+    /// thumbnail.
+    ///
+    /// Price: liveStreams.insert 50 + liveBroadcasts.insert 50 + bind 50 +
+    /// thumbnails.set 50 = 200 units (Google's quota table, read 2026-09-30).
+    public func schedule(title: String, description: String, privacy: String,
+                         start: Date, thumbnail: Data?,
+                         resolution: String = "1080p",
+                         frameRate: String = "30fps") async throws -> Scheduled {
+        let stream = try await insertStream(title: title, resolution: resolution,
+                                            frameRate: frameRate)
+        let broadcast = try await insertBroadcast(title: title, description: description,
+                                                  privacy: privacy, start: start)
+        try await bindOrDelete(broadcastID: broadcast.id, streamID: stream.id)
+        var refusal: String?
+        if let thumbnail {
+            do { try await setThumbnail(videoID: broadcast.id, jpeg: thumbnail) }
+            catch {
+                awdiag("AWSCHED thumbnail refused %@ — %@", broadcast.id, "\(error)")
+                refusal = "\(error)"
+            }
+        }
+        return Scheduled(broadcastID: broadcast.id, streamID: stream.id,
+                         thumbnailRefusal: refusal)
+    }
+
+    /// Moves a scheduled show. `liveBroadcasts.update` REPLACES the part it
+    /// names: a snippet sent without its description would clear the
+    /// description, so all three fields always go together.
+    /// Price: liveBroadcasts.update 50 units.
+    public func reschedule(broadcastID: String, title: String, description: String,
+                           start: Date) async throws {
+        _ = try await HTTP.send(try request(
+            "/liveBroadcasts", method: "PUT",
+            query: ["part": "snippet"],
+            body: ["id": broadcastID,
+                   "snippet": ["title": title,
+                               "description": description,
+                               "scheduledStartTime": Self.iso(start)]]))
+    }
+
+    /// The ingest for a show scheduled earlier — NO new broadcast. The key was
+    /// never stored, so it is read again from the stream the broadcast is
+    /// bound to (the host may have re-bound it in YouTube Studio, so the
+    /// broadcast's own `boundStreamId` wins over the one we remember).
+    ///
+    /// Price: liveBroadcasts.list 1 + liveStreams.list 1 = 2 units, against
+    /// 150 for a new broadcast.
+    public func credentials(forScheduled broadcastID: String, streamID: String,
+                            preferRTMPS: Bool = true) async throws -> StreamCredentials {
+        let (bcData, _) = try await HTTP.send(try request(
+            "/liveBroadcasts", method: "GET",
+            query: ["part": "id,snippet,status,contentDetails", "id": broadcastID]))
+        guard let item = (try HTTP.json(bcData)["items"] as? [[String: Any]])?.first else {
+            throw StudioPlatformError.scheduledGone(
+                "That scheduled broadcast is no longer on YouTube.")
+        }
+        let life = (item["status"] as? [String: Any])?["lifeCycleStatus"] as? String ?? ""
+        if ["complete", "revoked", "live", "liveStarting"].contains(life) {
+            throw StudioPlatformError.scheduledGone(life == "complete" || life == "revoked"
+                ? "That scheduled broadcast has already ended on YouTube."
+                : "That scheduled broadcast is already live on YouTube.")
+        }
+        let bound = (item["contentDetails"] as? [String: Any])?["boundStreamId"] as? String
+        let useStream = (bound?.isEmpty == false ? bound : nil) ?? streamID
+        let (stData, _) = try await HTTP.send(try request(
+            "/liveStreams", method: "GET",
+            query: ["part": "id,cdn", "id": useStream]))
+        guard let stream = (try HTTP.json(stData)["items"] as? [[String: Any]])?.first,
+              let cdn = stream["cdn"] as? [String: Any],
+              let info = cdn["ingestionInfo"] as? [String: Any] else {
+            throw StudioPlatformError.scheduledGone(
+                "The stream behind that scheduled broadcast is no longer on YouTube.")
+        }
+        let ingest = try Self.ingest(from: info, preferRTMPS: preferRTMPS)
+        let chatID = (item["snippet"] as? [String: Any])?["liveChatId"] as? String
+        return StreamCredentials(server: ingest.server, key: ingest.key,
+                                 backupServer: ingest.backup,
+                                 broadcastID: broadcastID, liveChatID: chatID)
+    }
+
+    // MARK: The three calls both paths share
+
+    /// What every broadcast this app makes asks of YouTube, going live now or
+    /// later. ONE definition, so a scheduled show cannot drift from a live one.
+    ///
+    /// NO `selfDeclaredMadeForKids`. It was hard-coded `false`, which declared
+    /// every broadcast "not made for kids" on the host's behalf — overriding a
+    /// channel whose audience is set to kids, for a catalog full of 1920s
+    /// cartoons. The field is optional on insert (API reference), and COPPA
+    /// puts the declaration on the channel owner; leaving it out lets YouTube
+    /// apply the channel's own audience setting.
+    ///
+    /// autoStartStream so the broadcast goes live when bytes arrive, rather
+    /// than needing a second transition the host would have to know about.
+    /// `low`, never the unstated `normal`: at normal a viewer's chat answers a
+    /// picture the host saw 15-30 s earlier, and a watch-along is a
+    /// conversation. Not `ultraLow`, which gives up captions. DVR and the
+    /// recording are stated rather than defaulted — the replay is where people
+    /// who missed the show find it.
+    static var broadcastContentDetails: [String: Any] { [
+        "enableAutoStart": true,
+        "enableAutoStop": true,
+        "latencyPreference": "low",
+        "enableDvr": true,
+        "recordFromStart": true,
+        "enableEmbed": true] }
+
+    static func iso(_ date: Date) -> String { ISO8601DateFormatter().string(from: date) }
+
+    /// liveStreams.insert — 50 units.
+    private func insertStream(title: String, resolution: String,
+                              frameRate: String) async throws -> (id: String, info: [String: Any]) {
         let (streamData, _) = try await HTTP.send(try request(
             "/liveStreams", method: "POST",
             // EVERY PART THE BODY SETS MUST BE DECLARED HERE. `part`
@@ -731,9 +887,16 @@ public struct YouTubeLive: Sendable {
         let stream = try HTTP.json(streamData)
         guard let streamID = stream["id"] as? String,
               let cdn = stream["cdn"] as? [String: Any],
-              let info = cdn["ingestionInfo"] as? [String: Any],
-              let key = info["streamName"] as? String else {
+              let info = cdn["ingestionInfo"] as? [String: Any] else {
             throw StudioPlatformError.badResponse("liveStreams.insert returned no ingestionInfo")
+        }
+        return (streamID, info)
+    }
+
+    private static func ingest(from info: [String: Any],
+                               preferRTMPS: Bool) throws -> (server: URL, key: String, backup: URL?) {
+        guard let key = info["streamName"] as? String else {
+            throw StudioPlatformError.badResponse("the stream carries no key")
         }
         // AW_STUDIO_YT_PLAINTEXT=1 takes YouTube's PLAINTEXT ingest instead of
         // its TLS one. DEBUG only; the product always prefers RTMPS.
@@ -764,48 +927,35 @@ public struct YouTubeLive: Sendable {
         guard let primaryString, let server = URL(string: primaryString) else {
             throw StudioPlatformError.badResponse("liveStreams.insert returned no ingest address")
         }
+        return (server, key, backupString.flatMap(URL.init(string:)))
+    }
 
-        // 2. The broadcast — what the audience finds.
+    /// liveBroadcasts.insert — 50 units. What the audience finds.
+    private func insertBroadcast(title: String, description: String, privacy: String,
+                                 start: Date) async throws -> (id: String, chatID: String?) {
         let (bcData, _) = try await HTTP.send(try request(
             "/liveBroadcasts", method: "POST",
             query: ["part": "snippet,status,contentDetails"],
             body: ["snippet": ["title": title,
                                "description": description,
-                               "scheduledStartTime": ISO8601DateFormatter().string(from: Date())],
-                   // NO `selfDeclaredMadeForKids`. It was hard-coded `false`,
-                   // which declared every broadcast "not made for kids" on the
-                   // host's behalf — overriding a channel whose audience is
-                   // set to kids, for a catalog full of 1920s cartoons. The
-                   // field is optional on insert (API reference), and COPPA
-                   // puts the declaration on the channel owner; leaving it out
-                   // lets YouTube apply the channel's own audience setting.
+                               "scheduledStartTime": Self.iso(start)],
                    "status": ["privacyStatus": privacy],
-                   // autoStartStream so the broadcast goes live when bytes
-                   // arrive, rather than needing a second transition the host
-                   // would have to know about.
-                   // `low`, never the unstated `normal`: at normal a viewer's
-                   // chat answers a picture the host saw 15-30 s earlier, and
-                   // a watch-along is a conversation. Not `ultraLow`, which
-                   // gives up captions. DVR and the recording are stated
-                   // rather than defaulted — the replay is where people who
-                   // missed the show find it.
-                   "contentDetails": ["enableAutoStart": true,
-                                      "enableAutoStop": true,
-                                      "latencyPreference": "low",
-                                      "enableDvr": true,
-                                      "recordFromStart": true,
-                                      "enableEmbed": true]]))
+                   "contentDetails": Self.broadcastContentDetails]))
         let broadcast = try HTTP.json(bcData)
         guard let broadcastID = broadcast["id"] as? String else {
             throw StudioPlatformError.badResponse("liveBroadcasts.insert returned no id")
         }
-        let chatID = (broadcast["snippet"] as? [String: Any])?["liveChatId"] as? String
+        return (broadcastID, (broadcast["snippet"] as? [String: Any])?["liveChatId"] as? String)
+    }
 
-        // 3. Bind them. A FAILED BIND DELETES THE BROADCAST IT JUST MADE
-        // (launch audit B): otherwise the error reaches the host and the
-        // unbound broadcast stays in their channel's Upcoming list, the orphan
-        // the owner reported. Only THIS call's broadcast is touched, and a
-        // failed clean-up never hides the error that caused it.
+    /// liveBroadcasts.bind — 50 units (+50 for the delete when it fails).
+    ///
+    /// A FAILED BIND DELETES THE BROADCAST IT JUST MADE (launch audit B):
+    /// otherwise the error reaches the host and the unbound broadcast stays in
+    /// their channel's Upcoming list, the orphan the owner reported. Only THIS
+    /// call's broadcast is touched, and a failed clean-up never hides the error
+    /// that caused it.
+    private func bindOrDelete(broadcastID: String, streamID: String) async throws {
         var bindStream = streamID
         #if DEBUG
         // AW_STUDIO_BREAK_BIND=1 — make the bind fail on purpose, to prove the
@@ -822,10 +972,6 @@ public struct YouTubeLive: Sendable {
                    cleaned ? "deleted" : "COULD NOT BE DELETED")
             throw error
         }
-
-        return StreamCredentials(server: server, key: key,
-                                 backupServer: backupString.flatMap(URL.init(string:)),
-                                 broadcastID: broadcastID, liveChatID: chatID)
     }
 
     /// Ends the broadcast. `enableAutoStop` handles the normal case; this is
@@ -884,7 +1030,7 @@ public struct YouTubeLive: Sendable {
     /// `thumbnails.set` — the broadcast's thumbnail, from a JPEG of the
     /// program. The upload endpoint, not the Data API base. 50 quota units.
     public func setThumbnail(videoID: String, jpeg: Data) async throws {
-        var c = URLComponents(string: "https://www.googleapis.com/upload/youtube/v3/thumbnails/set")!
+        var c = URLComponents(string: uploadBase + "/thumbnails/set")!
         c.queryItems = [URLQueryItem(name: "videoId", value: videoID)]
         var r = URLRequest(url: c.url!)
         r.httpMethod = "POST"

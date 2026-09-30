@@ -1995,6 +1995,12 @@ struct StudioDestinationSection: View {
     /// "Going live needs your camera" on screen until something else redrew.
     @State private var hostAbsent = StudioSession.hostAbsentReason()
     @AppStorage(StudioSession.readYouTubeChatKey) private var readYouTubeChat = false
+    /// §D39 — which broadcast Go Live uses: a scheduled show's id, `newBroadcast`,
+    /// or nil when there are several and the host has not picked.
+    @State private var scheduleChoice: String?
+    @State private var schedulingNew = false
+    private var schedule: StudioMacSchedule { StudioMacSchedule.shared }
+    private static let newBroadcast = "new"
 
     private var authPlatform: StudioPlatformAuth.Platform {
         show.platform == .twitch ? .twitch : .youtube
@@ -2035,6 +2041,10 @@ struct StudioDestinationSection: View {
                 form
             }
         }
+        // §D39 — the list is pruned when the Studio opens, and the go-live
+        // choice follows the film, the platform and the list.
+        .onAppear { schedule.reload() }
+        .task(id: scheduleKey) { refreshScheduleChoice() }
         .task {
             while !Task.isCancelled {
                 let now = StudioSession.hostAbsentReason()
@@ -2312,9 +2322,32 @@ struct StudioDestinationSection: View {
                 // own page for a keyed stream — this app has no call to set them.
                 EmptyView()
             case .youtube:
-                labeled("Stream title") { TextField("", text: $show.streamTitle) }
-                Picker("Privacy", selection: $show.privacy) {
-                    ForEach(YouTubePrivacy.allCases, id: \.self) { Text($0.label).tag($0) }
+                // §D39 — a show scheduled for THIS film is offered, never
+                // chosen for the host: one is the default, several wait.
+                if signedIn, !scheduledMatches.isEmpty {
+                    Picker("Go live on", selection: $scheduleChoice) {
+                        if scheduledMatches.count > 1 {
+                            Text("Choose…").tag(String?.none)
+                        }
+                        ForEach(scheduledMatches) { s in
+                            Text(s.title + " \u{00B7} "
+                                 + s.start.formatted(date: .abbreviated, time: .shortened))
+                                .tag(Optional(s.broadcastID))
+                        }
+                        Text("A new broadcast").tag(Optional(Self.newBroadcast))
+                    }
+                    if let chosen = chosenScheduled, let copy = chosen.copy,
+                       let playing = studio.surfaceCopyPath, playing != copy {
+                        Text("The Studio is playing a different copy of this film from the one scheduled.")
+                            .font(.caption2).foregroundStyle(.orange)
+                            .fixedSize(horizontal: false, vertical: true)
+                    }
+                }
+                if chosenScheduled == nil {
+                    labeled("Stream title") { TextField("", text: $show.streamTitle) }
+                    Picker("Privacy", selection: $show.privacy) {
+                        ForEach(YouTubePrivacy.allCases, id: \.self) { Text($0.label).tag($0) }
+                    }
                 }
                 Toggle("Show chat from YouTube", isOn: $readYouTubeChat)
             case .twitch:
@@ -2339,23 +2372,91 @@ struct StudioDestinationSection: View {
                 .fixedSize(horizontal: false, vertical: true)
         }
         if !studio.isOnAir {
-            // Going live is several platform calls before a byte is sent —
-            // seconds on YouTube — so the button says it is working rather
-            // than merely greying out.
-            Button { goLive() } label: {
-                if working {
-                    HStack(spacing: 6) {
-                        ProgressView().controlSize(.small)
-                        Text("Going Live…")
-                    }
-                } else {
-                    Text(studio.isRehearsing ? "Go Live (ends the preview)" : "Go Live")
+            // §D39: Schedule… sits BESIDE Go Live, and drops below it when the
+            // column is too narrow for both at full length (§D13).
+            if canOfferSchedule {
+                ViewThatFits(in: .horizontal) {
+                    HStack(spacing: 8) { goLiveButton; scheduleButton }
+                    VStack(spacing: 6) { goLiveButton; scheduleButton }
                 }
+                // ONE sheet, on the container: ViewThatFits measures both
+                // arrangements, and a sheet on each copy is two presenters.
+                .sheet(isPresented: $schedulingNew) {
+                    if let film = show.film {
+                        StudioScheduleSheet(film: film, copy: studio.surfaceCopyPath,
+                                            privacy: show.privacy)
+                    }
+                }
+            } else {
+                goLiveButton
             }
-                .controlSize(.large)
-                .frame(maxWidth: .infinity)
-                .disabled(cannotGoLive != nil || working)
+            if canOfferSchedule {
+                StudioUpcomingList()
+            }
         }
+    }
+
+    // Going live is several platform calls before a byte is sent — seconds on
+    // YouTube — so the button says it is working rather than merely greying out.
+    private var goLiveButton: some View {
+        Button { goLive() } label: {
+            if working {
+                HStack(spacing: 6) {
+                    ProgressView().controlSize(.small)
+                    Text("Going Live…")
+                }
+                .fixedSize()
+            } else {
+                Text(studio.isRehearsing ? "Go Live (ends the preview)" : "Go Live")
+                    .fixedSize()
+            }
+        }
+            .controlSize(.large)
+            .frame(maxWidth: .infinity)
+            .disabled(cannotGoLive != nil || working)
+    }
+
+    private var scheduleButton: some View {
+        Button("Schedule…") { schedulingNew = true }
+            .controlSize(.large)
+            .fixedSize()
+            .disabled(show.film == nil || blockedReason != nil || working)
+    }
+
+    // MARK: §D39 — scheduled shows
+
+    private var scheduleKey: String {
+        [show.film?.archiveID ?? "", show.platform.rawValue, show.connectWithKey ? "key" : "signin",
+         signedIn ? "in" : "out"].joined(separator: "|") + "|"
+            + schedule.shows.map { $0.broadcastID }.joined(separator: ",")
+    }
+
+    /// Scheduling is a YouTube API feature: signed in, never a pasted key,
+    /// never Twitch or a custom server (owner: "YouTube only").
+    private var canOfferSchedule: Bool {
+        show.platform == .youtube && !show.connectWithKey && signedIn && show.film != nil
+    }
+
+    private var scheduledMatches: [StudioScheduledShow] {
+        guard show.platform == .youtube, !show.connectWithKey else { return [] }
+        return schedule.matching(show.film?.archiveID)
+    }
+
+    private var chosenScheduled: StudioScheduledShow? {
+        guard let id = scheduleChoice, id != Self.newBroadcast else { return nil }
+        return scheduledMatches.first { $0.broadcastID == id }
+    }
+
+    /// Re-decides the default whenever the film or the list changes: exactly
+    /// one match is the default, several leave the choice to the host, and a
+    /// choice that no longer exists is dropped.
+    private func refreshScheduleChoice() {
+        let matches = scheduledMatches
+        if let c = scheduleChoice, c == Self.newBroadcast
+            || matches.contains(where: { $0.broadcastID == c }) {
+            if !matches.isEmpty { return }
+        }
+        scheduleChoice = matches.count == 1 ? matches[0].broadcastID : nil
     }
 
     /// TWO DESTINATIONS IS TWICE THE UPLOAD, and the feature says so rather
@@ -2398,7 +2499,11 @@ struct StudioDestinationSection: View {
             return show.platformKey.trimmingCharacters(in: .whitespacesAndNewlines).isEmpty
                 ? "Paste your \(show.platform.label) stream key." : nil
         }
-        guard !show.streamTitle.trimmingCharacters(in: .whitespaces).isEmpty else {
+        if show.platform == .youtube, signedIn, !scheduledMatches.isEmpty, scheduleChoice == nil {
+            return "Choose which broadcast to go live on."
+        }
+        guard chosenScheduled != nil
+                || !show.streamTitle.trimmingCharacters(in: .whitespaces).isEmpty else {
             return "Your broadcast needs a title."
         }
         // CONFIGURED IS NOT SIGNED IN, and SIGNED IN IS NOT READY. The first
@@ -2418,18 +2523,20 @@ struct StudioDestinationSection: View {
         guard let film = show.film, cannotGoLive == nil else { return }
         working = true
         problem = nil
+        let scheduled = show.platform == .youtube && !show.connectWithKey ? chosenScheduled : nil
         Task {
             defer { working = false }
             let request = GoLiveRequest(
                 archiveID: film.archiveID,
                 platform: show.platform,
-                title: show.streamTitle.trimmingCharacters(in: .whitespaces),
+                title: scheduled?.title ?? show.streamTitle.trimmingCharacters(in: .whitespaces),
                 category: show.category.trimmingCharacters(in: .whitespaces),
-                privacy: show.privacy,
+                privacy: scheduled.flatMap { YouTubePrivacy(rawValue: $0.privacy) } ?? show.privacy,
                 layout: controls.layout,
                 customServer: show.platform == .custom ? URL(string: show.customURL) : nil,
                 customKey: show.platform == .custom ? show.customKey : nil,
-                typedKey: show.platform != .custom && show.connectWithKey ? show.platformKey : nil)
+                typedKey: show.platform != .custom && show.connectWithKey ? show.platformKey : nil,
+                scheduled: scheduled)
             do {
                 let resolved = try await StudioGoLive.destination(for: request, film: film)
                 let dest = resolved.url
@@ -2449,7 +2556,7 @@ struct StudioDestinationSection: View {
                 // THE BROADCAST'S OWN CHAT, carried rather than dropped. This
                 // is the value `destination()` used to read and throw away.
                 studio.armYouTubeChat(resolved.liveChatID)
-                studio.armBroadcast(resolved.broadcast)
+                studio.armBroadcast(resolved.broadcast, scheduled: scheduled != nil)
                 studio.armLayout(controls.layout)
 
                 // THE SECOND DESTINATION, resolved the same way as the first:
@@ -2487,7 +2594,16 @@ struct StudioDestinationSection: View {
                 let started = await studio.beginShow(film: film, destination: dest,
                                                      additional: extras)
                 if !started { problem = studio.refusal }
+                // A scheduled show that went out is spent: YouTube completes it
+                // when the show ends, and it cannot be gone live on twice.
+                if started, let scheduled { schedule.forget(scheduled.broadcastID) }
                 onStarted()
+            } catch StudioPlatformError.scheduledGone(let why) {
+                // §D39 — the host deleted or ended it on YouTube. Forget it, so
+                // the next press is today's path: a new broadcast.
+                if let scheduled { schedule.forget(scheduled.broadcastID) }
+                refreshScheduleChoice()
+                problem = why + " Go Live makes a new broadcast."
             } catch {
                 problem = "The broadcast could not start — \(studioSentence(for: error))"
             }

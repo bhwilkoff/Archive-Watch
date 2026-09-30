@@ -275,6 +275,10 @@ swift_case "8.70 only a call is captured" ArchiveWatch/ArchiveWatch/Studio/Studi
 # corner moved 64 px down, same 332x187 tile in the same corner.
 swift_case "8.22 camera placement" "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_layouts.swift
 swift_case "8.72 scene camera and call switches" "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_scene_people.swift
+# §D39 — scheduling a YouTube watch-along ahead of time, against a LOCAL mock
+# of the live endpoints (tools/mock_youtube_live.py): no account, no network.
+# It compiles the overlay renderer so the thumbnail it checks is the real card.
+swift_case "8.73 scheduled watch-along" "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$AUTH" "$PLAT" "$GATE" ArchiveWatch/ArchiveWatch/Studio/StudioSchedule.swift "$SHIM" tools/test_studio_schedule.swift
 # The camera-stall recovery RULE, which lived inside tvOS's own view loop and
 # so existed on exactly one platform while PARITY said "no recovery yet" for
 # the other two. No $ENG: the rule is a pure value type on purpose.

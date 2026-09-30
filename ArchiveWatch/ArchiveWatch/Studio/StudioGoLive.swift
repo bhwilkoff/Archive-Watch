@@ -41,6 +41,9 @@ struct GoLiveRequest: Sendable, Equatable, Identifiable {
     /// of the app's shared YouTube quota. Never stored past the session,
     /// never logged.
     var typedKey: String? = nil
+    /// A YouTube show scheduled earlier (§D39) that the HOST chose to go live
+    /// on. Nil makes a new broadcast, which is today's path unchanged.
+    var scheduled: StudioScheduledShow? = nil
 }
 
 /// A platform or network error as a sentence a host can read. YouTube's JSON
@@ -48,14 +51,19 @@ struct GoLiveRequest: Sendable, Equatable, Identifiable {
 /// anything longer than a sentence is summarized rather than dumped (launch
 /// audit B — the Mac showed raw `\(error)` text).
 func studioSentence(for error: Error) -> String {
-    let raw = "\(error)"
+    if let u = error as? URLError { return u.localizedDescription }
+    return studioSentence(raw: "\(error)")
+}
+
+/// The same, for an error already turned into text (a refused thumbnail is
+/// carried as a string so the schedule itself can succeed, §D39).
+func studioSentence(raw: String) -> String {
     for marker in ["\"message\": \"", "\"message\":\""] {
         if let r = raw.range(of: marker),
            let end = raw[r.upperBound...].firstIndex(of: "\"") {
             return String(raw[r.upperBound..<end])
         }
     }
-    if let u = error as? URLError { return u.localizedDescription }
     return raw.count > 180 ? "The platform refused the broadcast." : raw
 }
 
@@ -151,10 +159,19 @@ enum StudioGoLive {
 
         case .youtube:
             let token = try await StudioPlatformAuth.token(for: .youtube)
-            let creds = try await YouTubeLive(token: token).prepare(
-                title: request.title,
-                description: description(for: film),
-                privacy: request.privacy.rawValue)
+            let yt = YouTubeLive(token: token)
+            // §D39 — the host chose a show scheduled earlier: its own
+            // broadcast and stream, NO new insert (2 units, not 150).
+            let creds: StreamCredentials
+            if let show = request.scheduled {
+                creds = try await yt.credentials(forScheduled: show.broadcastID,
+                                                 streamID: show.streamID)
+            } else {
+                creds = try await yt.prepare(
+                    title: request.title,
+                    description: description(for: film),
+                    privacy: request.privacy.rawValue)
+            }
             return Destination(url: combine(creds),
                                liveChatID: creds.liveChatID,
                                broadcast: creds.broadcastID.map { .youtube($0) })
@@ -186,7 +203,7 @@ enum StudioGoLive {
     /// What the platform's description field says — the catalog's own record,
     /// plus where the film came from. The audience should be able to find the
     /// film themselves afterwards, which is §2's agency test.
-    private static func description(for item: Catalog.Item) -> String {
+    static func description(for item: Catalog.Item) -> String {
         var lines = [item.title]
         if let y = item.year { lines.append("Published \(y). In the public domain.") }
         if let d = item.director, !d.isEmpty { lines.append("Directed by \(d).") }

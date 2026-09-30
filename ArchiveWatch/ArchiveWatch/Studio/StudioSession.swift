@@ -111,10 +111,15 @@ public final class StudioSession {
         if case .youtube(let id) = armedBroadcast { return id }
         return nil
     }
-    public func armBroadcast(_ ref: StudioBroadcastRef?) {
+    public func armBroadcast(_ ref: StudioBroadcastRef?, scheduled: Bool = false) {
         armedBroadcast = ref
+        armedBroadcastWasScheduled = ref != nil && scheduled
         startAudiencePolling()
     }
+    /// §D39 — the armed broadcast is one the host SCHEDULED and announced.
+    /// Ending a show that never went live must not delete it: that broadcast
+    /// is a public listing people asked to be reminded of, not an orphan.
+    public private(set) var armedBroadcastWasScheduled = false
 
     /// HOW MANY PEOPLE ARE WATCHING (§D27). Nil until the platform reports a
     /// live stream — never a zero we made up, which would tell a host nobody
@@ -799,6 +804,8 @@ public final class StudioSession {
     private var surfaceArchiveID: String?
     /// The archive.org file the surface is playing — a room's copy (§11).
     private var surfaceCopyURL: URL?
+    /// That file as `<item>/<file>` — what a scheduled show records (§D39).
+    public var surfaceCopyPath: String? { StudioRoomCopy.path(from: surfaceCopyURL) }
 
     /// Whether the film is playing, OBSERVABLY — a menu title that says
     /// "Pause" over a paused film is a control that lies about itself.
@@ -1524,7 +1531,9 @@ public final class StudioSession {
         readingYouTubeChat = false
         sharedFilmAt = nil
         let armed = armedBroadcastID
+        let wasScheduled = armedBroadcastWasScheduled
         armedBroadcast = nil
+        armedBroadcastWasScheduled = false
         guard let broadcast = armed, !broadcast.isEmpty else { return }
         do {
             let yt = YouTubeLive(token: try await StudioPlatformAuth.token(for: .youtube))
@@ -1539,7 +1548,9 @@ public final class StudioSession {
                 // scheduled broadcast in the host's "Upcoming" forever (owner,
                 // 2026-09-23: "some videos that are set for the future are
                 // orphaned"). Only THIS show's own id is ever touched.
-                if ["created", "ready", "testStarting", "testing"].contains(state) {
+                if wasScheduled, ["created", "ready", "testStarting", "testing"].contains(state) {
+                    diag("[AWSTUDIOEND] scheduled broadcast \(broadcast) never went live (\(state)) — kept in Upcoming (§D39)")
+                } else if ["created", "ready", "testStarting", "testing"].contains(state) {
                     do {
                         try await yt.delete(broadcastID: broadcast)
                         diag("[AWSTUDIOEND] YouTube broadcast \(broadcast) never went live (\(state)) — deleted")

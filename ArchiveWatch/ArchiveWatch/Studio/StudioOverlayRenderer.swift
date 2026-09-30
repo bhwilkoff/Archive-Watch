@@ -32,6 +32,7 @@ import CoreGraphics
 import CoreImage
 import CoreText
 import Foundation
+import ImageIO
 
 final class StudioOverlayRenderer: @unchecked Sendable {
 
@@ -501,7 +502,28 @@ final class StudioOverlayRenderer: @unchecked Sendable {
 
     // MARK: Cards
 
-    private func draw(card: StudioOverlay.Card, film: String, in ctx: CGContext) {
+    /// §D39 — the Starting-soon card as a scheduled broadcast's THUMBNAIL: the
+    /// same card the audience will see when the show opens, drawn by the same
+    /// code, never poster art. The countdown line becomes the film's own
+    /// year and director (`detail`), because a still cannot count down and
+    /// "any moment now" would be untrue a week ahead. A JPEG at this
+    /// renderer's size — build it at 1280x720, YouTube's thumbnail size.
+    func scheduledCardJPEG(film: String, detail: String) -> Data? {
+        guard let ctx = context() else { return nil }
+        draw(card: .startingSoon(secondsRemaining: 0), film: film,
+             detailOverride: detail.isEmpty ? "archivewatch.org" : detail, in: ctx)
+        guard let cg = ctx.makeImage() else { return nil }
+        let out = NSMutableData()
+        guard let dest = CGImageDestinationCreateWithData(out, "public.jpeg" as CFString, 1, nil)
+        else { return nil }
+        CGImageDestinationAddImage(dest, cg,
+            [kCGImageDestinationLossyCompressionQuality: 0.9] as CFDictionary)
+        guard CGImageDestinationFinalize(dest) else { return nil }
+        return out as Data
+    }
+
+    private func draw(card: StudioOverlay.Card, film: String,
+                      detailOverride: String? = nil, in ctx: CGContext) {
         // A card REPLACES the program, so it owns the frame and paints its
         // own ground — the film behind it must not read through.
         ctx.setFillColor(Self.ink)
@@ -538,7 +560,7 @@ final class StudioOverlayRenderer: @unchecked Sendable {
         let mark = line("ARCHIVE WATCH", font: font(26, weight: 0.4),
                         color: Self.marqueeOrange, tracking: 4)
         let head = line(headline, font: font(96, weight: 0.4), color: Self.paper)
-        let det = line(detail, font: font(40, weight: 0.0), color: CGColor(gray: 0.72, alpha: 1))
+        let det = line(detailOverride ?? detail, font: font(40, weight: 0.0), color: CGColor(gray: 0.72, alpha: 1))
         // NAME THE FILM. A viewer who arrives at a countdown should learn what
         // they are about to watch — that is §2.1's whole argument, and it is
         // the one thing a generic "starting soon" card cannot say.

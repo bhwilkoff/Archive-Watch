@@ -2868,3 +2868,78 @@ Sources: Apple's `AVCaptureDevice.SystemUserInterface.microphoneModes` and
 `MicrophoneMode.voiceIsolation` documentation; WWDC21 "What's new in camera
 capture"; `AVAudioInputNode.voiceProcessingOtherAudioDuckingConfiguration`;
 Apple Developer Forums thread 771530 (channel count).
+
+## §D39 — A watch-along can be scheduled ahead of time, on YouTube (2026-09-30)
+
+Owner, 2026-09-30: *"While you are working on the Watch Together Studio, can you
+also look at the ability for us to set up streams ahead of time (i.e., so that
+we can do a premier on Youtube or Twitch and have people know that a watch
+along is coming)?"* Asked the three open questions, the owner answered:
+platforms — *"YouTube only"*; thumbnail — *"Starting-soon card"*; an
+announcement on the film's page — *"Not now"*.
+
+**What it is, and what it is not.** A YouTube *Premiere* is an UPLOADED video
+played at a set time; that is not this. This is a scheduled LIVE broadcast —
+`liveBroadcasts.insert` with a future `scheduledStartTime` — which YouTube lists
+as *Upcoming* with a countdown and a **Notify me** button that sends the
+audience reminders. Twitch gets no scheduling: no new scope, no control. With
+Twitch, a custom server or a pasted stream key as the destination, **Schedule…
+is simply not drawn** (the key path calls no API, Decision 136, so there is
+nothing to schedule with).
+
+**Where it lives.** In the Output column (§D9), **Schedule…** sits BESIDE Go
+Live, and drops below it when the column is too narrow for both labels at full
+length (§D13 — never abbreviated). It is drawn only when the destination is
+YouTube, signed in (not a stream key), with a film chosen — and only inside the
+form that the rights gate already guards, so a film that cannot go live cannot
+be scheduled either. A known-bad readiness answer (§9.zzz) disables it as it
+disables Go Live.
+
+**The fields** — a sheet, native controls only:
+- the film: the Studio's chosen film (and its copy, Decision 143), not a picker;
+- **Title**, defaulting to the film's own title — no generated copy;
+- **Starts**, a `DatePicker` (date and time) in the host's local time, never
+  earlier than now; it opens on the top of the next hour at least an hour away;
+- **Privacy**, the same three choices as going live.
+The description is the one going live sends (`StudioGoLive.description`), the
+catalog's own record. The broadcast carries EXACTLY go-live's
+`contentDetails` (one definition, `YouTubeLive.broadcastContentDetails`), so a
+scheduled show goes out as a live one does.
+
+**The thumbnail** is the Studio's own Starting-soon card, drawn by
+`StudioOverlayRenderer` — the same code that draws it on the broadcast — at
+1280x720 and uploaded with `thumbnails.set`. Never poster art. A still cannot
+count down, so the countdown line becomes the film's year and director. A
+thumbnail refusal (a channel not allowed custom thumbnails) does NOT fail the
+schedule: the broadcast is kept and one line under Upcoming says what YouTube
+answered. A failed bind deletes the broadcast it made, as going live does.
+
+**Upcoming.** Under the buttons, every show this Mac scheduled: its title,
+start and privacy, with **Reschedule…** (a sheet: time and title;
+`liveBroadcasts.update` replaces the whole snippet, so title, description and
+start always go together) and **Cancel Show…**, which ASKS first — it deletes
+the public listing and its reminders. The list is kept locally
+(`StudioSchedule`: broadcast id, stream id, film, copy, title, description,
+start, privacy — never the stream key) and pruned of shows more than 12 hours
+past their start when the Studio opens.
+
+**How Go Live uses a scheduled show.** It never picks one on its own.
+- **None** for the chosen film: today's path, unchanged.
+- **Exactly one**: offered as the default of a **Go live on** choice in the
+  checklist, beside *A new broadcast*.
+- **Several**: the choice starts empty and Go Live says *"Choose which
+  broadcast to go live on."*
+A chosen show makes NO new broadcast: the ingest is read again from its stream
+(`liveBroadcasts.list` + `liveStreams.list`, 2 units against 150). If the host
+deleted or ended it on YouTube, the Studio says so, forgets it, and the next
+press is a new broadcast. A scheduled show that never went live is NEVER
+deleted by ending the show — it is a public listing, not an orphan — and once a
+show has gone out it leaves the list. If the Studio is playing a different copy
+from the one scheduled, one warning line says so.
+
+**Price** (Decision 136, Google's quota table, read 2026-09-30): schedule 200
+units (stream 50, broadcast 50, bind 50, thumbnail 50); reschedule 50; cancel
+50; going live on a scheduled show 2.
+
+**Proof so far**: §8.73 (`tools/test_studio_schedule.swift`) against a LOCAL
+mock of the endpoints, with a control. **Not yet run against a real channel.**
