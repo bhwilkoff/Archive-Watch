@@ -525,3 +525,17 @@ The rights stripper split at "Sr." and cut False Faces' summary in half; it now 
 
 ### E19 — review batch (2026-09-30)
 40 summaries (1926-42): 9 rewritten, 31 kept (a cleaner batch: most 1940 Prelinger entries read well). Library notes ("Notes: Film slows down and shakes...", "Note: Slight warp..."), a Soundies timecode list, a WWII women-workers shot list. The Whittier family reel spans 1936-1975, so its 1930 date is cleared. Two erotica/exploitation programs confirmed marked mature. 6 titles cleaned (The General, Gabby, ...).
+
+### AC — undated titles kept as "unknown_year" (2026-09-30)
+186 served titles sit in unknown_year (no year, but a match or another fact).
+Read against TMDb and archive.org: modern TV kept only because it had no year
+(The PJs 1999, Doogie Howser 1989, Salvage 1 1979, Newhart 1982, Life's Work
+1996), modern films (a 2002 Catalan documentary, a 2011 toy stop-motion, Barney's
+Alphabet Zoo 1994) — dated, now hidden pending confirm; a spanking-fetish upload,
+an uploader's unlicensed wrestling edit and a cartoon VHS bundle — not-films;
+three wrong TMDb matches (a NASA video wearing a horror short's synopsis, a
+1950s Date with the Angels episode as The Wiggles, a flood documentary as Total
+Awesome Viking Power) — match_rejects. 13 hidden, 0 un-hidden. NOT made a rule:
+a collection's decade (classic_tv_1980s) is an uploader's filing too — Johns
+Hopkins Science Review (1948-55) sits in it. Open: The Recommendations (modern,
+CC BY-NC, no year anywhere), Lion of Ain-Jaloot, rog561b_netzero_* — no year to cite.
