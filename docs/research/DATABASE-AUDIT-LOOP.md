@@ -446,3 +446,19 @@ Hal Roach/CST) may be served is a rights call — asked of the owner.
 
 ### W — colorized copies become versions (2026-09-30, owner, Decision 158)
 187 of 291 served colorized copies fold into their black-and-white film as a version and never win the card; 104 have no B&W copy served and stay their own card. test_colorized_versions.py in the gate (50/50).
+
+### Q2 — the file scan's result, and a crash it exposed (2026-09-30)
+The one-time scan of 6,505 served titles found 119 whose baked file is not the
+one named for the title. Read one by one: 83 repointed, 36 left (series and
+serial chapters, where a title match only means another episode — Flash Gordon
+chapter 10 would have become chapter 9; and fragments like Destiny's 28-second
+"Destiny.mp4"). The worst: silent features playing a one- or two-minute screen
+recording ("1-REC-2023...ia.mp4") — Bardelys the Magnificent 110 s of 90 min,
+Flesh and the Devil 110 s of 112, Beggars of Life 85 s of 82, Eternal Love 79 s
+of 70, When a Man Loves, Old San Francisco; Baseball Bugs played an 80-minute
+file. Each carries filePickedByTitle.
+
+remediate crashed on a synopsis stored as a LIST (is_adult_signal read it with a
+regex before sanitize_synopsis joined it): publish-db failed at 12:20 UTC and the
+subtitle apply after it. Fixed with _synopsis_text; test_list_synopsis.py in the
+gate (51/51).

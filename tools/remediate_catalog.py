@@ -799,7 +799,7 @@ def is_adult_signal(item):
     # "adult education"). Messe noire (1928) carried it and was not marked.
     if any((s or "").strip().lower() in ("adult", "adults only") for s in item.get("subjects") or []):
         return True
-    if _ADULT_SYNOPSIS.search(item.get("synopsis") or ""):
+    if _ADULT_SYNOPSIS.search(_synopsis_text(item) or ""):     # a list of notes is text too
         return True
     if _ADULT_TITLE_START.search(title):
         return True
