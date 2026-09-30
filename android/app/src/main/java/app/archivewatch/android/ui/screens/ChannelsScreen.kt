@@ -1,6 +1,8 @@
 package app.archivewatch.android.ui.screens
 
 import androidx.compose.foundation.ExperimentalFoundationApi
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.foundation.background
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.combinedClickable
@@ -453,6 +455,14 @@ private fun ChannelGuideRow(channel: GuideChannel, startMs: Long, endMs: Long,
                                     )
                                 } else {
                                     Modifier.clickable { scope.launch { onTune(slot) } }
+                                },
+                            )
+                            // A block too narrow to show its title still SAYS it:
+                            // TalkBack had 27 silent blocks in one guide (Pixel).
+                            .then(
+                                if (roomForText) Modifier
+                                else Modifier.semantics {
+                                    contentDescription = slot.item.title + ", " + timeLabel(slot.startMs, fmt)
                                 },
                             )
                             // Painted INSIDE the focus layer, as on TvPosterTile:

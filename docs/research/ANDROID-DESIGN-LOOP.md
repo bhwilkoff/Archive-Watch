@@ -585,6 +585,17 @@ Harness:
   re-measured (7.50 s file, 7.5 row). Test clips removed through the app's own
   Delete: 0 rows, 0 files.
 
+- BJ. ✅ v1.42.990 Accessibility, measured from the device's own tree
+  (uiautomator; a clickable node with no text or description anywhere inside
+  it is silent to TalkBack): 9 phone surfaces checked. Home, Detail, Surprise,
+  Collections, Browse, Search, Library: 0. Settings: 10 — each Switch sat apart
+  from its text ("Switch, off"); the phone row is now one `toggleable`
+  (Role.Switch) named by its title, and tapping the TEXT now flips it too
+  (seen: true -> false -> true); the TV row merges its semantics the same way
+  (6 switch rows, 0 unlabeled). Channels: 27 — the narrow guide blocks that
+  lost their text in the sliver fix (AE) had nothing to speak; they now say
+  "title, time". Both screens re-measured at 0.
+
 ## Queue
 
 1. ✅ J — phone launch doors: one shared `Nav.collectStartDoors()` in both roots (v1.42.933); the Pixel opened Library, the TV Search

@@ -1,6 +1,11 @@
 package app.archivewatch.android.ui.screens
 
 import android.content.Intent
+import androidx.compose.ui.semantics.toggleableState
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.role
+import androidx.compose.ui.semantics.Role
+import androidx.compose.foundation.selection.toggleable
 import androidx.core.net.toUri
 import androidx.compose.foundation.clickable
 import androidx.compose.foundation.layout.Column
@@ -404,6 +409,11 @@ private fun ToggleRow(
             Modifier
                 .widthIn(max = 620.dp)
                 .padding(vertical = 6.dp)
+                // Spoken as one switch with its title and state, as on the phone.
+                .semantics(mergeDescendants = true) {
+                    role = Role.Switch
+                    toggleableState = androidx.compose.ui.state.ToggleableState(checked)
+                }
                 .tvFocusable(
                     onClick = { onCheckedChange(!checked) },
                     shape = RoundedCornerShape(12.dp),
@@ -434,8 +444,14 @@ private fun ToggleRow(
         }
         return
     }
+    // The whole row is ONE switch, named by its title: a bare Switch beside
+    // separate text was read by TalkBack as "Switch, off" with no name (found
+    // by dumping the Pixel's accessibility tree, 2026-09-29).
     Row(
-        Modifier.fillMaxWidth().padding(vertical = 8.dp),
+        Modifier
+            .fillMaxWidth()
+            .toggleable(value = checked, role = Role.Switch, onValueChange = onCheckedChange)
+            .padding(vertical = 8.dp),
         verticalAlignment = Alignment.CenterVertically,
     ) {
         Column(Modifier.weight(1f)) {
@@ -448,7 +464,7 @@ private fun ToggleRow(
                 )
             }
         }
-        Switch(checked = checked, onCheckedChange = onCheckedChange)
+        Switch(checked = checked, onCheckedChange = null)
     }
 }
 
