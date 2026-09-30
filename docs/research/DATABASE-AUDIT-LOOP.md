@@ -379,3 +379,6 @@ them. remediate's `_strip_shot_log` (uploader text only) keeps the summary that
 precedes a timecoded log, or, when the log is all there is, keeps its words
 without the codes; 131 summaries change. test_shot_log.py pins it with three
 controls (a clock time in a plot, "vs" in a title, CU inside a word); gate 49/49.
+
+### E14 — review batch (2026-09-29)
+40 summaries, mostly Prelinger home movies and Gould cans: 19 rewritten (cataloguer notes: "Viewing notes state", "Container marked", "Time in:", "STOCK SHOTS:", "(good)"), 21 accurate shot lists kept. Years the footage itself contradicts: Earhart's Hawaii-Oakland flight is 1935 (was 1930), the Golden Gate Exposition marionettes 1939; four reels dated 1930 whose content is later (Huey Long monuments, a late-1940s reel, WWII captured Japanese film, late-1930s New York) lose the year. Visibility unchanged. Noted, owner-reserved: Voyage of the Damned (1976, 3,972 votes) sits in the 1964-77 band.
