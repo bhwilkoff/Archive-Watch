@@ -1477,6 +1477,66 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": "taxirct"
+  },
+  {
+   "at": "2026-09-30T20:02:10.917282+00:00",
+   "id": "CHASINGCHOOCHOOS",
+   "title": "Chasing Choo Choos",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mwr55vrln524",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-30T20:02:10.917282+00:00",
+   "id": "CHASINGCHOOCHOOS",
+   "title": "Chasing Choo Choos",
+   "slot": "now-showing",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117361774608946607",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-30T20:02:10.917282+00:00",
+   "id": "CHASINGCHOOCHOOS",
+   "title": "Chasing Choo Choos",
+   "slot": "now-showing",
+   "platform": "threads",
+   "url": "https://www.threads.com/@archivewatchapp/post/Dd7JbokGxJS",
+   "format": "card",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-30T20:02:10.917282+00:00",
+   "id": "CHASINGCHOOCHOOS",
+   "title": "Chasing Choo Choos",
+   "slot": "now-showing",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/Dd7Jgi_m1__/",
+   "format": "card",
+   "kind": "silent-film",
+   "mediaId": "117361774232306091",
+   "reviewer": null
+  },
+  {
+   "at": "2026-09-30T20:02:10.917282+00:00",
+   "id": "CHASINGCHOOCHOOS",
+   "title": "Chasing Choo Choos",
+   "slot": "now-showing",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=gL0PTV4xGws",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }

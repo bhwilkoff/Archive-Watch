@@ -1801,6 +1801,68 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mwbwdeszr72u",
+   "platform": "bluesky",
+   "id": "privatehell361954_202001",
+   "slot": "now-showing",
+   "format": "card",
+   "window": "7d",
+   "posted": "2026-09-24T18:50:25.334814+00:00",
+   "sampled": "2026-09-30T20:03:40.785134+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117327516806958054",
+   "platform": "mastodon",
+   "id": "privatehell361954_202001",
+   "slot": "now-showing",
+   "format": "card",
+   "window": "7d",
+   "posted": "2026-09-24T18:50:25.334814+00:00",
+   "sampled": "2026-09-30T20:03:40.785134+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mwomiy327p2s",
+   "platform": "bluesky",
+   "id": "Betty_Boop_a_Language_All_My_Own_1935",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-09-29T19:59:04.255128+00:00",
+   "sampled": "2026-09-30T20:03:40.785134+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117356099058071427",
+   "platform": "mastodon",
+   "id": "Betty_Boop_a_Language_All_My_Own_1935",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-09-29T19:59:04.255128+00:00",
+   "sampled": "2026-09-30T20:03:40.785134+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }
