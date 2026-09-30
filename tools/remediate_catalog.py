@@ -790,7 +790,7 @@ _ADULT_KEYWORD = re.compile(
 # films against it, and "erotic film" sits on Haxan (1922). Measured: 20 visible
 # titles, every one a sex comedy, erotic drama or nudie reel.
 _ADULT_SYNOPSIS = re.compile(
-    r"\b(sex comed(y|ies)|soft-?core|sexploitation|erotic (drama|comedy|thriller)s?|nudie)\b", re.I)
+    r"\b(sex comed(y|ies)|soft-?core|sexploitation|erotic (drama|comedy|thriller|short)s?|nudie)\b", re.I)
 
 
 def is_adult_signal(item):

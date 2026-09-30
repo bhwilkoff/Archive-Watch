@@ -4,22 +4,182 @@
     "source": "https://de.wikipedia.org/wiki/Vorbehaltsfilm",
     "note": "Nazi-era films the Friedrich-Wilhelm-Murnau-Stiftung releases only for supervised screenings because of their propaganda content. Matched on title and year (within two years).",
     "titles": [
-      ["Alarm in Peking", 1937], ["Anschlag auf Baku", 1942], ["Besatzung Dora", 1943],
-      ["Blutsbrüderschaft", 1940], ["Carl Peters", 1941], ["D III 88", 1939],
-      ["Drei Unteroffiziere", 1939], ["Falschmünzer", 1940], ["Feinde", 1940],
-      ["Flucht ins Dunkel", 1939], ["Fronttheater", 1942], ["Der 5. Juni", 1942],
-      ["G.P.U.", 1942], ["Der Herrscher", 1937], ["Himmelhunde", 1942],
-      ["Himmelstürmer", 1941], ["Hitlerjunge Quex", 1933], ["Ich klage an", 1941],
-      ["Im Kampf gegen den Weltfeind", 1939], ["Jakko", 1941], ["Jud Süß", 1940],
-      ["Jungens", 1941], ["Kadetten", 1941], ["Kameraden auf See", 1938],
-      ["Kampfgeschwader Lützow", 1941], ["Kolberg", 1945], ["Kopf hoch, Johannes!", 1941],
-      ["Das Leben geht weiter", 1945], ["Legion Condor", 1939],
-      ["Mein Sohn, der Herr Minister", 1937], ["Ohm Krüger", 1941], ["Pour le Mérite", 1938],
-      ["Ritt in die Freiheit", 1936], ["Robert und Bertram", 1939], ["Die Rothschilds", 1940],
-      ["Der Stammbaum des Dr. Pistorius", 1939], ["Stukas", 1941], ["Togger", 1937],
-      ["U-Boote westwärts!", 1941], ["Unternehmen Michael", 1937],
-      ["Über alles in der Welt", 1941], ["Venus vor Gericht", 1941],
-      ["Volldampf voraus!", 1933], ["Wir seh'n uns wieder", 1945]
+      [
+        "Alarm in Peking",
+        1937
+      ],
+      [
+        "Anschlag auf Baku",
+        1942
+      ],
+      [
+        "Besatzung Dora",
+        1943
+      ],
+      [
+        "Blutsbrüderschaft",
+        1940
+      ],
+      [
+        "Carl Peters",
+        1941
+      ],
+      [
+        "D III 88",
+        1939
+      ],
+      [
+        "Drei Unteroffiziere",
+        1939
+      ],
+      [
+        "Falschmünzer",
+        1940
+      ],
+      [
+        "Feinde",
+        1940
+      ],
+      [
+        "Flucht ins Dunkel",
+        1939
+      ],
+      [
+        "Fronttheater",
+        1942
+      ],
+      [
+        "Der 5. Juni",
+        1942
+      ],
+      [
+        "G.P.U.",
+        1942
+      ],
+      [
+        "Der Herrscher",
+        1937
+      ],
+      [
+        "Himmelhunde",
+        1942
+      ],
+      [
+        "Himmelstürmer",
+        1941
+      ],
+      [
+        "Hitlerjunge Quex",
+        1933
+      ],
+      [
+        "Ich klage an",
+        1941
+      ],
+      [
+        "Im Kampf gegen den Weltfeind",
+        1939
+      ],
+      [
+        "Jakko",
+        1941
+      ],
+      [
+        "Jud Süß",
+        1940
+      ],
+      [
+        "Jungens",
+        1941
+      ],
+      [
+        "Kadetten",
+        1941
+      ],
+      [
+        "Kameraden auf See",
+        1938
+      ],
+      [
+        "Kampfgeschwader Lützow",
+        1941
+      ],
+      [
+        "Kolberg",
+        1945
+      ],
+      [
+        "Kopf hoch, Johannes!",
+        1941
+      ],
+      [
+        "Das Leben geht weiter",
+        1945
+      ],
+      [
+        "Legion Condor",
+        1939
+      ],
+      [
+        "Mein Sohn, der Herr Minister",
+        1937
+      ],
+      [
+        "Ohm Krüger",
+        1941
+      ],
+      [
+        "Pour le Mérite",
+        1938
+      ],
+      [
+        "Ritt in die Freiheit",
+        1936
+      ],
+      [
+        "Robert und Bertram",
+        1939
+      ],
+      [
+        "Die Rothschilds",
+        1940
+      ],
+      [
+        "Der Stammbaum des Dr. Pistorius",
+        1939
+      ],
+      [
+        "Stukas",
+        1941
+      ],
+      [
+        "Togger",
+        1937
+      ],
+      [
+        "U-Boote westwärts!",
+        1941
+      ],
+      [
+        "Unternehmen Michael",
+        1937
+      ],
+      [
+        "Über alles in der Welt",
+        1941
+      ],
+      [
+        "Venus vor Gericht",
+        1941
+      ],
+      [
+        "Volldampf voraus!",
+        1933
+      ],
+      [
+        "Wir seh'n uns wieder",
+        1945
+      ]
     ]
   },
   "add": {
@@ -28,7 +188,32 @@
     "TheBirthofaNation1080p": "The Birth of a Nation (1915), D. W. Griffith; glorifies the Ku Klux Klan and portrays Black Americans through white actors in blackface — https://en.wikipedia.org/wiki/The_Birth_of_a_Nation ; https://www.wikidata.org/wiki/Q220394",
     "TheBirthOfANationP1": "The Birth of a Nation (1915), D. W. Griffith; glorifies the Ku Klux Klan and portrays Black Americans through white actors in blackface — https://en.wikipedia.org/wiki/The_Birth_of_a_Nation ; https://www.wikidata.org/wiki/Q220394",
     "birth_of_a_nation": "The Birth of a Nation (1915), D. W. Griffith; glorifies the Ku Klux Klan and portrays Black Americans through white actors in blackface — https://en.wikipedia.org/wiki/The_Birth_of_a_Nation ; https://www.wikidata.org/wiki/Q220394",
-    "check-and-double-check-4-k": "Check and Double Check (1930), the Amos 'n' Andy feature; its white leads perform in blackface — https://en.wikipedia.org/wiki/Check_and_Double_Check"
+    "check-and-double-check-4-k": "Check and Double Check (1930), the Amos 'n' Andy feature; its white leads perform in blackface — https://en.wikipedia.org/wiki/Check_and_Double_Check",
+    "1941-12-10-Die-Deutsche-Wochenschau-Nr.588": "Die Deutsche Wochenschau, the newsreel produced under the Reich Ministry of Public Enlightenment and Propaganda, 1940-1945 — https://de.wikipedia.org/wiki/Die_Deutsche_Wochenschau",
+    "1945-02-17-Die-Deutsche-Wochenschau-752": "Die Deutsche Wochenschau, the newsreel produced under the Reich Ministry of Public Enlightenment and Propaganda, 1940-1945 — https://de.wikipedia.org/wiki/Die_Deutsche_Wochenschau",
+    "1941-07-16-Die-Deutsche-Wochenschau-Nr.567": "Die Deutsche Wochenschau, the newsreel produced under the Reich Ministry of Public Enlightenment and Propaganda, 1940-1945 — https://de.wikipedia.org/wiki/Die_Deutsche_Wochenschau",
+    "1940-07-22-Die-Deutsche-Wochenschau-Nr.516_2": "Die Deutsche Wochenschau, the newsreel produced under the Reich Ministry of Public Enlightenment and Propaganda, 1940-1945 — https://de.wikipedia.org/wiki/Die_Deutsche_Wochenschau",
+    "1945-03-16-Die-Deutsche-Wochenschau-754": "Die Deutsche Wochenschau, the newsreel produced under the Reich Ministry of Public Enlightenment and Propaganda, 1940-1945 — https://de.wikipedia.org/wiki/Die_Deutsche_Wochenschau",
+    "1945-03-22-Die-Deutsche-Wochenschau-755": "Die Deutsche Wochenschau, the newsreel produced under the Reich Ministry of Public Enlightenment and Propaganda, 1940-1945 — https://de.wikipedia.org/wiki/Die_Deutsche_Wochenschau",
+    "1945-03-22-Die-Deutsche-Wochenschau-Nr.755": "Die Deutsche Wochenschau, the newsreel produced under the Reich Ministry of Public Enlightenment and Propaganda, 1940-1945 — https://de.wikipedia.org/wiki/Die_Deutsche_Wochenschau",
+    "1941-08-20-Die-Deutsche-Wochenschau-572": "Die Deutsche Wochenschau, the newsreel produced under the Reich Ministry of Public Enlightenment and Propaganda, 1940-1945 — https://de.wikipedia.org/wiki/Die_Deutsche_Wochenschau",
+    "1943-03-24-Die-Deutsche-Wochenschau-655": "Die Deutsche Wochenschau, the newsreel produced under the Reich Ministry of Public Enlightenment and Propaganda, 1940-1945 — https://de.wikipedia.org/wiki/Die_Deutsche_Wochenschau",
+    "1943-02-24-Die-Deutsche-Wochenschau-651": "Die Deutsche Wochenschau, the newsreel produced under the Reich Ministry of Public Enlightenment and Propaganda, 1940-1945 — https://de.wikipedia.org/wiki/Die_Deutsche_Wochenschau",
+    "1941-06-04-Die-Deutsche-Wochenschau-561": "Die Deutsche Wochenschau, the newsreel produced under the Reich Ministry of Public Enlightenment and Propaganda, 1940-1945 — https://de.wikipedia.org/wiki/Die_Deutsche_Wochenschau",
+    "1940-06-26-Die-Deutsche-Wochenschau-Nr.512": "Die Deutsche Wochenschau, the newsreel produced under the Reich Ministry of Public Enlightenment and Propaganda, 1940-1945 — https://de.wikipedia.org/wiki/Die_Deutsche_Wochenschau",
+    "1941-07-02-Die-Deutsche-Wochenschau-565": "Die Deutsche Wochenschau, the newsreel produced under the Reich Ministry of Public Enlightenment and Propaganda, 1940-1945 — https://de.wikipedia.org/wiki/Die_Deutsche_Wochenschau",
+    "1943-06-09-Die-Deutsche-Wochenschau-Nr.666": "Die Deutsche Wochenschau, the newsreel produced under the Reich Ministry of Public Enlightenment and Propaganda, 1940-1945 — https://de.wikipedia.org/wiki/Die_Deutsche_Wochenschau",
+    "1940-08-01-Die-Deutsche-Wochenschau-517": "Die Deutsche Wochenschau, the newsreel produced under the Reich Ministry of Public Enlightenment and Propaganda, 1940-1945 — https://de.wikipedia.org/wiki/Die_Deutsche_Wochenschau",
+    "1941-07-09-Die-Deutsche-Wochenschau-566": "Die Deutsche Wochenschau, the newsreel produced under the Reich Ministry of Public Enlightenment and Propaganda, 1940-1945 — https://de.wikipedia.org/wiki/Die_Deutsche_Wochenschau",
+    "1943-12-08-Die-Deutsche-Wochenschau-692": "Die Deutsche Wochenschau, the newsreel produced under the Reich Ministry of Public Enlightenment and Propaganda, 1940-1945 — https://de.wikipedia.org/wiki/Die_Deutsche_Wochenschau",
+    "1942-07-08-Die-Deutsche-Wochenschau-618": "Die Deutsche Wochenschau, the newsreel produced under the Reich Ministry of Public Enlightenment and Propaganda, 1940-1945 — https://de.wikipedia.org/wiki/Die_Deutsche_Wochenschau",
+    "1945-01-18-Die-Deutsche-Wochenschau-Nr.749": "Die Deutsche Wochenschau, the newsreel produced under the Reich Ministry of Public Enlightenment and Propaganda, 1940-1945 — https://de.wikipedia.org/wiki/Die_Deutsche_Wochenschau",
+    "1944-06-14-Die-Deutsche-Wochenschau-719": "Die Deutsche Wochenschau, the newsreel produced under the Reich Ministry of Public Enlightenment and Propaganda, 1940-1945 — https://de.wikipedia.org/wiki/Die_Deutsche_Wochenschau",
+    "1944-08-03-Die-Deutsche-Wochenschau-726": "Die Deutsche Wochenschau, the newsreel produced under the Reich Ministry of Public Enlightenment and Propaganda, 1940-1945 — https://de.wikipedia.org/wiki/Die_Deutsche_Wochenschau",
+    "1944-08-10-Die-Deutsche-Wochenschau-727": "Die Deutsche Wochenschau, the newsreel produced under the Reich Ministry of Public Enlightenment and Propaganda, 1940-1945 — https://de.wikipedia.org/wiki/Die_Deutsche_Wochenschau",
+    "gov.archives.arc.43889": "Die Deutsche Wochenschau, the newsreel produced under the Reich Ministry of Public Enlightenment and Propaganda, 1940-1945 — https://de.wikipedia.org/wiki/Die_Deutsche_Wochenschau",
+    "gov.archives.arc.44360": "Die Deutsche Wochenschau, the newsreel produced under the Reich Ministry of Public Enlightenment and Propaganda, 1940-1945 — https://de.wikipedia.org/wiki/Die_Deutsche_Wochenschau",
+    "gov.archives.arc.44362": "Die Deutsche Wochenschau, the newsreel produced under the Reich Ministry of Public Enlightenment and Propaganda, 1940-1945 — https://de.wikipedia.org/wiki/Die_Deutsche_Wochenschau"
   },
   "not": {
     "DeathMills": "Death Mills (1945) is the US War Department's film of the liberated camps (Billy Wilder) — Allied evidence, not propaganda of the regime it documents; caught only by its German-language version"

@@ -197,6 +197,17 @@ tables, a scheduled workflow), never only in one published catalog.
   gate), and 20 live review-summaries were removed by hand (a blanket revert
   on the filter was tried and abandoned — it removed plots that quote dialogue).
 
+- T1. ✅ Translation batch 1 (30 of 204 non-English summaries): faithful English,
+  without the reviewer asides and pasted cast lists. The batch also corrected:
+  English titles on foreign-language copies ("Le Mécano De La Générale" -> The
+  General, "Nanouk L'esquimau" -> Nanook of the North) — and, a RIGHTS point,
+  Universal's Frankenstein (1931), The Invisible Man and Bride of Frankenstein
+  were titled "... Doblada Al Español", which kept Decision 151's
+  title-and-year renewal check from matching them; 25 Deutsche Wochenschau
+  newsreels (the propaganda ministry's) added to propaganda.json one by one
+  with a source; a 1925 erotic short marked mature ("erotic short" joins the
+  adult synopsis markers, narrowly — "erotic film" would have caught Häxan).
+
 ## Queue
 
 - T. ~200 non-English uploader summaries with no English source: faithful translation by hand, in batches.
