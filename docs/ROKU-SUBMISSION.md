@@ -228,6 +228,13 @@ input.
 Everything after the upload — the minimum-firmware combobox, Save, Save & run
 static analysis, Run analysis, Publish — is ordinary DOM and drives fine.
 
+**App Behavior Analysis does NOT start by itself** (found 2026-09-30, 1.0.77). Save &
+run static analysis runs static analysis only; the overview's App Behavior
+Analysis stays an empty circle, and Schedule publishing stays grey, until
+someone opens App Behavior Analysis and presses **Run analysis**. The 1.0.77
+package sat for an hour waiting on a queue it had never joined. After the
+upload: static analysis, then App Behavior Analysis -> Run analysis -> "queued".
+
 ## The sequence
 
 1. ~~Owner runs `genkey` and stores the password outside the repo.~~ DONE —
