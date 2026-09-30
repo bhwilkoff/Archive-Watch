@@ -545,3 +545,15 @@ CC BY-NC, no year anywhere), Lion of Ain-Jaloot, rog561b_netzero_* — no year t
 
 ### AC3 — the verifier now keeps the year it already fetched (2026-09-30)
 verify_external_match fetched a matched film's release year to reject modern matches, then dropped it when the match stood as "unverifiable". It now records it on a yearless item as yearSource "match-release-year" (never a modern year, never over the item's own). test_match_release_year.py (three controls) in the gate. AC2 filled the 75 exact-title cases by hand; this closes the gap for every later match.
+
+### E20 + V2 — Double Indemnity, and another OCR shape (2026-09-30)
+Review batch E20 (40, 1940-46): 10 rewritten, 30 kept — a download-site ad on I
+Wake Up Screaming, one-line Soundies credits, Prelinger asides ("a heavy dose of
+period sexism", "Great metaphor for early globalization theory"). Retitles that
+matter for rights: "Pacto De Sangre" is Double Indemnity (1944), and "Ladies In
+Retirement Ida Lupino, Louis Hayward" is Ladies in Retirement (1941) — the claim
+check matches on title, so neither could be found under the uploader's name.
+Ladies in Retirement now matches Columbia's R467305. Double Indemnity's renewal
+(R512088, Emka/Universal, 1971) is printed "© S1Apr44": an S for the day digit.
+fetch_cce_renewals reads S/l/I/O in the day after © as digits: 11,791 -> 11,910
+renewals, canon controls clear. CCE_RULE 4 -> 5 re-asks every pre-1950 title.

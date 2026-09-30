@@ -47,6 +47,9 @@ ORIG = re.compile(r"(?:[©@]|\b6G?)\s*(\d{1,2})\s*([A-Z][a-z]{2})\s*(\d{2})\d?\s
 # entry: Dracula (1931) is printed "© 2Feb3l1; LP1947" and went unmatched, so
 # Universal's 1958 renewal R227698 never reached the audit (2026-09-29).
 _OCR_DIGIT = re.compile(r"(?<=\d)[lI|](?=[\dlI|;,:])|(?<=[A-Za-z]{3}\d)[lI|]|(?<=\d)O(?=\d)")
+# The day of an original date read as a letter: Double Indemnity (1944) is
+# printed "© S1Apr44; 112748" and its 1971 renewal R512088 went unmatched.
+_OCR_DAY = re.compile(r"(?<=[©@] )[SlIO](?=\d?[A-Z][a-z]{2}\d{2})|(?<=[©@])[SlIO](?=\d?[A-Z][a-z]{2}\d{2})")
 RENEW = re.compile(r"\b(R\s?\d{5,6})\b")
 # Where a title stops: ", a photoplay", ". By Columbia", ". No.1151", or a period.
 TITLE_END = re.compile(r",\s+(?:a|an)\s|\.\s+(?:By|No\.|A\s+motion|A\s+photoplay)\b|\.\s|,\s+(?:by|in)\s")
@@ -85,6 +88,7 @@ def parse(text, vol):
     for block in re.split(r"\n\s*\n", text):
         b = " ".join(block.split())
         b = _OCR_DIGIT.sub(lambda m: "0" if m.group() == "O" else "1", b)
+        b = _OCR_DAY.sub(lambda m: {"S": "5", "O": "0"}.get(m.group(), "1"), b)
         r = RENEW.search(b)
         o = ORIG.search(b)
         if not (r and o) or o.start() > r.start():

@@ -80,7 +80,7 @@ def norm_title(t):
 _CCE = None
 # Bumped with the Catalog of Copyright Entries table (2026-09-29): every
 # pre-1950 title checked under an older rule is asked again, once.
-CCE_RULE = 4
+CCE_RULE = 5
 
 
 def cce_renewal(title, year):
