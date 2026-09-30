@@ -2409,6 +2409,23 @@ def _caps_title_before_credits(t):
     return _title_case(head)
 
 
+# An uploader's shelf label in front of the title ("Fifties Television:
+# ''Howdy Doody''", "Artistic Masterpiece: ...", "Classic TV Comedy: ...") and
+# its notes after it ("(Format: iPod)", "- Misc episode"). Show names that
+# precede an episode ("Diver Dan: Ep 22 ...") are not labels and stay.
+_EDITORIAL_PREFIX = re.compile(
+    r"^(?:classic tv(?: comedy)?|old[- ]time television|artistic masterpiece|"
+    r"(?:fifties|sixties|forties|seventies|(?:19)?\d0'?s)\s+(?:television|tv|advertising|pop culture|music))\s*:\s+",
+    re.I)
+
+
+def _strip_editorial_prefix(t):
+    t = _EDITORIAL_PREFIX.sub("", t or "")
+    t = re.sub(r"\s*\((?:format|title)\s*:[^)]*\)?\s*$", "", t, flags=re.I)
+    t = re.sub(r"\s+-\s+misc(?:\s+episode)?\b.*$", "", t, flags=re.I)
+    return t.strip()
+
+
 def sanitize_title(it):
     raw = (it.get("title") or "").strip()
     if not raw or it.get("titleSource") == "agent-reviewed":   # the corrections table has the last word
@@ -2468,6 +2485,7 @@ def sanitize_title(it):
         t = _keep_if_lettered(re.sub(r"\s+" + _GENRE_WORD + r"\s*$", "", t, flags=re.I), t)
     t = _keep_if_lettered(_strip_cast_genre_tail(t, it), t)
     t = _keep_if_lettered(_caps_title_before_credits(t), t)
+    t = _keep_if_lettered(_strip_editorial_prefix(t), t)
     # Trailing cast/credit/alt-title parenthetical ("Title( Actor, Actor)") — the comma is the tell.
     t = _keep_if_lettered(_CAST_PAREN.sub("", t).rstrip(" -–—,|"), t)
     # Trailing " - Director Name" on scene-rip dash dumps, but ONLY when it matches the

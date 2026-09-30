@@ -132,9 +132,19 @@ tables, a scheduled workflow), never only in one published catalog.
   controls, in the CI gate. And 184 titles used two apostrophes as a quote
   mark (`''Lassie'' - The Tree House`). 492 titles change in all.
 
+- P2. ✅ Uploader shelf labels on TV titles ("Fifties Television:", "Artistic
+  Masterpiece:", "1950's Pop Culture:", "(Format: iPod)", "- Misc episode")
+  stripped; show names ("Diver Dan:", "The Big Picture:") kept. Tested.
+- Q (not a defect). The ~1,000 classic-TV items that stay `tv-special` are
+  unmarked orphans; folding only episode-marked orphans into spines is the
+  owner's recorded decision (Decision 036, `_orphan_is_episode`). They are on
+  the TV tab's TV Specials, never in Movies.
+- H (healthy). Playback: all 22,631 served titles `playbackVerified`, all
+  checked within the 90-day liveness policy (14,201 in the last 30 days);
+  22,626 pass the strict AVFoundation check, 5 not yet run.
+
 ## Queue
 
-- Q. ~600 classic-TV episodes ingested as standalone `tv-special` items (Man Against Crime, Topper, Meet Corliss Archer) rather than onto series spines; uploader prefixes on TV titles ("Fifties Television:", "(Format: iPod)", "- Misc").
 
 - N2. `01-rec-2024...` 1-2 minute recordings wearing The Last Command, The Navigator, Beggars of Life (hidden now, but the ingest keeps admitting such recordings).
 - O. Wider compilation sweep ("... Collection", "PD Cartoon Collection", Our Gang collection) — each judged, not by keyword.
@@ -142,6 +152,5 @@ tables, a scheduled workflow), never only in one published catalog.
 - E. The 2,593 unreviewed uploader synopses (metadata_review.py, popularity first).
 - F. 2,902 empty synopses: which have a source to fill from.
 - G. 3,115 archive-thumbnail posters: any professional source.
-- H. Playback verification staleness (8,320 unchecked since August).
 - I. Rights: renewal_zone / commercial_keep / unknown_year spot audits.
 - J. Workflow health across every catalog writer; the wants pipeline.
