@@ -372,6 +372,7 @@ def verify(it: dict, omdb_key, session, tmdb_token=None) -> str:
     # is public-domain-era by construction. A match to a work released in the
     # modern era is therefore wrong, and its artwork is someone else's film.
     # Our own year, when we have one, must also not contradict that.
+    got = None
     if it.get("contentType") not in ("tv-series",):
         y = it.get("year")
         if not isinstance(y, int) or y < AR_MODERN:
@@ -404,6 +405,15 @@ def verify(it: dict, omdb_key, session, tmdb_token=None) -> str:
         it["decade"] = None
         return "cleared_bw"
 
+    # A match that stands unverified still has a release year, fetched above,
+    # and an item with no year of its own was left with none: 91 served titles
+    # (2026-09-30), which the printed-renewal check — title AND year — could
+    # never reach. Record it, marked, unless it is modern (handled above).
+    if it.get("year") is None and got and got < AR_MODERN:
+        it["year"] = got
+        it["decade"] = got // 10 * 10
+        it["isSilentFilm"] = bool(got < R.SILENT_CUTOFF)
+        it["yearSource"] = "match-release-year"
     return "unverifiable"
 
 

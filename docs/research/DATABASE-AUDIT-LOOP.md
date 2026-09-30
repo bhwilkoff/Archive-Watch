@@ -542,3 +542,6 @@ CC BY-NC, no year anywhere), Lion of Ain-Jaloot, rog561b_netzero_* — no year t
 
 ### AC2 — matched films with no year get TMDb's (2026-09-30)
 91 of the unknown_year titles hold a live TMDb match marked "unverifiable" (the match stood but its identity fields were never copied), so they had no year, and the printed-renewal check, which matches on title AND year, could never run on them. 75 whose archive title equals TMDb's exactly (1913-1976: Painted Faces, Hell's Headquarters, The Flying Fool, Dragnet Patrol...) now carry TMDb's year via year_corrections; the rest wait for a person. No visibility change today; the next rights audit asks the renewals about them.
+
+### AC3 — the verifier now keeps the year it already fetched (2026-09-30)
+verify_external_match fetched a matched film's release year to reject modern matches, then dropped it when the match stood as "unverifiable". It now records it on a yearless item as yearSource "match-release-year" (never a modern year, never over the item's own). test_match_release_year.py (three controls) in the gate. AC2 filled the 75 exact-title cases by hand; this closes the gap for every later match.
