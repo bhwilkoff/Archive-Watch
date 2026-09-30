@@ -216,7 +216,17 @@ tables, a scheduled workflow), never only in one published catalog.
   the Copyright Office check (title + year) looked for "Frankenstein Doblada Al
   Español". rights-audit now runs remediate first.
 
+- T3. ✅ Translation batch 3 (31; English titles for Night Owls, The Laurel-Hardy
+  Murder Case, The Mystery of the Eiffel Tower, A Straightforward Boy, The Fall
+  of Troy...; Max Linder's Three Must-Get-Theres carried a French Wikipedia
+  biography of Linder; "Gebt mir 4 Jahre Zeit" (1937, NSDAP) to propaganda.json).
+- U2. ✅ With remediate before it, the Copyright Office check found 1,249 claims
+  (was 947). An item checked before `copyrightCheckedFor` existed is re-asked
+  when a person corrected its title or year.
+
 ## Queue
+
+- V. Pre-1950 film renewals are not in the Copyright Office's online records (Decision 151's own limit), so Frankenstein (1931, renewed 1958) and its kin stay presumed_pd. Source to try: the Catalog of Copyright Entries renewal volumes (1950-77), OCR'd on archive.org.
 
 - T. ~200 non-English uploader summaries with no English source: faithful translation by hand, in batches.
 

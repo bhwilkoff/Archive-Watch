@@ -213,6 +213,10 @@ def targets(items, today):
         asked = it.get("copyrightCheckedFor")
         if asked and asked != _asked(it):
             seen = None
+        # Checked before the pair was recorded, and a person has since
+        # corrected the title or year: ask again rather than wait 90 days.
+        if not asked and "agent-reviewed" in (it.get("titleSource"), it.get("yearSource")):
+            seen = None
         if seen and (it.get("copyrightRule") or 1) >= RULE:
             try:
                 if dt.date.fromisoformat(seen) >= cutoff:
