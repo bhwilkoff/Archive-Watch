@@ -80,6 +80,16 @@ jobs:
             ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }} \
             | tee resource-posters.log
 
+      - name: Fill backdrops from TMDb
+        if: github.event.inputs.dry_run != 'true'
+        env:
+          TMDB_BEARER_TOKEN: ${{ secrets.TMDB_BEARER_TOKEN }}
+        run: |
+          # A film matched while its poster was already professional never asked
+          # TMDb for a backdrop (4,468 filled by hand on 2026-09-29).
+          if [ -z "$TMDB_BEARER_TOKEN" ]; then exit 0; fi
+          python tools/fill_backdrops_tmdb.py | tee -a resource-posters.log
+
       - name: Stats summary
         if: hashFiles('resource-posters.log') != ''
         run: |
