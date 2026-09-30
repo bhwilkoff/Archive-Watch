@@ -60,16 +60,19 @@
   {
    "store": "Amazon Appstore",
    "platform": "Fire TV",
-   "state": "LIVE",
-   "version": "vc64",
+   "state": "IN REVIEW",
+   "version": "1.42.6 (vc57)",
    "since": "2026-09-10",
    "note": "Live and in-review versions are read from the Amazon submission API. Installs come from the sales report — every free install is a $0.00 Charge row. Device coverage went 38 -> 91 with the minSdk 23 build (Decision 115).",
    "url": "https://developer.amazon.com/apps-and-games/console/apps/list.html",
    "api": "vitals",
    "route": "version read from the submission API; installs from the sales report",
    "manual": true,
-   "live": "vc64",
-   "versionCode": 64,
+   "inFlight": {
+    "version": "vc66",
+    "state": "IN REVIEW"
+   },
+   "live": "1.42.6 (vc57)",
    "read": "Amazon submission API"
   },
   {
@@ -4147,15 +4150,15 @@
    "console": "https://developer.amazon.com/apps-and-games/console/reports/download-center.html"
   },
   "amazonLive": {
-   "liveVersionCode": 64,
+   "liveVersionCode": 66,
    "builds": [
     {
-     "versionCode": 64,
+     "versionCode": 66,
      "name": "APK1"
     }
    ],
-   "submissionInFlight": false,
-   "readVia": "a temporary edit, created and deleted",
+   "submissionInFlight": true,
+   "readVia": "an existing edit, left untouched",
    "console": "https://developer.amazon.com/apps-and-games/console/apps/list.html"
   },
   "rokuEngagement": {
@@ -7715,7 +7718,7 @@
   "apple_stores": {
    "ok": true,
    "note": "3 Apple platform(s)",
-   "at": "2026-09-30T14:45:06+00:00"
+   "at": "2026-09-30T14:47:04+00:00"
   },
   "apple_reviews": {
    "ok": true,
@@ -7740,7 +7743,7 @@
   "play_stores": {
    "ok": true,
    "note": "3 track(s)",
-   "at": "2026-09-30T14:45:07+00:00"
+   "at": "2026-09-30T14:47:06+00:00"
   },
   "play_reviews": {
    "ok": true,
@@ -7755,7 +7758,7 @@
   "play_crashes": {
    "ok": true,
    "note": "15 cluster(s), 0 still on build 66",
-   "at": "2026-09-30T14:45:40+00:00"
+   "at": "2026-09-30T14:47:39+00:00"
   },
   "play_users": {
    "ok": true,
@@ -7794,18 +7797,18 @@
   },
   "amazon_live": {
    "ok": true,
-   "note": "versionCode 64 is live on Fire TV",
-   "at": "2026-09-30T14:45:47+00:00"
+   "note": "versionCode 66 in the OPEN edit — a submission is in flight, so this is what is staged rather than what is live",
+   "at": "2026-09-30T14:47:43+00:00"
   },
   "roku_engagement": {
    "ok": true,
    "note": "no delivery waiting — the schedule fires daily at 06:00, so this is normal between runs",
-   "at": "2026-09-30T14:45:47+00:00"
+   "at": "2026-09-30T14:47:43+00:00"
   },
   "manual_stores": {
    "ok": true,
    "note": "5 declared store(s), 2 version(s) read rather than declared",
-   "at": "2026-09-30T14:45:48+00:00"
+   "at": "2026-09-30T14:47:43+00:00"
   },
   "social_program": {
    "ok": true,
@@ -8297,7 +8300,7 @@
    "urgent": 0
   }
  ],
- "generatedAt": "2026-09-30T14:45:48+00:00",
+ "generatedAt": "2026-09-30T14:47:43+00:00",
  "repoVersion": "1.43.1",
  "repoBuild": "2056",
  "_": "Written by tools/pulse_collect.py. `history` is the series and is append-only per day; everything else is the latest reading. A source that could not answer says so in `sources` — never assume a zero."
