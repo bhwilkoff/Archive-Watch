@@ -1474,7 +1474,14 @@ final class BufferSink: @unchecked Sendable {
     /// in `append` — see the comment there.
     private var highWater = -Double.infinity
     #if canImport(Speech)
-    private var continuation: AsyncStream<AnalyzerInput>.Continuation?
+    // Stored untyped: AnalyzerInput is iOS/tvOS/macOS 26, and a stored property
+    // cannot carry an availability gate (the iOS floor is 18, IOS-FLOOR.md).
+    private var continuationBox: Any?
+    @available(iOS 26, tvOS 26, macOS 26, visionOS 26, *)
+    private var continuation: AsyncStream<AnalyzerInput>.Continuation? {
+        get { continuationBox as? AsyncStream<AnalyzerInput>.Continuation }
+        set { continuationBox = newValue }
+    }
     #endif
 
     /// Build the processing tap.
@@ -1557,8 +1564,8 @@ final class BufferSink: @unchecked Sendable {
     func finish() {
         lock.lock(); defer { lock.unlock() }
         #if canImport(Speech)
-        continuation?.finish()
-        continuation = nil
+        if #available(iOS 26, tvOS 26, macOS 26, visionOS 26, *) { continuation?.finish() }
+        continuationBox = nil
         #endif
     }
 
@@ -1640,7 +1647,7 @@ final class BufferSink: @unchecked Sendable {
             if tapCalls == 1 || tapCalls % 200 == 0 {
                 awdiag("[AWCAP] tap callback #\(tapCalls) frames=\(frames) "
                       + "src=\(sourceFormat != nil) dst=\(targetFormat != nil) "
-                      + "sink=\(continuation != nil)")
+                      + "sink=\(continuationBox != nil)")
             }
         }
 

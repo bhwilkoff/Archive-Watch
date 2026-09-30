@@ -341,6 +341,7 @@ enum AutoCaptions {
     /// `onProgress` reports the model download 0…1 — on an Apple TV this is a
     /// real first-run wait, because nothing else on tvOS installs these assets,
     /// and a wait nobody is told about is indistinguishable from a broken app.
+    @available(iOS 26, tvOS 26, macOS 26, visionOS 26, *)
     static func prepareModel(for transcriber: SpeechTranscriber,
                              locale: Locale,
                              onProgress: (@Sendable @MainActor (Double) -> Void)? = nil) async throws {

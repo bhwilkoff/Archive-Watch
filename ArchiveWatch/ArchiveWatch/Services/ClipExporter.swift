@@ -294,11 +294,27 @@ actor ClipExporter {
             try? aTrack.insertTimeRange(range, of: srcA, at: .zero)
         }
 
-        let vc = try await AVVideoComposition(applyingFiltersTo: comp, applier: { request in
-            let graded = look.apply(to: request.sourceImage)
-            let out = Self.reframe(graded, into: request.renderSize, blurredFill: blurred)
-            return AVCIImageFilteringResult(resultImage: out)
-        })
+        let vc: AVVideoComposition
+        if #available(iOS 26, *) {
+            vc = try await AVVideoComposition(applyingFiltersTo: comp, applier: { request in
+                let graded = look.apply(to: request.sourceImage)
+                let out = Self.reframe(graded, into: request.renderSize, blurredFill: blurred)
+                return AVCIImageFilteringResult(resultImage: out)
+            })
+        } else {
+            // iOS 18-25 (docs/research/IOS-FLOOR.md): the filter-handler form
+            // the iOS 26 applier replaced; same grade, same reframe.
+            // An immutable copy: the mutable composition is still exported below,
+            // and handing it to an async call would share it across isolation.
+            // The pre-26 API is not annotated `sending`; this copy is fresh,
+            // immutable and touched by nothing else.
+            nonisolated(unsafe) let frozen = comp.copy() as? AVComposition ?? AVComposition()
+            vc = try await AVMutableVideoComposition.videoComposition(with: frozen, applyingCIFiltersWithHandler: { request in
+                let graded = look.apply(to: request.sourceImage)
+                let out = Self.reframe(graded, into: request.renderSize, blurredFill: blurred)
+                request.finish(with: out, context: nil)
+            })
+        }
         guard let session = AVAssetExportSession(asset: comp, presetName: AVAssetExportPresetHighestQuality) else {
             throw ClipExportError.cannotCreateExportSession
         }
@@ -378,18 +394,8 @@ actor ClipExporter {
 
         let renderSize = spec.aspect.videoRenderSize(source: oriented)
 
-        // iOS 26/27 Configuration-based video composition (replaces the
-        // deprecated AVMutableVideoComposition + AVMutable*Instruction).
-        var layerCfg = AVVideoCompositionLayerInstruction.Configuration(trackID: vTrack.trackID)
         let fit = Self.aspectFit(oriented, into: renderSize)
-        layerCfg.setTransform(preferred.concatenating(fit), at: .zero)
-        let layerInstr = AVVideoCompositionLayerInstruction(configuration: layerCfg)
-
-        var instrCfg = AVVideoCompositionInstruction.Configuration()
-        instrCfg.timeRange = CMTimeRange(start: .zero, duration: outputDuration)
-        instrCfg.backgroundColor = UIColor.black.cgColor    // letterbox matte
-        instrCfg.layerInstructions = [layerInstr]
-        let instruction = AVVideoCompositionInstruction(configuration: instrCfg)
+        let timeRange = CMTimeRange(start: .zero, duration: outputDuration)
 
         // Overlays (always burn the provenance credit; timed auto-captions when
         // present, else the static caption). Cue times are clip-relative, so
@@ -403,15 +409,45 @@ actor ClipExporter {
         parent.addSublayer(videoLayer)
         Self.addOverlays(to: parent, size: renderSize, caption: spec.caption, credit: spec.creditLine,
                          cues: displayCues, totalDuration: total, style: spec.captionStyle)
-        let toolCfg = AVVideoCompositionCoreAnimationTool.Configuration(
-            postProcessingAsVideoLayer: videoLayer, containingLayer: parent)
+        let vc: AVVideoComposition
+        if #available(iOS 26, *) {
+            // iOS 26/27 Configuration-based video composition (replaces the
+            // deprecated AVMutableVideoComposition + AVMutable*Instruction).
+            var layerCfg = AVVideoCompositionLayerInstruction.Configuration(trackID: vTrack.trackID)
+            layerCfg.setTransform(preferred.concatenating(fit), at: .zero)
+            let layerInstr = AVVideoCompositionLayerInstruction(configuration: layerCfg)
 
-        var cfg = AVVideoComposition.Configuration()
-        cfg.renderSize = renderSize
-        cfg.frameDuration = CMTime(value: 1, timescale: 30)
-        cfg.instructions = [instruction]
-        cfg.animationTool = AVVideoCompositionCoreAnimationTool(configuration: toolCfg)
-        let vc = AVVideoComposition(configuration: cfg)
+            var instrCfg = AVVideoCompositionInstruction.Configuration()
+            instrCfg.timeRange = timeRange
+            instrCfg.backgroundColor = UIColor.black.cgColor    // letterbox matte
+            instrCfg.layerInstructions = [layerInstr]
+            let instruction = AVVideoCompositionInstruction(configuration: instrCfg)
+
+            let toolCfg = AVVideoCompositionCoreAnimationTool.Configuration(
+                postProcessingAsVideoLayer: videoLayer, containingLayer: parent)
+            var cfg = AVVideoComposition.Configuration()
+            cfg.renderSize = renderSize
+            cfg.frameDuration = CMTime(value: 1, timescale: 30)
+            cfg.instructions = [instruction]
+            cfg.animationTool = AVVideoCompositionCoreAnimationTool(configuration: toolCfg)
+            vc = AVVideoComposition(configuration: cfg)
+        } else {
+            // iOS 18-25 (docs/research/IOS-FLOOR.md): the same composition in
+            // the mutable form the Configuration API replaced.
+            let layerInstr = AVMutableVideoCompositionLayerInstruction(assetTrack: vTrack)
+            layerInstr.setTransform(preferred.concatenating(fit), at: .zero)
+            let instruction = AVMutableVideoCompositionInstruction()
+            instruction.timeRange = timeRange
+            instruction.backgroundColor = UIColor.black.cgColor  // letterbox matte
+            instruction.layerInstructions = [layerInstr]
+            let mvc = AVMutableVideoComposition()
+            mvc.renderSize = renderSize
+            mvc.frameDuration = CMTime(value: 1, timescale: 30)
+            mvc.instructions = [instruction]
+            mvc.animationTool = AVVideoCompositionCoreAnimationTool(
+                postProcessingAsVideoLayer: videoLayer, in: parent)
+            vc = mvc
+        }
 
         guard let session = AVAssetExportSession(asset: comp, presetName: AVAssetExportPresetHighestQuality) else {
             throw ClipExportError.cannotCreateExportSession

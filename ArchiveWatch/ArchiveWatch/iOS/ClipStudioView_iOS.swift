@@ -132,11 +132,21 @@ final class ClipStudioModel {
         guard look != .none else { item.videoComposition = nil; return }
         let look = self.look
         Task {
-            let vc = try? await AVVideoComposition(applyingFiltersTo: asset, applier: { request in
-                let graded = look.apply(to: request.sourceImage.clampedToExtent())
-                    .cropped(to: request.sourceImage.extent)
-                return AVCIImageFilteringResult(resultImage: graded)
-            })
+            let vc: AVVideoComposition?
+            if #available(iOS 26, *) {
+                vc = try? await AVVideoComposition(applyingFiltersTo: asset, applier: { request in
+                    let graded = look.apply(to: request.sourceImage.clampedToExtent())
+                        .cropped(to: request.sourceImage.extent)
+                    return AVCIImageFilteringResult(resultImage: graded)
+                })
+            } else {
+                // iOS 18-25 (IOS-FLOOR.md): the filter-handler form.
+                vc = try? await AVMutableVideoComposition.videoComposition(with: asset, applyingCIFiltersWithHandler: { request in
+                    let graded = look.apply(to: request.sourceImage.clampedToExtent())
+                        .cropped(to: request.sourceImage.extent)
+                    request.finish(with: graded, context: nil)
+                })
+            }
             if let vc, player?.currentItem === item { item.videoComposition = vc }
         }
     }

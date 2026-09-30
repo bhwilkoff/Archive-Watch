@@ -587,7 +587,7 @@
 				INFOPLIST_KEY_TMDB_BEARER_TOKEN = "$(TMDB_BEARER_TOKEN)";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -624,7 +624,7 @@
 				INFOPLIST_KEY_TMDB_BEARER_TOKEN = "$(TMDB_BEARER_TOKEN)";
 				INFOPLIST_KEY_UILaunchScreen_Generation = YES;
 				INFOPLIST_KEY_UIUserInterfaceStyle = Automatic;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -711,7 +711,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Archive Watch";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Watch Together Studio puts you on camera beside the film when you stream a watch-along.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Watch Together Studio carries your voice over the film when you stream a watch-along.";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -743,7 +743,7 @@
 				INFOPLIST_KEY_CFBundleDisplayName = "Archive Watch";
 				INFOPLIST_KEY_NSCameraUsageDescription = "Watch Together Studio puts you on camera beside the film when you stream a watch-along.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Watch Together Studio carries your voice over the film when you stream a watch-along.";
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -841,7 +841,7 @@
 				CURRENT_PROJECT_VERSION = "$(CURRENT_PROJECT_VERSION)";
 				DEVELOPMENT_TEAM = L2G756LY8N;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = "$(MARKETING_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = app.archivewatch.tvos.uitests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -861,7 +861,7 @@
 				CURRENT_PROJECT_VERSION = "$(CURRENT_PROJECT_VERSION)";
 				DEVELOPMENT_TEAM = L2G756LY8N;
 				GENERATE_INFOPLIST_FILE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 26.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 18.0;
 				MARKETING_VERSION = "$(MARKETING_VERSION)";
 				PRODUCT_BUNDLE_IDENTIFIER = app.archivewatch.tvos.uitests;
 				PRODUCT_NAME = "$(TARGET_NAME)";

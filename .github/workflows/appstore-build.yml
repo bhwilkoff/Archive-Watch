@@ -178,6 +178,8 @@ jobs:
       # of 27 would silently stop shipping to them.
       - name: Refuse a tvOS floor of 27 or above
         run: python3 tools/test_tvos_floor.py
+      - name: iOS floor stays at 18 (the iPhone XS/XR, docs/research/IOS-FLOOR.md)
+        run: python3 tools/test_ios_floor.py
 
       - name: Archive + sign + upload to App Store Connect
         env:

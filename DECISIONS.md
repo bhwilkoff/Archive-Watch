@@ -237,6 +237,7 @@ into every session and the index alone carries every title.)
 - 152 — Sourced evidence of a free licence outranks the popularity check
 - 153 — A work made with Archive Watch claims Creative Commons or fair use, never public domain
 - 154 — The Android floor is a floor, not a ceiling: modern devices get modern features, gated by OS version
+- 155 — The iPhone/iPad floor is iOS 18: the XS and XR come back, iOS 26 features are gated, and iOS 12 is the website's job
 
 ---
 
@@ -1453,4 +1454,35 @@ above a legacy one, as Roku and Fire TV already have) — not before, and never
 by raising the floor quietly. Keep the strict `compose-foundation` constraint in
 `app/build.gradle.kts` for as long as material3 is held: it turns the skew into
 a failed build (its control: Coil 3.6.3 refuses to resolve).
+
+
+## 155 — The iPhone/iPad floor is iOS 18: the XS and XR come back, iOS 26 features are gated, and iOS 12 is the website's job
+*Date: 2026-09-29*
+
+The iOS app's deployment target drops from 26.0 to **18.0** (app, widgets, UI
+tests). The only iOS 26-only code on the path — live captions' SpeechTranscriber
+and the Core Image composition in clip export and the Clip Studio preview — sits
+behind `#available(iOS 26, *)` with the older AVFoundation path for 18-25;
+captions stay an iOS 26 feature (Decision 154). `tools/test_ios_floor.py`, run in
+appstore-build, refuses an iOS target above 18.x.
+
+**Why**: the owner — *"The current native app requires ios 26, but we are
+investigating if we can make it work on older hardware"* — then, offered the
+measurements, chose "Native floor to iOS 18". Measured
+(docs/research/IOS-FLOOR.md): the installed SDK's minimum is iOS 15, so nothing
+native reaches iOS 12 (the iPhone 6 Plus that prompted this); below 17 the data
+layer fails (SwiftData, Observation — 428 errors); 18 needed two files. iOS 17
+and 18 run on the same phones, and iOS 26 is what dropped the iPhone XS, XS Max
+and XR, so 18 is the floor that buys hardware.
+
+**How to apply**: a new API above iOS 18 goes behind `#available` with a
+working 18 path, or is a feature that is simply absent below it — never a
+reason to raise the floor. A stored property cannot carry an availability gate:
+store it untyped and expose a gated accessor (LiveCaptions' `continuationBox`).
+
+**Consequences**: the 18-25 paths are compiled (iOS, tvOS and macOS Release, zero
+warnings) but UNVERIFIED on the glass — the bench has no iOS 18 device (iPhone 12
+on 26.6.1, iPhone 15 Pro and iPad Pro on 27.2), the same gap Decision 148 names
+for the Apple TV HD. An iPhone on 12 is served by the website, which Safari 12
+cannot run today (IOS-FLOOR.md lists why).
 
