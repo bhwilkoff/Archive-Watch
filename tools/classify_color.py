@@ -160,7 +160,13 @@ def main() -> int:
                and (only is None or it.get("archiveID") in only)
                and (args.refresh
                     or (only is not None and it.get("colorSat") is None)
-                    or (only is None and not it.get("colorMode")))]
+                    or (only is None and not it.get("colorMode"))
+                    # A B&W reading from before colorSat was stored, on a film
+                    # made after 1960, is the likeliest wrong one: Messiah of
+                    # Evil (1973) and Voyage of the Damned (1976) read B&W, and
+                    # 1,926 such readings had no number to judge (2026-09-29).
+                    or (only is None and it.get("colorMode") == "bw"
+                        and it.get("colorSat") is None and (it.get("year") or 0) >= 1960))]
     targets.sort(key=lambda it: it.get("popularityScore") or 0, reverse=True)
     if args.limit:
         targets = targets[:args.limit]

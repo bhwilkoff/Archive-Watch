@@ -382,3 +382,12 @@ controls (a clock time in a plot, "vs" in a title, CU inside a word); gate 49/49
 
 ### E14 — review batch (2026-09-29)
 40 summaries, mostly Prelinger home movies and Gould cans: 19 rewritten (cataloguer notes: "Viewing notes state", "Container marked", "Time in:", "STOCK SHOTS:", "(good)"), 21 accurate shot lists kept. Years the footage itself contradicts: Earhart's Hawaii-Oakland flight is 1935 (was 1930), the Golden Gate Exposition marionettes 1939; four reels dated 1930 whose content is later (Huey Long monuments, a late-1940s reel, WWII captured Japanese film, late-1930s New York) lose the year. Visibility unchanged. Noted, owner-reserved: Voyage of the Damned (1976, 3,972 votes) sits in the 1964-77 band.
+
+### S — B&W readings with no number behind them (2026-09-29)
+colorMode is on 27,500 served items, colorSat (the saturation reading that lets
+build_sqlite.color_confident judge it) on 4,506: every reading before
+2026-08-18 is a bare verdict. Messiah of Evil (1973) and Voyage of the Damned
+(1976), both color films, read B&W. classify_color only targeted items with no
+colorMode, so those verdicts were final. It now also re-measures a B&W verdict
+with no colorSat on a film from 1960 on (1,926 items; 1,200 a run, three runs a
+day). Night of the Living Dead stays B&W on any reading.

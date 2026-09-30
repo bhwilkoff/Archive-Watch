@@ -85,7 +85,7 @@ jobs:
             --limit ${{ github.event.inputs.limit || '1200' }} \
             --workers ${{ github.event.inputs.workers || '10' }} \
             --deltas-out color-deltas.jsonl | tee color.log
-          echo '## Colour classification' >> "$GITHUB_STEP_SUMMARY"
+          echo '## Color classification' >> "$GITHUB_STEP_SUMMARY"
           echo '```' >> "$GITHUB_STEP_SUMMARY"; tail -3 color.log >> "$GITHUB_STEP_SUMMARY"; echo '```' >> "$GITHUB_STEP_SUMMARY"
 
       # Upload whatever was written, including after a timeout — the point of
