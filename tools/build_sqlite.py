@@ -404,7 +404,8 @@ def dedupe_by_imdb(items):
         # and fell through to votes (identical per title) and then LEXICOGRAPHIC
         # archiveID — which is how a 4K .ia.mp4 lost to whatever id sorted last.
         maj = majority.get(i.get("imdbID"))
-        canonical = 1 if (maj is None or i.get("colorMode") in (None, maj)) else 0
+        canonical = 0 if _colorized_upload(i) else \
+            1 if (maj is None or i.get("colorMode") in (None, maj)) else 0
         return (canonical, 1 if i.get("subtitleHLS") else 0, r, _video_quality(i),
                 i.get("imdbVotes") or 0, i.get("archiveID") or "")
     best = {}
@@ -551,7 +552,7 @@ _SAT_CONFIDENT_BW, _SAT_CONFIDENT_COLOR = 4.0, 14.0
 
 # An uploader who says "colorized" is telling us this IS a different version,
 # and that beats any chroma reading.
-_COLORIZED = re.compile(r"coloriz|colouriz|in\s*colou?r\b", re.I)
+_COLORIZED = re.compile(r"colou?ri[sz]|deoldify|in\s*colou?r\b", re.I)
 
 
 def _colorized_upload(i):
@@ -586,8 +587,13 @@ def _color_compatible(a, b):
     ca, cb = a.get("colorMode"), b.get("colorMode")
     if not (ca and cb and ca != cb):
         return True
+    # A stated colorization is a VERSION of its black-and-white film, never a
+    # separate card and never the default copy (owner, 2026-09-30: "The
+    # colorized versions should be available via the versions options on a
+    # given title, but should never be the default one offered."). imdb, year
+    # and runtime still decide whether it is the same film.
     if _colorized_upload(a) or _colorized_upload(b):
-        return False                                  # a stated colorization
+        return True
     # Incompatible only when BOTH readings are strong enough to be believed.
     # If either is a coin-flip the color signal abstains, and imdb/year/runtime
     # decide the merge on their own.
@@ -884,11 +890,12 @@ def _consistent(group):
     # The component-level twin of `_color_compatible`. Both gates have to agree
     # to abstain, or relaxing only the edge test changes nothing: the edge lets
     # the pair through and this rejects the component it forms.
-    colors = {m.get("colorMode") for m in group if m.get("colorMode")}
+    # A stated colorization's color says nothing about the film (see above).
+    colors = {m.get("colorMode") for m in group
+              if m.get("colorMode") and not _colorized_upload(m)}
     if len(colors) > 1:
-        if any(_colorized_upload(m) for m in group):
-            return False                              # a stated colorization
-        if all(color_confident(m) for m in group if m.get("colorMode")):
+        if all(color_confident(m) for m in group
+               if m.get("colorMode") and not _colorized_upload(m)):
             return False
     rts = [m["runtimeSeconds"] for m in group if m.get("runtimeSeconds")]
     tight = len(rts) >= 2 and (max(rts) - min(rts)) <= max(0.10 * max(rts), 90)
@@ -975,7 +982,8 @@ def merge_film_duplicates(items, spine_aids=frozenset()):
             # 3.7 swamped a 5-point quality edge); the community signal is the
             # tiebreak between comparable videos, never the reason to serve a
             # worse one.
-            winner = max(group, key=lambda i: (1 if i.get("subtitleHLS") else 0,
+            winner = max(group, key=lambda i: (0 if _colorized_upload(i) else 1,
+                                               1 if i.get("subtitleHLS") else 0,
                                                _video_quality(i),
                                                _community_copy_score(i),
                                                _real_art_rank(i), i.get("imdbVotes") or 0))

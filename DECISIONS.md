@@ -240,6 +240,7 @@ into every session and the index alone carries every title.)
 - 155 — The iPhone/iPad floor is iOS 18: the XS and XR come back, iOS 26 features are gated, and iOS 12 is the website's job
 - 156 — A foreign film URAA restored is never recommended and always findable
 - 157 — Pre-1950 renewals are read from the printed Catalog of Copyright Entries
+- 158 — A colorized copy is a version of its black-and-white film, never the default
 
 ---
 
@@ -1551,3 +1552,32 @@ only ever causes a miss, since a title must match exactly. The CCE_RULE bump
 re-asks every pre-1950 title once. `tools/test_cce_renewals.py` holds the
 known renewals, ten canon controls and both printed formats (the 1950s
 section, the 1970s interleaved list); it runs in the pipeline gate.
+
+
+## 158 — A colorized copy is a version of its black-and-white film, never the default
+*Date: 2026-09-30*
+
+An upload that states it is colorized (`build_sqlite._colorized_upload`: its id
+or title says colorized/colourised, DeOldify, or "in color") merges into its
+film's card when imdb, year and runtime say it is the same film, and it never
+wins the card: `dedupe_by_imdb` and `merge_film_duplicates` both rank a
+colorization below every other copy. It stays reachable through the versions
+picker, which reads `item_aliases`. A colorization with no black-and-white copy
+served remains its own card, since there is nothing else to default to.
+
+**Why**: the owner, asked how 293 served colorized copies should be treated —
+*"The colorized versions should be available via the versions options on a
+given title, but should never be the default one offered. The original black
+and white should be what the title offers by default but an individual user
+should be able to select the color versions if they wish."* Until now a stated
+colorization was the opposite: a separate card, because B&W versus color was
+read as two works (Decision 084), so Dracula had three cards, one of them
+colorized. Measured on the live catalog: 187 of 291 colorized copies fold into
+their film; 104 remain their own card.
+
+**How to apply**: never let a colorization outrank an original on video quality,
+captions or votes; the colorized flag is the first term of both rankings. A
+color REMAKE is not a colorization and stays apart on its own imdb id and year.
+`tools/test_colorized_versions.py` holds the merge and the default with a remake
+control; `test_color_guard.py`'s two colorization cases now expect a merge.
+

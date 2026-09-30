@@ -28,8 +28,10 @@ CASES = [
     ("unmeasured pair behaves as before",       item(None, "bw"),   item(None, "color"), False),
     ("agreeing readings are compatible",        item(7.1, "bw"),    item(0.0, "bw"),     True),
     ("unknown mode never contradicts",          item(None, None),   item(9.0, "color"),  True),
-    ("a stated colorization beats a weak read", item(7.0, "bw"),
-     item(9.0, "color", aid="silver-on-the-sage-1939-colorized"),                        False),
+    # Owner, 2026-09-30: a colorization is a VERSION of its film, never the
+    # default copy (test_colorized_versions.py holds the default).
+    ("a stated colorization is a version of its film", item(7.0, "bw"),
+     item(9.0, "color", aid="silver-on-the-sage-1939-colorized"),                        True),
 ]
 
 
@@ -42,8 +44,8 @@ COMPONENTS = [
      [item(7.1, "bw"), item(9.0, "color")], True),
     ("unmeasured mix still rejected (unchanged)",
      [item(None, "bw"), item(None, "color")], False),
-    ("stated colorization rejected even when marginal",
-     [item(7.0, "bw"), item(9.0, "color", aid="x-1939-colorized")], False),
+    ("a stated colorization joins its film's group",
+     [item(7.0, "bw"), item(9.0, "color", aid="x-1939-colorized")], True),
 ]
 
 

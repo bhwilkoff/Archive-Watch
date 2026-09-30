@@ -443,3 +443,6 @@ Open, found on the way: 293 served items are COLORIZED copies (Dracula, His Girl
 Friday, Stagecoach...), dated with the original film's year. A colorization is
 a new work; whether a fan's AI colorization or a commercial one (Legend Films,
 Hal Roach/CST) may be served is a rights call — asked of the owner.
+
+### W — colorized copies become versions (2026-09-30, owner, Decision 158)
+187 of 291 served colorized copies fold into their black-and-white film as a version and never win the card; 104 have no B&W copy served and stay their own card. test_colorized_versions.py in the gate (50/50).
