@@ -1082,6 +1082,12 @@ _BOILERPLATE_SENT = re.compile(
 # "I, Claudius..." and is not ours to edit. A sentence merely containing
 # "stars" or "we" is left alone ("The film stars Hope Hampton").
 _UPLOADER_VOICE = re.compile(
+    # A collector's warnings to would-be complainers (the Bill Sprague
+    # Collection, 65 served summaries on 2026-09-29): "Please no bad reviews",
+    # "Complainers are whisked off to their nearest urgent care center".
+    r"\b(?:please|stop|do not|don't|no)\s+(?:\w+\s+){0,4}?(?:complain\w*|negative)|complainers?\b"
+    r"|negative comments|bad reviews|nameless souls|crazy doctor|keep the site free|hate speech of any kind"
+    r"|bill sprague collection (?:thinks|does not|is not|asks|is happy|welcomes)|"
     r"copyright disclaimer|section 107|fair use|no copyright infringement"
     r"|special thanks|thanks? (you )?(to|for)|thank you"
     r"|included in our program|our program(me)? to illustrate|presented by silent hall of fame"

@@ -43,6 +43,15 @@ CASES = [
      "The best man at the wedding loses the ring and the bride's father chases him across the county fair."),
     ("I've been researching newly public domain films from 1929 and earlier, so I'm uploading the best copies.",
      None),
+    ("Leap Year with Roscoe Arbuckle. Complainers are whisked off to their nearest urgent care center.",
+     None),      # what is left is a title, not a synopsis
+    ("Harold Lloyd in Rainbow Island. Remember do not be insane, do not complain.",
+     None),
+    ("Harold Lloyd plays a young man who must prove himself to win the girl, and a runaway streetcar gives him his chance. Please no bad reviews or negative comments.",
+     "Harold Lloyd plays a young man who must prove himself to win the girl, and a runaway streetcar gives him his chance."),
+    # control: a plot in which somebody complains is a plot
+    ("Pvt. Snafu complains about being assigned to the infantry only to learn that other branches have their own problems.",
+     "Pvt. Snafu complains about being assigned to the infantry only to learn that other branches have their own problems."),
 ]
 
 

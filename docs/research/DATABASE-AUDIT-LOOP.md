@@ -262,6 +262,13 @@ tables, a scheduled workflow), never only in one published catalog.
   caught and re-applied; remediate now warns on any editorial id not in the
   catalog.
 
+- E6. ✅ Review batch (55): 26 rewritten, 1 removed (a disc-extraction how-to
+  with emoji), 24 titles fixed; a crude summary on an Oswald cartoon rewritten.
+  And the collector's rant is now a rule: the uploader-voice sanitizer drops
+  sentences warning off complainers ("Please no bad reviews", "Complainers are
+  whisked off to their nearest urgent care center") — 65 served summaries,
+  every build; tested with a control (Pvt. Snafu complains).
+
 ## Queue
 
 
