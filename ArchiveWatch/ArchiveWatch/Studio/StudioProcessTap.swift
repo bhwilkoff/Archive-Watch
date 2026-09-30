@@ -92,7 +92,9 @@ public final class StudioCallAudioTap: NSObject, @unchecked Sendable {
         }
         let cfg: [String: Any] = [
             kAudioAggregateDeviceNameKey as String: "Archive Watch Call Tap",
-            kAudioAggregateDeviceUIDKey as String: "app.archivewatch.calltap",
+            // ONE UID PER TAP: §D40 runs a tap per calling app at once, and two
+            // aggregate devices may not share a UID.
+            kAudioAggregateDeviceUIDKey as String: "app.archivewatch.calltap." + UUID().uuidString,
             kAudioAggregateDeviceMainSubDeviceKey as String: uid,
             kAudioAggregateDeviceIsPrivateKey as String: true,
             kAudioAggregateDeviceIsStackedKey as String: false,

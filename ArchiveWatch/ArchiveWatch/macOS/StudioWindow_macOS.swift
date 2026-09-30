@@ -39,7 +39,7 @@ final class StudioControls {
     var layout: StudioLayout = .corner {
         didSet {
             guard layout != oldValue else { return }
-            // CHOOSING A PLACEMENT GIVES YOU THAT PLACEMENT (§D14a).
+            // CHOOSING A PLACEMENT GIVES YOU THAT PLACEMENT (§D14a, §D40).
             //
             // The tile's rect is cleared, the zoom and pan are kept. §D14a
             // says framing "is not per-layout — the crop follows the person,
@@ -48,11 +48,14 @@ final class StudioControls {
             // placement's entire job, so a custom rect surviving the change
             // would make the picker look broken. A host who framed their face
             // keeps that face; a host who asks for "Side by side" gets it.
-            if framing.tile != nil {
-                var f = framing
-                f.tile = nil
-                framing = f
+            // §D40: every tile holding one of the placement's SEATS (the host
+            // and the call) is reset; a tile with no seat keeps its place,
+            // because no placement has anywhere else to put it.
+            var f = framings
+            for t in currentTiles where t.slot != .free && f[t.source]?.tile != nil {
+                f[t.source]?.tile = nil
             }
+            if f != framings { framings = f }
             StudioSession.shared.armLayout(layout)
             Task { await StudioSession.shared.setLayout(layout) }
         }
@@ -88,55 +91,87 @@ final class StudioControls {
         }
     }
 
-    /// §D14 — how the host sits in the show. Armed rather than set, so a
-    /// choice made before the engine exists is the one the show starts with.
-    var framing = StudioCameraFraming() {
-        didSet {
-            guard framing != oldValue else { return }
-            StudioSession.shared.armFraming(framing)
-        }
+    // MARK: §D40 — which sources this scene shows, and how each is framed
+
+    /// THE SCENE'S PEOPLE, back to front. Owner, 2026-09-30: *"You should be
+    /// able to have full control over which camera and call are on each
+    /// scene, just as you can do in OBS."* Scene-owned, like the placement —
+    /// who is on screen is what makes one scene another. Pictures only: the
+    /// microphone's and the calls' MUTES describe the person and no scene may
+    /// change them, so hiding a call never silences it.
+    var shown: [String] = [] {
+        didSet { guard shown != oldValue else { return }; pushTiles() }
     }
-    /// §D31 (2026-09-30) — WHO IS IN THIS SCENE. Owner: *"You should be able
-    /// to turn on or off the video from each scene."* Pictures only: the
-    /// microphone's and the call's MUTES describe the person and no scene may
-    /// change them. No `!= oldValue` guard, so a scene that re-applies the
-    /// value it already had still reaches the engine.
-    var cameraOn = true { didSet { pushPeople() } }
-    var callOn = true { didSet { pushPeople() } }
-    private func pushPeople() {
-        StudioSession.shared.armPeople(camera: cameraOn, call: callOn)
+    /// Each source's tile and crop (§D14a), by source id. Follows the show
+    /// or the scene per §D31's "Use the show's tiles".
+    var framings: [String: StudioCameraFraming] = [:] {
+        didSet { guard framings != oldValue else { return }; pushTiles() }
     }
-    /// Whether the host's picture is a TILE in what the engine is drawing —
-    /// the question the preview's handles ask. On a card it is always a tile
-    /// (in the right-hand column), whatever the placement.
-    var cameraTileShown: Bool {
-        cameraOn && (card != nil ? true : layout.cameraIsTile)
+    /// The tiles the engine is told to draw — one derivation, used by the
+    /// push, the placement reset and the preview alike.
+    var currentTiles: [StudioTile] {
+        StudioComposition.tiles(shown: shown, framings: framings, sources: StudioSources.shared.list)
     }
+    /// Armed rather than set, so a scene chosen before the engine exists is
+    /// the one the show starts with.
+    func pushTiles() {
+        StudioSession.shared.armTiles(currentTiles)
+    }
+
+    func isShown(_ id: String) -> Bool { shown.contains(id) }
+    func setShown(_ id: String, _ on: Bool) {
+        shown = StudioComposition.setting(id, shown: on, in: shown)
+        if on { selectedTile = id }
+    }
+    func move(_ id: String, _ move: StudioComposition.LayerMove) {
+        shown = StudioComposition.moving(id, move, in: shown)
+    }
+    /// A source that has left the Sources list leaves the controls too.
+    func forget(_ id: String) {
+        shown.removeAll { $0 == id }
+        framings[id] = nil
+        if selectedTile == id { selectedTile = nil }
+    }
+
+    /// The source list's first camera and first call — the two framings every
+    /// path written before §D40 means by "the camera" and "the guests".
+    var framing: StudioCameraFraming {
+        get { StudioSources.shared.primaryCameraID.flatMap { framings[$0] } ?? StudioCameraFraming() }
+        set { if let id = StudioSources.shared.primaryCameraID { framings[id] = newValue } }
+    }
+    var guestFraming: StudioCameraFraming {
+        get { StudioSources.shared.primaryCallID.flatMap { framings[$0] } ?? StudioCameraFraming() }
+        set { if let id = StudioSources.shared.primaryCallID { framings[id] = newValue } }
+    }
+
     /// The switches mean nothing on "Film only" with no card up: that
     /// placement is named for having nobody in it.
     var peopleSwitchesApply: Bool { card != nil || layout != .film }
 
-    /// §D24 — the guests' framing, same type, separate value.
-    var guestFraming = StudioCameraFraming() {
-        didSet {
-            guard guestFraming != oldValue else { return }
-            StudioSession.shared.armGuestFraming(guestFraming)
-        }
+    /// The host-seat camera when the placement makes it the GROUND — drawn
+    /// under the film, the whole frame, not movable (§D14).
+    var groundTile: String? {
+        guard card == nil, layout.cameraIsBackground else { return nil }
+        return currentTiles.first { $0.slot == .camera }?.source
     }
+
     /// WHICH TILE THE HANDLES DRIVE. One box at a time: two sets of handles
-    /// would make a drag ambiguous wherever the tiles overlap, and §D23
-    /// stacks them deliberately in one column.
-    var framingTarget: StudioFramingTarget = .camera
+    /// would make a drag ambiguous wherever tiles overlap. Nil = the scene's
+    /// host seat, or failing that its front tile.
+    var selectedTile: String?
+    var framedTile: String? {
+        let tiles = currentTiles
+        if let id = selectedTile, tiles.contains(where: { $0.source == id }) { return id }
+        return tiles.first { $0.slot == .camera }?.source ?? tiles.last?.source
+    }
 
     /// The framing the handles are currently driving. The gesture code reads
     /// and writes THIS and never names a tile — otherwise every drag, resize,
     /// crop, zoom and pan would need its own `if target ==` and the sixth one
     /// would be the one somebody forgets (Decision 133).
     var activeFraming: StudioCameraFraming {
-        get { framingTarget == .camera ? framing : guestFraming }
-        set {
-            if framingTarget == .camera { framing = newValue } else { guestFraming = newValue }
-        }
+        get { framedTile.flatMap { framings[$0] } ?? StudioCameraFraming() }
+        set { if let id = framedTile { framings[id] = newValue } }
     }
     /// WHICH CARD THE HOST HAS CHOSEN, which is not the same as which card is
     /// ON AIR — and conflating the two made the free-text card unreachable.
@@ -254,9 +289,9 @@ final class StudioControls {
     }
 
     private init() {
-        // macOS always states both switches; nil ("the placement decides")
-        // is for the platforms that have no scenes.
-        StudioSession.shared.armPeople(camera: cameraOn, call: callOn)
+        // The Mac always states its tiles; nil (the one-camera arrangement)
+        // is for the platforms that have no Sources list.
+        StudioSession.shared.armTiles([])
     }
 }
 
@@ -448,7 +483,7 @@ struct StudioWindowView: View {
     @State private var cameras: [StudioDevices.Device] = []
     @State private var microphones: [StudioDevices.Device] = []
     @State private var callApps: [StudioAudioProcesses.Process] = []
-    @State private var guestIsBrowser = false
+    @Bindable private var sources = StudioSources.shared
     @State private var previewRefusal: String?
     @Environment(AppStore.self) private var store
     @Environment(AppRouter.self) private var router
@@ -512,8 +547,8 @@ struct StudioWindowView: View {
             refreshAccess()
             // A window changed from macOS's own sharing controls, or from the
             // picker again, replaces the call's tile (§D23b).
-            StudioCallPicker.shared.onChange = { filter in
-                Task { _ = await StudioSession.shared.startGuests(filter: filter) }
+            StudioCallPicker.shared.onChange = { filter, streamID in
+                Task { await StudioSession.shared.replaceCall(streamID: streamID, filter: filter) }
             }
             #if DEBUG
             // AW_STUDIO_WINDOW_SIZE=1120x660 — size the Studio window, so a
@@ -858,30 +893,28 @@ struct StudioWindowView: View {
                 // never on a re-derivation of the layout in this view — the
                 // "two descriptions of one picture" Decision 133 keeps
                 // finding.
-                // §D24 — the OTHER tile is clickable where it is, so the
-                // host frames their guests by clicking the guests.
-                if studio.isLive, controls.framingTarget == .camera,
-                   let tile = studio.health.guestTile {
-                    StudioTileSelector(tile: tile, programAspect: StudioOutputSettings.programAspect,
-                                       help: "Frame your guests") { controls.framingTarget = .guests }
-                }
-                if studio.isLive, controls.framingTarget == .guests,
-                   controls.cameraTileShown, let tile = studio.health.cameraTile {
-                    StudioTileSelector(tile: tile, programAspect: StudioOutputSettings.programAspect,
-                                       help: "Frame yourself") { controls.framingTarget = .camera }
-                }
-                if studio.isLive, controls.framingTarget == .camera,
-                   controls.cameraTileShown,
-                   let tile = studio.health.cameraTile {
-                    StudioTileHandles(tile: tile,
-                                      programAspect: StudioOutputSettings.programAspect,
-                                      controls: controls)
-                }
-                if studio.isLive, controls.framingTarget == .guests,
-                   let tile = studio.health.guestTile {
-                    StudioTileHandles(tile: tile,
-                                      programAspect: StudioOutputSettings.programAspect,
-                                      controls: controls)
+                // §D24, §D40 — EVERY OTHER tile is clickable where it is, so
+                // the host frames a person by clicking that person. One set of
+                // handles at a time: two would make a drag ambiguous wherever
+                // tiles overlap.
+                if studio.isLive {
+                    // The GROUND camera ("You, with the film inset") is the
+                    // whole frame and cannot be moved (§D14), so it carries
+                    // neither handles nor an outline.
+                    let framed = controls.framedTile.flatMap { $0 == controls.groundTile ? nil : $0 }
+                    ForEach(studio.health.tileRects.keys.sorted()
+                                .filter { $0 != framed && $0 != controls.groundTile }, id: \.self) { id in
+                        if let tile = studio.health.tileRects[id] {
+                            StudioTileSelector(tile: tile, programAspect: StudioOutputSettings.programAspect,
+                                               help: "Frame \(sources.name(id))") { controls.selectedTile = id }
+                        }
+                    }
+                    if let framed, let tile = studio.health.tileRects[framed] {
+                        StudioTileHandles(tile: tile,
+                                          programAspect: StudioOutputSettings.programAspect,
+                                          label: sources.name(framed),
+                                          controls: controls)
+                    }
                 }
                 if !studio.isLive { programIdle }
             }
@@ -1079,27 +1112,11 @@ struct StudioWindowView: View {
                 }
             }
 
-            // EVERY INPUT IS NAMED, AND ITS DEVICE IS CHOSEN (§D2).
-            //
-            // This Mac reports FOUR cameras — the built-in FaceTime camera,
-            // two virtual ones, and the host's iPhone over Continuity — and
-            // `AVCaptureDevice.default` silently took the first of them. A
-            // host who wanted their phone as the camera had no way to say so.
-            deviceRow(role: "Camera", icon: "video",
-                      media: .video,
-                      devices: cameras,
-                      selection: Binding(
-                        get: { StudioDevices.chosenCameraID ?? "" },
-                        set: { id in changeDevice { StudioDevices.chosenCameraID = id.isEmpty ? nil : id } }),
-                      state: health.cameraAttached
-                        ? (health.cameraFramesReceived == 0
-                           ? "starting"
-                           : (studio.cameraFramesPerSecond > 0
-                              ? "\(studio.cameraFramesPerSecond) fps"
-                              : "stopped"))
-                        : (studio.isLive ? "not attached" : "ready"),
-                      healthy: !health.cameraAttached || health.cameraFramesReceived == 0
-                        || studio.cameraFramesPerSecond > 0)
+            // §D40 — THE SHOW'S CAMERAS, as many as the host adds. Each is
+            // its own source with its own device (§D2: every input is named
+            // and its device chosen), and every scene picks which of them it
+            // shows under On screen.
+            camerasSection
 
             deviceRow(role: "Microphone", icon: "mic",
                       media: .audio,
@@ -1121,67 +1138,204 @@ struct StudioWindowView: View {
             // learns which device produced those pixels. A host whose webcam
             // is pointing at the wall can now fix it mid-show.
 
-            // §D23b — YOUR CALL: one choice, in macOS's own picker. The window
-            // chosen there is the guests' tile and its app is the call's
-            // sound (§D25), so the host never matches an app name to a
-            // window ("which Chrome window?"), and nothing here lists windows
-            // — which is what needed Screen Recording. Decision 131's third
-            // mode: the call runs in the app they already use.
-            VStack(alignment: .leading, spacing: 5) {
-                inputRow(name: "Your call",
-                         role: studio.guestWindowLabel == nil ? "A window" : "Picture and sound",
-                         state: studio.guestWindowLabel == nil ? "not chosen"
-                                : (studio.guestProblem != nil ? "stopped"
-                                   : (!studio.health.guestsAttached ? "starting"
-                                      : (studio.guestFramesPerSecond > 0
-                                         ? "\(studio.guestFramesPerSecond) fps" : "live, still"))),
-                         healthy: studio.guestWindowLabel == nil
-                                  || (studio.guestProblem == nil && studio.health.guestsAttached),
-                         icon: "person.2")
-                if let label = studio.guestWindowLabel {
-                    Text(label).font(.caption).lineLimit(2)
-                        .fixedSize(horizontal: false, vertical: true)
-                    Label(studio.callAppName.map { "Sound from \($0)" } ?? "No sound captured",
-                          systemImage: studio.callAppName == nil ? "speaker.slash" : "speaker.wave.2")
-                        .font(.caption)
-                        .foregroundStyle(studio.callAppName != nil && studio.callProblem == nil
-                                         ? .secondary : Color.orange)
-                }
-                HStack(spacing: 12) {
-                    Button(studio.guestWindowLabel == nil ? "Choose your call…" : "Choose another window…") {
-                        StudioCallPicker.shared.present { filter in
-                            let bundle = filter.includedWindows.first?.owningApplication?.bundleIdentifier ?? ""
-                            Task {
-                                if await studio.startGuests(filter: filter) {
-                                    guestIsBrowser = StudioCallApps.kind(bundleID: bundle) == .browser
-                                    // §D31 (2026-09-30): choosing a call turns
-                                    // it on in THIS scene and keeps the
-                                    // placement — unless that placement is
-                                    // "Film only", which has nobody in it.
-                                    controls.callOn = true
-                                    if controls.layout == .film { controls.layout = .corner }
-                                }
-                            }
-                        }
-                    }
-                    .font(.caption).fixedSize()
-                    if studio.guestWindowLabel != nil {
-                        Button("Stop showing them") { studio.stopGuests() }
-                            .font(.caption).buttonStyle(.borderless).fixedSize()
-                    }
-                }
-                if studio.guestWindowLabel != nil, guestIsBrowser {
-                    Text(StudioCallApps.browserWarning).font(.caption2).foregroundStyle(.orange)
-                        .fixedSize(horizontal: false, vertical: true)
-                }
-                ForEach([studio.guestProblem, studio.guestStall, studio.callProblem,
-                         StudioCallPicker.shared.problem]
-                            .compactMap { $0 }, id: \.self) { why in
-                    Text(why).font(.caption2).foregroundStyle(.orange)
-                        .fixedSize(horizontal: false, vertical: true)
+            // §D40 — THE SHOW'S CALLS. Each is one window chosen in macOS's
+            // own picker (§D23b) and its app's sound (§D25). Nothing here
+            // lists windows — which is what needed Screen Recording.
+            callsSection
+        }
+    }
+
+    // MARK: §D40 — Sources
+
+    @ViewBuilder
+    private var camerasSection: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            HStack(alignment: .firstTextBaseline, spacing: 9) {
+                Image(systemName: "video").frame(width: 16).foregroundStyle(.secondary)
+                Text("Cameras").font(.subheadline.weight(.medium))
+                Spacer(minLength: 6)
+                if cameraAccess != .granted {
+                    Text(accessState(cameraAccess, devices: cameras, running: ""))
+                        .font(.caption).foregroundStyle(.orange)
                 }
             }
+            accessButton(cameraAccess, media: .video)
+            ForEach(sources.cameras) { ref in cameraRow(ref) }
+            if sources.cameras.isEmpty {
+                // A REFUSAL, not a description: Go Live says the same (Decision 138).
+                Text("Going live needs a camera — you are the show.")
+                    .font(.caption2).foregroundStyle(.orange)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            Menu("Add Camera") {
+                ForEach(addableCameras) { d in
+                    Button(d.name) {
+                        let id = sources.addCamera(deviceID: d.id)
+                        // A NEW SOURCE ARRIVES IN THE SCENE ON SCREEN — the
+                        // host added it to see it — and in no other.
+                        controls.setShown(id, true)
+                        if controls.layout == .film, controls.card == nil { controls.layout = .corner }
+                        if studio.isLive { Task { await studio.rebuildCamera(id) } }
+                    }
+                }
+            }
+            .menuStyle(.borderlessButton)
+            .font(.caption)
+            .fixedSize()
+            .disabled(cameraAccess != .granted || addableCameras.isEmpty)
+            .help(addableCameras.isEmpty && cameraAccess == .granted
+                  ? "Every camera on this Mac is already in the show." : "")
+        }
+    }
 
+    /// Cameras not already in the show: one device, one source — two
+    /// sessions on one camera would fight over it.
+    private var addableCameras: [StudioDevices.Device] {
+        let used = Set(sources.cameras.map { $0.deviceID
+            ?? cameras.first(where: \.isDefault)?.id ?? "" })
+        return cameras.filter { !used.contains($0.id) }
+    }
+
+    private func cameraRow(_ ref: StudioSourceRef) -> some View {
+        let running = studio.cameraIsRunning(ref.id)
+        let rate = studio.cameraRates[ref.id] ?? 0
+        let stall = studio.cameraStalls[ref.id]
+        let problem = studio.cameraProblem(ref.id)
+        let state = !studio.isLive ? "ready"
+            : (!running ? "not running" : (rate > 0 ? "\(rate) fps" : (stall == nil ? "starting" : "stopped")))
+        let otherDevices = Set(sources.cameras.filter { $0.id != ref.id }.compactMap(\.deviceID))
+        return VStack(alignment: .leading, spacing: 4) {
+            HStack(alignment: .firstTextBaseline) {
+                Text(sources.cameraName(ref)).font(.callout)
+                    .fixedSize(horizontal: false, vertical: true)
+                Spacer(minLength: 6)
+                Text(state).font(.caption).monospacedDigit()
+                    .foregroundStyle(studio.isLive && (!running || stall != nil) ? Color.orange : .secondary)
+                    .fixedSize()
+            }
+            Picker(sources.cameraName(ref), selection: Binding(
+                get: { ref.deviceID ?? "" },
+                set: { sources.setDevice(ref.id, $0.isEmpty ? nil : $0) })) {
+                if ref.id == sources.primaryCameraID || ref.deviceID == nil {
+                    Text("System default").tag("")
+                }
+                ForEach(cameras.filter { !otherDevices.contains($0.id) }) { d in
+                    Text(d.name).tag(d.id)
+                }
+            }
+            .labelsHidden()
+            .disabled(cameraAccess != .granted)
+            Button("Remove") { sources.remove(ref.id) }
+                .font(.caption).buttonStyle(.borderless).fixedSize()
+            // §D40's second answer: a camera that drops is said in ONE line.
+            if let why = stall ?? (studio.isLive ? problem : nil) {
+                Text(why).font(.caption2).foregroundStyle(.orange)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+    }
+
+    @ViewBuilder
+    private func accessButton(_ access: StudioSession.CaptureAccess, media: AVMediaType) -> some View {
+        switch access {
+        case .notAsked:
+            Button(media == .video ? "Allow the camera" : "Allow the microphone") {
+                Task {
+                    _ = await studio.requestCaptureAccess()
+                    refreshAccess()
+                    refreshDevices()
+                }
+            }
+            .font(.caption).fixedSize()
+        case .denied, .restricted:
+            Button("Open System Settings") {
+                // The one place macOS lets an app send a host to its own
+                // privacy pane. There is no API to re-ask once denied.
+                let pane = media == .video ? "Privacy_Camera" : "Privacy_Microphone"
+                if let u = URL(string: "x-apple.systempreferences:com.apple.preference.security?\(pane)") {
+                    NSWorkspace.shared.open(u)
+                }
+            }
+            .font(.caption).fixedSize()
+        case .granted:
+            EmptyView()
+        }
+    }
+
+    @ViewBuilder
+    private var callsSection: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            HStack(alignment: .firstTextBaseline, spacing: 9) {
+                Image(systemName: "person.2").frame(width: 16).foregroundStyle(.secondary)
+                Text("Calls").font(.subheadline.weight(.medium))
+            }
+            ForEach(sources.calls) { ref in callRow(ref) }
+            Button("Add Call…") {
+                StudioCallPicker.shared.present { filter in
+                    let id = sources.addCall()
+                    chooseWindow(filter, for: id)
+                }
+            }
+            .font(.caption).fixedSize()
+            if let why = StudioCallPicker.shared.problem {
+                Text(why).font(.caption2).foregroundStyle(.orange)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+    }
+
+    /// A window chosen for a call source: capture it, and put it in THIS
+    /// scene — unless the scene is "Film only", which shows nobody (§D31).
+    private func chooseWindow(_ filter: SCContentFilter, for id: String) {
+        Task {
+            if await studio.startCall(id, filter: filter) {
+                controls.setShown(id, true)
+                if controls.layout == .film, controls.card == nil { controls.layout = .corner }
+            }
+        }
+    }
+
+    private func callRow(_ ref: StudioSourceRef) -> some View {
+        let label = studio.callLabel(ref.id)
+        let running = studio.callIsRunning(ref.id)
+        let rate = studio.callRates[ref.id] ?? 0
+        let problem = studio.callProblem(ref.id)
+        let stall = studio.callStalls[ref.id]
+        let soundApp = studio.callSoundApp(ref.id)
+        let soundProblem = studio.callSoundProblems[ref.id]
+        let isBrowser = studio.callBundleIDs[ref.id].map {
+            StudioCallApps.kind(bundleID: $0) == .browser } ?? false
+        return VStack(alignment: .leading, spacing: 5) {
+            inputRow(name: label ?? sources.name(ref.id),
+                     role: label == nil ? "A window" : "Picture and sound",
+                     state: label == nil ? "not chosen"
+                            : (problem != nil ? "stopped"
+                               : (!running ? "starting"
+                                  : (rate > 0 ? "\(rate) fps" : "live, still"))),
+                     healthy: label == nil || (problem == nil && running),
+                     icon: "person.2")
+            if label != nil {
+                Label(soundApp.map { "Sound from \($0)" } ?? "No sound captured",
+                      systemImage: soundApp == nil ? "speaker.slash" : "speaker.wave.2")
+                    .font(.caption)
+                    .foregroundStyle(soundApp != nil ? .secondary : Color.orange)
+            }
+            HStack(spacing: 12) {
+                Button(label == nil ? "Choose Window…" : "Choose Another Window…") {
+                    StudioCallPicker.shared.present { filter in chooseWindow(filter, for: ref.id) }
+                }
+                .font(.caption).fixedSize()
+                Button("Remove") { sources.remove(ref.id) }
+                    .font(.caption).buttonStyle(.borderless).fixedSize()
+            }
+            if label != nil, isBrowser {
+                Text(StudioCallApps.browserWarning).font(.caption2).foregroundStyle(.orange)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            ForEach([problem, stall, soundProblem].compactMap { $0 }, id: \.self) { why in
+                Text(why).font(.caption2).foregroundStyle(.orange)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
         }
     }
 
@@ -1209,15 +1363,9 @@ struct StudioWindowView: View {
                             id: \.self) { Text($0.label).tag($0) }
                 }
                 .labelsHidden()
-                // §D31 (2026-09-30) — per scene, like the placement.
-                HStack(spacing: 16) {
-                    Toggle("Camera", isOn: $controls.cameraOn)
-                    Toggle("Call", isOn: $controls.callOn)
-                }
-                .fixedSize()
-                .disabled(!controls.peopleSwitchesApply)
-                .help(controls.peopleSwitchesApply ? "" : "Film only shows no one.")
             }
+            // §D40 — WHO IS IN THIS SCENE, per scene like the placement.
+            sceneSources
 
             // §D14 — HOW THE HOST SITS IN IT. Below Placement, because the
             // preset decides the arrangement and this is how you fit yourself
@@ -1264,6 +1412,54 @@ struct StudioWindowView: View {
             }
         }
     }
+    // MARK: §D40 — the scene's sources
+
+    /// Every source in the show, the scene's own FRONT FIRST (OBS's sources
+    /// list reads top = front), then the ones it does not show. A checkbox
+    /// puts a source in the scene; the Arrange menu on a shown one changes
+    /// its layer. Each row carries the one line that says why a shown source
+    /// has no picture, when it has none.
+    @ViewBuilder
+    private var sceneSources: some View {
+        let shownFrontFirst = Array(controls.shown.reversed()).filter { sources.source($0) != nil }
+        let rest = sources.list.map(\.id).filter { !controls.shown.contains($0) }
+        VStack(alignment: .leading, spacing: 5) {
+            Text("In this scene").font(.subheadline.weight(.semibold))
+            if sources.list.isEmpty {
+                Text("Add a camera or a call under Inputs.")
+                    .font(.caption2).foregroundStyle(.secondary)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            ForEach(shownFrontFirst + rest, id: \.self) { id in
+                VStack(alignment: .leading, spacing: 2) {
+                    Toggle(sources.name(id), isOn: Binding(
+                        get: { controls.isShown(id) },
+                        set: { controls.setShown(id, $0) }))
+                        .lineLimit(2)
+                        .contextMenu { if controls.isShown(id) { arrangeItems(id) } }
+                    if controls.isShown(id), let why = sources.missingPicture(id) {
+                        Text(why).font(.caption2).foregroundStyle(.orange)
+                            .fixedSize(horizontal: false, vertical: true)
+                            .padding(.leading, 20)
+                    }
+                }
+            }
+        }
+        .disabled(!controls.peopleSwitchesApply)
+        .help(controls.peopleSwitchesApply ? "" : "Film only shows no one.")
+    }
+
+    /// Keynote's Arrange verbs, for a tile's layer.
+    @ViewBuilder
+    private func arrangeItems(_ id: String) -> some View {
+        let i = controls.shown.firstIndex(of: id) ?? 0
+        let last = controls.shown.count - 1
+        Button("Bring to Front") { controls.move(id, .front) }.disabled(i == last)
+        Button("Bring Forward") { controls.move(id, .forward) }.disabled(i == last)
+        Button("Send Backward") { controls.move(id, .backward) }.disabled(i == 0)
+        Button("Send to Back") { controls.move(id, .back) }.disabled(i == 0)
+    }
+
     // MARK: Chat (§D22)
 
     /// THREE CONTROLS, because chat is the only text in this app written by
@@ -1329,13 +1525,14 @@ struct StudioWindowView: View {
     /// says what the gestures are and offers the way back.
     @ViewBuilder
     private var cameraFraming: some View {
-        // §D24 — the guests' tile is framed exactly as the host's is, so
+        // §D24, §D40 — every tile is framed exactly as the host's is, so
         // everything below reads `activeFraming` and the picker decides which
         // tile that is. A second copy of this section would be a second place
         // to fix the next gesture bug.
-        let showingGuests = controls.framingTarget == .guests
-        let tiled = showingGuests ? studio.health.guestTile != nil
-                                  : controls.cameraTileShown
+        let framed = controls.framedTile
+        let tiles = controls.currentTiles
+        let drawn = framed.flatMap { studio.health.tileRects[$0] } != nil
+        let isGround = framed != nil && framed == controls.groundTile
         VStack(alignment: .leading, spacing: 6) {
             HStack(alignment: .firstTextBaseline) {
                 Text("Framing").font(.subheadline.weight(.semibold))
@@ -1347,45 +1544,46 @@ struct StudioWindowView: View {
                 }
             }
             // Offered only when there IS a second tile to frame — a picker
-            // with one real option is furniture.
-            if studio.guestWindowLabel != nil {
-                Picker("Framing", selection: $controls.framingTarget) {
-                    ForEach(StudioFramingTarget.allCases, id: \.self) { Text($0.label).tag($0) }
+            // with one real option is furniture. It is also the keyboard's
+            // way to the tile a click on the preview selects.
+            if tiles.count > 1 {
+                Picker("Tile", selection: Binding(
+                    get: { framed ?? "" },
+                    set: { controls.selectedTile = $0.isEmpty ? nil : $0 })) {
+                    ForEach(tiles.reversed()) { t in Text(sources.name(t.source)).tag(t.source) }
                 }
-                .pickerStyle(.segmented).labelsHidden()
+                .labelsHidden()
             }
 
             if !studio.isLive {
-                Text(showingGuests ? "Start the preview to frame your guests."
-                                   : "Start the preview to frame yourself.")
+                Text("Start the preview to frame the people in this scene.")
                     .font(.caption2).foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
-            } else if showingGuests && studio.health.guestTile == nil {
-                Text("Choose a window under Inputs to show your guests.")
+            } else if tiles.isEmpty {
+                Text(controls.layout == .film && controls.card == nil
+                     ? "No one in this placement." : "No one is in this scene.")
                     .font(.caption2).foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
-            } else if tiled {
-                // ONE SENTENCE, NOT A FIVE-ROW TABLE (§D20). The table read as
-                // documentation and cost four rows of the column, which was
-                // exactly the distance by which the NEXT panel below it fell
-                // off the bottom of the window. A legend for a direct-
-                // manipulation gesture is read once; the control it explains is
-                // reached during a show.
-                Text("Drag inside the box to move it, a corner to resize, an edge to crop to "
-                     + (showingGuests ? "your guests' faces" : "your face")
-                     + "; scroll inside it to zoom."
+            } else if drawn && !isGround {
+                // ONE SENTENCE, NOT A FIVE-ROW TABLE (§D20). A legend for a
+                // direct-manipulation gesture is read once; the control it
+                // explains is reached during a show.
+                Text("Drag inside the box to move it, a corner to resize, an edge to crop; "
+                     + "scroll inside it to zoom."
                      + (controls.activeFraming.zoom > 1
                         ? " Hold \u{2325} and drag to pan what you have zoomed into." : ""))
                     .font(.caption2).foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
-            } else if controls.layout == .film {
-                Text("No camera in this placement.")
-                    .font(.caption2).foregroundStyle(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
-            } else {
-                Text("Scroll over the stream to zoom; hold \u{2325} to pan.")
-                    .font(.caption2).foregroundStyle(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
+            }
+            // LAYER ORDER for the tile being framed (§D40), as full words.
+            // Two buttons that fit the column; the other two verbs are on the
+            // row's own menu under "In this scene".
+            if let framed, controls.shown.count > 1 {
+                let i = controls.shown.firstIndex(of: framed) ?? 0
+                ViewThatFits(in: .horizontal) {
+                    HStack(spacing: 12) { layerButtons(framed, index: i) }
+                    VStack(alignment: .leading, spacing: 4) { layerButtons(framed, index: i) }
+                }
             }
 
             // THE NUMBERS ARE SHOWN, NOT EDITED. OBS pairs its canvas with an
@@ -1397,6 +1595,16 @@ struct StudioWindowView: View {
                     .font(.caption2).monospacedDigit().foregroundStyle(.secondary)
             }
         }
+    }
+
+    @ViewBuilder
+    private func layerButtons(_ id: String, index i: Int) -> some View {
+        Button("Bring Forward") { controls.move(id, .forward) }
+            .disabled(i == controls.shown.count - 1)
+            .font(.caption).buttonStyle(.borderless).fixedSize()
+        Button("Send Backward") { controls.move(id, .backward) }
+            .disabled(i == 0)
+            .font(.caption).buttonStyle(.borderless).fixedSize()
     }
 
     private var framingReadout: String {
@@ -1579,7 +1787,7 @@ struct StudioWindowView: View {
                 // legitimate reading (a quiet room); no SAMPLES at all is an
                 // absence, and a still meter draws them identically.
                 if studio.callDeliveringNothing {
-                    Text("No audio is arriving from \(studio.callAppName ?? "that app"). macOS may not be allowing Archive Watch to capture it \u{2014} check Privacy & Security \u{25B8} Audio Recording.")
+                    Text("No audio is arriving from \(studio.silentCallApp ?? "that app"). macOS may not be allowing Archive Watch to capture it \u{2014} check Privacy & Security \u{25B8} Audio Recording.")
                         .font(.caption2).foregroundStyle(.orange)
                         .fixedSize(horizontal: false, vertical: true)
                 }

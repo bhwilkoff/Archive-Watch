@@ -185,6 +185,15 @@ public enum StudioLayout: String, CaseIterable, Sendable {
         // THE REAL SHAPE, not a guess: a WIDER window makes a SHORTER tile, and
         // a guessed 16:9 under-estimated a 4:3 call by 63 px (§8.42).
         if let callTile { obstacles.append(callTile) }
+        return Self.chatAvoiding(m, obstacles: obstacles, in: size)
+    }
+
+    /// The chat column shortened clear of every obstacle it meets, or nil
+    /// when what is left is too short to hold a line. The one place this is
+    /// decided — `chatRect` above and §D40's extra tiles both ask it.
+    public static func chatAvoiding(_ rect: CGRect, obstacles: [CGRect],
+                                    in size: CGSize) -> CGRect? {
+        var m = rect
         let gap = size.height * 0.02
         for o in obstacles where m.intersects(o) {
             if o.midY >= m.midY {
@@ -473,6 +482,130 @@ public struct StudioCameraFraming: Sendable, Equatable, Codable {
     }
 }
 
+// MARK: - §D40 — the show's sources, and each scene's tiles
+
+/// Where a tile STARTS before the host moves it (macOS-DESIGN §D40).
+///
+/// The placement (§4) still decides where "the host" and "the call" go; a
+/// show with more people than that has no preset seat for them, so every
+/// further source starts in a column of its own and the host drags it where
+/// they want. `camera` and `call` are honored ONCE each — the first tile that
+/// names them — and any other tile naming them is placed as `free`.
+public enum StudioTileSlot: String, Sendable, Codable {
+    case camera, call, free
+}
+
+/// One PERSON TILE in a scene: which source, where it starts, how it is
+/// framed. A scene's tiles are an ARRAY and the array is the layer order —
+/// the first is drawn first, so the last is in front (OBS's sources list,
+/// read bottom to top).
+///
+/// `framing` is §D14a's value exactly: `tile` nil means "wherever the slot
+/// puts it", and zoom/pan crop the SOURCE inside the box.
+public struct StudioTile: Sendable, Equatable, Codable, Identifiable {
+    public var source: String
+    public var slot: StudioTileSlot
+    public var framing: StudioCameraFraming
+    public var id: String { source }
+    public init(source: String, slot: StudioTileSlot, framing: StudioCameraFraming = StudioCameraFraming()) {
+        self.source = source; self.slot = slot; self.framing = framing
+    }
+}
+
+/// THE ARRANGEMENT RULE, as a pure function so it can be tested without a
+/// renderer (§8.74). The renderer draws exactly what this returns.
+public enum StudioTileLayout {
+    public struct Placed: Sendable, Equatable {
+        public let source: String
+        /// Program pixels, origin bottom-left.
+        public let rect: CGRect
+        /// Drawn UNDER the film — the host's camera in "You, with the film
+        /// inset", where the camera is the ground (§D14).
+        public let ground: Bool
+        public let framing: StudioCameraFraming
+    }
+    public struct Result: Sendable, Equatable {
+        public var film: CGRect
+        /// Bottom first: grounds, then every other tile in the scene's order.
+        public var placed: [Placed]
+        /// What the chat column and the call's seat are derived from.
+        public var cameraAspect: CGFloat
+        public var callAspect: CGFloat?
+        public var hasCall: Bool
+    }
+
+    /// - Parameter aspect: the source's picture shape, or nil when it has no
+    ///   picture — unplugged, removed, a call whose window has gone. A source
+    ///   with no picture DRAWS NOTHING: never a black box, never a frozen
+    ///   still, never a crash.
+    public static func place(_ tiles: [StudioTile], layout: StudioLayout, onCard: Bool,
+                             size: CGSize, aspect: (String) -> CGFloat?) -> Result {
+        let full = CGRect(origin: .zero, size: size)
+        // A CARD IS THE GROUND and the people sit in the right-hand column
+        // over it, exactly where `corner` puts them on the film (§D31).
+        let placement: StudioLayout = onCard ? .corner : layout
+        var seen = Set<String>()
+        var live: [(StudioTile, CGFloat)] = []
+        for t in tiles where !seen.contains(t.source) {
+            seen.insert(t.source)
+            if let a = aspect(t.source), a > 0 { live.append((t, a)) }
+        }
+        let cam = live.first { $0.0.slot == .camera }
+        let call = live.first { $0.0.slot == .call }
+        let camAspect = cam?.1 ?? 16.0 / 9.0
+        // "Film only" is named for having nobody in it.
+        guard placement != .film else {
+            return Result(film: full, placed: [], cameraAspect: camAspect,
+                          callAspect: call?.1, hasCall: false)
+        }
+        let callPreset = call.flatMap {
+            placement.callRect(in: size, cameraAspect: camAspect, guestAspect: $0.1)
+        }
+        let (film, camPreset) = placement.rects(in: size, cameraAspect: camAspect,
+                                                withCall: callPreset != nil)
+        var grounds: [Placed] = [], over: [Placed] = []
+        var extra = 0
+        for (t, a) in live {
+            if t.source == cam?.0.source, let camPreset {
+                if placement.cameraIsBackground {
+                    // The ground cannot be moved: there is nowhere to move a
+                    // full frame TO (§D14). Its crop still applies.
+                    grounds.append(Placed(source: t.source, rect: camPreset, ground: true,
+                                          framing: t.framing))
+                } else {
+                    over.append(Placed(source: t.source,
+                                       rect: t.framing.apply(to: camPreset, in: size),
+                                       ground: false, framing: t.framing))
+                }
+                continue
+            }
+            let preset: CGRect
+            if t.source == call?.0.source, let callPreset {
+                preset = callPreset
+            } else {
+                preset = fallbackRect(index: extra, aspect: a, in: size)
+                extra += 1
+            }
+            over.append(Placed(source: t.source, rect: t.framing.apply(to: preset, in: size),
+                               ground: false, framing: t.framing))
+        }
+        return Result(film: film, placed: grounds + over, cameraAspect: camAspect,
+                      callAspect: call?.1, hasCall: callPreset != nil)
+    }
+
+    /// Where a source with no preset seat starts: a column down the TOP-LEFT,
+    /// clear of the host and the call on the right and of the lower third at
+    /// the bottom-left. The host drags it from there.
+    public static func fallbackRect(index: Int, aspect: CGFloat, in size: CGSize) -> CGRect {
+        let inset = size.width * 0.05
+        let gap = size.height * 0.02
+        let w = size.width * 0.20
+        let h = min(w / max(aspect, 0.1), size.height * 0.30)
+        let y = size.height - inset - h - CGFloat(index) * (h + gap)
+        return CGRect(x: inset, y: max(0, y), width: w, height: h)
+    }
+}
+
 /// What the program draws over the film: the catalog's own verified data
 /// (§2.1 — the audience learns what the film IS).
 public struct StudioOverlay: Sendable, Equatable {
@@ -652,6 +785,10 @@ public struct StudioHealth: Sendable, Equatable {
     /// Where the call's tile landed (§D24), so the handles sit on the rect
     /// the compositor USED rather than a re-derivation in the view.
     public var guestTile: CGRect?
+    /// §D40 — where EVERY person tile landed in the last composed frame,
+    /// normalized, keyed by source. A source that drew nothing is absent, so
+    /// the Mac preview never puts handles on a tile the audience cannot see.
+    public var tileRects: [String: CGRect] = [:]
     public var thermalState: String = "nominal"
     /// The bitrate the encoder is ACTUALLY using, which §6.5 can move. Shown
     /// rather than the configured one, or a thermal step is invisible.
@@ -910,6 +1047,9 @@ public actor StudioEngine {
     private weak var filmPlayer: AVPlayer?
     private var cameraTap: CameraFrameTap?
     private var guestSource: GuestFrameSource?
+    /// §D40 — every source the show has, by id: each camera's tap and each
+    /// call's window. Pulled once per composite, like `cameraTap`.
+    private var sources: [String: GuestFrameSource] = [:]
     private var ticker: Task<Void, Never>?
     private var started: CFTimeInterval = 0
     private var renderTimeTotal: Double = 0
@@ -974,6 +1114,15 @@ public actor StudioEngine {
         mixer.callRing = ring
     }
 
+    /// §D40 — one call's audio among several, keyed by whoever captures it.
+    /// A scene never calls this: hiding a call's picture never mutes its
+    /// voice, so audio is attached per SOURCE and never per scene.
+    nonisolated func attachCallAudio(key: String, ring: AudioRing?) {
+        mixer.setCallRing(key, ring)
+    }
+    /// The call audio in the mix, by key (Decision 133).
+    nonisolated var callAudioKeys: [String] { mixer.callKeys }
+
     /// What the mixer is set to, so a surface can SHOW the gains rather than
     /// keep its own copy and drift from them (Rule 8.8c).
     public var audioSettings: (filmGain: Float, micGain: Float, duckEnabled: Bool) {
@@ -991,8 +1140,27 @@ public actor StudioEngine {
     /// have gone looks live, which is the worst of the three states.
     public func attachGuests(_ source: GuestFrameSource?) {
         guestSource = source
-        health.guestsAttached = source != nil
+        health.guestsAttached = source != nil || !callSourceIDs.isEmpty
     }
+
+    /// §D40 — add (or, with nil, remove) one of the show's sources. Removing
+    /// a source a scene still names is not an error: its tile draws nothing.
+    /// `call` keeps `guestsAttached` meaning what it always has — a call's
+    /// picture is reaching the program.
+    public func attachSource(_ id: String, _ source: GuestFrameSource?, call: Bool) {
+        sources[id] = source
+        if source != nil && call { callSourceIDs.insert(id) } else { callSourceIDs.remove(id) }
+        health.guestsAttached = guestSource != nil || !callSourceIDs.isEmpty
+    }
+    private var callSourceIDs = Set<String>()
+    /// The ids attached, for a harness reading the value where it lands.
+    public var sourceIDs: [String] { sources.keys.sorted() }
+
+    /// §D40 — the scene's person tiles, layer order. `nil` is the arrangement
+    /// every platform without a Sources list uses (iOS, tvOS): one camera and
+    /// at most one call, placed by the layout and the §D31 switches.
+    public func setTiles(_ tiles: [StudioTile]?) { renderer.tiles = tiles }
+    public var tiles: [StudioTile]? { renderer.tiles }
 
     /// §D26. Replaces whatever is up: one at a time, because a queue turns
     /// an acknowledgment into a ticker.
@@ -1798,6 +1966,7 @@ public actor StudioEngine {
         health.pixelBufferPoolFailures = renderer.poolFailures
         health.cameraTile = renderer.lastCameraRect
         health.guestTile = renderer.lastGuestRect
+        health.tileRects = renderer.lastTileRects
         await pumpChat()
     }
 
@@ -2277,6 +2446,11 @@ public actor StudioEngine {
         health.cameraFramesReceived = cameraTap?.received ?? 0
         health.cameraAttached = cameraTap != nil
         renderer.guestFrame = guestSource?.latest()
+        if renderer.tiles != nil {
+            var frames: [String: CVPixelBuffer] = [:]
+            for (id, src) in sources { if let px = src.latest() { frames[id] = px } }
+            renderer.sourceFrames = frames
+        }
         guard let program = renderer.render(film: lastFilmFrame, camera: cameraTap?.latest()) else {
             return   // no buffer and no previous frame: skip this tick (counted in poolFailures)
         }
@@ -2447,6 +2621,14 @@ final class ProgramRenderer: @unchecked Sendable {
     /// `.guests`, and nobody over a card.
     var showCamera: Bool?
     var showCall: Bool?
+    /// §D40 — the scene's person tiles, or nil for the one-camera path.
+    var tiles: [StudioTile]?
+    /// This composite's picture from each source, by id. Written once per
+    /// frame from the engine's pullers and never held across frames, so a
+    /// source that stops drawing disappears rather than freezing.
+    var sourceFrames: [String: CVPixelBuffer] = [:]
+    /// Where each tile landed in the LAST composed frame, normalized.
+    private(set) var lastTileRects: [String: CGRect] = [:]
 
     private let ciContext: CIContext
     private var pool: CVPixelBufferPool?
@@ -2502,7 +2684,8 @@ final class ProgramRenderer: @unchecked Sendable {
     private var renderSignature: String {
         "\(layout)|\(String(describing: overlay.card))|\(overlay.title)|\(overlay.subtitle)|"
         + "\(overlay.showChat)|\(chatSide)|\(framing)|\(guestFraming)|"
-        + "\(String(describing: showCamera))|\(String(describing: showCall))"
+        + "\(String(describing: showCamera))|\(String(describing: showCall))|"
+        + "\(String(describing: tiles))"
     }
 
     func beginTransition(seconds: Double) {
@@ -2604,6 +2787,8 @@ final class ProgramRenderer: @unchecked Sendable {
         // must not read through, but the people may sit over it — in the
         // right-hand column, exactly where `corner` puts them on the film.
         let onCard = overlay.card != nil
+        if let tiles { return drawTiled(into: out, base: image, film: film, tiles: tiles, onCard: onCard) }
+        lastTileRects = [:]
         let placement: StudioLayout = onCard ? .corner : layout
         let cameraShown = placement.showsCamera && (showCamera ?? !onCard)
         let callShown = showCall ?? (!onCard && layout.showsGuests)
@@ -2700,6 +2885,69 @@ final class ProgramRenderer: @unchecked Sendable {
         }
         // The lower third sits ON TOP of both, and is a cached bitmap — the
         // text is laid out only when its content changes, never per frame.
+        if let l3 { image = l3.composited(over: image) }
+        return finish(image, into: out)
+    }
+
+    /// §D40 — the scene's person tiles, drawn where `StudioTileLayout`
+    /// placed them: grounds, the film, then every other tile in the scene's
+    /// layer order; on a card, the card and then the tiles. Chat and the
+    /// lower third on top, as on the one-camera path.
+    private func drawTiled(into out: CVPixelBuffer, base: CIImage, film: CVPixelBuffer?,
+                           tiles: [StudioTile], onCard: Bool) -> CVPixelBuffer {
+        var image = base
+        let frames = sourceFrames
+        let result = StudioTileLayout.place(tiles, layout: layout, onCard: onCard, size: size) { id in
+            guard let px = frames[id] else { return nil }
+            let w = CGFloat(CVPixelBufferGetWidth(px)), h = CGFloat(CVPixelBufferGetHeight(px))
+            return h > 0 ? w / h : nil
+        }
+        var rects: [String: CGRect] = [:]
+        func drawTile(_ p: StudioTileLayout.Placed, over base: CIImage) -> CIImage {
+            guard let px = frames[p.source] else { return base }
+            rects[p.source] = StudioCameraFraming.normalized(p.rect, in: size)
+            var src = CIImage(cvPixelBuffer: px)
+            let crop = p.framing.crop(of: src.extent)
+            if crop != src.extent { src = src.cropped(to: crop) }
+            return fill(src, into: p.rect).composited(over: base)
+        }
+        if onCard {
+            if let card = overlayRenderer.image(for: overlay) {
+                image = card.composited(over: image)
+            }
+        } else {
+            for p in result.placed where p.ground { image = drawTile(p, over: image) }
+            if let film {
+                image = fit(CIImage(cvPixelBuffer: film), into: result.film).composited(over: image)
+            }
+        }
+        for p in result.placed where !p.ground { image = drawTile(p, over: image) }
+        lastTileRects = rects
+        // The legacy readouts, from the same draw: the first camera-slot and
+        // call-slot tiles actually drawn.
+        let camID = tiles.first { $0.slot == .camera && rects[$0.source] != nil }?.source
+        let callID = tiles.first { $0.slot == .call && rects[$0.source] != nil }?.source
+        lastCameraRect = camID.flatMap { rects[$0] }
+        lastGuestRect = callID.flatMap { rects[$0] }
+        if onCard { return finish(image, into: out) }
+
+        let l3 = overlayRenderer.image(for: overlay)
+        if overlay.showChat, !overlay.chat.isEmpty,
+           var rect = layout.chatRect(in: size, cameraAspect: result.cameraAspect, side: chatSide,
+                                      guestAspect: result.callAspect, withCall: result.hasCall) {
+            // Chat yields to EVERY tile in front of the film — a moved tile
+            // and a third camera included, not only the placement's seats.
+            let obstacles = result.placed.filter { !$0.ground && rects[$0.source] != nil }.map(\.rect)
+            if let clear = StudioLayout.chatAvoiding(rect, obstacles: obstacles, in: size) {
+                rect = StudioLayout.chatYielding(clear,
+                                                 toOverlayTop: overlay.shoutOut == nil
+                                                    ? nil : l3?.extent.maxY,
+                                                 side: chatSide, in: size)
+                if !rect.isEmpty, let chat = overlayRenderer.chatImage(for: overlay, in: rect) {
+                    image = chat.composited(over: image)
+                }
+            }
+        }
         if let l3 { image = l3.composited(over: image) }
         return finish(image, into: out)
     }
@@ -2963,7 +3211,7 @@ final class H264Encoder: @unchecked Sendable {
 /// Holds the most recent camera frame. The engine pulls on its own clock
 /// rather than being pushed, so a 60 fps camera and a 30 fps program do not
 /// need a queue between them.
-public final class CameraFrameTap: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, @unchecked Sendable {
+public final class CameraFrameTap: NSObject, AVCaptureVideoDataOutputSampleBufferDelegate, GuestFrameSource, @unchecked Sendable {
     private let lock = NSLock()
     private var frame: CVPixelBuffer?
     /// The sample buffer that owns `frame`. See `captureOutput`.

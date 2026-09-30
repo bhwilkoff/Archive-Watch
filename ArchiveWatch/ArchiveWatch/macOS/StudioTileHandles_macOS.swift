@@ -41,6 +41,8 @@ struct StudioTileHandles: View {
     let tile: CGRect
     /// The program's aspect, so the preview's letterboxing can be undone.
     let programAspect: CGFloat
+    /// What VoiceOver calls the tile: the source's own name (§D40).
+    var label: String = "Camera"
     @Bindable var controls: StudioControls
 
     /// Where the gesture started, in normalized program space. Held so a drag
@@ -125,7 +127,7 @@ struct StudioTileHandles: View {
             return .handled
         }
         .accessibilityElement(children: .ignore)
-        .accessibilityLabel("Camera tile")
+        .accessibilityLabel("\(label) tile")
         .accessibilityHint("Arrow keys move it; Option with the arrow keys resizes it.")
     }
 

@@ -18,11 +18,6 @@ extension StudioLayout: Codable {}
 extension StudioChatSide: Codable {}
 extension MacCardChoice: Codable {}
 
-struct StudioSceneTiles: Codable, Equatable {
-    var camera = StudioCameraFraming()
-    var guests = StudioCameraFraming()
-}
-
 struct StudioSceneAudio: Codable, Equatable {
     var filmGain = 1.0, micGain = 1.0, callGain = 1.0
     var filmMuted = false, micMuted = false, callMuted = false
@@ -49,6 +44,11 @@ struct StudioScene: Codable, Equatable, Identifiable {
     // starters; nil reads as the starters' rule.
     var cameraShown: Bool?
     var callShown: Bool?
+    /// §D40 — the sources this scene shows, back to front, by source id.
+    /// OPTIONAL in storage for the same reason as the switches above; a scene
+    /// that has none is migrated from them when the scenes load, so what it
+    /// showed before §D40 it shows after.
+    var shown: [String]?
 
     var camera: Bool {
         get { cameraShown ?? true }
@@ -124,6 +124,48 @@ final class StudioScenes {
             showTiles = StudioSceneTiles()
             showAudio = StudioSceneAudio()
         }
+        if migrateToSources() { save() }
+    }
+
+    /// §D40 — A SCENE SAVED BEFORE SOURCES EXISTED becomes source tiles, and
+    /// nothing the host built is lost: its Camera and Call switches become
+    /// whether it shows the first camera and the first call in the Sources
+    /// list, and its two framings (the show's and its own) become theirs.
+    /// §8.74 composites a migrated scene against the one-camera path and
+    /// requires the same picture.
+    private func migrateToSources() -> Bool {
+        let cam = StudioSources.shared.primaryCameraID
+        let call = StudioSources.shared.primaryCallID
+        var changed = false
+        if showTiles.bySource == nil {
+            showTiles.bySource = StudioComposition.framings(from: showTiles, primaryCamera: cam,
+                                                            primaryCall: call)
+            changed = true
+        }
+        for i in scenes.indices {
+            if var own = scenes[i].tiles, own.bySource == nil {
+                own.bySource = StudioComposition.framings(from: own, primaryCamera: cam, primaryCall: call)
+                scenes[i].tiles = own
+                changed = true
+            }
+            if scenes[i].shown == nil {
+                scenes[i].shown = StudioComposition.migrate(
+                    cameraOn: scenes[i].camera, callOn: scenes[i].call,
+                    tiles: StudioSceneTiles(), primaryCamera: cam, primaryCall: call).shown
+                changed = true
+            }
+        }
+        return changed
+    }
+
+    /// A source removed from the Sources list leaves every scene (§D40).
+    func forget(_ id: String) {
+        for i in scenes.indices {
+            scenes[i].shown?.removeAll { $0 == id }
+            scenes[i].tiles?.bySource?[id] = nil
+        }
+        showTiles.bySource?[id] = nil
+        save()
     }
 
     var selected: StudioScene { scenes.first { $0.id == selectedID } ?? scenes[0] }
@@ -202,8 +244,12 @@ final class StudioScenes {
         s.lowerThird = c.showLowerThird; s.lowerTitle = c.showFilmTitle
         s.lowerMeta = c.showFilmMeta; s.lowerProvenance = c.showProvenance
         s.chat = c.showChat; s.chatSide = c.chatSide
-        s.camera = c.cameraOn; s.call = c.callOn
-        let tiles = StudioSceneTiles(camera: c.framing, guests: c.guestFraming)
+        s.shown = c.shown
+        // The pre-§D40 switches, still written: a scene set saved by this
+        // version reads sensibly in the last one.
+        s.camera = StudioSources.shared.primaryCameraID.map(c.shown.contains) ?? false
+        s.call = StudioSources.shared.primaryCallID.map(c.shown.contains) ?? false
+        let tiles = StudioSceneTiles(camera: c.framing, guests: c.guestFraming, bySource: c.framings)
         let audio = StudioSceneAudio(filmGain: c.filmGain, micGain: c.micGain, callGain: c.callGain,
                                      filmMuted: c.filmMuted, micMuted: c.micMuted,
                                      callMuted: c.callMuted, duck: c.duckEnabled)
@@ -219,8 +265,10 @@ final class StudioScenes {
         // tiles must land after it or a scene's own box is thrown away.
         c.layout = s.layout
         let t = s.useShowTiles ? showTiles : (s.tiles ?? showTiles)
-        c.framing = t.camera
-        c.guestFraming = t.guests
+        c.shown = s.shown ?? []
+        c.framings = t.bySource ?? StudioComposition.framings(
+            from: t, primaryCamera: StudioSources.shared.primaryCameraID,
+            primaryCall: StudioSources.shared.primaryCallID)
         let a = s.useShowAudio ? showAudio : (s.audio ?? showAudio)
         c.filmGain = a.filmGain; c.micGain = a.micGain; c.callGain = a.callGain
         // THE HOST'S MUTES ARE NOT A SCENE'S TO CHANGE (launch audit B). A
@@ -232,8 +280,6 @@ final class StudioScenes {
         c.showLowerThird = s.lowerThird; c.showFilmTitle = s.lowerTitle
         c.showFilmMeta = s.lowerMeta; c.showProvenance = s.lowerProvenance
         c.showChat = s.chat; c.chatSide = s.chatSide
-        // Pictures only: the mic and call MUTES above stay the host's.
-        c.cameraOn = s.camera; c.callOn = s.call
         // The card last: it is the most visible thing a switch changes, and
         // an empty custom card is refused by the controls themselves (§D10).
         c.cardChoice = s.card
@@ -290,31 +336,35 @@ final class StudioScenes {
         check("an unmuted microphone stays unmuted across a scene switch", !c.micMuted)
         c.micMuted = micBefore
 
-        // §D31 (2026-09-30) — the Camera and Call switches follow the scene,
-        // reach the engine, and never touch a mute.
-        select(a); c.cameraOn = true; c.callOn = true
-        select(b); c.cameraOn = false; c.callOn = false
+        // §D40 — which sources a scene shows follows the scene, reaches the
+        // engine, and never touches a mute.
+        let sources = StudioSources.shared
+        let cam = sources.primaryCameraID, call = sources.primaryCallID
         let callMutedBefore = c.callMuted
-        c.callMuted = true
-        select(a)
-        check("the camera switch comes back on with its scene", c.cameraOn)
-        check("the call switch comes back on with its scene", c.callOn)
-        check("a scene's call switch does not unmute the call", c.callMuted)
-        check("the switches are armed where the engine reads them",
-              StudioSession.shared.armedPeople == (true, true))
-        select(b)
-        check("the camera switch goes off with its scene", !c.cameraOn)
-        check("the call switch goes off with its scene", !c.callOn)
-        check("and the session carries the off values",
-              StudioSession.shared.armedPeople == (false, false))
-        if let e = StudioSession.shared.engineForHarness {
-            // THE VALUE WHERE IT LANDS (Decision 133): the engine, after the
-            // hop, not the control.
-            try? await Task.sleep(nanoseconds: 600_000_000)
-            let p = await e.people
-            check("the engine holds the scene's switches", p.camera == false && p.call == false)
+        if let cam, let call {
+            select(a); c.shown = [call, cam]
+            select(b); c.shown = [cam]
+            c.callMuted = true
+            select(a)
+            check("the scene's sources come back with it", c.shown == [call, cam])
+            check("a scene that hides the call does not unmute it", c.callMuted)
+            check("the tiles are armed where the engine reads them",
+                  StudioSession.shared.armedTiles?.map(\.source) == [call, cam])
+            select(b)
+            check("the other scene's sources come back with it", c.shown == [cam])
+            check("and the session carries them",
+                  StudioSession.shared.armedTiles?.map(\.source) == [cam])
+            if let e = StudioSession.shared.engineForHarness {
+                // THE VALUE WHERE IT LANDS (Decision 133): the engine, after
+                // the hop, not the control.
+                try? await Task.sleep(nanoseconds: 600_000_000)
+                let t = await e.tiles
+                check("the engine holds the scene's tiles", t?.map(\.source) == [cam])
+            } else {
+                awdiag("AWSCENETEST skip engine read (no engine running)")
+            }
         } else {
-            awdiag("AWSCENETEST skip engine read (no engine running)")
+            awdiag("AWSCENETEST skip sources (needs a camera and a call source)")
         }
         c.callMuted = callMutedBefore
         let decoded = try? JSONDecoder().decode(StudioScene.self, from: Data(

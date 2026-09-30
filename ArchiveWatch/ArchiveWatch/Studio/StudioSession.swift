@@ -229,13 +229,14 @@ public final class StudioSession {
         Task { await engine?.setGuestFraming(f) }
     }
 
-    /// §D31 (2026-09-30) — the scene's Camera and Call switches, armed like
-    /// the framing so a scene chosen before the engine exists is the one the
-    /// show starts with. `nil` = the placement decides (iOS and tvOS).
-    public private(set) var armedPeople: (camera: Bool?, call: Bool?) = (nil, nil)
-    public func armPeople(camera: Bool?, call: Bool?) {
-        armedPeople = (camera, call)
-        Task { await engine?.setPeople(camera: camera, call: call) }
+    /// §D40 — the selected scene's person tiles (which sources, where, in
+    /// what layer order), armed like the framing so a scene chosen before the
+    /// engine exists is the one the show starts with. `nil` is the
+    /// one-camera arrangement iOS and tvOS use; the Mac always sets it.
+    public private(set) var armedTiles: [StudioTile]?
+    public func armTiles(_ tiles: [StudioTile]?) {
+        armedTiles = tiles
+        Task { await engine?.setTiles(tiles) }
     }
 
     /// Readable, so a panel can OPEN on the placement the show is actually
@@ -518,51 +519,84 @@ public final class StudioSession {
     private var armedChat: (enabled: Bool, side: StudioChatSide, filter: StudioChatFilter)?
 
     #if os(macOS)
-    /// §D23 — the call's picture. The SOURCE lives here rather than in the
-    /// window, because a Studio window that is closed and reopened must not
-    /// drop the call out of a live broadcast (§D12 ends the SHOW when the
-    /// window closes; it does not end it when a view redraws).
-    private var screenSource: StudioScreenSource?
-    public private(set) var guestWindowLabel: String?
-    /// New pictures per second from the call's window, and — when that is
+    // MARK: §D40 — the show's CALLS, any number of them
+    //
+    // Each call source is one window the host chose in macOS's own picker
+    // (§D23b) and, through its owning app, that app's audio (§D25). The
+    // SOURCES live here rather than in the window, because a Studio window
+    // that is closed and reopened must not drop a call out of a live
+    // broadcast (§D12 ends the SHOW when the window closes; it does not end it
+    // when a view redraws).
+    private var callSources: [String: StudioScreenSource] = [:]
+    /// What each call's row says: the app, and the window's title only as the
+    /// picker handed it over — never logged (§D23).
+    public private(set) var callLabels: [String: String] = [:]
+    /// The owning app's bundle id, for the browser warning (Decision 138).
+    public private(set) var callBundleIDs: [String: String] = [:]
+    /// New pictures per second from each call's window, and — when that is
     /// zero — what ScreenCaptureKit says instead (§D23b).
-    public private(set) var guestFramesPerSecond = 0
-    public private(set) var guestStall: String?
-    private var lastGuestFrames = 0
-    private var lastGuestStatus: [SCFrameStatus: Int] = [:]
+    public private(set) var callRates: [String: Int] = [:]
+    public private(set) var callStalls: [String: String] = [:]
+    /// Why a call's SOUND is not in the mix, per call (§D18). Half a call is
+    /// better than a refusal as long as the missing half is named.
+    public private(set) var callSoundProblems: [String: String] = [:]
+    /// Which audio tap carries each call's voices. Two windows of one app
+    /// share ONE tap: a process tap captures the whole app, so a second
+    /// would put the same voices in the mix twice.
+    private var callAudioKeyBySource: [String: String] = [:]
+    private var lastCallFrames: [String: Int] = [:]
+    private var lastCallStatus: [String: [SCFrameStatus: Int]] = [:]
 
-    /// Once a second from the health loop: the rate, and the reason when it
-    /// is zero.
-    func sampleGuests() {
-        guard let src = screenSource else {
-            if guestFramesPerSecond != 0 { guestFramesPerSecond = 0 }
-            if guestStall != nil { guestStall = nil }
-            return
-        }
-        let n = src.framesDelivered
-        let rate = max(0, n - lastGuestFrames)
-        lastGuestFrames = n
-        let now = src.statusCounts.snapshot()
-        func delta(_ s: SCFrameStatus) -> Int { (now[s] ?? 0) - (lastGuestStatus[s] ?? 0) }
-        let stall: String? = rate > 0 ? nil
-            : delta(.suspended) > 0 ? "macOS has paused that window's capture."
-            : delta(.blank) > 0 ? "That window is hidden or minimized — nothing to show."
-            : delta(.idle) > 0 ? nil          // unchanged picture: a still call, not a fault
-            : (src.isRunning ? "No new pictures from that window." : nil)
-        if rate != guestFramesPerSecond || stall != guestStall {
-            awdiag("AWGUEST fps=%d complete=%d idle=%d blank=%d suspended=%d",
-                   rate, delta(.complete), delta(.idle), delta(.blank), delta(.suspended))
-        }
-        lastGuestStatus = now
-        if guestFramesPerSecond != rate { guestFramesPerSecond = rate }
-        if guestStall != stall { guestStall = stall }
+    public func callLabel(_ id: String) -> String? { callLabels[id] }
+    public func callProblem(_ id: String) -> String? { callSources[id]?.problem }
+    public func callIsRunning(_ id: String) -> Bool { callSources[id]?.isRunning == true }
+    /// The app whose sound a call's voices come from, or nil.
+    public func callSoundApp(_ id: String) -> String? {
+        callAudioKeyBySource[id].flatMap { callTapNames[$0] }
     }
-    public var guestProblem: String? { screenSource?.problem }
 
-    /// §D23b — the window the host chose in macOS's own picker. Its label
-    /// and its app (for the call's sound, §D25) come from the filter itself.
+    /// The first call source's, for the DEBUG doors written before §D40.
+    public var guestWindowLabel: String? {
+        StudioSources.shared.calls.lazy.compactMap { self.callLabels[$0.id] }.first
+    }
+    public var guestProblem: String? {
+        StudioSources.shared.calls.lazy.compactMap { self.callSources[$0.id]?.problem }.first
+    }
+
+    /// Once a second from the health loop: each call's rate, and the reason
+    /// when it is zero.
+    func sampleGuests() {
+        var rates: [String: Int] = [:], stalls: [String: String] = [:]
+        for (id, src) in callSources {
+            let n = src.framesDelivered
+            let rate = max(0, n - (lastCallFrames[id] ?? 0))
+            lastCallFrames[id] = n
+            let now = src.statusCounts.snapshot()
+            let before = lastCallStatus[id] ?? [:]
+            func delta(_ s: SCFrameStatus) -> Int { (now[s] ?? 0) - (before[s] ?? 0) }
+            let stall: String? = rate > 0 ? nil
+                : delta(.suspended) > 0 ? "macOS has paused that window's capture."
+                : delta(.blank) > 0 ? "That window is hidden or minimized — nothing to show."
+                : delta(.idle) > 0 ? nil          // unchanged picture: a still call, not a fault
+                : (src.isRunning ? "No new pictures from that window." : nil)
+            if rate != (callRates[id] ?? -1) || stall != callStalls[id] {
+                awdiag("AWGUEST %@ fps=%d complete=%d idle=%d blank=%d suspended=%d",
+                       String(id.prefix(13)), rate, delta(.complete), delta(.idle),
+                       delta(.blank), delta(.suspended))
+            }
+            lastCallStatus[id] = now
+            rates[id] = rate
+            if let stall { stalls[id] = stall }
+        }
+        if rates != callRates { callRates = rates }
+        if stalls != callStalls { callStalls = stalls }
+    }
+
+    /// §D23b — the window the host chose in macOS's own picker, for ONE call
+    /// source. Its label and its app (for the call's sound, §D25) come from
+    /// the filter itself.
     @discardableResult
-    public func startGuests(filter: SCContentFilter) async -> Bool {
+    public func startCall(_ id: String, filter: SCContentFilter) async -> Bool {
         let w = filter.includedWindows.first
         let app = w?.owningApplication ?? filter.includedApplications.first
         // What the picker handed over — counts and the app's id, NEVER a
@@ -572,21 +606,51 @@ public final class StudioSession {
                app?.bundleIdentifier ?? "NONE", Int(app?.processID ?? 0))
         let appName = app?.applicationName ?? "Your call"
         let title = w?.title ?? ""
-        return await beginGuests(label: title.isEmpty ? appName : "\(appName) — \(title)",
-                                 ownerPID: app?.processID, ownerBundleID: app?.bundleIdentifier) {
+        return await beginCall(id, label: title.isEmpty ? appName : "\(appName) — \(title)",
+                               ownerPID: app?.processID, ownerBundleID: app?.bundleIdentifier) {
             await $0.start(filter: filter, size: CGSize(width: 1280, height: 720))
         }
     }
 
     /// By window id: the DEBUG harness door (RootView), which lists windows
-    /// itself. The product path is `startGuests(filter:)`.
+    /// itself. The product path is `startCall(_:filter:)`.
+    @discardableResult
+    public func startCall(_ id: String, windowID: CGWindowID, label: String,
+                          ownerPID: pid_t? = nil, ownerBundleID: String? = nil) async -> Bool {
+        await beginCall(id, label: label, ownerPID: ownerPID, ownerBundleID: ownerBundleID) {
+            await $0.start(windowID: windowID, size: CGSize(width: 1280, height: 720))
+        }
+    }
+
+    /// The first call source, made if there is none — what the pre-§D40
+    /// entry points (`startGuests`) meant by "the call".
+    private func primaryCallSourceID() -> String {
+        StudioSources.shared.primaryCallID ?? StudioSources.shared.addCall()
+    }
+    @discardableResult
+    public func startGuests(filter: SCContentFilter) async -> Bool {
+        await startCall(primaryCallSourceID(), filter: filter)
+    }
     @discardableResult
     public func startGuests(windowID: CGWindowID, label: String,
                             ownerPID: pid_t? = nil,
                             ownerBundleID: String? = nil) async -> Bool {
-        await beginGuests(label: label, ownerPID: ownerPID, ownerBundleID: ownerBundleID) {
-            await $0.start(windowID: windowID, size: CGSize(width: 1280, height: 720))
+        await startCall(primaryCallSourceID(), windowID: windowID, label: label,
+                        ownerPID: ownerPID, ownerBundleID: ownerBundleID)
+    }
+
+    /// A window changed from macOS's own sharing controls (§D23b): it
+    /// replaces the call whose STREAM it was. With no stream named, it
+    /// replaces the only running call — and with several, it is ignored
+    /// rather than guessed at (§D23: nothing is chosen on a first match).
+    public func replaceCall(streamID: ObjectIdentifier?, filter: SCContentFilter) async {
+        let byStream = streamID.flatMap { sid in callSources.first { $0.value.streamID == sid }?.key }
+        let only = callSources.count == 1 ? callSources.first?.key : nil
+        guard let id = byStream ?? only else {
+            awdiag("AWCALL a changed window matched no single call — ignored")
+            return
         }
+        await startCall(id, filter: filter)
     }
 
     /// The browser a bundle id belongs to: an installed web app
@@ -600,86 +664,220 @@ public final class StudioSession {
         return bundleID
     }
 
-    private func beginGuests(label: String, ownerPID: pid_t?, ownerBundleID: String?,
-                             start: (StudioScreenSource) async -> Bool) async -> Bool {
-        stopGuests()
+    private func beginCall(_ id: String, label: String, ownerPID: pid_t?, ownerBundleID: String?,
+                           start: (StudioScreenSource) async -> Bool) async -> Bool {
+        // REPLACED IN PLACE: the old window stops, the engine keeps the id
+        // (the new sink replaces the old one), and the old app's tap is let
+        // go below only if the new window is another app.
+        let oldKey = callAudioKeyBySource.removeValue(forKey: id)
+        defer {
+            if let oldKey, !callAudioKeyBySource.values.contains(oldKey) { stopCallTap(key: oldKey) }
+        }
+        callSources[id]?.stop()
         let src = StudioScreenSource()
-        screenSource = src
-        lastGuestFrames = 0
-        lastGuestStatus = [:]
-        guestWindowLabel = label
+        callSources[id] = src
+        lastCallFrames[id] = 0
+        lastCallStatus[id] = [:]
+        callLabels[id] = label
+        if let ownerBundleID { callBundleIDs[id] = ownerBundleID }
         let ok = await start(src)
         guard ok else {
-            screenSource = nil
-            guestWindowLabel = nil
+            // The PROBLEM stays readable on the row: the source is kept, so
+            // its sentence ("That window has closed.") is not lost with it.
+            callLabels[id] = nil
+            callBundleIDs[id] = nil
+            await engine?.attachSource(id, nil, call: true)
             return false
         }
-        await engine?.attachGuests(src.sink)
+        await engine?.attachSource(id, src.sink, call: true)
         // §D25 — ONE CALL IS ONE CHOICE. The same app's audio, without asking
-        // the host to name it again in another column. Matched on pid, which
-        // is exact, rather than on the display name, which two apps can share.
+        // the host to name it again in another column.
         //
         // A FAILURE HERE DOES NOT FAIL THE PICTURE. Half a call is better
-        // than a refusal as long as the missing half is named, and
-        // `callProblem` names it (§D18).
-        if callAppName == nil, ownerPID == nil, ownerBundleID == nil {
-            // SAID, never silent: "No sound captured" with no reason is what
-            // the owner met, and this is one way to get there.
-            callProblem = "macOS did not say which app that window belongs to, so its sound "
-                + "cannot be captured."
+        // than a refusal as long as the missing half is named.
+        callSoundProblems[id] = nil
+        if ownerPID == nil, ownerBundleID == nil {
+            callSoundProblems[id] = "macOS did not say which app that window belongs to, so its "
+                + "sound cannot be captured."
             awdiag("AWCALL no owning app for the chosen window")
+            return true
         }
-        if callAppName == nil, ownerPID != nil || ownerBundleID != nil {
-            // MATCH ON THE BUNDLE ID, NOT THE PID. `StudioAudioProcesses`
-            // groups every audio object an app owns into one row and keeps
-            // the LOWEST pid, which for a browser is a HELPER — and a browser
-            // is the app most calls happen in. So the window's pid and the
-            // audio row's pid genuinely differ for the case this feature
-            // exists to serve. Measured 2026-09-23: Chrome's window pid found
-            // nothing, and the host got faces with no voices and an orange
-            // line blaming the app.
-            //
-            // The prefix test is the helper convention: `com.google.Chrome`
-            // against `com.google.Chrome.helper`, either way round.
-            let procs = StudioAudioProcesses.all()
-            let match = procs.first { p in
-                if let b = ownerBundleID, !b.isEmpty {
-                    if p.bundleID == b { return true }
-                    if p.bundleID.hasPrefix(b + ".") || b.hasPrefix(p.bundleID + ".") { return true }
-                    // AN INSTALLED WEB APP plays through its BROWSER. Meet
-                    // installed from Chrome is its own app to macOS —
-                    // `com.google.Chrome.app.<id>` — while its sound comes
-                    // from `com.google.Chrome.helper`, and neither id extends
-                    // the other. Measured 2026-09-25 on the owner's Meet
-                    // window: NO MATCH, "No sound captured". Compared by the
-                    // browser they share.
-                    if Self.browserFamily(p.bundleID) == Self.browserFamily(b) { return true }
-                }
-                if let pid = ownerPID, p.pid == pid { return true }
-                return false
-            }
-            awdiag("AWCALL match owner=%@ pid=%d among %d app(s) with audio: %@ -> %@",
-                   ownerBundleID ?? "nil", Int(ownerPID ?? 0), procs.count,
-                   procs.map { $0.bundleID }.joined(separator: ","),
-                   match?.bundleID ?? "NO MATCH")
-            if let match {
-                let why = await startCallAudio(process: match)
-                awdiag("AWCALL tap %@: %@", match.bundleID, why ?? "started")
-            } else {
-                callProblem = "\(guestWindowLabel ?? "That app") is not playing any "
-                    + "audio macOS can capture yet — its voices will not be in the mix."
+        guard let match = Self.audioProcess(ownerPID: ownerPID, ownerBundleID: ownerBundleID) else {
+            callSoundProblems[id] = "\(label) is not playing any audio macOS can capture yet — "
+                + "its voices will not be in the mix."
+            return true
+        }
+        // DE-DUPLICATED BY APP. A second window of an app already tapped
+        // shares that tap; a second tap would double every voice.
+        let key = Self.browserFamily(match.bundleID)
+        callAudioKeyBySource[id] = key
+        if callTaps[key] == nil {
+            if let why = await startCallTap(key: key, process: match) {
+                callSoundProblems[id] = why
+                callAudioKeyBySource[id] = nil
             }
         }
+        awdiag("AWCALL tap %@: %@ (%d call tap(s))", match.bundleID,
+               callSoundProblems[id] ?? "started", callTaps.count)
         return true
     }
 
+    /// The audio process a window's app plays through.
+    ///
+    /// MATCH ON THE BUNDLE ID, NOT THE PID. `StudioAudioProcesses` groups
+    /// every audio object an app owns into one row and keeps the LOWEST pid,
+    /// which for a browser is a HELPER — and a browser is the app most calls
+    /// happen in. Measured 2026-09-23: Chrome's window pid found nothing, and
+    /// the host got faces with no voices. The prefix test is the helper
+    /// convention (`com.google.Chrome` against `com.google.Chrome.helper`),
+    /// and AN INSTALLED WEB APP plays through its BROWSER — Meet installed
+    /// from Chrome is `com.google.Chrome.app.<id>` while its sound comes from
+    /// `com.google.Chrome.helper` (measured 2026-09-25 on the owner's Meet
+    /// window) — so the two are compared by the browser they share.
+    private static func audioProcess(ownerPID: pid_t?, ownerBundleID: String?) -> StudioAudioProcesses.Process? {
+        guard #available(macOS 14.2, *) else { return nil }
+        let procs = StudioAudioProcesses.all()
+        let match = procs.first { p in
+            if let b = ownerBundleID, !b.isEmpty {
+                if p.bundleID == b { return true }
+                if p.bundleID.hasPrefix(b + ".") || b.hasPrefix(p.bundleID + ".") { return true }
+                if browserFamily(p.bundleID) == browserFamily(b) { return true }
+            }
+            if let pid = ownerPID, p.pid == pid { return true }
+            return false
+        }
+        awdiag("AWCALL match owner=%@ pid=%d among %d app(s) with audio: %@ -> %@",
+               ownerBundleID ?? "nil", Int(ownerPID ?? 0), procs.count,
+               procs.map { $0.bundleID }.joined(separator: ","),
+               match?.bundleID ?? "NO MATCH")
+        return match
+    }
+
+    /// Stop one call: its picture, and its sound once no other call shares
+    /// that app.
+    public func stopCall(_ id: String) {
+        callSources[id]?.stop()
+        callSources[id] = nil
+        callLabels[id] = nil
+        callBundleIDs[id] = nil
+        callRates[id] = nil
+        callStalls[id] = nil
+        callSoundProblems[id] = nil
+        lastCallFrames[id] = nil
+        lastCallStatus[id] = nil
+        Task { await engine?.attachSource(id, nil, call: true) }
+        // §D25: one choice, so one undo. A host who stops showing a call
+        // does not expect its voices to keep arriving — unless another call
+        // still on the show is the same app.
+        if let key = callAudioKeyBySource.removeValue(forKey: id),
+           !callAudioKeyBySource.values.contains(key) {
+            stopCallTap(key: key)
+        }
+    }
+
+    // MARK: §D40 — the show's CAMERAS, all of them running
+
+    /// Every camera the host added, each in its OWN capture session. On macOS
+    /// one `AVCaptureSession` carries one camera: simultaneous capture from
+    /// several inputs of the same media type is `AVCaptureMultiCamSession`,
+    /// which AVCaptureSession.h marks `API_UNAVAILABLE(macos)`. And every one
+    /// keeps running for the length of the show whether or not the scene on
+    /// air shows it (owner, 2026-09-30: "Keep every added camera running"),
+    /// so a cut or a crossfade to another scene is instant.
+    let cameraRig = StudioCameraRig()
+    /// Frames per second from each camera, and the one-line reason when a
+    /// camera that had been delivering has stopped.
+    public private(set) var cameraRates: [String: Int] = [:]
+    public private(set) var cameraStalls: [String: String] = [:]
+    private var cameraStallRecovery: [String: CameraStallRecovery] = [:]
+    private var lastCameraCounts: [String: Int] = [:]
+    public func cameraProblem(_ id: String) -> String? { cameraRig.problems[id] }
+    public func cameraIsRunning(_ id: String) -> Bool { cameraRig.running[id] != nil }
+
+    /// The microphone in a session of its own, then every camera.
+    private func attachMacCapture(to engine: StudioEngine) async {
+        let vs = AVCaptureDevice.authorizationStatus(for: .video)
+        let as_ = AVCaptureDevice.authorizationStatus(for: .audio)
+        awdiag("AWCAM video=%@ audio=%@ cameras=%d",
+               String(describing: vs), String(describing: as_), StudioSources.shared.cameras.count)
+        capture?.stopRunning()
+        capture = nil
+        // The host's chosen MICROPHONE (§D2), resolved in one place.
+        let (chosenMic, micFellBack) = StudioDevices.resolveMicrophone()
+        if micFellBack { awdiag("AWCAM chosen microphone is GONE — using the system default") }
+        if as_ == .authorized, let mic = chosenMic, let input = try? AVCaptureDeviceInput(device: mic) {
+            let session = AVCaptureSession()
+            session.beginConfiguration()
+            if session.canAddInput(input) { session.addInput(input) }
+            session.commitConfiguration()
+            let micTap = MicAudioTap()
+            if micTap.attach(to: session) { await engine.attachMicrophone(tap: micTap) }
+            session.startRunning()
+            capture = session
+            awdiag("AWCAM microphone=%@", mic.localizedName)
+        }
+        guard vs == .authorized else {
+            awdiag("AWCAM no camera tiles: video authorization is %@", String(describing: vs))
+            return
+        }
+        for ref in StudioSources.shared.cameras where cameraRig.running[ref.id] == nil {
+            await cameraRig.start(ref, engine: engine)
+        }
+        await attachFirstCameraForHealth(engine)
+    }
+
+    /// The legacy camera readouts (`cameraAttached`, `cameraFramesReceived`)
+    /// follow the FIRST camera in the Sources list, as they followed the one
+    /// camera before §D40. The tiles draw from the sources; this draws nothing.
+    private func attachFirstCameraForHealth(_ engine: StudioEngine) async {
+        if let first = StudioSources.shared.cameras.first, let tap = cameraRig.running[first.id]?.tap {
+            await engine.attachCamera(tap: tap)
+        }
+    }
+
+    /// Start, restart or stop ONE camera while the show runs (§D11: a device
+    /// change takes effect now) — the others keep running untouched.
+    public func rebuildCamera(_ id: String) async {
+        guard let engine else { return }
+        cameraRig.stop(id)
+        await engine.attachSource(id, nil, call: false)
+        cameraStallRecovery[id] = nil
+        lastCameraCounts[id] = nil
+        if AVCaptureDevice.authorizationStatus(for: .video) == .authorized,
+           let ref = StudioSources.shared.cameras.first(where: { $0.id == id }) {
+            await cameraRig.start(ref, engine: engine)
+        }
+        await attachFirstCameraForHealth(engine)
+    }
+
+    /// Once a second: each camera's rate, and a camera that STOPPED is
+    /// rebuilt — the stall recovery tvOS carried for its one camera, per
+    /// camera (§D40's second answer).
+    private func sampleCameras(onAir: Bool) {
+        var rates: [String: Int] = [:], stalls: [String: String] = [:]
+        for (id, run) in cameraRig.running {
+            let n = run.tap.received
+            let rate = max(0, n - (lastCameraCounts[id] ?? 0))
+            lastCameraCounts[id] = n
+            rates[id] = rate
+            var rec = cameraStallRecovery[id] ?? CameraStallRecovery()
+            if rec.tick(attached: true, framesReceived: n, framesPerSecond: rate, onAir: onAir) {
+                awdiag("AWCAM %@ stopped at %d frames — recovery attempt %d of %d",
+                       run.deviceName, n, rec.attempts, CameraStallRecovery.maximumAttempts)
+                Task { await self.rebuildCamera(id) }
+            }
+            cameraStallRecovery[id] = rec
+            if n > 0, rate == 0 {
+                stalls[id] = "\(run.deviceName) stopped sending pictures."
+            }
+        }
+        if rates != cameraRates { cameraRates = rates }
+        if stalls != cameraStalls { cameraStalls = stalls }
+    }
+
+    /// Every call, picture and sound — the Studio window closing (§D12).
     public func stopGuests() {
-        screenSource?.stop()
-        screenSource = nil
-        guestWindowLabel = nil
-        Task { await engine?.attachGuests(nil) }
-        // §D25: one choice, so one undo. A host who stops showing their
-        // guests does not expect their voices to keep arriving.
+        for id in Array(callSources.keys) { stopCall(id) }
         stopCallAudio()
     }
     #endif
@@ -698,24 +896,25 @@ public final class StudioSession {
     /// samples at all. A level of zero is a quiet room; no samples is an
     /// absence, and the two may not draw the same.
     public private(set) var callDeliveringNothing = false
+    /// WHICH app's tap is silent, when several are running (§D40).
+    public private(set) var silentCallApp: String?
 
     private func updateCallSilence() {
         #if os(macOS)
-        guard #available(macOS 14.2, *), let tap = callTap as? StudioCallAudioTap else {
-            callDeliveringNothing = false
-            return
+        guard #available(macOS 14.2, *) else { callDeliveringNothing = false; return }
+        var silent: String?
+        for (key, obj) in callTaps {
+            guard let tap = obj as? StudioCallAudioTap else { continue }
+            if tap.samplesReceived > 0 { callSilentSince[key] = nil; continue }
+            // THREE SECONDS. A tap that is going to deliver starts within one
+            // callback; three is enough that a slow start cannot raise this,
+            // and short enough that a host learns before they begin talking.
+            let since = callSilentSince[key] ?? Date()
+            callSilentSince[key] = since
+            if Date().timeIntervalSince(since) >= 3 { silent = callTapNames[key] ?? "that app" }
         }
-        if tap.samplesReceived > 0 {
-            callSilentSince = nil
-            callDeliveringNothing = false
-            return
-        }
-        // THREE SECONDS. A tap that is going to deliver starts within one
-        // callback; three is enough that a slow start cannot raise this, and
-        // short enough that a host learns before they begin talking.
-        let since = callSilentSince ?? Date()
-        callSilentSince = since
-        callDeliveringNothing = Date().timeIntervalSince(since) >= 3
+        if callDeliveringNothing != (silent != nil) { callDeliveringNothing = silent != nil }
+        if silentCallApp != silent { silentCallApp = silent }
         #endif
     }
 
@@ -937,7 +1136,7 @@ public final class StudioSession {
         // §D24 — the guests' framing survives going live, like every other
         // armed value (§8.46).
         await e.setGuestFraming(armedGuestFraming)
-        await e.setPeople(camera: armedPeople.camera, call: armedPeople.call)
+        await e.setTiles(armedTiles)
         if let c = armedChat {
             await e.setChatControls(enabled: c.enabled, side: c.side, filter: c.filter)
         }
@@ -950,8 +1149,9 @@ public final class StudioSession {
         // in its purest form, and the same shape as `armedChat` two lines up
         // — which is the argument for every armed value being re-applied in
         // ONE place rather than remembered by each caller.
-        if let src = screenSource {
-            await e.attachGuests(src.sink)
+        // §D40: EVERY call source, by id.
+        for (id, src) in callSources {
+            await e.attachSource(id, src.sink, call: true)
         }
         // AND THE CALL'S SOUND, for the same reason. Only the picture was
         // re-applied, so a call chosen before the preview (or carried from the
@@ -959,8 +1159,10 @@ public final class StudioSession {
         // read: no call fader in the Mixer and no guests' voices in the mix.
         // Owner, 2026-09-25: "There doesn't seem to be a mixer option for the
         // call on the mixer interface."
-        if #available(macOS 14.2, *), let tap = callTap as? StudioCallAudioTap {
-            e.attachCallAudio(ring: tap.ring)
+        if #available(macOS 14.2, *) {
+            for (key, obj) in callTaps {
+                if let tap = obj as? StudioCallAudioTap { e.attachCallAudio(key: key, ring: tap.ring) }
+            }
         }
         #endif
         await e.attachFilm(player: player)
@@ -1307,6 +1509,9 @@ public final class StudioSession {
         guard let engine else { return }
         capture?.stopRunning()
         capture = nil
+        // macOS: the cameras keep running (§D40) — a microphone change or a
+        // grant arriving mid-show must not blink every camera; the attach
+        // below starts only the ones that are not running.
         await attachCameraIfAvailable(to: engine)
         #endif
     }
@@ -1325,6 +1530,12 @@ public final class StudioSession {
             return
         }
         #endif
+        #if os(macOS)
+        // §D40 — EVERY camera the host added, each in its own session, and
+        // the microphone in one of its own.
+        await attachMacCapture(to: engine)
+        return
+        #else
         // SAY WHICH. The comment above notes that a missing entitlement "silently
         // finds nothing, which is indistinguishable from having no camera" — and
         // that is equally true of TCC consent not yet given, of consent denied,
@@ -1442,6 +1653,7 @@ public final class StudioSession {
         // Microphone, which reads as the picker not landing when it had.
         awdiag("AWCAM attached camera=%@ mic=%@", cam.localizedName, attachedMic)
         capture = session
+        #endif
         #endif
     }
 
@@ -1590,6 +1802,11 @@ public final class StudioSession {
 
         capture?.stopRunning()
         capture = nil
+        #if os(macOS)
+        cameraRig.stopAll()
+        cameraRates = [:]
+        cameraStalls = [:]
+        #endif
         pump?.cancel(); pump = nil
         // THE PLAYER THE SURFACE LEFT ALONE (§D12a). A surface that is torn
         // down during a live show no longer destroys its player, because the
@@ -1647,7 +1864,9 @@ public final class StudioSession {
         pump = Task { [weak self] in
             var lastFilmFrames = 0
             var lastCameraFrames = 0
+            #if !os(macOS)
             var stall = CameraStallRecovery()
+            #endif
             var filmStalled = 0
             while !Task.isCancelled {
                 try? await Task.sleep(nanoseconds: 1_000_000_000)
@@ -1678,6 +1897,9 @@ public final class StudioSession {
                 // an iPhone as its camera exactly as the television can, so it
                 // drops in exactly the same way; the difference was only that
                 // the rebuild had been written inside tvOS's own view loop.
+                #if os(macOS)
+                self.sampleCameras(onAir: h.showState.isOnAir)
+                #else
                 if stall.tick(attached: h.cameraAttached,
                               framesReceived: h.cameraFramesReceived,
                               framesPerSecond: self.cameraFramesPerSecond,
@@ -1689,6 +1911,7 @@ public final class StudioSession {
                     awdiag("AWCAM recovery %d: %@", stall.attempts,
                            session != nil ? "re-attached" : "no camera")
                 }
+                #endif
                 // THE FILM'S OWN STALL, named. Three seconds, because one is
                 // a hiccup on a 24 fps transfer and the readout already shows
                 // the rate; and never while the film has simply ended, which
@@ -1816,10 +2039,13 @@ public final class StudioSession {
                 // outcome actually turns on. A photograph of a still meter has
                 // never distinguished the two.
                 #if os(macOS)
-                if #available(macOS 14.2, *), let t = self.callTap as? StudioCallAudioTap {
-                    awdiag("AWCALL app=%@ samples=%d level=%.4f running=%@",
-                           self.callAppName ?? "?", t.samplesReceived,
-                           h.audio.callLevel, t.isRunning ? "true" : "false")
+                if #available(macOS 14.2, *) {
+                    for (key, obj) in self.callTaps {
+                        guard let t = obj as? StudioCallAudioTap else { continue }
+                        awdiag("AWCALL app=%@ samples=%d level=%.4f running=%@",
+                               self.callTapNames[key] ?? "?", t.samplesReceived,
+                               h.audio.callLevel, t.isRunning ? "true" : "false")
+                    }
                 }
                 #endif
 
@@ -2042,69 +2268,81 @@ public final class StudioSession {
     }
 
 #if os(macOS)
-    // MARK: The call's audio (§D2, Decision 131)
+    // MARK: The call's audio (§D2, Decision 131, §D40)
 
-    /// The app whose audio is being mixed into the show, and why it is not.
+    /// The apps whose audio is being mixed into the show, by tap key, and why
+    /// the last one could not be.
     ///
     /// `callProblem` exists for the same reason the camera's does: "no
     /// conversation is being captured" and "nobody is talking" are different
     /// facts, and a host must be able to tell them apart BEFORE they start
     /// speaking to an audience that cannot hear their guests.
-    public private(set) var callAppName: String?
+    public private(set) var callTapNames: [String: String] = [:]
     public private(set) var callProblem: String?
+    /// Every tapped app, for the Mixer's one call channel.
+    public var callAppName: String? {
+        callTapNames.isEmpty ? nil : callTapNames.values.sorted().joined(separator: ", ")
+    }
 
-    /// Begin capturing a named app's audio. Idempotent: choosing the same app
-    /// twice does not stack two taps on it.
+    /// The key the DEBUG audio-only door (`AW_STUDIO_CALL`) taps under.
+    private static let manualCallKey = "manual"
+
+    /// Begin capturing a named app's audio, with no picture — the DEBUG door.
+    /// Idempotent: choosing the same app twice does not stack two taps on it.
     @discardableResult
     public func startCallAudio(process: StudioAudioProcesses.Process) async -> String? {
-        guard #available(macOS 14.2, *) else {
-            callProblem = "Capturing another app's audio needs macOS 14.2 or later."
-            return callProblem
-        }
         stopCallAudio()
+        let why = await startCallTap(key: Self.manualCallKey, process: process)
+        callProblem = why
+        return why
+    }
+
+    public func stopCallAudio() {
+        stopCallTap(key: Self.manualCallKey)
+    }
+
+    /// One tap per calling APP (§D40). A scene never reaches this: hiding a
+    /// call's picture never mutes its voice.
+    private func startCallTap(key: String, process: StudioAudioProcesses.Process) async -> String? {
+        guard #available(macOS 14.2, *) else {
+            return "Capturing another app's audio needs macOS 14.2 or later."
+        }
+        stopCallTap(key: key)
         let tap = StudioCallAudioTap(programRate: 44100)
         if let why = tap.start(process: process) {
-            callProblem = why
             diag("[AWCALL] could not tap \(process.name): \(why)")
             return why
         }
-        callTap = tap
-        callAppName = process.name
-        callProblem = nil
-        callSilentSince = Date()
-        // Synchronous, for the same reason the clear above is: the two must
-        // not be able to land out of order (§D18).
-        engine?.attachCallAudio(ring: tap.ring)
+        callTaps[key] = tap
+        callTapNames[key] = process.name
+        callSilentSince[key] = Date()
+        // Synchronous: a clear and an attach must not be able to land out of
+        // order (§D18).
+        engine?.attachCallAudio(key: key, ring: tap.ring)
         diag("[AWCALL] capturing \(process.name) (\(process.bundleID))")
         return nil
     }
 
-    public func stopCallAudio() {
+    private func stopCallTap(key: String) {
         guard #available(macOS 14.2, *) else { return }
-        (callTap as? StudioCallAudioTap)?.stop()
-        callTap = nil
-        callAppName = nil
-        callSilentSince = nil
-        // SYNCHRONOUSLY (§D18). This was `Task { await engine?.attachCallAudio(ring: nil) }`,
-        // and `startCallAudio` calls `stopCallAudio()` FIRST — so the order
-        // was: enqueue "clear the ring", attach the new ring, return, and THEN
-        // the enqueued clear ran and took the channel away again. The owner
-        // saw exactly that: "it appeared in the mixer for a second and then
-        // disappeared."
-        //
-        // `attachCallAudio` is `nonisolated`, so there was never a reason to
-        // wrap it — the `Task` bought nothing and cost the ordering.
-        engine?.attachCallAudio(ring: nil)
+        (callTaps[key] as? StudioCallAudioTap)?.stop()
+        callTaps[key] = nil
+        callTapNames[key] = nil
+        callSilentSince[key] = nil
+        // SYNCHRONOUSLY (§D18). This was once a `Task`, and a start that
+        // stops first then enqueued "clear the ring" AFTER attaching the new
+        // one — the owner saw the channel "appear in the mixer for a second
+        // and then disappear". `attachCallAudio` is `nonisolated`.
+        engine?.attachCallAudio(key: key, ring: nil)
     }
 
-    /// When the call tap last had NO audio at all. Nil means it is delivering,
-    /// or is not running. §D18: a level of zero is a legitimate reading (a
-    /// quiet room); no SAMPLES at all is an absence, and the two must not draw
-    /// the same.
-    private var callSilentSince: Date?
+    /// When each call tap last had NO audio at all. §D18: a level of zero is
+    /// a legitimate reading (a quiet room); no SAMPLES at all is an absence,
+    /// and the two must not draw the same.
+    private var callSilentSince: [String: Date] = [:]
 
     /// Held as `AnyObject` so this stored property needs no availability
     /// annotation — a `@available` stored property is not allowed here.
-    private var callTap: AnyObject?
+    private var callTaps: [String: AnyObject] = [:]
 #endif
 }

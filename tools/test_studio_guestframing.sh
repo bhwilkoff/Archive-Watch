@@ -35,6 +35,16 @@ else
   fail=1
 fi
 
+# 1b. §D40 — THE TILED PATH applies each tile's OWN framing, both halves.
+tiled=$(awk '/private func drawTiled/,/^    }$/' "$ENG" | code)
+place=$(awk '/public static func place/,/^    }$/' "$ENG" | code)
+if echo "$tiled" | grep -q "p.framing.crop" && echo "$place" | grep -q "t.framing.apply"; then
+  echo "  ok   every source tile is both placed and cropped by its own framing"
+else
+  echo "  FAIL the tiled path does not apply each tile's framing (move AND crop)"
+  fail=1
+fi
+
 # 2. IT IS A SEPARATE VALUE. One framing driving both tiles would move the
 #    host's face every time a host cropped their guests.
 if grep -q "var guestFraming = StudioCameraFraming()" "$ENG"; then
@@ -53,8 +63,11 @@ else
   echo "  ok   the handles drive activeFraming and name no tile"
 fi
 
-# 4. THE HANDLES SIT ON THE COMPOSITED RECT, never a re-derivation.
-if grep -q "studio.health.guestTile" "$WIN" && grep -q "health.guestTile = renderer.lastGuestRect" "$ENG"; then
+# 4. THE HANDLES SIT ON THE COMPOSITED RECT, never a re-derivation. Since
+#    §D40 every tile's rect is published by source (`tileRects`) and the Mac
+#    preview reads that; the one-call `guestTile` stays for the other readers.
+if grep -q "studio.health.tileRects" "$WIN" && grep -q "health.tileRects = renderer.lastTileRects" "$ENG" \
+   && grep -q "health.guestTile = renderer.lastGuestRect" "$ENG"; then
   echo "  ok   the guest handles use the rect the compositor used"
 else
   echo "  FAIL the guest tile's rect is not published from the compositor"; fail=1

@@ -275,6 +275,10 @@ swift_case "8.70 only a call is captured" ArchiveWatch/ArchiveWatch/Studio/Studi
 # corner moved 64 px down, same 332x187 tile in the same corner.
 swift_case "8.22 camera placement" "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_layouts.swift
 swift_case "8.72 scene camera and call switches" "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_scene_people.swift
+# §D40 — any number of cameras and calls, each scene's own tiles, layer order,
+# a removed source drawing nothing, pre-§D40 scenes compositing identically,
+# and every call's voice mixed whatever the scene shows. Two controls.
+swift_case "8.74 show sources and scene tiles" "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" ArchiveWatch/ArchiveWatch/Studio/StudioSources.swift "$SHIM" tools/test_studio_sources.swift
 # §D39 — scheduling a YouTube watch-along ahead of time, against a LOCAL mock
 # of the live endpoints (tools/mock_youtube_live.py): no account, no network.
 # It compiles the overlay renderer so the thumbnail it checks is the real card.

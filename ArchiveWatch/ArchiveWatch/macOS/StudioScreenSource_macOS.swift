@@ -54,6 +54,9 @@ public final class StudioScreenSource: NSObject, SCStreamOutput, SCStreamDelegat
 
     public private(set) var isRunning = false
     private var stream: SCStream?
+    /// Which stream this is, so a window changed from macOS's own sharing
+    /// controls replaces the call whose window it was (§D40).
+    public var streamID: ObjectIdentifier? { stream.map(ObjectIdentifier.init) }
     /// NOT main-actor isolated: this is called on the capture queue 30 times
     /// a second, and hopping to the main actor per frame would put the
     /// compositor behind whatever the UI is doing. A lock, because the start
@@ -272,12 +275,12 @@ public final class StudioCallPicker: NSObject, SCContentSharingPickerObserver {
     /// macOS's own sharing controls — is the host changing their call, and
     /// must reach the tile. It used to be dropped, because only the pick that
     /// followed "Choose your call…" had a handler.
-    @ObservationIgnored public var onChange: ((SCContentFilter) -> Void)?
+    @ObservationIgnored public var onChange: ((SCContentFilter, ObjectIdentifier?) -> Void)?
     public private(set) var problem: String?
 
     /// A filter crosses from whatever thread the picker calls back on to the
     /// main actor. It is handed over once and never touched on the way.
-    private struct Handoff: @unchecked Sendable { let filter: SCContentFilter }
+    private struct Handoff: @unchecked Sendable { let filter: SCContentFilter; let stream: ObjectIdentifier? }
 
     public func present(onPick: @escaping (SCContentFilter) -> Void) {
         self.onPick = onPick
@@ -295,13 +298,13 @@ public final class StudioCallPicker: NSObject, SCContentSharingPickerObserver {
     public nonisolated func contentSharingPicker(_ picker: SCContentSharingPicker,
                                                  didUpdateWith filter: SCContentFilter,
                                                  for stream: SCStream?) {
-        let h = Handoff(filter: filter)
+        let h = Handoff(filter: filter, stream: stream.map(ObjectIdentifier.init))
         Task { @MainActor in
             if let pick = self.onPick {
                 self.onPick = nil
                 pick(h.filter)
             } else {
-                self.onChange?(h.filter)
+                self.onChange?(h.filter, h.stream)
             }
         }
     }
@@ -324,18 +327,3 @@ public final class StudioCallPicker: NSObject, SCContentSharingPickerObserver {
     }
 }
 #endif
-
-/// Which tile the framing gestures act on (§D24).
-///
-/// A picker rather than two sets of handles: §D23 stacks the host's tile and
-/// the call's in one column, so overlapping handles would make a drag
-/// ambiguous exactly where the two meet.
-public enum StudioFramingTarget: String, CaseIterable, Sendable {
-    case camera, guests
-    public var label: String {
-        switch self {
-        case .camera: return "You"
-        case .guests: return "Your guests"
-        }
-    }
-}

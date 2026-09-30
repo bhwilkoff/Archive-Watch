@@ -1084,7 +1084,46 @@ final class StudioAudioMixer: @unchecked Sendable {
     /// this file is compiled on four platforms. Nil until the host picks an
     /// app to capture — a channel that exists with nothing behind it would
     /// show a dead meter and read as broken.
-    var callRing: AudioRing?
+    var callRing: AudioRing? {
+        get { currentCallRings().first { $0.0 == Self.defaultCallKey }?.1 }
+        set { setCallRing(Self.defaultCallKey, newValue) }
+    }
+
+    /// §D40 — ANY NUMBER OF CALLS, each its own ring, summed into one channel
+    /// under the host's one call fader. Keyed by whoever captures it (on the
+    /// Mac, one process tap per calling APP — two windows of the same app are
+    /// one tap, or its voices would arrive twice).
+    ///
+    /// LOCKED, not merely assigned: the mix runs on its own queue and a
+    /// dictionary mutated while it is being read is a crash, where the single
+    /// reference this replaced was merely a race.
+    static let defaultCallKey = "call"
+    private let callLock = NSLock()
+    private var callRingsByKey: [(String, AudioRing)] = []
+    func setCallRing(_ key: String, _ ring: AudioRing?) {
+        callLock.lock(); defer { callLock.unlock() }
+        callRingsByKey.removeAll { $0.0 == key }
+        if let ring { callRingsByKey.append((key, ring)) }
+    }
+    func currentCallRings() -> [(String, AudioRing)] {
+        callLock.lock(); defer { callLock.unlock() }
+        return callRingsByKey
+    }
+    /// The keys whose audio is in the mix — for a harness reading the value
+    /// where it lands (Decision 133), and for the Mixer's label.
+    var callKeys: [String] { currentCallRings().map(\.0) }
+
+    /// §D40 — every call's samples summed into `out`. A ring that cannot
+    /// supply a whole chunk zero-fills the rest (`AudioRing.read`), so a
+    /// starved call adds silence rather than repeating itself.
+    static func sumCalls(_ rings: [AudioRing], into out: UnsafeMutablePointer<Float>,
+                         scratch: UnsafeMutablePointer<Float>, count: Int) {
+        for i in 0..<count { out[i] = 0 }
+        for ring in rings {
+            _ = ring.read(into: scratch, count: count)
+            for i in 0..<count { out[i] += scratch[i] }
+        }
+    }
 
     // MARK: The microphone gate (roadmap #4)
     //
@@ -1137,6 +1176,7 @@ final class StudioAudioMixer: @unchecked Sendable {
     private var pcm: UnsafeMutablePointer<Float>
     private var micPcm: UnsafeMutablePointer<Float>
     private var callPcm: UnsafeMutablePointer<Float>
+    private var callScratch: UnsafeMutablePointer<Float>
     private var interleaved: UnsafeMutablePointer<Int16>
     private var aacOut: UnsafeMutablePointer<UInt8>
     private var micHasEverArrived = false
@@ -1152,12 +1192,13 @@ final class StudioAudioMixer: @unchecked Sendable {
         pcm = .allocate(capacity: n)
         micPcm = .allocate(capacity: n)
         callPcm = .allocate(capacity: n)
+        callScratch = .allocate(capacity: n)
         interleaved = .allocate(capacity: n)
         aacOut = .allocate(capacity: 4096)
     }
 
     deinit {
-        pcm.deallocate(); micPcm.deallocate(); callPcm.deallocate()
+        pcm.deallocate(); micPcm.deallocate(); callPcm.deallocate(); callScratch.deallocate()
         interleaved.deallocate(); aacOut.deallocate()
         if let converter { AudioConverterDispose(converter) }
     }
@@ -1239,11 +1280,9 @@ final class StudioAudioMixer: @unchecked Sendable {
         // The call, when there is one. `read` zero-fills what it cannot
         // supply, so an absent or starved channel contributes silence rather
         // than the previous chunk again.
-        if let callRing {
-            _ = callRing.read(into: callPcm, count: samples)
-        } else {
-            for i in 0..<samples { callPcm[i] = 0 }
-        }
+        let calls = currentCallRings().map(\.1)
+        Self.sumCalls(calls, into: callPcm, scratch: callScratch, count: samples)
+        let anyCall = !calls.isEmpty
 
         // Levels first: ducking is decided on what the host is ACTUALLY saying
         // in this chunk, not on a setting.
@@ -1267,7 +1306,7 @@ final class StudioAudioMixer: @unchecked Sendable {
         // is a person talking over the film for exactly the reason the host
         // is, and a duck that only heard the host would leave the guests
         // fighting the soundtrack.
-        let callSpeaking = callRing != nil && !callMuted && callRMS > duckThreshold
+        let callSpeaking = anyCall && !callMuted && callRMS > duckThreshold
         // AND A GATED MICROPHONE MUST NOT DUCK THE FILM. Without this, film
         // bleed the gate is busy rejecting would still read as "the host is
         // talking" and pull the soundtrack down 12 dB for the whole show —
@@ -1294,7 +1333,7 @@ final class StudioAudioMixer: @unchecked Sendable {
 
         let fg = (filmMuted ? 0 : filmGain) * duckGain
         let mg = (micMuted ? 0 : micGain) * gateGain
-        let cg = (callMuted || callRing == nil) ? 0 : callGain
+        let cg = (callMuted || !anyCall) ? 0 : callGain
         for i in 0..<samples {
             let v = pcm[i] * fg + micPcm[i] * mg + callPcm[i] * cg
             // Hard-limit rather than wrap: a summed peak must never invert.
@@ -1311,7 +1350,7 @@ final class StudioAudioMixer: @unchecked Sendable {
         health.filmLevel = min(1, filmRMS * 3)
         health.micLevel = min(1, micRMS * 3)
         health.callLevel = min(1, callRMS * 3)
-        health.callAttached = callRing != nil
+        health.callAttached = anyCall
         health.micBacklogSeconds = Double(mic.ring.availableSamples) / 2.0 / max(mic.programRate, 1)
         health.micDroppedForLatency = mic.ring.framesDroppedForLatency
         health.ducking = wantDuck

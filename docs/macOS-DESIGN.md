@@ -2943,3 +2943,138 @@ units (stream 50, broadcast 50, bind 50, thumbnail 50); reschedule 50; cancel
 
 **Proof so far**: §8.73 (`tools/test_studio_schedule.swift`) against a LOCAL
 mock of the endpoints, with a control. **Not yet run against a real channel.**
+
+## §D40 — Sources: any number of cameras and calls, and each scene chooses its tiles (2026-09-30)
+
+Owner, 2026-09-30: *"You should be able to have full control over which camera
+and call are on each scene, just as you can do in OBS."* Asked three questions,
+the owner chose:
+
+1. **"Any number, each its own tile"** — add as many cameras and calls to the
+   show as you like; each scene shows any mix of them; every tile is placed
+   and cropped on the canvas by dragging; the placements become starting
+   arrangements, not limits.
+2. **"Keep every added camera running"** — every camera in the show stays open
+   for the length of the show, so a cut or a crossfade is instant; if one
+   drops, one line says so.
+3. **"Voices always heard"** — hiding a call's picture never mutes its audio;
+   mutes stay the host's own controls.
+
+**This supersedes the §D31 amendment's Camera and Call switches** (the scene's
+"who is on screen" is now a list, not two switches) and **§D23/§D24's one call
+and one camera**. §D14a's gestures, §D23b's picker, §D25's one-choice-per-call
+and §D31's inheritance toggles all stand, and are extended below rather than
+replaced.
+
+### The show's SOURCES (Inputs column)
+
+- **Cameras.** Any number, each a capture device the host adds from **Add
+  Camera** (a menu of this Mac's cameras not already in the show — one device,
+  one source). Each row names its device, offers a device picker (§D11: a
+  change takes effect now, and only that camera restarts), its frame rate, and
+  **Remove**. The camera permission row is said once, above them.
+- **The microphone** is unchanged: one, chosen in its own row.
+- **Calls.** Any number, each ONE window chosen in macOS's own picker (§D23b)
+  plus, through that window's app, the app's audio via the process tap (§D25).
+  **Add Call…** opens the picker and adds a call only when a window is chosen.
+  Each row: the app and window as the picker handed them over, "Sound from
+  <app>" or why not, **Choose Another Window…**, **Remove**. The window is
+  never remembered across launches (§D23); a call source whose window is not
+  chosen says so and shows nothing.
+- Sources are labeled by the device's or the app's own name, never abbreviated
+  (§D13), and never renamed.
+- **The order of the list matters once**: the first camera in it that a scene
+  shows takes the placement's host seat, and the first call its call seat.
+  Layer order never decides seats — bringing a tile to the front must not move
+  every other tile.
+
+**One capture session per camera.** On macOS an `AVCaptureSession` carries one
+camera: simultaneous capture from several inputs of one media type is
+`AVCaptureMultiCamSession`, which `AVCaptureSession.h` marks
+`API_UNAVAILABLE(macos)`. The microphone has a session of its own. A camera
+that stops delivering while on air is rebuilt by the same `CameraStallRecovery`
+rule as before, per camera, and the row and the scene each say it in one line
+("<camera> stopped sending pictures."). A chosen camera that is unplugged is
+said ("That camera is not connected."), never silently replaced by the system
+default — with several cameras that would open one another source already
+shows.
+
+**Two windows of one app are one audio tap.** A process tap captures the whole
+app, so a second tap would put every voice in the mix twice. The tap is keyed
+by the app (a browser and its helpers are one app), shared by every call
+source of that app, and stopped when the last of them is removed.
+
+### Each scene's TILES (On screen column, and the STREAM canvas)
+
+- **"In this scene"** lists every source, the scene's own front first (OBS's
+  sources list reads top = front), then those it does not show. A checkbox puts
+  a source in the scene. A shown source's context menu carries **Bring to
+  Front, Bring Forward, Send Backward, Send to Back**; the Framing section
+  carries Bring Forward and Send Backward for the tile being framed.
+- **Which sources a scene shows, and their layer order, always belong to the
+  scene** — never inherited — because who is on screen is what makes one scene
+  another (the §D31 amendment's reasoning, kept).
+- **Each tile's box and crop** is §D14a's value, per source. It follows §D31's
+  **"Use the show's tiles"**: on, a source's framing is the show's and follows
+  the person into every inheriting scene; off, the scene keeps its own copy of
+  every source's framing. One toggle for all of a scene's tiles, as before.
+- **The canvas**: every drawn tile but one carries the dashed outline (§D24);
+  clicking one selects it and its handles appear. One set of handles at a
+  time. The Framing section's picker names the same tiles for the keyboard.
+- A source a scene turns ON arrives in FRONT. A source the host ADDS is turned
+  on in the scene on screen and in no other. A new scene from "+" copies the
+  one on screen (§D31), tiles included.
+
+**How the placements seed an arrangement.** The placement still decides the
+host seat and the call seat exactly as §D14/§D23/§D31 drew them (film only:
+nobody; a card: the right-hand column). Every further source starts in a
+column down the top-left, clear of the seats and of the lower third, and the
+host drags it where they want. **Choosing a placement resets the box of every
+tile holding a seat and keeps every crop** (§D14a, now applied to the call's
+seat too); a tile with no seat keeps its place, because no placement has
+anywhere else to put it. In "You, with the film inset" the host-seat camera is
+the ground, drawn under the film; it cannot be moved, and its crop applies.
+
+**Chat yields to every tile in front of the film**, a moved tile and a third
+camera included — not only to the placement's seats.
+
+### A scene saved before §D40
+
+Nothing a host built is lost. On first launch the Sources list is seeded with
+the Camera row's chosen device (unless it was None) and one call with no
+window, which is what the "Your call" row was. Every saved scene then becomes
+tiles: its Camera switch → shows the first camera; its Call switch → shows the
+first call, behind the camera (the order the one-camera path drew them); its
+two framings — the show's and its own — become those two sources' framings.
+§8.74 composites every migrated case against the one-camera path and requires
+the same picture, pixel for pixel. The old switches are still written, so this
+version's scenes read sensibly in the last.
+
+### When a source a scene uses goes away
+
+- **Removed** from the Sources list: it stops, and it leaves every scene and
+  every framing. A scene that showed nothing else shows the film.
+- **Unplugged, not running, or no window chosen**: its tile draws nothing —
+  never a black box, never a frozen still — and the scene's row for it carries
+  one line saying why. The show goes on.
+
+### The audio rule
+
+Scenes switch PICTURES only. Every call's voices are in the mix whether or not
+any scene shows its picture; the one call fader and the call mute are the
+host's own and no scene changes them (the launch audit B rule §D31 keeps).
+Removing a call is the one act that takes its voices out, as §D25's one undo.
+
+### Platforms
+
+macOS only. iOS and tvOS pass no tiles and keep the one-camera arrangement
+exactly (§8.72's unset-switch cases hold it). PARITY carries the row.
+
+**Proof so far**: §8.74 (`tools/test_studio_sources.swift`): two cameras and
+two calls of distinct colors — each scene draws exactly its sources at the
+published rects, a second scene a different set, layer order, an unplugged and
+a removed source draw nothing, pre-§D40 scenes composite identically, two
+calls are summed and a scene with no call leaves both in the mix; controls: a
+renderer that ignores the scene's selection, and a migration that drops the
+framing, both fail. **Not yet run in the Studio against real cameras and
+calls.**

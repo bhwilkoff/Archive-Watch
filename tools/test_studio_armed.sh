@@ -30,7 +30,10 @@ fail=0
 #                      value anyone arms.
 #   armedFilmID      — consumed by the attach itself as its guard, and
 #                      cleared there; re-applying it would re-arm a show.
-EXEMPT="armedBroadcast armedBroadcastID armedFilmID"
+#   armedBroadcastWasScheduled — §D39: read by completeArmedBroadcast() so a
+#                      scheduled show that never went live is not deleted; the
+#                      ENGINE has no use for it, like armedBroadcast beside it.
+EXEMPT="armedBroadcast armedBroadcastID armedFilmID armedBroadcastWasScheduled"
 
 armed=$(grep -oE "var armed[A-Za-z]+" "$SESS" | awk '{print $2}' | sort -u)
 applied=$(awk '/public func attachIfArmed\(player/,/^    }$/' "$SESS")
@@ -71,8 +74,10 @@ else
 fi
 
 # THE CALL'S PICTURE specifically, because it is not an `armedX` — the source
-# is a live object, so the naming rule above cannot see it.
-if echo "$applied" | grep -q "attachGuests"; then
+# is a live object, so the naming rule above cannot see it. Since §D40 (any
+# number of calls) the Mac re-attaches EVERY call source by id with
+# `attachSource`; `attachGuests` was the one-call form it replaced.
+if echo "$applied" | grep -q "attachSource(id, src.sink, call: true)"; then
   echo "  ok   the call's picture is re-attached too"
 else
   echo "  FAIL going live would drop the guests a host set up in the preview"
