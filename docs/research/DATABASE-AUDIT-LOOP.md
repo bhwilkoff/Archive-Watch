@@ -572,3 +572,6 @@ Eagle Squadron) plus two Flirtation copies held as uncertain — all in
 copyright_evidence_overrides.json with reasons. corroborate_copyright's
 cce_renewal_any records "under the alternate title ..." in the evidence.
 test_cce_alternate.py (three controls) in the gate, 56/56. CCE_RULE 5 -> 6.
+
+### E21 — review batch (2026-09-30)
+40 summaries: 16 rewritten, 1 placeholder removed, 23 kept. Two more download-site ads (Dear Murderer), "Want to share movies??" (Little Audrey), a quoted review for The Scar, a Polish Segundo de Chomón summary, "UNEDITED FILM REPORT:" and shot lists. 14 titles cleaned, among them five Gould cans named for what they show.
