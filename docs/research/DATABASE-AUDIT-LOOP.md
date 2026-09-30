@@ -313,3 +313,6 @@ diffed: 0 un-hidden.
 
 ### E9 — review batch (2026-09-29)
 40 summaries (1930-34): 24 rewritten — credit lists for Peacock Alley, 1933 newsreel narration with stray quotes and typos (Thanksfiving, frances, Paterson for Patterson LA), reviewer voice (Hash Shop, Betty Boop, Plant Life), a donation plea; 16 kept. Titles: The Hash Shop, Telephone Memories (Reel 1/2).
+
+### E10 — review batch (2026-09-29)
+40 summaries (1934-35 and the 1890s-1900s): 22 rewritten (all-caps Chevrolet reel, an AI-style home-movie blurb, uploader voice on Edison shorts, typos, Hauptmann-trial newsreels named properly), 15 kept. Out: a spam upload dated 1889, a 1990s Japanese TV segment and a helicopter safety briefing both dated 1900. Dated right and so hidden pending confirm: Cosmos (1980, was 1901), Lumière! (2016, was 1895). Alice's Wonderland is 1923 (was 1931 under the wrong title); the Wright brothers reel loses its 1903 (no film of the first flight exists).
