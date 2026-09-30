@@ -62,6 +62,7 @@ RECHECK_DAYS = 90
 RULE = 2
 CHECKED_BUCKETS = {"presumed_pd", "renewal_zone", "renewal_zone_bw", "unknown_year",
                    "safe_archive_license", "safe_cc", "commercial_keep"}
+YEARLESS_HIDES = {"no_evidence", "unknown_year", "modern_noyear_risk"}
 USCO_FIRST_YEAR = 1950     # renewals of earlier works were filed before 1978: not online
 COPYRIGHTED, PUBLIC_DOMAIN = "Q50423863", "Q19652"
 US, WORLDWIDE = "Q30", "Q13780930"
@@ -248,7 +249,12 @@ def targets(items, today):
     cutoff = today - dt.timedelta(days=RECHECK_DAYS)
     out = []
     for it in items:
-        if it.get("excluded") or it.get("copyrightClaimEvidence"):
+        # A title hidden only for want of a year is judged the moment a year
+        # arrives, so it must be asked before that build un-hides it: eleven
+        # renewed films (Scrooge 1970, Esther and the King) were one publish
+        # from the screen unchecked (2026-09-30).
+        if it.get("copyrightClaimEvidence") or (
+                it.get("excluded") and it.get("rightsAudit") not in YEARLESS_HIDES):
             continue
         y = it.get("year")
         if not isinstance(y, int) or y < AR.PD_BY_AGE:
