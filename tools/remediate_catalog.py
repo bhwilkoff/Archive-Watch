@@ -3291,6 +3291,22 @@ def _load_match_rejects():
     return {k: v for k, v in json.loads(p.read_text()).items() if not k.startswith("_")}
 
 
+def _load_synopsis_rejects():
+    p = REPO / "shared/editorial/synopsis_rejects.json"
+    if not p.exists():
+        return {}
+    return {k: v for k, v in json.loads(p.read_text()).items() if not k.startswith("_")}
+
+
+def _load_director_corrections():
+    """Directors judged by hand against a checked source — the summary's own
+    lead (Oh, Susanna! is Joseph Kane's, not its star Gene Autry's)."""
+    p = REPO / "shared/editorial/director_corrections.json"
+    if not p.exists():
+        return {}
+    return {k: v for k, v in json.loads(p.read_text()).items() if not k.startswith("_")}
+
+
 def _load_type_corrections():
     p = REPO / "shared/editorial/type_corrections.json"
     if not p.exists():
@@ -3412,6 +3428,21 @@ def remediate(items):
         # Types judged by hand: a collection rule cannot know that FedFlix's
         # copy of The Great Train Robbery (filed under news and public affairs)
         # is a narrative film, not a newsreel.
+        # A summary a person found describing ANOTHER work (a same-titled
+        # Wikipedia article: the Terrytoons cartoon "Romance" wore the Garbo
+        # film's). Dropped every build, or the title lookup puts it back.
+        if it.get("archiveID") in _load_synopsis_rejects() and it.get("synopsis") \
+                and it.get("synopsisSource") != "agent-reviewed":
+            it["synopsis"] = None
+            it["synopsisSource"] = None
+            stats["synopsis_rejected"] += 1
+
+        df = _load_director_corrections().get(it.get("archiveID"))
+        if df and it.get("director") != df:
+            it["director"] = df
+            it["directorSource"] = "agent-reviewed"
+            stats["director_corrected"] += 1
+
         tf = _load_type_corrections().get(it.get("archiveID"))
         if tf and it.get("contentType") != tf:
             it["contentTypeWas"] = it.get("contentType")

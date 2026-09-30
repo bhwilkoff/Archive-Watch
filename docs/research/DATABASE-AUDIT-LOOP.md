@@ -157,7 +157,30 @@ tables, a scheduled workflow), never only in one published catalog.
   (`origin_cache.json`, weekly); `uraa_restored` flags 3,306 served titles
   (incl. 443 British), US co-productions / government / licensed exempt.
 
+- R. ✅ **Summary ACCURACY, not just form** (owner, mid-loop: "what about the deep
+  review of each summary/description? I want to make sure that info is accurate
+  and not just that our data is well categorized"). Every served summary checked
+  against the item's own facts: a Wikipedia lead states its film's year and
+  director ("X is a 1953 American film directed by ..."), so 1,121 Wikipedia
+  summaries were compared with the item's year, director and cast. 44
+  contradictions, judged one by one, split both ways:
+  - the summary described ANOTHER same-titled work (the Terrytoons cartoons
+    Romance, What a Night and Happy Go Lucky wore a Garbo drama's, a British
+    film's and a L'Herbier film's articles; Keaton's The Love Nest a German
+    film's; Epstein's Coeur fidèle, Lubitsch's Madame Du Barry and Stiller's
+    The Flame of Life likewise). New `synopsis_rejects.json`: remediate drops a
+    rejected summary every build, or the title lookup restores it.
+  - the CATALOG was wrong and the summary right: 12 years (The Wizard of Oz
+    1925, The Shriek of Araby 1923, Gösta Berling 1924; "Wien" is Vienna 1910,
+    a 1943 film) and 10 directors (Oh, Susanna! is Joseph Kane's, not its star
+    Gene Autry's; Broken Blossoms was credited to Teruo Ishii). New
+    `director_corrections.json`.
+  A "starring" cross-check against cast lists found 16 more, nearly all partial
+  cast lists rather than wrong summaries.
+
 ## Queue
+
+- E-next. Review batches now judge ACCURACY: each uploader summary beside an independent source (TMDb overview, Wikipedia lead) where one exists; tmdb/omdb/wikipedia summaries of weakly matched items get the same look.
 
 
 - N2. `01-rec-2024...` 1-2 minute recordings wearing The Last Command, The Navigator, Beggars of Life (hidden now, but the ingest keeps admitting such recordings).
