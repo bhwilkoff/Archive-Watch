@@ -238,6 +238,7 @@ into every session and the index alone carries every title.)
 - 153 — A work made with Archive Watch claims Creative Commons or fair use, never public domain
 - 154 — The Android floor is a floor, not a ceiling: modern devices get modern features, gated by OS version
 - 155 — The iPhone/iPad floor is iOS 18: the XS and XR come back, iOS 26 features are gated, and iOS 12 is the website's job
+- 156 — A foreign film URAA restored is never recommended and always findable
 
 ---
 
@@ -1486,3 +1487,36 @@ on 26.6.1, iPhone 15 Pro and iPad Pro on 27.2), the same gap Decision 148 names
 for the Apple TV HD. An iPhone on 12 is served by the website, which Safari 12
 cannot run today (IOS-FLOOR.md lists why).
 
+
+
+## 156 — A foreign film URAA restored is never recommended and always findable
+*Date: 2026-09-29*
+
+A film published after the public-domain-by-age line (Decision 137) whose
+production country is not the United States — or, with no country known, whose
+original language is not English — carries `noRecommend` with the reason
+"URAA — made in DE" (or "original language spa"), set by remediate's
+`uraa_restored` every build. It leaves every surface that picks films for the
+viewer and stays reachable by search, browse and collections: the Decision 149
+mechanism, with a second reason. US co-productions, government works and titles
+with corroborated free licences are exempt. Measured on the live catalog: 3,306
+served titles (Argentina 632, Germany 499, Britain 443, Italy 119, Japan 106;
+M, Viridiana, Les Diaboliques, The First of the Few).
+
+**Why**: the Uruguay Round Agreements Act restored US copyright, from 1996, to
+foreign works still protected at home that had fallen into the US public domain
+only through a missed formality (notice, renewal). So the renewal rules the
+audit applies to 1931-77 films say nothing about a foreign film: Fritz Lang's M
+(1931) is under US copyright until 2027. The owner, shown the measurement and
+three options (hide, never recommend, keep), chose "Recommend never, keep
+findable".
+
+**How to apply**: origin is evidence, not a guess — TMDb production countries
+by the stored tmdbID, cached in `shared/editorial/origin_cache.json` by
+`tools/fetch_origin_countries.py` (weekly in resource-posters, committed so the
+networkless build can read it), then the item's language. A film URAA did NOT
+restore (already public domain at home on 1 January 1996, or first published in
+the US) comes back by evidence — a `licence_evidence.json`-style entry — never
+by loosening the rule. `tools/test_uraa_no_recommend.py` holds the cases with
+US, government, licence and age controls; the propaganda test now asserts its
+own reason, since both reasons share the flag.

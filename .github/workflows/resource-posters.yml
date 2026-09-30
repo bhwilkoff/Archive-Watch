@@ -90,6 +90,20 @@ jobs:
           if [ -z "$TMDB_BEARER_TOKEN" ]; then exit 0; fi
           python tools/fill_backdrops_tmdb.py | tee -a resource-posters.log
 
+      - name: Record production countries (URAA)
+        if: github.event.inputs.dry_run != 'true'
+        env:
+          TMDB_BEARER_TOKEN: ${{ secrets.TMDB_BEARER_TOKEN }}
+        run: |
+          # Where each matched film was made, for remediate's URAA rule. The
+          # cache is committed so the build (no network) can read it.
+          if [ -z "$TMDB_BEARER_TOKEN" ]; then exit 0; fi
+          python tools/fetch_origin_countries.py | tail -2 | tee -a resource-posters.log
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          git add shared/editorial/origin_cache.json
+          git diff --cached --quiet || { git commit -m "Origin cache: production countries [skip ci]" && git pull --rebase && git push; }
+
       - name: Stats summary
         if: hashFiles('resource-posters.log') != ''
         run: |

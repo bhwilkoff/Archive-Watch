@@ -9,7 +9,7 @@ set -u
 cd "$(dirname "$0")/.."
 TESTS="
 audit_rights cleared_match_residue copyright_evidence scrub_cleared_match
-propaganda_no_recommend old_year_on_newer_upload title_identity title_cast_tail
+propaganda_no_recommend uraa_no_recommend old_year_on_newer_upload title_identity title_cast_tail
 title_handle_and_rejects accent_title uploader_voice placeholder_synopsis
 synopsis_pointers synopsis_punctuation family_genre hand_year_holds
 runtime_match_gate unanchored_tmdb_residue tv_rights_gate tv_rights_items

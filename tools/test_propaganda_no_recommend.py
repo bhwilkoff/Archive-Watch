@@ -65,7 +65,9 @@ items = [
 ]
 stats = collections.Counter()
 R.flag_propaganda(items, stats, table=TABLE)
-flagged = {i["archiveID"] for i in items if i.get("noRecommend")}
+# URAA also sets noRecommend (a German film of 1937 is restored); this test
+# is about the PROPAGANDA reason.
+flagged = {i["archiveID"] for i in items if (i.get("noRecommendReason") or "").startswith("propaganda")}
 
 check("a Vorbehaltsfilm is flagged (title folded, year within 2)", "jud" in flagged)
 check("a German 1933-45 film tagged propaganda is flagged", "tag" in flagged)
@@ -82,7 +84,7 @@ check("flagged items are NOT excluded (search must reach them)",
 again = [dict(i) for i in items]
 R.flag_propaganda(again, collections.Counter(), table={})
 check("withdrawn evidence clears the flag",
-      not any(i.get("noRecommend") for i in again if i["archiveID"] == "jud"))
+      not any((i.get("noRecommendReason") or "").startswith("propaganda") for i in again if i["archiveID"] == "jud"))
 
 by = {i["archiveID"]: i for i in items}
 

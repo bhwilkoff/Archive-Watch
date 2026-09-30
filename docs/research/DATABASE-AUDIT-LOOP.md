@@ -150,6 +150,13 @@ tables, a scheduled workflow), never only in one published catalog.
   summary that credited the wrong director; The Sawmill (Larry Semon) carried an
   Odyssey travelogue's text (nulled). 3 titles fixed.
 
+- I1. ✅ **URAA (Decision 156).** No rule knew that URAA restored US copyright
+  to foreign works: ~2,800 non-English post-1930 films (M 1931, Viridiana, 1930s
+  German features) sat in presumed_pd. Owner, asked: "Recommend never, keep
+  findable". Production countries fetched for all 11,754 matched films
+  (`origin_cache.json`, weekly); `uraa_restored` flags 3,306 served titles
+  (incl. 443 British), US co-productions / government / licensed exempt.
+
 ## Queue
 
 

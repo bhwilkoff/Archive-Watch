@@ -2740,6 +2740,52 @@ def propaganda_evidence(it, table):
     return None
 
 
+# URAA (owner, 2026-09-29: "Recommend never, keep findable"). The Uruguay Round
+# Agreements Act restored US copyright, from 1996, to foreign works still
+# protected at home that had lost it here only by a missed US formality — so a
+# foreign film published after the age line is under US copyright whatever
+# its renewal record (Fritz Lang's M, 1931, until 2027). Like propaganda
+# (Decision 149), such a film is never CHOSEN for the viewer and stays
+# findable. Origin is evidence the build can read: the matched film's TMDb
+# production countries (tools/fetch_origin_countries.py -> origin_cache.json),
+# and with no country known, a non-English original language. A US co-
+# production, a government work, or a corroborated free licence is exempt.
+_ORIGIN = None
+_ENGLISH = {"en", "eng", "english"}
+_NO_LANGUAGE = {"", "none", "zxx", "silent", "und", "mis", "mul"}
+
+
+def _origin_cache():
+    global _ORIGIN
+    if _ORIGIN is None:
+        try:
+            _ORIGIN = json.loads((REPO / "shared/editorial/origin_cache.json").read_text())
+        except Exception:
+            _ORIGIN = {}
+    return _ORIGIN
+
+
+def uraa_restored(it):
+    """-> a short reason when the item is a foreign work URAA restored, else None."""
+    y = it.get("year")
+    import datetime as _dt
+    if not isinstance(y, int) or y <= _dt.date.today().year - 96:
+        return None
+    if it.get("rightsCorroborated") or set(it.get("collections") or []) & _GOV_PD_COLLECTIONS:
+        return None
+    rec = _origin_cache().get(str(it.get("tmdbID"))) if it.get("tmdbID") else None
+    countries = (rec or {}).get("c") or []
+    if countries:
+        if "US" in countries:
+            return None
+        return "made in " + ", ".join(countries)
+    lang = (rec or {}).get("l") or (it.get("language") or "")
+    lang = str(lang).strip().lower()
+    if lang in _ENGLISH or lang in _NO_LANGUAGE or lang.startswith("en"):
+        return None
+    return "original language " + lang
+
+
 def flag_propaganda(items, stats, table=None):
     """Set (and clear) `noRecommend` every build, so evidence added or withdrawn
     takes effect on the next publish."""
@@ -2747,11 +2793,17 @@ def flag_propaganda(items, stats, table=None):
         table = json.loads(_PROPAGANDA_PATH.read_text()) if _PROPAGANDA_PATH.exists() else {}
     for it in items:
         why = propaganda_evidence(it, table)
+        uraa = None if why else uraa_restored(it)
         if why:
             if not it.get("noRecommend"):
                 stats["propaganda_flagged"] += 1
             it["noRecommend"] = True
             it["noRecommendReason"] = "propaganda — " + why
+        elif uraa:
+            if not it.get("noRecommend"):
+                stats["uraa_flagged"] += 1
+            it["noRecommend"] = True
+            it["noRecommendReason"] = "URAA — " + uraa
         elif it.get("noRecommend"):
             it.pop("noRecommend", None)
             it.pop("noRecommendReason", None)
