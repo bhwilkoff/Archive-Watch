@@ -195,7 +195,7 @@ def classify(it, session, probe=True):
     files = d.get("files") or []
     if not files:
         return "dead", "no_files", None
-    vf = A.pick_video(files)
+    vf = A.pick_video(files, it.get("title"))
     if not vf:
         # Name the RESTRICTED case separately from an item that simply has no
         # video. Both are definitively unplayable, but only one of them is a
@@ -216,6 +216,14 @@ def classify(it, session, probe=True):
         baked = requests.utils.unquote(baked)
         if baked not in names:        # the exact baked file is gone -> repoint
             refreshed = (cur, A.runtime_from_file(vf))
+        else:
+            # The baked file exists but is ANOTHER work in a multi-work item
+            # (April Maze baked as "Felix Finds Out"): repoint to the title's.
+            vids = [f for f in files if (f.get("name") or "").lower().endswith(
+                (".mp4", ".m4v", ".webm", ".mkv", ".ogv", ".avi", ".mpeg", ".mpg", ".mov"))]
+            tf = A.title_files(vids, it.get("title"))
+            if tf and vf in tf and baked not in {f.get("name") for f in tf}:
+                refreshed = (cur, A.runtime_from_file(vf))
     # Archive derives each derivative's `length` from the file itself at ingest,
     # so it is the authority on how long the thing we actually stream runs —
     # unlike runtimeSeconds, which came from whichever TMDb/OMDb record matched.

@@ -345,3 +345,19 @@ newsreels uploaded to the open collections (Mexican Lumière views of 1896,
 Marey, Ruttmann's Opus films, Hal Roach shorts). No ingest rule covers the
 other years yet: most carry a real film's year, so the signal is the title,
 which the existing held_suspect_year already reads.
+
+### Q — a multi-work item played its LONGEST work, not its own (2026-09-29)
+`pick_video` ranks by format tier and then size, so an item holding a studio's
+shorts played whichever ran longest: April Maze played Felix Finds Out,
+Fiddlesticks played Molly Moo-Cow and the Indians, Arctic Antics played King
+Neptune, A Tale of Two Kitties played Jungle Jitters, Greek Mirthology played
+Insect to Injury — every one with its own file in the same item. And
+check_liveness then wrote that file's length over the runtime. Fix:
+`pick_video(files, title)` restricts a multi-work item to the files named for
+the title (`title_files`); ingest, check_liveness and repick_derivatives pass
+the title, and check_liveness repoints a baked file that is another work in
+the item. test_title_file_pick.py (four controls) in the gate, 48/48. A
+one-time scan of the 6,505 served titles whose file is not named for them
+repoints the rest. Seventeen bundles whose collection title names no file are
+hidden as not-films (3O's 0Ldies played That Touch of Mink, 1962; A Ghost
+Story for Christmas played a 2013 episode).

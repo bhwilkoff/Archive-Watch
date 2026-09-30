@@ -36,11 +36,35 @@ def archive_meta(iaid, session, *, timeout=40):
     return r.json()
 
 
-def pick_video(files):
+def _stem_key(name):
+    """A file's work, not its format: "April Maze (1930).ia.mp4" -> "aprilmaze"."""
+    base = (name or "").rsplit("/", 1)[-1]
+    base = re.sub(r"(\.ia)?\.[A-Za-z0-9]{2,4}$", "", base)
+    base = re.sub(r"_512kb$|[\(\[].*$", "", base)
+    return re.sub(r"[^a-z0-9]", "", base.lower())
+
+
+def title_files(vids, title):
+    """The files named for THIS title, when an item holds several works.
+    Empty when the item holds one work or no file is named for the title."""
+    t = re.sub(r"[^a-z0-9]", "", re.sub(r"[\(\[].*$", "", title or "").lower())
+    stems = {_stem_key(f.get("name")) for f in vids}
+    if len(t) < 4 or len(stems) < 2:
+        return []
+    return [f for f in vids if (k := _stem_key(f.get("name"))) and len(k) >= 4
+            and (k == t or (min(len(k), len(t)) >= 6 and (k in t or t in k)))]
+
+
+def pick_video(files, title=None):
     """Best playable derivative from an Archive files list. Ranking mirrors
     DerivativePicker.swift: h.264 MP4 > other MP4 > 512Kb MPEG4 > other
     MPEG4 > webm/mkv > any MP4/h264 original > anything. Within a tier,
-    largest file wins (higher bitrate)."""
+    largest file wins (higher bitrate).
+
+    With `title`, an item that holds several works plays the one named for
+    the title. Largest-wins alone played "Felix Finds Out" for April Maze and
+    "Molly Moo-Cow and the Indians" for Fiddlesticks (2026-09-29): uploaders
+    keep a studio's shorts in one item, and the longest cartoon won."""
     vids = [f for f in files if VIDEO_RE.search((f.get("format") or "").lower())
             or (f.get("name") or "").lower().endswith((".mp4", ".m4v", ".webm", ".mkv"))]
     # A file archive.org marks `private` cannot be fetched by anyone without
@@ -59,6 +83,7 @@ def pick_video(files):
     vids = [f for f in vids if not re.search(r"(^|/)history/|\.~\d+~$", f.get("name") or "")]
     if not vids:
         return None
+    vids = title_files(vids, title) or vids
 
     def fmt(f):
         return (f.get("format") or "").lower()

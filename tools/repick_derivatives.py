@@ -212,7 +212,7 @@ def main() -> int:
             meta = A.archive_meta(it["archiveID"], requests.Session())
         except Exception:
             return                                    # unreachable — retry next run
-        best = A.pick_video(meta.get("files") or [])
+        best = A.pick_video(meta.get("files") or [], it.get("title"))
         with lock:
             done += 1
             if not best:

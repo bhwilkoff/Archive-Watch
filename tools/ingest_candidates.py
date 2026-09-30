@@ -126,7 +126,8 @@ def build_item(cand, meta, session, omdb_key, omdb_cache, now):
     if md.get("mediatype") not in (None, "movies", "video"):
         return None, "not_video_mediatype"
 
-    vf = pick_video(files)
+    _t = md.get("title")
+    vf = pick_video(files, _t[0] if isinstance(_t, list) and _t else _t if isinstance(_t, str) else None)
     if not vf:
         return None, "no_video"
 
