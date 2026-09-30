@@ -89,6 +89,21 @@ _EDITION_WORDS = re.compile(
 _MODERN_YEAR = re.compile(r"\b(19[89]\d|20[0-3]\d)\b")
 
 
+_OPEN_UPLOADS = ("opensource_movies", "community", "folksoundomy", "musicvideobin")
+
+
+def _placeholder_year(item, md, cand):
+    """1900/1901 from the uploader's own date, with no Wikidata year, no IMDb
+    id and no year in the title or identifier to back it, on an item in the
+    open-upload collections."""
+    if item.get("year") not in (1900, 1901) or cand.get("year") or cand.get("imdbID"):
+        return False
+    if re.search(r"(?<!\d)190[01](?!\d)", f"{item.get('archiveID', '')} {item.get('title') or ''}"):
+        return False
+    colls = " ".join(as_list(md.get("collection"))).lower()
+    return any(c in colls for c in _OPEN_UPLOADS)
+
+
 def _suspect_age_title(title):
     if not _MODERN_TITLE_RE.search(title):
         return False
@@ -250,6 +265,14 @@ def build_item(cand, meta, session, omdb_key, omdb_cache, now):
     # candidates. "1080p" alone is NOT a marker: restorations use it.
     if b == "safe_pd_age" and _suspect_age_title(item.get("title") or ""):
         return None, "held_suspect_year"
+    # HELD, NOT INGESTED: the turn of the century as a placeholder. Uploaders
+    # to the open collections set date 1900 or 1901 on anything (2026-09-29:
+    # Disney's 2011 Jake and the Never Land Pirates pilot, an Enya album, a
+    # Gladiator clip, a 2020 recitation), and that year alone made each one
+    # public domain BY AGE and typed it silent-film. Nothing but the uploader
+    # vouches for it, so it waits for review with the rest of the holds.
+    if b == "safe_pd_age" and _placeholder_year(item, md, cand):
+        return None, "held_placeholder_year"
 
     # OMDb enrichment (poster + rich fields) when we have an IMDb ID.
     imdb = cand.get("imdbID")

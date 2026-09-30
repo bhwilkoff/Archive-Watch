@@ -316,3 +316,19 @@ diffed: 0 un-hidden.
 
 ### E10 — review batch (2026-09-29)
 40 summaries (1934-35 and the 1890s-1900s): 22 rewritten (all-caps Chevrolet reel, an AI-style home-movie blurb, uploader voice on Edison shorts, typos, Hauptmann-trial newsreels named properly), 15 kept. Out: a spam upload dated 1889, a 1990s Japanese TV segment and a helicopter safety briefing both dated 1900. Dated right and so hidden pending confirm: Cosmos (1980, was 1901), Lumière! (2016, was 1895). Alice's Wonderland is 1923 (was 1931 under the wrong title); the Wright brothers reel loses its 1903 (no film of the first flight exists).
+
+### P — the 1900/1901 placeholder year (2026-09-29)
+Uploaders to the open collections set date 1900 or 1901 on anything, and ingest
+read it as the film's year: public domain BY AGE, typed silent-film. Two were
+ingested this week (Disney's 2011 Jake and the Never Land Pirates pilot,
+09-26; a 90s mall-music mix, 09-29). Of 44 served items whose 1900/1901 has
+no witness (no Wikidata year, IMDb/TMDb id or year in the title/id), 20 were
+modern media (Enya's Watermark, a Gladiator clip, a 2020 recitation, safety
+videos, AI-animated photographs) — hidden as not-films — and 6 were undatable
+(two 8mm films, a Clarke School film, a Bimbo dub): year cleared, so the audit
+judges them on evidence (no_evidence). The rest are real turn-of-the-century
+films in curated collections (Tetherball, The Cheese Mites, Pathé fragments).
+Structural fix: ingest holds `held_placeholder_year` — 1900/1901 from the
+uploader alone, in the open-upload collections (opensource_movies, community,
+folksoundomy, musicvideobin). test_placeholder_year.py, with five controls, in
+the pipeline gate (47/47).
