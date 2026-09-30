@@ -370,3 +370,12 @@ Story for Christmas played a 2013 episode).
 
 ### E13 — review batch (2026-09-29)
 40 summaries (1917-22): 35 rewritten — timecoded shot lists, "to be logged" notes, a public-domain boilerplate, trolling ("all of the trolls can keep quiet ... ROFL"), a Polish Caligari summary, reviewer asides on the Lingerie films; 1 placeholder removed; 4 kept. 13 titles cleaned (Easy Street, Tarzan of the Apes, The Jack-Knife Man, The Cabinet of Dr. Caligari). The Arctic expedition film is 1922 (its own text says so).
+
+### R — stock-footage shot logs, cleaned every build (2026-09-29)
+The review batches kept meeting the same debris by hand: SMPTE timecodes
+("06:40:55:18 CU sign ..."), shot codes (VS, CU, LS) and the footage house's
+own notes ("Some excellent shots to be logged."). 137 served summaries carried
+them. remediate's `_strip_shot_log` (uploader text only) keeps the summary that
+precedes a timecoded log, or, when the log is all there is, keeps its words
+without the codes; 131 summaries change. test_shot_log.py pins it with three
+controls (a clock time in a plot, "vs" in a title, CU inside a word); gate 49/49.

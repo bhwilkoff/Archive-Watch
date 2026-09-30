@@ -2079,6 +2079,31 @@ def _guarded(fn, it, stats):
         signal.signal(signal.SIGALRM, prev)
 
 
+# A stock-footage house's shot log: SMPTE timecodes, shot codes (VS, CU) and
+# its own cataloguing notes ("Some excellent shots to be logged."). 137 served
+# summaries carried one on 2026-09-29, the Periscope/Gould reels above all.
+_TIMECODE = re.compile(r"\b\d{2}:\d{2}:\d{2}[:;]\d{2}\b")
+_TO_BE_LOGGED = re.compile(r"\b(?:(?:some|good|excellent|great|more)\s+)*(?:shots\s+)?to be logged\b\.?\s*", re.I)
+_SHOT_CODE = re.compile(r"(?<![\w'])(?:VS|CU|ECU|MCU|MS|LS|WS|POV)\b\.?\s+")
+
+
+def _strip_shot_log(s):
+    """Keep the summary that precedes a timecoded log; with no summary ahead
+    of it, keep the log's words and drop the timecodes and shot codes."""
+    s = _TO_BE_LOGGED.sub("", s)
+    m = _TIMECODE.search(s)
+    if m:
+        head = s[:m.start()].strip()
+        if len(head) >= 60:
+            s = head
+        else:
+            s = _TIMECODE.sub(" ", s)
+    if m or _SHOT_CODE.search(s):
+        s = _SHOT_CODE.sub("", s)
+    s = re.sub(r"\s+", " ", s).strip()
+    return re.sub(r"^[-–—,;:]+\s*", "", s) if m else s   # "06:00:39:28 - 06:51:56:07 color silent"
+
+
 def sanitize_synopsis(it):
     """Returns 'cleaned', 'nulled', or None."""
     raw = _synopsis_text(it)
@@ -2160,6 +2185,7 @@ def sanitize_synopsis(it):
         # (the same 9,911-char description as the YouTube sentence above).
         s = re.sub(r"\s+", " ", s)
         s = _NARA_STAMP.sub(" ", s)                       # "ARC Identifier 91500", agency date ranges
+        s = _strip_shot_log(s)                            # "06:40:55:18 CU sign ..." stock-footage logs
         if _is_placeholder_synopsis(s, it):
             it["synopsis"] = None
             it["synopsisSource"] = None
