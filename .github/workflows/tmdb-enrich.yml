@@ -57,9 +57,13 @@ jobs:
             exit 0
           fi
           python tools/tmdb_fill_metadata.py | tee fill.log
+          # Decision 124: TMDb's overview replaces an uploader's text on every
+          # matched film. The tool ran once by hand (2026-09-16), so 1,045 titles
+          # matched since kept the uploader's notes until 2026-09-29.
+          python tools/synopsis_provenance.py --apply | grep -vE '^\s+(was|now):|^  \S+$' | tee -a fill.log
           # Only publish when something was actually filled — avoids needless
           # DB rebuilds on days the population is already drained.
-          if grep -qE 'filled synopsis=0 cast=0 director=0' fill.log; then
+          if grep -qE 'filled synopsis=0 cast=0 director=0' fill.log && grep -qE 'tmdb overview adopted: 0 ' fill.log; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"

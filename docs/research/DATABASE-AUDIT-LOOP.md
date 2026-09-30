@@ -178,6 +178,13 @@ tables, a scheduled workflow), never only in one published catalog.
   A "starring" cross-check against cast lists found 16 more, nearly all partial
   cast lists rather than wrong summaries.
 
+- R2. ✅ **Decision 124 had stopped running.** `synopsis_provenance.py` (TMDb's
+  overview replaces an uploader's text on a matched film) ran once by hand on
+  2026-09-16 and was never scheduled, so 1,045 titles matched since kept notes
+  like "if you're like me", "a large ProRes file", a 1925 newspaper review, or
+  "No bad reviews ... will be tolerated" where TMDb has the film's plot.
+  Applied, and now a step of the TMDb enrich workflow.
+
 ## Queue
 
 - E-next. Review batches now judge ACCURACY: each uploader summary beside an independent source (TMDb overview, Wikipedia lead) where one exists; tmdb/omdb/wikipedia summaries of weakly matched items get the same look.
