@@ -364,3 +364,6 @@ Story for Christmas played a 2013 episode).
 
 ### E11 — review batch (2026-09-29)
 40 summaries (1906-13): 27 rewritten — archival shot lists in slashes and caps (earthquake, Panama Canal, Captain Lewis's Chinatown), a library rights notice, timecodes and mojibake (Buffalo Bill), "(?)" guesses, a reviewer's musing (Grandstand Crowd), multi-film Fantômas blurbs; 1 placeholder ("To be logged.") removed; 12 kept. Quo Vadis dated 1913; four titles cleaned.
+
+### E12 — review batch (2026-09-29)
+40 summaries (1913-17): 22 rewritten, 17 kept, 1 bundle out (Maurice Tourneur films in decorative lettering). Shot lists and "(?)" guesses cleaned; 16 titles lose archival can numbers and filename debris. Jack London's last footage dated 1916 (the summary said he died in 1915), the Joffre/Somme reel 1916, Chaplin's Shanghaied 1915.
