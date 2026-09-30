@@ -276,6 +276,12 @@ tables, a scheduled workflow), never only in one published catalog.
   given their real titles and studios. Four uploader compilations and modern
   Philippine TV airchecks dated 1930 to not_films.
 
+- E8. ✅ Review batch (60): 18 rewritten, 1 removed, 20 titles. A read-aloud of
+  Alfred Rosenberg's Nazi book Der Mythus to not_films; "Andy Hardy's movie
+  (what i could find)" dated 1930 is Andy Hardy's Private Secretary (1941) —
+  title and year corrected so the renewal check can judge it; two uploader
+  compilations (Warner 1930-43, a Popeye DVD set) to not_films.
+
 ## Queue
 
 
