@@ -224,9 +224,13 @@ tables, a scheduled workflow), never only in one published catalog.
   (was 947). An item checked before `copyrightCheckedFor` existed is re-asked
   when a person corrected its title or year.
 
+- V. ✅ **Decision 157.** The printed Catalog of Copyright Entries' 1950-77
+  motion-picture renewals parsed (11,579); the copyright check reads them for
+  pre-1950 titles. 983 served 1930-49 titles carry a printed renewal
+  (Frankenstein R243591); 0 of 25 public-domain canon controls match.
+
 ## Queue
 
-- V. Pre-1950 film renewals are not in the Copyright Office's online records (Decision 151's own limit), so Frankenstein (1931, renewed 1958) and its kin stay presumed_pd. Source to try: the Catalog of Copyright Entries renewal volumes (1950-77), OCR'd on archive.org.
 
 - T. ~200 non-English uploader summaries with no English source: faithful translation by hand, in batches.
 

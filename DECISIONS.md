@@ -239,6 +239,7 @@ into every session and the index alone carries every title.)
 - 154 — The Android floor is a floor, not a ceiling: modern devices get modern features, gated by OS version
 - 155 — The iPhone/iPad floor is iOS 18: the XS and XR come back, iOS 26 features are gated, and iOS 12 is the website's job
 - 156 — A foreign film URAA restored is never recommended and always findable
+- 157 — Pre-1950 renewals are read from the printed Catalog of Copyright Entries
 
 ---
 
@@ -1520,3 +1521,33 @@ the US) comes back by evidence — a `licence_evidence.json`-style entry — nev
 by loosening the rule. `tools/test_uraa_no_recommend.py` holds the cases with
 US, government, licence and age controls; the propaganda test now asserts its
 own reason, since both reasons share the flag.
+
+
+## 157 — Pre-1950 renewals are read from the printed Catalog of Copyright Entries
+*Date: 2026-09-29*
+
+`tools/fetch_cce_renewals.py` parses the motion-picture renewal registrations
+printed in the Catalog of Copyright Entries, 1950-1977 (28 annual volumes,
+scanned with OCR on archive.org), into `shared/editorial/cce_renewals.json`:
+11,579 renewals with title, original year and registration, renewal number and
+claimant. `corroborate_copyright.py` matches a kept pre-1950 title against it
+exactly as it matches the Copyright Office's online records (normalized title,
+original year within one), and records the volume's archive.org URL as the
+evidence; Decision 151's `copyright_claim_evidence` hide then applies.
+
+**Why**: Decision 151 said it in its own words — "Renewals of works before 1950
+were filed before 1978 and are not in the online records, so the 1930s and
+1940s are checked by Wikidata alone." That left Frankenstein (1931, renewed by
+Universal in 1959 as R243591), The Invisible Man and Bride of Frankenstein
+served as presumed public domain. The printed catalog is the record the online
+search replaced, and a reader can open the page. Measured: 983 served 1930-49
+titles have a printed renewal (486 features, 445 cartoons — Terrytoons renewed
+by CBS Films, Columbia's by Columbia); 0 of 25 public-domain canon films
+(His Girl Friday, Detour, It's a Wonderful Life, D.O.A....) match.
+
+**How to apply**: a wrong match is cleared in
+`copyright_evidence_overrides.json`, never by loosening the match — OCR noise
+only ever causes a miss, since a title must match exactly. The CCE_RULE bump
+re-asks every pre-1950 title once. `tools/test_cce_renewals.py` holds the
+known renewals, ten canon controls and both printed formats (the 1950s
+section, the 1970s interleaved list); it runs in the pipeline gate.

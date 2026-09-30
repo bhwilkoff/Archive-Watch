@@ -77,6 +77,36 @@ def norm_title(t):
     return re.sub(r"[^a-z0-9]", "", t)
 
 
+_CCE = None
+# Bumped with the Catalog of Copyright Entries table (2026-09-29): every
+# pre-1950 title checked under an older rule is asked again, once.
+CCE_RULE = 3
+
+
+def cce_renewal(title, year):
+    """A renewal printed in the Catalog of Copyright Entries, 1950-77
+    (tools/fetch_cce_renewals.py): the pre-1950 half of the record the Copyright
+    Office's online search does not have. Same title rule and year tolerance as
+    renewal_in."""
+    global _CCE
+    if _CCE is None:
+        _CCE = {}
+        try:
+            for r in json.loads((REPO / "shared/editorial/cce_renewals.json").read_text()):
+                _CCE.setdefault(norm_title(r["t"]), []).append(r)
+        except Exception:
+            pass
+    want = norm_title(title)
+    if not want or not isinstance(year, int):
+        return None
+    for r in _CCE.get(want, []):
+        if abs(r["y"] - year) <= 1:
+            return {"source": f"https://archive.org/details/{r['vol']}",
+                    "via": f"Catalog of Copyright Entries: renewal {r['r']} of {r['reg']} ({r['y']})",
+                    "claimant": r.get("c", "")}
+    return None
+
+
 def renewal_in(records, title, year):
     """The first record that is verifiable renewal evidence for (title, year)."""
     want = norm_title(title)
@@ -217,6 +247,8 @@ def targets(items, today):
         # corrected the title or year: ask again rather than wait 90 days.
         if not asked and "agent-reviewed" in (it.get("titleSource"), it.get("yearSource")):
             seen = None
+        if y < USCO_FIRST_YEAR and (it.get("copyrightRule") or 1) < CCE_RULE:
+            seen = None
         if seen and (it.get("copyrightRule") or 1) >= RULE:
             try:
                 if dt.date.fromisoformat(seen) >= cutoff:
@@ -239,7 +271,7 @@ def main():
     if limit:
         todo = todo[:limit]
     now = today.isoformat()
-    n_usco = n_wd = n_none = n_err = 0
+    n_usco = n_wd = n_none = n_err = n_cce = 0
 
     wd = wikidata_claims(sorted({it["wikidataQID"] for it in todo if it.get("wikidataQID")}),
                          sorted({it["archiveID"] for it in todo}))
@@ -251,9 +283,12 @@ def main():
             n_wd += 1
         elif it["year"] >= USCO_FIRST_YEAR:
             usco_todo.append(it)
+        elif cce_renewal(it["title"], it["year"]):
+            it["copyrightClaimEvidence"] = {**cce_renewal(it["title"], it["year"]), "at": now}
+            n_cce += 1
         else:
             it["copyrightChecked"] = now
-            it["copyrightRule"] = RULE
+            it["copyrightRule"] = CCE_RULE
             it["copyrightCheckedFor"] = _asked(it)
             n_none += 1
 
@@ -278,10 +313,10 @@ def main():
                     n_none += 1
             elif state == "error":
                 n_err += 1
-    if (n_usco or n_wd or n_none) and not dry:
+    if (n_usco or n_wd or n_cce or n_none) and not dry:
         CATALOG.write_text(json.dumps(cat, ensure_ascii=False, separators=(",", ":")), encoding="utf-8")
     print(f"[copyright] {len(todo):,} kept titles checked: {n_usco} renewed (Copyright Office), "
-          f"{n_wd} copyrighted (Wikidata), {n_none} no claim found, {n_err} could not be checked"
+          f"{n_wd} copyrighted (Wikidata), {n_cce} renewed (Catalog of Copyright Entries), {n_none} no claim found, {n_err} could not be checked"
           f"{' (dry run)' if dry else ''}", flush=True)
 
 
