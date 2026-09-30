@@ -583,7 +583,11 @@ def bucket(it):
     # ---- non-commercial rights risk ----
     if yi is not None and yi >= MODERN:
         confirmed = it.get("rightsConfirmed")
-        if it.get("colorMode") == "bw" and not confirmed:
+        # "Likely an old film wearing a match's modern year" — unless the modern
+        # year is the item's OWN (its title/id/filename, or a person's
+        # judgement): vengeance.-is.-mine.-1979.1080p...yts is not an old film.
+        if it.get("colorMode") == "bw" and not confirmed \
+                and it.get("yearSource") not in ("source_naming", "agent-reviewed"):
             return "wrongmatch_bw", "fix"   # likely old video; --confirm re-dates
         return ("modern_copyright_confirmed", "hide") if confirmed else \
                ("modern_copyright_unconfirmed", "confirm")
@@ -990,7 +994,14 @@ def main():
     unhid = 0
     for it in items:
         b, _ = bucket(it)
-        if b in HIDE:
+        # A modern year with no licence is under copyright until the confirm
+        # pass finds evidence otherwise, and a question still open (a fix or
+        # confirm bucket) never re-shows what is already hidden. Until
+        # 2026-09-29 both were shown between builds: correcting borrowed
+        # silent-era years moved Sybil (2007) and Silas Marner (1988) from a
+        # hide bucket to "unconfirmed", and the next publish served them.
+        pending = b == "modern_copyright_unconfirmed" or (b in NEED_CONFIRM and it.get("excluded"))
+        if b in HIDE or pending:
             it["excluded"] = True
             it["rightsAudit"] = b
             hidden += 1

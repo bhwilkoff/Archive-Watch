@@ -72,9 +72,28 @@ tables, a scheduled workflow), never only in one published catalog.
   their "video" a 4.8 KB label photograph. Remediate now excludes the collection
   as not a film.
 
+- K2. ✅ **The rights reconcile re-showed titles while a question was open.** The
+  borrowed-year fix moved Sybil (2007), Silas Marner (1988), two 1999 Sherlock
+  Holmes VHS rips and ~30 more from `wrongmatch_idyear` (hide) to
+  `modern_copyright_unconfirmed` (confirm), and the reconcile showed them until
+  the network confirm pass could run — the 01:48 publish served four. A modern
+  year with no licence is now hidden pending confirmation (the confirm pass
+  selects by bucket, so it still rescues or re-dates them), and a fix/confirm
+  bucket never re-shows an item already hidden. `wrongmatch_bw` no longer
+  applies when the modern year is the item's own (Vengeance Is Mine's
+  `1979.1080p...yts` id). Measured locally: 35 hidden, the 30 false un-hides gone.
+- L. ✅ 20 compilation reels to not_films ("Filmography: Roger Corman",
+  "01-judy-garland", Disney/Paramount UK VHS promo reels) — surfaced when their
+  borrowed years were corrected.
+- E1. ✅ Uploader synopses, batch 1 (60, popularity-first): 51 kept, 9 rewritten
+  from their own facts where a critic's voice stood in for the plot (Chirurgie
+  fin de siècle, Street of Forgotten Women, Wiggle Your Ears, Fandango, Rural
+  Life in Maine); "in colour" -> US English; two titles' lost accents restored.
+
 ## Queue
 
-- L. Compilations typed as films ("Filmography: Roger Corman", "01-judy-garland", Disney/Paramount UK VHS reels): not_films.
+- N. Features whose file is a 1-2 minute recording (The Last Command 57 s, The Navigator 40 s, Beggars of Life 85 s — `01-rec-2024...` uploads).
+- O. Wider compilation sweep ("... Collection", "PD Cartoon Collection", Our Gang collection) — each judged, not by keyword.
 - M. Decade phrases contradicting the year ("1960s waves breaking" dated 1896).
 - E. The 2,593 unreviewed uploader synopses (metadata_review.py, popularity first).
 - F. 2,902 empty synopses: which have a source to fill from.
