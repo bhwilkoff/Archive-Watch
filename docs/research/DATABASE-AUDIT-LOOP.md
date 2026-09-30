@@ -123,7 +123,18 @@ tables, a scheduled workflow), never only in one published catalog.
   `type_corrections.json`: FedFlix files The Great Train Robbery under news, so
   it was typed a newsreel.
 
+- P. ✅ **Collector titles.** 161 served titles were a collector's CAPITALS title
+  followed by its credits ("A SAILOR MADE MAN Harold Lloyd Silent A Hal Roach
+  Comedy", "FICKLE FLORA Our Gang Silent (9.5mm Footage ..."). sanitize_title
+  now keeps the capitals, title-cased, when the tail is credits or format
+  words (a lone trailing article and a person's initials go back to the
+  credits); `test_caps_credit_title.py` with NASA/GMT/"EAST OF BORNEO"
+  controls, in the CI gate. And 184 titles used two apostrophes as a quote
+  mark (`''Lassie'' - The Tree House`). 492 titles change in all.
+
 ## Queue
+
+- Q. ~600 classic-TV episodes ingested as standalone `tv-special` items (Man Against Crime, Topper, Meet Corliss Archer) rather than onto series spines; uploader prefixes on TV titles ("Fifties Television:", "(Format: iPod)", "- Misc").
 
 - N2. `01-rec-2024...` 1-2 minute recordings wearing The Last Command, The Navigator, Beggars of Life (hidden now, but the ingest keeps admitting such recordings).
 - O. Wider compilation sweep ("... Collection", "PD Cartoon Collection", Our Gang collection) — each judged, not by keyword.

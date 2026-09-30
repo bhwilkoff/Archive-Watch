@@ -2373,6 +2373,42 @@ _APOS_CASED = re.compile(r"(?<=[a-z])'(S|T|Re|Ll|Ve|D|M)\b")   # never inside an
 _WRAPPED_QUOTES = re.compile(r"^\s*(?:\"|''|'|“|‘)\s*(.+?)\s*(?:\"|''|'|”|’)\s*$")
 
 
+# The Bill Sprague / home-movie collector convention: the film's title in
+# CAPITALS, then its credits in mixed case — "A SAILOR MADE MAN Harold Lloyd
+# Silent A Hal Roach Comedy", "FICKLE FLORA Our Gang Silent (9.5mm ...)". 161
+# served titles (2026-09-29). The capitals are the title, but only when what
+# follows is credits or format words, so "NASA SCI Files - ..." is left alone.
+_CREDIT_TAIL_WORDS = re.compile(
+    r"\b(silent|comedy|western|hal roach|selig|sennett|keystone|our gang|\d+(?:\.\d)?mm|"
+    r"public domai?n|short|feature|essanay|vitagraph|pathe|educational|christie|universal|"
+    r"condensation|abridged|footage|full series|biograph|kalem|reelcraft|animation)\b", re.I)
+_CAPS_HEAD = re.compile(r"^((?:[A-Z0-9'’&!?,.:\-]+\s+)+?[A-Z0-9'’&!?,.:\-]*[A-Z][A-Z0-9'’&!?,.:\-]*)"
+                        r"\s+(?=[A-Z][a-z]|\(|[a-z])")
+
+
+def _caps_title_before_credits(t):
+    m = _CAPS_HEAD.match(t or "")
+    if not m:
+        return t
+    head = m.group(1)
+    # Greedy to the last capitals word before the credits start, then give back
+    # what belongs to the credits: a lone article ("... A Stan Laurel Reelcraft
+    # Comedy") and a person's initials ("CAPTAIN BLOOD J. Warren Kerrigan").
+    full = re.match(r"^((?:[A-Z0-9'’&!?,.:\-]+\s+)*[A-Z0-9'’&!?,.:\-]*[A-Z][A-Z0-9'’&!?,.:\-]*)\s+(?=[A-Z][a-z]|\(|[a-z])", t)
+    if full:
+        head = full.group(1)
+    tail = t[len(head):]
+    if not _CREDIT_TAIL_WORDS.search(tail):
+        return t
+    words = head.split()
+    while len(words) > 1 and (words[-1] in ("A", "AN", "AQ") or re.fullmatch(r"[A-Z]\.", words[-1])):
+        words.pop()
+    head = " ".join(words).strip(" -:,(")
+    if sum(ch.isalpha() for ch in head) < 4:
+        return t
+    return _title_case(head)
+
+
 def sanitize_title(it):
     raw = (it.get("title") or "").strip()
     if not raw or it.get("titleSource") == "agent-reviewed":   # the corrections table has the last word
@@ -2408,6 +2444,10 @@ def sanitize_title(it):
             return True
         return False
     t = _fix_mojibake(_html.unescape(raw))
+    # Two apostrophes standing in for a double quote ("''Candid Camera'' - Misc",
+    # 184 served titles): a pair of pairs becomes a pair of quotes.
+    if t.count("''") and t.count("''") % 2 == 0:
+        t = t.replace("''", '"')
     t = _keep_if_lettered(_UPLOADER_ID_PREFIX.sub("", t), t)   # leading scraped "videoNNNNN:" id
     t = _keep_if_lettered(_TIMECODE_TAIL.sub("", t), t)   # trailing timecode run an uploader left in
     t = _strip_format_dump(t)
@@ -2427,6 +2467,7 @@ def sanitize_title(it):
     if _CAPS_GENRE_TAIL.search(raw) and not re.search(r"\b[A-Z]{2,}\s+[A-Z]+\s*$", raw):
         t = _keep_if_lettered(re.sub(r"\s+" + _GENRE_WORD + r"\s*$", "", t, flags=re.I), t)
     t = _keep_if_lettered(_strip_cast_genre_tail(t, it), t)
+    t = _keep_if_lettered(_caps_title_before_credits(t), t)
     # Trailing cast/credit/alt-title parenthetical ("Title( Actor, Actor)") — the comma is the tell.
     t = _keep_if_lettered(_CAST_PAREN.sub("", t).rstrip(" -–—,|"), t)
     # Trailing " - Director Name" on scene-rip dash dumps, but ONLY when it matches the
