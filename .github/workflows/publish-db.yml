@@ -163,6 +163,12 @@ jobs:
           echo "## Metadata quality" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY; head -28 audit.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
 
+      - name: Coverage (checks owed by served titles)
+        # A report, never a gate: every served title's missing or stale checks,
+        # so a title that slipped between two workers is a number here the day
+        # it happens (2026-09-30, eleven renewed films one publish from the screen).
+        run: python tools/coverage_report.py --json coverage.json || echo "::warning::coverage report did not run"
+
       - name: Build SQLite catalog
         run: python tools/build_sqlite.py --aliases-out aliases.json | tee db.log
 
