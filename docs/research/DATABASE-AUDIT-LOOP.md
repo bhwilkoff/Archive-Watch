@@ -391,3 +391,6 @@ build_sqlite.color_confident judge it) on 4,506: every reading before
 colorMode, so those verdicts were final. It now also re-measures a B&W verdict
 with no colorSat on a film from 1960 on (1,926 items; 1,200 a run, three runs a
 day). Night of the Living Dead stays B&W on any reading.
+
+### E15 — review batch (2026-09-29)
+40 summaries (1920-21): 16 rewritten (a Polish review of Der müde Tod, a comment-section policy on Keaton's The Haunted House, "YAn interesting..." on The Golem, a numbered NARA shot list, mojibake, "(sic)"), 2 non-summaries removed ("Skeletal entry.", a film-library catalog code), 22 kept. 10 titles cleaned (The Golem, The Saphead, The Goat, The Haunted House twice, Destiny). Five Adult Film History Project stag films confirmed marked mature (archive.org's own subjects).
