@@ -940,6 +940,13 @@ def fix_wrong_external_matches(it):
     the year. Returns a short reason string when it acted, else None."""
     if it.get("contentType") == "tv-series":
         return None
+    # A person dated it (year_corrections.json): the year is theirs, not the
+    # match's, so none of the match-suspicion rules below may undo it. The
+    # B&W-and-modern rule was nulling hand-set years on 1970s films whose
+    # copies measure black-and-white (Invasion of the Bee Girls, 1973;
+    # Dan Candy's Law, 1974) the moment the correction landed (2026-09-30).
+    if it.get("yearSource") == "agent-reviewed":
+        return None
     src = (it.get("artworkSource") or "").lower()
     if src not in ("tmdb", "omdb"):
         return None
