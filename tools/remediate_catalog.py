@@ -879,6 +879,62 @@ def _is_vintage(it):
     return bool(it.get("isSilentFilm")) or it.get("contentType") == "silent-film"
 
 
+# The REVERSE of #20, and the one with a rights consequence. A silent-era year
+# on an item whose OWN naming says a later year is the year of an old
+# namesake: the match (or the uploader's tag) borrowed it, and a pre-1930 year
+# is the whole case for "public domain by age". Measured 2026-09-29: The
+# Court-Martial of Billy Mitchell (1955) served as "Court Martial" (1928),
+# Miracle of the White Stallions (1963) as a 1919 film, Vengeance Is Mine (1979,
+# a YTS rip) as 1917 — all public domain by age, all silent. Decision 114's id
+# check only fired for ids of 1978+, so 1931-77 passed.
+_REISSUE_MARK = re.compile(r"restor|remaster|re-?issue|re-?release|riedizione|anniversary|"
+                           r"\bedition\b|criterion|\bkino\b", re.I)
+_CAMERA_ID = re.compile(r"^(img|dsc|mvi|vid|pxl|gopr)[-_]?\d", re.I)
+
+
+def old_year_on_newer_upload(it):
+    """-> the item's own later year when its stored silent-era year is borrowed."""
+    y = it.get("year")
+    if not isinstance(y, int) or y >= SILENT_CUTOFF + 2 or it.get("yearSource") == "agent-reviewed":
+        return None
+    # archive.org de-duplicates an identifier with an upload-month suffix
+    # (macbeth_202004): a date the uploader never wrote.
+    sy = source_year({**it, "archiveID": re.sub(r"_20\d{4}$", "", it.get("archiveID") or "")})
+    if sy is None or sy < SILENT_CUTOFF + 1 or sy - y < 3:
+        return None
+    names = " ".join(str(v) for v in (it.get("title"), it.get("archiveID"),
+                                      (it.get("videoFile") or {}).get("name")) if v)
+    if _REISSUE_MARK.search(names) or _CAMERA_ID.search(it.get("archiveID") or ""):
+        return None
+    t = it.get("title") or ""
+    # The year is part of the NAME, not a date: "Koko in 1999", "20,000 Leagues".
+    if re.search(rf"\b(in|year|of)\s+{sy}\b", t, re.I) or any(
+            str(sy) in run.replace(",", "") and run.replace(",", "") != str(sy)
+            for run in re.findall(r"\d[\d,]*", t)):
+        return None
+    return sy
+
+
+def fix_old_year_on_newer_upload(it):
+    sy = old_year_on_newer_upload(it)
+    if sy is None:
+        return False
+    it["yearWas"] = it.get("year")
+    if it.get("imdbID") or it.get("tmdbID") or (it.get("artworkSource") or "") in ("tmdb", "omdb"):
+        _clear_wrong_artwork(it, sy)
+        it["matchVerdict"] = "cleared_old_year"
+    it["year"] = sy
+    it["decade"] = decade_of(sy)
+    it["isSilentFilm"] = False
+    it["yearSource"] = "source_naming"
+    if it.get("contentType") == "silent-film" and not it.get("contentTypeSource"):
+        it["contentTypeWas"] = "silent-film"
+        it["contentType"] = _content_type.classify(
+            it.get("collections") or [], it.get("subjects") or [],
+            it.get("runtimeSeconds"), sy)
+    return True
+
+
 def fix_wrong_external_matches(it):
     """If `it` looks like a wrong TMDb/OMDb match, clear its artwork + correct
     the year. Returns a short reason string when it acted, else None."""
@@ -3405,6 +3461,8 @@ def remediate(items):
         wm = fix_wrong_external_matches(it)
         if wm:
             stats[f"wrong_match_{wm}"] += 1
+        if fix_old_year_on_newer_upload(it):
+            stats["old_year_on_newer_upload"] += 1
 
         # 0c) ANIMATION matched to a live-action film (#3a): clear the wrong
         # poster/genres/runtime (e.g. Popeye cartoons -> 1980 live-action film).

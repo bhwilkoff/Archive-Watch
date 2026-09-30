@@ -37,6 +37,13 @@ jobs:
         with:
           python-version: '3.11'
 
+      # The pipeline's own tests gate the build: a red test keeps the last
+      # good database live rather than publishing a regression.
+      - name: Pipeline tests
+        run: |
+          pip install requests
+          bash tools/run_pipeline_tests.sh
+
       # Pull the full catalog from its release (Decision 018) so build_sqlite
       # can compile both the bundled seed and the full DB from it.
       - name: Fetch catalog

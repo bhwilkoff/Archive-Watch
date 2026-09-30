@@ -246,7 +246,9 @@ def main() -> int:
     # ---- gates the validator taught us ----------------------------------
     check("59 seconds is out (ASSET_DURATION_SHORT)", F.eligibility(item(runtimeSeconds=59), ids, "catalog"), "under_60s")
     check("60 seconds is in", F.eligibility(item(runtimeSeconds=60), ids, "catalog"), None)
-    check("year 1065 is out (ASSET_INVALID_RELEASE_YEAR)", F.eligibility(item(year=1065), ids, "catalog"), "implausible_year")
+    # The rights audit reads a year outside 1870-2035 as no year at all, and
+    # rights are judged first; the item is out either way.
+    check("year 1065 is out (ASSET_INVALID_RELEASE_YEAR)", F.eligibility(item(year=1065), ids, "catalog"), "rights:unknown_year")
     check("year 1899 is out (Roku: ASSET_ALL_RELEASE_REMOVED on every 1890s film)",
           F.eligibility(item(year=1899), ids, "catalog"), "implausible_year")
     check("year 1900 is in", F.eligibility(item(year=1900), ids, "catalog"), None)

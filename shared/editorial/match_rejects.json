@@ -2,5 +2,7 @@
   "_how": "{archiveID: reason}: a wrong TMDb/OMDb match, cleared every build (remediate_catalog 0b1). The reason says what the item is and what it was matched to.",
   "Women-at-NASA": "archive.org 'Women @ NASA' (NASA JSC, 232 s) matched to the 2021 horror film 'Women' (tt4600982) after the handle rule cut its title to 'Women'",
   "nasa_360": "archive.org 'NASA eClips Video Series 360', NASA's 30-minute magazine program, matched to 'NASA Seals' (tt1815846); the match's Animation genre typed it animation and put it in Cartoon Mode",
-  "dollar_store": "archive.org 'Dollar Store' (Prelinger silent stock footage of shoppers, undated) matched to the 2025 film 'Dollar Store Killers' (TMDb 1473792), whose poster it wore on Home and in Surprise"
+  "dollar_store": "archive.org 'Dollar Store' (Prelinger silent stock footage of shoppers, undated) matched to the 2025 film 'Dollar Store Killers' (TMDb 1473792), whose poster it wore on Home and in Surprise",
+  "ieCho4eehaexiel9Eehu": "The upload is The Berenstain Bears (CBS, 1985 series: 'Too Much TV' / 'Trick or Treat'); tt0264107 is an 1899 film of trained bears.",
+  "sirocco-1951": "The upload is Sirocco (1951, Bogart); tt7360124 credits Kurt Brenkendorf and is another work."
 }

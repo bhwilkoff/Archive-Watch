@@ -37,11 +37,35 @@ tables, a scheduled workflow), never only in one published catalog.
   resource-posters workflow. First run: 9,993 targets, **4,468 filled**, 5,454
   TMDb has none, 52 refused on a year disagreement (queued: B), 8 B&W-modern.
 
+- B/C. ✅ **A borrowed silent-era year was a public-domain claim.** A year
+  before 1930 is the whole case for "public domain by age", and Decision 114's
+  id check only fired for ids naming 1978+. 356 items (60 visible) carried an
+  old namesake's year while their own title/id/filename named a later one:
+  The Court-Martial of Billy Mitchell (1955) as "Court Martial" 1928, Miracle
+  of the White Stallions (1963) as 1919, Vengeance Is Mine (1979, a YTS rip) as
+  1917, Sweet Bird of Youth, A Doll's House (1973), Dark Passage (dated 1881),
+  Sirocco (1065), all typed silent and public domain. Remediate rule
+  `fix_old_year_on_newer_upload` (the reverse of #20) takes the item's own year,
+  clears the borrowed match and re-types it; reissue/restoration markers,
+  camera file numbers, archive.org's `_YYYYMM` dedupe suffix and years that are
+  part of a title are exempt (`test_old_year_on_newer_upload.py`, controls
+  verified). The corrected titles now fall to the rights rules on their real
+  year, and `corroborate_copyright` re-asks whenever title or year changes
+  (`copyrightCheckedFor`) instead of waiting 90 days. Plus 25 original-release
+  years where the item carried a US/reissue date (Nosferatu 1929 -> 1922, Häxan,
+  The Hands of Orlac, Miracle of the Wolves...), 42 title fixes (file names,
+  all caps), and two match rejects (a Berenstain Bears upload wearing an 1899
+  bear film's year and synopsis; Sirocco's wrong IMDb id).
+- K. ✅ **No pipeline test ran in CI.** Two had been failing unnoticed: the
+  Studio's rights explanation had no sentence for Decision 151's
+  `copyright_claim_evidence` (a host would read the raw name), and the Roku feed
+  test's expected reason for a year of 1065. Both fixed;
+  `tools/run_pipeline_tests.sh` (43 tests) is now publish-db's first step.
+
 ## Queue
 
-- B. The 52 year disagreements (e.g. White Oak: 1924 here, 1921 at TMDb): which
-  side is wrong, per title.
-- C. Impossible years (10) and file-name titles (22) into the correction tables.
+- L. Compilations typed as films ("Filmography: Roger Corman", "01-judy-garland", Disney/Paramount UK VHS reels): not_films.
+- M. Decade phrases contradicting the year ("1960s waves breaking" dated 1896).
 - D. `.mp4.~1~` backup files and .mov as the playable file.
 - E. The 2,593 unreviewed uploader synopses (metadata_review.py, popularity first).
 - F. 2,902 empty synopses: which have a source to fill from.

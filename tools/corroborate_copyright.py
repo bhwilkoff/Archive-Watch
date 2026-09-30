@@ -191,6 +191,10 @@ def judge_wikidata(rows, today):
     return out
 
 
+def _asked(it):
+    return f"{it.get('title')}|{it.get('year')}"
+
+
 def targets(items, today):
     cutoff = today - dt.timedelta(days=RECHECK_DAYS)
     out = []
@@ -203,6 +207,12 @@ def targets(items, today):
         if AR.bucket(it)[0] not in CHECKED_BUCKETS:
             continue
         seen = it.get("copyrightChecked")
+        # The match is by title AND year, so a verdict belongs to the pair it was
+        # made for: a corrected year or title is a new question (2026-09-29, the
+        # 356 borrowed silent-era years remediate now replaces).
+        asked = it.get("copyrightCheckedFor")
+        if asked and asked != _asked(it):
+            seen = None
         if seen and (it.get("copyrightRule") or 1) >= RULE:
             try:
                 if dt.date.fromisoformat(seen) >= cutoff:
@@ -240,6 +250,7 @@ def main():
         else:
             it["copyrightChecked"] = now
             it["copyrightRule"] = RULE
+            it["copyrightCheckedFor"] = _asked(it)
             n_none += 1
 
     def check(it):
@@ -259,6 +270,7 @@ def main():
                 else:
                     it["copyrightChecked"] = now
                     it["copyrightRule"] = RULE
+                    it["copyrightCheckedFor"] = _asked(it)
                     n_none += 1
             elif state == "error":
                 n_err += 1

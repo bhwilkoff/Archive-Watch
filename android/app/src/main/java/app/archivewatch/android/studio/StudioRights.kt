@@ -108,6 +108,9 @@ object StudioRights {
                 "This is an advertisement from the 1964–77 renewal era, whose copyright was renewed automatically. It is not offered for streaming."
             "renewed_copyright_classic" ->
                 "This film's copyright was renewed, so it is still protected despite its age. It is not offered for streaming."
+            // Decision 151.
+            "copyright_claim_evidence" ->
+                "This film's copyright is on public record, so it is still protected. It is not offered for streaming."
             "modern_copyright_unconfirmed", "modern_copyright" ->
                 "This film is still under copyright. Streaming it would put your channel at risk."
             "modern_copyright_confirmed" ->
