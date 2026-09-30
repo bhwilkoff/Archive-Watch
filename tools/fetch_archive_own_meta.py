@@ -64,8 +64,11 @@ def fetch(aid: str):
     text = " ".join(str(v) for k in ("title", "description")
                     for v in (md.get(k) if isinstance(md.get(k), list) else [md.get(k)]) if v)
     mentioned = sorted({int(y) for y in YEAR_RE.findall(text)})[:20]
+    # The upload's OWN title: the catalog's may have been overwritten by the
+    # very match being judged (a stock clip "red dice falling" became "Red Dice").
     return aid, {"year": own_year(md), "director": _first(md.get("director")),
-                 "creator": _first(md.get("creator")), "mentioned": mentioned}
+                 "creator": _first(md.get("creator")), "mentioned": mentioned,
+                 "title": _first(md.get("title"))}
 
 
 def main():
@@ -73,6 +76,7 @@ def main():
     ap.add_argument("--catalog", required=True)
     ap.add_argument("--limit", type=int, default=0)
     ap.add_argument("--workers", type=int, default=3)
+    ap.add_argument("--ids", help="a file of archiveIDs to fetch (or refresh for their title)")
     a = ap.parse_args()
     data = json.loads(Path(a.catalog).read_text())
     items = data["items"] if isinstance(data, dict) else data
@@ -80,6 +84,8 @@ def main():
     # Visible items first: they are what a viewer reads.
     todo = [it["archiveID"] for it in sorted(items, key=lambda i: bool(i.get("excluded")))
             if is_cleared_match(it) and it["archiveID"] not in cache]
+    if a.ids:
+        todo = [x for x in Path(a.ids).read_text().split() if "title" not in cache.get(x, {})]
     if a.limit:
         todo = todo[:a.limit]
     print(f"[own-meta] {len(todo)} to fetch, {len(cache)} cached")

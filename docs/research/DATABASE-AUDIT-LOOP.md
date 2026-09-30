@@ -90,9 +90,25 @@ tables, a scheduled workflow), never only in one published catalog.
   fin de siècle, Street of Forgotten Women, Wiggle Your Ears, Fandango, Rural
   Life in Maine); "in colour" -> US English; two titles' lost accents restored.
 
+- N. ✅ **Unrelated uploads wearing a silent feature's identity.** 420 visible
+  items run under a third of the film they are matched to. Most are right:
+  serial chapters, 1920s Kodascope condensations, surviving reels, TCM clips.
+  But among them, served as public domain by age: a stock clip of red dice as
+  "Red Dice" (1926), a Sopranos clip as "Just Tony" (1922), four G4TV web clips,
+  a Minecraft video, Teletubbies, a modern furniture ad as "French Dressing"
+  (1927), a news clip as "Passers-By" (1920), songs and sermons. Their catalog
+  titles had been overwritten by the match, so the runtime rule (which needs
+  the item's title to disagree) could not see them. Judged by hand against
+  archive.org's own title (now cached in archive_own_meta, `title`): 29 to
+  not_films, 10 real films with the wrong match to match_rejects. A rule on the
+  own title was tried and REVERTED — it would have cleared Nosferatu
+  (`Nosferatu_DVD_quality`), Foolish Wives (its English title in parentheses)
+  and Troopers Three (a cast list with no "starring"); uploaders' naming is too
+  varied to judge by title alone, and clearing a real film is the worse error.
+
 ## Queue
 
-- N. Features whose file is a 1-2 minute recording (The Last Command 57 s, The Navigator 40 s, Beggars of Life 85 s — `01-rec-2024...` uploads).
+- N2. `01-rec-2024...` 1-2 minute recordings wearing The Last Command, The Navigator, Beggars of Life (hidden now, but the ingest keeps admitting such recordings).
 - O. Wider compilation sweep ("... Collection", "PD Cartoon Collection", Our Gang collection) — each judged, not by keyword.
 - M. Decade phrases contradicting the year ("1960s waves breaking" dated 1896).
 - E. The 2,593 unreviewed uploader synopses (metadata_review.py, popularity first).
