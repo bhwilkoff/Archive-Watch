@@ -6,15 +6,18 @@
 // Versioning convention — Claude bumps BOTH on EVERY commit (Xcode Cloud uses
 // these committed values directly; it does NOT auto-manage them):
 //   MARKETING_VERSION       — CFBundleShortVersionString, three-part major.minor.PATCH.
-//                             Bump PATCH +1 every commit. An already-approved train is
+//                             Bump PATCH +1 every commit. Bump MINOR (and reset PATCH to
+//                             0) for every STORE RELEASE, so the version a person sees in
+//                             the store says what changed: 1.42.1041 had become the next
+//                             release's number before the owner asked why (2026-09-30). An already-approved train is
 //                             "closed" (ITMS-90186/90062), so the version must always
 //                             stay ahead of the last upload — bumping each commit keeps it so.
 //                             Apple preserves the format exactly (no leading-zero normalization).
 //   CURRENT_PROJECT_VERSION — CFBundleVersion build number, integer. Bump +1 every commit
 //                             so every archive/TestFlight upload is unique + monotonic.
 // All targets (app + widgets + top shelf) inherit both via the project base configuration.
-MARKETING_VERSION = 1.42.1041
-CURRENT_PROJECT_VERSION = 2054
+MARKETING_VERSION = 1.43.0
+CURRENT_PROJECT_VERSION = 2055
 
 // Optional per-developer secrets (gitignored). The `?` makes it optional so
 // the project still builds on machines where Secrets.xcconfig is absent.
