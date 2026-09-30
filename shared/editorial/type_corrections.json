@@ -1,4 +1,6 @@
 {
   "_note": "archiveID -> contentType, judged by hand; remediate applies it every build (contentTypeSource agent-reviewed).",
-  "fc-fc-3898": "silent-film"
+  "fc-fc-3898": "silent-film",
+  "TaniecSmierci1922DudleyMurphy": "short-film",
+  "BillSpragueCollectionFelixAndTheBeautifulFatma-9.5mmPUBLICDOMAIN": "animation"
 }

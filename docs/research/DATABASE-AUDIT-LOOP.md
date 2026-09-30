@@ -594,3 +594,19 @@ rights audit re-asks it. Reviewed summaries: 7,562 -> 8,000 of served titles.
 A slip worth writing down: restoring a pre-apply copy to re-run the build
 discarded the applied decisions (the decisions file is consumed by apply);
 they were rebuilt from the reviewers' files and re-applied.
+
+### E23 — second fan-out, 400 more (2026-09-30)
+Rules now live in one file the reviewers read (RULES.md in the session
+scratchpad), and reviewers may now flag years and not-films. 400 applied: 107
+kept, 280 rewritten, 13 removed, 126 titles. Not films: The Archies' "Sugar,
+Sugar" video (1969), an audiobook of a 1908 racist tract, a 1927 Mussolini
+speech uploaded as "Make America Great", a fan comparison of Metropolis title
+cards, a 2021 side-by-side of two prints, a modern animation of a 1912
+photograph. Years: Columbia Revolt 1968, Stop Thief! 1901, The Curtain Pole 1909,
+A Modern Musketeer 1917, Diagonal Symphony 1924, The Green Goddess 1923, a
+Kinograms reel 1923, Distant Drummer 1972; NASA SCI Files segments and a Kodacolor
+home movie lose false 1909-10 years. Two types fixed. Reviewed: ~8,400.
+Checked on the way: the Murphy Brown / Knight Rider / A-Team hides the local audit
+listed are the rights audit's fresh confirmations and were already unserved.
+Open: well-known public-domain cartoons (Superman: The Mechanical Monsters,
+Dizzy Dishes, Popeye) are hidden as no_evidence only for want of a year.
