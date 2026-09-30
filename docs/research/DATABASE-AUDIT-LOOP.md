@@ -229,6 +229,13 @@ tables, a scheduled workflow), never only in one published catalog.
   pre-1950 titles. 983 served 1930-49 titles carry a printed renewal
   (Frankenstein R243591); 0 of 25 public-domain canon controls match.
 
+- V2. ✅ The rights audit read the printed renewals: 969 kept titles now carry a
+  Catalog of Copyright Entries claim (copyright_claim_evidence 1,249 -> 2,221),
+  Frankenstein, The Invisible Man and Bride of Frankenstein among them.
+- T4. ✅ Translation batch 4 (33; Battleship Potemkin, Detour, Hollow Triumph,
+  Penny Serenade, The Man Who Laughs... under their English titles). A football
+  club's anthem dated 1900 to not_films; UfA-Tonwoche to propaganda.json.
+
 ## Queue
 
 
