@@ -2122,7 +2122,9 @@ def _strip_rights_assertions(s):
     # 16mm Accession Number: ... Rights: ... Digitized by ..." — keep <text>.
     s = re.sub(r"^\s*Description:\s*", "", s)
     s = re.sub(r"\s+Source:\s*\d+\s*Reels?\s+of\s+\d+\b.*$", "", s, flags=re.S)
-    parts = re.split(r"(?<=[.!?])\s+", s)
+    # Split at sentence ends, not at "Sr." or "Dr." or an initial: a split
+    # there dropped half of False Faces' summary with its rights sentence.
+    parts = re.split(r"(?<!\bSr)(?<!\bJr)(?<!\bDr)(?<!\bMr)(?<!\bMrs)(?<!\bMs)(?<!\bSt)(?<!\bvs)(?<!\b[A-Z])(?<=[.!?])\s+", s)
     kept = [p for p in parts if not _RIGHTS_SENTENCE.search(p)]
     out = " ".join(kept)
     out = _PD_ADJECTIVE.sub(lambda m: m.group(1) or "", out)

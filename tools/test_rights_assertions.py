@@ -18,6 +18,8 @@ cases = [
     ("a library record keeps its description",
      "Description: Scenes at Marshall School in Sacramento. Source: 1 Reel of 1: Film: 16mm Accession Number: 2008/022 Rights: Public domain.",
      "Scenes at Marshall School in Sacramento."),
+    ("an abbreviation is not a sentence end",
+     "Lon Chaney Sr. stars in False Faces. This film is in the PUBLIC DOMAIN.", "Lon Chaney Sr. stars in False Faces."),
     ("CONTROL: a film ABOUT the public domain stays", "A documentary about the public domain and the history of copyright law.",
      "A documentary about the public domain and the history of copyright law."),
     ("CONTROL: a plot with no rights talk is untouched", "A poet dreams of Harun al-Rashid.", "A poet dreams of Harun al-Rashid."),

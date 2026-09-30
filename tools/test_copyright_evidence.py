@@ -127,7 +127,9 @@ check("with verifiable evidence it hides (copyright_claim_evidence)",
 check("copyright_claim_evidence is a HIDE bucket", "copyright_claim_evidence" in A.HIDE_BUCKETS)
 check("past the age line the claim has expired: a 1928 film stays (safe_pd_age)",
       A.bucket({**base, "year": 1928, "copyrightClaimEvidence": EV})[0] == "safe_pd_age")
-gov = next(iter(A.GOV))
+# A GOVERNMENT collection, chosen deterministically: set order varies per run,
+# and since 2026-09-30 a Prelinger pick (not government) rightly hides.
+gov = sorted(A.GOV - A.CURATED_PD)[0]
 check("a US government work stays (safe_gov)",
       A.bucket({**base, "collections": [gov], "copyrightClaimEvidence": EV})[0] == "safe_gov")
 A.copyright_overrides.ids = {"a"}
