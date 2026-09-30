@@ -539,3 +539,6 @@ Awesome Viking Power) — match_rejects. 13 hidden, 0 un-hidden. NOT made a rule
 a collection's decade (classic_tv_1980s) is an uploader's filing too — Johns
 Hopkins Science Review (1948-55) sits in it. Open: The Recommendations (modern,
 CC BY-NC, no year anywhere), Lion of Ain-Jaloot, rog561b_netzero_* — no year to cite.
+
+### AC2 — matched films with no year get TMDb's (2026-09-30)
+91 of the unknown_year titles hold a live TMDb match marked "unverifiable" (the match stood but its identity fields were never copied), so they had no year, and the printed-renewal check, which matches on title AND year, could never run on them. 75 whose archive title equals TMDb's exactly (1913-1976: Painted Faces, Hell's Headquarters, The Flying Fool, Dragnet Patrol...) now carry TMDb's year via year_corrections; the rest wait for a person. No visibility change today; the next rights audit asks the renewals about them.
