@@ -269,6 +269,13 @@ tables, a scheduled workflow), never only in one published catalog.
   whisked off to their nearest urgent care center") — 65 served summaries,
   every build; tested with a control (Pvt. Snafu complains).
 
+- E7. ✅ Review batch (60): 21 rewritten, 1 removed, 17 titles. One uploader's
+  "(Fanmade)" relabels put other studios' cartoons under Looney Tunes or
+  Terrytoons (Disney's The Chain Gang and The Gorilla Mystery, Fleischer's Dizzy
+  Dishes, Lantz's Oswald, Disney's 1922 Laugh-O-Gram Cinderella as "Bray"): 10
+  given their real titles and studios. Four uploader compilations and modern
+  Philippine TV airchecks dated 1930 to not_films.
+
 ## Queue
 
 
