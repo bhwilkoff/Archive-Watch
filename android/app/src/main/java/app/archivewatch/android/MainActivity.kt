@@ -76,6 +76,33 @@ class MainActivity : androidx.fragment.app.FragmentActivity() {
         }
     }
 
+    @Suppress("DEPRECATION") // writing the OLD format is the point of this DEBUG door
+    private fun plantLegacyToken() {
+        runCatching {
+            val key = androidx.security.crypto.MasterKey.Builder(this)
+                .setKeyScheme(androidx.security.crypto.MasterKey.KeyScheme.AES256_GCM).build()
+            val old = androidx.security.crypto.EncryptedSharedPreferences.create(
+                this, "studio_oauth", key,
+                androidx.security.crypto.EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
+                androidx.security.crypto.EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM,
+            )
+            val ok = old.edit().putString("selftest",
+                """{"access":"planted-access","refresh":"planted-refresh","expires":null}""").commit()
+            android.util.Log.i("AWSECRET", "planted legacy token ok=$ok")
+        }.onFailure { android.util.Log.w("AWSECRET", "plant failed: $it") }
+    }
+
+    private fun checkMigratedToken() {
+        val t = app.archivewatch.android.studio.StudioTokenStore.load(this, "selftest")
+        val oldGone = !java.io.File(applicationInfo.dataDir, "shared_prefs/studio_oauth.xml").exists()
+        val raw = java.io.File(applicationInfo.dataDir, "shared_prefs/studio_oauth_v2.xml")
+            .takeIf { it.exists() }?.readText().orEmpty()
+        android.util.Log.i("AWSECRET", "migrated access=${t?.access} refresh=${t?.refresh} " +
+            "oldFileGone=$oldGone plaintextOnDisk=${raw.contains("planted")}")
+        app.archivewatch.android.studio.StudioTokenStore.clear(this, "selftest")
+        android.util.Log.i("AWSECRET", "after clear: ${app.archivewatch.android.studio.StudioTokenStore.load(this, "selftest")}")
+    }
+
     /** While casting, the volume keys belong to the television (CastSupport). */
     override fun dispatchKeyEvent(event: android.view.KeyEvent): Boolean {
         val up = event.keyCode == android.view.KeyEvent.KEYCODE_VOLUME_UP
@@ -172,6 +199,11 @@ class MainActivity : androidx.fragment.app.FragmentActivity() {
             // Every player this process builds plays at volume 0, so a test
             // on the owner's television is silent (Apple's AW_MUTE).
             if (intent?.getBooleanExtra("aw_mute", false) == true) DeepLinks.forceMute = true
+            // The SecretStore migration, proved on the device's own Keystore:
+            // plant a token in the OLD EncryptedSharedPreferences format, then (in
+            // a fresh process) read it through the real StudioTokenStore.
+            if (intent?.getBooleanExtra("aw_secret_plant", false) == true) plantLegacyToken()
+            if (intent?.getBooleanExtra("aw_secret_check", false) == true) checkMigratedToken()
             val roomCode = intent?.getStringExtra("aw_room_join")
             val roomFilm = intent?.getStringExtra("aw_room_film")
             if (roomCode != null && roomFilm != null) {

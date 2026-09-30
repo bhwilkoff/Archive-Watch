@@ -128,7 +128,8 @@ object CastSupport {
         captions: List<CastCaption>,
         positionMs: Long,
     ): Boolean {
-        val client = context?.sessionManager?.currentCastSession?.remoteMediaClient ?: return false
+        val client = context?.sessionManager?.currentCastSession?.remoteMediaClient
+            ?: return false.also { android.util.Log.w("AWCAST", "load skipped: no remote media client") }
         return runCatching {
             val meta = MediaMetadata(MediaMetadata.MEDIA_TYPE_MOVIE).apply {
                 putString(MediaMetadata.KEY_TITLE, title)
@@ -166,7 +167,8 @@ object CastSupport {
                     }
                     .build()
             )
+            android.util.Log.i("AWCAST", "load issued: $url at ${positionMs}ms, ${tracks.size} caption track(s)")
             true
-        }.getOrDefault(false)
+        }.onFailure { android.util.Log.w("AWCAST", "load failed: $it") }.getOrDefault(false)
     }
 }

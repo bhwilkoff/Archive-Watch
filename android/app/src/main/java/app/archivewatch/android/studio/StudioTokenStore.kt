@@ -4,8 +4,9 @@ package app.archivewatch.android.studio
 //
 // §6.1 says tokens live in the platform's own protected store, are never
 // synchronised, and never reach disk in plaintext. On Apple that is the
-// Keychain with `…AfterFirstUnlockThisDeviceOnly`; here it is
-// EncryptedSharedPreferences over a key the Android Keystore holds, which is
+// Keychain with `…AfterFirstUnlockThisDeviceOnly`; here it is a SecretStore
+// (AES-256-GCM, a key the Android Keystore holds; it replaced the deprecated
+// EncryptedSharedPreferences on 2026-09-29), which is
 // the same promise made by the same kind of mechanism: the key is hardware
 // backed where the device has a StrongBox or TEE, and it cannot leave the
 // device at all.
@@ -24,10 +25,8 @@ package app.archivewatch.android.studio
 //     session.
 
 import android.content.Context
-import androidx.core.content.edit
-import android.content.SharedPreferences
-import androidx.security.crypto.EncryptedSharedPreferences
-import androidx.security.crypto.MasterKey
+import app.archivewatch.android.data.LegacyEncryptedPrefs
+import app.archivewatch.android.data.SecretStore
 import org.json.JSONObject
 
 data class StudioToken(
@@ -42,37 +41,26 @@ data class StudioToken(
 }
 
 object StudioTokenStore {
-    private const val FILE = "studio_oauth"
+    private const val FILE = "studio_oauth_v2"
+    private const val LEGACY_FILE = "studio_oauth"
 
-    private fun open(context: Context): SharedPreferences {
-        val key = MasterKey.Builder(context)
-            .setKeyScheme(MasterKey.KeyScheme.AES256_GCM)
-            .build()
-        return EncryptedSharedPreferences.create(
-            context, FILE, key,
-            EncryptedSharedPreferences.PrefKeyEncryptionScheme.AES256_SIV,
-            EncryptedSharedPreferences.PrefValueEncryptionScheme.AES256_GCM,
-        )
-    }
+    @Volatile private var migrated = false
 
     /**
-     * A store that cannot be DECRYPTED is discarded and made new. It happens
-     * when the file outlives its Keystore key — restored or transferred to
-     * another phone, or the key invalidated — and every open then throws, so
-     * `save` failed forever and the host could never sign in again. A token
-     * nobody can read is worth nothing; signing in once more is the cost.
+     * The store, after moving any tokens out of the old EncryptedSharedPreferences
+     * file once. An old file that will not decrypt (it outlived its Keystore key)
+     * is simply dropped: a token nobody can read is worth nothing, and signing
+     * in again is the cost — the rule this store already had.
      */
-    private fun prefs(context: Context): SharedPreferences = try {
-        open(context)
-    } catch (e: Exception) {
-        android.util.Log.w("AWAUTH", "studio token store unreadable (${e.javaClass.simpleName}) — reset")
-        if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.N) {
-            context.deleteSharedPreferences(FILE)
-        } else {
-            // commit, not apply: the store is reopened on the next line and must be empty.
-            context.getSharedPreferences(FILE, Context.MODE_PRIVATE).edit(commit = true) { clear() }
+    private fun store(context: Context): SecretStore {
+        val s = SecretStore(context, FILE)
+        if (!migrated) {
+            migrated = true
+            val legacy = LegacyEncryptedPrefs.readAll(context, LEGACY_FILE)
+            if (legacy.isNotEmpty() && s.isEmpty()) s.putStrings(legacy, commit = true)
+            LegacyEncryptedPrefs.delete(context, LEGACY_FILE)
         }
-        open(context)
+        return s
     }
 
     /// Returns whether the write actually landed.
@@ -89,12 +77,11 @@ object StudioTokenStore {
             .put("refresh", token.refresh ?: JSONObject.NULL)
             .put("expires", token.expiresAtMillis ?: JSONObject.NULL)
         // commit's Boolean is the answer: a one-time refresh token that did not land is lost.
-        @Suppress("UseKtx")
-        prefs(context).edit().putString(platform, o.toString()).commit()
+        store(context).putStrings(mapOf(platform to o.toString()), commit = true)
     }.getOrDefault(false)
 
     fun load(context: Context, platform: String): StudioToken? = runCatching {
-        val raw = prefs(context).getString(platform, null) ?: return null
+        val raw = store(context).getString(platform) ?: return null
         val o = JSONObject(raw)
         StudioToken(
             access = o.getString("access"),
@@ -104,7 +91,7 @@ object StudioTokenStore {
     }.getOrNull()
 
     fun clear(context: Context, platform: String) {
-        runCatching { prefs(context).edit(commit = true) { remove(platform) } }
+        runCatching { store(context).remove(platform, commit = true) }
     }
 
     fun isSignedIn(context: Context, platform: String): Boolean = load(context, platform) != null

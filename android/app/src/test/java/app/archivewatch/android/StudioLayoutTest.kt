@@ -41,14 +41,14 @@ class StudioLayoutTest {
         val s = r(StudioLayout.SIDE)
         assertEquals(0f, s.film.left, 1f); assertEquals(120f, s.film.top, 1f)
         assertEquals(853f, s.film.width, 1f); assertEquals(480f, s.film.height, 1f)
-        assertEquals(853f, s.camera!!.left, 1f); assertEquals(240f, s.camera!!.top, 1f)
-        assertEquals(427f, s.camera!!.width, 1f); assertEquals(240f, s.camera!!.height, 1f)
+        assertEquals(853f, s.camera!!.left, 1f); assertEquals(240f, s.camera.top, 1f)
+        assertEquals(427f, s.camera.width, 1f); assertEquals(240f, s.camera.height, 1f)
     }
 
     @Test fun `host gives the camera the frame and insets the film top-right`() {
         val hst = r(StudioLayout.HOST)
         assertEquals(w, hst.camera!!.width, 0.5f)
-        assertEquals(h, hst.camera!!.height, 0.5f)
+        assertEquals(h, hst.camera.height, 0.5f)
         assertEquals(883f, hst.film.left, 1f); assertEquals(468f, hst.film.top, 1f)
         assertTrue(hst.cameraIsBackgroundCheck())
     }

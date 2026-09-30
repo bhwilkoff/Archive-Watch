@@ -558,6 +558,23 @@ Harness:
   build in PiP, the debug build full screen) — test residue, closed; a single
   copy cannot do both.
 
+- BH. ✅ v1.42.988 Warnings: 0 across both flavors AND the test sources
+  (measured without -q, --rerun-tasks). The last 18 were security-crypto's
+  deprecation: EncryptedSharedPreferences is replaced by SecretStore — an
+  AES-256-GCM key held in the Android Keystore (API 23+, no fallback needed at
+  the floor), 12-byte IV + ciphertext per value in plain app-private prefs,
+  Google's own guidance. Old files migrate once and are deleted
+  (LegacyEncryptedPrefs, the only code left on the deprecated API). Proved with
+  DEBUG doors on BOTH devices' Keystores: a token planted in the OLD format
+  (`aw_secret_plant`) came back through the real StudioTokenStore
+  (`aw_secret_check`): access and refresh intact, old file gone, no plaintext
+  on disk, clear -> null. (The TV's first run was killed before onCreate by an
+  8 s wait — harness, not product.)
+  Cast in the RELEASE (R8) build: verified — "load issued … at 731381ms", the
+  TV's cast_shell "Media has started". The earlier release "failure" was my
+  harness: the first Continue tile had changed, so no player was open to hand
+  off. Load now logs issued / failed / skipped instead of failing silently.
+
 ## Queue
 
 1. ✅ J — phone launch doors: one shared `Nav.collectStartDoors()` in both roots (v1.42.933); the Pixel opened Library, the TV Search
