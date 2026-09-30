@@ -3354,6 +3354,51 @@ def _load_anchor_footprint():
     return json.loads(p.read_text())
 
 
+# A same-named aristocrat's Wikidata label on an actor ("Charles Middleton,
+# 1st Baron Barham" in The Flying Deuces) — the linker took the wrong person,
+# and with him possibly his portrait.
+_PEERAGE = re.compile(r",\s+(?:\d+(?:st|nd|rd|th)\s+)?(?:Duke|Marquess|Marquis|Earl|Viscount|Baron|Baroness|Baronet|Count|Countess)\b.*$")
+
+
+def tidy_credits(items, stats):
+    """Credits as a viewer reads them, every build: an actor named once (two
+    roles become "A / B"), no peerage labels borrowed from a namesake, and a
+    director field that is names only (not "A/B", not a URL)."""
+    for it in items:
+        cast = it.get("cast")
+        if isinstance(cast, list) and cast:
+            out, seen = [], {}
+            for p in cast:
+                if not isinstance(p, dict):
+                    out.append(p)
+                    continue
+                name = p.get("name") or ""
+                m = _PEERAGE.search(name)
+                if m:
+                    p = {**p, "name": name[:m.start()].strip(), "profilePath": None}
+                    stats["cast_peerage_stripped"] += 1
+                key = (p.get("name") or "").strip().lower()
+                if key and key in seen:
+                    first = seen[key]
+                    chars = [c for c in (first.get("character"), p.get("character")) if c]
+                    if chars:
+                        first["character"] = " / ".join(dict.fromkeys(" / ".join(chars).split(" / ")))
+                    stats["cast_duplicate_merged"] += 1
+                    continue
+                p = dict(p)
+                seen[key] = p
+                out.append(p)
+            it["cast"] = out
+        d = it.get("director")
+        if isinstance(d, str) and d:
+            nd = re.sub(r"\s*https?://\S*", "", d)
+            nd = re.sub(r"\s*/\s*(?=[A-Z])", ", ", nd).strip(" ,/")
+            nd = re.sub(r"\s*/\s*[^\x00-\x7F].*$", "", nd).strip(" ,/")   # "Y.C. Zai/謝雲卿"
+            if nd != d:
+                it["director"] = nd or None
+                stats["director_tidied"] += 1
+
+
 def remediate(items):
     stats = Counter()
     siblings = sibling_index(items)
@@ -3366,6 +3411,7 @@ def remediate(items):
                 it.pop("yearSource", None)
     sibling_anchored_fixes(items, stats)
     restore_footprint_cast(items, stats)
+    tidy_credits(items, stats)
     title_anchored = cast_residue_fixes(items, stats)
     # Years judged by hand during the 2026-09 metadata review (the uploader's
     # own naming was wrong: "1943 Buckskin Frontier" dated 2010, Flash Gordon

@@ -246,6 +246,14 @@ tables, a scheduled workflow), never only in one published catalog.
   political appeal dated 1922 to not_films. New non-English uploader text
   arrives with ingest, so it stays in the review queue.
 
+- V3. ✅ Printed renewals live: served 22,523 -> 21,722; presumed_pd -790.
+- W. ✅ **Credits.** remediate `tidy_credits` every build: a same-named
+  aristocrat's Wikidata label on an actor stripped with his borrowed portrait
+  ("Charles Middleton, 1st Baron Barham" in The Flying Deuces; 7), one actor
+  named once with both roles (76), slash- and URL-joined director fields made
+  names only (7). An Amiga 500 game longplay wearing a 1922 Fox western to
+  not_films. `test_tidy_credits.py` (with "The Earl Carroll Girls" control), gated.
+
 ## Queue
 
 
