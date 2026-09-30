@@ -226,10 +226,10 @@ fun SeriesDetailScreen(container: AppContainer, nav: Nav, slug: String) {
                     nav.push(
                         Route.Player(
                             PlaySpec(
-                                id = episode.downloadURL!!,
+                                id = episode.downloadURL,
                                 title = current.title,
                                 subtitle = episodeLabel(episode, current.title),
-                                url = episode.downloadURL!!,
+                                url = episode.downloadURL,
                                 runtimeSeconds = episode.runtimeSeconds,
                             ),
                         ),

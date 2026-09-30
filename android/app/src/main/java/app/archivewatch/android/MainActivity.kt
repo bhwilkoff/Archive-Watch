@@ -76,6 +76,16 @@ class MainActivity : androidx.fragment.app.FragmentActivity() {
         }
     }
 
+    /** While casting, the volume keys belong to the television (CastSupport). */
+    override fun dispatchKeyEvent(event: android.view.KeyEvent): Boolean {
+        val up = event.keyCode == android.view.KeyEvent.KEYCODE_VOLUME_UP
+        if ((up || event.keyCode == android.view.KeyEvent.KEYCODE_VOLUME_DOWN) && CastSupport.isCasting()) {
+            if (event.action == android.view.KeyEvent.ACTION_DOWN) CastSupport.stepCastVolume(up)
+            return true
+        }
+        return super.dispatchKeyEvent(event)
+    }
+
     override fun onNewIntent(intent: Intent) {
         super.onNewIntent(intent)
         setIntent(intent)

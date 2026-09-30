@@ -54,7 +54,7 @@ private fun deepLink(context: Context, uri: String): Intent =
 private fun fetchPoster(url: String?): Bitmap? = url?.let {
     runCatching {
         http.newCall(Request.Builder().url(it).build()).execute().use { r ->
-            r.body?.bytes()?.let { b ->
+            r.body.bytes().let { b ->
                 BitmapFactory.decodeByteArray(b, 0, b.size)
                     ?.let { bm -> bm.scale(300, 450) }
             }

@@ -91,7 +91,7 @@ object ArchiveVersions {
                 .build()
             http.newCall(req).execute().use { resp ->
                 if (!resp.isSuccessful) return@withContext emptyList()
-                val files = JSONObject(resp.body?.string() ?: return@withContext emptyList())
+                val files = JSONObject(resp.body.string())
                     .optJSONArray("files") ?: return@withContext emptyList()
                 val out = mutableListOf<Version>()
                 for (i in 0 until files.length()) {
@@ -221,7 +221,7 @@ object ArchiveVersions {
                 val req = Request.Builder().url("https://archive.org/metadata/$item").build()
                 val files = http.newCall(req).execute().use { resp ->
                     if (!resp.isSuccessful) return@runCatching emptyList()
-                    JSONObject(resp.body?.string() ?: return@runCatching emptyList()).optJSONArray("files")
+                    JSONObject(resp.body.string()).optJSONArray("files")
                 } ?: return@runCatching emptyList()
                 val frames = (0 until files.length()).mapNotNull { i ->
                     val f = files.optJSONObject(i) ?: return@mapNotNull null

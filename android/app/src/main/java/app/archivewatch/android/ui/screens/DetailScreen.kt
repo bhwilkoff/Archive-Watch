@@ -365,7 +365,7 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                                 // Episode binge queue (same seam as the TV
                                 // Detail; see EditorialRepository).
                                 val binge = if (current.isEpisode && current.seriesID != null) {
-                                    container.editorial.episodeBingeQueue(current.seriesID!!, current.archiveID)
+                                    container.editorial.episodeBingeQueue(current.seriesID, current.archiveID)
                                 } else null
                                 nav.push(
                                     Route.Player(
@@ -485,7 +485,7 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
 
             // Episode item (Decision 045): jump to the full series.
             if (current.isEpisode && current.seriesID != null) {
-                TextButton(onClick = { nav.push(Route.Series(current.seriesID!!)) }) {
+                TextButton(onClick = { nav.push(Route.Series(current.seriesID)) }) {
                     Icon(Icons.Default.Tv, contentDescription = null)
                     Spacer(Modifier.width(8.dp))
                     Text("Part of ${current.seriesTitle ?: "the series"}")

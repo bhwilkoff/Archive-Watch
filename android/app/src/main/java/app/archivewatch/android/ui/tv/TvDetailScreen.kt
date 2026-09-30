@@ -331,7 +331,7 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                             // Episode binge: the season queue rides the spec
                             // (auto-advance + the MEDIA_NEXT/PREVIOUS keys).
                             val binge = if (current.isEpisode && current.seriesID != null) {
-                                container.editorial.episodeBingeQueue(current.seriesID!!, current.archiveID)
+                                container.editorial.episodeBingeQueue(current.seriesID, current.archiveID)
                             } else null
                             nav.push(
                                 Route.Player(
@@ -429,7 +429,7 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                         label = "Part of " + (current.seriesTitle ?: "the series"),
                         icon = { Icon(Icons.Default.Tv, null, tint = Color.White, modifier = Modifier.size(18.dp)) },
                         accent = current.accentColor,
-                    ) { nav.push(Route.Series(current.seriesID!!)) }
+                    ) { nav.push(Route.Series(current.seriesID)) }
                 }
             }
           }
@@ -558,7 +558,7 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                                         .padding(16.dp),
                                 ) {
                                     r.stars?.takeIf { it > 0 }?.let { s ->
-                                        Text("★".repeat(s.toInt()), fontSize = 13.sp, color = Color(0xFFE8A317))
+                                        Text("★".repeat(s), fontSize = 13.sp, color = Color(0xFFE8A317))
                                     }
                                     r.title?.takeIf { it.isNotBlank() }?.let {
                                         Text(it, fontSize = 14.sp, fontWeight = FontWeight.Medium, color = Color.White,

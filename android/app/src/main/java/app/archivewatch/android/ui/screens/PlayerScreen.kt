@@ -747,7 +747,6 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                 val at = nav.stack.indexOfLast { it is app.archivewatch.android.ui.Route.Player }
                 if (at >= 0) nav.stack[at] = app.archivewatch.android.ui.Route.Player(next)
             }
-            Unit
         }
     }
 

@@ -33,6 +33,9 @@ object CastSupport {
     /** Never casting: there is no session to be in. */
     fun isCasting(): Boolean = false
 
+    /** Never casting, so the phone's volume keys always stay the phone's. */
+    fun stepCastVolume(up: Boolean): Boolean = false
+
     /** No button — the caller renders nothing when this is null. */
     fun createCastButton(ctx: Context): View? = null
 

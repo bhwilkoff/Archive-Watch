@@ -32,7 +32,7 @@ class StudioChatTwitch {
     @Volatile var eventsReceived = 0L; private set
     @Volatile var lastError: String? = null; private set
 
-    private val lock = Object()
+    private val lock = Any()
     private val buffer = ArrayList<ChatLine>()
     private var thread: Thread? = null
     @Volatile private var running = false

@@ -107,7 +107,6 @@ class StudioCamera {
 
         val chars = manager.getCameraCharacteristics(id)
         val map = chars.get(CameraCharacteristics.SCALER_STREAM_CONFIGURATION_MAP)
-            as? StreamConfigurationMap
             ?: run { problem = "This camera reports no output sizes."; return false }
 
         val size = chooseSize(map)

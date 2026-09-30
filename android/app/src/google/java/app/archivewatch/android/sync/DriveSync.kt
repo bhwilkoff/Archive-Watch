@@ -257,7 +257,7 @@ object DriveSync {
             .header("Authorization", "Bearer $token").build()
         http.newCall(req).execute().use { r ->
             if (!r.isSuccessful) return null
-            return JSONObject(r.body!!.string()).optJSONObject("user")?.optString("emailAddress")
+            return JSONObject(r.body.string()).optJSONObject("user")?.optString("emailAddress")
                 ?.takeIf { it.isNotEmpty() }
         }
     }
@@ -269,7 +269,7 @@ object DriveSync {
         http.newCall(req).execute().use { r ->
             if (r.code == 401 || r.code == 403) throw IllegalStateException("Google Drive access was revoked — sign in again.")
             if (!r.isSuccessful) throw IllegalStateException("Drive list failed (${r.code})")
-            val files = JSONObject(r.body!!.string()).optJSONArray("files") ?: return null
+            val files = JSONObject(r.body.string()).optJSONArray("files") ?: return null
             return if (files.length() > 0) files.getJSONObject(0).getString("id") else null
         }
     }
@@ -280,7 +280,7 @@ object DriveSync {
             .header("Authorization", "Bearer $token").build()
         http.newCall(req).execute().use { r ->
             if (!r.isSuccessful) throw IllegalStateException("Drive read failed (${r.code})")
-            return runCatching { JSONObject(r.body!!.string()) }.getOrNull()
+            return runCatching { JSONObject(r.body.string()) }.getOrNull()
         }
     }
 
@@ -402,8 +402,8 @@ object DriveSync {
                 plays == mine.playCount && done == mine.everCompleted) continue
             store.putProgressRaw(
                 id,
-                if (useCloudPos) cPosMs else mine!!.positionMs,
-                if (useCloudPos) cDurMs else mine!!.durationMs,
+                if (useCloudPos) cPosMs else mine.positionMs,
+                if (useCloudPos) cDurMs else mine.durationMs,
                 maxOf(cAt, mine?.updatedAt ?: 0), first, plays, done,
             )
         }

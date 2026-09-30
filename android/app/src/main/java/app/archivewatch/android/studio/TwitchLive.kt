@@ -48,7 +48,7 @@ class TwitchLive(private val token: String, private val clientId: String) {
     }
 
     private fun send(req: Request): JSONObject = http.newCall(req).execute().use { resp ->
-        val body = resp.body?.string().orEmpty()
+        val body = resp.body.string().orEmpty()
         if (!resp.isSuccessful) {
             // The BODY names the real problem ("missing scope", "invalid OAuth
             // token") and a host can act on that. Trimmed, because a platform
@@ -124,7 +124,7 @@ class TwitchLive(private val token: String, private val clientId: String) {
             val http = OkHttpClient()
             val req = Request.Builder().url("https://ingest.twitch.tv/ingests").get().build()
             val list = http.newCall(req).execute().use { resp ->
-                JSONObject(resp.body?.string().orEmpty()).optJSONArray("ingests") ?: JSONArray()
+                JSONObject(resp.body.string().orEmpty()).optJSONArray("ingests") ?: JSONArray()
             }
             fun server(i: Int): String? {
                 val t = list.optJSONObject(i)?.optString("url_template")?.ifEmpty { null }

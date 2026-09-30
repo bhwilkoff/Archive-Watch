@@ -255,7 +255,7 @@ fun FilteredGridScreen(container: AppContainer, nav: Nav, route: Route.Filtered)
                     TvRefineChip(s.label, s == sort) { sort = s }
                 }
                 if (route.pdExplorer && route.year != null) {
-                    items((0..9).map { route.year!! - it }, key = { "y" + it }) { y ->
+                    items((0..9).map { route.year - it }, key = { "y" + it }) { y ->
                         TvRefineChip(y.toString(), pdYearShown == y) { pdYearShown = y }
                     }
                 }
@@ -299,7 +299,7 @@ fun FilteredGridScreen(container: AppContainer, nav: Nav, route: Route.Filtered)
                         horizontalArrangement = Arrangement.spacedBy(8.dp),
                         modifier = Modifier.padding(top = 4.dp, bottom = 4.dp),
                     ) {
-                        items((0..9).map { route.year!! - it }, key = { it }) { y ->
+                        items((0..9).map { route.year - it }, key = { it }) { y ->
                             FilterChip(
                                 selected = pdYearShown == y,
                                 onClick = { pdYearShown = y },

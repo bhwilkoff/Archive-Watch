@@ -161,7 +161,7 @@ class EditorialRepository(
 
     private fun fetch(url: String): String? = try {
         okHttp.newCall(Request.Builder().url(url).build()).execute().use { response ->
-            if (response.isSuccessful) response.body?.string() else null
+            if (response.isSuccessful) response.body.string() else null
         }
     } catch (_: Throwable) {
         null

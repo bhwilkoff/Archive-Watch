@@ -58,6 +58,39 @@ object CastSupport {
         context?.sessionManager?.currentCastSession?.isConnected == true
 
     /**
+     * The phone's volume keys move the TELEVISION while a Cast session is
+     * connected — the Cast guideline for a sender that owns its own media
+     * session, as this one does (the Media3 session wraps the local player, so
+     * without this the keys moved the phone while the TV played at full volume;
+     * Pixel 8a -> Google TV, 2026-09-29). Returns true when it handled the key.
+     */
+    fun stepCastVolume(up: Boolean): Boolean {
+        val session = context?.sessionManager?.currentCastSession ?: return false
+        if (!session.isConnected) return false
+        return runCatching {
+            // Step from what we last ASKED for: session.volume reads back the
+            // old value until the receiver confirms, so ten fast presses all
+            // computed the same step from it (0.83 x10, seen on the Pixel).
+            val now = android.os.SystemClock.elapsedRealtime()
+            // ...but only within a burst, so a change made with the TV's own
+            // remote is picked up by the next press.
+            val from = pendingVolume?.takeIf { pendingSession === session && now - pendingAt < 1500 } ?: session.volume
+            val next = (from + if (up) VOLUME_STEP else -VOLUME_STEP).coerceIn(0.0, 1.0)
+            pendingVolume = next
+            pendingSession = session
+            pendingAt = now
+            session.volume = next
+            android.util.Log.i("AWCAST", "cast volume -> ${"%.2f".format(java.util.Locale.US, next)}")
+            true
+        }.getOrDefault(false)
+    }
+
+    private const val VOLUME_STEP = 0.05
+    @Volatile private var pendingVolume: Double? = null
+    @Volatile private var pendingSession: Any? = null
+    @Volatile private var pendingAt = 0L
+
+    /**
      * The system Cast button. Returning the real `MediaRouteButton` rather than
      * drawing our own is what gives us Google's device picker, its connection
      * states and its accessibility behaviour for free — and the Cast design

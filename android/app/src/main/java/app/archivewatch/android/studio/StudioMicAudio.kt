@@ -68,7 +68,7 @@ class StudioMicAudio : VoiceSource {
     private var available = 0
     private var maxBacklog = 0
     private var channels = 2
-    private val lock = Object()
+    private val lock = Any()
 
     /**
      * Opens the microphone at the FILM's rate and channel count.

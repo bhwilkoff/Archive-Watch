@@ -126,7 +126,7 @@ object OpenSubtitlesClient {
         while (true) {
             val (code, body, retryAfter) = withContext(Dispatchers.IO) {
                 http.newCall(req).execute().use {
-                    Triple(it.code, it.body?.string() ?: "", it.header("Retry-After"))
+                    Triple(it.code, it.body.string(), it.header("Retry-After"))
                 }
             }
             if (code != 429 || attempt >= tries - 1) return code to body
@@ -182,7 +182,7 @@ object OpenSubtitlesClient {
             ?: throw SubsException("Download failed (HTTP $code)")
         val bytes = withContext(Dispatchers.IO) {
             http.newCall(Request.Builder().url(link).build()).execute().use {
-                it.body?.bytes() ?: ByteArray(0)
+                it.body.bytes()
             }
         }
         val text = decode(bytes)

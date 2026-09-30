@@ -538,6 +538,26 @@ Harness:
   local ExoPlayer rather than the Cast session (media3-cast's CastPlayer is
   already a dependency). Next.
 
+- BG. ✅ v1.42.986 While casting, the phone's volume keys now move the TV:
+  MainActivity routes VOLUME_UP/DOWN to the Cast session while one is
+  connected (our Media3 session wraps the local player, so the keys had moved
+  the phone). First attempt stepped from session.volume, which reads back the
+  old value until the receiver confirms — 22 presses all set 0.83; it now steps
+  from the last value asked for, within a 1.5 s burst. Seen: 0.78 -> 0.00 in
+  22 presses, and the SYSTEM output switcher's Basement slider at zero, muted.
+  On a Google TV the Cast volume IS the set's volume: the TV was left muted at
+  0 and had to be restored with its own volume key to 22 (shell volume
+  commands are refused there; read back after every restore).
+  Also: the Kotlin warnings had been hidden by `-q` all session. 55 found;
+  37 fixed (OkHttp 5's non-null ResponseBody, Kotlin 2.4's sharper null
+  checks, Object() locks, Media3's deprecated SpeedChangeEffect -> one
+  EditedMediaItem.setSpeed that re-times audio and video together). The 18
+  left are security-crypto's deprecated EncryptedSharedPreferences — next,
+  as its own migration (it holds the Twitch token and OpenSubtitles login).
+  Owner saw PiP and a full-screen player at once: two INSTALLS (my release
+  build in PiP, the debug build full screen) — test residue, closed; a single
+  copy cannot do both.
+
 ## Queue
 
 1. ✅ J — phone launch doors: one shared `Nav.collectStartDoors()` in both roots (v1.42.933); the Pixel opened Library, the TV Search

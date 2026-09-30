@@ -84,7 +84,7 @@ object StudioPlatformAuth {
         val req = Request.Builder()
             .url("https://id.twitch.tv/oauth2/device").post(body).build()
         http.newCall(req).execute().use { resp ->
-            val o = JSONObject(resp.body?.string().orEmpty())
+            val o = JSONObject(resp.body.string().orEmpty())
             val device = o.optString("device_code").ifEmpty { null }
             val user = o.optString("user_code").ifEmpty { null }
             val uri = o.optString("verification_uri").ifEmpty { null }
@@ -139,7 +139,7 @@ object StudioPlatformAuth {
             val req = Request.Builder()
                 .url("https://id.twitch.tv/oauth2/token").post(body).build()
             val o = http.newCall(req).execute().use { resp ->
-                JSONObject(resp.body?.string().orEmpty())
+                JSONObject(resp.body.string().orEmpty())
             }
             val access = o.optString("access_token").ifEmpty { null }
             if (access != null) {
@@ -180,7 +180,7 @@ object StudioPlatformAuth {
             .build()
         val req = Request.Builder().url("https://id.twitch.tv/oauth2/token").post(body).build()
         return http.newCall(req).execute().use {
-            JSONObject(it.body?.string().orEmpty()).optString("access_token").ifEmpty { null }
+            JSONObject(it.body.string().orEmpty()).optString("access_token").ifEmpty { null }
         }
     }
 
@@ -195,7 +195,7 @@ object StudioPlatformAuth {
         val req = Request.Builder()
             .url("https://id.twitch.tv/oauth2/token").post(body).build()
         val (code, o) = http.newCall(req).execute().use {
-            it.code to runCatching { JSONObject(it.body?.string().orEmpty()) }.getOrDefault(JSONObject())
+            it.code to runCatching { JSONObject(it.body.string().orEmpty()) }.getOrDefault(JSONObject())
         }
         val access = o.optString("access_token").ifEmpty { null }
         if (access == null) {
@@ -322,7 +322,7 @@ object StudioPlatformAuth {
             .header("Authorization", "OAuth $access")
             .build()
         val o = http.newCall(req).execute().use { resp ->
-            val json = JSONObject(resp.body?.string().orEmpty())
+            val json = JSONObject(resp.body.string().orEmpty())
             if (!resp.isSuccessful) {
                 val why = json.optString("message").ifEmpty { "HTTP ${resp.code}" }
                 throw IllegalStateException("Twitch will not accept this sign-in: $why")

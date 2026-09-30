@@ -186,7 +186,7 @@ class CatalogRepository(
                 lastCheckFile.writeText(System.currentTimeMillis().toString())
                 if (response.code == 304) return@withContext
                 if (!response.isSuccessful) return@withContext
-                val body = response.body ?: return@withContext
+                val body = response.body
 
                 // STREAMED: inflate straight off the socket into staging, so the
                 // compressed copy is never written to disk at all.

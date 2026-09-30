@@ -18,8 +18,6 @@ import android.text.TextPaint
 import androidx.annotation.OptIn
 import androidx.media3.common.Effect
 import androidx.media3.common.MediaItem
-import androidx.media3.common.audio.AudioProcessor
-import androidx.media3.common.audio.SonicAudioProcessor
 import androidx.media3.common.util.Size
 import androidx.media3.common.util.UnstableApi
 import androidx.media3.datasource.okhttp.OkHttpDataSource
@@ -30,7 +28,6 @@ import androidx.media3.effect.OverlayEffect
 import androidx.media3.effect.Presentation
 import androidx.media3.effect.RgbAdjustment
 import androidx.media3.effect.RgbFilter
-import androidx.media3.effect.SpeedChangeEffect
 import androidx.media3.effect.StaticOverlaySettings
 import androidx.media3.effect.TextureOverlay
 import androidx.media3.exoplayer.source.DefaultMediaSourceFactory
@@ -353,7 +350,7 @@ class ClipExporter(
                 val near = published.minByOrNull { kotlin.math.abs(it.seconds - t) } ?: continue
                 val bmp = fetched.getOrPut(near.imageURL) { runCatching {
                     okHttp.newCall(okhttp3.Request.Builder().url(near.imageURL).build()).execute().use { r ->
-                        if (!r.isSuccessful) null else android.graphics.BitmapFactory.decodeStream(r.body?.byteStream())
+                        if (!r.isSuccessful) null else android.graphics.BitmapFactory.decodeStream(r.body.byteStream())
                     }
                 }.getOrNull() } ?: continue
                 withContext(Dispatchers.Main) { onFrame(i, bmp) }
@@ -413,11 +410,6 @@ class ClipExporter(
         // burned-in caption + credit stay un-graded, matching the iOS two-pass
         // intent where the grade only touches the source clip).
         effects.addAll(spec.look.videoEffects())
-        // Speed (video): a GL speed effect re-times the frames. The matching
-        // audio speed is applied as an AudioProcessor below so A/V stay in sync.
-        if (spec.speed != ClipSpeed.ONE) {
-            effects.add(SpeedChangeEffect(spec.speed.multiplier))
-        }
         // Reframe to the chosen canvas (letterbox/pillarbox into the matte).
         if (spec.aspect != ClipAspect.ORIGINAL) {
             effects.add(
@@ -431,17 +423,21 @@ class ClipExporter(
         // position so the burn-in matches the live preview).
         effects.add(makeOverlayEffect(renderSize, spec.caption, spec.creditLine, spec.captionStyle))
 
-        // Audio speed (Sonic) keeps the soundtrack in step with the video
-        // SpeedChangeEffect. Empty list = no audio processing for 1× speed.
-        val audioProcessors: List<AudioProcessor> =
-            if (spec.speed != ClipSpeed.ONE) {
-                listOf(SonicAudioProcessor().apply { setSpeed(spec.speed.multiplier) })
-            } else {
-                emptyList()
-            }
-
+        // Speed: one setting on the item re-times video and audio together (it
+        // replaces the deprecated SpeedChangeEffect + a separate Sonic
+        // processor that had to be kept in step by hand). Pitch is kept, as
+        // Sonic's setSpeed did.
         val edited = EditedMediaItem.Builder(mediaItem)
-            .setEffects(Effects(ImmutableList.copyOf(audioProcessors), ImmutableList.copyOf(effects)))
+            .setEffects(Effects(ImmutableList.of(), ImmutableList.copyOf(effects)))
+            .apply {
+                if (spec.speed != ClipSpeed.ONE) {
+                    val speed = spec.speed.multiplier
+                    setSpeed(androidx.media3.common.SpeedParameters(object : androidx.media3.common.audio.SpeedProvider {
+                        override fun getSpeed(timeUs: Long) = speed
+                        override fun getNextSpeedChangeTimeUs(timeUs: Long) = androidx.media3.common.C.TIME_UNSET
+                    }, true))
+                }
+            }
             .build()
 
         // The remote source is read through an OkHttpDataSource (ranged GETs,

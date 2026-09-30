@@ -298,10 +298,10 @@ fun TvSeriesScreen(container: AppContainer, nav: Nav, slug: String) {
                     nav.push(
                         Route.Player(
                             PlaySpec(
-                                id = ep.downloadURL!!,
+                                id = ep.downloadURL,
                                 title = current.title,
                                 subtitle = episodeName(ep, current.title) ?: "",
-                                url = ep.downloadURL!!,
+                                url = ep.downloadURL,
                                 runtimeSeconds = ep.runtimeSeconds,
                             ),
                         ),
