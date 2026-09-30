@@ -62,11 +62,20 @@ tables, a scheduled workflow), never only in one published catalog.
   test's expected reason for a year of 1065. Both fixed;
   `tools/run_pipeline_tests.sh` (43 tests) is now publish-db's first step.
 
+- D. ✅ **Backup revisions and records.** The shared picker (`archive_lib.pick_video`)
+  could choose archive.org's `history/files/<name>.~N~` — a REPLACED file's old
+  revision (Revelation 1924, an Expedition 68 docking). It now refuses them
+  (test case in test_private_derivative), and the daily liveness check repoints
+  any item still baked to one. `repick_derivatives.py` had never been scheduled;
+  it now runs bounded in check-liveness. Found alongside: **44 Great 78 Project
+  record transfers** (collection `78rpm`) served as feature films — 0 s long,
+  their "video" a 4.8 KB label photograph. Remediate now excludes the collection
+  as not a film.
+
 ## Queue
 
 - L. Compilations typed as films ("Filmography: Roger Corman", "01-judy-garland", Disney/Paramount UK VHS reels): not_films.
 - M. Decade phrases contradicting the year ("1960s waves breaking" dated 1896).
-- D. `.mp4.~1~` backup files and .mov as the playable file.
 - E. The 2,593 unreviewed uploader synopses (metadata_review.py, popularity first).
 - F. 2,902 empty synopses: which have a source to fill from.
 - G. 3,115 archive-thumbnail posters: any professional source.

@@ -49,6 +49,7 @@ CATALOG = REPO / "catalog.json"
 # owner confirmed on-device that those DO play (Gumbasia) — Apple's software decoder
 # still handles Simple-Profile MP4-container files even though the spec sheet dropped
 # it. Only the non-MP4 containers (Theora/Ogg, Matroska, AVI/DivX, MPEG-PS) are stuck.
+_BACKUP = re.compile(r"/history/|\.~\d+~$")
 _BAD = re.compile(r"\.(ogv|mkv|avi|wmv|flv|divx)$|_mpeg2", re.I)   # NOT .mov (QuickTime plays), NOT 512kb (plays)
 
 
@@ -127,6 +128,11 @@ def main() -> int:
             # h.264 derivative and won its tier fairly), so no name or format
             # pattern can find it. Only probing can.
             return bool(u) and not it.get("audioTimelineChecked")
+        # A replaced file's backup revision (history/files/x.mp4.~1~) is a
+        # candidate even if an older run marked the item: the picker only
+        # learned to refuse backups on 2026-09-29.
+        if _BACKUP.search(u):
+            return True
         return (u and not it.get("derivativeRepicked")
                 and _BAD.search(u.rsplit("/", 1)[-1]))
 

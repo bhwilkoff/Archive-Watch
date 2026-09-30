@@ -117,6 +117,13 @@ jobs:
           echo "## Archive liveness" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY; tail -3 liveness.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
 
+      - name: Re-pick unplayable containers
+        # Until 2026-09-29 repick_derivatives ran only by hand, so a film whose
+        # baked file is .ogv/.avi/.mkv or a backup revision stayed that way.
+        timeout-minutes: 20
+        continue-on-error: true
+        run: python tools/repick_derivatives.py --limit 300 | tail -5
+
       - name: Extract what changed
 
         if: always()

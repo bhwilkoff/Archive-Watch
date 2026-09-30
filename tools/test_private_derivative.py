@@ -30,6 +30,10 @@ CASES = [
     ("unmarked files are untouched", [
         {"name": "a.mp4", "format": "h.264", "source": "derivative", "size": "10"},
     ], "a.mp4"),
+    ("a replaced file's backup revision never wins, however large", [
+        {"name": "history/files/100878.ia.mp4.~1~", "format": "h.264", "source": "derivative", "size": "9999"},
+        {"name": "100878.ia.mp4", "format": "h.264", "source": "derivative", "size": "10"},
+    ], "100878.ia.mp4"),
     ("private:false is not private", [
         {"name": "a.mp4", "format": "h.264", "source": "derivative", "size": "10",
          "private": "false"},

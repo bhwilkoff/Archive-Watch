@@ -54,6 +54,9 @@ def pick_video(files):
     # two mp4s are both private; it shipped to every platform and failed on the
     # Roku playback audit.)
     vids = [f for f in vids if str(f.get("private") or "").lower() != "true"]
+    # archive.org keeps a REPLACED file as history/files/<name>.~N~: an old
+    # revision, not the item's current copy (turner_video_100878 shipped one).
+    vids = [f for f in vids if not re.search(r"(^|/)history/|\.~\d+~$", f.get("name") or "")]
     if not vids:
         return None
 

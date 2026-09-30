@@ -2584,7 +2584,12 @@ def exclude_not_films(items, stats):
     p = REPO / "shared/editorial/not_films.json"
     table = json.loads(p.read_text()) if p.exists() else {}
     for it in items:
-        if it.get("archiveID") in table and not it.get("excluded"):
+        if it.get("excluded"):
+            continue
+        # The Great 78 Project's record transfers (collection `78rpm`) are
+        # audio: their "video" is a label photograph wrapped as an mp4, 0 s
+        # long. 44 were served as feature films (2026-09-29).
+        if it.get("archiveID") in table or "78rpm" in (it.get("collections") or []):
             it["excluded"] = True
             it["excludedReason"] = "not_a_film"
             stats["not_film_excluded"] += 1
