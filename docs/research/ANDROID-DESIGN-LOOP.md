@@ -604,6 +604,18 @@ Harness:
   slivers at the capture edge (a Surprise tile, a Browse chip), labeled below
   the fold. All other TV surfaces 0.
 
+- BL. ✅ v1.42.992 The three home-screen widgets, added to the Pixel and
+  removed after. All three were broken on the glass: the poster fetch ran on
+  Glance's main thread (NetworkOnMainThreadException, so every card drew with
+  no picture); Wikimedia refuses a request with no User-Agent (403), so the
+  fetch now goes through the app's shared client; and Pick of the Day read
+  lite rows, which carry no downloadURL, so its pool was empty. It also now
+  skips noRecommend (Decision 149: it chooses for the viewer). The widget
+  picker drew an empty grid: each widget now hands Android 15+ a generated
+  preview from the same data (seen: The Terror in the add sheet). Pick opens
+  the film's page, Surprise the Surprise grid. Data: Prelinger's `dollar_store`
+  wore the 2025 "Dollar Store Killers" poster; rejected in match_rejects.json.
+
 ## Queue
 
 1. ✅ J — phone launch doors: one shared `Nav.collectStartDoors()` in both roots (v1.42.933); the Pixel opened Library, the TV Search

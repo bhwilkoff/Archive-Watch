@@ -46,6 +46,7 @@ class MainActivity : androidx.fragment.app.FragmentActivity() {
         // GMS) and on any device with Play Services missing or disabled.
         // Skipped on TV: a television is a Cast receiver, not a sender.
         if (!isTv) CastSupport.initialize(applicationContext)
+        if (!isTv) lifecycleScope.launch { app.archivewatch.android.widgets.publishWidgetPreviews(applicationContext) }
 
         // Android 12+: the system enters PiP itself as the viewer swipes home,
         // animating from the video — onUserLeaveHint is too late for that.
@@ -204,6 +205,21 @@ class MainActivity : androidx.fragment.app.FragmentActivity() {
             // a fresh process) read it through the real StudioTokenStore.
             if (intent?.getBooleanExtra("aw_secret_plant", false) == true) plantLegacyToken()
             if (intent?.getBooleanExtra("aw_secret_check", false) == true) checkMigratedToken()
+            // Ask the launcher to pin a widget (continue | pick | surprise): the
+            // system's own "Add to home screen" sheet, which a person confirms.
+            intent?.getStringExtra("aw_pin_widget")?.let { which ->
+                val receiver = when (which) {
+                    "continue" -> app.archivewatch.android.widgets.ContinueWatchingWidgetReceiver::class.java
+                    "pick" -> app.archivewatch.android.widgets.PickOfDayWidgetReceiver::class.java
+                    else -> app.archivewatch.android.widgets.SurpriseWidgetReceiver::class.java
+                }
+                val mgr = android.appwidget.AppWidgetManager.getInstance(this)
+                if (android.os.Build.VERSION.SDK_INT >= android.os.Build.VERSION_CODES.O &&
+                    mgr.isRequestPinAppWidgetSupported) {
+                    val ok = mgr.requestPinAppWidget(android.content.ComponentName(this, receiver), null, null)
+                    android.util.Log.i("AWWIDGET", "pin $which requested=$ok")
+                }
+            }
             val roomCode = intent?.getStringExtra("aw_room_join")
             val roomFilm = intent?.getStringExtra("aw_room_film")
             if (roomCode != null && roomFilm != null) {
