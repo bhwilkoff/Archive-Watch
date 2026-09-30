@@ -185,7 +185,21 @@ tables, a scheduled workflow), never only in one published catalog.
   "No bad reviews ... will be tolerated" where TMDb has the film's plot.
   Applied, and now a step of the TMDb enrich workflow.
 
+- R3. ✅ **Accuracy against an independent source.** Uploader summaries set beside
+  OMDb/TMDb plots: where both exist they mostly agree, so the uploader text's
+  problem was form, not truth — and 267 served summaries were not in English
+  at all (182 Spanish Wikipedia pastes on Argentine films, SVT Swedish, French,
+  Portuguese). synopsis_provenance now falls back to OMDb's plot (the same
+  checked tier) when TMDb has none: 274 titles. But OMDb and TMDb "plots" are
+  sometimes a USER'S REVIEW ("The Terrytoons are oddly interesting", "This
+  film is a treasure", "I could spend quite some time reflecting"): a review
+  filter now guards both sources (`test_synopsis_review_filter.py`, in the
+  gate), and 20 live review-summaries were removed by hand (a blanket revert
+  on the filter was tried and abandoned — it removed plots that quote dialogue).
+
 ## Queue
+
+- T. ~200 non-English uploader summaries with no English source: faithful translation by hand, in batches.
 
 - E-next. Review batches now judge ACCURACY: each uploader summary beside an independent source (TMDb overview, Wikipedia lead) where one exists; tmdb/omdb/wikipedia summaries of weakly matched items get the same look.
 

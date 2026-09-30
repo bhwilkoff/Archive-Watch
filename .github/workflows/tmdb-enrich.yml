@@ -63,7 +63,7 @@ jobs:
           python tools/synopsis_provenance.py --apply | grep -vE '^\s+(was|now):|^  \S+$' | tee -a fill.log
           # Only publish when something was actually filled — avoids needless
           # DB rebuilds on days the population is already drained.
-          if grep -qE 'filled synopsis=0 cast=0 director=0' fill.log && grep -qE 'tmdb overview adopted: 0 ' fill.log; then
+          if grep -qE 'filled synopsis=0 cast=0 director=0' fill.log && grep -qE 'tmdb overview adopted: 0 · omdb plot adopted: 0 ' fill.log; then
             echo "changed=false" >> "$GITHUB_OUTPUT"
           else
             echo "changed=true" >> "$GITHUB_OUTPUT"

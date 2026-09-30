@@ -36,6 +36,7 @@ from __future__ import annotations
 
 import argparse
 import json
+import re
 import sys
 import time
 from pathlib import Path
@@ -52,6 +53,49 @@ CACHE = REPO / "shared/editorial/tmdb_overview_cache.json"
 FILM_TYPES = {"feature-film", "silent-film", "short-film", "animation", "documentary",
               "newsreel", "ephemeral", "commercial", "tv-special"}
 CHECKED = {"tmdb", "omdb", "wikipedia", "tvmaze", "agent-reviewed"}
+
+
+_OMDB = None
+
+
+def omdb_plot(it) -> str:
+    global _OMDB
+    if it.get("contentType") not in FILM_TYPES or not it.get("imdbID"):
+        return ""
+    if _OMDB is None:
+        try:
+            _OMDB = json.loads((REPO / "shared/editorial/omdb_cache.json").read_text())["entries"]
+        except Exception:
+            _OMDB = {}
+    p = ((_OMDB.get(it["imdbID"]) or {}).get("plot") or "").strip()
+    if len(p) <= 40 or p == "N/A" or _REVIEW.search(p, it.get("title") or ""):
+        return ""
+    return p
+
+
+# OMDb's "plot" is sometimes an IMDb user's REVIEW ("Some time back, I'd read
+# about...", "The Terrytoons are oddly interesting...", "this film deserves a
+# restoration"). A review is never adopted as a synopsis.
+_REVIEW_WORDS = re.compile(
+    r"\b(?:deserves|oddly interesting|worth (?:a )?watch|worth seeing|in my view|if you (?:like|enjoy|want)"
+    r"|existing print|this (?:film|movie|cartoon|short) is (?:a|an|one|not|very|really|quite)"
+    r"|(?:great|good|bad|poor|terrible|wonderful|fun) (?:film|movie|cartoon)\b|\bi think\b)", re.I)
+_FIRST_PERSON = re.compile(r"(?:^|[.!?]\s+)(?:I|I'd|I've|I'm|I'll|My)\s"
+                           # a writer's own phrases mid-sentence; quoted dialogue and song
+                           # titles ("I'd Rather Cry Over You") are not a writer speaking
+                           r"|\bI(?:'d read| read| stumbled| turned up|'m sure| could spend| have been able| have seen| saw this| think| believe| hope to)\b")   # case-sensitive: a writer, not a plot
+
+
+class _Review:
+    @staticmethod
+    def search(p, title=""):
+        # A title that begins "I" ("I Walk Alone is a 1947 film noir") is not
+        # a writer speaking.
+        body = p[len(title):] if title and p.startswith(title) else p
+        return _REVIEW_WORDS.search(p) or _FIRST_PERSON.search(body)
+
+
+_REVIEW = _Review
 
 
 def syn(it) -> str:
@@ -113,7 +157,7 @@ def main() -> int:
                 print(f"  fetched {done}/{len(todo)} (errors {errors})")
     CACHE.write_text(json.dumps(cache, ensure_ascii=False))
 
-    replaced = kept_empty = stamped_archive = 0
+    replaced = kept_empty = stamped_archive = replaced_omdb = 0
     examples = []
     for it in items:
         src = it.get("synopsisSource") or ""
@@ -121,6 +165,8 @@ def main() -> int:
             continue
         tid = str(it.get("tmdbID") or "")
         ov = cache.get(tid, "") if it.get("contentType") in FILM_TYPES else ""
+        if ov and _REVIEW.search(ov, it.get("title") or ""):
+            ov = ""        # a user's review filed as the overview ("This film is a treasure")
         if ov and len(ov) > 20:
             if len(examples) < 6 and syn(it) and syn(it) != ov:
                 examples.append((it["archiveID"][:34], syn(it)[:70], ov[:70]))
@@ -128,13 +174,21 @@ def main() -> int:
                 it["synopsis"] = ov
                 it["synopsisSource"] = "tmdb"
             replaced += 1
+        elif omdb_plot(it):
+            # No TMDb overview, but OMDb (the same checked tier, Decision 007/
+            # 008) has the film's plot: 58 served items kept Spanish or Swedish
+            # uploader text next to an English OMDb plot (2026-09-29).
+            if args.apply:
+                it["synopsis"] = omdb_plot(it)
+                it["synopsisSource"] = "omdb"
+            replaced_omdb += 1
         elif syn(it):
             if args.apply:
                 it["synopsisSource"] = "archive"
             stamped_archive += 1
         else:
             kept_empty += 1
-    print(f"tmdb overview adopted: {replaced} · stamped archive: {stamped_archive} · no synopsis at all: {kept_empty}")
+    print(f"tmdb overview adopted: {replaced} · omdb plot adopted: {replaced_omdb} · stamped archive: {stamped_archive} · no synopsis at all: {kept_empty}")
     for a, b, c in examples:
         print(f"  {a}\n     was: {b!r}\n     now: {c!r}")
     if args.apply:
