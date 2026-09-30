@@ -2584,15 +2584,19 @@ def exclude_not_films(items, stats):
     p = REPO / "shared/editorial/not_films.json"
     table = json.loads(p.read_text()) if p.exists() else {}
     for it in items:
-        if it.get("excluded"):
-            continue
         # The Great 78 Project's record transfers (collection `78rpm`) are
         # audio: their "video" is a label photograph wrapped as an mp4, 0 s
         # long. 44 were served as feature films (2026-09-29).
         if it.get("archiveID") in table or "78rpm" in (it.get("collections") or []):
-            it["excluded"] = True
-            it["excludedReason"] = "not_a_film"
-            stats["not_film_excluded"] += 1
+            # The MARKER is written even on an item another rule already hid:
+            # a rights hide is recomputed every build, and when a corrected
+            # year moved 20 compilation reels to a keep bucket the reconcile
+            # re-showed them, since nothing said they were not films.
+            if it.get("excludedReason") in (None, "not_a_film"):
+                if it.get("excludedReason") != "not_a_film":
+                    stats["not_film_excluded"] += 1
+                it["excluded"] = True
+                it["excludedReason"] = "not_a_film"
 
 
 def exclude_takedowns(items, stats):

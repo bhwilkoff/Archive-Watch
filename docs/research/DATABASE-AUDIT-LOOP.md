@@ -106,6 +106,11 @@ tables, a scheduled workflow), never only in one published catalog.
   and Troopers Three (a cast list with no "starring"); uploaders' naming is too
   varied to judge by title alone, and clearing a real film is the worse error.
 
+- L2. ✅ `exclude_not_films` skipped an item another rule had already hidden, so the
+  20 reels never got their `not_a_film` marker and the next publish showed them
+  once their corrected years left the rights hide. The marker is now always
+  written (as takedowns do). Synopsis batch 2: 55 kept, 5 rewritten.
+
 ## Queue
 
 - N2. `01-rec-2024...` 1-2 minute recordings wearing The Last Command, The Navigator, Beggars of Life (hidden now, but the ingest keeps admitting such recordings).
