@@ -462,3 +462,14 @@ remediate crashed on a synopsis stored as a LIST (is_adult_signal read it with a
 regex before sanitize_synopsis joined it): publish-db failed at 12:20 UTC and the
 subtitle apply after it. Fixed with _synopsis_text; test_list_synopsis.py in the
 gate (51/51).
+
+### X — a publish over a moved release now MERGES (2026-09-30)
+Review batch E16 was published at ~05:45 UTC and gone by midday; its titles
+survived only because they live in title_corrections.json. 24 workflows publish
+the whole catalog they fetched, so anything published after their fetch and
+before their publish was reverted silently. The catalog-writers lock only
+serializes workflows with each other. catalog_release now keeps the fetched file
+(.catalog_base.json.gz) and, when the release moved, publishes a field-level
+three-way merge: this run's changes onto the newer catalog, everything else
+theirs. --if-unchanged keeps refusing (exit 3). test_catalog_merge.py holds the
+E16 case with a no-base control; gate 52/52.

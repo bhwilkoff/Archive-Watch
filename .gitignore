@@ -121,6 +121,7 @@ secrets/
 # forward against a dev server; it must never be committed.
 /list/
 .catalog_fetch_stamp
+.catalog_base.json.gz
 
 # mediamtx generates a self-signed cert AND PRIVATE KEY in its working
 # directory (seen 2026-09-17: a Watch Together soak run from the repo root

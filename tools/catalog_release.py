@@ -94,6 +94,9 @@ def _release_state():
 
 
 STAMP = REPO / ".catalog_fetch_stamp"
+# What this checkout FETCHED, kept so a publish can tell its own changes from
+# the rest of the file (see _merge_onto_newer).
+BASE = REPO / ".catalog_base.json.gz"
 
 
 def _asset_stamp():
@@ -158,7 +161,7 @@ def fetch():
         return 1
     with gzip.open(GZ, "rb") as fi, open(CATALOG, "wb") as fo:
         shutil.copyfileobj(fi, fo)
-    GZ.unlink()
+    GZ.replace(BASE)
     STAMP.write_text(_asset_stamp())
     print(f"[catalog] fetched {CATALOG.name} ({CATALOG.stat().st_size/1e6:.1f} MB) from release '{TAG}'")
     return 0
@@ -189,6 +192,61 @@ def _asset_size() -> int:
     return 0
 
 
+def _merge_onto_newer():
+    """Field-level three-way merge: base (what was fetched), mine (./catalog.json),
+    theirs (the release now). Mine wins on every field it changed from base; every
+    other field, and every item it never touched, comes from theirs."""
+    if not BASE.exists():
+        print("[catalog] release moved and no fetched base is on disk to merge from; "
+              "refusing to overwrite it", file=sys.stderr)
+        return 3
+    with gzip.open(BASE, "rb") as fi:
+        base = {i.get("archiveID"): i for i in json.load(fi).get("items") or [] if i.get("archiveID")}
+    with open(CATALOG, "rb") as fi:
+        mine_doc = json.load(fi)
+    changes, removals = {}, {}
+    for it in mine_doc.get("items") or []:
+        k = it.get("archiveID")
+        if not k:
+            continue
+        old = base.get(k)
+        if old is None:
+            changes[k] = it
+            continue
+        d = {f: v for f, v in it.items() if old.get(f) != v}
+        gone = [f for f in old if f not in it]
+        if d:
+            changes[k] = d
+        if gone:
+            removals[k] = gone
+    r = _gh_net("release", "download", TAG, "--pattern", ASSET, "--clobber", "--dir", str(REPO))
+    if r.returncode != 0 or not GZ.exists():
+        print(f"[catalog] release moved and the newer catalog could not be fetched to merge "
+              f"onto; refusing to overwrite it: {(r.stderr or '').strip()[:200]}", file=sys.stderr)
+        return 3
+    with gzip.open(GZ, "rb") as fi:
+        theirs = json.load(fi)
+    GZ.unlink()
+    by_id = {i.get("archiveID"): i for i in theirs.get("items") or [] if i.get("archiveID")}
+    added = 0
+    for k, d in changes.items():
+        if k in by_id:
+            by_id[k].update(d)
+        else:
+            theirs["items"].append(dict(d))
+            added += 1
+    for k, fs in removals.items():
+        for f in fs:
+            by_id.get(k, {}).pop(f, None)
+    tmp = CATALOG.with_suffix(".json.tmp")
+    with open(tmp, "w", encoding="utf-8") as fo:
+        json.dump(theirs, fo, ensure_ascii=False, separators=(",", ":"))
+    tmp.replace(CATALOG)
+    print(f"[catalog] release moved since this fetch; merged this run's changes to "
+          f"{len(changes)} items ({added} new, {len(removals)} with removed fields) onto it")
+    return 0
+
+
 def publish(if_unchanged=False):
     if not CATALOG.exists():
         print(f"[catalog] no {CATALOG} to publish", file=sys.stderr)
@@ -199,13 +257,21 @@ def publish(if_unchanged=False):
     # (2026-09-16: 116 TMDb refills lost to run 35130645649). With
     # --if-unchanged, a moved release is refused with exit 3 so the caller
     # can re-fetch and re-apply instead of clobbering.
-    if if_unchanged:
-        then = STAMP.read_text().strip() if STAMP.exists() else ""
-        now = _asset_stamp()
-        if then and now and then != now:
+    then = STAMP.read_text().strip() if STAMP.exists() else ""
+    now = _asset_stamp()
+    if then and now and then != now:
+        if if_unchanged:
             print(f"[catalog] release '{TAG}' moved since this fetch ({then} -> {now}); "
                   f"refusing to publish over it", file=sys.stderr)
             return 3
+        # EVERY OTHER PUBLISH MERGES. 24 workflows published the whole file
+        # they fetched, so anything published after their fetch — a review
+        # batch, a hand fix, another writer outside the lock — was reverted
+        # without a trace (2026-09-30: review batch E16 lost between 05:50 and
+        # 12:20 UTC). Carry only what THIS run changed onto the newer catalog.
+        rc = _merge_onto_newer()
+        if rc:
+            return rc
     # A catalog written by two processes at once (2026-09-17: a backgrounded
     # overlay publish woke during a local apply) is a byte-spliced file that
     # still gzips and uploads; every reader downstream then fails. Parse
