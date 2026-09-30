@@ -143,6 +143,13 @@ tables, a scheduled workflow), never only in one published catalog.
   checked within the 90-day liveness policy (14,201 in the last 30 days);
   22,626 pass the strict AVFoundation check, 5 not yet run.
 
+- E4. ✅ Synopsis batch 4 (70): 29 rewritten — archival shot lists and timecodes
+  ("10:16:50:14 MS 1920s young female teacher..."), NARA catalog boilerplate
+  ("Department of Defense. Department of the Army... Reel 1 7 Reels"), a Ford
+  legal fragment, "Listed as Public Domain by Wikipedia", and a Hands of Orlac
+  summary that credited the wrong director; The Sawmill (Larry Semon) carried an
+  Odyssey travelogue's text (nulled). 3 titles fixed.
+
 ## Queue
 
 
