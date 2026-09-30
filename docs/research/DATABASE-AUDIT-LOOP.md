@@ -361,3 +361,6 @@ one-time scan of the 6,505 served titles whose file is not named for them
 repoints the rest. Seventeen bundles whose collection title names no file are
 hidden as not-films (3O's 0Ldies played That Touch of Mink, 1962; A Ghost
 Story for Christmas played a 2013 episode).
+
+### E11 — review batch (2026-09-29)
+40 summaries (1906-13): 27 rewritten — archival shot lists in slashes and caps (earthquake, Panama Canal, Captain Lewis's Chinatown), a library rights notice, timecodes and mojibake (Buffalo Bill), "(?)" guesses, a reviewer's musing (Grandstand Crowd), multi-film Fantômas blurbs; 1 placeholder ("To be logged.") removed; 12 kept. Quo Vadis dated 1913; four titles cleaned.
