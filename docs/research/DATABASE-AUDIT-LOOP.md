@@ -575,3 +575,22 @@ test_cce_alternate.py (three controls) in the gate, 56/56. CCE_RULE 5 -> 6.
 
 ### E21 — review batch (2026-09-30)
 40 summaries: 16 rewritten, 1 placeholder removed, 23 kept. Two more download-site ads (Dear Murderer), "Want to share movies??" (Little Audrey), a quoted review for The Scar, a Polish Segundo de Chomón summary, "UNEDITED FILM REPORT:" and shot lists. 14 titles cleaned, among them five Gould cans named for what they show.
+
+### E22 — the review fans out: 400 summaries in one tick (2026-09-30)
+Owner: "Can we directly attack the summary read by a reviewer number to get it
+closer to 100% (many more films per loop tick)?" 400 uploader summaries,
+eight reviewers of 50 in parallel under the same written rules (accuracy
+first, never invent, facts only from the record or certain knowledge of a
+known film, no rights claims, US English, 60 words), then merged, validated
+(400 ids, 0 unknown, 0 over 75 words), sampled by hand and applied: 158 kept,
+240 rewritten, 2 removed, 96 titles. Found on the way: Enoch Powell's 1968
+"Rivers of Blood" speech filed as a 1917 silent film and a Mein Kampf
+audiobook (not-films); the NSDAP's 1927 rally film Eine Symphonie des
+Kampfwillens (propaganda.json, sourced); Shockproof 1949, The Primitive Lover
+1922, The Lucky Dog 1921, Pollyanna 1919 (from its id), a Romania reel 1916,
+One Hundred Years of Railroad Development 1927. The Night of the Hunter copy
+had a garbled title the claim check could not match; retitled, the next
+rights audit re-asks it. Reviewed summaries: 7,562 -> 8,000 of served titles.
+A slip worth writing down: restoring a pre-apply copy to re-run the build
+discarded the applied decisions (the decisions file is consumed by apply);
+they were rebuilt from the reviewers' files and re-applied.
