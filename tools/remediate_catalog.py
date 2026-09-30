@@ -2104,6 +2104,31 @@ def _strip_shot_log(s):
     return re.sub(r"^[-–—,;:]+\s*", "", s) if m else s   # "06:00:39:28 - 06:51:56:07 color silent"
 
 
+# An uploader's or a library's word on the RIGHTS is not a summary, and on a
+# detail page it reads as ours: "THIS FILM IS SAFELY IN THE PUBLIC DOMAIN. YOU
+# ARE LUCKY TO BE ABLE TO VIEW THIS FILM AT ALL", "Works not in the public
+# domain cannot be commercially exploited ...", "Rights: ...". 105 served
+# summaries carried one (2026-09-30). Rights are the audit's to state.
+_RIGHTS_SENTENCE = re.compile(
+    r"\b(?:is|are|was|were|be|been|now|fell|falls|entered|remains?|classed)\b[^.!?]{0,60}\bpublic[\s-]domain\b"
+    r"|\bnot in the public[\s-]domain\b|^\s*(?:rights?|copyright(?: status)?|licen[cs]e)\s*:"
+    r"|\bpublic[\s-]domain\s+(?:staple|status)\b|^\s*(?:\d{4},\s*)?public[\s-]domain\b", re.I)
+_PD_ADJECTIVE = re.compile(
+    r"\b(silent\s+)?public[\s-]domain\s+(?=(?:silent\s+)?(?:short|film|comed|cartoon|feature|movie|serial|western)s?\b)", re.I)
+
+
+def _strip_rights_assertions(s):
+    # A library catalog record: "Description: <text> Source: 1 Reel of 1: Film:
+    # 16mm Accession Number: ... Rights: ... Digitized by ..." — keep <text>.
+    s = re.sub(r"^\s*Description:\s*", "", s)
+    s = re.sub(r"\s+Source:\s*\d+\s*Reels?\s+of\s+\d+\b.*$", "", s, flags=re.S)
+    parts = re.split(r"(?<=[.!?])\s+", s)
+    kept = [p for p in parts if not _RIGHTS_SENTENCE.search(p)]
+    out = " ".join(kept)
+    out = _PD_ADJECTIVE.sub(lambda m: m.group(1) or "", out)
+    return re.sub(r"\s+", " ", out).strip()
+
+
 def sanitize_synopsis(it):
     """Returns 'cleaned', 'nulled', or None."""
     raw = _synopsis_text(it)
@@ -2186,6 +2211,7 @@ def sanitize_synopsis(it):
         s = re.sub(r"\s+", " ", s)
         s = _NARA_STAMP.sub(" ", s)                       # "ARC Identifier 91500", agency date ranges
         s = _strip_shot_log(s)                            # "06:40:55:18 CU sign ..." stock-footage logs
+        s = _strip_rights_assertions(s)                   # "THIS FILM IS SAFELY IN THE PUBLIC DOMAIN"
         if _is_placeholder_synopsis(s, it):
             it["synopsis"] = None
             it["synopsisSource"] = None

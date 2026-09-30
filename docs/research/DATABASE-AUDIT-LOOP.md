@@ -506,3 +506,16 @@ any of them; the pipeline's verdicts stand.
 
 ### AA — the last summaries in capitals (2026-09-30)
 A sweep for summaries mostly in capitals found 17 left outside review (the build already recases pure-uppercase titles, not summaries). All rewritten by hand: National Archives/USIA program notes, two House hearings, Chevrolet streamlining films, a film can's label read as a summary, and five Bill Sprague uploads whose whole summary was "THIS FILM IS SAFELY IN THE PUBLIC DOMAIN. YOU ARE LUCKY TO BE ABLE TO VIEW THIS FILM AT ALL". A library catalog code removed. Frank Capra's first film retitled The Ballad of Fisher's Boarding House.
+
+### AB — an uploader's word on the rights leaves the summary (2026-09-30)
+105 served uploader summaries asserted rights: Bill Sprague's "THIS FILM IS
+SAFELY IN THE PUBLIC DOMAIN", "now in the Public Domain", "Hopefully in the
+public domain", library boilerplate ("Works not in the public domain cannot be
+commercially exploited ..."), "Rights:" labels. On a detail page that reads as
+our claim, and rights are the audit's to state (Decisions 027, 140, 151).
+remediate's _strip_rights_assertions (uploader text only) drops those sentences,
+removes "public domain" used as an adjective ("a PUBLIC DOMAIN short with Larry
+Semon" -> "a short with ..."), and cuts California library catalog records to
+their description ("Description: ... Source: 1 Reel of 1: Film: 16mm ...").
+95 summaries change; 17 were nothing else and are now empty.
+test_rights_assertions.py (two controls) in the gate, 54/54.
