@@ -4181,6 +4181,23 @@ def retype_tv_typed_as_film(items, stats):
             stats["retype_reversed"] += 1
 
 
+_EDITORIAL_ID_TABLES = ("title_corrections", "year_corrections", "director_corrections", "type_corrections",
+                        "synopsis_rejects", "match_rejects", "not_films")
+
+
+def report_unknown_editorial_ids(items):
+    """An entry keyed on an id the catalog does not have does nothing, silently.
+    (2026-09-29: five title fixes were keyed on ids a listing had truncated.)"""
+    ids = {it.get("archiveID") for it in items}
+    for name in _EDITORIAL_ID_TABLES:
+        p = REPO / f"shared/editorial/{name}.json"
+        if not p.exists():
+            continue
+        unknown = [k for k in json.loads(p.read_text()) if not k.startswith("_") and k not in ids]
+        if unknown:
+            print(f"::warning::{name}.json has {len(unknown)} id(s) not in the catalog: {', '.join(unknown[:5])}")
+
+
 def main():
     ap = argparse.ArgumentParser()
     ap.add_argument("--dry-run", action="store_true")
@@ -4193,6 +4210,7 @@ def main():
     if isinstance(cat.get("stats"), dict):
         cat["stats"]["totalItems"] = len(cat["items"])
     stats = remediate(cat["items"])
+    report_unknown_editorial_ids(cat["items"])
     retype_tv_typed_as_film(cat["items"], stats)
     fix_tmdb_collisions(cat["items"], stats)   # #20 year-independent wrong-poster pass
     # NOT called from the build. `subtitleDead` is a marker this pass cannot

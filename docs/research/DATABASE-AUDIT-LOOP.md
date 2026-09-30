@@ -254,6 +254,14 @@ tables, a scheduled workflow), never only in one published catalog.
   names only (7). An Amiga 500 game longplay wearing a 1922 Fox western to
   not_films. `test_tidy_credits.py` (with "The Earl Carroll Girls" control), gated.
 
+- E5. ✅ Review batch (55): 33 rewritten / 7 removed — the Bill Sprague
+  Collection's rants at complainers ("a crazy doctor whose office is in a
+  manhole"), a collector biography repeated on every Ellwood Hoffmann home
+  movie, scene-release tags in titles ("A Girl In Every Port HANDJOB", "L'Argent
+  .MX"). My own slip — decisions keyed on ids a listing had truncated — was
+  caught and re-applied; remediate now warns on any editorial id not in the
+  catalog.
+
 ## Queue
 
 
