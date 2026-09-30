@@ -411,3 +411,6 @@ Keaton copies now cluster at the next build.
 
 ### T2 — mixed-case caps titles (2026-09-29)
 Pure-uppercase titles are already recased by remediate; 23 mixed ones remained ("D W Griffith's THE SEALED ROOM", "THE PHANTOM CHARIOT , Körkarlen", "ADVANCE INTO POLAND of 4)"). 13 fixed by hand; the rest are NASA/ISS mission codes and modern TV episode labels, left.
+
+### E16 — review batch (2026-09-29)
+40 summaries (1922-25): 21 rewritten, 19 kept. Two Polish reviews and a Spanish lead become summaries (The Last Laugh, Nosferatu); a false etymology removed ("Schreck ... meant Scream of Terror"); uploader asides ("old timers I talked to ... No kidding!", "No Rohauer trappings or crappings", "THIS FILM IS IN THE PUBLIC DOMAIN", "Archived by runner_up"). Die Nibelungen part one is 1924 (was 1922), The Electric House 1922 (was 1923). 18 titles cleaned.
