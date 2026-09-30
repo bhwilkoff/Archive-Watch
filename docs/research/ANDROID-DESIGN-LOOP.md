@@ -616,6 +616,20 @@ Harness:
   the film's page, Surprise the Surprise grid. Data: Prelinger's `dollar_store`
   wore the 2025 "Dollar Store Killers" poster; rejected in match_rejects.json.
 
+- BM. ✅ v1.42.993 Watch Together Studio's camera and microphone on the Pixel,
+  broadcast to the Mac's bench mediamtx (Caligari). Camera: opened (front,
+  aspect 0.5625, rotation 270), ~21 frames/s into the tile, and the tile is in
+  the server's recording beside the pillarboxed film and the lower third. Mic:
+  the HAL opened the bottom microphone (VOICE_COMMUNICATION, 48 kHz) for the app.
+  Defect found on the wire: this copy of Caligari is 5.1, so the show went out as
+  6-channel AAC and the stereo voice ring was read sample-for-sample into
+  6-channel buffers — drained three times too fast and smeared into every
+  speaker, the subwoofer included. The tap now folds anything above stereo to
+  stereo (ITU -3 dB centre/surrounds, LFE dropped) before the mixer and the
+  encoder; the re-run's recording reads stereo AAC. StudioDownmixTest (3, with a
+  LFE-only control). NOT proved: the voice itself on the wire — that needs a
+  sound in the room, an audible test.
+
 ## Queue
 
 1. ✅ J — phone launch doors: one shared `Nav.collectStartDoors()` in both roots (v1.42.933); the Pixel opened Library, the TV Search

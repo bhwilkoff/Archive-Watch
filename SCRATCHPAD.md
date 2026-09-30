@@ -477,10 +477,10 @@ because the loop was stopped mid-stride for a Claude update.
    catalog, since a silent film is 4:3. Both fixed and verified from the
    server's own recording (Caligari pillarboxed to exactly 1.333) and from the
    phone's screen.
-   **STILL NOT RUN: the camera and the microphone.** Permissions are granted
-   on the Pixel and zero camera lines appear in the log — the bench door arms
-   the Studio but attaches no capture, so `StudioCamera`/`StudioMicAudio`
-   remain compile-time claims. That is the next Android item.
+   **CAMERA RUN 2026-09-29** (v1.42.993): the front camera's tile is in the
+   bench server's recording; the mic stream opens. A 5.1 film had sent 6-channel
+   AAC and garbled the voice mix — now folded to stereo. The voice itself on
+   the wire is still unmeasured (needs a sound in the room: an audible test).
 
 9a. **An Apple TV that is ASLEEP is not woken.** The tvOS encoder read
    (§9.vv) was attempted at 03:30 and `devicectl` refused: *"System is asleep -
