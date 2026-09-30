@@ -314,11 +314,11 @@ jobs:
           # The shared catalog-writers concurrency group serializes us with
           # the OMDb job; a rejected push means main merely advanced, so a
           # plain rebase replays our commit. Fail loudly on a real conflict.
-          for attempt in 1 2 3 4 5; do
+          for attempt in 1 2 3 4 5 6 7 8 9 10; do
             if git push; then echo "pushed (attempt $attempt)"; exit 0; fi
             echo "push rejected; rebasing onto latest main (attempt $attempt)…"
             git pull --rebase --autostash origin main || { git rebase --abort 2>/dev/null; exit 1; }
-            sleep $((RANDOM % 5 + 2))
+            sleep $((RANDOM % 10 + 3 * attempt))
           done
           echo "::error::could not push after retries"; exit 1
 

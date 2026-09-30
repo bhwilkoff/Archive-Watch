@@ -155,11 +155,11 @@ jobs:
           # only takes effect after a push (Decision 016), so a silent loss here
           # is invisible until someone notices TV going stale.
           pushed=""
-          for attempt in 1 2 3 4 5; do
+          for attempt in 1 2 3 4 5 6 7 8 9 10; do
             if git push; then echo "pushed (attempt $attempt)"; pushed=yes; break; fi
             echo "push rejected; rebasing onto latest main (attempt $attempt)…"
             git pull --rebase --autostash origin main || { git rebase --abort 2>/dev/null; exit 1; }
-            sleep $((RANDOM % 5 + 2))
+            sleep $((RANDOM % 10 + 3 * attempt))
           done
           [ -n "$pushed" ] || { echo "::error::series commit never reached main after 5 attempts"; exit 1; }
 

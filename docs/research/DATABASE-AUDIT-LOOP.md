@@ -489,3 +489,14 @@ test_prelinger_claim.py (four controls) in the gate, 53/53.
 
 ### E17 — review batch (2026-09-30)
 40 summaries (1925-27): 24 rewritten, 16 kept. A Polish review of Faust, a broken What Price Glory ("In 1917, W.W. Of course"), shot logs and "Great shot" notes, an uploader leering at swimmers, "Great!". The Graf Zeppelin's arrival at Lakehurst is 1928 (was 1926); The Sensation Seekers 1927. Lindbergh spelled right in three titles, and the ticker-tape parade loses a wrong "Washington D.C.". 12 titles cleaned.
+
+### Z — today's discovery run did nothing, twice over (2026-09-30)
+discover-content failed at 09:59 UTC: one candidate in the wants queue carries a
+LIST title (archive.org repeats a field as a list), and norm_title called .lower()
+on it, so no wants were discovered today. norm_title now takes the first string.
+The same run's commit was then rejected five times in a row ("fetch first"):
+main was moving fast (this loop commits every few minutes), and the retry loop
+slept 2-6 s. discover-content, omdb-backfill and tv-canonical now retry ten
+times with a growing backoff. Posters checked the same tick: of 1,004 matched
+titles without a designed poster, a 30-title sample found TMDb holds none for
+any of them; the pipeline's verdicts stand.

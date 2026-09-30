@@ -99,7 +99,11 @@ def http_get(s, url, params, retries=3, timeout=60):
 
 
 def norm_title(t):
-    t = re.sub(r"\(.*?\)", " ", (t or "").lower())
+    # archive.org returns a repeated field as a LIST (a title given twice);
+    # one such candidate in the queue crashed discovery on 2026-09-30.
+    if isinstance(t, list):
+        t = next((x for x in t if isinstance(x, str) and x.strip()), "")
+    t = re.sub(r"\(.*?\)", " ", (str(t) if t else "").lower())
     t = re.sub(r"[^a-z0-9]+", " ", t)
     return " ".join(t.split())
 
