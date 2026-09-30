@@ -310,3 +310,6 @@ open to the renewal check); their collection summaries rejected. Faces of Death
 dated 1978 (was 1900) and hidden pending confirm. Kept: serials, complete-series
 TV (owner rule), real single-reel compilations (British WWII PIFs). Visibility
 diffed: 0 un-hidden.
+
+### E9 — review batch (2026-09-29)
+40 summaries (1930-34): 24 rewritten — credit lists for Peacock Alley, 1933 newsreel narration with stray quotes and typos (Thanksfiving, frances, Paterson for Patterson LA), reviewer voice (Hash Shop, Betty Boop, Plant Life), a donation plea; 16 kept. Titles: The Hash Shop, Telephone Memories (Reel 1/2).
