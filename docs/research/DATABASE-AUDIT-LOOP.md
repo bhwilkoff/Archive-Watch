@@ -503,3 +503,6 @@ any of them; the pipeline's verdicts stand.
 
 ### E18 — review batch (2026-09-30)
 40 summaries (1927-39): 21 rewritten, 19 kept. A Polish review of Sunrise, a VHS-distributor rant on The Fair Co-Ed, a colorizer's "the colorization is copyright by me", a "Gould can 1095." preface, capital-letter catalog entries (GM export, Chevrolet Leader News, Hydraulics, Vacuum Control, the News Parade fair film), Medicus World's Fair cataloguer notes, an uploader's "i can confirm". The Golden Gate Bridge opening is 1937 (was 1936).
+
+### AA — the last summaries in capitals (2026-09-30)
+A sweep for summaries mostly in capitals found 17 left outside review (the build already recases pure-uppercase titles, not summaries). All rewritten by hand: National Archives/USIA program notes, two House hearings, Chevrolet streamlining films, a film can's label read as a summary, and five Bill Sprague uploads whose whole summary was "THIS FILM IS SAFELY IN THE PUBLIC DOMAIN. YOU ARE LUCKY TO BE ABLE TO VIEW THIS FILM AT ALL". A library catalog code removed. Frank Capra's first film retitled The Ballad of Fisher's Boarding House.
