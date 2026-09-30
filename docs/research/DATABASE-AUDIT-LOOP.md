@@ -610,3 +610,6 @@ Checked on the way: the Murphy Brown / Knight Rider / A-Team hides the local aud
 listed are the rights audit's fresh confirmations and were already unserved.
 Open: well-known public-domain cartoons (Superman: The Mechanical Monsters,
 Dizzy Dishes, Popeye) are hidden as no_evidence only for want of a year.
+
+### E24 — third fan-out, 400 more (2026-09-30)
+90 kept, 301 rewritten, 9 removed, 70 titles. Mostly 1950s-70s television this round (long Wikipedia leads trimmed, "WTF!"/"no comment on the wig" chatter, DVD debris, "Complete Series" titles on single episodes). Fact fixes: The Lost World was not the first animated film; Potemkin was not Mosfilm's; Foolish Wives from a Polish essay. Not films: Oswald lost-cartoon sketches, a modern Josephus lecture dated 1905. Years: every NASA SCI Files segment loses its false 1909; the LA Aqueduct opening 1913; the Belgian Congo campaign 1916; Starsky & Hutch season 2 1976; Giants vs. Yanks 1923. Burke's Law and a Topper episode retyped as television. Playboy After Dark (45 episodes) confirmed mature. Reviewed: ~8,800.

@@ -2,5 +2,7 @@
   "_note": "archiveID -> contentType, judged by hand; remediate applies it every build (contentTypeSource agent-reviewed).",
   "fc-fc-3898": "silent-film",
   "TaniecSmierci1922DudleyMurphy": "short-film",
-  "BillSpragueCollectionFelixAndTheBeautifulFatma-9.5mmPUBLICDOMAIN": "animation"
+  "BillSpragueCollectionFelixAndTheBeautifulFatma-9.5mmPUBLICDOMAIN": "animation",
+  "BurkesLaw": "tv-special",
+  "Topper-HenriettaSellsTheHouse": "tv-special"
 }
