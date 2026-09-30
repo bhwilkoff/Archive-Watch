@@ -1465,6 +1465,18 @@
    "kind": "animation",
    "mediaId": null,
    "reviewer": "bobair"
+  },
+  {
+   "at": "2026-09-30T02:04:57.070130+00:00",
+   "id": "tarzan_and_the_green_goddess",
+   "title": "Tarzan and the Green Goddess",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mwpaxdz6dy2s",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "taxirct"
   }
  ]
 }
