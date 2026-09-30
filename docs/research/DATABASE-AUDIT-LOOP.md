@@ -414,3 +414,15 @@ Pure-uppercase titles are already recased by remediate; 23 mixed ones remained (
 
 ### E16 — review batch (2026-09-29)
 40 summaries (1922-25): 21 rewritten, 19 kept. Two Polish reviews and a Spanish lead become summaries (The Last Laugh, Nosferatu); a false etymology removed ("Schreck ... meant Scream of Terror"); uploader asides ("old timers I talked to ... No kidding!", "No Rohauer trappings or crappings", "THIS FILM IS IN THE PUBLIC DOMAIN", "Archived by runner_up"). Die Nibelungen part one is 1924 (was 1922), The Electric House 1922 (was 1923). 18 titles cleaned.
+
+### U — file-format debris and three rights misreadings in titles (2026-09-29)
+69 served titles matched format/quality tokens (most were "Pal"). Real cases:
+32 "Public Domain Animation" items, one per year 1929-60, each playing one
+cartoon — retitled and dated from the played file (Hollywood Capers 1935,
+Hell-Bent for Election 1944, A Is for Atom 1953); the "1960" item plays John
+Hubley's Everybody Rides the Carousel (1976), now dated 1976 and in the owner's
+1964-77 band. Metropolis (Giorgio Moroder Edition, 1984) and a 2023
+colorization, both dated 1927 and so public domain BY AGE, now carry their own
+years and are hidden pending confirm (modern_copyright_unconfirmed) — a
+derivative's new music and color are not the 1927 film's. 22 more titles lose
+"Blu Ray", "Hq", "VOSE FAC 6", "Restored Public Domain Horror Classic".
