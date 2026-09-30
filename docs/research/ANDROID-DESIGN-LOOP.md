@@ -575,6 +575,16 @@ Harness:
   harness: the first Continue tile had changed, so no player was open to hand
   off. Load now logs issued / failed / skipped instead of failing silently.
 
+- BI. ✅ v1.42.989 Clip Studio speed after the Media3 change (BG): a 15.0 s
+  selection at 2x exports 7.50 s video / 7.51 s audio (48 fps from 24, no
+  frames dropped) — measured with ffprobe on the Pixel's file. The Clips list
+  then said "15.0 s" for it: the saved row kept the SELECTION length. It saves
+  what the clip runs. My first edit landed on the export spec instead (a text
+  match on the first `durationSeconds = clipDuration`) and halved the export to
+  3.75 s — caught because the file was measured, not the label; fixed and
+  re-measured (7.50 s file, 7.5 row). Test clips removed through the app's own
+  Delete: 0 rows, 0 files.
+
 ## Queue
 
 1. ✅ J — phone launch doors: one shared `Nav.collectStartDoors()` in both roots (v1.42.933); the Pixel opened Library, the TV Search

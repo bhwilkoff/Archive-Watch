@@ -352,7 +352,8 @@ fun ClipStudioScreen(container: AppContainer, nav: Nav, archiveID: String) {
                                         sourceArchiveID = current.archiveID,
                                         sourceTitle = current.title,
                                         inSeconds = inSeconds,
-                                        durationSeconds = clipDuration,
+                                        // What the clip RUNS (the list said 15.0 s for a 7.5 s 2x clip).
+                                        durationSeconds = clipDuration / speed.multiplier,
                                         aspect = aspect.name,
                                         format = format.name,
                                         caption = caption.trim(),
