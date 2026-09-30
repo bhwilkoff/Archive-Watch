@@ -42,7 +42,11 @@ SEARCH = ("https://archive.org/advancedsearch.php?q=title%3A%28%22catalog+of+cop
 
 # "© 17May30; LP1323." — the © is often OCR'd as "@", "6" or "6G" in the
 # 1970s volumes ("6 17Dec47; 11354"), and some print a comma after the date.
-ORIG = re.compile(r"(?:[©@]|\b6G?)\s*(\d{1,2})\s*([A-Z][a-z]{2})\s*(\d{2})\s*[;,:]\s*([A-Z]{0,3}\s?\d{2,7})")
+ORIG = re.compile(r"(?:[©@]|\b6G?)\s*(\d{1,2})\s*([A-Z][a-z]{2})\s*(\d{2})\d?\s*[;,:]\s*([A-Z]{0,3}\s?\d{2,7})")
+# OCR reads a 1 as l or I, and an 0 as O, inside the date and number of an
+# entry: Dracula (1931) is printed "© 2Feb3l1; LP1947" and went unmatched, so
+# Universal's 1958 renewal R227698 never reached the audit (2026-09-29).
+_OCR_DIGIT = re.compile(r"(?<=\d)[lI|](?=[\dlI|;,:])|(?<=[A-Za-z]{3}\d)[lI|]|(?<=\d)O(?=\d)")
 RENEW = re.compile(r"\b(R\s?\d{5,6})\b")
 # Where a title stops: ", a photoplay", ". By Columbia", ". No.1151", or a period.
 TITLE_END = re.compile(r",\s+(?:a|an)\s|\.\s+(?:By|No\.|A\s+motion|A\s+photoplay)\b|\.\s|,\s+(?:by|in)\s")
@@ -80,6 +84,7 @@ def parse(text, vol):
     out = []
     for block in re.split(r"\n\s*\n", text):
         b = " ".join(block.split())
+        b = _OCR_DIGIT.sub(lambda m: "0" if m.group() == "O" else "1", b)
         r = RENEW.search(b)
         o = ORIG.search(b)
         if not (r and o) or o.start() > r.start():

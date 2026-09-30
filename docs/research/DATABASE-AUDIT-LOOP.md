@@ -426,3 +426,20 @@ colorization, both dated 1927 and so public domain BY AGE, now carry their own
 years and are hidden pending confirm (modern_copyright_unconfirmed) — a
 derivative's new music and color are not the 1927 film's. 22 more titles lose
 "Blu Ray", "Hq", "VOSE FAC 6", "Restored Public Domain Horror Classic".
+
+### V — Dracula (1931) was served: the printed renewal was OCR'd "3l1" (2026-09-29)
+A 1931 film is under US copyright until 2027, and Universal renewed Dracula in
+1958 (R227698). The Catalog of Copyright Entries prints it; the OCR reads the
+original date "© 2Feb3l1; LP1947", and ORIG wanted two digits. fetch_cce_renewals
+now reads l / I / | as 1 and O as 0 inside a date or number (and tolerates a
+stray third year digit): 11,579 -> 11,791 renewals, the ten canon controls
+still clear. 21 served titles newly carry a printed renewal — Dracula (3 copies,
+one colorized), Stagecoach (2), The Invisible Man Returns, MGM's Escape (1940),
+The Spider (1931), Ellery Queen, Terrytoons. CCE_RULE 3 -> 4 re-asks every
+pre-1950 title; rights-audit dispatched. Wrong matches go in
+copyright_evidence_overrides.json (Decision 157), never a looser rule.
+
+Open, found on the way: 293 served items are COLORIZED copies (Dracula, His Girl
+Friday, Stagecoach...), dated with the original film's year. A colorization is
+a new work; whether a fan's AI colorization or a commercial one (Legend Films,
+Hal Roach/CST) may be served is a rights call — asked of the owner.
