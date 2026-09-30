@@ -80,7 +80,7 @@ def norm_title(t):
 _CCE = None
 # Bumped with the Catalog of Copyright Entries table (2026-09-29): every
 # pre-1950 title checked under an older rule is asked again, once.
-CCE_RULE = 5
+CCE_RULE = 6
 
 
 def cce_renewal(title, year):
@@ -131,6 +131,25 @@ def renewal_in(records, title, year):
                         "via": f"US Copyright Office renewal {r.get('registration_number')} of "
                                f"{(x.get('registration_number') or '').strip(' /')} ({m.group(1)})",
                         "claimant": claimant}
+    return None
+
+
+def cce_renewal_any(it):
+    """The renewal under the displayed title, else under another name the item
+    carries for the SAME film (its match's canonical, original or also-known-as
+    titles). Double Indemnity was served as "Pacto De Sangre" and The Spy in
+    Black was renewed as U-Boat 29 (2026-09-30). An alternate title can name a
+    different film (Liebesbriefe's "Love Letters"), so the evidence says which
+    name matched, and a wrong one goes in copyright_evidence_overrides.json."""
+    y = it.get("year")
+    hit = cce_renewal(it.get("title") or "", y)
+    if hit:
+        return hit
+    for n in [it.get("canonicalTitle"), it.get("originalTitle"), *(it.get("akaTitles") or [])]:
+        if isinstance(n, str) and n.strip() and n != it.get("title"):
+            hit = cce_renewal(n, y)
+            if hit:
+                return {**hit, "via": f"{hit['via']}, under the alternate title \"{n}\""}
     return None
 
 
@@ -286,8 +305,8 @@ def main():
             n_wd += 1
         elif it["year"] >= USCO_FIRST_YEAR:
             usco_todo.append(it)
-        elif cce_renewal(it["title"], it["year"]):
-            it["copyrightClaimEvidence"] = {**cce_renewal(it["title"], it["year"]), "at": now}
+        elif cce_renewal_any(it):
+            it["copyrightClaimEvidence"] = {**cce_renewal_any(it), "at": now}
             n_cce += 1
         else:
             it["copyrightChecked"] = now

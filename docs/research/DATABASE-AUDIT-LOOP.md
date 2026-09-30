@@ -557,3 +557,18 @@ Ladies in Retirement now matches Columbia's R467305. Double Indemnity's renewal
 (R512088, Emka/Universal, 1971) is printed "© S1Apr44": an S for the day digit.
 fetch_cce_renewals reads S/l/I/O in the day after © as digits: 11,791 -> 11,910
 renewals, canon controls clear. CCE_RULE 4 -> 5 re-asks every pre-1950 title.
+
+### V3 — a renewal filed under the film's other name (2026-09-30)
+Double Indemnity hid behind a Spanish title; the general case is a film renewed
+under a title the upload doesn't show. Checking the canonical, original and
+also-known-as titles each served pre-1950 item carries found 30 printed
+renewals. Read one by one: ~24 real (Q Planes as Clouds Over Europe, The Spy in
+Black as U-Boat 29, March of the Wooden Soldiers as Babes in Toyland, Spanish
+copies of Frankenstein, Shanghai Express and This Gun for Hire, a Swedish copy
+of The Philadelphia Story, Terrytoons and Columbia cartoons); 6 false — an
+alternate title that is ANOTHER film's (the Spanish Drácula x2, Mädchenpensionat
+vs Girls' Dormitory, Liebesbriefe vs Love Letters, A Yank in the R.A.F. vs
+Eagle Squadron) plus two Flirtation copies held as uncertain — all in
+copyright_evidence_overrides.json with reasons. corroborate_copyright's
+cce_renewal_any records "under the alternate title ..." in the evidence.
+test_cce_alternate.py (three controls) in the gate, 56/56. CCE_RULE 5 -> 6.
