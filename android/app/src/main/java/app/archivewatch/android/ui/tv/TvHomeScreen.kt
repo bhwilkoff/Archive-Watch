@@ -1,6 +1,8 @@
 package app.archivewatch.android.ui.tv
 
 import androidx.compose.animation.Crossfade
+import androidx.compose.ui.semantics.semantics
+import androidx.compose.ui.semantics.contentDescription
 import androidx.compose.animation.core.tween
 import androidx.compose.foundation.background
 import androidx.compose.foundation.layout.Box
@@ -440,7 +442,10 @@ private fun TvHero(
                     scaleWhenFocused = 1f,
                     // Opened from the hero, Back returns to the hero.
                     onFocused = { TvHomeReturn.lastFocusedID = null },
-                ),
+                )
+                // The title is drawn beside this focus target, not inside it, so
+                // TalkBack found a nameless 1600x680 stop (the Google TV's tree).
+                .semantics { contentDescription = item.title },
         )
     }
 }

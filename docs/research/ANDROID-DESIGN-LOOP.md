@@ -596,6 +596,14 @@ Harness:
   lost their text in the sliver fix (AE) had nothing to speak; they now say
   "title, time". Both screens re-measured at 0.
 
+- BK. ✅ v1.42.991 Accessibility on the Google TV, 10 surfaces. The phone
+  check counted CLICKABLE nodes; TV controls are FOCUSABLE, so the first TV pass
+  read 0 everywhere and proved nothing — recounted on focusable nodes. Real:
+  the Home hero, a 1600x680 stop with no name (its title is drawn beside it);
+  it now says the film ("The Farmer's Wife"). The two other hits are offscreen
+  slivers at the capture edge (a Surprise tile, a Browse chip), labeled below
+  the fold. All other TV surfaces 0.
+
 ## Queue
 
 1. ✅ J — phone launch doors: one shared `Nav.collectStartDoors()` in both roots (v1.42.933); the Pixel opened Library, the TV Search
