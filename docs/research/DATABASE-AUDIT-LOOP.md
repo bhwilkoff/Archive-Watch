@@ -486,3 +486,6 @@ not MGM's 1941 feature (copyright_evidence_overrides.json). A title only in the
 Prelinger collections now gets the claim check first; a government collection
 stays first, since a government work cannot be copyrighted.
 test_prelinger_claim.py (four controls) in the gate, 53/53.
+
+### E17 — review batch (2026-09-30)
+40 summaries (1925-27): 24 rewritten, 16 kept. A Polish review of Faust, a broken What Price Glory ("In 1917, W.W. Of course"), shot logs and "Great shot" notes, an uploader leering at swimmers, "Great!". The Graf Zeppelin's arrival at Lakehurst is 1928 (was 1926); The Sensation Seekers 1927. Lindbergh spelled right in three titles, and the ticker-tape parade loses a wrong "Washington D.C.". 12 titles cleaned.
