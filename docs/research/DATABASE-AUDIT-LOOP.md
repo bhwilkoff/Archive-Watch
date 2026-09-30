@@ -332,3 +332,16 @@ Structural fix: ingest holds `held_placeholder_year` — 1900/1901 from the
 uploader alone, in the open-upload collections (opensource_movies, community,
 folksoundomy, musicvideobin). test_placeholder_year.py, with five controls, in
 the pipeline gate (47/47).
+
+### P2 — every unwitnessed pre-1931 year on an open upload (2026-09-29)
+Widening P past 1900/1901: 325 served open-collection uploads carry a pre-1931
+year that no id, Wikidata year, IMDb/TMDb match or title/id year backs. Read
+title by title: 30 are modern media hidden as not-films (a Grappler Baki OVA
+dated 1888, a 1989 safer-sex video dated 1905, 2018's Apocalypse dated 1918,
+Jeeves and Wooster dated 1930, video-game recordings, a YouTube Poop, an
+audiobook, music anthologies, two cartoon compilations); 4 undatable ones lose
+the year (three now meet no_evidence). The rest are real silent-era films and
+newsreels uploaded to the open collections (Mexican Lumière views of 1896,
+Marey, Ruttmann's Opus films, Hal Roach shorts). No ingest rule covers the
+other years yet: most carry a real film's year, so the signal is the title,
+which the existing held_suspect_year already reads.
