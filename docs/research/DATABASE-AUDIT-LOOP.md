@@ -408,3 +408,6 @@ Mammas, A Busy Day). 179 entries in title_corrections.json. Not a remediate
 rule: the name-is-the-title cases are too many for a pattern to tell apart.
 Knock-on: dup-merge (Decision 040) keys on the title, so several Chaplin and
 Keaton copies now cluster at the next build.
+
+### T2 — mixed-case caps titles (2026-09-29)
+Pure-uppercase titles are already recased by remediate; 23 mixed ones remained ("D W Griffith's THE SEALED ROOM", "THE PHANTOM CHARIOT , Körkarlen", "ADVANCE INTO POLAND of 4)"). 13 fixed by hand; the rest are NASA/ISS mission codes and modern TV episode labels, left.
