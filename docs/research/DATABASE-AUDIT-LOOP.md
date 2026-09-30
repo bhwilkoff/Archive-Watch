@@ -522,3 +522,6 @@ test_rights_assertions.py (two controls) in the gate, 54/54.
 
 ### AB2 — the splitter and a flaky test (2026-09-30)
 The rights stripper split at "Sr." and cut False Faces' summary in half; it now skips Sr./Jr./Dr./Mr./Mrs./Ms./St./vs. and initials, and False Faces has a written summary (the build edits in place, so the lost half was gone). The gate then failed 3 runs in 4: test_copyright_evidence picked "a government collection" with next(iter(A.GOV)), a set whose order varies per run; since the Prelinger rule (Y) a "prelinger" pick rightly hides. It now picks sorted(GOV - CURATED_PD)[0]; clean under five hash seeds and three gate runs.
+
+### E19 — review batch (2026-09-30)
+40 summaries (1926-42): 9 rewritten, 31 kept (a cleaner batch: most 1940 Prelinger entries read well). Library notes ("Notes: Film slows down and shakes...", "Note: Slight warp..."), a Soundies timecode list, a WWII women-workers shot list. The Whittier family reel spans 1936-1975, so its 1930 date is cleared. Two erotica/exploitation programs confirmed marked mature. 6 titles cleaned (The General, Gabby, ...).
