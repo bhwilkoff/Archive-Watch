@@ -111,6 +111,18 @@ tables, a scheduled workflow), never only in one published catalog.
   once their corrected years left the rights hide. The marker is now always
   written (as takedowns do). Synopsis batch 2: 55 kept, 5 rewritten.
 
+- E3. ✅ Synopsis batch 3 (70): 20 rewritten from their own facts (IMDb page dumps
+  on Lumière films, "Re-upload!", "please be my guest to add comments",
+  reviewer asides), 2 nulled (a Tonight Show pack's "better for everyone in
+  bulk"; Emile Cohl's Automatic Moving Company carrying a Baltimore
+  documentary's description), 48 kept. The batch also surfaced six more
+  uploads wearing old films' identities (a Pokémon Showdown stream as The
+  Showdown 1923, a Brahms recording, a Walgreens logo history dated 1901, a
+  modern French thriller "film complet" as Feuillade's Le Poison 1911) — to
+  not_films; a NASA SCI Files segment dated 1909 (year removed). New
+  `type_corrections.json`: FedFlix files The Great Train Robbery under news, so
+  it was typed a newsreel.
+
 ## Queue
 
 - N2. `01-rec-2024...` 1-2 minute recordings wearing The Last Command, The Navigator, Beggars of Life (hidden now, but the ingest keeps admitting such recordings).

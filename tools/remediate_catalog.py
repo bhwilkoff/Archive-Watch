@@ -3180,6 +3180,13 @@ def _load_match_rejects():
     return {k: v for k, v in json.loads(p.read_text()).items() if not k.startswith("_")}
 
 
+def _load_type_corrections():
+    p = REPO / "shared/editorial/type_corrections.json"
+    if not p.exists():
+        return {}
+    return {k: v for k, v in json.loads(p.read_text()).items() if not k.startswith("_")}
+
+
 def _load_title_corrections():
     p = REPO / "shared/editorial/title_corrections.json"
     if not p.exists():
@@ -3290,6 +3297,16 @@ def remediate(items):
             it["title"] = ft
             it["titleSource"] = "agent-reviewed"
             stats["title_corrected"] += 1
+
+        # Types judged by hand: a collection rule cannot know that FedFlix's
+        # copy of The Great Train Robbery (filed under news and public affairs)
+        # is a narrative film, not a newsreel.
+        tf = _load_type_corrections().get(it.get("archiveID"))
+        if tf and it.get("contentType") != tf:
+            it["contentTypeWas"] = it.get("contentType")
+            it["contentType"] = tf
+            it["contentTypeSource"] = "agent-reviewed"
+            stats["type_corrected"] += 1
 
         fy = year_fixes.get(it.get("archiveID"), False)
         if fy is not False and it.get("year") != fy:
