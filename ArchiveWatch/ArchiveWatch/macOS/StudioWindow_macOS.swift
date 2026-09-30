@@ -96,6 +96,26 @@ final class StudioControls {
             StudioSession.shared.armFraming(framing)
         }
     }
+    /// §D31 (2026-09-30) — WHO IS IN THIS SCENE. Owner: *"You should be able
+    /// to turn on or off the video from each scene."* Pictures only: the
+    /// microphone's and the call's MUTES describe the person and no scene may
+    /// change them. No `!= oldValue` guard, so a scene that re-applies the
+    /// value it already had still reaches the engine.
+    var cameraOn = true { didSet { pushPeople() } }
+    var callOn = true { didSet { pushPeople() } }
+    private func pushPeople() {
+        StudioSession.shared.armPeople(camera: cameraOn, call: callOn)
+    }
+    /// Whether the host's picture is a TILE in what the engine is drawing —
+    /// the question the preview's handles ask. On a card it is always a tile
+    /// (in the right-hand column), whatever the placement.
+    var cameraTileShown: Bool {
+        cameraOn && (card != nil ? true : layout.cameraIsTile)
+    }
+    /// The switches mean nothing on "Film only" with no card up: that
+    /// placement is named for having nobody in it.
+    var peopleSwitchesApply: Bool { card != nil || layout != .film }
+
     /// §D24 — the guests' framing, same type, separate value.
     var guestFraming = StudioCameraFraming() {
         didSet {
@@ -233,7 +253,11 @@ final class StudioControls {
         customCardLines.contains { !$0.text.trimmingCharacters(in: .whitespaces).isEmpty }
     }
 
-    private init() {}
+    private init() {
+        // macOS always states both switches; nil ("the placement decides")
+        // is for the platforms that have no scenes.
+        StudioSession.shared.armPeople(camera: cameraOn, call: callOn)
+    }
 }
 
 // MARK: - The Studio's show (§D7)
@@ -842,12 +866,12 @@ struct StudioWindowView: View {
                                        help: "Frame your guests") { controls.framingTarget = .guests }
                 }
                 if studio.isLive, controls.framingTarget == .guests,
-                   controls.layout.cameraIsTile, let tile = studio.health.cameraTile {
+                   controls.cameraTileShown, let tile = studio.health.cameraTile {
                     StudioTileSelector(tile: tile, programAspect: StudioOutputSettings.programAspect,
                                        help: "Frame yourself") { controls.framingTarget = .camera }
                 }
                 if studio.isLive, controls.framingTarget == .camera,
-                   controls.layout.cameraIsTile,
+                   controls.cameraTileShown,
                    let tile = studio.health.cameraTile {
                     StudioTileHandles(tile: tile,
                                       programAspect: StudioOutputSettings.programAspect,
@@ -1130,7 +1154,12 @@ struct StudioWindowView: View {
                             Task {
                                 if await studio.startGuests(filter: filter) {
                                     guestIsBrowser = StudioCallApps.kind(bundleID: bundle) == .browser
-                                    controls.layout = .guests
+                                    // §D31 (2026-09-30): choosing a call turns
+                                    // it on in THIS scene and keeps the
+                                    // placement — unless that placement is
+                                    // "Film only", which has nobody in it.
+                                    controls.callOn = true
+                                    if controls.layout == .film { controls.layout = .corner }
                                 }
                             }
                         }
@@ -1174,9 +1203,20 @@ struct StudioWindowView: View {
             VStack(alignment: .leading, spacing: 6) {
                 Text("Placement").font(.subheadline.weight(.semibold))
                 Picker("Placement", selection: $controls.layout) {
-                    ForEach(StudioLayout.allCases, id: \.self) { Text($0.label).tag($0) }
+                    // `.guests` is now `corner` with the call on (§D31,
+                    // 2026-09-30); it is listed only for a scene saved with it.
+                    ForEach(StudioLayout.allCases.filter { $0 != .guests || controls.layout == .guests },
+                            id: \.self) { Text($0.label).tag($0) }
                 }
                 .labelsHidden()
+                // §D31 (2026-09-30) — per scene, like the placement.
+                HStack(spacing: 16) {
+                    Toggle("Camera", isOn: $controls.cameraOn)
+                    Toggle("Call", isOn: $controls.callOn)
+                }
+                .fixedSize()
+                .disabled(!controls.peopleSwitchesApply)
+                .help(controls.peopleSwitchesApply ? "" : "Film only shows no one.")
             }
 
             // §D14 — HOW THE HOST SITS IN IT. Below Placement, because the
@@ -1295,7 +1335,7 @@ struct StudioWindowView: View {
         // to fix the next gesture bug.
         let showingGuests = controls.framingTarget == .guests
         let tiled = showingGuests ? studio.health.guestTile != nil
-                                  : controls.layout.cameraIsTile
+                                  : controls.cameraTileShown
         VStack(alignment: .leading, spacing: 6) {
             HStack(alignment: .firstTextBaseline) {
                 Text("Framing").font(.subheadline.weight(.semibold))

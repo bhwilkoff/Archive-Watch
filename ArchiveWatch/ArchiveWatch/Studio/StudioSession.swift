@@ -224,6 +224,15 @@ public final class StudioSession {
         Task { await engine?.setGuestFraming(f) }
     }
 
+    /// §D31 (2026-09-30) — the scene's Camera and Call switches, armed like
+    /// the framing so a scene chosen before the engine exists is the one the
+    /// show starts with. `nil` = the placement decides (iOS and tvOS).
+    public private(set) var armedPeople: (camera: Bool?, call: Bool?) = (nil, nil)
+    public func armPeople(camera: Bool?, call: Bool?) {
+        armedPeople = (camera, call)
+        Task { await engine?.setPeople(camera: camera, call: call) }
+    }
+
     /// Readable, so a panel can OPEN on the placement the show is actually
     /// using. It is `@State`-backed on macOS and defaulted to `.corner`, so a
     /// host who chose "Side by side" in the sheet would have seen the engine
@@ -921,6 +930,7 @@ public final class StudioSession {
         // §D24 — the guests' framing survives going live, like every other
         // armed value (§8.46).
         await e.setGuestFraming(armedGuestFraming)
+        await e.setPeople(camera: armedPeople.camera, call: armedPeople.call)
         if let c = armedChat {
             await e.setChatControls(enabled: c.enabled, side: c.side, filter: c.filter)
         }

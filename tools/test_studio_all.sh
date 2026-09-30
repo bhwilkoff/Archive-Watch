@@ -274,6 +274,7 @@ swift_case "8.70 only a call is captured" ArchiveWatch/ArchiveWatch/Studio/Studi
 # will go ... are actually working as they should." They were not: theatre was
 # corner moved 64 px down, same 332x187 tile in the same corner.
 swift_case "8.22 camera placement" "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_layouts.swift
+swift_case "8.72 scene camera and call switches" "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_scene_people.swift
 # The camera-stall recovery RULE, which lived inside tvOS's own view loop and
 # so existed on exactly one platform while PARITY said "no recovery yet" for
 # the other two. No $ENG: the rule is a pure value type on purpose.

@@ -81,24 +81,59 @@ public enum StudioLayout: String, CaseIterable, Sendable {
 
     /// Where the CALL's picture sits, or nil where this placement has none.
     ///
-    /// DERIVED FROM THE CAMERA'S RECT, never computed beside it: the two tiles
-    /// are one column and a second derivation is how they drift apart by a few
-    /// pixels and stop reading as one thing. `guestAspect` is the captured
-    /// WINDOW's, which is whatever shape the host's call app happens to be —
-    /// so the width is fixed and the height follows, never the reverse.
+    /// Asks only whether this placement shows guests BY DEFAULT (`.guests`).
+    /// A surface that switches the call on per scene (macOS §D31, amended
+    /// 2026-09-30) asks `callRect` instead.
     public func guestRect(in size: CGSize, cameraAspect: CGFloat,
                           guestAspect: CGFloat) -> CGRect? {
-        guard showsGuests,
-              let cam = rects(in: size, cameraAspect: cameraAspect).camera else { return nil }
+        guard showsGuests else { return nil }
+        return callRect(in: size, cameraAspect: cameraAspect, guestAspect: guestAspect)
+    }
+
+    /// Where the call's picture sits in this placement when it is switched on
+    /// (macOS-DESIGN §D31, 2026-09-30), or nil where there is no room for it.
+    ///
+    /// DERIVED FROM THE CAMERA'S RECT wherever the two share a column, never
+    /// computed beside it: the two tiles are one column and a second
+    /// derivation is how they drift apart by a few pixels and stop reading as
+    /// one thing. `guestAspect` is the captured WINDOW's, which is whatever
+    /// shape the host's call app happens to be — so the width is fixed and
+    /// the height follows, never the reverse.
+    public func callRect(in size: CGSize, cameraAspect: CGFloat,
+                         guestAspect: CGFloat) -> CGRect? {
         let gap = size.height * 0.02
-        let h = cam.width / max(guestAspect, 0.1)
-        let y = cam.maxY + gap
-        // A tall call window would run the column off the top of the frame.
-        // The tile is CLAMPED rather than allowed to overflow, because a
-        // guest cropped by the frame edge looks like a fault.
-        let ceiling = size.height - size.width * 0.05
-        guard y < ceiling else { return nil }
-        return CGRect(x: cam.minX, y: y, width: cam.width, height: min(h, ceiling - y))
+        let ga = max(guestAspect, 0.1)
+        switch self {
+        case .film:
+            return nil
+        case .corner, .guests, .side:
+            guard let cam = rects(in: size, cameraAspect: cameraAspect, withCall: true).camera
+            else { return nil }
+            let h = cam.width / ga
+            let y = cam.maxY + gap
+            // A tall call window would run the column off the top of the
+            // frame. The tile is CLAMPED rather than allowed to overflow,
+            // because a guest cropped by the frame edge looks like a fault.
+            let ceiling = self == .side ? size.height : size.height - size.width * 0.05
+            guard y < ceiling else { return nil }
+            return CGRect(x: cam.minX, y: y, width: cam.width, height: min(h, ceiling - y))
+        case .theatre:
+            // BESIDE the host in the bottom strip, at the host's height. It
+            // stops at 40% of the width, which is where the strip begins when
+            // it carries two people — the lower third owns the bottom-left.
+            guard let cam = rects(in: size, cameraAspect: cameraAspect, withCall: true).camera
+            else { return nil }
+            let floorX = size.width * 0.40
+            let w = min(cam.height * ga, cam.minX - gap - floorX)
+            guard w > size.width * 0.06 else { return nil }
+            return CGRect(x: cam.minX - gap - w, y: cam.minY, width: w, height: cam.height)
+        case .host:
+            // A second inset OPPOSITE the film's: top-left, the film's width.
+            let inset = size.width * 0.05
+            let w = size.width * 0.26
+            let h = min(w / ga, size.height * 0.40)
+            return CGRect(x: inset, y: size.height - h - inset, width: w, height: h)
+        }
     }
 
     /// Where the chat column sits, or nil when this layout has no room.
@@ -115,40 +150,49 @@ public enum StudioLayout: String, CaseIterable, Sendable {
     /// column through the host's face.
     public func chatRect(in size: CGSize, cameraAspect: CGFloat,
                          side: StudioChatSide = .left,
-                         guestAspect: CGFloat? = nil) -> CGRect? {
-        guard let r = chatRectLeft(in: size, cameraAspect: cameraAspect) else { return nil }
-        guard side == .right else { return r }
-        var m = CGRect(x: size.width - r.maxX, y: r.minY, width: r.width, height: r.height)
-        // A MIRROR IS ONLY SAFE WHERE THE FRAME IS SYMMETRIC, AND IT IS NOT.
-        //
-        // `chatRectLeft` dodges the camera for THIS preset, and every preset
-        // that shows one puts it on the RIGHT — so the mirrored column lands
-        // straight on the host's face. That is the 2026-09-17 defect (§D22)
-        // arriving by a new route, and it was caught by the test rather than
-        // by reading this function, which is the only reason it is not shipped.
-        //
-        // The column yields, never the camera: a host who moved chat to the
-        // right did not ask for their own face to move.
-        // The camera AND the call, because §D23's placement stacks both on the
-        // right and a column that dodged only one would land on the other.
+                         guestAspect: CGFloat? = nil,
+                         withCall: Bool? = nil) -> CGRect? {
+        // `withCall` nil = this placement's own default (only `.guests`),
+        // which is what every platform but macOS asks. `guestAspect` nil
+        // means no call is attached, so there is no tile to dodge.
+        let callTile: CGRect? = {
+            guard withCall ?? showsGuests, let ga = guestAspect else { return nil }
+            return callRect(in: size, cameraAspect: cameraAspect, guestAspect: ga)
+        }()
+        guard let r = chatRectLeft(in: size, cameraAspect: cameraAspect,
+                                   withCall: callTile != nil) else { return nil }
+        var m = r
         var obstacles: [CGRect] = []
-        if let cam = rects(in: size, cameraAspect: cameraAspect).camera, showsCamera {
-            obstacles.append(cam)
+        if side == .right {
+            m = CGRect(x: size.width - r.maxX, y: r.minY, width: r.width, height: r.height)
+            // A MIRROR IS ONLY SAFE WHERE THE FRAME IS SYMMETRIC, AND IT IS NOT.
+            //
+            // `chatRectLeft` dodges the camera for THIS preset, and every preset
+            // that shows one puts it on the RIGHT — so the mirrored column lands
+            // straight on the host's face. That is the 2026-09-17 defect (§D22)
+            // arriving by a new route, and it was caught by the test rather than
+            // by reading this function, which is the only reason it is not shipped.
+            //
+            // The column yields, never the camera: a host who moved chat to the
+            // right did not ask for their own face to move.
+            if let cam = rects(in: size, cameraAspect: cameraAspect,
+                               withCall: callTile != nil).camera, showsCamera {
+                obstacles.append(cam)
+            }
         }
-        // THE REAL SHAPE, not a guess. The first version assumed 16:9 with a
-        // comment calling that "the safe direction" — which is backwards: a
-        // WIDER window makes a SHORTER tile, so the guess under-estimated a
-        // 4:3 call by 63 px and the column landed on it. Caught by §8.42 at
-        // the first non-16:9 shape it tried. `nil` means no call is attached,
-        // so there is no tile to dodge.
-        if let ga = guestAspect,
-           let g = guestRect(in: size, cameraAspect: cameraAspect, guestAspect: ga) {
-            obstacles.append(g)
-        }
-        for cam in obstacles {
-            let gap = size.height * 0.02
-            if m.intersects(cam) {
-                let floor = cam.maxY + gap                 // CI: y grows upward
+        // THE CALL on either side: `.host` puts it top-LEFT (§D31, 2026-09-30),
+        // so the left column is no longer clear of people by construction.
+        // THE REAL SHAPE, not a guess: a WIDER window makes a SHORTER tile, and
+        // a guessed 16:9 under-estimated a 4:3 call by 63 px (§8.42).
+        if let callTile { obstacles.append(callTile) }
+        let gap = size.height * 0.02
+        for o in obstacles where m.intersects(o) {
+            if o.midY >= m.midY {
+                // Above the column (CI: y grows upward): lower its top.
+                m = CGRect(x: m.minX, y: m.minY, width: m.width,
+                           height: max(0, o.minY - gap - m.minY))
+            } else {
+                let floor = o.maxY + gap
                 m = CGRect(x: m.minX, y: floor, width: m.width,
                            height: max(0, m.maxY - floor))
             }
@@ -184,9 +228,14 @@ public enum StudioLayout: String, CaseIterable, Sendable {
         return shortened.height > size.height * 0.12 ? shortened : .null
     }
 
-    private func chatRectLeft(in size: CGSize, cameraAspect: CGFloat) -> CGRect? {
+    private func chatRectLeft(in size: CGSize, cameraAspect: CGFloat,
+                              withCall: Bool) -> CGRect? {
         let inset = size.width * 0.05
-        switch self {
+        // In `side` with the call on, the right column holds two people and
+        // has no room under them; chat takes the left column every other
+        // placement uses rather than vanishing.
+        let placement: StudioLayout = (self == .side && withCall) ? .corner : self
+        switch placement {
         case .film, .corner, .theatre, .host, .guests:
             let w = size.width * 0.26
             // Above the lower third's stack and its scrim.
@@ -225,6 +274,16 @@ public enum StudioLayout: String, CaseIterable, Sendable {
     /// Where the film and the camera sit inside a `size` program frame.
     /// Returns rects in Core Image's coordinate space (origin bottom-left).
     public func rects(in size: CGSize, cameraAspect: CGFloat) -> (film: CGRect, camera: CGRect?) {
+        rects(in: size, cameraAspect: cameraAspect, withCall: false)
+    }
+
+    /// The same, when the call's picture is ALSO on screen (§D31,
+    /// 2026-09-30). Only the two placements whose host tile shares its room
+    /// with the call move the host: `side` splits the right column (call
+    /// above), `theatre` shrinks the strip so two people fit right of the
+    /// lower third. Everywhere else the host stays exactly where they were.
+    public func rects(in size: CGSize, cameraAspect: CGFloat,
+                      withCall: Bool) -> (film: CGRect, camera: CGRect?) {
         let full = CGRect(origin: .zero, size: size)
         switch self {
         case .film:
@@ -250,9 +309,14 @@ public enum StudioLayout: String, CaseIterable, Sendable {
             // the setting did nothing a host could see, which is what the owner
             // reported on 2026-09-20. At 0.38 the host is a presence along the
             // bottom rather than a thumbnail: 486x273 against corner's 332x187.
-            let h = size.height * 0.38
-            let w = h * cameraAspect
             let inset = size.width * 0.05
+            let a = max(cameraAspect, 0.1)
+            var h = size.height * 0.38
+            if withCall {
+                // Two tiles of the host's shape and a gap in 55% of the width.
+                h = min(h, (size.width * 0.55 - size.height * 0.02) / (2 * a))
+            }
+            let w = h * a
             return (full, CGRect(x: size.width - w - inset, y: 0, width: w, height: h))
         case .side:
             let fw = (size.width * 2 / 3).rounded()
@@ -260,7 +324,12 @@ public enum StudioLayout: String, CaseIterable, Sendable {
             let film = CGRect(x: 0, y: (size.height - filmH) / 2, width: fw, height: filmH)
             let cw = size.width - fw
             let ch = cw / max(cameraAspect, 0.1)
-            return (film, CGRect(x: fw, y: (size.height - ch) / 2, width: cw, height: ch))
+            guard withCall else {
+                return (film, CGRect(x: fw, y: (size.height - ch) / 2, width: cw, height: ch))
+            }
+            // The column is SPLIT: the pair is centered, the host below.
+            let pair = ch * 2 + size.height * 0.02
+            return (film, CGRect(x: fw, y: max(0, (size.height - pair) / 2), width: cw, height: ch))
         case .guests:
             // The host keeps EXACTLY `corner`'s tile — same size, same
             // position — so switching to this placement moves nobody who was
@@ -974,6 +1043,14 @@ public actor StudioEngine {
     /// §D31 — dissolve from the frame on air now to whatever comes next.
     public func beginTransition(seconds: Double) { renderer.beginTransition(seconds: seconds) }
     public func setGuestFraming(_ f: StudioCameraFraming) { renderer.guestFraming = f }
+    /// §D31 (2026-09-30) — the scene's two switches. `nil` = the placement
+    /// decides (every platform but macOS).
+    public func setPeople(camera: Bool?, call: Bool?) {
+        renderer.showCamera = camera
+        renderer.showCall = call
+    }
+    /// Where the switches LANDED, for a harness (Decision 133).
+    public var people: (camera: Bool?, call: Bool?) { (renderer.showCamera, renderer.showCall) }
     public var guestFraming: StudioCameraFraming { renderer.guestFraming }
     public var cameraFraming: StudioCameraFraming { renderer.framing }
     public func setOverlay(_ o: StudioOverlay) {
@@ -2364,6 +2441,12 @@ final class ProgramRenderer: @unchecked Sendable {
     /// the Studio window to place its drag handles (§D14).
     private(set) var lastCameraRect: CGRect?
     var overlay = StudioOverlay()
+    /// §D31 (2026-09-30) — whether THIS scene shows the host and the call.
+    /// `nil` is "the placement decides", which is every platform but macOS:
+    /// the camera wherever the placement has one, the call only in
+    /// `.guests`, and nobody over a card.
+    var showCamera: Bool?
+    var showCall: Bool?
 
     private let ciContext: CIContext
     private var pool: CVPixelBufferPool?
@@ -2418,7 +2501,8 @@ final class ProgramRenderer: @unchecked Sendable {
 
     private var renderSignature: String {
         "\(layout)|\(String(describing: overlay.card))|\(overlay.title)|\(overlay.subtitle)|"
-        + "\(overlay.showChat)|\(chatSide)|\(framing)|\(guestFraming)"
+        + "\(overlay.showChat)|\(chatSide)|\(framing)|\(guestFraming)|"
+        + "\(String(describing: showCamera))|\(String(describing: showCall))"
     }
 
     func beginTransition(seconds: Double) {
@@ -2516,35 +2600,44 @@ final class ProgramRenderer: @unchecked Sendable {
         var image = CIImage(color: CIColor(red: 0.039, green: 0.039, blue: 0.039))  // --color-text ground
             .cropped(to: CGRect(origin: .zero, size: size))
 
-        // A CARD owns the frame: the film behind it must not read through.
-        if overlay.card != nil {
-            if let card = overlayRenderer.image(for: overlay) {
-                image = card.composited(over: image)
-            }
-            return finish(image, into: out)
-        }
+        // A CARD IS THE GROUND (§D10, amended 2026-09-30): the film behind it
+        // must not read through, but the people may sit over it — in the
+        // right-hand column, exactly where `corner` puts them on the film.
+        let onCard = overlay.card != nil
+        let placement: StudioLayout = onCard ? .corner : layout
+        let cameraShown = placement.showsCamera && (showCamera ?? !onCard)
+        let callShown = showCall ?? (!onCard && layout.showsGuests)
 
         let cameraAspect: CGFloat = {
             guard let camera else { return 16.0 / 9.0 }
             return CGFloat(CVPixelBufferGetWidth(camera)) / CGFloat(max(1, CVPixelBufferGetHeight(camera)))
         }()
-        let (filmRect, cameraRect) = layout.rects(in: size, cameraAspect: cameraAspect)
+        let guestAspect: CGFloat? = guestFrame.map {
+            let e = CIImage(cvPixelBuffer: $0).extent
+            return e.height > 0 ? e.width / e.height : 16.0 / 9.0
+        }
+        let callRect: CGRect? = (callShown ? guestAspect : nil).flatMap {
+            placement.callRect(in: size, cameraAspect: cameraAspect, guestAspect: $0)
+        }
+        let (filmRect, cameraRect) = placement.rects(in: size, cameraAspect: cameraAspect,
+                                                     withCall: callRect != nil)
 
         // Z-ORDER FOLLOWS THE LAYOUT: whichever source is the ground goes down
         // first, or the inset tile is painted over.
-        if camera == nil || cameraRect == nil || !layout.showsCamera { lastCameraRect = nil }
+        if camera == nil || cameraRect == nil || !cameraShown { lastCameraRect = nil }
+        if callRect == nil { lastGuestRect = nil }
         let drawFilm = { [self] (base: CIImage) -> CIImage in
             guard let film else { return base }
             return fit(CIImage(cvPixelBuffer: film), into: filmRect).composited(over: base)
         }
         let drawCamera = { [self] (base: CIImage) -> CIImage in
-            guard let camera, let cameraRect, layout.showsCamera else { return base }
+            guard let camera, let cameraRect, cameraShown else { return base }
             // §D14: the HOST'S FRAMING, applied where the pixels are — the
             // crop to the camera's own picture, then the tile's size and
             // position. `apply` is a no-op on a default framing and on a
             // layout where the camera is the ground, so there is one path
             // rather than a branch per layout.
-            let placed = layout.cameraIsTile
+            let placed = placement.cameraIsTile
                 ? framing.apply(to: cameraRect, in: size) : cameraRect
             // WHERE THE TILE ACTUALLY LANDED, normalized, so a surface can put
             // its handles on the real thing instead of recomputing the layout
@@ -2561,11 +2654,8 @@ final class ProgramRenderer: @unchecked Sendable {
         // overlap today, and this keeps that true if a placement ever lets
         // them.
         func drawGuests(_ base: CIImage) -> CIImage {
-            guard layout.showsGuests, let g = guestFrame else { return base }
+            guard let g = guestFrame, let preset = callRect else { return base }
             var src = CIImage(cvPixelBuffer: g)
-            let aspect = src.extent.height > 0 ? src.extent.width / src.extent.height : 16.0/9.0
-            guard let preset = layout.guestRect(in: size, cameraAspect: cameraAspect,
-                                                guestAspect: aspect) else { return base }
             // §D24 — the placement decides where the tile STARTS, the host
             // decides where it ends up. Same two steps as the camera: the box
             // is displaced and reshaped, then the SOURCE is cropped into it.
@@ -2575,8 +2665,19 @@ final class ProgramRenderer: @unchecked Sendable {
             if crop != src.extent { src = src.cropped(to: crop) }
             return fill(src, into: placed).composited(over: base)
         }
-        image = layout.cameraIsBackground
-            ? drawFilm(drawCamera(drawGuests(image)))
+
+        if onCard {
+            if let card = overlayRenderer.image(for: overlay) {
+                image = card.composited(over: image)
+            }
+            image = drawCamera(drawGuests(image))
+            return finish(image, into: out)
+        }
+
+        // In `host` the call is an inset like the film, so it goes over the
+        // camera ground rather than under it.
+        image = placement.cameraIsBackground
+            ? drawGuests(drawFilm(drawCamera(image)))
             : drawCamera(drawGuests(drawFilm(image)))
         // Chat under the lower third, so a long message can never obscure the
         // film's own title. A SEPARATE cached layer: chat changes every few
@@ -2586,10 +2687,8 @@ final class ProgramRenderer: @unchecked Sendable {
         let l3 = overlayRenderer.image(for: overlay)
         if overlay.showChat, !overlay.chat.isEmpty,
            var rect = layout.chatRect(in: size, cameraAspect: cameraAspect, side: chatSide,
-                                      guestAspect: guestFrame.map {
-                                          let e = CIImage(cvPixelBuffer: $0).extent
-                                          return e.height > 0 ? e.width / e.height : 16.0/9.0
-                                      }) {
+                                      guestAspect: guestAspect,
+                                      withCall: callRect != nil) {
             rect = StudioLayout.chatYielding(rect,
                                              toOverlayTop: overlay.shoutOut == nil
                                                 ? nil : l3?.extent.maxY,

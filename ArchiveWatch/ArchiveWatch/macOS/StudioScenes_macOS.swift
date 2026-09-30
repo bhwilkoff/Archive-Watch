@@ -43,6 +43,23 @@ struct StudioScene: Codable, Equatable, Identifiable {
     var useShowAudio = true
     var tiles: StudioSceneTiles?
     var audio: StudioSceneAudio?
+    // §D31 (2026-09-30) — the scene's Camera and Call switches, ALWAYS the
+    // scene's own like the placement. OPTIONAL in storage, or every scene set
+    // saved before they existed would fail to decode and be replaced by the
+    // starters; nil reads as the starters' rule.
+    var cameraShown: Bool?
+    var callShown: Bool?
+
+    var camera: Bool {
+        get { cameraShown ?? true }
+        set { cameraShown = newValue }
+    }
+    /// Off only on the two cards that open and pause a show: before it starts
+    /// and during a break the guests are not yet, or not currently, on.
+    var call: Bool {
+        get { callShown ?? !(card == .startingSoon || card == .intermission) }
+        set { callShown = newValue }
+    }
 }
 
 @MainActor
@@ -71,11 +88,14 @@ final class StudioScenes {
     }
 
     static let starters: [StudioScene] = [
-        StudioScene(name: "Starting soon", layout: .host, card: .startingSoon, chat: true),
-        StudioScene(name: "Film", layout: .corner),
-        StudioScene(name: "Intermission", layout: .host, card: .intermission),
-        StudioScene(name: "Discussion", layout: .side),
-        StudioScene(name: "Thanks", layout: .host, card: .ending),
+        StudioScene(name: "Starting soon", layout: .host, card: .startingSoon, chat: true,
+                    cameraShown: true, callShown: false),
+        StudioScene(name: "Film", layout: .corner, cameraShown: true, callShown: true),
+        StudioScene(name: "Intermission", layout: .host, card: .intermission,
+                    cameraShown: true, callShown: false),
+        StudioScene(name: "Discussion", layout: .side, cameraShown: true, callShown: true),
+        StudioScene(name: "Thanks", layout: .host, card: .ending,
+                    cameraShown: true, callShown: true),
     ]
 
     private init() {
@@ -155,7 +175,7 @@ final class StudioScenes {
         // machine landed on their main display on 2026-09-23 when the Studio
         // sat on a second one.
         if ProcessInfo.processInfo.environment["AW_STUDIO_SCENE_SELFTEST"] == "1" {
-            Task { @MainActor in self.selfTest() }
+            Task { @MainActor in await self.selfTest() }
         }
         if let v = ProcessInfo.processInfo.environment["AW_STUDIO_SCENE"] {
             let parts = v.split(separator: "@")
@@ -182,6 +202,7 @@ final class StudioScenes {
         s.lowerThird = c.showLowerThird; s.lowerTitle = c.showFilmTitle
         s.lowerMeta = c.showFilmMeta; s.lowerProvenance = c.showProvenance
         s.chat = c.showChat; s.chatSide = c.chatSide
+        s.camera = c.cameraOn; s.call = c.callOn
         let tiles = StudioSceneTiles(camera: c.framing, guests: c.guestFraming)
         let audio = StudioSceneAudio(filmGain: c.filmGain, micGain: c.micGain, callGain: c.callGain,
                                      filmMuted: c.filmMuted, micMuted: c.micMuted,
@@ -211,6 +232,8 @@ final class StudioScenes {
         c.showLowerThird = s.lowerThird; c.showFilmTitle = s.lowerTitle
         c.showFilmMeta = s.lowerMeta; c.showProvenance = s.lowerProvenance
         c.showChat = s.chat; c.chatSide = s.chatSide
+        // Pictures only: the mic and call MUTES above stay the host's.
+        c.cameraOn = s.camera; c.callOn = s.call
         // The card last: it is the most visible thing a switch changes, and
         // an empty custom card is refused by the controls themselves (§D10).
         c.cardChoice = s.card
@@ -220,7 +243,7 @@ final class StudioScenes {
     /// §D31's inheritance, driven through the REAL controls and the real
     /// store — a harness of its own would test a copy. Restores the saved
     /// scenes exactly afterwards, because they are the owner's.
-    func selfTest() {
+    func selfTest() async {
         let saved = UserDefaults.standard.data(forKey: Self.key)
         let before = (scenes, selectedID, showTiles, showAudio)
         let c = StudioControls.shared
@@ -266,6 +289,38 @@ final class StudioScenes {
         select(b)
         check("an unmuted microphone stays unmuted across a scene switch", !c.micMuted)
         c.micMuted = micBefore
+
+        // §D31 (2026-09-30) — the Camera and Call switches follow the scene,
+        // reach the engine, and never touch a mute.
+        select(a); c.cameraOn = true; c.callOn = true
+        select(b); c.cameraOn = false; c.callOn = false
+        let callMutedBefore = c.callMuted
+        c.callMuted = true
+        select(a)
+        check("the camera switch comes back on with its scene", c.cameraOn)
+        check("the call switch comes back on with its scene", c.callOn)
+        check("a scene's call switch does not unmute the call", c.callMuted)
+        check("the switches are armed where the engine reads them",
+              StudioSession.shared.armedPeople == (true, true))
+        select(b)
+        check("the camera switch goes off with its scene", !c.cameraOn)
+        check("the call switch goes off with its scene", !c.callOn)
+        check("and the session carries the off values",
+              StudioSession.shared.armedPeople == (false, false))
+        if let e = StudioSession.shared.engineForHarness {
+            // THE VALUE WHERE IT LANDS (Decision 133): the engine, after the
+            // hop, not the control.
+            try? await Task.sleep(nanoseconds: 600_000_000)
+            let p = await e.people
+            check("the engine holds the scene's switches", p.camera == false && p.call == false)
+        } else {
+            awdiag("AWSCENETEST skip engine read (no engine running)")
+        }
+        c.callMuted = callMutedBefore
+        let decoded = try? JSONDecoder().decode(StudioScene.self, from: Data(
+            #"{"id":"6F9619FF-8B86-D011-B42D-00CF4FC964FF","name":"Old","layout":"corner","card":"intermission","lowerThird":true,"lowerTitle":true,"lowerMeta":true,"lowerProvenance":true,"chat":true,"chatSide":"left","useShowTiles":true,"useShowAudio":true}"#.utf8))
+        check("a scene saved before the switches still decodes",
+              decoded?.camera == true && decoded?.call == false)
 
         // Restore: the owner's scenes, exactly.
         (scenes, selectedID, showTiles, showAudio) = before

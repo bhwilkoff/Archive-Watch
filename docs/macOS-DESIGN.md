@@ -1513,6 +1513,10 @@ system's, exactly as it is for the three fixed cards.
 **An empty custom card is not shown.** A card that covers the film with a
 black frame and nothing on it is a fault, not a choice.
 
+**Amended 2026-09-30 (§D31):** a card is the GROUND, not the whole frame. It
+still hides the film, but the host and the call may sit over it in the
+right-hand column when the scene's Camera and Call switches say so.
+
 ## §D11 — A device change takes effect NOW
 
 **This replaces §D2's "device changes take effect on the next broadcast".**
@@ -2620,6 +2624,46 @@ holds for every scene whose tiles are inherited.
 - macOS first. iPhone later as a compact switcher. **Apple TV: none** — Rule
   8.8c keeps the television's live surface to "two channels, a rotation, and
   nothing else", and widening it is a separate owner decision.
+
+### §D31 amendment, 2026-09-30 — each scene turns the camera and the call on or off
+
+Owner: *"I just noticed that the Watch Together studio on MacOS doesn't allow
+for the cameras and the call to come through on the different scenes. You
+should be able to turn on or off the video from each scene."* Asked where the
+people go on a card, the owner chose **tiles over the card**: the card stays
+full-frame as the background, and the host and call tiles sit in the
+right-hand column over it, where they sit on the film (call above host).
+
+**The rule.** Each scene carries two switches beside Placement, **Camera** and
+**Call**. They are scene-owned like Placement — never inherited through "Use
+the show's tiles" — because who is on screen is what makes one scene another.
+They switch PICTURES only: the microphone's and the call's mutes describe the
+person, and a scene still may not change them (launch audit B). A call switch
+that is on with no call window chosen draws nothing.
+
+Starter set: Starting soon and Intermission — camera on, call off; Film,
+Discussion and Thanks — camera on, call on. A scene saved before the switches
+existed reads the same rule (camera on; call off only on the Starting soon and
+Intermission cards).
+
+Where the call sits when it is on:
+
+| Placement | The call |
+|---|---|
+| Film with you in the corner | stacked above the host tile, same width (what "Film, you, and your guests" drew; that placement is now this one with the call on, and stays listed only for a scene saved with it) |
+| Side by side | the right column is split, call above host, the pair centered |
+| Theater row | beside the host in the bottom strip, same height; with two people the strip shrinks to fit right of 40% of the width, clear of the lower third |
+| You, with the film inset | a second inset top-left, opposite the film's |
+| Film only | nobody, whatever the switches say — the placement is named for it; the switches are disabled there, and their tooltip says why |
+| Any card | the corner column: call above host, over the card |
+
+Chat moves out of the call's way on either side; in Side by side with the call
+on, chat takes the left column the other placements use rather than vanishing.
+iOS and tvOS have no scenes and set neither switch, so for them the engine
+keeps its old rule (the camera wherever the placement has one, the call only in
+"Film, you, and your guests", nobody over a card). §8.72
+(`tools/test_studio_scene_people.swift`) reads each case back from the
+composited pixels.
 
 ## §D32 — The host can put the film itself in front of the audience
 
