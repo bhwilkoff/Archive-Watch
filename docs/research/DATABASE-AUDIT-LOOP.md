@@ -394,3 +394,17 @@ day). Night of the Living Dead stays B&W on any reading.
 
 ### E15 — review batch (2026-09-29)
 40 summaries (1920-21): 16 rewritten (a Polish review of Der müde Tod, a comment-section policy on Keaton's The Haunted House, "YAn interesting..." on The Golem, a numbered NARA shot list, mojibake, "(sic)"), 2 non-summaries removed ("Skeletal entry.", a film-library catalog code), 22 kept. 10 titles cleaned (The Golem, The Saphead, The Goat, The Haunted House twice, Destiny). Five Adult Film History Project stag films confirmed marked mature (archive.org's own subjects).
+
+### T — star names welded onto titles (2026-09-29)
+203 served titles carried a performer's name: `Charlie Chaplin's "The Rink"`,
+`THE PALEFACE Buster Keaton`, `RAGGEDY ROSE Mabel Normand, Max Davidson, ...`,
+`A Night In The Show A Charlie Chaplin Essanay Comedy`. A pattern proposed 197
+corrections; each was read, 18 rejected because the name IS the title (Bela
+Lugosi Meets a Brooklyn Gorilla, Life with Buster Keaton, The False Max
+Linder, Intimate Interviews with Bela Lugosi) or the item is a bundle, and 43
+corrected by hand to the film's real title (Kid Auto Races at Venice,
+Tillie's Punctured Romance, Caught in a Cabaret, His Favorite Pastime, Too Many
+Mammas, A Busy Day). 179 entries in title_corrections.json. Not a remediate
+rule: the name-is-the-title cases are too many for a pattern to tell apart.
+Knock-on: dup-merge (Decision 040) keys on the title, so several Chaplin and
+Keaton copies now cluster at the next build.
