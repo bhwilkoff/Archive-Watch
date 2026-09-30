@@ -240,10 +240,15 @@ tables, a scheduled workflow), never only in one published catalog.
   "Sinopsis" with director and stars; Go for Broke!, My Dear Secretary under
   their English titles). ~38 remain.
 
+- T6. ✅ Translation complete: all 204 non-English served summaries now English
+  (the last 37 include the Lumière films shot in Mexico in 1896, Cabiria,
+  Different from the Others, Laborer's Love, The Navigator). A modern Italian
+  political appeal dated 1922 to not_films. New non-English uploader text
+  arrives with ingest, so it stays in the review queue.
+
 ## Queue
 
 
-- T. ~200 non-English uploader summaries with no English source: faithful translation by hand, in batches.
 
 - E-next. Review batches now judge ACCURACY: each uploader summary beside an independent source (TMDb overview, Wikipedia lead) where one exists; tmdb/omdb/wikipedia summaries of weakly matched items get the same look.
 
