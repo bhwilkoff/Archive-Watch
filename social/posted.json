@@ -1549,6 +1549,66 @@
    "kind": "newsreel",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-10-01T20:18:34.960409+00:00",
+   "id": "BuDrummonds_Bride",
+   "title": "Bulldog Drummonds Bride",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mwtojpwl3k2w",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-01T20:18:34.960409+00:00",
+   "id": "BuDrummonds_Bride",
+   "title": "Bulldog Drummonds Bride",
+   "slot": "now-showing",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117367500716981052",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-01T20:18:34.960409+00:00",
+   "id": "BuDrummonds_Bride",
+   "title": "Bulldog Drummonds Bride",
+   "slot": "now-showing",
+   "platform": "threads",
+   "url": "https://www.threads.com/@archivewatchapp/post/Dd9wFU-GVFD",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-01T20:18:34.960409+00:00",
+   "id": "BuDrummonds_Bride",
+   "title": "Bulldog Drummonds Bride",
+   "slot": "now-showing",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/Dd9wKaOGUJq/",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": "117367500094015491",
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-01T20:18:34.960409+00:00",
+   "id": "BuDrummonds_Bride",
+   "title": "Bulldog Drummonds Bride",
+   "slot": "now-showing",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=F_O7xUMEaSY",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
