@@ -22,7 +22,38 @@ final class StudioMacSchedule {
     private init() {}
 
     /// On opening the Studio: drops shows more than 12 h past their start.
-    func reload() { shows = StudioSchedule.prune() }
+    func reload() {
+        shows = StudioSchedule.prune()
+        Task { await refreshStale() }
+    }
+
+    /// YouTube API Services Developer Policies III.E.4 — API Data this Mac
+    /// keeps is refreshed: each record older than a week is re-read from
+    /// YouTube (title and start, 1 unit), a show gone from YouTube is
+    /// forgotten, and one that cannot be refreshed for 30 days is deleted by
+    /// `prune`. Signed out, nothing is asked: sign-out already deleted them.
+    func refreshStale() async {
+        let stale = shows.filter { StudioSchedule.needsRefresh($0) }
+        guard !stale.isEmpty,
+              let token = try? await StudioPlatformAuth.token(for: .youtube) else { return }
+        let yt = YouTubeLive(token: token)
+        for show in stale {
+            do {
+                if let now = try await yt.scheduledSnapshot(broadcastID: show.broadcastID) {
+                    var fresh = show
+                    fresh.title = now.title.isEmpty ? show.title : now.title
+                    if let start = now.start { fresh.start = start }
+                    fresh.refreshedAt = Date()
+                    StudioSchedule.upsert(fresh)
+                } else {
+                    StudioSchedule.remove(broadcastID: show.broadcastID)
+                }
+            } catch {
+                continue   // asked again next time; prune deletes it after 30 days
+            }
+        }
+        shows = StudioSchedule.prune()
+    }
 
     func matching(_ archiveID: String?) -> [StudioScheduledShow] {
         guard let archiveID else { return [] }
@@ -52,7 +83,8 @@ final class StudioMacSchedule {
             archiveID: film.archiveID, copy: copy, title: title,
             description: description, start: start, privacy: privacy.rawValue,
             // §D41 — the Studio's setup at the moment the show is scheduled.
-            setup: StudioMacSetups.shared.captureForSaving()))
+            setup: StudioMacSetups.shared.captureForSaving(),
+            refreshedAt: Date()))
         shows = StudioSchedule.load()
         note = made.thumbnailRefusal.map {
             "Scheduled without the card as its thumbnail — \(studioSentence(raw: $0))"
@@ -69,6 +101,7 @@ final class StudioMacSchedule {
         var moved = show
         moved.title = title
         moved.start = start
+        moved.refreshedAt = Date()
         StudioSchedule.upsert(moved)
         shows = StudioSchedule.load()
         note = nil

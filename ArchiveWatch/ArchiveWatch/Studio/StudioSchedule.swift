@@ -26,6 +26,11 @@ struct StudioScheduledShow: Codable, Sendable, Equatable, Identifiable {
     /// §D41 — the Studio's whole setup for this show. Optional: a show
     /// scheduled before §D41 decodes without one and loads its film only.
     var setup: StudioSetup? = nil
+    /// When this record last matched YouTube (YouTube API Services Developer
+    /// Policies III.E.4: API Data is refreshed at least every 30 days, or
+    /// deleted). Optional so records saved before it existed still decode;
+    /// those are treated as refreshed when first seen and asked again soon.
+    var refreshedAt: Date? = nil
 
     var id: String { broadcastID }
 }
@@ -38,6 +43,21 @@ enum StudioSchedule {
     /// unstarted broadcast in Upcoming indefinitely, but the Mac stops offering
     /// it: a show twelve hours late is not the show that was announced.
     static let staleAfter: TimeInterval = 12 * 3600
+    /// Re-read from YouTube when the Studio opens if older than this…
+    static let refreshAfter: TimeInterval = 7 * 86_400
+    /// …and deleted if it could not be refreshed for this long (III.E.4).
+    static let maxUnrefreshed: TimeInterval = 30 * 86_400
+
+    static func needsRefresh(_ show: StudioScheduledShow, now: Date = Date()) -> Bool {
+        guard let at = show.refreshedAt else { return true }
+        return now.timeIntervalSince(at) > refreshAfter
+    }
+
+    /// YouTube API Data this device holds is deleted with the access that
+    /// fetched it: on Sign out, and when Google reports the grant revoked.
+    static func removeAll(defaults: UserDefaults = .standard) {
+        defaults.removeObject(forKey: defaultsKey)
+    }
 
     static func load(from defaults: UserDefaults = .standard) -> [StudioScheduledShow] {
         guard let data = defaults.data(forKey: defaultsKey),
@@ -57,7 +77,14 @@ enum StudioSchedule {
     /// left. Called when the Studio opens.
     @discardableResult
     static func prune(now: Date = Date(), defaults: UserDefaults = .standard) -> [StudioScheduledShow] {
-        let kept = load(from: defaults).filter { now.timeIntervalSince($0.start) <= staleAfter }
+        let kept = load(from: defaults)
+            .map { s -> StudioScheduledShow in
+                var s = s
+                if s.refreshedAt == nil { s.refreshedAt = now }
+                return s
+            }
+            .filter { now.timeIntervalSince($0.start) <= staleAfter }
+            .filter { now.timeIntervalSince($0.refreshedAt ?? now) <= maxUnrefreshed }
         save(kept, to: defaults)
         return kept
     }

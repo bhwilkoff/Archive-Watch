@@ -271,5 +271,22 @@ struct ScheduleTest {
         let raw = String(decoding: d.data(forKey: StudioSchedule.defaultsKey) ?? Data(), as: UTF8.self)
         check("the stored record carries no key", !raw.contains("MOCK-KEY") && !raw.lowercased().contains("streamname"))
         check("and does carry the copy", raw.contains("a\\/a.mp4") || raw.contains("a/a.mp4"))
+
+        print("\n-- YouTube API Data retention (III.E.4): refresh within 30 days or delete")
+        var fresh = show("fresh", "c", 24 * 60); fresh.refreshedAt = now.addingTimeInterval(-2 * 86_400)
+        var week = show("week", "c", 24 * 60); week.refreshedAt = now.addingTimeInterval(-8 * 86_400)
+        var old = show("old", "c", 24 * 60); old.refreshedAt = now.addingTimeInterval(-31 * 86_400)
+        let legacy = show("legacy", "c", 24 * 60)   // saved before refreshedAt existed
+        StudioSchedule.save([fresh, week, old, legacy], to: d)
+        let after = StudioSchedule.prune(now: now, defaults: d)
+        check("a record unrefreshed for 31 days is deleted; 8 and 2 days are kept",
+              Set(after.map(\.broadcastID)) == ["fresh", "week", "legacy"], "\(after.map(\.broadcastID))")
+        check("a legacy record is stamped when first seen",
+              after.first { $0.broadcastID == "legacy" }?.refreshedAt != nil)
+        check("a week-old record is due a refresh; a 2-day-old one is not",
+              StudioSchedule.needsRefresh(week, now: now) && !StudioSchedule.needsRefresh(fresh, now: now))
+        StudioSchedule.removeAll(defaults: d)
+        check("sign-out / revocation deletes every scheduled record",
+              StudioSchedule.load(from: d).isEmpty)
     }
 }

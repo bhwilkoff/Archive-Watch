@@ -182,10 +182,13 @@ struct StudioSignInRow: View {
                 // user before they connect (launch audit A5).
                 if platform == .youtube {
                     #if os(tvOS)
-                    Text("By signing in you agree to the YouTube Terms of Service (youtube.com/t/terms).")
+                    Text("By signing in you agree to the YouTube Terms of Service (youtube.com/t/terms). Privacy Policy: archivewatch.org/privacy.html")
                         .font(.footnote).foregroundStyle(.secondary)
                     #else
-                    Text("By signing in you agree to the [YouTube Terms of Service](https://www.youtube.com/t/terms).")
+                    // III.A.2a: the client's own privacy policy, where a user
+                    // connects YouTube — not only in the Help menu (review,
+                    // 2026-09-30).
+                    Text("By signing in you agree to the [YouTube Terms of Service](https://www.youtube.com/t/terms). How Archive Watch handles your YouTube data: [Privacy Policy](https://archivewatch.org/privacy.html).")
                         .font(.footnote).foregroundStyle(.secondary)
                     #endif
                 }

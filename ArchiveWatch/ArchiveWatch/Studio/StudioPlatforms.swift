@@ -227,6 +227,7 @@ public enum StudioPlatformAuth {
         let token = StudioTokenStore.load(for: platform.rawValue)
         let clientID = clientID(for: platform)
         StudioTokenStore.clear(for: platform.rawValue)
+        if platform == .youtube { StudioSchedule.removeAll() }
         guard let token else { return }
         Task.detached {
             // Google: the REFRESH token, which drops the whole grant. Twitch
@@ -321,6 +322,7 @@ public enum StudioPlatformAuth {
             return try await renewAndStore(platform, clientID: clientID, stored: stored)
         } catch StudioPlatformError.grantRevoked(let why) {
             StudioTokenStore.clear(for: platform.rawValue)
+            if platform == .youtube { StudioSchedule.removeAll() }
             GoogleAuth.adiag("refresh \(platform.rawValue) refused — grant revoked, token cleared")
             throw StudioPlatformError.notSignedIn(why)
         }
@@ -834,6 +836,22 @@ public struct YouTubeLive: Sendable {
         return StreamCredentials(server: ingest.server, key: ingest.key,
                                  backupServer: ingest.backup,
                                  broadcastID: broadcastID, liveChatID: chatID)
+    }
+
+    /// The scheduled broadcast as YouTube has it now — title and start —
+    /// or nil when it is gone, ended or already live. Refreshes the copy the
+    /// Mac keeps (III.E.4). Price: liveBroadcasts.list, 1 unit.
+    public func scheduledSnapshot(broadcastID: String) async throws -> (title: String, start: Date?)? {
+        let (data, _) = try await HTTP.send(try request(
+            "/liveBroadcasts", method: "GET",
+            query: ["part": "id,snippet,status", "id": broadcastID]))
+        guard let item = (try HTTP.json(data)["items"] as? [[String: Any]])?.first else { return nil }
+        let life = (item["status"] as? [String: Any])?["lifeCycleStatus"] as? String ?? ""
+        if ["complete", "revoked", "live", "liveStarting"].contains(life) { return nil }
+        let snippet = item["snippet"] as? [String: Any] ?? [:]
+        let start = (snippet["scheduledStartTime"] as? String)
+            .flatMap { ISO8601DateFormatter().date(from: $0) }
+        return ((snippet["title"] as? String) ?? "", start)
     }
 
     // MARK: The three calls both paths share
