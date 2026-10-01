@@ -4250,7 +4250,7 @@ def retype_tv_typed_as_film(items, stats):
 
 _EDITORIAL_ID_TABLES = ("title_corrections", "year_corrections", "director_corrections", "type_corrections",
                         "synopsis_rejects", "match_rejects", "not_films",
-                        "copyright_evidence_overrides")
+                        "copyright_evidence_overrides", "likely_modern")
 
 
 def report_unknown_editorial_ids(items):

@@ -115,6 +115,8 @@ object StudioRights {
                 "This film is still under copyright. Streaming it would put your channel at risk."
             "modern_copyright_confirmed" ->
                 "This film's copyright was confirmed against archive.org's own license record. Streaming it would put your channel at risk."
+            "likely_modern_unidentified" ->
+                "This copy carries no year, and a reviewer judged it a modern work. It is not offered for streaming."
             "modern_noyear_risk" ->
                 "This copy carries no year, and everything else about it points to a modern film. It is not offered for streaming."
             "no_evidence" ->

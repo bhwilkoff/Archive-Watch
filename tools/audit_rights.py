@@ -635,6 +635,11 @@ def bucket(it):
         # the evidence this rule asks for.
         if unevidenced(it):
             return "no_evidence", "hide"
+        # A reviewer read this undated upload and judged it MODERN but could
+        # not date it (owner, 2026-10-01: "Hide until identified"). A year
+        # found later is judged normally; deleting the entry lifts the hide.
+        if it.get("archiveID") in likely_modern():
+            return "likely_modern_unidentified", "hide"
         return "unknown_year", "keep"
     if RENEWAL_ZONE_START <= yi < MODERN:
         return ("renewal_zone_bw", "report") if it.get("colorMode") == "bw" \
@@ -647,7 +652,7 @@ HIDE_BUCKETS = {"modern_copyright_confirmed", "modern_noyear_risk", "uploader_li
                 "renewed_copyright_classic", "renewal_zone_commercial",
                 "copyrighted_trailer", "wrongmatch_idyear", "wrongmatch_title",
                 "no_evidence", "uploader_cannot_dedicate", "uploader_copyright_claim",
-                "copyright_claim_evidence"}
+                "copyright_claim_evidence", "likely_modern_unidentified"}
 
 _OVERRIDES = Path(__file__).resolve().parent.parent / "shared" / "editorial" / "copyright_evidence_overrides.json"
 
@@ -660,6 +665,19 @@ def copyright_overrides():
         except (OSError, ValueError):
             copyright_overrides.ids = set()
     return copyright_overrides.ids
+
+
+_LIKELY_MODERN = Path(__file__).resolve().parent.parent / "shared" / "editorial" / "likely_modern.json"
+
+
+def likely_modern():
+    """{archiveID: reason} — undated uploads a reviewer judged modern."""
+    if not hasattr(likely_modern, "ids"):
+        try:
+            likely_modern.ids = set(json.loads(_LIKELY_MODERN.read_text(encoding="utf-8")))
+        except (OSError, ValueError):
+            likely_modern.ids = set()
+    return likely_modern.ids
 
 
 def evidence_for(it, b):

@@ -114,6 +114,8 @@ public enum StudioRights {
             return "This film is still under copyright. Streaming it would put your channel at risk."
         case "modern_copyright_confirmed":
             return "This film's copyright was confirmed against archive.org's own license record. Streaming it would put your channel at risk."
+        case "likely_modern_unidentified":
+            return "This copy carries no year, and a reviewer judged it a modern work. It is not offered for streaming."
         case "modern_noyear_risk":
             return "This copy carries no year, and everything else about it points to a modern film. It is not offered for streaming."
         case "no_evidence":

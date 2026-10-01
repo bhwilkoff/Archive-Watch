@@ -241,6 +241,7 @@ into every session and the index alone carries every title.)
 - 156 — A foreign film URAA restored is never recommended and always findable
 - 157 — Pre-1950 renewals are read from the printed Catalog of Copyright Entries
 - 158 — A colorized copy is a version of its black-and-white film, never the default
+- 159 — An undated upload a reviewer judged modern is hidden until it is identified
 
 ---
 
@@ -1580,4 +1581,31 @@ captions or votes; the colorized flag is the first term of both rankings. A
 color REMAKE is not a colorization and stays apart on its own imdb id and year.
 `tools/test_colorized_versions.py` holds the merge and the default with a remake
 control; `test_color_guard.py`'s two colorization cases now expect a merge.
+
+
+## 159 — An undated upload a reviewer judged modern is hidden until it is identified
+*Date: 2026-10-01*
+
+An undated title listed in `shared/editorial/likely_modern.json` ({archiveID:
+reason}) is `likely_modern_unidentified`, a HIDE bucket in `audit_rights.bucket`,
+instead of `unknown_year` (keep). A year found later is judged normally, and
+deleting the entry lifts the hide. Six titles to start (an undated "Popeye", a
+mid-2000s mockumentary, an unidentified modern feature, three numbered uploads
+from an uploader whose other ~80 items are modern).
+
+**Why**: the owner, offered "hide until identified" or "keep showing" for
+undated non-government uploads that reviewers believe are modern but cannot
+date — *"Hide until identified"*. Decision 151 keeps a title when "we truly
+don't know", and that stands for the genuinely unknown; but a pass over the 98
+served undated non-government titles found 17 modern works (Hong Kong features
+of 1981-83, a 1986 Cannon film, 2000s studio trailers) dressed by wrong matches
+as silent films — about one in six. A reviewer's reasoned "modern" is not "we
+don't know".
+
+**How to apply**: add an entry only with a reason a reader can check (what
+the reviewer saw); never on a hunch about an uploader alone — two of the same
+uploader's titled uploads were checked against their own records (a 100- and a
+78-minute film matching their titles) and kept. `tools/test_likely_modern.py`
+holds the hide, the unlisted control, and that a found year is judged normally.
+The host's refusal sentence exists on Apple and Android (§8 rights coverage).
 
