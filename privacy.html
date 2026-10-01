@@ -19,7 +19,7 @@
 
   <main class="legal-main">
     <h2>Privacy Policy</h2>
-    <p class="updated">Last updated: September 27, 2026</p>
+    <p class="updated">Last updated: October 1, 2026</p>
 
     <p>
       Archive Watch is a free app for Apple TV, iPhone, iPad, Mac, Android,
@@ -30,6 +30,13 @@
       server features exist, all described below: the website&rsquo;s
       aggregate counter, Watch Together rooms, and the feeds for other players
       and AI assistants. None of them stores anything about who you are.
+    </p>
+    <p>
+      Archive Watch is made and operated by <strong>Learning is Change,
+      Inc.</strong> This policy covers every Archive Watch app and
+      archivewatch.org, including <strong>Watch Together Studio</strong>, the
+      part of the apps that uses <strong>YouTube API Services</strong>
+      (described in its own sections below).
     </p>
 
     <h3>What we collect</h3>
@@ -88,6 +95,33 @@
       <li>Your Continue Watching progress (where you stopped in a title).</li>
       <li>Your Favorites and any playlists you create.</li>
       <li>Your preferences, such as the mature-content filter and autoplay settings.</li>
+      <li>If you use Watch Together Studio: your Studio setup (scenes, chosen
+        camera and microphone, output settings) and, on a Mac, the YouTube
+        shows you scheduled &mdash; described under
+        <a href="#youtube-data">the YouTube information Archive Watch accesses, stores and uses</a>.</li>
+    </ul>
+
+    <h3 id="cookies">Cookies, local storage and similar technologies</h3>
+    <ul>
+      <li><strong>Cookies.</strong> Neither archivewatch.org nor any Archive
+        Watch app sets a cookie, and Archive Watch does not allow any third
+        party to place or read cookies, web beacons or similar tracking
+        technology on your device or browser.</li>
+      <li><strong>The website</strong> keeps your favorites, playlists,
+        playback progress and preferences in your browser&rsquo;s own
+        <em>local storage</em>, and keeps a copy of the site itself in a
+        service-worker cache so it opens quickly and works offline. These stay
+        in your browser; clearing the site&rsquo;s data in your browser
+        deletes them.</li>
+      <li><strong>The apps</strong> keep the information listed above in the
+        app&rsquo;s own preferences on the device, and keep sign-in tokens for
+        YouTube or Twitch in the device&rsquo;s secure storage (the Apple
+        Keychain; Keystore-encrypted storage on Android). Deleting the app
+        deletes its preferences.</li>
+      <li><strong>Signing in to YouTube or Twitch</strong> happens on
+        Google&rsquo;s or Twitch&rsquo;s own sign-in page, in a system sign-in
+        window. Those pages may set their own cookies under their own privacy
+        policies; Archive Watch cannot read them.</li>
     </ul>
 
     <h3>Optional Sign in with Apple &amp; iCloud sync</h3>
@@ -198,11 +232,56 @@
         server, and no third party, sits in the path.</li>
     </ul>
 
+    <h3 id="youtube-data">Watch Together Studio: the YouTube information Archive Watch accesses, stores and uses</h3>
+    <p>
+      This is every piece of information Archive Watch obtains through YouTube
+      API Services, what it is used for, where it is kept and for how long.
+      None of it is ever sent to Archive Watch or to anyone else; it goes only
+      between your device and Google.
+    </p>
+    <ul>
+      <li><strong>Your sign-in tokens</strong> (OAuth access and refresh
+        tokens) &mdash; to make the calls below on your behalf. Kept in the
+        Apple Keychain on your device until you sign out or revoke access.</li>
+      <li><strong>Your channel&rsquo;s id and name, and whether live streaming
+        is enabled on it</strong> &mdash; to show you which channel you will
+        broadcast to. Held in memory while the Studio is open; never written
+        to disk.</li>
+      <li><strong>The live stream and broadcast Archive Watch creates</strong>
+        (their ids, title, description, scheduled time and privacy setting,
+        and the stream&rsquo;s ingest address) &mdash; to go live. For a
+        show you start now, held in memory for the show only. For a show you
+        <em>schedule ahead</em> on a Mac, the broadcast and stream ids, title,
+        description, scheduled time and privacy setting are kept in the
+        app&rsquo;s preferences so you can go live on it later; that copy is
+        refreshed from YouTube whenever the Studio opens if it is more than
+        a week old, removed when the broadcast is gone from YouTube, and
+        deleted 12 hours after its scheduled time, when you cancel the show,
+        when you sign out, when Google reports the access revoked, or after
+        30 days without a successful refresh &mdash; whichever comes first.</li>
+      <li><strong>Your stream key</strong> &mdash; to send the video. Held
+        in memory for that show only; never written to disk, displayed or
+        logged.</li>
+      <li><strong>The number of people watching</strong> your broadcast and
+        <strong>your broadcast&rsquo;s live chat messages</strong> &mdash; to
+        show them to you, and on screen if you choose, while you present.
+        Held in memory during the show and discarded when it ends; never
+        written to disk by Archive Watch. (If you choose to record your show
+        on a Mac, the recording is the picture you broadcast, so it includes
+        any chat messages you chose to show on screen.)</li>
+    </ul>
+    <p>
+      Archive Watch does not share any of this with anyone, does not use it
+      for advertising or analytics, and does not combine it with any other
+      information.
+    </p>
+
     <h3>Watch Together Studio: keeping it only as long as you want it</h3>
     <p>
       <strong>Sign out</strong> in Watch Together Studio revokes Archive
       Watch&rsquo;s access at Google and deletes the token from your device
-      immediately; nothing of it remains. You can also revoke access at any
+      immediately, together with any scheduled shows the Mac remembers;
+      nothing of it remains. You can also revoke access at any
       time from your Google account&rsquo;s security settings at
       <a href="https://security.google.com/settings/security/permissions" rel="noopener">security.google.com/settings/security/permissions</a>.
       If you broadcast as a YouTube <em>Brand Account</em>, Google does not
