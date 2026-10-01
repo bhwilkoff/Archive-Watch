@@ -18,4 +18,9 @@ assert "renewal" in R.owed(owed, today), R.owed(owed, today)
 assert "renewal" not in R.owed(asked, today), R.owed(asked, today)
 assert not R.served(hidden)
 assert R.owed(asked, today) == [], R.owed(asked, today)
+spine = {**asked, "archiveID": "d", "contentType": "tv-series", "playbackVerified": None,
+         "downloadURL": None}
+assert "playback" not in R.owed(spine, today), R.owed(spine, today)
+film_unverified = {**asked, "archiveID": "e", "playbackVerified": None}
+assert "playback" in R.owed(film_unverified, today), "control: an unverified film owes playback"
 print("coverage_report: ok")

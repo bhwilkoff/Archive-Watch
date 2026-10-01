@@ -57,7 +57,11 @@ def owed(it, today):
     # checker, not restating its rules, keeps the report from drifting.
     if CC.targets([it], today):
         out.append("renewal")
-    if not it.get("playbackVerified"):
+    # A series spine is a container of episodes with no file of its own, so it
+    # is never probed: 256 of the first 266 "playback" owed were spines.
+    if ct == "tv-series":
+        pass
+    elif not it.get("playbackVerified"):
         out.append("playback")
     else:
         age = _age_days(it.get("playbackCheckedAt"), today)
