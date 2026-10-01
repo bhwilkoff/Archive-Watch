@@ -319,6 +319,11 @@ final class StudioMacShow {
     static let shared = StudioMacShow()
 
     private(set) var film: Catalog.Item?
+    /// §D41 — bumped when a loaded setup chooses another copy of the SAME
+    /// film, so the Studio's player is rebuilt on that file. (A new film
+    /// rebuilds it already: the surface is keyed by the film.)
+    private(set) var copyGeneration = 0
+    func reloadCopy() { copyGeneration += 1 }
     /// The chooser is open — either because there is no film, or because the
     /// host pressed "Change film".
     var choosing = false
@@ -812,7 +817,7 @@ struct StudioWindowView: View {
                                   captionsOff: CaptionChoiceSession.byItem[film.archiveID] == .off,
                                   publishedVTT: film.publishedVTTURL,
                                   feedsProgram: true)
-                        .id(film.archiveID)
+                        .id("\(film.archiveID)#\(show.copyGeneration)")
                 }
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
@@ -1289,6 +1294,10 @@ struct StudioWindowView: View {
     private func chooseWindow(_ filter: SCContentFilter, for id: String) {
         Task {
             if await studio.startCall(id, filter: filter) {
+                // §D41: a loaded setup names the app whose window it needs.
+                let app = filter.includedWindows.first?.owningApplication
+                    ?? filter.includedApplications.first
+                sources.setAppName(id, app?.applicationName)
                 controls.setShown(id, true)
                 if controls.layout == .film, controls.card == nil { controls.layout = .corner }
             }
@@ -1680,6 +1689,14 @@ struct StudioWindowView: View {
                 Text("None").tag(StudioDevices.noneID)
                 Divider()
                 ForEach(devices) { d in Text(d.name).tag(d.id) }
+                // A chosen device that is not plugged in (AirPods in their case)
+                // had no row, so the picker drew BLANK and the host could not
+                // tell what was chosen (seen 2026-09-30). It is named as absent.
+                let chosen = selection.wrappedValue
+                if !chosen.isEmpty, chosen != StudioDevices.noneID,
+                   !devices.contains(where: { $0.id == chosen }) {
+                    Text("Not connected").tag(chosen)
+                }
             }
             .labelsHidden()
             // §D11: LIVE AT ALL TIMES. `.disabled(studio.isLive)` used to be
@@ -2255,7 +2272,7 @@ struct StudioDestinationSection: View {
         // film and the list is how the host finds their way back to a show
         // (owner, 2026-09-30: "always be able to see the upcoming shows ... and
         // load them from a previous session ... rather than having to find the
-        // movie"). Go Live on This Show… loads the film and selects the show.
+        // movie"). Load This Show loads the film (and its setup, §D41) and selects the show.
         if !studio.isOnAir {
             StudioUpcomingList()
         }
@@ -2669,7 +2686,7 @@ struct StudioDestinationSection: View {
     /// choice that no longer exists is dropped.
     private func refreshScheduleChoice() {
         let matches = scheduledMatches
-        // "Go Live on This Show…" names the broadcast outright.
+        // "Load This Show" names the broadcast outright.
         if let asked = schedule.goLiveRequest, matches.contains(where: { $0.broadcastID == asked }) {
             scheduleChoice = asked
             schedule.goLiveRequest = nil

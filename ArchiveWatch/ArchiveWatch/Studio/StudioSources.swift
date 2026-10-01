@@ -26,9 +26,12 @@ public struct StudioSourceRef: Codable, Equatable, Identifiable, Sendable {
     /// Always nil for a call: the window is chosen by the host every time and
     /// never remembered (§D23).
     public var deviceID: String?
+    /// A call's app, from the last window chosen for it (§D41): a loaded
+    /// setup's call says which app's window it needs. Never the window.
+    public var appName: String?
 
-    public init(id: String, kind: Kind, deviceID: String? = nil) {
-        self.id = id; self.kind = kind; self.deviceID = deviceID
+    public init(id: String, kind: Kind, deviceID: String? = nil, appName: String? = nil) {
+        self.id = id; self.kind = kind; self.deviceID = deviceID; self.appName = appName
     }
 
     public static func newCamera(deviceID: String?) -> StudioSourceRef {

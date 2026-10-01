@@ -158,6 +158,79 @@ final class StudioScenes {
         return changed
     }
 
+    // MARK: §D41 — the scene set, as a saved setup carries it
+
+    /// The whole set in this store's own encoding, captured from the controls
+    /// first. The microphone's and the call's MUTES are cleared: they are the
+    /// host's, never a setup's (§D31 amendment), and `apply` never reads them.
+    func exportSet() -> Data {
+        capture()
+        var s = Saved(scenes: scenes, selectedID: selectedID, showTiles: showTiles,
+                      showAudio: showAudio, crossfade: crossfade)
+        s.showAudio.micMuted = false
+        s.showAudio.callMuted = false
+        for i in s.scenes.indices {
+            s.scenes[i].audio?.micMuted = false
+            s.scenes[i].audio?.callMuted = false
+        }
+        return StudioSetup.canonical(s) ?? Data()
+    }
+
+    /// Replaces the scene set and puts its selected scene on the controls —
+    /// through `apply`, so the layout lands before the tiles. False, and
+    /// nothing changed, when the data is not a scene set.
+    @discardableResult
+    func importSet(_ data: Data) -> Bool {
+        guard let s = try? JSONDecoder().decode(Saved.self, from: data), !s.scenes.isEmpty else {
+            return false
+        }
+        scenes = s.scenes
+        selectedID = s.scenes.contains { $0.id == s.selectedID } ? s.selectedID : s.scenes[0].id
+        showTiles = s.showTiles
+        showAudio = s.showAudio
+        crossfade = s.crossfade ?? true
+        _ = migrateToSources()
+        save()
+        apply()
+        return true
+    }
+
+    /// The set with its selection cleared: which scene is on screen is not
+    /// work a host could lose, so it does not make a load ask first.
+    static func withoutSelection(_ data: Data) -> Data {
+        guard var s = try? JSONDecoder().decode(Saved.self, from: data) else { return data }
+        s.selectedID = UUID(uuid: (0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0))
+        return StudioSetup.canonical(s) ?? data
+    }
+
+    #if DEBUG
+    /// Field-by-field, for the §D41 self-test's log.
+    static func differences(_ a: Data, _ b: Data) -> [String] {
+        guard let x = try? JSONDecoder().decode(Saved.self, from: a),
+              let y = try? JSONDecoder().decode(Saved.self, from: b) else { return ["scenes.decode"] }
+        var out: [String] = []
+        if x.selectedID != y.selectedID { out.append("scenes.selected") }
+        if x.crossfade != y.crossfade { out.append("scenes.crossfade") }
+        if x.showTiles != y.showTiles { out.append("scenes.showTiles") }
+        if x.showAudio != y.showAudio { out.append("scenes.showAudio") }
+        if x.scenes.count != y.scenes.count { out.append("scenes.count") }
+        for (p, q) in zip(x.scenes, y.scenes) where p != q {
+            let fields: [(String, Bool)] = [
+                ("layout", p.layout == q.layout), ("card", p.card == q.card),
+                ("shown", p.shown == q.shown), ("tiles", p.tiles == q.tiles),
+                ("audio", p.audio == q.audio), ("name", p.name == q.name),
+                ("lowerThird", p.lowerThird == q.lowerThird && p.lowerTitle == q.lowerTitle
+                    && p.lowerMeta == q.lowerMeta && p.lowerProvenance == q.lowerProvenance),
+                ("chat", p.chat == q.chat && p.chatSide == q.chatSide),
+                ("toggles", p.useShowTiles == q.useShowTiles && p.useShowAudio == q.useShowAudio),
+            ]
+            let bad = fields.filter { !$0.1 }.map(\.0)
+            out.append("scene '\(p.name)' " + (bad.isEmpty ? "switches" : bad.joined(separator: ",")))
+        }
+        return out
+    }
+    #endif
+
     /// A source removed from the Sources list leaves every scene (§D40).
     func forget(_ id: String) {
         for i in scenes.indices {

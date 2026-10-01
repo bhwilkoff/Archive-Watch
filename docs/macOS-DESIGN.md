@@ -3095,3 +3095,69 @@ calls are summed and a scene with no call leaves both in the mix; controls: a
 renderer that ignores the scene's selection, and a migration that drops the
 framing, both fail. **Not yet run in the Studio against real cameras and
 calls.**
+
+## §D41 — A show's whole setup is saved, and loads before Go Live (2026-09-30)
+
+Owner, 2026-09-30: *"Is there any way to get everything set up for a future
+show, including cameras, audio, etc. and then be able to load it into the
+studio again before pressing 'go live'?"* Accepted: per-show saved setups, as
+OBS keeps scene collections.
+
+**A SETUP is everything a host builds for a show:**
+
+| Part | What it holds |
+|---|---|
+| Film | the archiveID and the exact copy, `<item>/<file>` (Decision 143) |
+| Scenes | the whole §D31 scene set: every scene's placement, card, lower-third lines, chat on/off and side, its sources and their layer order (§D40), its own tiles and crops, its own audio, the two "Use the show's…" toggles, the show-wide tiles and audio, crossfade, and which scene is selected |
+| Sources | every camera by `AVCaptureDevice.uniqueID` with the device's name, every call SLOT with its app's name. **A call's window is never stored**: `SCContentSharingPicker` hands over no lasting handle, and §D23 says the window list is never recorded |
+| Mix | the levels and the film's mute live with the scenes (§D31); here: the microphone device, and the gate |
+| On screen | the host's own card words (§D10), and the chat filter (§D22) |
+| Output | size, frame rate, bitrate (§D4) |
+
+**The host's mutes are never in it.** The microphone's and the call's mutes
+describe the person (§D31 amendment, launch audit B); a load never unmutes
+either, and a saved setup does not carry them.
+
+**Where a setup is captured.**
+- When a show is **scheduled** (§D39): the setup at that moment rides on the
+  show.
+- **Save Setup to This Show** on each Upcoming row: the setup now replaces the
+  show's.
+- **Save Setup…** in the same area: a NAMED setup with no schedule. Saving
+  under a name already used replaces that setup. **Saved setups** lists them,
+  each with **Load** and **Delete**.
+
+**Loading.** **Load This Show** (formerly "Go Live on This Show…") and **Load**
+replace the Studio's current setup with the saved one. The Studio first asks
+**"Replace the Studio's current setup?"** — ONLY when what is set up now differs
+from the setup last loaded or saved on this Mac (a fingerprint of the scenes,
+sources, mix, on-screen and output parts; which film and which scene is selected
+do not count, since neither is work a host could lose). Otherwise it simply
+loads. Order: the copy is chosen, then the film is taken, then sources, then
+scenes (layout before tiles, as `StudioScenes.apply` requires), then mix,
+on-screen words, and output. The copy is restored through the versions store,
+so `ArchiveVersions.preferredURL` returns exactly that file — a merged upload's
+copy included (`@item:name`). A show saved before §D41 has no setup: Load This
+Show loads its film and copy only, and asks nothing. Load This Show also selects
+YouTube (signed in, not a stream key) and that broadcast in "Go live on". **It
+never goes live**: that is still the host's own press.
+
+**Not while a show is running.** Load is disabled during the preview and on
+air, with the reason as its tooltip: size and frame rate cannot change
+mid-stream (§D4) and a source swap mid-show is a different act (§D40).
+
+**After a load.** Each call slot names its app and says it needs its window
+("Zoom — choose its window"), with Choose Window… beside it. A camera whose
+device is not on this Mac says "That camera is not connected." — the existing
+line; it is never replaced by another camera (§D40).
+
+**Not done.** iOS and tvOS have no scenes or Sources list and no setups.
+Setups are kept on this Mac (`UserDefaults`), not synced.
+
+**Proof**: §8.75 (`tools/test_studio_setup.swift`): JSON round trip, a show
+record from before §D41 decodes, the copy key for an own-item and a merged-upload
+file, apply-then-capture equality part by part, and a control that drops the
+sources on apply and must be caught. On the product path, the DEBUG door
+`AW_STUDIO_SETUP_SELFTEST=1` (and `AW_STUDIO_SETUP_PHASE=save|load` across a
+relaunch) drives the real capture and load and compares field by field.
+**Not yet run in the Studio.**

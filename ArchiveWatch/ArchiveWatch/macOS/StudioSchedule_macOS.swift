@@ -13,7 +13,7 @@ final class StudioMacSchedule {
     private(set) var shows: [StudioScheduledShow] = StudioSchedule.prune()
     /// One line after a write: a refused thumbnail, a failed cancel.
     var note: String?
-    /// "Go Live on This Show…" from Upcoming: the broadcast the go-live form
+    /// "Load This Show" from Upcoming (§D41): the broadcast the go-live form
     /// selects once the show's film is loaded, then clears. The list survives a
     /// relaunch but the Studio's film does not, so without this a reopened
     /// Studio showed the show and offered no way onto it (owner, 2026-09-30).
@@ -50,7 +50,9 @@ final class StudioMacSchedule {
         StudioSchedule.upsert(StudioScheduledShow(
             broadcastID: made.broadcastID, streamID: made.streamID,
             archiveID: film.archiveID, copy: copy, title: title,
-            description: description, start: start, privacy: privacy.rawValue))
+            description: description, start: start, privacy: privacy.rawValue,
+            // §D41 — the Studio's setup at the moment the show is scheduled.
+            setup: StudioMacSetups.shared.captureForSaving()))
         shows = StudioSchedule.load()
         note = made.thumbnailRefusal.map {
             "Scheduled without the card as its thumbnail — \(studioSentence(raw: $0))"
@@ -234,18 +236,34 @@ struct StudioRescheduleSheet: View {
     }
 }
 
-/// UPCOMING — every show this Mac scheduled, with Reschedule and Cancel.
+/// UPCOMING — every show this Mac scheduled, with Load, Save Setup,
+/// Reschedule and Cancel — and the named setups (§D41) under it.
 struct StudioUpcomingList: View {
     private var schedule: StudioMacSchedule { StudioMacSchedule.shared }
+    private var setups: StudioMacSetups { StudioMacSetups.shared }
     private var studio: StudioSession { StudioSession.shared }
     @Environment(AppStore.self) private var store
     @Environment(AppRouter.self) private var router
     @State private var moving: StudioScheduledShow?
     @State private var cancelling: StudioScheduledShow?
+    @State private var pending: PendingLoad?
+    @State private var deleting: StudioNamedSetup?
+    @State private var naming = false
+
+    private enum PendingLoad: Identifiable {
+        case show(StudioScheduledShow)
+        case named(StudioNamedSetup)
+        var id: String {
+            switch self {
+            case .show(let s): return "show-" + s.broadcastID
+            case .named(let n): return "named-" + n.id.uuidString
+            }
+        }
+    }
 
     var body: some View {
-        if !schedule.shows.isEmpty || schedule.note != nil {
-            VStack(alignment: .leading, spacing: 6) {
+        VStack(alignment: .leading, spacing: 6) {
+            if !schedule.shows.isEmpty {
                 Text("Upcoming").font(.caption.weight(.semibold)).foregroundStyle(.secondary)
                 ForEach(schedule.shows) { show in
                     VStack(alignment: .leading, spacing: 3) {
@@ -254,57 +272,118 @@ struct StudioUpcomingList: View {
                         Text(show.start.formatted(date: .abbreviated, time: .shortened)
                              + " \u{00B7} " + (YouTubePrivacy(rawValue: show.privacy)?.label ?? show.privacy))
                             .font(.caption).foregroundStyle(.secondary)
-                        // §D13: three labels outgrow a narrow column, so the
+                        // §D13: four labels outgrow a narrow column, so the
                         // row stacks rather than cutting a word.
                         ViewThatFits(in: .horizontal) {
-                            HStack(spacing: 8) { actions(show) }
-                            VStack(alignment: .leading, spacing: 4) { actions(show) }
+                            HStack(spacing: 8) { loadActions(show); editActions(show) }
+                            VStack(alignment: .leading, spacing: 4) {
+                                HStack(spacing: 8) { loadActions(show) }
+                                HStack(spacing: 8) { editActions(show) }
+                            }
+                            VStack(alignment: .leading, spacing: 4) { loadActions(show); editActions(show) }
                         }
                         .controlSize(.small)
                     }
                     .padding(.vertical, 2)
                 }
-                if let note = schedule.note {
-                    Text(note).font(.caption2).foregroundStyle(.orange)
-                        .fixedSize(horizontal: false, vertical: true)
+            }
+            if !setups.saved.isEmpty {
+                Text("Saved setups").font(.caption.weight(.semibold)).foregroundStyle(.secondary)
+                    .padding(.top, schedule.shows.isEmpty ? 0 : 4)
+                ForEach(setups.saved) { entry in
+                    VStack(alignment: .leading, spacing: 3) {
+                        Text(entry.name).font(.callout)
+                            .fixedSize(horizontal: false, vertical: true)
+                        HStack(spacing: 8) {
+                            Button("Load") { request(.named(entry)) }
+                                .fixedSize()
+                                .disabled(setups.loadRefusal != nil)
+                                .help(setups.loadRefusal ?? "")
+                            Button("Delete…", role: .destructive) { deleting = entry }.fixedSize()
+                        }
+                        .controlSize(.small)
+                    }
+                    .padding(.vertical, 2)
                 }
             }
-            .sheet(item: $moving) { StudioRescheduleSheet(show: $0) }
-            .confirmationDialog("Cancel this scheduled show?",
-                                isPresented: Binding(get: { cancelling != nil },
-                                                     set: { if !$0 { cancelling = nil } }),
-                                presenting: cancelling) { show in
-                Button("Delete from YouTube", role: .destructive) {
-                    Task { await schedule.cancel(show) }
-                }
-                Button("Keep It", role: .cancel) {}
-            } message: { _ in
-                Text("The listing and its reminders are deleted from YouTube.")
+            Button("Save Setup…") { naming = true }
+                .controlSize(.small)
+                .fixedSize()
+            ForEach([schedule.note, setups.note].compactMap { $0 }, id: \.self) { note in
+                Text(note).font(.caption2).foregroundStyle(.orange)
+                    .fixedSize(horizontal: false, vertical: true)
             }
         }
+        .sheet(item: $moving) { StudioRescheduleSheet(show: $0) }
+        .sheet(isPresented: $naming) {
+            StudioSaveSetupSheet(suggested: StudioMacShow.shared.film?.title ?? "")
+        }
+        .confirmationDialog("Cancel this scheduled show?",
+                            isPresented: Binding(get: { cancelling != nil },
+                                                 set: { if !$0 { cancelling = nil } }),
+                            presenting: cancelling) { show in
+            Button("Delete from YouTube", role: .destructive) {
+                Task { await schedule.cancel(show) }
+            }
+            Button("Keep It", role: .cancel) {}
+        } message: { _ in
+            Text("The listing and its reminders are deleted from YouTube.")
+        }
+        // §D41 — asked ONLY when what is set up now was never saved.
+        .confirmationDialog("Replace the Studio\u{2019}s current setup?",
+                            isPresented: Binding(get: { pending != nil },
+                                                 set: { if !$0 { pending = nil } }),
+                            presenting: pending) { p in
+            Button("Replace") { perform(p) }
+            Button("Cancel", role: .cancel) {}
+        } message: { _ in
+            Text("What is set up now has not been saved.")
+        }
+        .confirmationDialog("Delete this saved setup?",
+                            isPresented: Binding(get: { deleting != nil },
+                                                 set: { if !$0 { deleting = nil } }),
+                            presenting: deleting) { entry in
+            Button("Delete", role: .destructive) { setups.delete(entry.id) }
+            Button("Keep It", role: .cancel) {}
+        }
+        #if DEBUG
+        .task { await setups.runDoorIfAsked(store: store, router: router) }
+        #endif
     }
 
     @ViewBuilder
-    private func actions(_ show: StudioScheduledShow) -> some View {
-        Button("Go Live on This Show…") { prepare(show) }
+    private func loadActions(_ show: StudioScheduledShow) -> some View {
+        Button("Load This Show") { request(.show(show)) }
             .fixedSize()
-            .disabled(studio.isOnAir)
+            .disabled(setups.loadRefusal != nil)
+            .help(setups.loadRefusal ?? "")
+        Button("Save Setup to This Show") { setups.saveToShow(show) }.fixedSize()
+    }
+
+    @ViewBuilder
+    private func editActions(_ show: StudioScheduledShow) -> some View {
         Button("Reschedule…") { moving = show }.fixedSize()
         Button("Cancel Show…", role: .destructive) { cancelling = show }.fixedSize()
     }
 
-    /// Loads the show's film into the Studio and asks the go-live form to
-    /// select this broadcast. Going live is still the host's own press.
-    private func prepare(_ show: StudioScheduledShow) {
-        guard let item = store.db?.item(show.archiveID) else {
-            schedule.note = "This show's film is not in the catalog on this Mac."
-            return
+    /// A show saved before §D41 has no setup to replace anything with, so it
+    /// never asks; a setup asks only over unsaved work.
+    private func request(_ p: PendingLoad) {
+        let replaces: Bool
+        switch p {
+        case .show(let s): replaces = s.setup != nil
+        case .named: replaces = true
         }
-        let mac = StudioMacShow.shared
-        mac.take(item, from: router)
-        mac.platform = .youtube
-        mac.connectWithKey = false
-        schedule.goLiveRequest = show.broadcastID
+        if replaces, setups.needsConfirmation { pending = p } else { perform(p) }
+    }
+
+    /// Going live is still the host's own press.
+    private func perform(_ p: PendingLoad) {
+        switch p {
+        case .show(let show): setups.loadShow(show, store: store, router: router)
+        case .named(let entry):
+            setups.load(entry.setup, film: nil, copy: nil, store: store, router: router)
+        }
     }
 }
 #endif

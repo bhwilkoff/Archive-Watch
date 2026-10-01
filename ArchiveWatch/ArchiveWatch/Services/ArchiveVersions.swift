@@ -257,6 +257,33 @@ enum ArchiveVersions {
         defaults.set(map, forKey: key)
     }
 
+    /// §D41 — a saved setup's copy, `<item>/<file>`, made the choice, so
+    /// `preferredURL` returns exactly that file (a merged upload's included).
+    /// The title's own default file clears the choice rather than pinning it.
+    static func chooseCopy(_ path: String, for archiveID: String, defaultURL: URL?) {
+        if let d = defaultURL, StudioRoomCopy.path(from: d) == path {
+            setChoiceKey(nil, for: archiveID)
+        } else if let key = StudioSetup.choiceKey(forCopy: path, archiveID: archiveID) {
+            setChoiceKey(key, for: archiveID)
+        }
+    }
+
+    /// The copy that plays, as `<item>/<file>`.
+    static func copyPath(for archiveID: String, default fallback: URL?) -> String? {
+        if let key = chosenName(for: archiveID) {
+            return StudioSetup.copyPath(choiceKey: key, archiveID: archiveID)
+        }
+        return StudioRoomCopy.path(from: fallback)
+    }
+
+    /// The raw stored choice — for a caller that must put back exactly what
+    /// was there (the §D41 self-test restores the owner's choice).
+    static func setChoiceKey(_ key: String?, for archiveID: String) {
+        var map = defaults.dictionary(forKey: self.key) ?? [:]
+        if let key { map[archiveID] = key } else { map.removeValue(forKey: archiveID) }
+        defaults.set(map, forKey: self.key)
+    }
+
     /// The URL to actually play: the viewer's choice when they made one,
     /// otherwise the pipeline's pick unchanged.
     ///

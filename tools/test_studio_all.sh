@@ -282,7 +282,12 @@ swift_case "8.74 show sources and scene tiles" "$PUB" "$ENG" "$REC" "$CHATFILTER
 # §D39 — scheduling a YouTube watch-along ahead of time, against a LOCAL mock
 # of the live endpoints (tools/mock_youtube_live.py): no account, no network.
 # It compiles the overlay renderer so the thumbnail it checks is the real card.
-swift_case "8.73 scheduled watch-along" "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$AUTH" "$PLAT" "$GATE" ArchiveWatch/ArchiveWatch/Studio/StudioSchedule.swift "$SHIM" tools/test_studio_schedule.swift
+swift_case "8.73 scheduled watch-along" "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$AUTH" "$PLAT" "$GATE" ArchiveWatch/ArchiveWatch/Studio/StudioSchedule.swift ArchiveWatch/ArchiveWatch/Studio/StudioSetup.swift "$SHIM" tools/test_studio_schedule.swift
+# §D41 — a show's whole setup, saved and loaded before Go Live: the record, a
+# show from before §D41, the copy through the REAL versions store, apply-then-
+# capture part by part, the fingerprint. Controls: an apply that drops the
+# sources, and one that applies scenes before sources, must both be caught.
+swift_case "8.75 saved setups" ArchiveWatch/ArchiveWatch/Studio/StudioSetup.swift ArchiveWatch/ArchiveWatch/Studio/StudioSchedule.swift ArchiveWatch/ArchiveWatch/Services/ArchiveVersions.swift ArchiveWatch/ArchiveWatch/Studio/StudioSync.swift "$OUT" "$SHIM" tools/test_studio_setup.swift
 # The camera-stall recovery RULE, which lived inside tvOS's own view loop and
 # so existed on exactly one platform while PARITY said "no recovery yet" for
 # the other two. No $ENG: the rule is a pure value type on purpose.

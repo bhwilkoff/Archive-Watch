@@ -23,6 +23,9 @@ struct StudioScheduledShow: Codable, Sendable, Equatable, Identifiable {
     var start: Date
     /// `YouTubePrivacy.rawValue`.
     let privacy: String
+    /// §D41 — the Studio's whole setup for this show. Optional: a show
+    /// scheduled before §D41 decodes without one and loads its film only.
+    var setup: StudioSetup? = nil
 
     var id: String { broadcastID }
 }
@@ -62,6 +65,15 @@ enum StudioSchedule {
     static func upsert(_ show: StudioScheduledShow, defaults: UserDefaults = .standard) {
         var all = load(from: defaults).filter { $0.broadcastID != show.broadcastID }
         all.append(show)
+        save(all, to: defaults)
+    }
+
+    /// §D41 — "Save Setup to This Show".
+    static func setSetup(_ setup: StudioSetup, broadcastID: String,
+                         defaults: UserDefaults = .standard) {
+        var all = load(from: defaults)
+        guard let i = all.firstIndex(where: { $0.broadcastID == broadcastID }) else { return }
+        all[i].setup = setup
         save(all, to: defaults)
     }
 

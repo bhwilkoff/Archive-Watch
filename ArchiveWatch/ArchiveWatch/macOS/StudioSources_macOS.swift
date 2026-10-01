@@ -89,6 +89,35 @@ final class StudioSources {
         Task { await StudioSession.shared.rebuildCamera(id) }
     }
 
+    /// §D41 — a call's app, remembered from the window chosen for it.
+    func setAppName(_ id: String, _ name: String?) {
+        guard let name, !name.isEmpty, let i = list.firstIndex(where: { $0.id == id }),
+              list[i].appName != name else { return }
+        list[i].appName = name
+        save()
+    }
+
+    /// §D41 — A LOADED SETUP'S SOURCES REPLACE THE LIST. A source the setup
+    /// does not hold is removed exactly as Remove does (it stops, and leaves
+    /// every scene); one it keeps by id keeps running — a call keeps the
+    /// window already chosen for it this session; a camera whose device
+    /// changed, or that is new, restarts if a show is running.
+    func replace(with refs: [StudioSourceRef]) {
+        var seen = Set<String>()
+        let incoming = refs.filter { seen.insert($0.id).inserted }
+        let keep = Set(incoming.map(\.id))
+        for old in list where !keep.contains(old.id) { remove(old.id) }
+        let before = Dictionary(uniqueKeysWithValues: list.map { ($0.id, $0) })
+        list = incoming
+        changed()
+        for ref in incoming where ref.kind == .camera {
+            if before[ref.id]?.deviceID != ref.deviceID || before[ref.id] == nil {
+                let id = ref.id
+                Task { await StudioSession.shared.rebuildCamera(id) }
+            }
+        }
+    }
+
     private func changed() {
         save()
         // THE FIRST CAMERA IS "THE CAMERA" wherever the app still asks for
@@ -121,6 +150,7 @@ final class StudioSources {
         case .camera: return cameraName(ref)
         case .call:
             if let label = StudioSession.shared.callLabel(id) { return label }
+            if let app = ref.appName { return "\(app) — choose its window" }
             let n = (calls.firstIndex { $0.id == id } ?? 0) + 1
             return calls.count > 1 ? "Call \(n) — no window chosen" : "Call — no window chosen"
         }
