@@ -1537,6 +1537,18 @@
    "kind": "silent-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-10-01T02:02:42.950941+00:00",
+   "id": "gov.ntis.ava09891vnb1",
+   "title": "Atomic Attack",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mwrrc7l3tq24",
+   "format": "video",
+   "kind": "newsreel",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
