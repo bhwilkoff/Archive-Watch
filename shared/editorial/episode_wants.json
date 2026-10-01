@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "updated_at": "2026-09-30T15:26:51Z",
+  "updated_at": "2026-10-01T10:56:43Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 18401,
-    "wanted": 18177,
+    "total": 18402,
+    "wanted": 18178,
     "fulfilled": 224,
     "series_with_gaps": 363
   },
@@ -81593,6 +81593,16 @@
       "episodeImdbID": "tt10223184",
       "status": "wanted",
       "added_at": "2026-06-13T07:56:51Z"
+    },
+    {
+      "seriesID": "mama-1949",
+      "seriesTitle": "Mama",
+      "season": 2,
+      "episode": 11,
+      "title": "Episode #2.11",
+      "episodeImdbID": "tt10219422",
+      "status": "wanted",
+      "added_at": "2026-10-01T10:56:43Z"
     },
     {
       "seriesID": "mama-1949",
