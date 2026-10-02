@@ -12,7 +12,9 @@ import Foundation
 struct StudioScheduledShow: Codable, Sendable, Equatable, Identifiable {
     let broadcastID: String
     let streamID: String
-    let archiveID: String
+    /// Rewritten when a catalog merge moves the film to another card
+    /// (`StudioSchedule.adoptSurvivors`); `copy` keeps naming the same file.
+    var archiveID: String
     /// The chosen file, `<item>/<file>` (Decision 143), so the show that was
     /// announced is the copy that plays.
     let copy: String?
@@ -102,6 +104,27 @@ enum StudioSchedule {
         guard let i = all.firstIndex(where: { $0.broadcastID == broadcastID }) else { return }
         all[i].setup = setup
         save(all, to: defaults)
+    }
+
+    /// A catalog publish can merge the film a show was scheduled on into
+    /// another card (Decision 040): the old id then forwards to the survivor,
+    /// the Studio holds the survivor, and the show matched nothing — so Go Live
+    /// offered no way onto it and made a new broadcast (owner, 2026-10-02).
+    /// `resolve` answers the card an id belongs to now. Returns whether any
+    /// show moved.
+    @discardableResult
+    static func adoptSurvivors(resolve: (String) -> String?,
+                               defaults: UserDefaults = .standard) -> Bool {
+        var all = load(from: defaults)
+        var moved = false
+        for i in all.indices {
+            guard let now = resolve(all[i].archiveID), now != all[i].archiveID else { continue }
+            all[i].archiveID = now
+            if all[i].setup != nil { all[i].setup?.archiveID = now }
+            moved = true
+        }
+        if moved { save(all, to: defaults) }
+        return moved
     }
 
     static func remove(broadcastID: String, defaults: UserDefaults = .standard) {

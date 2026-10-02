@@ -55,6 +55,14 @@ final class StudioMacSchedule {
         shows = StudioSchedule.prune()
     }
 
+    /// Follows a catalog merge (see `StudioSchedule.adoptSurvivors`).
+    func adoptSurvivors(resolve: (String) -> String?) {
+        if StudioSchedule.adoptSurvivors(resolve: resolve) {
+            shows = StudioSchedule.load()
+            awdiag("AWSCHED re-keyed scheduled shows to merged survivors")
+        }
+    }
+
     func matching(_ archiveID: String?) -> [StudioScheduledShow] {
         guard let archiveID else { return [] }
         return StudioSchedule.matching(archiveID: archiveID, in: shows)
@@ -379,9 +387,17 @@ struct StudioUpcomingList: View {
             Button("Delete", role: .destructive) { setups.delete(entry.id) }
             Button("Keep It", role: .cancel) {}
         }
+        .task(id: survivorKey) {
+            schedule.adoptSurvivors { store.db?.item($0)?.archiveID }
+        }
         #if DEBUG
         .task { await setups.runDoorIfAsked(store: store, router: router) }
         #endif
+    }
+
+    private var survivorKey: String {
+        let ids: [String] = schedule.shows.map { $0.archiveID }
+        return ids.joined(separator: ",") + "#" + String(store.dbVersion)
     }
 
     @ViewBuilder

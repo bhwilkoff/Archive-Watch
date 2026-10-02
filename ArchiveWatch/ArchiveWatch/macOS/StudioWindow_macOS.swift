@@ -833,10 +833,12 @@ struct StudioWindowView: View {
             ViewThatFits(in: .horizontal) {
                 HStack(spacing: 8) {
                     changeFilmButton
+                    StudioVersionMenu(film: film)
                     if !projecting { projectButton(film) }
                 }
                 HStack(spacing: 8) {
                     changeFilmButton
+                    StudioVersionMenu(film: film)
                     if !projecting {
                         Menu("More") {
                             projectButton(film)
@@ -2878,6 +2880,42 @@ struct StudioDestinationSection: View {
 /// see everywhere else in the app and finding nothing, with no way to learn
 /// why — the "absence written where a screen was needed" mistake Decision 128
 /// names. A refused row is drawn, unselectable, with its own reason.
+/// Which copy of the film the show plays (Decision 143) — the same menu as
+/// the Detail page's Choose Version. Searching lands on the catalog's default
+/// copy, which may not be the one the host wants on air (owner, 2026-10-02:
+/// Safety Last! came back as the Spanish-subtitled upload).
+struct StudioVersionMenu: View {
+    let film: Catalog.Item
+    @State private var versions: [ArchiveVersions.Version] = []
+    @State private var loading = false
+    @State private var chosenName: String?
+    private var studio: StudioSession { StudioSession.shared }
+
+    var body: some View {
+        Menu("Choose Version") {
+            VersionMenuContents(archiveID: film.archiveID, defaultURL: film.videoURLParsed,
+                                versions: versions, loading: loading,
+                                chosenName: Binding(get: { chosenName }, set: { new in
+                                    // Only the host's own pick rebuilds the
+                                    // Studio's player on the chosen file.
+                                    let changed = new != chosenName
+                                    chosenName = new
+                                    if changed { StudioMacShow.shared.reloadCopy() }
+                                }))
+        }
+        .menuStyle(.borderlessButton)
+        .fixedSize()
+        .disabled(studio.isLive)
+        .help(studio.isLive ? "End the preview to change the copy" : "")
+        .task(id: film.archiveID) {
+            chosenName = ArchiveVersions.chosenName(for: film.archiveID)
+            loading = true
+            versions = await ArchiveVersions.list(itemID: film.archiveID)
+            loading = false
+        }
+    }
+}
+
 struct StudioFilmChooser: View {
     let store: AppStore
     let onPick: (Catalog.Item) -> Void

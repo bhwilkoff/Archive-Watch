@@ -105,6 +105,8 @@ final class StudioMacSetups: StudioSetupTarget {
     }
 
     func loadShow(_ show: StudioScheduledShow, store: AppStore, router: AppRouter) {
+        StudioMacSchedule.shared.adoptSurvivors { store.db?.item($0)?.archiveID }
+        let show = StudioMacSchedule.shared.shows.first { $0.broadcastID == show.broadcastID } ?? show
         guard load(show.setup, film: show.archiveID, copy: show.copy, store: store, router: router)
         else { return }
         let mac = StudioMacShow.shared
