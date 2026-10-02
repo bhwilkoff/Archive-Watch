@@ -1609,6 +1609,18 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-10-02T02:03:54.077519+00:00",
+   "id": "silent-im-bade-aka-in-the-bath",
+   "title": "In the Bath",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mwubsx2btp2h",
+   "format": "card",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
