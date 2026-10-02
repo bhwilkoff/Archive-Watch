@@ -1973,6 +1973,68 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mwgw7a2prk2w",
+   "platform": "bluesky",
+   "id": "noveltoon_the_stupidstitious_cat",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-09-26T18:31:11.668838+00:00",
+   "sampled": "2026-10-02T19:57:55.244160+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117338767783462942",
+   "platform": "mastodon",
+   "id": "noveltoon_the_stupidstitious_cat",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-09-26T18:31:11.668838+00:00",
+   "sampled": "2026-10-02T19:57:55.244160+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mwtojpwl3k2w",
+   "platform": "bluesky",
+   "id": "BuDrummonds_Bride",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-01T20:18:34.960409+00:00",
+   "sampled": "2026-10-02T19:57:55.244160+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117367500716981052",
+   "platform": "mastodon",
+   "id": "BuDrummonds_Bride",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-01T20:18:34.960409+00:00",
+   "sampled": "2026-10-02T19:57:55.244160+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }
