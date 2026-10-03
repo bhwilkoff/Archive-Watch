@@ -1,5 +1,39 @@
 # Archive Watch — Session Log (archive)
 
+### 2026-09-28 — the tvOS design loop: truncation, the 2nd-gen box, and older Apple TVs
+
+Owner: *"complete a similar design audit and feature evaluation on the tvOS
+app ... Pay particular attention to button presses that pull up additional
+information or windows, as I notice frequent truncation ... pay attention to
+speed on the slower 2nd generation Apple TV 4k ... investigate if it is
+possible for making a version of the app functional on older apple tv
+hardware"*. v1.42.840 -> .859; log `docs/research/TVOS-DESIGN-LOOP.md`.
+Fireplace is usable for testing since today ("whenever you want").
+
+**Truncation**: a 36-finding code audit, then the glass. More opens the whole
+text on its own page (proven on Fireplace with a 6,654-character synopsis);
+Choose Version (owner's last sighting) said "more than one transfer…" over a
+single copy, cut to a line; Continue Watching clipped "2h 30m left" or lost it
+under a tall poster; the Channels guide broke titles into "Episod / es in…" and
+labeled now+30 min; Join a Room showed no focus at all. All fixed and seen.
+Text Size (tvOS 27 Dynamic Type) on reading and browsing surfaces (`TVType`).
+
+**2nd gen**: Home rebuilt three times at launch (~4.2 s on the main thread: the
+hero decoded 3,000 items to keep 7, tvOS's sidebar builds Home twice); now one
+~0.9 s rebuild. Search, the Movies grid and playback start measured fine.
+Search ranking (all Apple) leads with the typed title or director: "metro" ->
+Metropolis. **Launch focus**: the system sidebar holds it ~20 s; three fixes
+failed, owner: keep the native sidebar (tvOS-DESIGN §2.1a).
+
+**Older Apple TVs** (Decision 148): the HD and 4K 1st gen already install the
+app (tvOS 26 floor, which tvOS 27 dropped them from); `test_tvos_floor.py`
+in appstore-build refuses a floor of 27. Unverified on an A8.
+
+**Also**: TV rights audit judged each episode by its show's first year (166
+late SNL etc. episodes never checked) — fixed; wrong TMDb matches by runtime
+cleared (Bomber wore Dive Bomber); Deploy Pages was red (MCP data build) —
+fixed. Fireplace's microphone: owner chose Allow (the prompt outlived the app).
+
 ### 2026-09-27 (evening) — the macOS audit loop: menus, the Creation Studio, and two real defects
 
 Owner: *"conduct a similar audit and design iteration loop on the MacOS

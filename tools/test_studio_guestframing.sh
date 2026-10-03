@@ -60,7 +60,7 @@ stray=$(grep -n "controls\.framing\b" "$HAN" | code)
 if [ -n "$stray" ]; then
   echo "  FAIL the handles write a specific tile's framing:"; echo "$stray"; fail=1
 else
-  echo "  ok   the handles drive activeFraming and name no tile"
+  echo "  ok   the handles drive one framing accessor and name no tile"
 fi
 
 # 4. THE HANDLES SIT ON THE COMPOSITED RECT, never a re-derivation. Since
@@ -83,7 +83,7 @@ fi
 # 6. NEGATIVE CONTROL. Checks 3 and 5 are greps for absence over awk ranges,
 #    and a range that matches nothing passes for the wrong reason.
 if [ -n "$(awk '/func drawGuests/,/^        }/' "$ENG")" ] \
-   && grep -q "activeFraming" "$HAN"; then
+   && grep -q "private func set(_ id: String, _ f: StudioCameraFraming)" "$HAN"; then
   echo "  ok   control — both files were really read"
 else
   echo "  FAIL control — a search range matched nothing; checks above prove nothing"

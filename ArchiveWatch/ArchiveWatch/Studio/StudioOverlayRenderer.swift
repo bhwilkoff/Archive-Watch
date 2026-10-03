@@ -43,6 +43,10 @@ final class StudioOverlayRenderer: @unchecked Sendable {
     /// The region the last rasterisation actually drew into, so the composite
     /// blends only that.
     private var contentRect: CGRect = .zero
+    /// The top of the shout-out banner in the last overlay rasterised, so the
+    /// chat column can stand clear of it on a card, where the overlay's own
+    /// extent is the whole frame and says nothing about where the banner is.
+    private(set) var shoutOutTop: CGFloat?
     /// Chat is cached separately: it changes every few seconds while the lower
     /// third does not, and one key for both would re-lay the film's title on
     /// every message.
@@ -82,11 +86,14 @@ final class StudioOverlayRenderer: @unchecked Sendable {
     /// Everything that changes the pixels, and nothing that does not — so a
     /// steady lower third is rasterised once for the whole show.
     private static func key(for o: StudioOverlay) -> String {
+        // The shout-out rides on a card as on the film: a host who puts a
+        // message on screen during an intermission meant it to be seen.
+        let shout = o.shoutOut.map { "|s:\($0.author)\u{1F}\($0.text)" } ?? ""
         if let card = o.card {
             switch card {
-            case .startingSoon(let s): return "card:soon:\(s)|\(o.title)"
-            case .intermission: return "card:intermission|\(o.title)"
-            case .ending: return "card:ending"
+            case .startingSoon(let s): return "card:soon:\(s)|\(o.title)" + shout
+            case .intermission: return "card:intermission|\(o.title)" + shout
+            case .ending: return "card:ending" + shout
             // Every line and every rank, because both change the pixels. A key
             // that named only the text would keep a cached raster when the
             // host re-ranked a line, which is precisely the kind of "the
@@ -94,7 +101,7 @@ final class StudioOverlayRenderer: @unchecked Sendable {
             // about — one cache miss away from the same class of bug.
             case .custom(let lines):
                 return "card:custom|" + lines.map { "\($0.rank.rawValue):\($0.text)" }
-                    .joined(separator: "\u{1F}")
+                    .joined(separator: "\u{1F}") + shout
             }
         }
         // ANY line, not the title alone (§D15). The host chooses which of the
@@ -107,7 +114,6 @@ final class StudioOverlayRenderer: @unchecked Sendable {
         // banner never appeared; and once one had appeared under some other
         // key change, it could never expire, because nothing about the frame
         // had changed by the time it was due to come down.
-        let shout = o.shoutOut.map { "|s:\($0.author)\u{1F}\($0.text)" } ?? ""
         let l3 = o.showLowerThird
             && !(o.title.isEmpty && o.subtitle.isEmpty && o.provenance.isEmpty)
         // A shout-out stands on its own: a host may run with every lower-third
@@ -275,14 +281,17 @@ final class StudioOverlayRenderer: @unchecked Sendable {
         if let card = o.card {
             draw(card: card, film: o.title, in: ctx)
             contentRect = CGRect(origin: .zero, size: size)   // a card owns the frame
+            shoutOutTop = o.shoutOut.map { drawShoutOut($0, above: .null, in: ctx).maxY }
         } else {
             contentRect = o.showLowerThird ? drawLowerThird(o, in: ctx) : .null
             // §D26 — ABOVE the lower third, never instead of it. The film's
             // own identity is the one thing that must never be displaced by
             // something a stranger typed.
+            shoutOutTop = nil
             if let s = o.shoutOut {
                 let r = drawShoutOut(s, above: contentRect, in: ctx)
                 contentRect = contentRect.union(r)
+                shoutOutTop = r.maxY
             }
         }
         guard let cg = ctx.makeImage() else { return nil }

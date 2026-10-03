@@ -77,7 +77,8 @@ fi
 # is a live object, so the naming rule above cannot see it. Since §D40 (any
 # number of calls) the Mac re-attaches EVERY call source by id with
 # `attachSource`; `attachGuests` was the one-call form it replaced.
-if echo "$applied" | grep -q "attachSource(id, src.sink, call: true)"; then
+# §D40a: a WINDOW source re-attaches the same way, as a picture with no call.
+if echo "$applied" | grep -q "attachSource(id, src.sink, call:"; then
   echo "  ok   the call's picture is re-attached too"
 else
   echo "  FAIL going live would drop the guests a host set up in the preview"

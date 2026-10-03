@@ -250,8 +250,12 @@ swift_case "8.4b silent server"     "$PUB" "$SHIM" tools/test_rtmp_silent_server
 swift_case "8.37 simulcast"        "$PUB" "$MEDIA" "$SHIM" tools/test_studio_simulcast.swift
 swift_case "8.5 thermal"           "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_thermal.swift
 swift_case "8.6 back-pressure"     "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_backpressure.swift
+# §6.4b — the same throttle twice, adaptation off (the control) then on: on
+# must step the bitrate down, drop under a quarter as many frames, keep the
+# voice, and climb back. ~2 minutes.
+swift_case "8.79 link adaptation" "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_link_adapt.swift
 swift_case "8.15 audio ring FIFO"  "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_ring.swift
-swift_case "8.16 programme rate"   "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$DEC" "$SHIM" tools/test_studio_rate.swift
+swift_case "8.16 programme rate"   "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$DEC" ArchiveWatch/ArchiveWatch/Services/AudioConverterFeed.swift "$SHIM" tools/test_studio_rate.swift
 swift_case "8.17 tap resampler"    "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_resample.swift
 swift_case "8.56 chat quota"          "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_chat_quota.swift
 swift_case "8.59 refresh single-flight" ArchiveWatch/ArchiveWatch/Studio/StudioRefreshGate.swift tools/test_studio_refresh_gate.swift
@@ -288,6 +292,44 @@ swift_case "8.73 scheduled watch-along" "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT
 # capture part by part, the fingerprint. Controls: an apply that drops the
 # sources, and one that applies scenes before sources, must both be caught.
 swift_case "8.75 saved setups" ArchiveWatch/ArchiveWatch/Studio/StudioSetup.swift ArchiveWatch/ArchiveWatch/Studio/StudioSchedule.swift ArchiveWatch/ArchiveWatch/Services/ArchiveVersions.swift ArchiveWatch/ArchiveWatch/Studio/StudioSync.swift "$OUT" "$SHIM" tools/test_studio_setup.swift
+# §D18a — the CALL's audio at its own pitch. A helper app plays a 1 kHz sine,
+# the product's tap captures it (muted at the device, so nothing is heard),
+# the mixer's read is simulated, and the pitch must hold — including across
+# the output device changing rate mid-run, which is what a Bluetooth headset
+# does when a call opens its microphone. The device's rate is restored. The
+# control ignores the change and must hear the pitch move.
+printf '\n=== 8.76 call audio keeps its pitch\n'
+TONEAPP="$SCRATCH/StudioTone.app"
+mkdir -p "$TONEAPP/Contents/MacOS"
+cat > "$TONEAPP/Contents/Info.plist" <<'PLIST'
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0"><dict>
+<key>CFBundleIdentifier</key><string>app.archivewatch.tonetest</string>
+<key>CFBundleExecutable</key><string>ToneTest</string>
+<key>CFBundlePackageType</key><string>APPL</string>
+<key>LSUIElement</key><true/>
+</dict></plist>
+PLIST
+S=ArchiveWatch/ArchiveWatch/Studio
+if xcrun swiftc -O tools/studio_tone_app.swift -o "$TONEAPP/Contents/MacOS/ToneTest" 2> "$SCRATCH/tone.build" \
+   && xcrun swiftc -parse-as-library -O $S/StudioAudio.swift $S/StudioProcessTap.swift $S/StudioAudioProcesses.swift \
+        "$SHIM" tools/test_studio_calltap_rate.swift -o "$SCRATCH/calltap" 2> "$SCRATCH/calltap.build"; then
+  set +e
+  "$SCRATCH/calltap" "$TONEAPP" --switch-rate 2>&1 | grep -v '^20' | tail -8; rc1=${PIPESTATUS[0]}
+  "$SCRATCH/calltap" "$TONEAPP" --control 2>&1 | grep -v '^20' | tail -4; rc2=${PIPESTATUS[0]}
+  if [ "$rc1" = 0 ] && [ "$rc2" = 0 ]; then row "8.76 call audio keeps its pitch" PASS ""; PASS=$((PASS+1))
+  else row "8.76 call audio keeps its pitch" FAIL "exit $rc1/$rc2"; FAIL=$((FAIL+1)); fi
+else
+  row "8.76 call audio keeps its pitch" FAIL "did not compile"; FAIL=$((FAIL+1))
+fi
+# §D22b — chat on EVERY scene, cards included, either side, and moved rather
+# than dropped when a tile sits in its column.
+swift_case "8.77 chat on every scene" "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_chat_every_scene.swift
+# §D14b — the canvas gestures as geometry: an edge cuts and the picture stays
+# still, a corner scales with proportions, pan and zoom stay inside the source.
+# Control: §D14a's reshape of an aspect-filled box must be seen to move it.
+swift_case "8.78 canvas framing gestures" "$PUB" "$ENG" "$REC" "$CHATFILTER" "$OUT" "$AUD" "$OVL" "$CHAT" "$CHATYT" "$SHIM" tools/test_studio_framing_gestures.swift
 # The camera-stall recovery RULE, which lived inside tvOS's own view loop and
 # so existed on exactly one platform while PARITY said "no recovery yet" for
 # the other two. No $ENG: the rule is a pure value type on purpose.
@@ -430,14 +472,14 @@ fi
 # precisely the condition §9.aaa describes: a test that exists and therefore
 # does not get run. Both send DELIBERATELY invalid credentials to the real
 # endpoints and need no account, no server and no device — only a network.
-swift_case "8.2 sign-in shapes"    "$AUTH" "$PLAT" "$GATE" "$SHIM" tools/test_studio_signin.swift
-swift_case "8.7 live-platform shapes" "$AUTH" "$PLAT" "$GATE" "$SHIM" tools/test_studio_live_shapes.swift
+swift_case "8.2 sign-in shapes"    "$AUTH" "$PLAT" "$GATE" ArchiveWatch/ArchiveWatch/Studio/StudioSchedule.swift ArchiveWatch/ArchiveWatch/Studio/StudioSetup.swift "$SHIM" tools/test_studio_signin.swift
+swift_case "8.7 live-platform shapes" "$AUTH" "$PLAT" "$GATE" ArchiveWatch/ArchiveWatch/Studio/StudioSchedule.swift ArchiveWatch/ArchiveWatch/Studio/StudioSetup.swift "$SHIM" tools/test_studio_live_shapes.swift
 # The REGISTERED clients. Skips (exit 2) where Secrets.xcconfig carries no
 # client id, which is every machine but the owner's - and a skip is not a
 # pass, so `--strict` makes it a failure once the ids exist. 8.2 proves the
 # shapes with credentials that are wrong on purpose; this proves OUR
 # registration accepts them, which is a defect class 8.2 cannot see.
-swift_case "8.9 registered clients" "$AUTH" "$PLAT" "$GATE" "$SHIM" tools/test_studio_registered.swift
+swift_case "8.9 registered clients" "$AUTH" "$PLAT" "$GATE" ArchiveWatch/ArchiveWatch/Studio/StudioSchedule.swift ArchiveWatch/ArchiveWatch/Studio/StudioSetup.swift "$SHIM" tools/test_studio_registered.swift
 # §5's credential rule, guarded. Needs no network and no account: it throws a
 # sentinel key at every error path the publisher can reach and asserts the
 # string comes back in none of them. Its first run found a live leak.
@@ -719,7 +761,7 @@ swift_case "8.10 stream-key hygiene" "$PUB" "$SHIM" tools/test_studio_key_hygien
 # it cannot disturb a real sign-in. Reports the keychain CHOICE rather than
 # judging it — an unentitled binary cannot reach the data-protection keychain,
 # so that question belongs inside the signed app (§9.rrr).
-swift_case "8.11 token store"       "$AUTH" "$PLAT" "$GATE" "$SHIM" tools/test_studio_token_store.swift
+swift_case "8.11 token store"       "$AUTH" "$PLAT" "$GATE" ArchiveWatch/ArchiveWatch/Studio/StudioSchedule.swift ArchiveWatch/ArchiveWatch/Studio/StudioSetup.swift "$SHIM" tools/test_studio_token_store.swift
 # ---- the rights tests, which need no server at all
 for t in tools/test_studio_rights_parity.py tools/test_studio_rights_coverage.py; do
   name="$(basename "$t")"

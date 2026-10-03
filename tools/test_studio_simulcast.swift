@@ -52,10 +52,14 @@ struct Simulcast {
         let conf = """
         rtmp: yes
         rtmpAddress: :\(port)
-        rtspAddress: :19371
-        hlsAddress: :19372
-        webrtcAddress: :19373
-        srtAddress: :19374
+        rtsp: no
+        hls: no
+        webrtc: no
+        srt: no
+        moq: no
+        playback: no
+        metrics: no
+        pprof: no
         api: no
         logLevel: info
         pathDefaults:

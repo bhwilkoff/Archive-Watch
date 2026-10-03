@@ -88,6 +88,38 @@ final class AudioRing: @unchecked Sendable {
         buffer = [Float](repeating: 0, count: capacity)
     }
 
+    // MARK: Lip sync (macOS-DESIGN §D42)
+
+    /// When the NEWEST sample in the ring was captured, on the host clock
+    /// (`CACurrentMediaTimeCompat`'s), or nil for a source that does not say.
+    private(set) var newestCapturedAt: CFTimeInterval?
+    /// Silence still to be played before the next real sample: how a ring is
+    /// DELAYED without discarding anything or padding mid-word.
+    private var pendingSilence = 0
+    /// How old the picture that belongs with this sound is when it is
+    /// composited — the host's camera for the microphone, a call's window for
+    /// its audio. Set by the engine; the mixer holds the ring to it.
+    var syncTargetAge: Double?
+
+    /// The age, at this instant, of the next sample a read would return —
+    /// what the audience hears now against what happened in the room.
+    func headAge(now: CFTimeInterval, rate: Double) -> Double? {
+        lock.lock(); defer { lock.unlock() }
+        guard let newestCapturedAt else { return nil }
+        return now - newestCapturedAt + Double(available + pendingSilence) / 2 / rate
+    }
+
+    /// Delay everything still to come by `count` samples of silence.
+    func delay(by count: Int) {
+        lock.lock(); pendingSilence += max(0, count) & ~1; lock.unlock()
+    }
+
+    func write(_ samples: UnsafePointer<Float>, count: Int, capturedAt: CFTimeInterval?) {
+        write(samples, count: count)
+        guard let capturedAt else { return }
+        lock.lock(); newestCapturedAt = capturedAt; lock.unlock()
+    }
+
     func write(_ samples: UnsafePointer<Float>, count: Int) {
         guard count > 0 else { return }
         lock.lock()
@@ -135,7 +167,15 @@ final class AudioRing: @unchecked Sendable {
     /// Returns how many were real.
     func read(into out: UnsafeMutablePointer<Float>, count: Int) -> Int {
         lock.lock()
-        let have = min(available, count)
+        // A requested delay plays first, as silence that is not a shortfall.
+        let quiet = min(pendingSilence, count)
+        if quiet > 0 {
+            pendingSilence -= quiet
+            for i in 0..<quiet { out[i] = 0 }
+            if quiet == count { lock.unlock(); return 0 }
+        }
+        let rest = count - quiet
+        let have = min(available, rest)
         // THE OLDEST UNREAD SAMPLE, NOT THE NEWEST.
         //
         // This was `writeIndex - have`, which is the newest `have` samples —
@@ -161,16 +201,16 @@ final class AudioRing: @unchecked Sendable {
         // read starts exactly where this one stopped, wherever the writer has
         // got to meanwhile.
         let start = ((writeIndex - available) % capacity + capacity) % capacity
-        for i in 0..<have { out[i] = buffer[(start + i) % capacity] }
-        for i in have..<count { out[i] = 0 }
+        for i in 0..<have { out[quiet + i] = buffer[(start + i) % capacity] }
+        for i in (quiet + have)..<count { out[i] = 0 }
         available -= have
-        if have < count { framesPadded += count - have }
+        if have < rest { framesPadded += rest - have }
         lock.unlock()
         return have
     }
 
     func silenceAll() {
-        lock.lock(); available = 0; lock.unlock()
+        lock.lock(); available = 0; pendingSilence = 0; lock.unlock()
     }
 }
 
@@ -914,7 +954,12 @@ public final class MicAudioTap: NSObject, AVCaptureAudioDataOutputSampleBufferDe
                 guard let outBase = out.baseAddress else { return }
                 let n = resampler.process(src, inFrames: frames,
                                           out: outBase, outCapacity: cap)
-                if n > 0 { ring.write(outBase, count: n * 2) }
+                // WHEN THE LAST SAMPLE WAS SPOKEN, so the mixer can hold the
+                // voice to the age of the camera's picture (§D42).
+                let pts = CMSampleBufferGetPresentationTimeStamp(sampleBuffer)
+                let end = StudioCaptureClock.hostSeconds(pts, from: session?.synchronizationClock)
+                    .map { $0 + Double(frames) / asbd.mSampleRate }
+                if n > 0 { ring.write(outBase, count: n * 2, capturedAt: end) }
             }
         }
     }
@@ -944,6 +989,15 @@ public struct StudioAudioHealth: Sendable, Equatable {
     /// Roadmap #4. Reported separately from `micLevel`, which stays RAW.
     public var micGateEnabled = false
     public var micGateOpen = true
+    /// Packets the mixer had to make up because its timer fired late — a
+    /// busy machine, visible rather than silently shortening the audio.
+    public var mixerCatchUpPackets = 0
+    /// §D42 — how far the host's voice is from their picture (positive =
+    /// the voice is late), and the call's from its window; nil until both
+    /// sides report a capture time.
+    public var micSyncError: Double?
+    public var callSyncError: Double?
+    public var syncCorrections = 0
 }
 
 /// THE MICROPHONE GATE — roadmap #4, as a rule you can test without an engine.
@@ -1160,6 +1214,13 @@ final class StudioAudioMixer: @unchecked Sendable {
 
     /// Replaces the placeholder mic tap with the one the platform built
     /// against its own capture session.
+    /// §D42 — the picture ages the engine measured: the host's camera for
+    /// the microphone, each call's window for that call's audio (by key).
+    func setSyncTargets(mic: Double?, calls: [String: Double]) {
+        self.mic.ring.syncTargetAge = mic
+        for (key, ring) in currentCallRings() { ring.syncTargetAge = calls[key] }
+    }
+
     func adopt(mic tap: MicAudioTap) {
         tap.programRate = rate
         mic = tap
@@ -1242,7 +1303,94 @@ final class StudioAudioMixer: @unchecked Sendable {
         asc = StudioAudioMixer.defaultASC(rate: rate, channels: 2)
     }
 
+    /// THE AUDIO CLOCK IS THE WALL CLOCK, as the picture's is.
+    ///
+    /// A `DispatchSourceTimer` that cannot run on time does not queue its
+    /// missed fires — it merges them into one call. So under load (the first
+    /// full show, 2026-10-02, stuttered with 451 frames dropped) every merged
+    /// fire was a 23 ms packet that was never made: the audio timeline fell
+    /// behind the video's, which renders late frames back to back and so
+    /// keeps wall time, and the host's voice drifted off their lips. Now each
+    /// tick makes every packet that is DUE, up to a burst, and counts them.
+    private var clockStart: CFTimeInterval?
+    private var packetsAtClockStart = 0
+
     private func tick() {
+        let interval = Double(Self.framesPerPacket) / rate
+        let now = CACurrentMediaTimeCompat()
+        guard let start = clockStart else {
+            if mixOne() {
+                clockStart = now
+                packetsAtClockStart = packetsOut
+            }
+            return
+        }
+        let due = packetsAtClockStart + Int(((now - start) / interval).rounded(.down))
+        var behind = due - packetsOut
+        if behind > Int(2 / interval) {
+            // Two seconds behind is not load, it is a machine that slept or
+            // a debugger that paused: resynchronise rather than burst.
+            clockStart = now
+            packetsAtClockStart = packetsOut
+            behind = 0
+        }
+        if behind > 1 {
+            healthLock.lock(); health.mixerCatchUpPackets += behind - 1; healthLock.unlock()
+        }
+        var made = 0
+        repeat {
+            _ = mixOne()
+            made += 1
+        } while packetsOut < due && made < 8
+    }
+
+    // MARK: Lip sync (macOS-DESIGN §D42)
+    //
+    // Owner, 2026-10-02, after the first full show: *"The audio from my
+    // microphone did not (for the most part) line up perfectly with my
+    // video."* Nothing lined them up. The microphone reached the mix in a few
+    // milliseconds and the camera's picture took a camera's latency — tens of
+    // milliseconds for a built-in one, hundreds for a borrowed iPhone — and
+    // the mic ring sat at whatever depth it happened to settle at when the
+    // show began. Now the engine measures how old the host's camera frame is
+    // when it is composited (`syncTargetAge`) and the mixer holds the voice
+    // to the same age: silence inserted or the oldest audio dropped, a few
+    // milliseconds at a time, only while the host is quiet unless it is far
+    // off. A call's audio is held to its window's picture the same way.
+
+    private var syncTicks = 0
+    private var syncCorrections = 0
+    private var lastMicRMS: Float = 0
+    private var lastCallRMS: Float = 0
+    /// A constant added to every target, for measuring the rig against
+    /// itself (`AW_STUDIO_SYNC_TRIM_MS`); zero in the product.
+    static let syncTrimSeconds: Double = {
+        (Double(ProcessInfo.processInfo.environment["AW_STUDIO_SYNC_TRIM_MS"] ?? "") ?? 0) / 1000
+    }()
+    /// `AW_STUDIO_SYNC=off` — the control: the old behavior, unaligned.
+    static let syncEnabled = ProcessInfo.processInfo.environment["AW_STUDIO_SYNC"] != "off"
+
+    /// Returns the error it found (positive = the sound is LATE).
+    private func align(_ ring: AudioRing, quiet: Bool, now: CFTimeInterval) -> Double? {
+        guard let target = ring.syncTargetAge,
+              let age = ring.headAge(now: now, rate: rate) else { return nil }
+        let err = age - (target + Self.syncTrimSeconds)
+        guard Self.syncEnabled else { return err }
+        // ROOM FOR THE DELAY: the latency cap must sit above the target, or
+        // the ring trims away exactly the backlog this is building.
+        ring.maxBacklog = max(MicAudioTap.backlogSamples, Int((target + 0.15) * rate) * 2)
+        guard abs(err) > 0.015 else { return err }
+        guard quiet || abs(err) > 0.08 else { return err }
+        let samples = Int(abs(err) * rate) * 2
+        if err < 0 { ring.delay(by: samples) } else { ring.discardOldest(samples) }
+        syncCorrections += 1
+        return err
+    }
+
+    /// One packet. False while the mixer is still waiting for the film to
+    /// deliver (see below), when nothing was made.
+    @discardableResult
+    private func mixOne() -> Bool {
         let n = Self.framesPerPacket
         let samples = n * 2
 
@@ -1269,9 +1417,25 @@ final class StudioAudioMixer: @unchecked Sendable {
                 primeTicksWaited += 1
                 // ~30 ticks is 0.7 s, which is longer than any prime observed
                 // and short enough that a silent film is not left waiting.
-                if primeTicksWaited < 30 { return }
+                if primeTicksWaited < 30 { return false }
                 filmHasPrimed = true
             }
+        }
+
+        let calls = currentCallRings().map(\.1)
+        syncTicks += 1
+        if syncTicks % 20 == 0 {
+            let now = CACurrentMediaTimeCompat()
+            let micErr = align(mic.ring, quiet: lastMicRMS < 0.01, now: now)
+            var callErr: Double?
+            for ring in calls {
+                if let e = align(ring, quiet: lastCallRMS < 0.01, now: now) { callErr = e }
+            }
+            healthLock.lock()
+            health.micSyncError = micErr
+            health.callSyncError = callErr
+            health.syncCorrections = syncCorrections
+            healthLock.unlock()
         }
 
         let filmReal = film.ring.read(into: pcm, count: samples)
@@ -1280,7 +1444,6 @@ final class StudioAudioMixer: @unchecked Sendable {
         // The call, when there is one. `read` zero-fills what it cannot
         // supply, so an absent or starved channel contributes silence rather
         // than the previous chunk again.
-        let calls = currentCallRings().map(\.1)
         Self.sumCalls(calls, into: callPcm, scratch: callScratch, count: samples)
         let anyCall = !calls.isEmpty
 
@@ -1294,7 +1457,9 @@ final class StudioAudioMixer: @unchecked Sendable {
         }
         let filmRMS = (filmSum / Float(samples)).squareRoot()
         let micRMS = (micSum / Float(samples)).squareRoot()
+        lastMicRMS = micRMS
         let callRMS = (callSum / Float(samples)).squareRoot()
+        lastCallRMS = callRMS
 
         // Smooth the duck so it is a fade, not a click: ~40 ms attack, ~300 ms
         // release, which is what a viewer hears as "the film got out of the way".
@@ -1364,6 +1529,7 @@ final class StudioAudioMixer: @unchecked Sendable {
         health.aacFramesEncoded = packetsOut
         healthLock.unlock()
         _ = filmReal
+        return true
     }
 
     private struct Source { let data: UnsafeRawPointer; let bytes: UInt32; var used: Bool }
@@ -1424,6 +1590,29 @@ final class StudioAudioMixer: @unchecked Sendable {
 // the higher one. §8.38 found it by failing to build a test of `MicGate` — a
 // value type with no ring, no encoder and no clock — because one inline
 // function lived a layer up.
+/// A capture buffer's timestamp, on the HOST clock `CACurrentMediaTimeCompat`
+/// reads — so the age of a camera frame and of a microphone sample can be
+/// compared although each comes from its own capture session and clock.
+enum StudioCaptureClock {
+    static func hostSeconds(_ pts: CMTime, from clock: CMClock?) -> CFTimeInterval? {
+        guard pts.isValid, pts.isNumeric else { return nil }
+        let t = clock.map { CMSyncConvertTime(pts, from: $0, to: CMClockGetHostTimeClock()) } ?? pts
+        let s = CMTimeGetSeconds(t)
+        guard s.isFinite else { return nil }
+        // A clock we have misread gives an age of minutes or a negative one;
+        // that is no timestamp at all, and the caller is told so.
+        let age = CACurrentMediaTimeCompat() - s
+        return age > -0.05 && age < 2 ? s : nil
+    }
+
+    /// An `AudioTimeStamp`'s host time, in the same seconds.
+    static func hostSeconds(machTime: UInt64) -> CFTimeInterval {
+        var tb = mach_timebase_info_data_t()
+        mach_timebase_info(&tb)
+        return Double(machTime) * Double(tb.numer) / Double(tb.denom) / 1_000_000_000
+    }
+}
+
 @inline(__always) func CACurrentMediaTimeCompat() -> CFTimeInterval {
     var t = mach_timebase_info_data_t()
     mach_timebase_info(&t)

@@ -150,6 +150,10 @@ struct BackPressureHarness {
         config.audioBitrate = 128_000
         let publisher = RTMPPublisher()
         let engine = StudioEngine(configuration: config, publisher: publisher)
+        // §6.4b's adaptation OFF: this case proves §6.4a's last resort — the
+        // drop — and a 400 kbps link is below the adaptation's 1.5 Mbps floor
+        // anyway. §8.79 proves the adaptation against this same behavior.
+        await engine.setLinkAdaptation(false)
         print("WATCH-TOGETHER §8.6 — §6.4 back-pressure on the REAL engine")
         print("  program \(config.videoBitrate / 1000) kbps video + \(config.audioBitrate / 1000) kbps audio")
         print("  uplink throttled to \(Int(throttleBps / 1000)) kbps for \(Int(throttlePhase))s "

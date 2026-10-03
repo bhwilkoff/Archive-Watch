@@ -16,7 +16,7 @@ public struct StudioSetup: Codable, Equatable, Sendable {
     /// A camera by its device, or a call SLOT by its app. A call's window is
     /// never stored: the system picker gives no lasting handle (§D23b).
     public struct Source: Codable, Equatable, Sendable {
-        public enum Kind: String, Codable, Sendable { case camera, call }
+        public enum Kind: String, Codable, Sendable { case camera, call, window }
         public var id: String
         public var kind: Kind
         /// `AVCaptureDevice.uniqueID`; nil is the system default. Nil for a call.

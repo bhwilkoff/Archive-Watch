@@ -43,6 +43,7 @@ final class StudioSources {
 
     var cameras: [StudioSourceRef] { list.filter { $0.kind == .camera } }
     var calls: [StudioSourceRef] { list.filter { $0.kind == .call } }
+    var windows: [StudioSourceRef] { list.filter { $0.kind == .window } }
     var primaryCameraID: String? { cameras.first?.id }
     var primaryCallID: String? { calls.first?.id }
     func source(_ id: String) -> StudioSourceRef? { list.first { $0.id == id } }
@@ -52,6 +53,14 @@ final class StudioSources {
     @discardableResult
     func addCamera(deviceID: String?) -> String {
         let ref = StudioSourceRef.newCamera(deviceID: deviceID)
+        list.append(ref)
+        changed()
+        return ref.id
+    }
+
+    @discardableResult
+    func addWindow() -> String {
+        let ref = StudioSourceRef.newWindow()
         list.append(ref)
         changed()
         return ref.id
@@ -73,7 +82,7 @@ final class StudioSources {
         list.removeAll { $0.id == id }
         let session = StudioSession.shared
         switch ref.kind {
-        case .call: session.stopCall(id)
+        case .call, .window: session.stopCall(id)
         case .camera: Task { await session.rebuildCamera(id) }   // gone from the list: stops it
         }
         StudioScenes.shared.forget(id)
@@ -153,6 +162,10 @@ final class StudioSources {
             if let app = ref.appName { return "\(app) — choose its window" }
             let n = (calls.firstIndex { $0.id == id } ?? 0) + 1
             return calls.count > 1 ? "Call \(n) — no window chosen" : "Call — no window chosen"
+        case .window:
+            if let label = StudioSession.shared.callLabel(id) { return label }
+            if let app = ref.appName { return "\(app) — choose its window" }
+            return "Window — not chosen"
         }
     }
 
@@ -165,7 +178,7 @@ final class StudioSources {
         case .camera:
             if session.cameraIsRunning(id) { return session.cameraStalls[id] }
             return session.cameraProblem(id)
-        case .call:
+        case .call, .window:
             // A call with no window says so in its NAME; only a fault needs
             // a line of its own.
             if session.callIsRunning(id) { return session.callStalls[id] }

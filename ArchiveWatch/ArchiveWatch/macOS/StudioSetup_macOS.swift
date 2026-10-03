@@ -135,6 +135,8 @@ final class StudioMacSetups: StudioSetupTarget {
                              name: sources.cameraName(ref))
             case .call:
                 return .init(id: ref.id, kind: .call, name: ref.appName)
+            case .window:
+                return .init(id: ref.id, kind: .window, name: ref.appName)
             }
         }
     }
@@ -177,9 +179,10 @@ final class StudioMacSetups: StudioSetupTarget {
 
     func applySources(_ list: [StudioSetup.Source]) {
         StudioSources.shared.replace(with: list.map {
-            StudioSourceRef(id: $0.id, kind: $0.kind == .camera ? .camera : .call,
+            StudioSourceRef(id: $0.id,
+                            kind: $0.kind == .camera ? .camera : ($0.kind == .window ? .window : .call),
                             deviceID: $0.kind == .camera ? $0.deviceID : nil,
-                            appName: $0.kind == .call ? $0.name : nil)
+                            appName: $0.kind == .camera ? nil : $0.name)
         })
     }
 

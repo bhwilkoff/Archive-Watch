@@ -116,8 +116,10 @@ import Foundation
             guard let cl = layout.chatRect(in: size, cameraAspect: camAspect, side: .left),
                   let cr = layout.chatRect(in: size, cameraAspect: camAspect, side: .right)
             else { continue }
+            // A camera that IS the frame (`host`) is the ground chat sits on;
+            // only a camera TILE can be covered (§D22b).
             guard let cam = layout.rects(in: size, cameraAspect: camAspect).camera,
-                  layout.showsCamera else { continue }
+                  layout.showsCamera, layout.cameraIsTile else { continue }
             for (name, rect) in [("left", cl), ("right", cr)] {
                 if rect.intersects(cam.insetBy(dx: 4, dy: 4)) {
                     print("FAIL: in \(layout.rawValue), chat on the \(name) overlaps the camera")

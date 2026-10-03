@@ -371,6 +371,35 @@ buffer passes its high-water mark. Measured: the counter sat at 0 through the
 open phase, climbed once the uplink narrowed, and returned to 0 the second it
 re-opened. Roughly three seconds of the stack's own buffering is absorbed
 before it moves, which is slack to expect rather than a fault.
+
+### §6.4b A link that cannot keep up lowers the BITRATE before it drops a frame, and a drop ends at once (binding, 2026-10-02)
+
+The engine reads each video send's outcome (`RTMPPublisher.SendOutcome`):
+how full the queue is, what the link actually carried over the last second
+while a queue stood, and whether a drop is in progress. A queue past **60%**
+of §6.4a's budget, or a drop beginning, steps the bitrate down — straight to
+**80% of what the link carried** less the audio when that was measured, by a
+quarter otherwise — at most every 3 s and never below **1.5 Mbps**. **Ten
+clear seconds** (queue under 10%) step it back up by 20% toward the host's
+setting, never above §6.5's thermal step. A drop that has drained to half
+the budget asks for a **keyframe at once** (at most every 0.5 s). Each step is
+said on the readout (§5); the host's own bitrate change clears the ceiling.
+
+**Why.** The owner's first full show (2026-10-02): *"It said dropped 451 (it
+did stutter occasionally)."* §6.4a's drop was the only defence, and every drop
+froze the picture until the next scheduled keyframe — up to 59 frames on a 2 s
+GOP. Measured against `rtmp_throttle_proxy.py` (6 Mbps program, a 1.8 Mbps
+link for 40 s): **263 frames dropped** with the old behavior
+(`AW_STUDIO_LINK_ADAPT=off`), **80** stepping by quarters, **0** stepping to
+the measured link (6000 → 1574 kbps in one step, then up as it cleared).
+§8.79 holds it on a saturating clip: 210 dropped off, **0** on. The 3.5 Mbps case dropped nothing either way, because this film
+encodes under that — a throttle is only a control if it binds.
+
+**How to apply**: never answer congestion with resolution or frame rate (§6.5:
+an RTMP ingest refuses a format change mid-publish). `AWLINK step down/up`
+lines and the always-on `AWSHOW` line (`vdrop`, `kbps`, `queued`) are the
+post-mortem of a real show: `log show --predicate 'subsystem ==
+"app.archivewatch.studio"'`.
 5. Thermal: `.serious` lowers the **bitrate** and says so; `.critical` ends
    the show with the end card. See §6.5 — this used to say "halves the encode
    resolution", which would have broken the publish it was meant to save.

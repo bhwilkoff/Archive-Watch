@@ -739,6 +739,41 @@ keep serving it.
 
 ## Session Log
 
+### 2026-10-02 — the first full show's seven notes, fixed and tested on the Mac
+
+Owner, after streaming a whole film: dropped 451 and a stutter; resizing and
+cropping "very hard"; the mic off the lips; the call "like a chipmunk"; chat on
+only some scenes; no way to order the feeds; no window without "add a call".
+v1.44.12 -> 1.44.13 (2095). Each is a design-doc section, measured or seen on the glass:
+
+- **Drops** (WATCH-TOGETHER §6.4b, Decision 161): the engine steps the bitrate to
+  80% of what the link carried before dropping, asks for a keyframe once a drop
+  drains, steps back up. Throttled 6 Mbps -> 1.8 Mbps: 263 dropped -> 0. §8.79.
+- **Canvas** (macOS-DESIGN §D14b): corners resize, edge bars crop with the
+  picture held still, ⌥-drag slides, scroll zooms, any tile grabbed where drawn,
+  right-click Arrange/Reset. The old drag read a moving view's local space.
+  Driven with real pointer drags on the running Studio. §8.78 (geometry).
+- **Lip sync** (§D42, Decision 160): capture timestamps on every source; the
+  voice held to the camera frame's age (+40..65 ms late -> +2..13). The mixer no
+  longer loses packets its timer missed. No physical flash/beep check: the
+  camera faces a bright window.
+- **Chipmunk call** (§D42): the tap followed its device's rate only at start
+  and chained a headset mic's buffers in. §8.76 (tone, rate switched mid-run).
+- **Chat** (§D22b): never drawn on a card scene; gave up instead of moving
+  sides; scene switches blanked it. §8.77. **The owner's own "Film" scene has
+  chat OFF** — that, plus four card scenes, is why only Discussion showed it.
+- **Layers**: canvas right-click + Broadcast ▸ Arrange (⇧⌘F ⌥⇧⌘F ⌥⇧⌘B ⇧⌘B).
+- **Windows** (§D40a): Add Window… — any app's window, picture only, at its
+  own shape (was pillarboxed into 16:9); media players refused.
+- **Every show now leaves `AWSHOW`** (unified log, every 10 s, every build).
+
+Also: the suite's 8.2/8.7/8.9/8.16 had stopped compiling (missing sources);
+DECISIONS.md rolled 127-145 to an archive. Bench runs left Debug copies open
+(owner: "6 different copies") — the bench now closes each after its show.
+**Open**: the saved Sources list holds only the camera (no call slot) — not
+traced to these runs; the owner should re-add their call. A physical lip-sync
+check needs a camera that can see a flash. A Mac release carrying this.
+
 ### 2026-09-29 — the Android audit loop: phone and Google TV, fix what is found
 
 Owner: *"a full audit of the android surfaces and app ... both a full rundown of
@@ -769,39 +804,5 @@ Commons or fair use only (Decision 153). Then release lint to zero errors and th
 dependency pass (Android 6 floor held: material3 and play-services-auth pinned).
 **Still open**: YouTube sign-in on Android (`docs/ANDROID-YOUTUBE-SIGNIN.md`,
 after the quota review); no Play upload until the version in review is approved.
-
-### 2026-09-28 — the tvOS design loop: truncation, the 2nd-gen box, and older Apple TVs
-
-Owner: *"complete a similar design audit and feature evaluation on the tvOS
-app ... Pay particular attention to button presses that pull up additional
-information or windows, as I notice frequent truncation ... pay attention to
-speed on the slower 2nd generation Apple TV 4k ... investigate if it is
-possible for making a version of the app functional on older apple tv
-hardware"*. v1.42.840 -> .859; log `docs/research/TVOS-DESIGN-LOOP.md`.
-Fireplace is usable for testing since today ("whenever you want").
-
-**Truncation**: a 36-finding code audit, then the glass. More opens the whole
-text on its own page (proven on Fireplace with a 6,654-character synopsis);
-Choose Version (owner's last sighting) said "more than one transfer…" over a
-single copy, cut to a line; Continue Watching clipped "2h 30m left" or lost it
-under a tall poster; the Channels guide broke titles into "Episod / es in…" and
-labeled now+30 min; Join a Room showed no focus at all. All fixed and seen.
-Text Size (tvOS 27 Dynamic Type) on reading and browsing surfaces (`TVType`).
-
-**2nd gen**: Home rebuilt three times at launch (~4.2 s on the main thread: the
-hero decoded 3,000 items to keep 7, tvOS's sidebar builds Home twice); now one
-~0.9 s rebuild. Search, the Movies grid and playback start measured fine.
-Search ranking (all Apple) leads with the typed title or director: "metro" ->
-Metropolis. **Launch focus**: the system sidebar holds it ~20 s; three fixes
-failed, owner: keep the native sidebar (tvOS-DESIGN §2.1a).
-
-**Older Apple TVs** (Decision 148): the HD and 4K 1st gen already install the
-app (tvOS 26 floor, which tvOS 27 dropped them from); `test_tvos_floor.py`
-in appstore-build refuses a floor of 27. Unverified on an A8.
-
-**Also**: TV rights audit judged each episode by its show's first year (166
-late SNL etc. episodes never checked) — fixed; wrong TMDb matches by runtime
-cleared (Bomber wore Dive Bomber); Deploy Pages was red (MCP data build) —
-fixed. Fireplace's microphone: owner chose Allow (the prompt outlived the app).
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).

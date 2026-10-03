@@ -518,13 +518,56 @@ public actor RTMPPublisher {
     /// the encoder's own callback thread (`EncodedVideoFrame.init`), because a
     /// `CMSampleBuffer` is not `Sendable` and must not cross into this actor —
     /// and the conversion is a memcpy we were doing anyway.
-    public func send(video frame: EncodedVideoFrame) {
-        guard health.state == .publishing, let config else { return }
+    /// What the engine needs back from a send to manage a congested link:
+    /// how full the queue is, and whether a keyframe now would end a drop.
+    public struct SendOutcome: Sendable {
+        public var queueFraction: Double = 0
+        public var wantsKeyframe = false
+        public var startedDropping = false
+        /// What the link actually carried over the last second, in bits per
+        /// second — measured only while a queue is standing, because an
+        /// empty queue says the SOURCE was the limit, not the link.
+        public var linkBps: Int?
+    }
+    private var drainWindowStart: Double = 0
+    private var drainWindowBytes = 0
+    private var drainWindowQueued = false
+    private var lastLinkBps: Int?
+
+    @discardableResult
+    public func send(video frame: EncodedVideoFrame) -> SendOutcome {
+        var outcome = SendOutcome()
+        guard health.state == .publishing, let config else { return outcome }
+        outcome.queueFraction = Double(health.queuedBytes) / Double(max(1, maxQueuedBytes))
+        let now = ProcessInfo.processInfo.systemUptime
+        if health.queuedBytes > maxQueuedBytes / 5 { drainWindowQueued = true }
+        if now - drainWindowStart >= 1 {
+            let carried = health.bytesSent - drainWindowBytes
+            lastLinkBps = drainWindowQueued && drainWindowStart > 0
+                ? Int(Double(carried * 8) / (now - drainWindowStart)) : nil
+            drainWindowStart = now
+            drainWindowBytes = health.bytesSent
+            drainWindowQueued = false
+        }
+        outcome.linkBps = lastLinkBps
         if health.queuedBytes > maxQueuedBytes && !frame.isKeyframe {
+            if !droppingUntilKeyframe { outcome.startedDropping = true }
             droppingUntilKeyframe = true
         }
         if droppingUntilKeyframe {
-            if frame.isKeyframe { droppingUntilKeyframe = false } else { health.videoFramesDropped += 1; return }
+            if frame.isKeyframe {
+                droppingUntilKeyframe = false
+            } else {
+                health.videoFramesDropped += 1
+                // A DROP LASTS AS LONG AS THE CONGESTION, NOT THE GOP. Every
+                // P-frame after a dropped one is undecodable, so the picture
+                // stays frozen until a keyframe — which on a 2 s GOP meant up
+                // to 59 frames per hiccup (the first full show counted 451).
+                // Once the queue has drained to half, a keyframe can resume
+                // the picture at once.
+                outcome.wantsKeyframe = health.queuedBytes < maxQueuedBytes / 2
+                return outcome
+            }
         }
         if !sentSequenceHeaders {
             sendSequenceHeaders(config)
@@ -539,6 +582,7 @@ public actor RTMPPublisher {
         lastVideoTimestamp = ts
         send(message: .media(type: 9, timestamp: ts, streamID: streamID, chunkStreamID: 6, payload: tag))
         health.videoFramesSent += 1
+        return outcome
     }
 
     /// One AAC frame (raw, no ADTS) with its presentation time.

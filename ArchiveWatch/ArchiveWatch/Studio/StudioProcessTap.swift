@@ -35,7 +35,16 @@ public final class StudioCallAudioTap: NSObject, @unchecked Sendable {
                          maxBacklog: MicAudioTap.backlogSamples)
 
     private let programRate: Double
-    private let resampler = PolyphaseResampler()
+    /// Replaced, never reconfigured in place, when the device changes rate:
+    /// the render callback holds `rateLock` only to read this reference.
+    private var resampler = PolyphaseResampler()
+    private let rateLock = NSLock()
+    private var rateListener: AudioObjectPropertyListenerBlock?
+    private let listenerQueue = DispatchQueue(label: "studio.calltap.rate")
+    /// The tap's own stream: how many channels, and whether they arrive as
+    /// one interleaved buffer or one buffer each.
+    private var tapChannels = 2
+    private var tapInterleaved = true
     private var tap = AudioObjectID(kAudioObjectUnknown)
     private var aggregate = AudioObjectID(kAudioObjectUnknown)
     private var procID: AudioDeviceIOProcID?
@@ -45,6 +54,19 @@ public final class StudioCallAudioTap: NSObject, @unchecked Sendable {
     /// "no conversation is being captured" and "this app is silent" are the
     /// same observation.
     public private(set) var samplesReceived: Int = 0
+    /// The SHAPE of what the aggregate hands the callback — buffers per
+    /// call and channels in each — so a harness (and a log line) can see a
+    /// headset's own input stream or a non-interleaved tap instead of
+    /// inferring it from how the voice sounds.
+    public private(set) var lastBufferShape: [Int] = []
+    /// The rate the resampler is converting FROM.
+    public private(set) var sourceRate: Double = 0
+    /// Harness only: mute the tapped process at its device, so a test tone
+    /// is captured without being played into the room.
+    public var muteTappedProcess = false
+    /// Harness only: the §8.76 control turns this off and must hear the
+    /// pitch move.
+    public var followsRateChanges = true
 
     /// Source-rate interleaved stereo, before resampling.
     private var srcScratch = [Float](repeating: 0, count: 16384 * 2)
@@ -81,7 +103,7 @@ public final class StudioCallAudioTap: NSObject, @unchecked Sendable {
         // call they are in. Muting it would capture the conversation and
         // deafen the person having it.
         desc.isPrivate = true
-        desc.muteBehavior = .unmuted
+        desc.muteBehavior = muteTappedProcess ? .muted : .unmuted
         guard AudioHardwareCreateProcessTap(desc, &tap) == noErr,
               tap != kAudioObjectUnknown else {
             return "macOS would not let the Studio listen to \(process.name)."
@@ -116,10 +138,26 @@ public final class StudioCallAudioTap: NSObject, @unchecked Sendable {
         // a real-time callback.
         let srcRate = aggregateSampleRate() ?? programRate
         resampler.configure(sourceRate: srcRate, programRate: programRate)
+        sourceRate = srcRate
+        if let f = tapFormat() {
+            tapChannels = max(1, Int(f.mChannelsPerFrame))
+            tapInterleaved = f.mFormatFlags & kAudioFormatFlagIsNonInterleaved == 0
+        }
+        // AND FOLLOWED WHEN IT CHANGES. Owner, 2026-10-02, after the first
+        // full show: *"The audio from the other participant on 'the call'
+        // sounded like a chipmunk and was highly digitally processed."* The
+        // rate was read ONCE, when the host picked the call — and the
+        // aggregate runs at its output device's rate, which a Bluetooth
+        // headset drops from 48 kHz to 16 or 24 kHz the moment a call (or this
+        // Studio) opens its microphone. A 24 kHz stream converted as if it
+        // were 48 kHz comes out at twice the speed and an octave up, with the
+        // ring running dry between chunks: exactly that sound. §8.76 changes
+        // the device's rate mid-run and requires the tone's pitch to hold.
+        if followsRateChanges { listenForRateChanges() }
 
         let st = AudioDeviceCreateIOProcIDWithBlock(&procID, aggregate, nil) {
-            [weak self] _, inData, _, _, _ in
-            self?.consume(inData)
+            [weak self] _, inData, inTime, _, _ in
+            self?.consume(inData, at: inTime)
         }
         guard st == noErr, let procID else {
             stop(); return "This Mac would not start the tap's audio callback."
@@ -143,6 +181,7 @@ public final class StudioCallAudioTap: NSObject, @unchecked Sendable {
     }
 
     public func stop() {
+        stopListeningForRateChanges()
         lock.lock(); let wasRunning = running; running = false; lock.unlock()
         if let procID, aggregate != kAudioObjectUnknown {
             if wasRunning { AudioDeviceStop(aggregate, procID) }
@@ -163,70 +202,127 @@ public final class StudioCallAudioTap: NSObject, @unchecked Sendable {
 
     // MARK: The real-time path
 
-    private func consume(_ inData: UnsafePointer<AudioBufferList>) {
+    private func consume(_ inData: UnsafePointer<AudioBufferList>,
+                         at time: UnsafePointer<AudioTimeStamp>) {
         let abl = UnsafeMutableAudioBufferListPointer(
             UnsafeMutablePointer(mutating: inData))
+        let shape = abl.map { Int($0.mNumberChannels) }
+        if shape != lastBufferShape { lastBufferShape = shape }
+        // ONLY THE TAP'S OWN BUFFERS. The aggregate's sub-device is the output
+        // device, and when that device has a microphone of its own — a
+        // headset, AirPods, a display with a mic — its input stream arrives in
+        // the same list, AHEAD of the tap's. Every buffer used to be appended
+        // one after another as if it were one timeline: the headset's mic,
+        // then the call, then the headset again, at twice real time, with the
+        // ring's latency cap throwing the surplus away. The tap's streams are
+        // the LAST ones in the list: one interleaved buffer, or one buffer per
+        // channel when the tap is non-interleaved.
+        let need = tapInterleaved ? 1 : tapChannels
+        guard abl.count >= need else { return }
+        let first = abl.count - need
         var frames = 0
         srcScratch.withUnsafeMutableBufferPointer { src in
             guard let s = src.baseAddress else { return }
-            // THE CAPACITY IS SHARED ACROSS THE WHOLE LIST, and it was being
-            // checked per BUFFER. `frames` accumulates over every buffer in
-            // the AudioBufferList while the inner bound was `min(n, src.count / 2)`
-            // — a per-buffer limit — so two buffers of 16,384 frames each wrote
-            // the second one straight past the end of `srcScratch`. That is
-            // heap corruption inside a real-time callback, on the input most
-            // likely to arrive as MANY buffers: a browser, whose audio comes
-            // from a parent process and several helpers that this tap
-            // deliberately captures together.
-            //
-            // The film tap and the microphone tap never had this because they
-            // take one buffer. This one is the odd path, and it was the newest.
             let capacityFrames = src.count / 2
-            for b in abl {
-                guard let d = b.mData else { continue }
+            if tapInterleaved {
+                let b = abl[first]
+                guard let d = b.mData else { return }
                 let ch = max(1, Int(b.mNumberChannels))
-                let total = Int(b.mDataByteSize) / MemoryLayout<Float>.size
+                let n = Int(b.mDataByteSize) / MemoryLayout<Float>.size / ch
                 let p = d.assumingMemoryBound(to: Float.self)
-                let n = total / ch
-                let room = capacityFrames - frames
-                if room <= 0 { break }
                 // De-shape to interleaved STEREO whatever arrives: a mono tap
                 // written straight through plays at half speed in a stereo
                 // program, and a 6-channel one plays at a third.
-                for i in 0..<min(n, room) {
+                for i in 0..<min(n, capacityFrames) {
                     let l = p[i * ch]
-                    let r = ch > 1 ? p[i * ch + 1] : l
-                    s[frames * 2] = l
-                    s[frames * 2 + 1] = r
-                    frames += 1
+                    s[i * 2] = l
+                    s[i * 2 + 1] = ch > 1 ? p[i * ch + 1] : l
                 }
+                frames = min(n, capacityFrames)
+            } else {
+                guard let dl = abl[first].mData else { return }
+                let pl = dl.assumingMemoryBound(to: Float.self)
+                let pr = need > 1 ? abl[first + 1].mData?.assumingMemoryBound(to: Float.self) : nil
+                let n = Int(abl[first].mDataByteSize) / MemoryLayout<Float>.size
+                for i in 0..<min(n, capacityFrames) {
+                    s[i * 2] = pl[i]
+                    s[i * 2 + 1] = pr?[i] ?? pl[i]
+                }
+                frames = min(n, capacityFrames)
             }
         }
         guard frames > 0 else { return }
-        // FRAMES, not samples. `PolyphaseResampler` counts interleaved-stereo
-        // FRAMES and returns frames, so passing `frames * 2` here would ask it
-        // to read twice the audio that exists and write it at double speed —
-        // the same class of error as the 48 kHz mismatch this resampler was
-        // written to fix.
-        //
-        // AND `outCapacity` IS IN FRAMES TOO, which this call got wrong in the
-        // other direction: it passed `dst.count`, a SAMPLE count, so the
-        // resampler believed it had twice the room it really had and could
-        // write 2x past the end of `dstScratch`. `capacityNeeded` + a grown
-        // buffer is what the film and microphone taps have always done; this
-        // one is now the same shape as its two siblings rather than a third
-        // arrangement that happened to fit at one sample rate.
-        let cap = resampler.capacityNeeded(forInputFrames: frames)
+        rateLock.lock()
+        let rs = resampler
+        rateLock.unlock()
+        // FRAMES, not samples, on both sides: `PolyphaseResampler` counts
+        // interleaved-stereo frames in and out (passing a sample count asks it
+        // to read twice the audio that exists and write it at double speed).
+        let cap = rs.capacityNeeded(forInputFrames: frames)
         if dstScratch.count < cap * 2 { dstScratch = [Float](repeating: 0, count: cap * 2) }
         srcScratch.withUnsafeBufferPointer { src in
             dstScratch.withUnsafeMutableBufferPointer { dst in
                 guard let sp = src.baseAddress, let dp = dst.baseAddress else { return }
-                let outFrames = resampler.process(sp, inFrames: frames,
-                                                  out: dp, outCapacity: cap)
-                if outFrames > 0 { ring.write(dp, count: outFrames * 2) }
+                let outFrames = rs.process(sp, inFrames: frames, out: dp, outCapacity: cap)
+                // When the call's last sample was played, so the mixer can
+                // hold it to the age of the call's window (§D42).
+                let ts = time.pointee
+                let end = ts.mFlags.contains(.hostTimeValid) && ts.mHostTime > 0
+                    ? StudioCaptureClock.hostSeconds(machTime: ts.mHostTime)
+                        + Double(frames) / max(rs.sourceRate, 1)
+                    : nil
+                if outFrames > 0 { ring.write(dp, count: outFrames * 2, capturedAt: end) }
             }
         }
         lock.lock(); samplesReceived += frames; lock.unlock()
+    }
+
+    private func listenForRateChanges() {
+        guard aggregate != kAudioObjectUnknown else { return }
+        var addr = AudioObjectPropertyAddress(
+            mSelector: kAudioDevicePropertyNominalSampleRate,
+            mScope: kAudioObjectPropertyScopeGlobal,
+            mElement: kAudioObjectPropertyElementMain)
+        let block: AudioObjectPropertyListenerBlock = { [weak self] _, _ in
+            self?.rateChanged()
+        }
+        if AudioObjectAddPropertyListenerBlock(aggregate, &addr, listenerQueue, block) == noErr {
+            rateListener = block
+        }
+    }
+
+    private func stopListeningForRateChanges() {
+        guard let block = rateListener, aggregate != kAudioObjectUnknown else { return }
+        var addr = AudioObjectPropertyAddress(
+            mSelector: kAudioDevicePropertyNominalSampleRate,
+            mScope: kAudioObjectPropertyScopeGlobal,
+            mElement: kAudioObjectPropertyElementMain)
+        AudioObjectRemovePropertyListenerBlock(aggregate, &addr, listenerQueue, block)
+        rateListener = nil
+    }
+
+    /// Off the render thread: building a kernel allocates.
+    private func rateChanged() {
+        guard let rate = aggregateSampleRate(), rate != sourceRate else { return }
+        let fresh = PolyphaseResampler()
+        fresh.configure(sourceRate: rate, programRate: programRate)
+        rateLock.lock()
+        resampler = fresh
+        rateLock.unlock()
+        sourceRate = rate
+        awdiag("AWCALL tap rate changed to %.0f Hz", rate)
+    }
+
+    private func tapFormat() -> AudioStreamBasicDescription? {
+        guard tap != kAudioObjectUnknown else { return nil }
+        var addr = AudioObjectPropertyAddress(
+            mSelector: kAudioTapPropertyFormat,
+            mScope: kAudioObjectPropertyScopeGlobal,
+            mElement: kAudioObjectPropertyElementMain)
+        var f = AudioStreamBasicDescription()
+        var size = UInt32(MemoryLayout<AudioStreamBasicDescription>.size)
+        guard AudioObjectGetPropertyData(tap, &addr, 0, nil, &size, &f) == noErr else { return nil }
+        return f
     }
 
     // MARK: CoreAudio odds and ends

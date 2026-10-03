@@ -15,6 +15,7 @@
 
 import AVFoundation
 import Foundation
+import os
 #if os(macOS)
 @preconcurrency import ScreenCaptureKit
 #endif
@@ -528,6 +529,9 @@ public final class StudioSession {
     // broadcast (§D12 ends the SHOW when the window closes; it does not end it
     // when a view redraws).
     private var callSources: [String: StudioScreenSource] = [:]
+    /// §D40a — the screen sources that are WINDOWS: picture only, no sound,
+    /// no call seat. They share the call's capture and its health readouts.
+    private var windowSourceIDs = Set<String>()
     /// What each call's row says: the app, and the window's title only as the
     /// picker handed it over — never logged (§D23).
     public private(set) var callLabels: [String: String] = [:]
@@ -543,7 +547,15 @@ public final class StudioSession {
     /// Which audio tap carries each call's voices. Two windows of one app
     /// share ONE tap: a process tap captures the whole app, so a second
     /// would put the same voices in the mix twice.
-    private var callAudioKeyBySource: [String: String] = [:]
+    private var callAudioKeyBySource: [String: String] = [:] {
+        // §D42 — the engine holds each call's sound to the age of its own
+        // window's picture, so it must know which window is whose.
+        didSet {
+            guard callAudioKeyBySource != oldValue else { return }
+            let links = callAudioKeyBySource
+            Task { await engine?.linkCallAudio(links) }
+        }
+    }
     private var lastCallFrames: [String: Int] = [:]
     private var lastCallStatus: [String: [SCFrameStatus: Int]] = [:]
 
@@ -612,6 +624,53 @@ public final class StudioSession {
         }
     }
 
+    /// §D40a — ANY APP'S WINDOW as a picture, without its sound. Owner,
+    /// 2026-10-02: *"I'd like to be able to arbitrarily add additional
+    /// windows to the scene (sharing an app) without having to 'add a
+    /// call'."* Same picker and capture as a call; no audio tap, no call seat.
+    /// A media player's window is refused (Decision 138's rights reason).
+    @discardableResult
+    public func startWindow(_ id: String, filter: SCContentFilter) async -> Bool {
+        let w = filter.includedWindows.first
+        let app = w?.owningApplication ?? filter.includedApplications.first
+        awdiag("AWWINDOW picker windows=%d app=%@", filter.includedWindows.count,
+               app?.bundleIdentifier ?? "NONE")
+        if let bundle = app?.bundleIdentifier, StudioCallApps.isMediaPlayer(bundleID: bundle) {
+            callSources[id]?.stop()
+            callSources[id] = nil
+            callLabels[id] = nil
+            windowRefusals[id] = "\(app?.applicationName ?? "That app") plays films and music, so its "
+                + "window cannot go on your broadcast."
+            return false
+        }
+        windowRefusals[id] = nil
+        windowSourceIDs.insert(id)
+        let appName = app?.applicationName ?? "A window"
+        let title = w?.title ?? ""
+        return await beginCall(id, label: title.isEmpty ? appName : "\(appName) — \(title)",
+                               ownerPID: app?.processID, ownerBundleID: app?.bundleIdentifier,
+                               withSound: false) {
+            await $0.start(filter: filter, size: CGSize(width: 1280, height: 720))
+        }
+    }
+    /// The DEBUG door's way in (RootView), by window id.
+    @discardableResult
+    public func startWindow(_ id: String, windowID: CGWindowID, label: String,
+                            ownerBundleID: String?) async -> Bool {
+        if let ownerBundleID, StudioCallApps.isMediaPlayer(bundleID: ownerBundleID) {
+            windowRefusals[id] = "\(label) plays films and music, so its window cannot go on your broadcast."
+            return false
+        }
+        windowRefusals[id] = nil
+        windowSourceIDs.insert(id)
+        return await beginCall(id, label: label, ownerPID: nil, ownerBundleID: ownerBundleID,
+                               withSound: false) {
+            await $0.start(windowID: windowID, size: CGSize(width: 1280, height: 720))
+        }
+    }
+    /// Why a window was not shown, per window source.
+    public private(set) var windowRefusals: [String: String] = [:]
+
     /// By window id: the DEBUG harness door (RootView), which lists windows
     /// itself. The product path is `startCall(_:filter:)`.
     @discardableResult
@@ -650,7 +709,8 @@ public final class StudioSession {
             awdiag("AWCALL a changed window matched no single call — ignored")
             return
         }
-        await startCall(id, filter: filter)
+        if windowSourceIDs.contains(id) { await startWindow(id, filter: filter) }
+        else { await startCall(id, filter: filter) }
     }
 
     /// The browser a bundle id belongs to: an installed web app
@@ -665,6 +725,7 @@ public final class StudioSession {
     }
 
     private func beginCall(_ id: String, label: String, ownerPID: pid_t?, ownerBundleID: String?,
+                           withSound: Bool = true,
                            start: (StudioScreenSource) async -> Bool) async -> Bool {
         // REPLACED IN PLACE: the old window stops, the engine keeps the id
         // (the new sink replaces the old one), and the old app's tap is let
@@ -686,10 +747,11 @@ public final class StudioSession {
             // its sentence ("That window has closed.") is not lost with it.
             callLabels[id] = nil
             callBundleIDs[id] = nil
-            await engine?.attachSource(id, nil, call: true)
+            await engine?.attachSource(id, nil, call: withSound)
             return false
         }
-        await engine?.attachSource(id, src.sink, call: true)
+        await engine?.attachSource(id, src.sink, call: withSound)
+        guard withSound else { return true }
         // §D25 — ONE CALL IS ONE CHOICE. The same app's audio, without asking
         // the host to name it again in another column.
         //
@@ -756,6 +818,8 @@ public final class StudioSession {
     /// Stop one call: its picture, and its sound once no other call shares
     /// that app.
     public func stopCall(_ id: String) {
+        windowSourceIDs.remove(id)
+        windowRefusals[id] = nil
         callSources[id]?.stop()
         callSources[id] = nil
         callLabels[id] = nil
@@ -1151,7 +1215,7 @@ public final class StudioSession {
         // ONE place rather than remembered by each caller.
         // §D40: EVERY call source, by id.
         for (id, src) in callSources {
-            await e.attachSource(id, src.sink, call: true)
+            await e.attachSource(id, src.sink, call: !windowSourceIDs.contains(id))
         }
         // AND THE CALL'S SOUND, for the same reason. Only the picture was
         // re-applied, so a call chosen before the preview (or carried from the
@@ -1164,6 +1228,7 @@ public final class StudioSession {
                 if let tap = obj as? StudioCallAudioTap { e.attachCallAudio(key: key, ring: tap.ring) }
             }
         }
+        await e.linkCallAudio(callAudioKeyBySource)
         #endif
         await e.attachFilm(player: player)
         // SAY WHETHER THE FILM'S AUDIO ACTUALLY ATTACHED. A file played through
@@ -1859,6 +1924,10 @@ public final class StudioSession {
         #endif
     }
 
+    private var showLogTick = 0
+    /// `log show --predicate 'subsystem == "app.archivewatch.studio"'`
+    nonisolated static let showLog = Logger(subsystem: "app.archivewatch.studio", category: "show")
+
     private func startPump() {
         pump?.cancel()
         pump = Task { [weak self] in
@@ -2042,9 +2111,11 @@ public final class StudioSession {
                 if #available(macOS 14.2, *) {
                     for (key, obj) in self.callTaps {
                         guard let t = obj as? StudioCallAudioTap else { continue }
-                        awdiag("AWCALL app=%@ samples=%d level=%.4f running=%@",
+                        awdiag("AWCALL app=%@ samples=%d level=%.4f running=%@ rate=%.0f buffers=%@ dropped=%d padded=%d",
                                self.callTapNames[key] ?? "?", t.samplesReceived,
-                               h.audio.callLevel, t.isRunning ? "true" : "false")
+                               h.audio.callLevel, t.isRunning ? "true" : "false",
+                               t.sourceRate, t.lastBufferShape.map(String.init).joined(separator: "+"),
+                               t.ring.framesDroppedForLatency, t.ring.framesPadded)
                     }
                 }
                 #endif
@@ -2078,6 +2149,29 @@ public final class StudioSession {
                 // on — the send queue, video dropped, audio sent — are not on
                 // the panel at all. Server-side evidence answers "did it
                 // arrive"; this answers "what did the app decide".
+                // A SHOW'S OWN POST-MORTEM, in every build. The first full show
+                // (2026-10-02) came back as five observations — stutter, 451
+                // dropped, voice off the lips, a chipmunk call — and not one
+                // number to read them against, because every health line was
+                // DEBUG-only. Every ten seconds, in the unified log
+                // (`log show --predicate 'subsystem == "app.archivewatch.studio"'`).
+                self.showLogTick += 1
+                if self.showLogTick % 10 == 0, h.showState.isOnAir || self.isRehearsing {
+                    func ms(_ v: Double?) -> String { v.map { String(format: "%+.0f", $0 * 1000) } ?? "-" }
+                    let line = String(format: "AWSHOW state=%@ fps=%d vdrop=%d renderLate=%d queued=%d kbps=%d "
+                           + "mixCatchUp=%d camAgeMs=%@ micSyncMs=%@ callSyncMs=%@ syncFixes=%d",
+                           h.showState.label, h.encodedFramesPerSecond, h.publisher.videoFramesDropped,
+                           h.renderDroppedFrames, h.publisher.queuedBytes, h.videoBitrateNow / 1000,
+                           h.audio.mixerCatchUpPackets, ms(h.hostCameraAge), ms(h.audio.micSyncError),
+                           ms(h.audio.callSyncError), h.audio.syncCorrections)
+                    awdiag("%@", line)
+                    // NOTICE level, PUBLIC: `awdiag`'s NSLog never reached the
+                    // unified log from a real show (checked 2026-10-02 — the
+                    // owner's first full show left no line at all), and a
+                    // default-level or private line would be dropped or
+                    // redacted. Only counts and states, nothing personal.
+                    Self.showLog.notice("\(line, privacy: .public)")
+                }
                 #if DEBUG
                 if ProcessInfo.processInfo.environment["AW_STUDIO_DEST"] != nil {
                     let p = h.publisher

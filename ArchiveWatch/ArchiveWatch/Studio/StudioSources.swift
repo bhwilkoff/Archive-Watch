@@ -17,7 +17,9 @@ import CoreGraphics
 
 /// One source the host added to the show.
 public struct StudioSourceRef: Codable, Equatable, Identifiable, Sendable {
-    public enum Kind: String, Codable, Sendable { case camera, call }
+    /// §D40a — a WINDOW is a picture from any app the host shares, with no
+    /// sound and no call seat: a slide, a map, a browser tab.
+    public enum Kind: String, Codable, Sendable { case camera, call, window }
     /// Stable for the life of the source, so every scene that shows it keeps
     /// showing it when the host changes which device it is.
     public var id: String
@@ -39,6 +41,9 @@ public struct StudioSourceRef: Codable, Equatable, Identifiable, Sendable {
     }
     public static func newCall() -> StudioSourceRef {
         StudioSourceRef(id: "call-" + UUID().uuidString, kind: .call)
+    }
+    public static func newWindow() -> StudioSourceRef {
+        StudioSourceRef(id: "window-" + UUID().uuidString, kind: .window)
     }
 }
 

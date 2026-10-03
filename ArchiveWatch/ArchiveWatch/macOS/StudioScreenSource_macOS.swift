@@ -77,11 +77,17 @@ public final class StudioScreenSource: NSObject, SCStreamOutput, SCStreamDelegat
         private let lock = NSLock()
         private var frame: CVPixelBuffer?
         private var held: CMSampleBuffer?
+        private var capturedAt: CFTimeInterval?
         func store(_ px: CVPixelBuffer, from sb: CMSampleBuffer) {
-            lock.lock(); frame = px; held = sb; lock.unlock()
+            // ScreenCaptureKit stamps frames on the host clock.
+            let at = StudioCaptureClock.hostSeconds(CMSampleBufferGetPresentationTimeStamp(sb), from: nil)
+            lock.lock(); frame = px; held = sb; capturedAt = at; lock.unlock()
         }
-        func clear() { lock.lock(); frame = nil; held = nil; lock.unlock() }
+        func clear() { lock.lock(); frame = nil; held = nil; capturedAt = nil; lock.unlock() }
         public func latest() -> CVPixelBuffer? { lock.lock(); defer { lock.unlock() }; return frame }
+        public func latestCapturedAt() -> CFTimeInterval? {
+            lock.lock(); defer { lock.unlock() }; return capturedAt
+        }
     }
 
     /// Counted on the capture queue, read from anywhere — see `FrameSink`.
@@ -119,7 +125,9 @@ public final class StudioScreenSource: NSObject, SCStreamOutput, SCStreamDelegat
     /// `onScreenWindowsOnly: true` is the right filter and not merely a
     /// smaller one: a minimised window delivers nothing, so offering it would
     /// be offering a black tile.
-    public static func windows() async -> [Window] {
+    /// `anyApp`: §D40a's windows may come from any app but a media player;
+    /// a call's only from a calling app or a browser (Decision 138).
+    public static func windows(anyApp: Bool = false) async -> [Window] {
         do {
             let content = try await SCShareableContent.excludingDesktopWindows(
                 false, onScreenWindowsOnly: true)
@@ -128,7 +136,11 @@ public final class StudioScreenSource: NSObject, SCStreamOutput, SCStreamDelegat
                 guard let app = w.owningApplication else { return nil }
                 guard app.bundleIdentifier != mine else { return nil }   // never ourselves
                 // Only a call's window (Decision 138) — never a player's.
-                guard StudioCallApps.kind(bundleID: app.bundleIdentifier) != .other else { return nil }
+                if anyApp {
+                    guard !StudioCallApps.isMediaPlayer(bundleID: app.bundleIdentifier) else { return nil }
+                } else {
+                    guard StudioCallApps.kind(bundleID: app.bundleIdentifier) != .other else { return nil }
+                }
                 guard w.frame.width > 200, w.frame.height > 150 else { return nil }
                 return Window(id: w.windowID,
                               app: app.applicationName,
@@ -172,8 +184,16 @@ public final class StudioScreenSource: NSObject, SCStreamOutput, SCStreamDelegat
         frameCount.reset()
         do {
             let config = SCStreamConfiguration()
-            config.width = Int(size.width)
-            config.height = Int(size.height)
+            // THE WINDOW'S OWN SHAPE, not a 16:9 box. A fixed 1280x720 frame
+            // pillarboxed every tall window and letterboxed every wide one, so
+            // a tile arrived with black bars the host then had to crop away
+            // (seen 2026-10-02: Calculator, a third of its tile black). The
+            // window's size in pixels, no larger on its long side than the
+            // size asked for.
+            let fitted = Self.captureSize(content: filter.contentRect.size,
+                                          scale: CGFloat(filter.pointPixelScale), within: size)
+            config.width = Int(fitted.width)
+            config.height = Int(fitted.height)
             // 30 fps to match the program; asking for more buys nothing a
             // broadcast can carry and costs the host's CPU.
             config.minimumFrameInterval = CMTime(value: 1, timescale: 30)
@@ -198,6 +218,18 @@ public final class StudioScreenSource: NSObject, SCStreamOutput, SCStreamDelegat
                 + "choose your call again."
             return false
         }
+    }
+
+    /// A window's capture size: its pixels, scaled down so neither side
+    /// exceeds the longest side of `box`, even numbers (the encoder's
+    /// chroma wants them). Falls back to `box` when the window has no size.
+    static func captureSize(content: CGSize, scale: CGFloat, within box: CGSize) -> CGSize {
+        let w = content.width * max(scale, 1), h = content.height * max(scale, 1)
+        guard w > 1, h > 1 else { return box }
+        let limit = max(box.width, box.height)
+        let k = min(1, limit / max(w, h))
+        func even(_ v: CGFloat) -> CGFloat { max(2, (v * k / 2).rounded() * 2) }
+        return CGSize(width: even(w), height: even(h))
     }
 
     public func stop() {

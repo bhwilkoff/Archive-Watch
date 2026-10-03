@@ -38,6 +38,11 @@ import UIKit
 /// dependency-inversion reason `StudioChatYouTube` takes a fetch closure.
 public protocol GuestFrameSource: AnyObject, Sendable {
     func latest() -> CVPixelBuffer?
+    /// When `latest()` was captured, on the host clock — nil when unknown.
+    func latestCapturedAt() -> CFTimeInterval?
+}
+public extension GuestFrameSource {
+    func latestCapturedAt() -> CFTimeInterval? { nil }
 }
 
 public enum StudioLayout: String, CaseIterable, Sendable {
@@ -175,10 +180,18 @@ public enum StudioLayout: String, CaseIterable, Sendable {
             //
             // The column yields, never the camera: a host who moved chat to the
             // right did not ask for their own face to move.
+            // A camera that IS the frame ("You, with the film inset") is the
+            // ground chat sits on, not a tile to dodge — dodging it left no
+            // column at all, so chat on the right vanished in that placement.
             if let cam = rects(in: size, cameraAspect: cameraAspect,
-                               withCall: callTile != nil).camera, showsCamera {
+                               withCall: callTile != nil).camera, showsCamera, cameraIsTile {
                 obstacles.append(cam)
             }
+        }
+        // There, the FILM is the inset, top-right — and chat must not cover
+        // the thing everyone came to watch.
+        if self == .host {
+            obstacles.append(rects(in: size, cameraAspect: cameraAspect, withCall: callTile != nil).film)
         }
         // THE CALL on either side: `.host` puts it top-LEFT (§D31, 2026-09-30),
         // so the left column is no longer clear of people by construction.
@@ -415,10 +428,16 @@ public struct StudioCameraFraming: Sendable, Equatable, Codable {
     /// nothing, which is correct rather than a special case.
     public var panX: CGFloat = 0
     public var panY: CGFloat = 0
+    /// §D14b — THE PART OF THE SOURCE SHOWN, normalized 0…1, origin
+    /// bottom-left. Set by any crop, corner-resize, pan or zoom on the canvas;
+    /// when it is set, `zoom`/`pan` are not read. Nil = the whole source,
+    /// aspect-filled into the tile as before.
+    public var crop: CGRect?
 
     public init() {}
 
-    public var isDefault: Bool { tile == nil && zoom == 1 && panX == 0 && panY == 0 }
+    public var isDefault: Bool { tile == nil && zoom == 1 && panX == 0 && panY == 0 && crop == nil }
+    public var isCropped: Bool { crop != nil || zoom != 1 || panX != 0 || panY != 0 }
 
     /// One KEYBOARD step on a normalized tile (macOS-DESIGN §D14a): a move,
     /// or with `reshape` a change of width/height, clamped exactly as a drag
@@ -461,6 +480,11 @@ public struct StudioCameraFraming: Sendable, Equatable, Codable {
 
     /// The crop to take from a camera frame of `extent`.
     public func crop(of extent: CGRect) -> CGRect {
+        if let c = crop?.standardized.intersection(Self.unit), c.width > 0, c.height > 0 {
+            return CGRect(x: extent.minX + c.minX * extent.width,
+                          y: extent.minY + c.minY * extent.height,
+                          width: c.width * extent.width, height: c.height * extent.height)
+        }
         let z = min(max(Self.zoomRange.lowerBound, zoom), Self.zoomRange.upperBound)
         guard z > 1 else { return extent }
         let w = extent.width / z, h = extent.height / z
@@ -472,6 +496,147 @@ public struct StudioCameraFraming: Sendable, Equatable, Codable {
         let cx = extent.midX + min(max(-1, panX), 1) * travelX
         let cy = extent.midY + min(max(-1, panY), 1) * travelY
         return CGRect(x: cx - w / 2, y: cy - h / 2, width: w, height: h)
+    }
+
+    // MARK: §D14b — the canvas gestures, as pure geometry
+    //
+    // Owner, 2026-10-02, after the first full show: *"The resizing and
+    // cropping of my video and the call video doesn't work as it should. It
+    // was very hard to manipulate and crop a video. You should do additional
+    // research on how to allow for resizing and cropping with the
+    // corner/middle tiles."* §D14a made an edge RESHAPE an aspect-filled box,
+    // so dragging the right edge in cut BOTH sides of the picture and
+    // dragging it out zoomed the whole picture in: the content moved under
+    // the pointer instead of being cut by it. Now the handles do what their
+    // shapes say, as in every editor that crops (Keynote's mask, Photos,
+    // Ecamm, OBS's ⌥-drag): a CORNER scales the tile and its picture
+    // together; an EDGE moves only that edge and cuts the picture there, the
+    // picture itself staying still; ⌥-drag slides the picture inside the
+    // cut; scroll zooms it.
+
+    static let unit = CGRect(x: 0, y: 0, width: 1, height: 1)
+    /// The smallest part of a source a crop may keep.
+    public static let minimumCropFraction: CGFloat = 0.05
+
+    public enum Grab: Hashable, Sendable {
+        case body
+        case corner(x: Int, y: Int)   // -1 / +1
+        case edge(x: Int, y: Int)     // exactly one of x, y is non-zero
+        case pan
+    }
+
+    /// What of the source is VISIBLE in a tile of `tileAspect` (program
+    /// pixels, w/h): the crop, or the zoom and pan, then aspect-filled —
+    /// exactly what the renderer draws. Normalized source, origin bottom-left.
+    public func visibleCrop(sourceAspect: CGFloat, tileAspect: CGFloat) -> CGRect {
+        guard sourceAspect > 0, tileAspect > 0 else { return Self.unit }
+        let base = crop(of: CGRect(x: 0, y: 0, width: sourceAspect, height: 1))
+        var r = base
+        if base.width / base.height > tileAspect {
+            let w = base.height * tileAspect
+            r = CGRect(x: base.midX - w / 2, y: base.minY, width: w, height: base.height)
+        } else {
+            let h = base.width / tileAspect
+            r = CGRect(x: base.minX, y: base.midY - h / 2, width: base.width, height: h)
+        }
+        return CGRect(x: r.minX / sourceAspect, y: r.minY, width: r.width / sourceAspect, height: r.height)
+    }
+
+    /// One drag on the canvas. `start` and `tile` are the framing and the
+    /// composited rect (normalized program) when the gesture began; `dx`/`dy`
+    /// the pointer's travel in normalized program units (y up).
+    public static func dragged(_ start: StudioCameraFraming, tile t: CGRect, grab: Grab,
+                               dx: CGFloat, dy: CGFloat,
+                               programAspect: CGFloat, sourceAspect: CGFloat) -> StudioCameraFraming {
+        var f = start
+        let minT = minimumTileFraction
+        let tileAspect = t.height > 0 ? t.width * programAspect / t.height : 1
+        let c = start.visibleCrop(sourceAspect: sourceAspect, tileAspect: tileAspect)
+        // Source per program, along each axis: how much picture one unit of
+        // tile shows. An edge keeps this fixed, which is what keeps the
+        // picture still under the edge being dragged.
+        let kx = t.width > 0 ? c.width / t.width : 1
+        let ky = t.height > 0 ? c.height / t.height : 1
+        func pin(_ r: CGRect) -> CGRect {
+            var r = r
+            r.origin.x = min(max(0, r.origin.x), max(0, 1 - r.width))
+            r.origin.y = min(max(0, r.origin.y), max(0, 1 - r.height))
+            return r
+        }
+        func settle(_ crop: CGRect) {
+            f.crop = crop; f.zoom = 1; f.panX = 0; f.panY = 0
+        }
+        switch grab {
+        case .body:
+            f.tile = pin(t.offsetBy(dx: dx, dy: dy))
+        case .corner(let sx, let sy):
+            // Scale about the OPPOSITE corner, proportions kept: the picture
+            // grows with the box and nothing is cut.
+            var k = ((t.width + dx * CGFloat(sx)) / max(t.width, 0.001)
+                   + (t.height + dy * CGFloat(sy)) / max(t.height, 0.001)) / 2
+            k = max(k, minT / max(t.width, 0.001), minT / max(t.height, 0.001))
+            k = min(k, 1 / max(t.width, 0.001), 1 / max(t.height, 0.001))
+            let w = t.width * k, h = t.height * k
+            let x = sx < 0 ? t.maxX - w : t.minX
+            let y = sy < 0 ? t.maxY - h : t.minY
+            f.tile = pin(CGRect(x: x, y: y, width: w, height: h))
+            settle(c)
+        case .edge(let sx, let sy):
+            var r = t, cr = c
+            if sx > 0 {
+                var w = t.width + dx
+                w = min(w, (1 - c.minX) / max(kx, 0.0001), 1 - t.minX)
+                w = max(w, minT, minimumCropFraction / max(kx, 0.0001))
+                r.size.width = w; cr.size.width = w * kx
+            } else if sx < 0 {
+                var w = t.width - dx
+                w = min(w, c.maxX / max(kx, 0.0001), t.maxX)
+                w = max(w, minT, minimumCropFraction / max(kx, 0.0001))
+                r = CGRect(x: t.maxX - w, y: t.minY, width: w, height: t.height)
+                cr = CGRect(x: c.maxX - w * kx, y: c.minY, width: w * kx, height: c.height)
+            }
+            if sy > 0 {
+                var h = t.height + dy
+                h = min(h, (1 - c.minY) / max(ky, 0.0001), 1 - t.minY)
+                h = max(h, minT, minimumCropFraction / max(ky, 0.0001))
+                r.size.height = h; cr.size.height = h * ky
+            } else if sy < 0 {
+                var h = t.height - dy
+                h = min(h, c.maxY / max(ky, 0.0001), t.maxY)
+                h = max(h, minT, minimumCropFraction / max(ky, 0.0001))
+                r = CGRect(x: r.minX, y: t.maxY - h, width: r.width, height: h)
+                cr = CGRect(x: cr.minX, y: c.maxY - h * ky, width: cr.width, height: h * ky)
+            }
+            f.tile = r
+            settle(cr)
+        case .pan:
+            // The PICTURE follows the pointer, so the cut moves the other way.
+            var cr = c.offsetBy(dx: -dx * kx, dy: -dy * ky)
+            cr.origin.x = min(max(0, cr.origin.x), 1 - cr.width)
+            cr.origin.y = min(max(0, cr.origin.y), 1 - cr.height)
+            f.tile = t
+            settle(cr)
+        }
+        return f
+    }
+
+    /// Scroll to zoom the picture INSIDE the tile, about the cut's center;
+    /// `factor` > 1 zooms in. The tile does not move.
+    public static func zoomed(_ start: StudioCameraFraming, tile t: CGRect, factor: CGFloat,
+                              programAspect: CGFloat, sourceAspect: CGFloat) -> StudioCameraFraming {
+        var f = start
+        let tileAspect = t.height > 0 ? t.width * programAspect / t.height : 1
+        let c = start.visibleCrop(sourceAspect: sourceAspect, tileAspect: tileAspect)
+        var k = 1 / max(factor, 0.01)
+        k = min(k, 1 / max(c.width, 0.0001), 1 / max(c.height, 0.0001))
+        k = max(k, minimumCropFraction / max(c.width, 0.0001), minimumCropFraction / max(c.height, 0.0001))
+        var cr = CGRect(x: c.midX - c.width * k / 2, y: c.midY - c.height * k / 2,
+                        width: c.width * k, height: c.height * k)
+        cr.origin.x = min(max(0, cr.origin.x), 1 - cr.width)
+        cr.origin.y = min(max(0, cr.origin.y), 1 - cr.height)
+        f.tile = t
+        f.crop = cr; f.zoom = 1; f.panX = 0; f.panY = 0
+        return f
     }
 
     /// Normalize a rect the host dragged in the preview back into storage.
@@ -599,8 +764,11 @@ public enum StudioTileLayout {
     public static func fallbackRect(index: Int, aspect: CGFloat, in size: CGSize) -> CGRect {
         let inset = size.width * 0.05
         let gap = size.height * 0.02
-        let w = size.width * 0.20
-        let h = min(w / max(aspect, 0.1), size.height * 0.30)
+        // The SOURCE'S shape, so a tall window starts whole rather than
+        // cropped by a 20%-wide box it does not fit.
+        var w = size.width * 0.20
+        var h = w / max(aspect, 0.1)
+        if h > size.height * 0.30 { h = size.height * 0.30; w = h * aspect }
         let y = size.height - inset - h - CGFloat(index) * (h + gap)
         return CGRect(x: inset, y: max(0, y), width: w, height: h)
     }
@@ -789,6 +957,9 @@ public struct StudioHealth: Sendable, Equatable {
     /// normalized, keyed by source. A source that drew nothing is absent, so
     /// the Mac preview never puts handles on a tile the audience cannot see.
     public var tileRects: [String: CGRect] = [:]
+    public var tileSourceAspects: [String: CGFloat] = [:]
+    /// §D42 — how old the host's camera frame is when composited.
+    public var hostCameraAge: Double?
     public var thermalState: String = "nominal"
     /// The bitrate the encoder is ACTUALLY using, which §6.5 can move. Shown
     /// rather than the configured one, or a thermal step is invisible.
@@ -1026,6 +1197,8 @@ public actor StudioEngine {
     /// (caption-stall fallback, AirPlay). Audio would follow the new item and
     /// the program would go black. Nothing could show that until now.
     private var filmItemObserver: NSKeyValueObservation?
+    private var filmRateNote: NSObjectProtocol?
+    private var filmJumpObserver: NSObjectProtocol?
     private var filmOutputItemID: UInt = 0
     private var supervisor: Task<Void, Never>?
     private var thermalWatcher: Task<Void, Never>?
@@ -1153,6 +1326,45 @@ public actor StudioEngine {
         health.guestsAttached = guestSource != nil || !callSourceIDs.isEmpty
     }
     private var callSourceIDs = Set<String>()
+
+    // MARK: §D42 — lip sync
+
+    /// Which window's picture each call's SOUND belongs with: source id ->
+    /// audio key. Two windows of one app share one tap and one key.
+    private var callAudioBySource: [String: String] = [:]
+    public func linkCallAudio(_ links: [String: String]) { callAudioBySource = links }
+    private var hostCameraAge: Double?
+    private var callPictureAge: [String: Double] = [:]
+
+    /// How old the pictures are as they are composited, smoothed — a held
+    /// frame ages by up to a frame between captures — and handed to the
+    /// mixer, which holds each sound to its picture.
+    private func measurePictureAges(now: CFTimeInterval) {
+        func ema(_ old: Double?, _ new: Double?) -> Double? {
+            guard let new else { return old }
+            return old.map { $0 + (new - $0) * 0.1 } ?? new
+        }
+        func age(_ src: GuestFrameSource?) -> Double? {
+            src?.latestCapturedAt().map { now - $0 }
+        }
+        // The microphone belongs with the HOST's camera: the scene's
+        // host-seat camera. A scene that shows none (a card without the host)
+        // keeps the last measurement rather than guessing another source —
+        // a shared window is not a face.
+        let hostCamera: GuestFrameSource? = {
+            if let tiles = renderer.tiles {
+                return tiles.first(where: { $0.slot == .camera && sources[$0.source] != nil })
+                    .flatMap { sources[$0.source] }
+            }
+            return cameraTap
+        }()
+        hostCameraAge = ema(hostCameraAge, age(hostCamera))
+        for (id, key) in callAudioBySource {
+            callPictureAge[key] = ema(callPictureAge[key], age(sources[id]))
+        }
+        health.hostCameraAge = hostCameraAge
+        mixer.setSyncTargets(mic: hostCameraAge, calls: callPictureAge)
+    }
     /// The ids attached, for a harness reading the value where it lands.
     public var sourceIDs: [String] { sources.keys.sorted() }
 
@@ -1221,8 +1433,18 @@ public actor StudioEngine {
     public var people: (camera: Bool?, call: Bool?) { (renderer.showCamera, renderer.showCall) }
     public var guestFraming: StudioCameraFraming { renderer.guestFraming }
     public var cameraFraming: StudioCameraFraming { renderer.framing }
-    public func setOverlay(_ o: StudioOverlay) {
+    public func setOverlay(_ incoming: StudioOverlay) {
         let before = overlay.card
+        // THE ENGINE'S OWN PARTS SURVIVE. A surface sends its copy of the
+        // overlay — card, lower third — and that copy never holds the chat,
+        // the shout-out or an expired provenance line, which the engine keeps.
+        // Replacing them wholesale meant every scene switch blanked chat until
+        // the next poll, took down a shout-out the host had just put up, and
+        // brought back a provenance line that had already expired, for good.
+        var o = incoming
+        if o.chat.isEmpty { o.chat = overlay.chat; o.showChat = overlay.showChat }
+        if o.shoutOut == nil { o.shoutOut = overlay.shoutOut }
+        if provenanceCleared { o.provenance = "" }
         overlay = o; renderer.overlay = o
         // A CARD IS A CHAPTER (§D30). Here, because this is the one call every
         // platform's cards reach (Decision 133); the session decides whether
@@ -1247,6 +1469,7 @@ public actor StudioEngine {
     public func setVideoBitrate(_ bps: Int) -> Bool {
         guard bps > 0 else { return false }
         config.videoBitrate = bps
+        linkCeiling = nil
         await_publisherBudget(bps)
         guard let encoder else { return false }
         let ok = encoder.setBitrate(bps)
@@ -1491,6 +1714,22 @@ public actor StudioEngine {
             Task { await self?.noteFilmItemChanged(to: now) }
         }
         observeFilmEnd(player: player)
+        // WHO STOPPED THE FILM. A bench run on 2026-10-02 saw the film jump
+        // back four seconds to where it had started and stop, with nothing in
+        // the log to say why, and it did not reproduce. Every rate change now
+        // names its reason, and every time jump its new position.
+        filmRateNote = NotificationCenter.default.addObserver(
+            forName: AVPlayer.rateDidChangeNotification, object: player, queue: nil) { n in
+            let reason = (n.userInfo?[AVPlayer.rateDidChangeReasonKey] as? AVPlayer.RateDidChangeReason)?.rawValue ?? "?"
+            let rate = (n.object as? AVPlayer)?.rate ?? -1
+            let at = (n.object as? AVPlayer)?.currentTime().seconds ?? -1
+            awdiag("AWFILM rate -> %.2f at %.2f reason=%@", rate, at, reason)
+        }
+        filmJumpObserver = NotificationCenter.default.addObserver(
+            forName: AVPlayerItem.timeJumpedNotification, object: player.currentItem, queue: nil) { n in
+            let at = (n.object as? AVPlayerItem)?.currentTime().seconds ?? -1
+            awdiag("AWFILM time jumped to %.2f", at)
+        }
         if await Self.primeFrameIfPaused(player) {
             awdiag("AWFILM film is paused — primed its current frame")
         }
@@ -1908,6 +2147,8 @@ public actor StudioEngine {
         // stale observer re-attaching on an item swap would replace the live
         // engine's audio tap with a dead one (`audioMix` is one per item).
         filmItemObserver?.invalidate(); filmItemObserver = nil
+        if let o = filmRateNote { NotificationCenter.default.removeObserver(o); filmRateNote = nil }
+        if let o = filmJumpObserver { NotificationCenter.default.removeObserver(o); filmJumpObserver = nil }
         await Self.holdTheScreenAwake(false)
         restoreAudioSession()
         supervisor?.cancel(); supervisor = nil
@@ -1967,6 +2208,7 @@ public actor StudioEngine {
         health.cameraTile = renderer.lastCameraRect
         health.guestTile = renderer.lastGuestRect
         health.tileRects = renderer.lastTileRects
+        health.tileSourceAspects = renderer.lastSourceAspects
         await pumpChat()
     }
 
@@ -2278,6 +2520,8 @@ public actor StudioEngine {
                 }
             }
         case .nominal, .fair:
+            // Never back above what the LINK will bear (§6.4a).
+            if linkCeiling != nil { break }
             if let encoder, encoder.currentBitrate != config.videoBitrate {
                 if encoder.setBitrate(config.videoBitrate) {
                     health.videoBitrateNow = config.videoBitrate
@@ -2297,6 +2541,89 @@ public actor StudioEngine {
         @unknown default:
             break
         }
+    }
+
+    // MARK: §6.4a — a link that cannot keep up
+
+    /// The bitrate the LINK will currently bear, below the host's setting;
+    /// nil when it bears the setting. Combined with §6.5's thermal step by
+    /// taking the lower of the two.
+    private var linkCeiling: Int?
+    private var lastLinkStep: CFTimeInterval = 0
+    private var linkClearSince: CFTimeInterval?
+    private var lastKeyframeAsk: CFTimeInterval = 0
+    static let linkFloorBitrate = 1_500_000
+    /// `AW_STUDIO_LINK_ADAPT=off` — the control: drops only, as before.
+    private var linkAdaptEnabled = ProcessInfo.processInfo.environment["AW_STUDIO_LINK_ADAPT"] != "off"
+    /// For a harness comparing the two on one throttle (§8.79).
+    public func setLinkAdaptation(_ on: Bool) { linkAdaptEnabled = on }
+
+    /// THE FIRST FULL SHOW STUTTERED (owner, 2026-10-02: *"It said dropped
+    /// 451 (it did stutter occasionally)"*). The only defence was the
+    /// publisher throwing frames away once 1.5 s of video had queued — the
+    /// right last resort and the wrong first one, because each throw freezes
+    /// the picture until the next keyframe. So, before it comes to that:
+    /// a queue past 60% steps the bitrate down by a quarter (at most every
+    /// 3 s, never below 1.5 Mbps), a drop that has drained asks for a
+    /// keyframe at once, and ten clear seconds step back up by 20% toward
+    /// the host's setting. Each step is said on the readout (§5).
+    private func adaptToLink(_ o: RTMPPublisher.SendOutcome) {
+        let now = CACurrentMediaTimeCompat()
+        if o.wantsKeyframe, now - lastKeyframeAsk > 0.5, let encoder {
+            encoder.requestKeyframe()
+            lastKeyframeAsk = now
+        }
+        guard linkAdaptEnabled, let encoder else { return }
+        let current = encoder.currentBitrate
+        if o.queueFraction > 0.6 || o.startedDropping {
+            linkClearSince = nil
+            guard now - lastLinkStep > 3, current > Self.linkFloorBitrate else { return }
+            // STRAIGHT TO WHAT THE LINK CARRIES, when it has been measured:
+            // a quarter at a time took four steps and twelve seconds to reach
+            // a 1.8 Mbps link from 6 Mbps, dropping frames all the way.
+            var next = Int(Double(current) * 0.75)
+            if let link = o.linkBps {
+                next = min(next, Int(Double(link) * 0.8) - config.audioBitrate)
+            }
+            next = max(Self.linkFloorBitrate, next)
+            if encoder.setBitrate(next) {
+                linkCeiling = next
+                lastLinkStep = now
+                health.videoBitrateNow = next
+                health.qualityNote = "The connection is not keeping up, so the picture is being sent at "
+                    + "\(next / 1000) kbps instead of \(config.videoBitrate / 1000) kbps."
+                awdiag("AWLINK step down to %d kbps (queue %.0f%%)", next / 1000, o.queueFraction * 100)
+            }
+            return
+        }
+        guard let ceiling = linkCeiling else { return }
+        if o.queueFraction < 0.1 {
+            if linkClearSince == nil { linkClearSince = now }
+        } else {
+            linkClearSince = nil
+        }
+        guard let clear = linkClearSince, now - clear > 10, now - lastLinkStep > 4 else { return }
+        let thermalCap = effectiveThermalState == .serious
+            ? Int(Double(config.videoBitrate) * Self.seriousBitrateFraction) : config.videoBitrate
+        let next = min(thermalCap, Int(Double(ceiling) * 1.2))
+        guard next > current, encoder.setBitrate(next) else { return }
+        lastLinkStep = now
+        linkClearSince = now
+        health.videoBitrateNow = next
+        if next >= config.videoBitrate {
+            linkCeiling = nil
+            let note = "Back to full quality \(config.videoBitrate / 1000) kbps."
+            health.qualityNote = note
+            Task { [weak self] in
+                try? await Task.sleep(for: .seconds(8))
+                await self?.clearQualityNote(ifStill: note)
+            }
+        } else {
+            linkCeiling = next
+            health.qualityNote = "The connection is recovering — the picture is being sent at "
+                + "\(next / 1000) kbps instead of \(config.videoBitrate / 1000) kbps."
+        }
+        awdiag("AWLINK step up to %d kbps", next / 1000)
     }
 
     /// Clears the restore announcement, but only if nothing has replaced it.
@@ -2451,6 +2778,7 @@ public actor StudioEngine {
             for (id, src) in sources { if let px = src.latest() { frames[id] = px } }
             renderer.sourceFrames = frames
         }
+        if frameIndex % 5 == 0 { measurePictureAges(now: CACurrentMediaTimeCompat()) }
         guard let program = renderer.render(film: lastFilmFrame, camera: cameraTap?.latest()) else {
             return   // no buffer and no previous frame: skip this tick (counted in poolFailures)
         }
@@ -2533,7 +2861,8 @@ public actor StudioEngine {
         #endif
         if let recorder { await recorder.append(video: frame) }
         guard publishing else { return }
-        await publisher.send(video: frame)
+        let outcome = await publisher.send(video: frame)
+        adaptToLink(outcome)
         // THE SAME ENCODED FRAME, not a second encode. `EncodedVideoFrame`
         // carries the AVCC bytes that already exist; handing it to a second
         // publisher costs a copy into a queue.
@@ -2629,6 +2958,12 @@ final class ProgramRenderer: @unchecked Sendable {
     var sourceFrames: [String: CVPixelBuffer] = [:]
     /// Where each tile landed in the LAST composed frame, normalized.
     private(set) var lastTileRects: [String: CGRect] = [:]
+    /// Each drawn tile's SOURCE shape (w/h), so the canvas can crop in
+    /// source units (§D14b).
+    private(set) var lastSourceAspects: [String: CGFloat] = [:]
+    /// Where chat was drawn in the last frame (program pixels), nil when it
+    /// was not — so §8.77 can ask whether chat reached a scene.
+    private(set) var lastChatRect: CGRect?
 
     private let ciContext: CIContext
     private var pool: CVPixelBufferPool?
@@ -2856,6 +3191,13 @@ final class ProgramRenderer: @unchecked Sendable {
                 image = card.composited(over: image)
             }
             image = drawCamera(drawGuests(image))
+            let people = [lastCameraRect, lastGuestRect].compactMap { $0 }.map {
+                CGRect(x: $0.minX * size.width, y: $0.minY * size.height,
+                       width: $0.width * size.width, height: $0.height * size.height)
+            }
+            image = drawChat(over: image, placement: .corner, cameraAspect: cameraAspect,
+                             callAspect: guestAspect, hasCall: callRect != nil,
+                             obstacles: people)
             return finish(image, into: out)
         }
 
@@ -2870,23 +3212,45 @@ final class ProgramRenderer: @unchecked Sendable {
         // would re-rasterise the type on every message.
         // Rasterised BEFORE chat now, because its height decides chat's.
         let l3 = overlayRenderer.image(for: overlay)
-        if overlay.showChat, !overlay.chat.isEmpty,
-           var rect = layout.chatRect(in: size, cameraAspect: cameraAspect, side: chatSide,
-                                      guestAspect: guestAspect,
-                                      withCall: callRect != nil) {
-            rect = StudioLayout.chatYielding(rect,
-                                             toOverlayTop: overlay.shoutOut == nil
-                                                ? nil : l3?.extent.maxY,
-                                             side: chatSide, in: size)
-            if !rect.isEmpty,
-               let chat = overlayRenderer.chatImage(for: overlay, in: rect) {
-                image = chat.composited(over: image)
-            }
-        }
+        image = drawChat(over: image, placement: layout, cameraAspect: cameraAspect,
+                         callAspect: guestAspect, hasCall: callRect != nil, obstacles: [])
         // The lower third sits ON TOP of both, and is a cached bitmap — the
         // text is laid out only when its content changes, never per frame.
         if let l3 { image = l3.composited(over: image) }
         return finish(image, into: out)
+    }
+
+    /// THE CHAT COLUMN, on every scene the host turned it on in. Owner,
+    /// 2026-10-02, after the first full show: *"The chat that I put on the
+    /// screen only worked on some of the scenes."* Two causes: a card returned
+    /// before chat was drawn at all, so Starting soon, Intermission and Thanks
+    /// never showed it — the scenes where a room talks most; and a column a
+    /// tile sat in gave up rather than moving, so a camera dragged into the
+    /// left column (or a third source, which starts there) took chat with it.
+    /// Now the chosen side is tried first, then the other side, and a column
+    /// is only given up when neither side has room for one line.
+    /// Must run AFTER `overlayRenderer.image(for:)` for this frame, which is
+    /// what records where the shout-out banner sits.
+    private func drawChat(over image: CIImage, placement: StudioLayout, cameraAspect: CGFloat,
+                          callAspect: CGFloat?, hasCall: Bool, obstacles: [CGRect]) -> CIImage {
+        lastChatRect = nil
+        guard overlay.showChat, !overlay.chat.isEmpty else { return image }
+        let bannerTop = overlay.shoutOut == nil ? nil : overlayRenderer.shoutOutTop
+        let other: StudioChatSide = chatSide == .left ? .right : .left
+        for side in [chatSide, other] {
+            guard let column = placement.chatRect(in: size, cameraAspect: cameraAspect, side: side,
+                                                  guestAspect: callAspect, withCall: hasCall),
+                  let clear = StudioLayout.chatAvoiding(column, obstacles: obstacles, in: size)
+            else { continue }
+            let rect = StudioLayout.chatYielding(clear, toOverlayTop: bannerTop, side: side, in: size)
+            guard !rect.isEmpty else { continue }
+            if let chat = overlayRenderer.chatImage(for: overlay, in: rect) {
+                lastChatRect = chat.extent
+                return chat.composited(over: image)
+            }
+            return image
+        }
+        return image
     }
 
     /// §D40 — the scene's person tiles, drawn where `StudioTileLayout`
@@ -2903,9 +3267,11 @@ final class ProgramRenderer: @unchecked Sendable {
             return h > 0 ? w / h : nil
         }
         var rects: [String: CGRect] = [:]
+        var aspects: [String: CGFloat] = [:]
         func drawTile(_ p: StudioTileLayout.Placed, over base: CIImage) -> CIImage {
             guard let px = frames[p.source] else { return base }
             rects[p.source] = StudioCameraFraming.normalized(p.rect, in: size)
+            aspects[p.source] = CGFloat(CVPixelBufferGetWidth(px)) / CGFloat(max(1, CVPixelBufferGetHeight(px)))
             var src = CIImage(cvPixelBuffer: px)
             let crop = p.framing.crop(of: src.extent)
             if crop != src.extent { src = src.cropped(to: crop) }
@@ -2923,31 +3289,23 @@ final class ProgramRenderer: @unchecked Sendable {
         }
         for p in result.placed where !p.ground { image = drawTile(p, over: image) }
         lastTileRects = rects
+        lastSourceAspects = aspects
         // The legacy readouts, from the same draw: the first camera-slot and
         // call-slot tiles actually drawn.
         let camID = tiles.first { $0.slot == .camera && rects[$0.source] != nil }?.source
         let callID = tiles.first { $0.slot == .call && rects[$0.source] != nil }?.source
         lastCameraRect = camID.flatMap { rects[$0] }
         lastGuestRect = callID.flatMap { rects[$0] }
+        // Chat yields to EVERY tile in front of the film — a moved tile
+        // and a third camera included, not only the placement's seats.
+        let obstacles = result.placed.filter { !$0.ground && rects[$0.source] != nil }.map(\.rect)
+        // Rasterised before chat (on a card it already was, above), because
+        // it records where the shout-out banner sits.
+        let l3 = onCard ? nil : overlayRenderer.image(for: overlay)
+        image = drawChat(over: image, placement: onCard ? .corner : layout,
+                         cameraAspect: result.cameraAspect, callAspect: result.callAspect,
+                         hasCall: result.hasCall, obstacles: obstacles)
         if onCard { return finish(image, into: out) }
-
-        let l3 = overlayRenderer.image(for: overlay)
-        if overlay.showChat, !overlay.chat.isEmpty,
-           var rect = layout.chatRect(in: size, cameraAspect: result.cameraAspect, side: chatSide,
-                                      guestAspect: result.callAspect, withCall: result.hasCall) {
-            // Chat yields to EVERY tile in front of the film — a moved tile
-            // and a third camera included, not only the placement's seats.
-            let obstacles = result.placed.filter { !$0.ground && rects[$0.source] != nil }.map(\.rect)
-            if let clear = StudioLayout.chatAvoiding(rect, obstacles: obstacles, in: size) {
-                rect = StudioLayout.chatYielding(clear,
-                                                 toOverlayTop: overlay.shoutOut == nil
-                                                    ? nil : l3?.extent.maxY,
-                                                 side: chatSide, in: size)
-                if !rect.isEmpty, let chat = overlayRenderer.chatImage(for: overlay, in: rect) {
-                    image = chat.composited(over: image)
-                }
-            }
-        }
         if let l3 { image = l3.composited(over: image) }
         return finish(image, into: out)
     }
@@ -3275,6 +3633,11 @@ public final class CameraFrameTap: NSObject, AVCaptureVideoDataOutputSampleBuffe
         lock.lock(); defer { lock.unlock() }
         return frame
     }
+    private var capturedAt: CFTimeInterval?
+    public func latestCapturedAt() -> CFTimeInterval? {
+        lock.lock(); defer { lock.unlock() }
+        return capturedAt
+    }
 
     /// How many frames have ever arrived. Read by the engine into
     /// `StudioHealth.cameraFramesReceived`; see that field for why.
@@ -3305,6 +3668,8 @@ public final class CameraFrameTap: NSObject, AVCaptureVideoDataOutputSampleBuffe
         // `alwaysDiscardsLateVideoFrames` keeps it from backing up.
         held = sampleBuffer
         frame = px
+        capturedAt = StudioCaptureClock.hostSeconds(
+            CMSampleBufferGetPresentationTimeStamp(sampleBuffer), from: session?.synchronizationClock)
         count += 1
         // EVERY TIME THE SHAPE CHANGES, not only on the first frame. The tile's
         // aspect is derived from these numbers (`StudioEngine.cameraAspect`),

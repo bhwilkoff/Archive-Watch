@@ -100,7 +100,12 @@ final class StudioControls {
     /// microphone's and the calls' MUTES describe the person and no scene may
     /// change them, so hiding a call never silences it.
     var shown: [String] = [] {
-        didSet { guard shown != oldValue else { return }; pushTiles() }
+        didSet {
+            guard shown != oldValue else { return }
+            awdiag("AWLAYER %@ -> %@", oldValue.map { String($0.prefix(8)) }.joined(separator: ","),
+                   shown.map { String($0.prefix(8)) }.joined(separator: ","))
+            pushTiles()
+        }
     }
     /// Each source's tile and crop (§D14a), by source id. Follows the show
     /// or the scene per §D31's "Use the show's tiles".
@@ -890,38 +895,17 @@ struct StudioWindowView: View {
             ZStack {
                 Color.black
                 StudioProgramPreview()
-                // §D14 — FRAME THE CAMERA BY DRAGGING IT, on OBS's own
-                // canvas pattern: drag the box to move it, a corner to resize
-                // it, a side to reshape it (which IS the crop, because the
-                // tile is aspect-filled), scroll to zoom the source inside it
-                // and Option-drag to pan that zoom.
-                //
-                // The handles sit on the rect the ENGINE says it composited,
-                // never on a re-derivation of the layout in this view — the
-                // "two descriptions of one picture" Decision 133 keeps
-                // finding.
-                // §D24, §D40 — EVERY OTHER tile is clickable where it is, so
-                // the host frames a person by clicking that person. One set of
-                // handles at a time: two would make a drag ambiguous wherever
-                // tiles overlap.
                 if studio.isLive {
-                    // The GROUND camera ("You, with the film inset") is the
-                    // whole frame and cannot be moved (§D14), so it carries
-                    // neither handles nor an outline.
-                    let framed = controls.framedTile.flatMap { $0 == controls.groundTile ? nil : $0 }
-                    ForEach(studio.health.tileRects.keys.sorted()
-                                .filter { $0 != framed && $0 != controls.groundTile }, id: \.self) { id in
-                        if let tile = studio.health.tileRects[id] {
-                            StudioTileSelector(tile: tile, programAspect: StudioOutputSettings.programAspect,
-                                               help: "Frame \(sources.name(id))") { controls.selectedTile = id }
-                        }
-                    }
-                    if let framed, let tile = studio.health.tileRects[framed] {
-                        StudioTileHandles(tile: tile,
-                                          programAspect: StudioOutputSettings.programAspect,
-                                          label: sources.name(framed),
-                                          controls: controls)
-                    }
+                    // §D14b — every tile is moved, resized, cropped and
+                    // layered where it is drawn; the GROUND camera ("You, with
+                    // the film inset") is the whole frame and is left alone.
+                    StudioCanvas(drawn: studio.health.tileRects,
+                                 sourceAspects: studio.health.tileSourceAspects,
+                                 order: controls.shown,
+                                 ground: controls.groundTile,
+                                 programAspect: StudioOutputSettings.programAspect,
+                                 name: { sources.name($0) },
+                                 controls: controls)
                 }
                 if !studio.isLive { programIdle }
             }
@@ -1149,6 +1133,7 @@ struct StudioWindowView: View {
             // own picker (§D23b) and its app's sound (§D25). Nothing here
             // lists windows — which is what needed Screen Recording.
             callsSection
+            windowsSection
         }
     }
 
@@ -1285,6 +1270,77 @@ struct StudioWindowView: View {
             }
             .font(.caption).fixedSize()
             if let why = StudioCallPicker.shared.problem {
+                Text(why).font(.caption2).foregroundStyle(.orange)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+        }
+    }
+
+    /// §D40a — WINDOWS: any app's window, as a picture with no sound and no
+    /// call seat. It arrives in the scene on screen, in front, where the host
+    /// drags and crops it like any other tile.
+    @ViewBuilder
+    private var windowsSection: some View {
+        VStack(alignment: .leading, spacing: 8) {
+            HStack(alignment: .firstTextBaseline, spacing: 9) {
+                Image(systemName: "macwindow").frame(width: 16).foregroundStyle(.secondary)
+                Text("Windows").font(.subheadline.weight(.medium))
+            }
+            ForEach(sources.windows) { ref in windowRow(ref) }
+            Button("Add Window…") {
+                StudioCallPicker.shared.present { filter in
+                    let id = sources.addWindow()
+                    chooseSharedWindow(filter, for: id)
+                }
+            }
+            .font(.caption).fixedSize()
+        }
+    }
+
+    private func chooseSharedWindow(_ filter: SCContentFilter, for id: String) {
+        Task {
+            if await studio.startWindow(id, filter: filter) {
+                let app = filter.includedWindows.first?.owningApplication
+                    ?? filter.includedApplications.first
+                sources.setAppName(id, app?.applicationName)
+                controls.setShown(id, true)
+                if controls.layout == .film, controls.card == nil { controls.layout = .corner }
+            }
+        }
+    }
+
+    private func windowRow(_ ref: StudioSourceRef) -> some View {
+        let label = studio.callLabel(ref.id)
+        let running = studio.callIsRunning(ref.id)
+        let rate = studio.callRates[ref.id] ?? 0
+        let problem = studio.callProblem(ref.id)
+        let stall = studio.callStalls[ref.id]
+        let refusal = studio.windowRefusals[ref.id]
+        let isBrowser = studio.callBundleIDs[ref.id].map {
+            StudioCallApps.kind(bundleID: $0) == .browser } ?? false
+        return VStack(alignment: .leading, spacing: 5) {
+            inputRow(name: label ?? sources.name(ref.id),
+                     role: "Picture only",
+                     state: label == nil ? "not chosen"
+                            : (problem != nil ? "stopped"
+                               : (!running ? "starting"
+                                  : (rate > 0 ? "\(rate) fps" : "live, still"))),
+                     healthy: label == nil || (problem == nil && running),
+                     icon: "macwindow")
+            HStack(spacing: 12) {
+                Button(label == nil ? "Choose Window…" : "Choose Another Window…") {
+                    StudioCallPicker.shared.present { filter in chooseSharedWindow(filter, for: ref.id) }
+                }
+                .font(.caption).fixedSize()
+                Button("Remove") { sources.remove(ref.id) }
+                    .font(.caption).buttonStyle(.borderless).fixedSize()
+            }
+            if label != nil, isBrowser {
+                Text("Anything this browser plays goes out on your broadcast.")
+                    .font(.caption2).foregroundStyle(.orange)
+                    .fixedSize(horizontal: false, vertical: true)
+            }
+            ForEach([refusal, problem, stall].compactMap { $0 }, id: \.self) { why in
                 Text(why).font(.caption2).foregroundStyle(.orange)
                     .fixedSize(horizontal: false, vertical: true)
             }
@@ -1437,7 +1493,7 @@ struct StudioWindowView: View {
         VStack(alignment: .leading, spacing: 5) {
             Text("In this scene").font(.subheadline.weight(.semibold))
             if sources.list.isEmpty {
-                Text("Add a camera or a call under Inputs.")
+                Text("Add a camera, a call or a window under Inputs.")
                     .font(.caption2).foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
             }
@@ -1542,8 +1598,6 @@ struct StudioWindowView: View {
         // to fix the next gesture bug.
         let framed = controls.framedTile
         let tiles = controls.currentTiles
-        let drawn = framed.flatMap { studio.health.tileRects[$0] } != nil
-        let isGround = framed != nil && framed == controls.groundTile
         VStack(alignment: .leading, spacing: 6) {
             HStack(alignment: .firstTextBaseline) {
                 Text("Framing").font(.subheadline.weight(.semibold))
@@ -1575,17 +1629,11 @@ struct StudioWindowView: View {
                      ? "No one in this placement." : "No one is in this scene.")
                     .font(.caption2).foregroundStyle(.secondary)
                     .fixedSize(horizontal: false, vertical: true)
-            } else if drawn && !isGround {
-                // ONE SENTENCE, NOT A FIVE-ROW TABLE (§D20). A legend for a
-                // direct-manipulation gesture is read once; the control it
-                // explains is reached during a show.
-                Text("Drag inside the box to move it, a corner to resize, an edge to crop; "
-                     + "scroll inside it to zoom."
-                     + (controls.activeFraming.zoom > 1
-                        ? " Hold \u{2325} and drag to pan what you have zoomed into." : ""))
-                    .font(.caption2).foregroundStyle(.secondary)
-                    .fixedSize(horizontal: false, vertical: true)
             }
+            // NO LEGEND (§D14b). The handles say what they do by their shape
+            // — squares resize, bars crop — and by their cursors and tooltips,
+            // and the owner's rule is that a caption explaining a control's
+            // own behavior is noise.
             // LAYER ORDER for the tile being framed (§D40), as full words.
             // Two buttons that fit the column; the other two verbs are on the
             // row's own menu under "In this scene".
@@ -1624,7 +1672,11 @@ struct StudioWindowView: View {
         if let t = f.tile {
             parts.append(String(format: "tile %.0f%% x %.0f%%", t.width * 100, t.height * 100))
         }
-        if f.zoom > 1 { parts.append(String(format: "zoom %.1fx", f.zoom)) }
+        if let c = f.crop, c.width * c.height < 0.999 {
+            parts.append(String(format: "showing %.0f%% x %.0f%% of the picture", c.width * 100, c.height * 100))
+        } else if f.zoom > 1 {
+            parts.append(String(format: "zoom %.1fx", f.zoom))
+        }
         return parts.joined(separator: "  \u{00B7}  ")
     }
 

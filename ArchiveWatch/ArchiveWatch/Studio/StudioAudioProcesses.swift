@@ -197,6 +197,23 @@ public enum StudioCallApps {
         return .other
     }
 
+    /// §D40a — apps that PLAY films and music. A shared window may come from
+    /// any app (owner, 2026-10-02: *"I'd like to be able to arbitrarily add
+    /// additional windows to the scene (sharing an app) without having to
+    /// 'add a call'"*), except these: their window on air is the door around
+    /// the rights gate this enum was written to close.
+    static let mediaPlayers = [
+        "com.apple.TV", "com.apple.QuickTimePlayerX", "com.apple.Music",
+        "com.apple.podcasts", "org.videolan.vlc", "com.colliderli.iina",
+        "com.firecore.infuse", "tv.plex.desktop", "tv.plex.plexamp",
+        "com.spotify.client", "com.netflix.Netflix", "com.amazon.aiv.AIVApp",
+        "com.disney.disneyplus", "com.eltima.elmedia-video", "io.mpv",
+        "com.movist.MovistPro", "com.apple.FinalCut", "com.apple.iMovieApp",
+    ]
+    public static func isMediaPlayer(bundleID: String) -> Bool {
+        mediaPlayers.contains { bundleID == $0 || bundleID.hasPrefix($0 + ".") }
+    }
+
     /// Said under a browser that has been chosen: a warning the host would not
     /// otherwise have, which is the only kind of caption this Studio carries.
     public static let browserWarning =

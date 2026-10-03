@@ -161,6 +161,47 @@ struct RootView: View {
         // macOS says. A CLI probe under the terminal's own grants
         // would answer a different question (Decision 130).
         //
+        //   AW_STUDIO_WINDOW="Calculator"    — §D40a: share that app's one
+        //                                      window as a picture-only source
+        if let want = env["AW_STUDIO_WINDOW"], !want.isEmpty {
+            Task { @MainActor in
+                // THE DEBUG BUILD SHARES THE OWNER'S STUDIO (same bundle id,
+                // same defaults), so a source this door adds is removed by the
+                // next run of it — `AW_STUDIO_WINDOW=cleanup` removes and stops.
+                let doorKey = "AWDoorWindowSourceIDs"
+                for old in UserDefaults.standard.stringArray(forKey: doorKey) ?? [] {
+                    StudioSources.shared.remove(old)
+                }
+                UserDefaults.standard.removeObject(forKey: doorKey)
+                guard want != "cleanup" else { awdiag("AWWINDOW door cleaned up"); return }
+                var waited = 0.0
+                while StudioSession.shared.engineForHarness == nil, waited < 25 {
+                    try? await Task.sleep(for: .milliseconds(250)); waited += 0.25
+                }
+                // Media players included HERE, so the refusal can be proved.
+                let all = await StudioScreenSource.windows(anyApp: true)
+                let raw = all.filter { $0.app == want }
+                let target: StudioScreenSource.Window?
+                if raw.isEmpty, StudioCallApps.isMediaPlayer(bundleID: env["AW_STUDIO_WINDOW_BUNDLE"] ?? "") {
+                    target = StudioScreenSource.Window(id: 0, app: want, title: "", pid: 0,
+                                                       bundleID: env["AW_STUDIO_WINDOW_BUNDLE"] ?? "")
+                } else {
+                    guard raw.count == 1 else {
+                        awdiag("AWWINDOW door: %d windows for %@ — refusing to guess", raw.count, want)
+                        return
+                    }
+                    target = raw.first
+                }
+                guard let target else { return }
+                let id = StudioSources.shared.addWindow()
+                UserDefaults.standard.set([id], forKey: doorKey)
+                let ok = await StudioSession.shared.startWindow(id, windowID: target.id, label: target.app,
+                                                                ownerBundleID: target.bundleID)
+                if ok { StudioControls.shared.setShown(id, true) }
+                awdiag("AWWINDOW door app=%@ start=%@ refusal=%@", target.app, ok ? "true" : "FALSE",
+                       StudioSession.shared.windowRefusals[id] ?? "none")
+            }
+        }
         //   AW_STUDIO_SCREEN=list           — what can be captured
         //   AW_STUDIO_SCREEN="Google Chrome" — try that app's window
         if let want = env["AW_STUDIO_SCREEN"], !want.isEmpty {

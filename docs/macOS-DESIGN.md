@@ -3161,3 +3161,159 @@ sources on apply and must be caught. On the product path, the DEBUG door
 `AW_STUDIO_SETUP_SELFTEST=1` (and `AW_STUDIO_SETUP_PHASE=save|load` across a
 relaunch) drives the real capture and load and compares field by field.
 **Not yet run in the Studio.**
+
+## §D14b — CORRECTION: corners resize, edges CROP, and any tile is grabbed where it is drawn (2026-10-02)
+
+Owner, after the first full show: *"The resizing and cropping of my video and
+the call video doesn't work as it should. It was very hard to manipulate and
+crop a video. You should do additional research on how to allow for resizing
+and cropping with the corner/middle tiles."*
+
+**What §D14a got wrong, three ways, all measured in the code:**
+
+1. **An edge reshaped an aspect-FILLED box.** Narrowing it cut BOTH sides of the
+   picture (the fill re-centered), and widening it past the picture's shape
+   zoomed the whole picture in. The content moved under the pointer instead of
+   being cut by it. §8.78's control measures exactly this.
+2. **The drag was read in the gesture's LOCAL space** while the handle moved
+   with the tile, so each frame's translation was measured from a view that
+   had just moved: the tile lagged, stalled and jumped.
+3. **The box was drawn from the rect the engine composited**, a frame or more
+   behind the pointer, and only the selected tile could be dragged.
+
+**The research.** Keynote's mask (double-click an image: the mask's handles
+cut, the image stays put; drag the image to slide it inside), Photos' crop
+(edge bars cut, the picture does not move), Ecamm Live (corner/edge resize,
+⌥-drag an edge to crop, right-click → Reset Crop, scroll to resize), and OBS
+(corner resize keeps proportions; ⌥-drag a handle crops and the edges turn
+green; right-click → Order). The owner's own words name the split: corners
+and middles. So:
+
+| on the STREAM canvas | does |
+|---|---|
+| press a tile | selects it (front-most where tiles overlap) |
+| drag a tile | moves it |
+| drag a CORNER (square) | scales tile and picture together, proportions kept, about the opposite corner |
+| drag an EDGE (bar) | cuts the picture at that edge; the picture does not move; the edge turns green over a dashed outline of the whole picture |
+| ⌥-drag a tile | slides the picture inside its cut |
+| scroll over the selected tile | zooms the picture inside the tile |
+| right-click a tile | Bring to Front · Bring Forward · Send Backward · Send to Back · Reset Crop · Reset Size and Position · Hide in This Scene |
+| arrows / ⌥-arrows | move 1% (⇧ 10%) / crop the right or top edge |
+| Broadcast ▸ Arrange | the same four layer verbs, with Keynote's keys: ⇧⌘F, ⌥⇧⌘F, ⌥⇧⌘B, ⇧⌘B (⌘[ is Back) |
+
+**The model.** `StudioCameraFraming.crop` — the part of the SOURCE shown,
+normalized — joins `tile`. An edge keeps the picture's scale fixed and moves
+the tile's edge and the crop's edge together; a corner scales the tile and
+keeps the crop; ⌥-drag and scroll move or scale the crop alone. All of it is
+pure geometry (`dragged`, `zoomed`) so §8.78 tests it without a window. A
+framing saved with §D14a's zoom and pan converts on its first edit without
+moving the picture.
+
+**No legend.** The handles say what they do by their SHAPE — squares resize,
+bars crop — and by their cursors (`NSCursor.frameResize`) and tooltips. The
+one-sentence gesture legend in the Framing column is gone, under the owner's
+rule that a caption explaining a control's own behavior is noise.
+
+**The box follows the host's framing, not the engine's echo of it.** §D14a's
+"handles sit on the composited rect" is kept for every tile the host has not
+moved (the placement's seat); a moved tile draws from the very value the
+engine is then told to composite, so there is one value and no round trip.
+
+## §D22b — Chat is on every scene the host turned it on in (2026-10-02)
+
+Owner: *"The chat that I put on the screen only worked on some of the
+scenes."* Three causes, all fixed in the engine's one chat placement
+(`drawChat`):
+
+- **A card returned before chat was drawn** — Starting soon, Intermission and
+  Thanks never showed it, which are the scenes where a room talks most. Chat
+  now sits over a card, in the left column, clear of the people in the right.
+  A shout-out (§D26) shows over a card too; the card's raster cache ignored it.
+- **A column a tile sat in was given up, not moved.** The chosen side is tried
+  first, then the other; chat is dropped only when neither side has room for a
+  line. A camera dragged over the left column moves chat to the right.
+- **"You, with the film inset" dodged its own full-frame camera**, leaving no
+  right-hand column at all. A camera that IS the frame is the ground chat sits
+  on; the film inset is what chat now dodges.
+
+And switching scenes no longer blanks chat or takes down a shout-out: a surface
+sends the engine its copy of the overlay (card, lower third), and the engine
+keeps the parts only it holds — chat, the shout-out, an expired provenance.
+
+**Proof**: §8.77 (`tools/test_studio_chat_every_scene.swift`) — every starter
+scene, both sides, chat drawn and covering no tile; the moved-column case;
+controls: chat off draws nothing, a shout-out changes a card's pixels.
+
+## §D40a — A WINDOW is a source: any app's window, picture only (2026-10-02)
+
+Owner: *"I'd like to be able to arbitrarily add additional windows to the scene
+(sharing an app) without having to 'add a call'."*
+
+Inputs gains **Windows**, below Calls: **Add Window…** opens the same system
+picker as a call (§D23b), and the chosen window becomes a source of kind
+`window` — **picture only**: no process tap, no call seat, no call fader. It
+arrives in the scene on screen, in front, starting in the free column, and is
+moved, cropped and layered like every tile (§D14b). Its row says "Picture
+only", offers Choose Another Window… and Remove. A setup saves it as a slot
+with its app's name, like a call (§D41).
+
+**Media players are refused, with the reason on the row** ("<app> plays films
+and music, so its window cannot go on your broadcast."): TV, QuickTime, Music,
+VLC, IINA, Infuse, Plex, Spotify, Netflix, Prime Video, Disney+ and the like
+(`StudioCallApps.mediaPlayers`). Decision 138 closed the pickers to everything
+but calls because any app's picture was a way around the rights gate; this
+opens them to every app EXCEPT the ones whose job is playing somebody else's
+film. A browser window carries the browser warning, as a call's does.
+
+The microphone's lip sync (§D42) follows the host-seat CAMERA only — a shared
+window is never mistaken for a face.
+
+## §D42 — The call keeps its pitch, and the host's voice is held to their picture (2026-10-02)
+
+Owner, after the first full show: *"The audio from my microphone did not (for
+the most part) line up perfectly with my video"* and *"The audio from the other
+participant on 'the call' sounded like a chipmunk and was highly digitally
+processed."*
+
+**The call.** The tap's sample rate was read once, when the call was chosen.
+Its aggregate device runs at the OUTPUT device's rate, which a Bluetooth headset
+drops from 48 kHz to 16 or 24 kHz the moment a call opens its microphone; a
+24 kHz stream converted as 48 kHz plays twice as fast, an octave up, with the
+ring running dry between chunks. And every buffer in the callback was chained
+as one timeline, so a headset's own microphone stream arrived interleaved with
+the call at twice real time. Now the tap follows the aggregate's rate
+(a property listener; a fresh resampler swapped in off the render thread),
+reads only its own buffers (the LAST in the list; one per channel when the
+tap is non-interleaved, read from `kAudioTapPropertyFormat`), and the
+per-second `AWCALL` line carries `rate=`, `buffers=`, `dropped=`, `padded=`.
+§8.76 plays a 1 kHz tone through a helper app, taps it (muted at the device),
+switches the output device's rate mid-run and restores it: 1000.0 Hz before,
+1000.2 Hz after; the control that ignores the change measures 1032.5 Hz.
+
+**The host's voice.** Nothing aligned it. The microphone reached the mix in
+milliseconds and sat in its ring at whatever depth it settled to (up to the
+120 ms cap); the camera's picture took the camera's latency. Now every capture
+buffer carries its capture time on the host clock (`StudioCaptureClock`: the
+camera's and the microphone's from their sessions' `synchronizationClock`, a
+window's from ScreenCaptureKit, a call's from its IOProc), the engine measures
+how old the host-seat camera's frame is when composited, and the mixer holds
+the voice to that age — silence inserted or the oldest audio dropped, while the
+host is quiet unless it is more than 80 ms off. A call's audio is held to its
+own window's picture the same way. Measured on this Mac's FaceTime camera and
+built-in microphone: camera frames 58–80 ms old; the voice **+40 to +65 ms late**
+with alignment off (`AW_STUDIO_SYNC=off`), **+2 to +13 ms** with it on after
+three corrections. *Not* measured end to end with a physical flash and beep:
+the camera faces a bright window and a screen flash does not register (the rig
+is `tools/studio_flashbeep.swift`, kept for a room where it can). The alignment
+rests on the capture sessions' own timestamps, which is what Apple's recorders
+keep sound on picture by.
+
+**The audio clock is the wall clock.** The mixer's timer merged late fires into
+one, losing a 23 ms packet each time under load, so the audio timeline fell
+behind the picture's. Each tick now makes every packet that is due (up to
+eight), counted as `mixCatchUp` on the `AWSHOW` line.
+
+**Every show leaves a post-mortem.** `AWSHOW` every ten seconds in every
+build: fps, dropped, late renders, queue, bitrate, catch-up, camera age, voice
+and call sync, corrections.
+

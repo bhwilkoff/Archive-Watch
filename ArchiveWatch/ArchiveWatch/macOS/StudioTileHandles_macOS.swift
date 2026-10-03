@@ -1,247 +1,295 @@
 #if os(macOS)
 import SwiftUI
 
-// FRAMING THE CAMERA BY DRAGGING IT — macOS-DESIGN §D14, rewritten 2026-09-22.
+// THE STREAM CANVAS — every tile is moved, resized, cropped and layered where
+// it is drawn (macOS-DESIGN §D14b, which corrects §D14a).
 //
-// Owner, on the first attempt: *"I think the crop is pretty clumsy. Most people
-// expect to crop the video frame (size and shape of the actual video tile)
-// rather than zoom and move. I like the ability to zoom the video within the
-// frame and move it around the frame, but it is clunky implementation with
-// four different sliders. Can you research/consult a macos design pattern for
-// cropping, zooming, and moving video around a preview screen (surely, OBS has
-// a way to do this as well ...)."*
+// Owner, 2026-10-02, after the first full show: *"The resizing and cropping of
+// my video and the call video doesn't work as it should. It was very hard to
+// manipulate and crop a video. You should do additional research on how to
+// allow for resizing and cropping with the corner/middle tiles."* And: *"You
+// should be able to decide the order of the video feeds (send to back or
+// something)."*
 //
-// OBS's canvas is the pattern, and it is the one hosts already know:
-//   · drag INSIDE the box            → move it
-//   · drag a CORNER handle           → resize, keeping proportions
-//   · drag a SIDE handle             → stretch one dimension (change the SHAPE)
-//   · hold Option and drag a handle  → crop, and the edges turn green
-//   · Edit Transform (⌘E)            → the same thing as numbers, for precision
-// (obsproject.com/kb/sources-guide, and OBS's own Alt/Option-drag crop.)
+// What was wrong, measured rather than guessed:
+//   · The drag was read in the gesture's LOCAL space, and the handle being
+//     dragged moved with the tile — so every frame's translation was measured
+//     from a view that had just moved, and the tile lagged, stalled and
+//     jumped under the pointer. Now every gesture reads one fixed space, the
+//     canvas (`studioCanvas`).
+//   · The box was drawn from the rect the ENGINE composited, a frame or more
+//     behind the pointer. Now it is drawn from the host's own framing, which
+//     the engine then draws — the same value, without the round trip.
+//   · An edge RESHAPED an aspect-filled box, so dragging it in cut both sides
+//     and dragging it out zoomed the picture. Now the handles do what their
+//     shapes say (the research: Keynote's mask, Photos' crop, Ecamm's and
+//     OBS's crop): a CORNER square scales tile and picture together; an EDGE
+//     bar cuts the picture at that edge and the picture stays still — the cut
+//     edges turn green, as OBS's do, over a faint outline of the whole
+//     picture; ⌥-drag slides the picture inside its cut; scroll zooms it.
+//   · Only the selected tile could be dragged; any other had to be clicked
+//     first, in a 1-pixel dashed outline. Now any tile is grabbed where it is
+//     drawn, front-most first, and right-click offers Arrange and Reset.
 //
-// WHAT WE TAKE AND WHAT WE CHANGE. We take the handles, the drag-to-move, and
-// the corner-versus-side distinction. We do NOT need OBS's separate crop mode,
-// because our tile is aspect-FILLED: reshaping the box IS the crop. A 16:9
-// webcam in a square tile shows a square of the host, and that is exactly what
-// "crop to my face" asks for. One gesture where OBS has two, and no modifier
-// key to discover.
-//
-// The SOURCE's own zoom and pan stay, because the owner asked for them — but as
-// scroll and Option-drag INSIDE the box, which is the macOS idiom for moving a
-// picture inside a frame (Preview, Photos, Maps) and costs no sliders.
-//
-// WHY IT LIVES OVER THE STREAM PREVIEW. §D5: the preview is what the audience
-// sees. Manipulating the tile there is direct manipulation of the real thing;
-// four sliders in another column were a second description of a picture that
-// was already on screen.
+// One set of handles at a time (§D24): two would make a drag ambiguous
+// wherever tiles overlap.
 
-struct StudioTileHandles: View {
-    /// The tile's rect in the PROGRAM frame, normalized, origin bottom-left —
-    /// published by the engine from the frame it actually composited.
-    let tile: CGRect
-    /// The program's aspect, so the preview's letterboxing can be undone.
+struct StudioCanvas: View {
+    /// What the engine composited, normalized program rects (origin bottom-left).
+    let drawn: [String: CGRect]
+    /// Each tile's SOURCE shape, w/h.
+    let sourceAspects: [String: CGFloat]
+    /// The scene's tiles, back to front.
+    let order: [String]
+    /// The full-frame camera of "You, with the film inset": not movable.
+    let ground: String?
     let programAspect: CGFloat
-    /// What VoiceOver calls the tile: the source's own name (§D40).
-    var label: String = "Camera"
+    let name: (String) -> String
     @Bindable var controls: StudioControls
 
-    /// Where the gesture started, in normalized program space. Held so a drag
-    /// is absolute rather than re-reading a value it is itself changing —
-    /// which accumulates rounding and makes the tile creep.
-    @State private var origin: CGRect?
-
-    /// Which part of the box the pointer is on. `.body` moves, the rest resize.
-    enum Grab: Hashable {
-        case body
-        case corner(x: Int, y: Int)   // -1 / +1
-        case edge(x: Int, y: Int)     // exactly one of x,y is non-zero
+    private struct Drag {
+        let id: String
+        let grab: StudioCameraFraming.Grab
+        let start: StudioCameraFraming
+        let startTile: CGRect
     }
+    @State private var drag: Drag?
+    @State private var hovering: String?
 
-    private static let handle: CGFloat = 9
     private let marquee = Brand.primary
+    private let cropGreen = Color(red: 0.25, green: 0.85, blue: 0.35)
+    static let space = "studioCanvas"
 
     var body: some View {
         GeometryReader { geo in
-            let drawn = Self.aspectFit(programAspect, in: geo.size)
-            let inset = CGPoint(x: (geo.size.width - drawn.width) / 2,
-                                y: (geo.size.height - drawn.height) / 2)
-            let box = Self.viewRect(tile, drawn: drawn, inset: inset)
+            let fit = Self.aspectFit(programAspect, in: geo.size)
+            let inset = CGPoint(x: (geo.size.width - fit.width) / 2, y: (geo.size.height - fit.height) / 2)
+            let ids = order.filter { $0 != ground && rect($0) != nil }
+            let selected = controls.framedTile.flatMap { ids.contains($0) ? $0 : nil }
             ZStack(alignment: .topLeading) {
-                // A HIT AREA OVER THE WHOLE PREVIEW is deliberately NOT here.
-                // The gesture is on the box and its handles only, so a drag
-                // that starts on empty film does nothing rather than silently
-                // teleporting the tile — and so a host can still see the
-                // programme without the preview being one big control.
-                Rectangle()
-                    .strokeBorder(marquee.opacity(0.95), lineWidth: 1.5)
-                    .frame(width: box.width, height: box.height)
-                    .offset(x: box.minX, y: box.minY)
-                    .allowsHitTesting(false)
-
-                ForEach(Self.grabs, id: \.self) { grab in
-                    let p = Self.point(for: grab, in: box)
-                    Rectangle()
-                        .fill(marquee)
-                        .frame(width: Self.handle, height: Self.handle)
-                        .offset(x: p.x - Self.handle / 2, y: p.y - Self.handle / 2)
-                        .opacity(grab == .body ? 0 : 1)
-                        .allowsHitTesting(false)
+                // Back to front, so the FRONT tile takes the click where two
+                // overlap — the one the audience sees is the one you grab.
+                ForEach(ids, id: \.self) { id in
+                    if let r = rect(id) {
+                        let box = Self.viewRect(r, drawn: fit, inset: inset)
+                        tileBody(id, box: box, fit: fit, selected: id == selected)
+                    }
                 }
-
-                // The BODY, then the handles on top, each with its own gesture
-                // so the hit target is the handle rather than a hit-test guess.
-                dragTarget(.body, rect: box, drawn: drawn)
-                ForEach(Self.grabs.filter { $0 != .body }, id: \.self) { grab in
-                    let p = Self.point(for: grab, in: box)
-                    dragTarget(grab,
-                               rect: CGRect(x: p.x - Self.handle,
-                                            y: p.y - Self.handle,
-                                            width: Self.handle * 2,
-                                            height: Self.handle * 2),
-                               drawn: drawn)
+                if let id = selected, let r = rect(id) {
+                    let box = Self.viewRect(r, drawn: fit, inset: inset)
+                    if let ghost = sourceOutline(id, tile: r) {
+                        // THE WHOLE PICTURE, while it is being cut or slid:
+                        // what the crop is taking away, not just what is left.
+                        let g = Self.viewRect(ghost, drawn: fit, inset: inset)
+                        Rectangle()
+                            .strokeBorder(cropGreen.opacity(0.7), style: StrokeStyle(lineWidth: 1, dash: [4, 3]))
+                            .frame(width: g.width, height: g.height)
+                            .offset(x: g.minX, y: g.minY)
+                            .allowsHitTesting(false)
+                    }
+                    selectionBox(box)
+                    ForEach(Self.handles, id: \.self) { grab in
+                        handle(id, grab: grab, box: box, fit: fit)
+                    }
                 }
             }
             .frame(width: geo.size.width, height: geo.size.height, alignment: .topLeading)
+            .coordinateSpace(name: Self.space)
         }
-        // THE KEYBOARD, as OBS offers it (launch audit, macOS): arrows move
-        // the tile by 1% of the frame, Shift by 10%; Option-arrows reshape it
-        // (left/right narrow and widen, down/up shorten and lengthen). The
-        // same clamp as a drag, so a key can never push the tile out of the
-        // frame or shrink it to nothing — and it is the only way to frame
-        // the camera without a pointer.
+        // THE KEYBOARD (§D14a's amendment, kept): arrows move the selected
+        // tile 1% (Shift: 10%); Option-arrows CROP it — left/right move its
+        // right edge, up/down its top edge — by the same geometry as a drag.
         .focusable()
+        // The selection box IS the focus indicator; the system ring drew a
+        // second, unrelated outline round the whole preview.
+        .focusEffectDisabled()
         .onKeyPress(keys: [.leftArrow, .rightArrow, .upArrow, .downArrow]) { press in
+            guard let id = controls.framedTile, id != ground, let r = rect(id) else { return .ignored }
             let step: CGFloat = press.modifiers.contains(.shift) ? 0.10 : 0.01
             var dx: CGFloat = 0, dy: CGFloat = 0
             switch press.key {
             case .leftArrow: dx = -step
             case .rightArrow: dx = step
-            case .upArrow: dy = step      // origin bottom-left: up is +y
+            case .upArrow: dy = step
             case .downArrow: dy = -step
             default: return .ignored
             }
-            var f = controls.activeFraming
-            f.tile = StudioCameraFraming.nudged(f.tile ?? tile, dx: dx, dy: dy,
-                                 reshape: press.modifiers.contains(.option))
-            controls.activeFraming = f
+            let crop = press.modifiers.contains(.option)
+            let grab: StudioCameraFraming.Grab = crop ? (dx != 0 ? .edge(x: 1, y: 0) : .edge(x: 0, y: 1)) : .body
+            set(id, StudioCameraFraming.dragged(framing(id), tile: r, grab: grab, dx: dx, dy: dy,
+                                               programAspect: programAspect, sourceAspect: aspect(id)))
             return .handled
         }
-        .accessibilityElement(children: .ignore)
-        .accessibilityLabel("\(label) tile")
-        .accessibilityHint("Arrow keys move it; Option with the arrow keys resizes it.")
+        .accessibilityElement(children: .contain)
+        .accessibilityLabel("Stream canvas")
+        .accessibilityHint("Arrow keys move the selected tile; Option with the arrow keys crops it.")
     }
 
+    // MARK: Pieces
 
     @ViewBuilder
-    private func dragTarget(_ grab: Grab, rect: CGRect, drawn: CGSize) -> some View {
-        Color.clear
+    private func tileBody(_ id: String, box: CGRect, fit: CGSize, selected: Bool) -> some View {
+        let hot = hovering == id
+        Rectangle()
+            .strokeBorder(selected ? Color.clear : Color.white.opacity(hot ? 0.9 : 0.45),
+                          style: StrokeStyle(lineWidth: hot ? 1.5 : 1, dash: [5, 4]))
             .contentShape(Rectangle())
-            .frame(width: max(1, rect.width), height: max(1, rect.height))
-            // `.position`, NOT `.offset`. Offset is a RENDER transform: it
-            // moves what you see and leaves the view laid out where it was, so
-            // the `NSView` that `ScrollZoom` puts behind this one sat at the
-            // pane's top-left corner and its "is the pointer over me?" test
-            // was asking about the wrong rectangle. Measured: ten scroll ticks
-            // dead centre of the box left `zoom` at 1.0. `.position` places the
-            // view's CENTRE in the parent's coordinate space and is a layout
-            // change, so the backing view goes where the box is.
-            // ScrollZoom BEFORE `.position`, so its backing view is the size
-            // of the BOX. `.position` makes its child fill the parent and
-            // places the content inside, so a background applied after it
-            // backs the whole pane — measured as `rect=690,488 650x394`, the
-            // entire stream preview, which would have made a scroll anywhere
-            // in the pane zoom the camera.
-            .modifier(ScrollZoom(enabled: grab == .body, controls: controls))
-            .position(x: rect.midX, y: rect.midY)
-            // THE POINTER SAYS WHAT THE HANDLE DOES, which is the other half
-            // of a handle being discoverable at all: a box with eight squares
-            // and an arrow cursor asks you to guess. macOS publishes no
-            // diagonal resize cursor, so a corner gets the crosshair rather
-            // than a wrong arrow.
+            .frame(width: max(1, box.width), height: max(1, box.height))
+            .modifier(ScrollZoom(enabled: selected) { factor in zoom(id, by: factor) })
+            .position(x: box.midX, y: box.midY)
             .onHover { inside in
-                if inside { Self.cursor(for: grab).set() } else { NSCursor.arrow.set() }
+                hovering = inside ? id : (hovering == id ? nil : hovering)
+                (inside ? NSCursor.openHand : NSCursor.arrow).set()
             }
-            .gesture(
-                DragGesture(minimumDistance: 1)
-                    .onChanged { value in apply(grab, value, drawn: drawn) }
-                    .onEnded { _ in origin = nil }
-            )
+            .gesture(dragGesture(id, grab: .body, fit: fit))
+            .contextMenu { tileMenu(id) }
+            .help(selected ? "" : "Drag to move \(name(id)); right-click to arrange")
+            .accessibilityElement()
+            .accessibilityLabel("\(name(id)) tile")
+            .accessibilityAddTraits(selected ? [.isSelected] : [.isButton])
+            .accessibilityAction { controls.selectedTile = id }
     }
 
-    /// Turn a drag into a new tile, or into a pan of the source.
-    private func apply(_ grab: Grab, _ value: DragGesture.Value, drawn: CGSize) {
-        guard drawn.width > 1, drawn.height > 1 else { return }
-        let start = origin ?? (controls.activeFraming.tile ?? tile)
-        if origin == nil { origin = start }
-
-        // The preview is letterboxed, so a drag of N points is N/drawn of the
-        // PROGRAM — not N/pane. Getting that wrong makes the tile lag the
-        // pointer by however much letterboxing there is.
-        let dx = value.translation.width / drawn.width
-        // Y IS INVERTED: SwiftUI's drag grows downward; the program frame's
-        // origin is bottom-left.
-        let dy = -value.translation.height / drawn.height
-
-        // OPTION-DRAG PANS THE SOURCE, which is the one thing reshaping the
-        // box cannot do: it chooses WHICH part of the camera fills the shape.
-        if NSEvent.modifierFlags.contains(.option), grab == .body {
-            var f = controls.activeFraming
-            guard f.zoom > 1 else { return }          // nothing to pan at 1x
-            f.panX = min(max(-1, f.panX - dx * 2 * f.zoom), 1)
-            f.panY = min(max(-1, f.panY - dy * 2 * f.zoom), 1)
-            controls.activeFraming = f
-            return
-        }
-
-        var r = start
-        switch grab {
-        case .body:
-            r.origin.x += dx
-            r.origin.y += dy
-        case .corner(let sx, let sy):
-            // PROPORTIONS KEPT on a corner, stretched on a side — OBS's own
-            // split, and the reason both exist: a corner is "make me bigger",
-            // a side is "make me a different shape".
-            let ratio = start.height > 0 ? start.width / start.height : 1
-            // BOTH AXES drive a corner, averaged. Reading `dx` alone made a
-            // corner ignore vertical movement, which is not what a corner
-            // handle looks like it should do.
-            let widen = (dx * CGFloat(sx) + dy * CGFloat(sy) * ratio) / 2
-            var w = start.width + widen
-            w = max(StudioCameraFraming.minimumTileFraction, min(1, w))
-            let h = min(1, w / max(0.01, ratio))
-            if sx < 0 { r.origin.x = start.maxX - w }
-            if sy < 0 { r.origin.y = start.maxY - h }
-            r.size = CGSize(width: w, height: h)
-        case .edge(let sx, let sy):
-            if sx != 0 {
-                var w = start.width + dx * CGFloat(sx)
-                w = max(StudioCameraFraming.minimumTileFraction, min(1, w))
-                if sx < 0 { r.origin.x = start.maxX - w }
-                r.size.width = w
-            }
-            if sy != 0 {
-                var h = start.height + dy * CGFloat(sy)
-                h = max(StudioCameraFraming.minimumTileFraction, min(1, h))
-                if sy < 0 { r.origin.y = start.maxY - h }
-                r.size.height = h
+    private func selectionBox(_ box: CGRect) -> some View {
+        let cutting: Set<Int> = {
+            guard let d = drag, case .edge(let x, let y) = d.grab else { return [] }
+            return [x == -1 ? 0 : x == 1 ? 1 : y == 1 ? 2 : 3]
+        }()
+        return ZStack(alignment: .topLeading) {
+            Rectangle()
+                .strokeBorder(marquee.opacity(0.95), lineWidth: 1.5)
+            // The edge being cut, in OBS's green.
+            ForEach(Array(cutting), id: \.self) { side in
+                Rectangle().fill(cropGreen)
+                    .frame(width: side < 2 ? 2.5 : box.width, height: side < 2 ? box.height : 2.5)
+                    .offset(x: side == 1 ? box.width - 2.5 : 0, y: side == 3 ? box.height - 2.5 : 0)
             }
         }
-        r.origin.x = min(max(0, r.origin.x), max(0, 1 - r.width))
-        r.origin.y = min(max(0, r.origin.y), max(0, 1 - r.height))
-        var f = controls.activeFraming
-        f.tile = r
-        controls.activeFraming = f
+        .frame(width: box.width, height: box.height)
+        .offset(x: box.minX, y: box.minY)
+        .allowsHitTesting(false)
+    }
+
+    /// A CORNER is a square (resize); an EDGE is a bar along the side (crop).
+    /// Different shapes for different acts, so the handle says which it is
+    /// before it is touched — and a hit area well past the drawn mark, because
+    /// a 9-point square on a preview is a hard target to find mid-show.
+    @ViewBuilder
+    private func handle(_ id: String, grab: StudioCameraFraming.Grab, box: CGRect, fit: CGSize) -> some View {
+        let p = Self.point(for: grab, in: box)
+        let isCorner: Bool = { if case .corner = grab { return true } else { return false } }()
+        let horizontalBar: Bool = { if case .edge(_, let y) = grab { return y != 0 } else { return false } }()
+        let mark = isCorner ? CGSize(width: 10, height: 10)
+            : horizontalBar ? CGSize(width: min(28, box.width * 0.4), height: 5)
+            : CGSize(width: 5, height: min(28, box.height * 0.4))
+        let hit = isCorner ? CGSize(width: 22, height: 22)
+            : horizontalBar ? CGSize(width: max(24, box.width * 0.5), height: 16)
+            : CGSize(width: 16, height: max(24, box.height * 0.5))
+        ZStack {
+            Color.clear.contentShape(Rectangle()).frame(width: hit.width, height: hit.height)
+            RoundedRectangle(cornerRadius: isCorner ? 1.5 : 2.5)
+                .fill(isCorner ? marquee : Color.white)
+                .overlay(RoundedRectangle(cornerRadius: isCorner ? 1.5 : 2.5)
+                    .strokeBorder(Color.black.opacity(0.5), lineWidth: 0.5))
+                .frame(width: mark.width, height: mark.height)
+                .allowsHitTesting(false)
+        }
+        .position(x: p.x, y: p.y)
+        .onHover { inside in
+            if inside { Self.cursor(for: grab).set() } else { NSCursor.arrow.set() }
+        }
+        .gesture(dragGesture(id, grab: grab, fit: fit))
+        .help(isCorner ? "Drag to resize" : "Drag to crop this side")
+    }
+
+    @ViewBuilder
+    private func tileMenu(_ id: String) -> some View {
+        let i = controls.shown.firstIndex(of: id) ?? 0
+        let last = controls.shown.count - 1
+        Button("Bring to Front") { controls.move(id, .front) }.disabled(i == last)
+        Button("Bring Forward") { controls.move(id, .forward) }.disabled(i == last)
+        Button("Send Backward") { controls.move(id, .backward) }.disabled(i == 0)
+        Button("Send to Back") { controls.move(id, .back) }.disabled(i == 0)
+        Divider()
+        Button("Reset Crop") {
+            var f = framing(id)
+            f.crop = nil; f.zoom = 1; f.panX = 0; f.panY = 0
+            set(id, f)
+        }
+        .disabled(!framing(id).isCropped)
+        Button("Reset Size and Position") {
+            var f = framing(id); f.tile = nil; set(id, f)
+        }
+        .disabled(framing(id).tile == nil)
+        Divider()
+        Button("Hide in This Scene") { controls.setShown(id, false) }
+    }
+
+    // MARK: Gestures
+
+    private func dragGesture(_ id: String, grab: StudioCameraFraming.Grab, fit: CGSize) -> some Gesture {
+        // ZERO distance, so the press itself selects (Keynote, OBS); a press
+        // that never moves changes nothing else.
+        DragGesture(minimumDistance: 0, coordinateSpace: .named(Self.space))
+            .onChanged { v in
+                guard fit.width > 1, fit.height > 1 else { return }
+                if drag?.id != id {
+                    guard let r = rect(id) else { return }
+                    controls.selectedTile = id
+                    let g: StudioCameraFraming.Grab =
+                        (grab == .body && NSEvent.modifierFlags.contains(.option)) ? .pan : grab
+                    drag = Drag(id: id, grab: g, start: framing(id), startTile: r)
+                    if g == .pan { NSCursor.closedHand.set() }
+                }
+                guard let d = drag else { return }
+                // The preview is letterboxed, so N points of drag are N/fit of
+                // the PROGRAM, and y is inverted (program origin bottom-left).
+                let dx = v.translation.width / fit.width
+                let dy = -v.translation.height / fit.height
+                guard abs(dx) > 0 || abs(dy) > 0 else { return }
+                set(id, StudioCameraFraming.dragged(d.start, tile: d.startTile, grab: d.grab,
+                                                    dx: dx, dy: dy, programAspect: programAspect,
+                                                    sourceAspect: aspect(id)))
+            }
+            .onEnded { _ in drag = nil }
+    }
+
+    private func zoom(_ id: String, by factor: CGFloat) {
+        guard let r = rect(id) else { return }
+        set(id, StudioCameraFraming.zoomed(framing(id), tile: r, factor: factor,
+                                           programAspect: programAspect, sourceAspect: aspect(id)))
+    }
+
+    // MARK: Values
+
+    /// The tile's rect: the host's own framing where it has one (so the box
+    /// follows the pointer this frame, not the engine's next), otherwise
+    /// where the engine drew it.
+    private func rect(_ id: String) -> CGRect? {
+        guard let engine = drawn[id] else { return nil }
+        return controls.framings[id]?.tile ?? engine
+    }
+    private func framing(_ id: String) -> StudioCameraFraming { controls.framings[id] ?? StudioCameraFraming() }
+    private func aspect(_ id: String) -> CGFloat { sourceAspects[id] ?? 16.0 / 9.0 }
+    private func set(_ id: String, _ f: StudioCameraFraming) { controls.framings[id] = f }
+
+    /// The whole source, placed where the visible cut puts it, while a crop
+    /// or a slide is in progress (nil otherwise).
+    private func sourceOutline(_ id: String, tile t: CGRect) -> CGRect? {
+        guard let d = drag, d.id == id else { return nil }
+        switch d.grab { case .edge, .pan: break; default: return nil }
+        let c = framing(id).visibleCrop(sourceAspect: aspect(id),
+                                        tileAspect: t.height > 0 ? t.width * programAspect / t.height : 1)
+        guard c.width > 0, c.height > 0 else { return nil }
+        let w = t.width / c.width, h = t.height / c.height
+        return CGRect(x: t.minX - c.minX * w, y: t.minY - c.minY * h, width: w, height: h)
     }
 
     // MARK: Geometry
 
-    static let grabs: [Grab] = [
-        .body,
-        .corner(x: -1, y: -1), .corner(x: 1, y: -1),
-        .corner(x: -1, y: 1), .corner(x: 1, y: 1),
-        .edge(x: -1, y: 0), .edge(x: 1, y: 0),
-        .edge(x: 0, y: -1), .edge(x: 0, y: 1),
+    static let handles: [StudioCameraFraming.Grab] = [
+        .corner(x: -1, y: -1), .corner(x: 1, y: -1), .corner(x: -1, y: 1), .corner(x: 1, y: 1),
+        .edge(x: -1, y: 0), .edge(x: 1, y: 0), .edge(x: 0, y: -1), .edge(x: 0, y: 1),
     ]
 
     /// Normalized program rect (origin bottom-left) → view rect (origin
@@ -253,22 +301,27 @@ struct StudioTileHandles: View {
                height: t.height * drawn.height)
     }
 
-    static func point(for grab: Grab, in box: CGRect) -> CGPoint {
+    static func point(for grab: StudioCameraFraming.Grab, in box: CGRect) -> CGPoint {
         switch grab {
-        case .body: return CGPoint(x: box.midX, y: box.midY)
+        case .body, .pan: return CGPoint(x: box.midX, y: box.midY)
         case .corner(let x, let y), .edge(let x, let y):
-            // y is in PROGRAM space (up is +1) and the box is in VIEW space
-            // (down is +1), so the sign flips here and nowhere else.
+            // y is in PROGRAM space (up is +1) and the box in VIEW space.
             return CGPoint(x: box.midX + CGFloat(x) * box.width / 2,
                            y: box.midY - CGFloat(y) * box.height / 2)
         }
     }
 
-    static func cursor(for grab: Grab) -> NSCursor {
+    static func cursor(for grab: StudioCameraFraming.Grab) -> NSCursor {
         switch grab {
         case .body: return .openHand
-        case .corner: return .crosshair
-        case .edge(let x, _): return x != 0 ? .resizeLeftRight : .resizeUpDown
+        case .pan: return .closedHand
+        case .corner(let x, let y):
+            let pos: NSCursor.FrameResizePosition = x < 0 ? (y > 0 ? .topLeft : .bottomLeft)
+                                                          : (y > 0 ? .topRight : .bottomRight)
+            return .frameResize(position: pos, directions: .all)
+        case .edge(let x, let y):
+            let pos: NSCursor.FrameResizePosition = x < 0 ? .left : x > 0 ? .right : y > 0 ? .top : .bottom
+            return .frameResize(position: pos, directions: .all)
         }
     }
 
@@ -297,28 +350,28 @@ struct StudioTileHandles: View {
 /// also scroll underneath.
 private struct ScrollZoom: ViewModifier {
     let enabled: Bool
-    @Bindable var controls: StudioControls
+    let zoom: (CGFloat) -> Void
 
     func body(content: Content) -> some View {
-        content.background(enabled ? AnyView(Catcher(controls: controls)) : AnyView(Color.clear))
+        content.background(enabled ? AnyView(Catcher(zoom: zoom)) : AnyView(Color.clear))
     }
 
     private struct Catcher: NSViewRepresentable {
-        @Bindable var controls: StudioControls
-        func makeNSView(context: Context) -> NSView { MonitorView(controls: controls) }
+        let zoom: (CGFloat) -> Void
+        func makeNSView(context: Context) -> NSView { MonitorView(zoom: zoom) }
         func updateNSView(_ nsView: NSView, context: Context) {
-            (nsView as? MonitorView)?.controls = controls
+            (nsView as? MonitorView)?.zoom = zoom
         }
         static func dismantleNSView(_ nsView: NSView, coordinator: ()) {
             (nsView as? MonitorView)?.stop()
         }
 
         final class MonitorView: NSView {
-            var controls: StudioControls
+            var zoom: (CGFloat) -> Void
             private var monitor: Any?
 
-            init(controls: StudioControls) {
-                self.controls = controls
+            init(zoom: @escaping (CGFloat) -> Void) {
+                self.zoom = zoom
                 super.init(frame: .zero)
             }
             required init?(coder: NSCoder) { nil }
@@ -329,34 +382,25 @@ private struct ScrollZoom: ViewModifier {
                 guard window != nil else { return }
                 monitor = NSEvent.addLocalMonitorForEvents(matching: .scrollWheel) {
                     [weak self] event in
-                    // ONLY SCALARS CROSS THE ISOLATION BOUNDARY. `NSEvent` is
-                    // not `Sendable`, so it may not be captured into
-                    // `assumeIsolated` — the same rule WatchTogether's stall
-                    // observer follows by sending an `ObjectIdentifier` rather
-                    // than the `Notification`.
+                    // ONLY SCALARS CROSS THE ISOLATION BOUNDARY: `NSEvent` is
+                    // not `Sendable`.
                     let delta = event.scrollingDeltaY
                     let precise = event.hasPreciseScrollingDeltas
                     let from = event.window.map(ObjectIdentifier.init)
                     let handled = MainActor.assumeIsolated { () -> Bool in
                         guard let self, let window = self.window else { return false }
-                        // A SYNTHESISED scroll (a harness, an accessibility
-                        // tool) can arrive with no `window` set, so a strict
-                        // identity check would make this gesture untestable
-                        // and would fail for anyone driving the Mac with
-                        // assistive software. Where the event names a window
-                        // it must be ours; where it does not, the pointer
-                        // being inside our own bounds is the test — and that
-                        // is the condition that actually matters.
+                        // A synthesised scroll can arrive with no `window`;
+                        // where the event names one it must be ours.
                         if let from, from != ObjectIdentifier(window) { return false }
-                        let onScreen = window.convertToScreen(
-                            self.convert(self.bounds, to: nil))
-                        let mouse = NSEvent.mouseLocation
-                        guard window.isKeyWindow else { return false }
-                        guard onScreen.contains(mouse) else { return false }
-                        self.zoom(delta: delta, precise: precise)
+                        let onScreen = window.convertToScreen(self.convert(self.bounds, to: nil))
+                        guard window.isKeyWindow, onScreen.contains(NSEvent.mouseLocation) else { return false }
+                        // A trackpad reports fractional, precise deltas and a
+                        // wheel whole lines; these land both on one feel.
+                        let step = precise ? delta * 0.006 : delta * 0.03
+                        self.zoom(1 + step)
                         return true
                     }
-                    return handled ? nil : event   // swallow only what we used
+                    return handled ? nil : event
                 }
             }
 
@@ -364,51 +408,6 @@ private struct ScrollZoom: ViewModifier {
                 if let monitor { NSEvent.removeMonitor(monitor) }
                 monitor = nil
             }
-
-            private func zoom(delta: CGFloat, precise: Bool) {
-                var f = controls.activeFraming
-                // A trackpad reports fractional, precise deltas and a wheel
-                // reports whole lines; these two factors land both somewhere
-                // that feels like one gesture rather than a jump.
-                let step = precise ? delta * 0.01 : delta * 0.06
-                f.zoom = min(max(StudioCameraFraming.zoomRange.lowerBound, f.zoom + step),
-                             StudioCameraFraming.zoomRange.upperBound)
-                if f.zoom == 1 { f.panX = 0; f.panY = 0 }
-                controls.activeFraming = f
-            }
-        }
-    }
-}
-
-/// §D24 — the tile that is NOT being framed, as a thing to click. A thin
-/// dashed outline, so a host can see there is a second tile to frame and
-/// select it where it is, rather than finding a picker in another column.
-struct StudioTileSelector: View {
-    let tile: CGRect
-    let programAspect: CGFloat
-    let help: String
-    let select: () -> Void
-    @State private var hovering = false
-
-    var body: some View {
-        GeometryReader { geo in
-            let drawn = StudioTileHandles.aspectFit(programAspect, in: geo.size)
-            let inset = CGPoint(x: (geo.size.width - drawn.width) / 2,
-                                y: (geo.size.height - drawn.height) / 2)
-            let box = StudioTileHandles.viewRect(tile, drawn: drawn, inset: inset)
-            Rectangle()
-                .strokeBorder(Color.white.opacity(hovering ? 0.9 : 0.45),
-                              style: StrokeStyle(lineWidth: hovering ? 1.5 : 1, dash: [5, 4]))
-                .contentShape(Rectangle())
-                .frame(width: box.width, height: box.height)
-                .onHover { hovering = $0 }
-                .onTapGesture { select() }
-                .help(help)
-                .accessibilityElement()
-                .accessibilityLabel(help)
-                .accessibilityAddTraits(.isButton)
-                .offset(x: box.minX, y: box.minY)
-                .frame(width: geo.size.width, height: geo.size.height, alignment: .topLeading)
         }
     }
 }

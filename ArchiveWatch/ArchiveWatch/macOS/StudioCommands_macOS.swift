@@ -58,6 +58,15 @@ struct StudioBroadcastCommands: Commands {
                     PlacementCommand(layout: layout)
                 }
             }
+            // §D14b — the selected tile's LAYER, with Keynote's own keys
+            // (⌘[ is already Back). The same four verbs as the tile's
+            // right-click menu on the STREAM canvas.
+            Menu("Arrange") {
+                ArrangeCommand(title: "Bring to Front", move: .front, key: "f", modifiers: [.command, .shift])
+                ArrangeCommand(title: "Bring Forward", move: .forward, key: "f", modifiers: [.command, .shift, .option])
+                ArrangeCommand(title: "Send Backward", move: .backward, key: "b", modifiers: [.command, .shift, .option])
+                ArrangeCommand(title: "Send to Back", move: .back, key: "b", modifiers: [.command, .shift])
+            }
         }
     }
 }
@@ -161,6 +170,30 @@ private struct CardCommand: View {
         // §D10: an empty custom card is never shown, so the key that would
         // raise one is disabled rather than doing nothing.
         .disabled(choice == .custom && !controls.customCardHasWords)
+    }
+}
+
+private struct ArrangeCommand: View {
+    let title: String
+    let move: StudioComposition.LayerMove
+    let key: KeyEquivalent
+    let modifiers: EventModifiers
+    @Bindable private var controls = StudioControls.shared
+    private var studio: StudioSession { StudioSession.shared }
+    var body: some View {
+        let id = controls.framedTile
+        let i = id.flatMap { controls.shown.firstIndex(of: $0) }
+        let last = controls.shown.count - 1
+        let blocked: Bool = {
+            guard studio.isLive, id != nil, let i, controls.shown.count > 1 else { return true }
+            switch move {
+            case .front, .forward: return i == last
+            case .back, .backward: return i == 0
+            }
+        }()
+        Button(title) { if let id { controls.move(id, move) } }
+            .keyboardShortcut(key, modifiers: modifiers)
+            .disabled(blocked)
     }
 }
 
