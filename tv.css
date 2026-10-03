@@ -1090,3 +1090,7 @@ html.tv .player-endcard-actions button { font-size: var(--tv-body); padding: 14p
   font-size: var(--tv-body);
   padding: var(--tv-overscan-y) var(--tv-overscan-x) 18px;   /* text below the overscan band */
 }
+
+/* Browse's match count is a fact the viewer reads, not a footnote: watch.css
+ * leaves it at the web's small size, ~16px on a 1080p panel. */
+.tv #browse-count { font-size: var(--tv-caption, 20px); }

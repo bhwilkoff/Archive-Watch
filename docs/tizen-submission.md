@@ -45,7 +45,7 @@ and Development checklists by hand. The items that matter for this app:
 
 | Area | Status | Notes |
 |---|---|---|
-| **Tested on the TV, 2026-10-03** | **v1.45.6, QN65S90C (Tizen 9.0)** | Driven over a remote inspector (`docs/tizen-signing.md`, 2026-10-03), with the owner reading the glass. Rows below marked 10-03 were measured there, not argued |
+| **Tested on the TV, 2026-10-03** | **v1.45.7, QN65S90C (Tizen 9.0)** | Driven over a remote inspector (`docs/tizen-signing.md`, 2026-10-03), with the owner reading the glass. Rows below marked 10-03 were measured there, not argued |
 | Launch time (10 s required, 5 s ideal) | **6.9 s, 10-03** | Cold launch to Home's cards: first paint 1.6 s, `catalog-index.json` (2 MB gzip) in by 2.3 s, cards at 6.9 s. Inside the requirement, short of the ideal |
 | Return on the home screen | **Pass, 10-03** | Asks "Exit Archive Watch?" (Exit / Stay), as the Return policy requires; everywhere else Return steps back one layer |
 | Screensaver during playback | **Pass, 10-03** | `webapis.appcommon.setScreenSaver` off while a film plays, back on at pause/end |
