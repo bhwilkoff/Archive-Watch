@@ -1626,6 +1626,59 @@
     nav.appendChild(a);
   }
 
+  /* JOINING A ROOM WITHOUT A KEYBOARD (PARITY: tvOS and Android TV join from
+   * a focus grid). The web's text field summons the TV's on-screen keyboard,
+   * slow and a different idiom from every other TV here. On a TV the field is
+   * replaced by four code slots over a grid of the room-code alphabet — read
+   * from js/together.js, never a sixth copy of it (§8.34 pins five) — with
+   * Delete and Join. The form still submits through watch.js's own handler. */
+  function installJoinPad() {
+    var form = document.getElementById('together-join');
+    if (!form || form.hidden || form.dataset.tvPad || !window.Together) return;
+    form.dataset.tvPad = '1';
+    var input = document.getElementById('together-code');
+    var len = Together.CODE_LENGTH || 4;
+    form.classList.add('tv-joinpad');
+    input.hidden = true;
+    var slots = document.createElement('div');
+    slots.className = 'tv-join-slots';
+    slots.setAttribute('aria-live', 'polite');
+    function paint() {
+      var v = input.value.toUpperCase();
+      slots.replaceChildren.apply(slots, Array.from({ length: len }, function (_, i) {
+        var b = document.createElement('span');
+        b.textContent = v[i] || '';
+        return b;
+      }));
+    }
+    var grid = document.createElement('div');
+    grid.className = 'tv-join-grid';
+    Together.ALPHABET.split('').forEach(function (ch) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'tv-join-key';
+      b.textContent = ch;
+      b.addEventListener('click', function () {
+        if (input.value.length < len) { input.value += ch; paint(); }
+        if (input.value.length === len) {
+          var join = form.querySelector('button[type="submit"]');
+          if (join) focusEl(join);
+        }
+      });
+      grid.appendChild(b);
+    });
+    var del = document.createElement('button');
+    del.type = 'button';
+    del.className = 'tv-join-key tv-join-del';
+    del.textContent = 'Delete';
+    del.addEventListener('click', function () { input.value = input.value.slice(0, -1); paint(); });
+    grid.appendChild(del);
+    input.after(slots, grid);
+    paint();
+    var first = grid.querySelector('.tv-join-key');
+    if (first) focusEl(first);
+  }
+
   /* Page chrome is not a destination on a television.
    *
    * `isChrome` keeps the INITIAL focus claim off the brand and the footer, and
@@ -1936,6 +1989,10 @@
       retireChrome();   // the install prompt can appear after init
       heroSync();
       claimFocus();
+      // AGAIN, once the view has swapped: watch.js hides the old view after
+      // this handler runs, so a focus still inside it looked reachable here
+      // and was then stranded in a hidden view (§3.1).
+      setTimeout(claimFocus, 300);
       beginArrival();
     });
 
@@ -1944,6 +2001,7 @@
     const mo = new MutationObserver(function () {
       const v = activeVideo();
       if (v) adoptVideo(v);       // strip the browser's controls the moment it exists
+      installJoinPad();
       heroSync();   // Home re-renders its rail asynchronously
       const active = document.activeElement;
       if (!active || active === document.body) claimFocus();

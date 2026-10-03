@@ -1577,6 +1577,13 @@
       if (sort === 'az') this.filtered = [...this.filtered].sort((a, b) => a[1].localeCompare(b[1]));
       if (sort === 'new') this.filtered = [...this.filtered].sort((a, b) => (b[2] || 0) - (a[2] || 0));
       if (sort === 'old') this.filtered = [...this.filtered].sort((a, b) => (a[2] || 9999) - (b[2] || 9999));
+      // TOP RATED (parity with the apps): rating, but only where it is
+      // earned — a score needs 100 votes to count (the ten-foot rule; a 9.8
+      // from six people is noise). The rest keep popularity order beneath.
+      if (sort === 'rate') {
+        const score = r => ((r[11] || 0) >= 100 ? (r[10] || 0) : -1);
+        this.filtered = [...this.filtered].sort((a, b) => score(b) - score(a));
+      }
 
       $('browse-count').textContent = `${this.filtered.length.toLocaleString()} titles`;
       this.shown = 0;
@@ -1674,9 +1681,37 @@
     },
     _serial: 0,
 
+    /** WAYS IN WITHOUT TYPING (TV-DESIGN §3.6, the ten-foot skill §6): an
+        empty search offers the catalog's own doors — its kinds and decades —
+        and Surprise, one press from a shelf. Nothing here is written by a
+        model; the doors are Browse's own filters. */
+    doors() {
+      const box = document.createElement('div');
+      box.className = 'search-doors';
+      const h = document.createElement('p');
+      h.className = 'muted';
+      h.textContent = 'Or browse';
+      const row = document.createElement('div');
+      row.className = 'chips';
+      const link = (text, href) => {
+        const a = document.createElement('a');
+        a.className = 'btn-ghost';
+        a.href = href;
+        a.textContent = text;
+        return a;
+      };
+      for (const [val, label] of TYPES) if (val) row.append(link(label, `#/browse?type=${val}`));
+      const decades = [...new Set(Data.rows.map(r => r[2] && Math.floor(r[2] / 10) * 10)
+        .filter(d => d && d >= 1900 && d <= 1990))].sort();
+      for (const d of decades) row.append(link(`${d}s`, `#/browse?decade=${d}`));
+      row.append(link('Surprise me', '#/surprise'));
+      box.append(h, row);
+      return box;
+    },
+
     async run(qs) {
       const grid = $('search-grid');
-      if (!qs) { grid.replaceChildren(); this.renderEpisodes([]); return; }
+      if (!qs) { grid.replaceChildren(this.doors()); this.renderEpisodes([]); return; }
       // A pasted archive.org link opens what it points at (ArchiveAddress).
       const pasted = ArchiveAddress.idFrom(qs);
       if (pasted) { location.hash = `#/details/${encodeURIComponent(pasted)}`; return; }

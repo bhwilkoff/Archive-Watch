@@ -1064,3 +1064,8 @@ a.person:focus-visible { outline: 2px solid var(--color-primary); outline-offset
 /* "Something wrong with this film?" — present, and quiet (WEB-DESIGN §4.4c). */
 .item-report { margin: 28px 0 8px; font-size: 0.85rem; }
 .item-report a { color: var(--text-dim); }
+
+/* Search's ways in without typing: the full width of the grid they sit in. */
+.search-doors { grid-column: 1 / -1; }
+.search-doors .chips { display: flex; flex-wrap: wrap; gap: 10px; }
+.search-doors p { margin: 4px 0 10px; }

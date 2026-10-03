@@ -1046,3 +1046,19 @@ html.tv .player-endcard-actions button { font-size: var(--tv-body); padding: 14p
 
 /* The cast row scrolls too, and its chips lift the same way. */
 .tv #item-cast { padding: 24px; margin-inline: -24px; }
+
+/* Room code by remote (installJoinPad): four slots over the alphabet grid. */
+.tv .tv-joinpad { display: grid; gap: 28px; max-width: 1100px; }
+.tv .tv-join-slots { display: flex; gap: 16px; }
+.tv .tv-join-slots span {
+  width: 88px; height: 104px; display: grid; place-items: center;
+  font-size: var(--tv-title-lg); font-weight: 700; font-variant-numeric: tabular-nums;
+  border: 2px solid rgba(255, 255, 255, 0.35); border-radius: 12px;
+}
+.tv .tv-join-grid { display: grid; grid-template-columns: repeat(8, 96px); gap: 14px; }
+.tv .tv-join-key {
+  height: 72px; font: inherit; font-size: var(--tv-title); font-weight: 600;
+  border-radius: 12px; border: 2px solid rgba(255, 255, 255, 0.25);
+  background: rgba(255, 255, 255, 0.06); color: #fff;
+}
+.tv .tv-join-del { grid-column: span 2; font-size: var(--tv-body); }
