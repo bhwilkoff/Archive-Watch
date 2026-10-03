@@ -54,15 +54,14 @@ because the loop was stopped mid-stride for a Claude update.
 
 ### Open owner items (nothing else is blocked)
 
-0-NEW-2026-10-03. **SAMSUNG TV IS READY TO SUBMIT; THE ACCOUNT IS YOURS.**
-   Create a free TV Seller Office account (seller.samsungapps.com, Public
-   Seller, US-only per 2026-09-10), then upload
-   `~/Desktop/ArchiveWatch-Samsung-1.45.7/ArchiveWatch.wgt` (signed with
-   archivewatchSamsung — keep `~/SamsungCertificate/` backed up) with the five
-   screenshots there and the copy in `docs/tizen-submission.md` §4. Before
-   upload, one pass with the PHYSICAL remote: Return at Home, the media and
-   channel keys (the harness dispatches keys inside the app; registerKey
-   delivery is only proven by a real remote).
+0-NEW-2026-10-03. **SAMSUNG TV v1.45.10 IS SUBMITTED** (TV Seller Office, app
+   3202610049114, Public Seller, US). 45 model groups 2022-2026 incl. four
+   licensed `_LIC` groups (owner: "everything from 2022 onward"), rated 12+,
+   free, optional update, "release with minor defects" = Yes (owner approved
+   each). Samsung certifies by hand, ~1-2 weeks, possibly several cycles;
+   watch Seller Office notifications. Still worth one pass with the PHYSICAL
+   remote (Return at Home, media and channel keys). The 2022 floor is
+   Decision 162 and a build gate (`tools/test_tv_compat.py`).
 
 0-NEW-2026-09-29. **FROM THE ANDROID LOOP.** (a) **No new Android version until
    the one in Play review is approved** (owner) — Android fixes since v1.42.932

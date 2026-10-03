@@ -195,4 +195,13 @@ rounds up. The archive's appeal is that it is an archive.
 | 4 | ~~build + package~~ **DONE** — `TIZEN_PROFILE=archivewatchSamsung bash tv/build-tv-packages.sh tizen` produces a signed `tv/dist/ArchiveWatch.wgt` |
 | 5 | ~~Enable Developer Mode and side-load~~ **DONE** — verified installed and launched on a QN65S90CDFXZA (2023 S90C, Tizen 9.0) at 10.0.0.203 |
 | 5b | **Confirm the side-loaded app actually shows films before submitting.** A packaged app runs from `file://`, where a relative data URL resolves inside the package instead of to the server — fixed 2026-08-05, but invisible in the browser build. An empty Home means the data plane regressed; `node tools/test_packaged_origin.mjs` guards it |
-| 6 | Submit through Seller Office; expect ~1–2 weeks and possibly several cycles |
+| 6 | ~~Submit through Seller Office~~ **SUBMITTED 2026-10-03**: v1.45.10, app id 3202610049114, 45 model groups 2022-2026 (incl. 4 licensed `_LIC`), 12+, free. Expect ~1–2 weeks and possibly several cycles |
+
+**Seller Office traps met on the first submission** (2026-10-03): the pre-test
+refuses a package naming no screen size (`config.xml` now declares
+`screen.size.normal.1080.1920`); tags take single words only; every section's
+Save must be left to finish (navigating away mid-upload silently dropped the
+screenshots); the screenshot slots share ONE file input, chosen by the slot's
+edit icon; the App Description File is Samsung's PowerPoint template, filled
+copy at `tv/dist/store/ArchiveWatch_App_Description_v1.45.8.pptx` (regenerate
+it for the next version).
