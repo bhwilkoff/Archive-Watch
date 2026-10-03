@@ -586,6 +586,27 @@ html.tv .player-endcard-actions button { font-size: var(--tv-body); padding: 14p
 }
 .tv .epg-rail,
 .tv .epg-ruler { font-size: var(--tv-caption, 20px); }
+/* The half-hour TICKS carry their own 0.65rem in watch.css, so sizing the
+ * ruler above never reached them: on the glass they were 10px smudges. */
+.tv .epg-ruler,
+.tv .epg-ruler .epg-strip { height: 44px; }
+.tv .epg-tick { font-size: var(--tv-caption, 20px); height: 36px; }
+/* A program already running starts left of the guide's scroll position, so
+ * its title sat under the sticky rail ("ss", "Galante"). The title and time
+ * stick just right of the rail and ride inside their own block. */
+.tv .epg-bt,
+.tv .epg-bw { position: sticky; left: calc(var(--epg-rail-w) + 14px); }
+/* A title as wide as its block cannot slide past the block's right edge, so
+ * a long one stayed clipped. tv.js (fitEdgeTitles) narrows the title of the
+ * block crossing the rail to what is visible, and it wraps to its two lines. */
+.tv .epg-bt { max-width: var(--edge-w, none); }
+/* `overflow: hidden` makes the BLOCK a scroll container, and sticky then
+ * sticks inside the block (titles slid 106px right). `clip` clips the same
+ * and is not one. */
+.tv .epg-block { overflow: clip; }
+/* A stepped-to program scrolls to the guide's left edge, which is under the
+ * sticky rail; scroll-padding keeps it beside the rail instead. */
+.tv .epg { scroll-padding-left: var(--epg-rail-w); }
 
 /* Search is typed on a remote keyboard; the field it fills must be legible. */
 .tv #search-input,

@@ -2514,6 +2514,8 @@
         })).filter(c => c.programs.length >= 5),
         ...this.schedule.channels,
       ];
+      const hint = document.getElementById('channels-hint');
+      if (hint) hint.hidden = !guideChannels.some(c => c.user);
       const until = now.getTime() + 26 * 3600e3;
       this.guide = [];
       for (const ch of guideChannels) {
@@ -2535,7 +2537,8 @@
         rail.append(dot, name);
         if (ch.user) {
           rail.style.cursor = 'pointer';
-          rail.title = 'Tap to delete this channel';
+          rail.title = 'Select to delete this channel';
+          rail.tabIndex = 0;               // a remote reaches it on a TV
           rail.onclick = async () => {
             const drop = async () => {
               await DB.deleteUserChannel(ch.id.slice(5)).catch(() => {});
@@ -2591,8 +2594,17 @@
       line.className = 'epg-now';
       line.style.left = `calc(var(--epg-rail-w) + ${nowX}px)`;
       host.append(line);
+      // The guide can render while its view is still hidden, and a scroll
+      // written to a box with no size is dropped (measured: 1 run in 3 opened
+      // at 6 AM). Wait for the box to have a width.
+      const toNow = () => { host.scrollLeft = Math.max(0, nowX - 30 * PPM); };
       requestAnimationFrame(() => {
-        host.scrollLeft = Math.max(0, nowX - 30 * PPM);
+        if (host.clientWidth) { toNow(); return; }
+        if (typeof ResizeObserver === 'undefined') { setTimeout(toNow, 300); return; }
+        const ro = new ResizeObserver(() => {
+          if (host.clientWidth) { ro.disconnect(); toNow(); }
+        });
+        ro.observe(host);
       });
     },
 
@@ -2651,22 +2663,31 @@
     /** Create-channel dialog: type + era only (the web index has no genre —
         the form says so; the apps' genre channels stay preset-only here). */
     async createDialog() {
+      const save = async (type, decade, name) => {
+        await DB.saveUserChannel({
+          id: Date.now().toString(36), name: name.trim(),
+          type: type.trim() || null, decade, createdAt: Date.now(),
+        }).catch(() => {});
+        this.built = false;
+        this.render();
+      };
+      const autoName = (type, decade) =>
+        [decade ? `${decade}s` : '', type.replace(/-/g, ' ')].filter(Boolean).join(' ')
+        || 'My Channel';
+      // A TV chooses from lists (tv.js); a keyboard box is the web's.
+      if (window.AWTV?.newChannel && document.documentElement.classList.contains('tv')) {
+        window.AWTV.newChannel((type, decade) => save(type, decade, autoName(type, decade)));
+        return;
+      }
       const type = prompt(
         'Channel type — one of: feature-film, silent-film, animation, '
         + 'short-film, newsreel, tv-special (blank = any)') || '';
       const decadeRaw = prompt('Era decade, e.g. 1950 (blank = any)') || '';
       const decade = Number(decadeRaw) || null;
       if (!type && !decade) return;
-      const name = prompt('Channel name',
-        [decade ? `${decade}s` : '', type.replace(/-/g, ' ')].filter(Boolean).join(' ')
-        || 'My Channel');
+      const name = prompt('Channel name', autoName(type, decade));
       if (!name) return;
-      await DB.saveUserChannel({
-        id: Date.now().toString(36), name: name.trim(),
-        type: type.trim() || null, decade, createdAt: Date.now(),
-      }).catch(() => {});
-      this.built = false;
-      this.render();
+      await save(type, decade, name);
     },
   };
 

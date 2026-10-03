@@ -45,13 +45,20 @@ and Development checklists by hand. The items that matter for this app:
 
 | Area | Status | Notes |
 |---|---|---|
+| **Tested on the TV, 2026-10-03** | **v1.45.6, QN65S90C (Tizen 9.0)** | Driven over a remote inspector (`docs/tizen-signing.md`, 2026-10-03), with the owner reading the glass. Rows below marked 10-03 were measured there, not argued |
+| Launch time (10 s required, 5 s ideal) | **6.9 s, 10-03** | Cold launch to Home's cards: first paint 1.6 s, `catalog-index.json` (2 MB gzip) in by 2.3 s, cards at 6.9 s. Inside the requirement, short of the ideal |
+| Return on the home screen | **Pass, 10-03** | Asks "Exit Archive Watch?" (Exit / Stay), as the Return policy requires; everywhere else Return steps back one layer |
+| Screensaver during playback | **Pass, 10-03** | `webapis.appcommon.setScreenSaver` off while a film plays, back on at pause/end |
+| Playback resumes after the app returns (CO-MT-01) | **Pass, 10-03** | A film the app paused on going to the background resumes on return |
+| Network lost (CO-CN-02) | **Pass, 10-03** | An offline banner, also inside the player |
+| Long playback | **Pass, 10-03** | 351 s continuous with no stall; Tizen's end-of-file error is read as the film's end; Speed is not offered (Tizen's player breaks on a rate change) |
 | Launches without error | **Verified — the owner has used several builds on the QN65S90C** | Retail Tizen closes `sdb shell` entirely — no console, no screenshot, no dlog — so no TOOL here can see Home render. A person can: the owner has used 1.42.72, .78, .90, .99 and .100 on the panel and returned specific feedback on navigation, type size and the EPG, which is only possible if films are on screen. (This row read 'Not verified' until 2026-09-14, long after that stopped being true.) `tools/test_packaged_origin.mjs` (23) guards the known cause of an empty Home, including that every script index.html loads is actually in the package. **Owner: confirm films appear before submitting** |
 | Full D-pad operability | Pass, **re-verified 2026-09-10** | The August claim of "9 surfaces verified" was **wrong** and this is what it cost: the Home HERO had no focusable element at all (the marquee, unreachable), and Browse's four filters were focusable but DEAD because tv.js ran spatial navigation on every arrow without checking what had focus. Both measured on the live site, both fixed, both now covered by `tools/test_tv_focus.mjs` (32 cases) with controls |
 | Focus always visible | Pass | Ring + scale + elevation, never colour alone |
 | **Back / Return behaviour** | Pass | Layered — an open player closes before any navigation; exits at the root via `tizen.application…exit()` |
 | Media keys | Pass | Registered through `tizen.tvinputdevice.registerKey()` — **Tizen does not deliver them otherwise** |
 | Playback | Pass | Progressive H.264 MP4 over HTTPS; no DRM needed |
-| Subtitles | Pass | WebVTT via `<track>`, user-selectable |
+| Subtitles | **Pass, 10-03** | WebVTT, chosen in Player Options and drawn by the app at ten-foot size (the system renderer's size could not be set) |
 | Suspend / resume | Pass | `visibilitychange` pauses; focus re-claimed on return |
 | Overscan | Pass | 5% safe insets; no text at the panel edge |
 | Ten-foot legibility | Pass | 24px body, 20px for a card's year caption, 32-64px headings — all tokens in `tv.css`, none a loose literal |
@@ -97,8 +104,9 @@ terms and the last is not a store.
 
 Paste-ready. Every number here is MEASURED against the published catalog
 (`ops/pulse.json` → `health.catalog`, and the live `catalog-index.json`) as of
-2026-09-10 — re-check before submitting rather than trusting these:
-**26,711 items, 26,423 playable, 285 television series.**
+2026-10-03 — re-check before submitting rather than trusting these:
+**24,274 items, 24,018 playable, 284 television series** (the rights audits
+of Decisions 140/151/157/159 removed ~2,400 since 2026-09-10).
 
 **Name:** Archive Watch
 
@@ -110,7 +118,7 @@ Paste-ready. Every number here is MEASURED against the published catalog
 
 **Long description**
 > Archive Watch turns the Internet Archive's moving-image collection into
-> something you can actually browse from the sofa: more than 26,000 films and
+> something you can actually browse from the sofa: more than 24,000 films and
 > television episodes, free to watch, with no account and no advertising.
 >
 > Feature films, silent cinema, classic television, animation, newsreels and
@@ -119,14 +127,14 @@ Paste-ready. Every number here is MEASURED against the published catalog
 > well-known title.
 >
 > • Browse by category, decade, genre, studio or keyword
-> • 285 classic television series, with seasons and episodes
+> • 284 classic television series, with seasons and episodes
 > • Channels — a continuous TV-style guide you can tune into
 > • Surprise Me, for when you would rather be shown something
-> • Pick up where you left off, and keep a library of favourites
+> • Pick up where you left off, and keep a library of favorites
 > • Subtitles where they exist, and automatic captions on supported devices
 >
 > Everything here is in the public domain in the United States or released
-> under a Creative Commons licence. Archive Watch is free, has no adverts, no
+> under a Creative Commons license. Archive Watch is free, has no ads, no
 > subscription and no account, and it does not collect anything about you.
 
 **Keywords:** public domain, classic film, silent film, old movies, classic TV,

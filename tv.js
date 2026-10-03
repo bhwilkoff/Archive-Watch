@@ -468,6 +468,49 @@
     if (first) focusEl(first);
   }
 
+  /* NEW CHANNEL, CHOSEN RATHER THAN TYPED. The web asks with three prompt()
+   * boxes — the platform's own keyboard dialog, which on a television is the
+   * web widget this layer exists to replace. Two lists instead, in the
+   * picker's own sheet: what kind, then which decade; the name is made from
+   * the choices, as the web's default is. */
+  const CHANNEL_KINDS = [
+    ['', 'Any kind'], ['feature-film', 'Feature films'], ['silent-film', 'Silent films'],
+    ['animation', 'Animation'], ['short-film', 'Short films'], ['newsreel', 'Newsreels'],
+    ['tv-special', 'TV specials'],
+  ];
+  function chooseFrom(title, choices, owner, onPick) {
+    closePicker();
+    const sheet = document.createElement('div');
+    sheet.className = 'tv-picker-sheet';
+    sheet._ownerBtn = owner;
+    const head = document.createElement('p');
+    head.className = 'tv-picker-head';
+    head.textContent = title;
+    sheet.appendChild(head);
+    choices.forEach(function (c) {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'tv-picker-opt';
+      b.textContent = c[1];
+      b.onclick = function () { sheet._ownerBtn = null; sheet.remove(); onPick(c[0]); };
+      sheet.appendChild(b);
+    });
+    document.body.appendChild(sheet);
+    focusEl(sheet.querySelector('.tv-picker-opt'));
+  }
+  function newChannel(onCreate) {
+    const owner = document.activeElement;
+    chooseFrom('New channel', CHANNEL_KINDS, owner, function (type) {
+      const eras = [];
+      if (type) eras.push([0, 'Any era']);
+      for (let d = 1900; d <= 1990; d += 10) eras.push([d, d + 's']);
+      chooseFrom('From which decade?', eras, owner, function (decade) {
+        if (owner && document.contains(owner)) focusEl(owner);
+        onCreate(type, decade || null);
+      });
+    });
+  }
+
   /** Convert every <select> on screen. Idempotent: re-run on each route. */
   function tvPickers() {
     Array.prototype.forEach.call(document.querySelectorAll('select'), function (sel) {
@@ -1578,9 +1621,46 @@
    * which is the sibling, whatever its width — the idiom the Roku EPG already
    * uses. Falling through at the ends keeps the rail and the rest of the page
    * reachable, so nobody is trapped in a strip. */
+  /* The program crossing the guide's sticky rail shows only its right part;
+   * its title (sticky, tv.css) is narrowed to that part so it wraps instead
+   * of sliding under the rail. Measured on the S90C: "The Little Princess"
+   * at x=137 with the rail ending at 217. */
+  let edgeFrame = 0;
+  function fitEdgeTitles(host) {
+    edgeFrame = 0;
+    const rail = host.querySelector('.epg-rail');
+    if (!rail) return;
+    const edge = rail.getBoundingClientRect().right;
+    host.querySelectorAll('.epg-block').forEach(function (b) {
+      const bt = b.querySelector('.epg-bt');
+      if (!bt) return;
+      const r = b.getBoundingClientRect();
+      if (r.left < edge && r.right > edge) {
+        bt.style.setProperty('--edge-w', Math.max(60, r.right - edge - 28) + 'px');
+      } else if (bt.style.getPropertyValue('--edge-w')) {
+        bt.style.removeProperty('--edge-w');
+      }
+    });
+  }
+  document.addEventListener('scroll', function (e) {
+    const t = e.target;
+    if (!t || t.id !== 'epg' || edgeFrame) return;
+    edgeFrame = requestAnimationFrame(function () { fitEdgeTitles(t); });
+  }, true);
+
   function epgStep(el, delta) {
     const next = delta > 0 ? el.nextElementSibling : el.previousElementSibling;
-    if (!next || !next.classList || !next.classList.contains('epg-block')) return false;
+    if (!next || !next.classList || !next.classList.contains('epg-block')) {
+      // Left from a row's first program goes to its rail when the rail is a
+      // control (a channel you made, which OK deletes). Geometry cannot find
+      // it: the sticky rail OVERLAPS the strip, so it is never "to the left".
+      const rail = delta < 0 && el.parentElement && el.parentElement.previousElementSibling;
+      if (rail && rail.classList.contains('epg-rail') && rail.tabIndex >= 0) {
+        rail.focus();
+        return document.activeElement === rail;
+      }
+      return false;
+    }
     next.focus();
     // SHOW THE START OF THE PROGRAMME. A block is sized to its runtime, so a
     // long film is wider than the screen by construction, and the browser's
@@ -2070,6 +2150,7 @@
     window.AWTV = window.AWTV || {};
     window.AWTV.shareQR = shareQR;
     window.AWTV.confirm = tvConfirm;
+    window.AWTV.newChannel = newChannel;
     // watch.js applies a saved speed on every start(); a platform whose player
     // cannot change rate must never have one applied.
     window.AWTV.fixedRate = FIXED_RATE;
