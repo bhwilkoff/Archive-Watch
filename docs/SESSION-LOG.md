@@ -1,5 +1,36 @@
 # Archive Watch — Session Log (archive)
 
+### 2026-09-29 — the Android audit loop: phone and Google TV, fix what is found
+
+Owner: *"a full audit of the android surfaces and app ... both a full rundown of
+all features that show on Android Phone as well as all features and interface
+elements on the Android/Google TV implementation"*, then *"The goal of the audit
+is to fix every incorrect thing you are finding."* v1.42.932 -> .969, one commit
+a finding; the log is `docs/research/ANDROID-DESIGN-LOOP.md` (findings A-AQ).
+
+**Features Android lacked, built and seen on the glass**: channel up/down (phone
+capsule, TV Up/Down and CH+/-), Commercial breaks, Autoplay next that plays (the
+switch had been read by nothing), Continue Watching progress everywhere, the own
+stream key (YouTube or Twitch; Android's only route to YouTube), Favorite/Share
+on the phone Series page. **Real defects**: Back lost the viewer's place (per-tab
+state + a Home payload cache + TV focus return); decade/collection grids stopped
+at 240 and counted 240; the Clip Studio filmstrip never drew and its result page
+hid Save/Share; exported clips claimed 1970 with no source link; a channel-surf
+entered the history (also on tvOS); deletes with no question (playlists, clips,
+channels); four menus opened far from their buttons; the TV Watch Together
+keypad ran off the screen; TV Search broke titles mid-word and opened scrolled.
+**Catalog (next publish)**: `match_rejects.json` (new, wrong matches named with
+a reason), the @handle rule, inverted sort titles, and cleared-match animation
+typing (5 live-action films left Cartoon Mode).
+
+**Owner answers, built the same day**: Remove from history on every platform
+(`wp:` tombstones, v1.42.975); mature titles marked by archive.org's "Adult"
+subject and adult-genre synopses (v1.42.974, next publish); clips claim Creative
+Commons or fair use only (Decision 153). Then release lint to zero errors and the
+dependency pass (Android 6 floor held: material3 and play-services-auth pinned).
+**Still open**: YouTube sign-in on Android (`docs/ANDROID-YOUTUBE-SIGNIN.md`,
+after the quota review); no Play upload until the version in review is approved.
+
 ### 2026-09-28 — the tvOS design loop: truncation, the 2nd-gen box, and older Apple TVs
 
 Owner: *"complete a similar design audit and feature evaluation on the tvOS

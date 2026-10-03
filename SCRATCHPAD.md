@@ -54,6 +54,16 @@ because the loop was stopped mid-stride for a Claude update.
 
 ### Open owner items (nothing else is blocked)
 
+0-NEW-2026-10-03. **SAMSUNG TV IS READY TO SUBMIT; THE ACCOUNT IS YOURS.**
+   Create a free TV Seller Office account (seller.samsungapps.com, Public
+   Seller, US-only per 2026-09-10), then upload
+   `~/Desktop/ArchiveWatch-Samsung-1.45.7/ArchiveWatch.wgt` (signed with
+   archivewatchSamsung — keep `~/SamsungCertificate/` backed up) with the five
+   screenshots there and the copy in `docs/tizen-submission.md` §4. Before
+   upload, one pass with the PHYSICAL remote: Return at Home, the media and
+   channel keys (the harness dispatches keys inside the app; registerKey
+   delivery is only proven by a real remote).
+
 0-NEW-2026-09-29. **FROM THE ANDROID LOOP.** (a) **No new Android version until
    the one in Play review is approved** (owner) — Android fixes since v1.42.932
    are committed and wait. (b) **YouTube sign-in on Android**: the plan is
@@ -739,6 +749,32 @@ keep serving it.
 
 ## Session Log
 
+### 2026-10-03 — the Samsung TV brought to the other platforms, tested on the S90C, packaged
+
+Owner: *"we need to update the Tizen app and get it ready to submit to the
+Samsung App Store. Please update all features and design to the current state
+on other platforms, complete full testing on my Samsung tv, and then get a
+build ready for shipping to the App Store"*, and *"build better tooling"* for
+testing on the set. v1.45.0 -> 1.45.7.
+
+**Tooling**: the TV is driven in-app over a Chii inspector (a debug-only
+package with its own CSP; `tools/tv_chii.mjs`, `tv_inspect.mjs`,
+`tv_press.mjs`, `docs/tizen-signing.md` 2026-10-03); woken by HDMI-CEC from
+the bedroom Apple TV. Samsung's remote WebSocket never answers (memory
+samsung_tv_harness). **Brought to parity**: Player Options (subtitles, copy,
+episodes, autoplay), channel keys and lineups, subtitles drawn at ten-foot
+size, Continue Watching progress, history removal by held OK, QR sharing,
+Collections and Settings in the nav, room joining from a keypad, Top rated,
+Search doors, Detail as a scene (TV-DESIGN §7.8), a guide that reads at ten
+feet and makes channels with the remote (§4.6d). **Samsung's checklist**:
+Return asks before exiting, no screensaver in playback, playback resumes,
+offline notice, cold launch 6.9 s (10 s limit, 5 s ideal); Tizen's player
+breaks on a rate change so there is no Speed, and its end-of-file error is the
+film's end. Owner answers: keep the marquee's Left/Right; About -> Settings;
+guide steps one program. **Ready**: `~/Desktop/ArchiveWatch-Samsung-1.45.7/`
+(signed `.wgt` + five 1920x1080 screenshots), listing copy in
+`docs/tizen-submission.md` §4. **Open**: the Seller Office account (owner).
+
 ### 2026-10-02 — the first full show's seven notes, fixed and tested on the Mac
 
 Owner, after streaming a whole film: dropped 451 and a stutter; resizing and
@@ -773,36 +809,5 @@ DECISIONS.md rolled 127-145 to an archive. Bench runs left Debug copies open
 **Open**: the saved Sources list holds only the camera (no call slot) — not
 traced to these runs; the owner should re-add their call. A physical lip-sync
 check needs a camera that can see a flash. A Mac release carrying this.
-
-### 2026-09-29 — the Android audit loop: phone and Google TV, fix what is found
-
-Owner: *"a full audit of the android surfaces and app ... both a full rundown of
-all features that show on Android Phone as well as all features and interface
-elements on the Android/Google TV implementation"*, then *"The goal of the audit
-is to fix every incorrect thing you are finding."* v1.42.932 -> .969, one commit
-a finding; the log is `docs/research/ANDROID-DESIGN-LOOP.md` (findings A-AQ).
-
-**Features Android lacked, built and seen on the glass**: channel up/down (phone
-capsule, TV Up/Down and CH+/-), Commercial breaks, Autoplay next that plays (the
-switch had been read by nothing), Continue Watching progress everywhere, the own
-stream key (YouTube or Twitch; Android's only route to YouTube), Favorite/Share
-on the phone Series page. **Real defects**: Back lost the viewer's place (per-tab
-state + a Home payload cache + TV focus return); decade/collection grids stopped
-at 240 and counted 240; the Clip Studio filmstrip never drew and its result page
-hid Save/Share; exported clips claimed 1970 with no source link; a channel-surf
-entered the history (also on tvOS); deletes with no question (playlists, clips,
-channels); four menus opened far from their buttons; the TV Watch Together
-keypad ran off the screen; TV Search broke titles mid-word and opened scrolled.
-**Catalog (next publish)**: `match_rejects.json` (new, wrong matches named with
-a reason), the @handle rule, inverted sort titles, and cleared-match animation
-typing (5 live-action films left Cartoon Mode).
-
-**Owner answers, built the same day**: Remove from history on every platform
-(`wp:` tombstones, v1.42.975); mature titles marked by archive.org's "Adult"
-subject and adult-genre synopses (v1.42.974, next publish); clips claim Creative
-Commons or fair use only (Decision 153). Then release lint to zero errors and the
-dependency pass (Android 6 floor held: material3 and play-services-auth pinned).
-**Still open**: YouTube sign-in on Android (`docs/ANDROID-YOUTUBE-SIGNIN.md`,
-after the quota review); no Play upload until the version in review is approved.
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).
