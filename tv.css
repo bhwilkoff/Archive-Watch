@@ -1062,3 +1062,10 @@ html.tv .player-endcard-actions button { font-size: var(--tv-body); padding: 14p
   background: rgba(255, 255, 255, 0.06); color: #fff;
 }
 .tv .tv-join-del { grid-column: span 2; font-size: var(--tv-body); }
+
+/* The offline notice (CO-CN-02) at a size read from the sofa, inside the
+ * overscan inset. */
+.tv .net-banner:not([hidden]) {
+  font-size: var(--tv-body);
+  padding: var(--tv-overscan-y) var(--tv-overscan-x) 18px;   /* text below the overscan band */
+}

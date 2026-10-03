@@ -507,7 +507,7 @@
    *
    * Same shape as the picker and the share sheet: a sheet, Back closes
    * it, and the SAFE choice takes focus. */
-  function tvConfirm(message, confirmLabel, onConfirm) {
+  function tvConfirm(message, confirmLabel, onConfirm, cancelLabel) {
     closeConfirm();
     const sheet = document.createElement('div');
     sheet.className = 'tv-confirm-sheet';
@@ -527,7 +527,7 @@
     const no = document.createElement('button');
     no.type = 'button';
     no.className = 'tv-confirm-no';
-    no.textContent = 'Keep it';
+    no.textContent = cancelLabel || 'Keep it';
     no.onclick = closeConfirm;
 
     const yes = document.createElement('button');
@@ -1465,6 +1465,15 @@
 
     // Otherwise navigate back, and exit from the root. Never swallowed.
     if ((location.hash || '#/').replace(/^#\/?/, '') === '') {
+      // SAMSUNG'S RETURN-KEY POLICY: from the home page, Return shows an exit
+      // confirmation the app draws itself, and the app closes only on Yes
+      // (developer.samsung.com, "Terminating Applications"; a Tizen app was
+      // rejected for a Return that did nothing). The question keeps focus on
+      // staying, like every confirmation here.
+      if (PLATFORM === 'tizen' || PLATFORM === 'debug') {
+        tvConfirm('Exit Archive Watch?', 'Exit', exitApp, 'Stay');
+        return;
+      }
       exitApp();
     } else {
       history.back();
@@ -1719,6 +1728,7 @@
 
   // Tizen and webOS deliver keyup (measured on the S90C); only an unknown
   // platform has to prove it first, and acts at once on keydown until it does.
+  var lastBackAt = 0;
   var sawKeyUp = PLATFORM === 'tizen' || PLATFORM === 'webos' || PLATFORM === 'debug';
   var okTimer = null, okHeld = false, cardTimer = null, cardHeld = false;
 
@@ -1758,6 +1768,9 @@
   }
 
   function onKeyDown(ev) {
+    // Recorded, not deduplicated: two real presses are two Backs. Only the
+    // tizenhwkey twin of THIS press is dropped (installLifecycle).
+    if (BACK_KEYS.has(ev.keyCode || ev.which)) lastBackAt = Date.now();
     const code = ev.keyCode;
     diagKey(code);
     // Back belongs to the picker while one is open, or Back would leave the
@@ -1911,12 +1924,42 @@
 
   function onHidden() {
     const v = document.querySelector('video');
-    if (v && !v.paused) v.pause();
+    if (v && !v.paused) { v.pause(); v.dataset.awHidPaused = '1'; }
+  }
+
+  /** CO-MT-01: when the app resumes, playback resumes in the state it was
+   *  in — so a film this layer paused on the way out plays again. */
+  function onShown() {
+    const v = document.querySelector('video');
+    if (v && v.dataset.awHidPaused) {
+      delete v.dataset.awHidPaused;
+      if (activeVideo()) v.play().catch(function () { /* stays paused, transport shows it */ });
+    }
+  }
+
+  /** The page's offline banner is behind an open player (a <dialog> is the
+   *  top layer), so the player carries the same sentence itself (CO-CN-02). */
+  function installOfflineNote() {
+    function paint() {
+      var note = document.getElementById('player-note');
+      var player = document.getElementById('player');
+      if (!note || !player) return;
+      if (navigator.onLine === false) {
+        note.textContent = "You're offline — playback needs a connection.";
+        note.hidden = false;
+        note.dataset.awOffline = '1';
+      } else if (note.dataset.awOffline) {
+        delete note.dataset.awOffline;
+        note.hidden = true;
+      }
+    }
+    window.addEventListener('online', paint);
+    window.addEventListener('offline', paint);
   }
 
   function installLifecycle() {
     document.addEventListener('visibilitychange', function () {
-      if (document.hidden) onHidden(); else claimFocus();
+      if (document.hidden) onHidden(); else { onShown(); claimFocus(); }
     });
 
     if (PLATFORM === 'webos') {
@@ -1929,7 +1972,15 @@
       // The hardware Back/Exit key arrives as its own event on Tizen in
       // addition to keydown, depending on firmware.
       document.addEventListener('tizenhwkey', function (e) {
-        if (e.keyName === 'back') { e.preventDefault(); goBack(); }
+        if (e.keyName !== 'back') return;
+        e.preventDefault();
+        // ONE PRESS, ONE BACK: some firmware delivers Return as keydown 10009
+        // AND tizenhwkey. Handled once, or the second delivery reopened the
+        // exit question the first had just closed.
+        if (Date.now() - lastBackAt < 400) return;
+        lastBackAt = Date.now();
+        if (document.querySelector('.tv-confirm-sheet')) { closeConfirm(); return; }
+        goBack();
       });
     }
   }
@@ -1971,6 +2022,7 @@
 
     registerTizenKeys();
     installLifecycle();
+    installOfflineNote();
     installNavAbout();
     retireChrome();
     installHero();

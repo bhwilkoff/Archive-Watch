@@ -4105,6 +4105,18 @@
 
     Categories.load();
 
+    // CONNECTIVITY NOTICE, informational only: it never gates playback or
+    // hides content (Decision 099). Restored 2026-10-03 — the wiring was lost
+    // in 5147341cd and the banner had not shown since; Samsung's checklist
+    // (CO-CN-02) requires a message when the network is lost.
+    const netBanner = $('net-banner');
+    if (netBanner) {
+      const paint = () => { netBanner.hidden = navigator.onLine !== false; };
+      addEventListener('online', paint);
+      addEventListener('offline', paint);
+      paint();
+    }
+
     showAppBanner();     // once at boot, never per navigation
 
     try {
