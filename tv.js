@@ -1631,7 +1631,7 @@
     const a = document.createElement('a');
     a.href = '#/about';
     a.dataset.nav = 'about';           // watch.js highlights on this
-    a.textContent = 'About';
+    a.textContent = 'Settings';
     nav.appendChild(a);
   }
 
