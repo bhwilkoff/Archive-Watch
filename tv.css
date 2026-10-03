@@ -130,6 +130,13 @@ html.tv .topnav a {
 html.tv .shelf-row {
   gap: 20px;
   padding-bottom: 28px;
+  /* ROOM FOR THE LIFT. A horizontal scroller clips vertically too, and a
+   * focused card grows 8% plus a 6px ring: on the S90C the ring's top was cut
+   * off on every poster (owner, 2026-10-03; measured: the ring started at
+   * y=738 inside a row whose box began at 750). The padding gives it room on
+   * all sides; the negative margin keeps the cards where they were. */
+  padding-top: 28px; margin-top: -22px;
+  padding-inline: 24px; margin-inline: -24px;
   /* The last tile must be able to reach the centre when focused. */
   scroll-padding-inline: var(--tv-overscan-x);
 }
@@ -339,6 +346,22 @@ html.tv .share-menu-trigger {
   display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
 }
 .tv-tp-desc[hidden] { display: none; }
+
+/* SUBTITLES WE DRAW (§5.5): ten-foot type in a wide measure inside
+ * title-safe, a dark box behind each line, lifted clear of the transport. */
+.tv-cues {
+  position: absolute; left: 192px; right: 192px; bottom: 96px;
+  text-align: center; pointer-events: none; z-index: 2;
+  transition: bottom 0.22s ease;
+}
+.tv-cues[hidden] { display: none; }
+.tv-cues p { margin: 0 0 8px; line-height: 1.35; }
+.tv-cues span {
+  font-size: 44px; font-weight: 500; color: #fff;
+  background: rgba(0, 0, 0, 0.78); padding: 2px 14px; border-radius: 6px;
+  -webkit-box-decoration-break: clone; box-decoration-break: clone;
+}
+.tv-transport.on ~ .tv-cues { bottom: 300px; }
 
 /* PLAYER OPTIONS (TV-DESIGN §7.7): one row of full-word buttons, docked above
  * the transport, inside title-safe like it. */
@@ -1011,3 +1034,15 @@ html.tv .player-endcard-actions button { font-size: var(--tv-body); padding: 14p
 .tv .tv-confirm-yes:focus-visible {
   outline: none; background: #b3261e; color: #fff; border-color: #fff;
 }
+
+/* ── Library on a TV ───────────────────────────────────────────────────────
+ * History: a held OK on a card is its second verb (TV-DESIGN §3.7), so the
+ * web's × beside every card — a second stop on each, doubling the row — is
+ * not drawn. Sync: Google and Apple sign-in open a browser popup a packaged
+ * TV app cannot show (§10 defers sign-in), so the card is not offered. */
+.tv .hist-remove { display: none; }
+.tv #library-sync-card { display: none; }
+.tv .card-progress { height: 6px; margin-top: 10px; }
+
+/* The cast row scrolls too, and its chips lift the same way. */
+.tv #item-cast { padding: 24px; margin-inline: -24px; }

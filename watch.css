@@ -364,6 +364,12 @@ a { color: var(--color-accent); }
   -webkit-box-orient: vertical;
 }
 .card .y { color: var(--text-dim); font-size: 0.75rem; }
+/* How far into a film (Continue Watching): a bar under the poster. */
+.card-progress {
+  display: block; height: 4px; margin-top: 6px; border-radius: 999px;
+  background: rgba(255, 255, 255, 0.18); overflow: hidden;
+}
+.card-progress i { display: block; height: 100%; width: var(--p, 0%); background: var(--color-primary); }
 
 /* Typographic placeholder card (no fetchable art): serif title on the raised
    canvas with the type's semantic accent bar (Decision 013). */

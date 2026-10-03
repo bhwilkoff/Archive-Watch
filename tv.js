@@ -602,7 +602,9 @@
   /** The one seam watch.js uses. It checks `html.tv` live (the idiom already
    *  used for the shelf floor and the season chips) and calls this instead of
    *  navigator.share, which does not exist on a television. */
-  function shareQR(url, title) {
+  /** `noun` names what the code opens ("playlist", "film", "form"). */
+  function shareQR(url, title, noun) {
+    noun = noun || 'playlist';
     closeShare();
     const sheet = document.createElement('div');
     sheet.className = 'tv-qr-sheet';
@@ -628,7 +630,7 @@
       // universal-states rule) rather than showing an empty frame.
       const err = document.createElement('p');
       err.className = 'tv-qr-note';
-      err.textContent = 'This playlist is too long to put in a code. '
+      err.textContent = 'This ' + noun + ' link is too long to put in a code. '
         + 'Open the link below on a phone instead.';
       sheet.appendChild(err);
     }
@@ -636,7 +638,7 @@
     const hint = document.createElement('p');
     hint.className = 'tv-qr-note';
     hint.textContent = cv
-      ? 'Point your phone camera at the code to open this playlist.'
+      ? 'Point your phone camera at the code to open this ' + noun + '.'
       : '';
     if (hint.textContent) sheet.appendChild(hint);
 
@@ -1146,13 +1148,12 @@
     function add(label, act) { out.push({ label: label, act: act }); }
 
     // SUBTITLES: Off, then each track in turn.
-    var tracks = Array.prototype.filter.call(video.textTracks || [],
-      function (t) { return t.kind === 'subtitles' || t.kind === 'captions'; });
+    var tracks = subtitleTracks(video);
     if (tracks.length) {
-      var on = tracks.findIndex(function (t) { return t.mode === 'showing'; });
-      add('Subtitles: ' + (on < 0 ? 'Off' : trackLabel(tracks[on])), function () {
-        var next = on + 1 >= tracks.length ? -1 : on + 1;
-        tracks.forEach(function (t, i) { t.mode = i === next ? 'showing' : 'disabled'; });
+      var on = chosenTrack(video);
+      add('Subtitles: ' + (on < 0 || !tracks[on] ? 'Off' : trackLabel(tracks[on])), function () {
+        video.dataset.awSub = String(on + 1 >= tracks.length ? -1 : on + 1);
+        applySubtitles(video);
       });
     }
     // SPEED — not in a room, which plays at the host's rate, and NOT ON
@@ -1294,6 +1295,76 @@
     return false;      // media keys still work under an open row
   }
 
+  /* ------------------------------------------------------------------ *
+   * SUBTITLES WE DRAW OURSELVES (§5.5)
+   *
+   * Owner, on the S90C: "The subtitles seem to be overly large in short lines
+   * on the screen." The cues are ordinary two-line dialogue; it is Tizen's own
+   * cue renderer that sets them huge in a narrow box, and a platform renderer
+   * offers no ::cue size we can rely on across sets. So, as tvOS does, the
+   * track runs HIDDEN (its cues still fire) and this layer draws the active
+   * cues: ten-foot type, a wide measure inside title-safe, a dark box behind
+   * each line, lifted clear of the transport when it is up.
+   * ------------------------------------------------------------------ */
+
+  var cueEl = null, cueTrack = null;
+
+  function subtitleTracks(video) {
+    return Array.prototype.filter.call(video.textTracks || [],
+      function (t) { return t.kind === 'subtitles' || t.kind === 'captions'; });
+  }
+
+  /** The track the viewer chose (-1 = off). Stored on the element so the
+   *  options row and the renderer agree. */
+  function chosenTrack(video) {
+    var i = Number(video.dataset.awSub);
+    return isNaN(i) ? -1 : i;
+  }
+
+  function paintCues() {
+    if (!cueEl) return;
+    var cues = cueTrack && cueTrack.activeCues ? Array.prototype.slice.call(cueTrack.activeCues) : [];
+    cueEl.replaceChildren.apply(cueEl, cues.map(function (c) {
+      var p = document.createElement('p');
+      // Plain text only: subtitle files carry <i>, <font ...> and the like,
+      // and a cue is never trusted as markup.
+      var lines = String(c.text || '').split(/\r?\n/)
+        .map(function (l) { return l.replace(/<[^>]*>/g, '').trim(); })
+        .filter(Boolean);
+      lines.forEach(function (l, i) {
+        var span = document.createElement('span');
+        span.textContent = l;
+        p.appendChild(span);
+        if (i < lines.length - 1) p.appendChild(document.createElement('br'));
+      });
+      return p;
+    }));
+    cueEl.hidden = !cues.length;
+  }
+
+  function applySubtitles(video) {
+    var tracks = subtitleTracks(video);
+    // First sight of this film's tracks: take over whatever the page chose
+    // (watch.js defaults English to showing).
+    if (video.dataset.awSubFor !== (video.dataset.awItem || '')) {
+      video.dataset.awSubFor = video.dataset.awItem || '';
+      video.dataset.awSub = String(tracks.findIndex(function (t) { return t.mode === 'showing'; }));
+    }
+    var want = chosenTrack(video);
+    tracks.forEach(function (t, i) { t.mode = i === want ? 'hidden' : 'disabled'; });
+    if (cueTrack && cueTrack.removeEventListener) cueTrack.removeEventListener('cuechange', paintCues);
+    cueTrack = tracks[want] || null;
+    var stage = video.parentElement;
+    if (stage && (!cueEl || !stage.contains(cueEl))) {
+      cueEl = document.createElement('div');
+      cueEl.className = 'tv-cues';
+      cueEl.setAttribute('aria-live', 'off');
+      stage.appendChild(cueEl);
+    }
+    if (cueTrack) cueTrack.addEventListener('cuechange', paintCues);
+    paintCues();
+  }
+
   /** The end-of-film card owns the keys while it is up (§7.7). */
   function endcardUp() {
     var c = document.getElementById('player-endcard');
@@ -1314,6 +1385,18 @@
     }
   }
 
+  /** SAMSUNG'S SCREENSAVER stays off while a film plays and comes back when
+   *  it stops — a TV app is expected to manage it (webapis.appcommon, loaded
+   *  only in the Tizen package). Silent where the API is absent. */
+  function screenSaver(on) {
+    try {
+      var ac = window.webapis && window.webapis.appcommon;
+      if (!ac) return;
+      var S = ac.AppCommonScreenSaverState;
+      ac.setScreenSaver(on ? S.SCREEN_SAVER_ON : S.SCREEN_SAVER_OFF);
+    } catch (e) { /* not this platform */ }
+  }
+
   /** Strip the browser's controls and take over. Runs whenever a video shows
    *  up, because the player is opened by the app, not by us. */
   function adoptVideo(video) {
@@ -1321,11 +1404,23 @@
     if (video.dataset.tvAdopted) return;
     video.dataset.tvAdopted = '1';
     video.removeAttribute('controls');
+    // Tracks arrive after the film starts (watch.js fetches the VTT), and the
+    // element is reused film after film: re-apply whenever one is added.
+    if (video.textTracks && video.textTracks.addEventListener) {
+      video.textTracks.addEventListener('addtrack', function () {
+        setTimeout(function () { applySubtitles(video); }, 0);
+      });
+    }
+    video.addEventListener('loadstart', function () { applySubtitles(video); });
     video.addEventListener('timeupdate', function () {
       if (transportEl && transportEl.classList.contains('on')) paintTransport(video);
     });
     ['play', 'pause', 'seeked', 'loadedmetadata'].forEach(function (ev) {
       video.addEventListener(ev, showTransport);
+    });
+    video.addEventListener('playing', function () { screenSaver(false); });
+    ['pause', 'ended', 'emptied'].forEach(function (ev) {
+      video.addEventListener(ev, function () { screenSaver(true); });
     });
     showTransport();
   }
@@ -1511,7 +1606,19 @@
    * right for a phone, and on Home it is reachable anyway. */
   function installNavAbout() {
     const nav = document.querySelector('.topnav');
-    if (!nav || nav.querySelector('[data-nav="about"]')) return;
+    if (!nav) return;
+    // COLLECTIONS IS A TOP-LEVEL SURFACE on a TV (TV-DESIGN §2; Android TV's
+    // rail carries it). On the web it is a button inside Browse — one more
+    // place a remote has to know to look.
+    if (!nav.querySelector('[data-nav="collections"]')) {
+      const c = document.createElement('a');
+      c.href = '#/collections';
+      c.dataset.nav = 'collections';
+      c.textContent = 'Collections';
+      const lib = nav.querySelector('[data-nav="library"]');
+      if (lib) lib.after(c); else nav.appendChild(c);
+    }
+    if (nav.querySelector('[data-nav="about"]')) return;
     const a = document.createElement('a');
     a.href = '#/about';
     a.dataset.nav = 'about';           // watch.js highlights on this
@@ -1557,9 +1664,37 @@
     }, true);
   }
 
-  var sawKeyUp = false, okTimer = null, okHeld = false;
+  // Tizen and webOS deliver keyup (measured on the S90C); only an unknown
+  // platform has to prove it first, and acts at once on keydown until it does.
+  var sawKeyUp = PLATFORM === 'tizen' || PLATFORM === 'webos' || PLATFORM === 'debug';
+  var okTimer = null, okHeld = false, cardTimer = null, cardHeld = false;
+
+  /** Ask, then remove; focus goes to the NEIGHBOUR on Remove and stays on
+   *  the card on Cancel (§3.7 — left alone it fell to the nav rail). */
+  function removeFromHistory(hist, card) {
+    const next = hist.nextElementSibling || hist.previousElementSibling;
+    const btn = hist.querySelector('.hist-remove');
+    if (!btn) return;
+    btn.click();                       // watch.js asks through AWTV.confirm
+    const started = Date.now();
+    (function settle() {
+      if (document.querySelector('.tv-confirm-sheet') && Date.now() - started < 60000) {
+        return setTimeout(settle, 150);
+      }
+      const target = hist.isConnected ? card
+        : (next && next.querySelector('a.card')) || null;
+      if (target) focusEl(target); else claimFocus();
+    })();
+  }
+
   function onKeyUp(ev) {
     sawKeyUp = true;
+    if (ev.keyCode === KEY.ENTER && cardTimer) {
+      clearTimeout(cardTimer); cardTimer = null;
+      const a = document.activeElement;
+      if (a && typeof a.click === 'function') a.click();     // a tap opens the film
+    }
+    cardHeld = false;
     if (ev.keyCode !== KEY.ENTER) return;
     if (okTimer) {
       clearTimeout(okTimer); okTimer = null;
@@ -1687,6 +1822,20 @@
       case KEY.RIGHT: ev.preventDefault(); move('right'); break;
       case KEY.DOWN:  ev.preventDefault(); move('down');  break;
       case KEY.ENTER: {
+        // A HELD OK on a history card removes it (TV-DESIGN §3.7): the tap
+        // opens the film on release, the hold asks first.
+        const hist = document.activeElement && document.activeElement.closest
+          && document.activeElement.closest('.hist-item');
+        if (hist && sawKeyUp) {
+          ev.preventDefault();
+          if (ev.repeat || cardTimer) break;
+          const card = document.activeElement;
+          cardTimer = setTimeout(function () {
+            cardTimer = null; cardHeld = true;
+            removeFromHistory(hist, card);
+          }, HOLD_MS);
+          break;
+        }
         // Activate EXPLICITLY rather than relying on native behaviour.
         // Chrome does activate a focused <a> on a real Enter (verified), but TV
         // browsers are inconsistent about it, and "it works in Chrome" is not

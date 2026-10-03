@@ -102,7 +102,7 @@ debug_hooks() {
     # A WIDGET WITH NO CSP OF ITS OWN ONLY RUNS ITS OWN SCRIPTS: the set ran
     # the debug package and never requested target.js (2026-10-03). So the
     # debug package names the inspector host; the store package declares none.
-    sed -i '' "s#</widget>#  <tizen:content-security-policy>default-src * data: blob: 'unsafe-inline' 'unsafe-eval'; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://${AW_TV_INSPECT}; connect-src * ws: wss:</tizen:content-security-policy>\n</widget>#" "$dest/config.xml"
+    sed -i '' "s#</widget>#  <tizen:content-security-policy>default-src * data: blob: 'unsafe-inline' 'unsafe-eval'; script-src 'self' file: 'unsafe-inline' 'unsafe-eval' http://${AW_TV_INSPECT}; connect-src * ws: wss:</tizen:content-security-policy>\n</widget>#" "$dest/config.xml"
     echo "    inspector hook -> http://${AW_TV_INSPECT}/target.js"
   fi
   if [ -n "${AW_TV_LIVE:-}" ]; then
@@ -154,6 +154,12 @@ build_tizen() {
   sed -E "s/^([[:space:]]*)version=\"[0-9][^\"]*\"/\1version=\"$VERSION\"/" \
     "$ROOT/tv/tizen/config.xml" > "$app/config.xml"
   cp "$ROOT/tv/tizen/icon.png" "$app/"
+  # SAMSUNG'S PLATFORM API (webapis.appcommon — the screensaver during
+  # playback). It exists only on the set, at the $WEBAPIS path the runtime
+  # resolves, so it is added to the Tizen package and never to the web.
+  sed -i '' 's#<script src="tv.js"></script>#<script src="$WEBAPIS/webapis/webapis.js"></script>\
+  <script src="tv.js"></script>#' "$app/index.html"
+  grep -q 'webapis/webapis.js' "$app/index.html" || { echo "  !! webapis.js was not added" >&2; exit 1; }
   debug_hooks "$app"
   mkdir -p "$OUT"
   if command -v tizen >/dev/null 2>&1; then

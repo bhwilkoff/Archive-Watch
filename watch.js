@@ -584,6 +584,24 @@
     el.replaceChildren(...rows.map(card));
   }
 
+  /** "42 min left" / "1 h 5 min left" — the apps' wording. */
+  function leftLabel(p) {
+    const m = Math.max(1, Math.round((p.duration - p.position) / 60));
+    return m >= 60 ? `${Math.floor(m / 60)} h ${m % 60} min left` : `${m} min left`;
+  }
+
+  function markProgress(a, p) {
+    if (!a || !p || !(p.duration > 0)) return;
+    const bar = document.createElement('span');
+    bar.className = 'card-progress';
+    const fill = document.createElement('i');
+    fill.style.setProperty('--p', `${Math.min(100, (p.position / p.duration) * 100).toFixed(1)}%`);
+    bar.append(fill);
+    a.firstChild ? a.firstChild.after(bar) : a.append(bar);   // under the poster
+    const y = a.querySelector('.y');
+    if (y) y.textContent = leftLabel(p);
+  }
+
   function stripHTML(s) {
     const d = document.createElement('div');
     d.innerHTML = s || '';
@@ -1857,6 +1875,9 @@
       const cont = progress.map(p => Data.byID.get(p.id) || contAlias.get(p.id)
         || [p.id, p.title || p.id, null, '', null]);
       fillGrid($('library-continue'), cont);
+      // HOW FAR IN, on every card (the apps' Continue Watching, 2026-09-28/29):
+      // a bar and the time left in place of the year.
+      [...$('library-continue').children].forEach((a, i) => markProgress(a, progress[i]));
       $('library-continue').hidden = !cont.length;
       $('library-continue-empty').hidden = cont.length > 0;
 
@@ -2702,6 +2723,14 @@
       $('item-community').hidden = true;
       $('item-error').hidden = true;
       $('item-play').disabled = true;
+      $('item-play').textContent = '▶ Play';
+      // RESUME SAYS SO, and how long is left (the apps' and Roku's label).
+      DB.progressFor(id).then(p => {
+        if (this.current.id !== id || !p) return;
+        if (p.duration > 0 && p.position > 10 && p.position / p.duration < 0.95) {
+          $('item-play').textContent = `▶ Resume · ${leftLabel(p)}`;
+        }
+      }).catch(() => {});
 
       // Storage can be unavailable (private browsing) — never let it take
       // down the whole detail render.
@@ -2712,6 +2741,11 @@
       $('item-share').onclick = () => this.shareMenu(row);
       $('item-playlist').onclick = () => this.playlistMenu(id);
       $('item-report').href = filmProblemURL(id, 'Web');
+      $('item-report').onclick = e => {
+        if (!(window.AWTV?.shareQR && document.documentElement.classList.contains('tv'))) return;
+        e.preventDefault();
+        window.AWTV.shareQR(filmProblemURL(id, 'TV'), 'Something wrong with this film?', 'form');
+      };
       $('item-version').hidden = true;
       $('item-version').closest('.detail-actions').classList.remove('has-version');
       $('item-scenes').hidden = true;
@@ -2940,6 +2974,13 @@
         every outbound action — system share/copy, open-in-app (mobile),
         archive.org — so the action row stays Play · ♡ · Share. */
     shareMenu(row) {
+      // A TELEVISION hands a link to a phone as a code: no share sheet, no
+      // clipboard to paste out of, no browser to open archive.org in (the
+      // playlist rule, applied to a film — TV-DESIGN §1.3).
+      if (window.AWTV?.shareQR && document.documentElement.classList.contains('tv')) {
+        window.AWTV.shareQR(`${PAGES_ROOT}item/${encodeURIComponent(row[0])}`, row[1], 'film');
+        return;
+      }
       const dlg = $('sharemenu');
       $('sharemenu-app').hidden = !(Platform.iOS || Platform.android);
       $('sharemenu-app').onclick = () => {

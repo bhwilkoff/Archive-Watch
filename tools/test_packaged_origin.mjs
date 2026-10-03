@@ -90,7 +90,15 @@ for (const pkg of ['webos', 'tizen']) {
   }
   for (const f of SHARED) {
     const a = fs.readFileSync(path.join(ROOT, f));
-    const b = fs.existsSync(path.join(dir, f)) ? fs.readFileSync(path.join(dir, f)) : null;
+    let b = fs.existsSync(path.join(dir, f)) ? fs.readFileSync(path.join(dir, f)) : null;
+    // The ONE sanctioned difference: the Tizen package loads Samsung's own
+    // webapis.js (the screensaver during playback). A DEBUG package's
+    // inspector hook is not sanctioned and still fails this check.
+    if (b && pkg === 'tizen' && f === 'index.html') {
+      const stripped = b.toString().replace('<script src="$WEBAPIS/webapis/webapis.js"></script>\n  ', '');
+      truthy('tizen/index.html loads Samsung webapis.js', stripped !== b.toString());
+      b = Buffer.from(stripped);
+    }
     truthy(`${pkg}/${f} matches the shared source`, b && a.equals(b));
   }
   // A service worker inside a package would shadow the packaged files with a
