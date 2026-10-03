@@ -2067,6 +2067,37 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mww5sasfmd2r",
+   "platform": "bluesky",
+   "id": "Afgrunden_1910",
+   "slot": "one-line",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-02T19:57:05.405925+00:00",
+   "sampled": "2026-10-03T18:46:12.941622+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117373079164025945",
+   "platform": "mastodon",
+   "id": "Afgrunden_1910",
+   "slot": "one-line",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-02T19:57:05.405925+00:00",
+   "sampled": "2026-10-03T18:46:12.941622+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }

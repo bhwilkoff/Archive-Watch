@@ -1681,6 +1681,66 @@
    "kind": "short-film",
    "mediaId": null,
    "reviewer": "oldfilmaddik"
+  },
+  {
+   "at": "2026-10-03T18:44:53.163493+00:00",
+   "id": "the-mummys-tomb-1942_202105",
+   "title": "The Mummy's Tomb",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mwyk7zagpg2x",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-03T18:44:53.163493+00:00",
+   "id": "the-mummys-tomb-1942_202105",
+   "title": "The Mummy's Tomb",
+   "slot": "now-showing",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117378456629721607",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-03T18:44:53.163493+00:00",
+   "id": "the-mummys-tomb-1942_202105",
+   "title": "The Mummy's Tomb",
+   "slot": "now-showing",
+   "platform": "threads",
+   "url": "https://www.threads.com/@archivewatchapp/post/DeCu8WlI3uR",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-03T18:44:53.163493+00:00",
+   "id": "the-mummys-tomb-1942_202105",
+   "title": "The Mummy's Tomb",
+   "slot": "now-showing",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DeCvBmdo7c6/",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": "117378456220523517",
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-03T18:44:53.163493+00:00",
+   "id": "the-mummys-tomb-1942_202105",
+   "title": "The Mummy's Tomb",
+   "slot": "now-showing",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=d7Do9Voh6l0",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
