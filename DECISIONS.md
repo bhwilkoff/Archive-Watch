@@ -248,6 +248,7 @@ into every session and the index alone carries every title.)
 - 159 — An undated upload a reviewer judged modern is hidden until it is identified
 - 160 — Every sound is held to the age of its own picture, and the audio clock is the wall clock
 - 161 — A narrow link is answered with the bitrate before a dropped frame, and a drop ends at the next keyframe it can ask for
+- 162 — The Samsung TV floor is 2022 (Tizen 6.5, Chromium 85), held by a polyfill file and a build gate
 
 ---
 
@@ -805,4 +806,32 @@ to steer by.
 `setLinkAdaptation(false)` / `AW_STUDIO_LINK_ADAPT=off` is the control, and §8.6
 runs with it so it keeps testing the last resort. A throttle the program fits
 under proves nothing — §8.79 refuses to judge unless its control drops frames.
+
+## 162 — The Samsung TV floor is 2022 (Tizen 6.5, Chromium 85), held by a polyfill file and a build gate
+*Date: 2026-10-03*
+
+The Tizen package declares `required_version="6.5"` and is released to the
+2022-2026 model groups. The shared web code that runs inside it stays within
+Chromium 85: `js/compat.js` loads before every other script and fills
+`AbortSignal.timeout` and `replaceChildren`; the CSS uses longhands instead of
+`inset`/`padding-inline`/`margin-inline`, `:focus` instead of `:focus-visible`
+on TV, and puts `color-mix()` and `overflow: clip` behind `@supports`.
+`tools/test_tv_compat.py` enforces the CSS rules (with planted controls) and
+`tv/build-tv-packages.sh` refuses to package when it fails.
+
+**Why**: the owner, preparing the Samsung submission: *"I'd like to be able to
+support everything from 2022 onward."* The config had claimed Tizen 6.0, but
+nothing ever ran the app on an engine older than the test set's Chromium 120.
+Rendered in a real Chromium 85 build, Home was empty (`replaceChildren` threw
+while drawing it, and every bounded fetch threw on `AbortSignal.timeout`), the
+overscan padding was gone, sheets fell out of center, and the category tiles
+had no color because `color-mix()` with `var()` passes the parser and fails at
+compute time, voiding the fallback written above it.
+
+**How to apply**: a new web-platform feature in code the TV loads is checked
+against Chromium 85 first; fill it in `js/compat.js`, gate it with
+`@supports`, or don't use it. Never raise `required_version` to dodge a fix:
+that drops a model year from the store silently. Re-render the TV layer in the
+Chromium 85 snapshot after a CSS change (recipe: docs/tizen-submission.md
+§2b), with a fresh profile every run.
 

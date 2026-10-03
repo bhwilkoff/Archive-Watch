@@ -136,7 +136,7 @@ html.tv .shelf-row {
    * y=738 inside a row whose box began at 750). The padding gives it room on
    * all sides; the negative margin keeps the cards where they were. */
   padding-top: 28px; margin-top: -22px;
-  padding-inline: 24px; margin-inline: -24px;
+  padding-left: 24px; padding-right: 24px; margin-left: -24px; margin-right: -24px;
   /* The last tile must be able to reach the centre when focused. */
   scroll-padding-inline: var(--tv-overscan-x);
 }
@@ -479,7 +479,7 @@ html.tv .player-endcard-actions button { font-size: var(--tv-body); padding: 14p
   color: #fff;
   cursor: pointer;
 }
-.tv .tv-picker:focus-visible,
+.tv .tv-picker:focus,
 .tv .tv-picker.tv-focus {
   outline: none;
   border-color: #fff;
@@ -491,7 +491,7 @@ html.tv .player-endcard-actions button { font-size: var(--tv-body); padding: 14p
  * is read as part of the page behind it. */
 .tv .tv-picker-sheet {
   position: fixed;
-  inset: 50% auto auto 50%;
+  top: 50%; right: auto; bottom: auto; left: 50%;
   transform: translate(-50%, -50%);
   z-index: 60;
   min-width: 520px;
@@ -525,7 +525,7 @@ html.tv .player-endcard-actions button { font-size: var(--tv-body); padding: 14p
   cursor: pointer;
 }
 .tv .tv-picker-opt[aria-current="true"] { color: var(--color-primary, #FF5C35); }
-.tv .tv-picker-opt:focus-visible,
+.tv .tv-picker-opt:focus,
 .tv .tv-picker-opt.tv-focus {
   outline: none;
   background: rgba(255, 255, 255, .12);
@@ -594,16 +594,19 @@ html.tv .player-endcard-actions button { font-size: var(--tv-body); padding: 14p
 /* A program already running starts left of the guide's scroll position, so
  * its title sat under the sticky rail ("ss", "Galante"). The title and time
  * stick just right of the rail and ride inside their own block. */
-.tv .epg-bt,
-.tv .epg-bw { position: sticky; left: calc(var(--epg-rail-w) + 14px); }
-/* A title as wide as its block cannot slide past the block's right edge, so
- * a long one stayed clipped. tv.js (fitEdgeTitles) narrows the title of the
- * block crossing the rail to what is visible, and it wraps to its two lines. */
-.tv .epg-bt { max-width: var(--edge-w, none); }
 /* `overflow: hidden` makes the BLOCK a scroll container, and sticky then
  * sticks inside the block (titles slid 106px right). `clip` clips the same
- * and is not one. */
-.tv .epg-block { overflow: clip; }
+ * and is not one. It needs Chromium 90, so a 2022 Samsung (85) keeps the plain
+ * guide: titles at the block's start, under the rail when it began earlier. */
+@supports (overflow: clip) {
+  .tv .epg-block { overflow: clip; }
+  .tv .epg-bt,
+  .tv .epg-bw { position: sticky; left: calc(var(--epg-rail-w) + 14px); }
+  /* A title as wide as its block cannot slide past the block's right edge, so
+   * a long one stayed clipped. tv.js (fitEdgeTitles) narrows the title of the
+   * block crossing the rail to what is visible, and it wraps to its two lines. */
+  .tv .epg-bt { max-width: var(--edge-w, none); }
+}
 /* A stepped-to program scrolls to the guide's left edge, which is under the
  * sticky rail; scroll-padding keeps it beside the rail instead. */
 .tv .epg { scroll-padding-left: var(--epg-rail-w); }
@@ -717,7 +720,7 @@ html.tv .player-endcard-actions button { font-size: var(--tv-body); padding: 14p
  * on the canvas here. */
 .tv .tv-qr-sheet {
   position: fixed;
-  inset: 50% auto auto 50%;
+  top: 50%; right: auto; bottom: auto; left: 50%;
   transform: translate(-50%, -50%);
   z-index: 60;
   display: flex;
@@ -781,7 +784,7 @@ html.tv .player-endcard-actions button { font-size: var(--tv-body); padding: 14p
   cursor: pointer;
 }
 .tv .tv-qr-close:focus,
-.tv .tv-qr-close:focus-visible {
+.tv .tv-qr-close:focus {
   outline: none;
   background: var(--color-primary, #FF5C35);
   border-color: #fff;
@@ -1006,7 +1009,7 @@ html.tv .player-endcard-actions button { font-size: var(--tv-body); padding: 14p
  * direction. */
 .tv .tv-confirm-sheet {
   position: fixed;
-  inset: 50% auto auto 50%;
+  top: 50%; right: auto; bottom: auto; left: 50%;
   transform: translate(-50%, -50%);
   z-index: 70;
   display: flex;
@@ -1048,11 +1051,11 @@ html.tv .player-endcard-actions button { font-size: var(--tv-body); padding: 14p
  * press it, not competing for attention from across the sheet. */
 .tv .tv-confirm-yes { background: rgba(255, 255, 255, .06); color: rgba(255, 255, 255, .82); }
 .tv .tv-confirm-no:focus,
-.tv .tv-confirm-no:focus-visible {
+.tv .tv-confirm-no:focus {
   outline: none; background: var(--color-primary, #FF5C35); color: #0A0A0A; border-color: #fff;
 }
 .tv .tv-confirm-yes:focus,
-.tv .tv-confirm-yes:focus-visible {
+.tv .tv-confirm-yes:focus {
   outline: none; background: #b3261e; color: #fff; border-color: #fff;
 }
 
@@ -1066,7 +1069,7 @@ html.tv .player-endcard-actions button { font-size: var(--tv-body); padding: 14p
 .tv .card-progress { height: 6px; margin-top: 10px; }
 
 /* The cast row scrolls too, and its chips lift the same way. */
-.tv #item-cast { padding: 24px; margin-inline: -24px; }
+.tv #item-cast { padding: 24px; margin-left: -24px; margin-right: -24px; }
 
 /* Room code by remote (installJoinPad): four slots over the alphabet grid. */
 .tv .tv-joinpad { display: grid; gap: 28px; max-width: 1100px; }

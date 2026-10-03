@@ -45,7 +45,7 @@ and Development checklists by hand. The items that matter for this app:
 
 | Area | Status | Notes |
 |---|---|---|
-| **Tested on the TV, 2026-10-03** | **v1.45.7, QN65S90C (Tizen 9.0)** | Driven over a remote inspector (`docs/tizen-signing.md`, 2026-10-03), with the owner reading the glass. Rows below marked 10-03 were measured there, not argued |
+| **Tested on the TV, 2026-10-03** | **v1.45.10, QN65S90C (Tizen 9.0)** | Driven over a remote inspector (`docs/tizen-signing.md`, 2026-10-03), with the owner reading the glass. Rows below marked 10-03 were measured there, not argued |
 | Launch time (10 s required, 5 s ideal) | **6.9 s, 10-03** | Cold launch to Home's cards: first paint 1.6 s, `catalog-index.json` (2 MB gzip) in by 2.3 s, cards at 6.9 s. Inside the requirement, short of the ideal |
 | Return on the home screen | **Pass, 10-03** | Asks "Exit Archive Watch?" (Exit / Stay), as the Return policy requires; everywhere else Return steps back one layer |
 | Screensaver during playback | **Pass, 10-03** | `webapis.appcommon.setScreenSaver` off while a film plays, back on at pause/end |
@@ -69,6 +69,34 @@ The remote-driven walkthrough Samsung may ask for is the same as
 `docs/webos-submission.md` §1; the app behaves identically.
 
 ---
+
+## 2b. Older Samsung TVs — the floor is 2022 (Tizen 6.5, Chromium 85)
+
+Owner, 2026-10-03: *"I'd like to be able to support everything from 2022
+onward."* Samsung's browser engine by model year: 2022 Tizen 6.5 = Chromium 85,
+2023 Tizen 7.0 = 94, 2024 Tizen 8.0 = 108, 2025 Tizen 9.0 = 120. The test set
+(QN65S90C) has been updated to Tizen 9, so it says nothing about a 2022 set.
+
+**Rendered in a real Chromium 85 build before it was fixed, Home was EMPTY**:
+`replaceChildren` (86) threw while drawing it, and `AbortSignal.timeout` (103)
+threw on every bounded fetch. Behind those, the CSS: `inset` and the
+`padding-inline`/`margin-inline` shorthands (87) dropped the overscan padding
+and un-centered every sheet; a rule list holding `:focus-visible` (86) is
+dropped whole, hiding the picker's focused option; `color-mix()` (111) inside
+a declaration with `var()` voids its own fallback, so the category tiles drew
+with no color on every 2022-24 set.
+
+Fixed by `js/compat.js` (loaded first; fills only what 85 lacks), longhand
+CSS, `:focus` on TV, and `@supports` around `color-mix()` and the guide's
+`overflow: clip` sticky titles. `tools/test_tv_compat.py` holds the CSS rules
+with planted controls, and `tv/build-tv-packages.sh` refuses to package when it
+fails. `config.xml` declares `required_version="6.5"`.
+
+**To check a change on a 2022 engine** (no 2022 TV exists here): Google's
+Chromium 85 snapshot (`chromium-browser-snapshots/Mac/782078`, Intel, runs
+under Rosetta), headless at 1920x1080 against `?tv=1` with a FRESH profile each
+run (a reused one serves the old stylesheet from the service worker), reading
+`Runtime.exceptionThrown`. Every route should draw with no exceptions.
 
 ## 3. Packaging
 
@@ -118,7 +146,7 @@ of Decisions 140/151/157/159 removed ~2,400 since 2026-09-10).
 
 **Long description**
 > Archive Watch turns the Internet Archive's moving-image collection into
-> something you can actually browse from the sofa: more than 24,000 films and
+> something you can actually browse from the couch: more than 24,000 films and
 > television episodes, free to watch, with no account and no advertising.
 >
 > Feature films, silent cinema, classic television, animation, newsreels and
@@ -131,10 +159,10 @@ of Decisions 140/151/157/159 removed ~2,400 since 2026-09-10).
 > • Channels — a continuous TV-style guide you can tune into
 > • Surprise Me, for when you would rather be shown something
 > • Pick up where you left off, and keep a library of favorites
-> • Subtitles where they exist, and automatic captions on supported devices
+> • Subtitles where they exist
 >
-> Everything here is in the public domain in the United States or released
-> under a Creative Commons license. Archive Watch is free, has no ads, no
+> Every title is public domain or otherwise free to share. Archive Watch is
+> free, has no ads, no
 > subscription and no account, and it does not collect anything about you.
 
 **Keywords:** public domain, classic film, silent film, old movies, classic TV,

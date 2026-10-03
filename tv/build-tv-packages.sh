@@ -50,6 +50,10 @@ if [ -z "$VERSION" ]; then
 fi
 echo "Version: $VERSION"
 
+# The TV floor is Samsung's 2022 models (Tizen 6.5, Chromium 85). A feature
+# newer than that rendered an empty Home there; refuse to package it.
+python3 "$ROOT/tools/test_tv_compat.py" >&2 || { echo "!! TV code uses a feature 2022 TVs lack" >&2; exit 1; }
+
 stage() {
   local dest="$1"
   rm -rf "$dest"

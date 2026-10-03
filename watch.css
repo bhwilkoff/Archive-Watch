@@ -222,7 +222,7 @@ a { color: var(--color-accent); }
 /* Ambient layer: the poster as atmosphere — blurred past recognition of its
    crop, darkened toward the canvas, slowly breathing. */
 .hero-ambient {
-  position: absolute; inset: -24px;            /* hide blur edge bleed */
+  position: absolute; top: -24px; right: -24px; bottom: -24px; left: -24px;            /* hide blur edge bleed */
   background-size: cover; background-position: center 30%;
   filter: blur(28px) saturate(1.1) brightness(0.45);
   transform: scale(1.05);
@@ -235,7 +235,7 @@ a { color: var(--color-accent); }
   to   { transform: scale(1.16) translateY(-1.5%); }
 }
 .hero-slide::after {                            /* canvas-edge vignette */
-  content: ""; position: absolute; inset: 0;
+  content: ""; position: absolute; top: 0; right: 0; bottom: 0; left: 0;
   background: linear-gradient(180deg, rgba(10,10,10,0.25), transparent 30%,
               transparent 65%, rgba(10,10,10,0.8));
   pointer-events: none;
@@ -298,8 +298,8 @@ a { color: var(--color-accent); }
 
 /* Dots: real buttons, synced from scroll position. */
 .hero-dots {
-  inset: auto 0 clamp(8px, 1.6vw, 16px) 0;
-  position: absolute; z-index: 2; inset: auto 0 clamp(8px, 1.6cqi, 16px) 0;
+  top: auto; right: 0; bottom: clamp(8px, 1.6vw, 16px); left: 0;
+  position: absolute; z-index: 2; top: auto; right: 0; bottom: clamp(8px, 1.6cqi, 16px); left: 0;
   display: flex; justify-content: center; gap: 10px;
   pointer-events: none;
 }
@@ -341,7 +341,8 @@ a { color: var(--color-accent); }
   border: 1px solid var(--border);
 }
 .scene span { display: block; padding-top: 4px; font-size: 0.8rem; }
-.scene:focus-visible img, .scene:hover img { border-color: var(--color-accent); }
+.scene:hover img { border-color: var(--color-accent); }
+.scene:focus-visible img { border-color: var(--color-accent); }  /* own rule: Chromium 85 drops a list holding :focus-visible */
 
 /* ---- cards + grid ---- */
 .grid {
@@ -380,7 +381,7 @@ a { color: var(--color-accent); }
   display: flex; align-items: flex-end; padding: 10px;
 }
 .card-ph::before {
-  content: ""; position: absolute; inset: 0 auto 0 0; width: 4px;
+  content: ""; position: absolute; top: 0; right: auto; bottom: 0; left: 0; width: 4px;
   background: var(--ph-accent, #555);
 }
 .card-ph span {
@@ -419,7 +420,7 @@ input[type="search"] {
 }
 
 /* ---- detail ---- */
-.detail { padding: var(--pad); max-width: 1200px; margin-inline: auto; }
+.detail { padding: var(--pad); max-width: 1200px; margin-left: auto; margin-right: auto; }
 /* §4.4a — running text keeps a readable measure at any width. */
 #item-desc, #series-overview, .review-body, .item-tagline { max-width: 72ch; }
 .detail-art img {
@@ -602,8 +603,16 @@ input[type="search"] {
   display: flex; flex-direction: column; justify-content: flex-end;
   padding: 12px; border-radius: 10px; text-decoration: none;
   color: #fff; font-weight: 700;
-  background: linear-gradient(135deg, var(--tile-accent, #555),
-              color-mix(in srgb, var(--tile-accent, #555) 55%, black));
+  background: var(--tile-accent, #555);
+}
+/* color-mix() needs Chromium 111. Behind @supports, because a declaration
+   holding var() passes the parser and fails at compute time, which voids the
+   plain fallback above instead of falling back to it (2022-24 Samsung TVs). */
+@supports (background: color-mix(in srgb, red 50%, black)) {
+  .cat-tile, .era-tile {
+    background: linear-gradient(135deg, var(--tile-accent, #555),
+                color-mix(in srgb, var(--tile-accent, #555) 55%, black));
+  }
 }
 .era-tile { --tile-accent: #6b6f78; }
 .era-tile strong {
@@ -906,7 +915,7 @@ dialog#player::backdrop { background: rgba(0, 0, 0, 0.85); }
    motion, a detail page is somewhere you READ. */
 #view-item { position: relative; }
 .detail-ambient {
-  position: absolute; inset: 0 0 auto 0; height: min(520px, 60vh);
+  position: absolute; top: 0; right: 0; bottom: auto; left: 0; height: min(520px, 60vh);
   background-size: cover; background-position: center 22%;
   filter: blur(34px) saturate(1.15) brightness(0.38);
   transform: scale(1.08);
@@ -915,7 +924,7 @@ dialog#player::backdrop { background: rgba(0, 0, 0, 0.85); }
 }
 .detail-ambient.on { opacity: 1; }
 .detail-ambient::after {
-  content: ""; position: absolute; inset: 0;
+  content: ""; position: absolute; top: 0; right: 0; bottom: 0; left: 0;
   background: linear-gradient(180deg, rgba(10,10,10,.35) 0%, rgba(10,10,10,.75) 55%, var(--bg) 100%);
 }
 #view-item .detail { position: relative; z-index: 1; }
@@ -938,7 +947,7 @@ dialog#player::backdrop { background: rgba(0, 0, 0, 0.85); }
    every cast name into blue underlined text. A bubble should still read as a
    portrait with a name under it; the affordance is the hover, not the colour. */
 a.person { color: inherit; text-decoration: none; }
-a.person:hover figcaption,
+a.person:hover figcaption { text-decoration: underline; }
 a.person:focus-visible figcaption { text-decoration: underline; }
 a.person:focus-visible { outline: 2px solid var(--color-primary); outline-offset: 3px; border-radius: 8px; }
 
@@ -973,7 +982,7 @@ a.person:focus-visible { outline: 2px solid var(--color-primary); outline-offset
 .player-endcard { display: none; }
 .player-endcard:not([hidden]) {
   display: flex; flex-direction: column; gap: 1rem;
-  position: absolute; inset: 0; z-index: 3;
+  position: absolute; top: 0; right: 0; bottom: 0; left: 0; z-index: 3;
   padding: clamp(1rem, 4vw, 2rem);
   background: rgba(10, 10, 10, .92);
   overflow-y: auto;

@@ -7,7 +7,7 @@
 
   <tizen:application id="ArchvWatch.ArchiveWatch"
                      package="ArchvWatch"
-                     required_version="6.0"/>
+                     required_version="6.5"/>
 
   <name>Archive Watch</name>
   <description>A cinematheque for the Internet Archive — public-domain feature films, classic TV, silent cinema, animation and newsreels. Free, no account.</description>
@@ -18,6 +18,9 @@
 
   <!-- 1920x1080 is the design baseline (docs/TV-DESIGN.md §4.1). -->
   <tizen:profile name="tv"/>
+  <!-- Samsung's Seller Office pre-test refuses a package that names no screen
+       size ("screen size is not specified"); 1080p is the design baseline. -->
+  <feature name="http://tizen.org/feature/screen.size.normal.1080.1920"/>
   <tizen:setting screen-orientation="landscape"
                  context-menu="disable"
                  background-support="disable"
