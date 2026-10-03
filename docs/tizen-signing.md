@@ -103,3 +103,35 @@ screenshot, no dlog. Remote debugging needs a developer (UD) unit. On retail har
 a Tizen build is **screenshots from the owner plus the desktop browser in TV
 mode** (`archivewatch.org/?tv=1`, which `tv.js` treats as a TV). Do not budget
 time for a device console; there isn't one.
+
+## 2026-10-03 — turning the set on, and an inspector on a RETAIL TV
+
+**Turning it on.** Wake-on-LAN (wifi MAC B8:B4:09:E5:CF:64) does nothing from
+standby on this set. What works: wake the **Apple TV on the same HDMI chain
+("Ben Bedroom", 10.0.0.223)** and HDMI-CEC switches the Samsung on —
+
+    ~/.pyatv-venv/bin/atvremote -s 10.0.0.223 -i 7A:3F:0C:4E:20:1E \
+        --protocol companion turn_on
+
+(`-s` scans that one host; `--address` alone answered "Found more than one
+Apple TV"). `curl http://10.0.0.203:8001/api/v2/` then reports
+`"PowerState":"on"` (empty while in standby). `tizen run` then puts our app in
+front of the HDMI input.
+
+**An inspector on the retail set — Chii.** Samsung's Web Inspector needs a
+debug launch the retail firmware refuses; Chii does not. A debug package built
+with `AW_TV_INSPECT=10.0.0.90:8080` loads Chii's `target.js` and appears in
+`http://localhost:8080/targets`; `chii start -p 8080` serves it, the DevTools
+page is `http://localhost:8080`, and `node tools/tv_inspect.mjs "<js>"`
+evaluates JavaScript inside the app ON THE TV (Tizen 9.0, Chromium 120,
+1920x1080, dpr 1, measured). **A widget with no CSP of its own runs only its
+own scripts**: the first debug package never requested `target.js`; the
+debug package now declares a `<tizen:content-security-policy>` naming the
+inspector host. The store package declares none and carries no hook (the
+build refuses one). The package is renamed `ArchiveWatch-debug.wgt`.
+
+**The network remote (port 8001/8002, `tools/samsung_remote.mjs`) stays
+SILENT on this set**: the socket opens and the TV never answers — with Access
+Notification Off, an empty device list, and (the owner tried) IP Remote on;
+`samsungtvws` times out identically. Not solved; key input goes through the
+app's own handler via the inspector instead.

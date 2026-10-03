@@ -327,6 +327,53 @@ html.tv .share-menu-trigger {
   color: rgba(255, 255, 255, 0.62);
 }
 
+/* The transport NAMES the film (§5.3, TV-DESIGN §7.7): title always, the
+ * synopsis's first lines only while paused. */
+.tv-tp-title {
+  margin: 0 0 6px; font-size: var(--tv-title); font-weight: 600; color: #fff;
+  white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+}
+.tv-tp-desc {
+  margin: 0 0 18px; max-width: 72ch; font-size: var(--tv-body); line-height: 1.4;
+  color: rgba(255, 255, 255, 0.82);
+  display: -webkit-box; -webkit-line-clamp: 3; -webkit-box-orient: vertical; overflow: hidden;
+}
+.tv-tp-desc[hidden] { display: none; }
+
+/* PLAYER OPTIONS (TV-DESIGN §7.7): one row of full-word buttons, docked above
+ * the transport, inside title-safe like it. */
+.tv-options {
+  position: absolute; left: 120px; right: 120px; bottom: 260px;
+  display: flex; flex-wrap: wrap; gap: 16px;
+  z-index: 3;
+}
+.tv-options[hidden] { display: none; }
+.tv-opt {
+  font: inherit; font-size: var(--tv-body); font-weight: 600;
+  padding: 14px 26px; border-radius: 999px;
+  border: 2px solid rgba(255, 255, 255, 0.35);
+  background: rgba(20, 20, 22, 0.88); color: #fff;
+}
+.tv-opt:focus {
+  outline: 3px solid var(--tv-focus-ring); outline-offset: 3px;
+  background: #fff; color: #0A0A0A; transform: scale(1.06);
+}
+.tv-opt-copy { font-weight: 500; }
+.tv-options.tv-options-list {
+  flex-direction: column; flex-wrap: nowrap; align-items: flex-start;
+  top: var(--tv-overscan-y); bottom: 260px; overflow-y: auto;
+  padding: 8px 12px; scroll-padding-block: 24px;
+}
+.tv-options-list .tv-opt { border-radius: 12px; }
+
+/* THE END CARD at ten feet: the web's grid is pointer-sized. */
+html.tv .player-endcard {
+  padding: var(--tv-overscan-y) 120px 72px;
+  font-size: var(--tv-body);
+}
+html.tv .player-endcard h3 { font-size: var(--tv-title-lg); margin: 0 0 24px; }
+html.tv .player-endcard-actions button { font-size: var(--tv-body); padding: 14px 28px; }
+
 /* ── On-screen playback diagnostics (§5.4) ────────────────────────────────
  * The instrument of last resort: retail Samsung closes sdb shell, so there is
  * no console to read and the television is the only oracle. Monospaced,
@@ -360,8 +407,29 @@ html.tv .share-menu-trigger {
  * alone overflowed the fixed 230px grid track and painted the poster straight
  * through the title and the facts. Caught on the glass; it looked fine in
  * every check that did not render at 1920. */
-.tv .detail { grid-template-columns: clamp(300px, 20vw, 400px) 1fr; gap: 56px; }
-.tv .detail-art img { width: 100%; }
+/* DETAIL AS A SCENE, not a web page scaled up (TV-DESIGN §7.8; the
+ * ten-foot-detail-design skill). Owner, 2026-10-03, on the S90C: "The
+ * individual item view seems not particularly well designed. The cast/crew
+ * seems to go off the right side of the screen and the left side of the
+ * screen seems almost entirely unused." Measured on the set: the page was the
+ * web's 1200px column centred (360px of black each side), and its body track
+ * had no minimum, so the cast row's min-content width blew it out to 2,620px.
+ *
+ * Now: the whole title-safe width. The poster, whole, beside the film's head
+ * (title, facts, actions, synopsis); then cast, scenes, More Like This and the
+ * reviews as full-width rows that scroll within themselves. */
+.tv .detail {
+  max-width: none; margin: 0; padding: 32px 0 0;
+  display: grid; grid-template-columns: 360px minmax(0, 1fr);
+  column-gap: 64px; align-items: start;
+}
+.tv .detail-body { display: contents; }
+.tv .detail-art { grid-column: 1; grid-row: 1; }
+.tv .detail-art img { width: 360px; margin: 0; }
+.tv .detail-head { grid-column: 2; grid-row: 1; min-width: 0; }
+.tv .detail-body > :not(.detail-head) { grid-column: 1 / -1; min-width: 0; }
+.tv .detail-head h1 { font-size: var(--tv-hero); line-height: 1.08; margin: 0 0 8px; }
+.tv #item-cast { margin-top: 40px; overflow-x: auto; scroll-padding-inline: 24px; }
 
 /* Cast chips at a size a viewer can actually read from the sofa. */
 .tv .cast-row img { width: 108px; height: 108px; }

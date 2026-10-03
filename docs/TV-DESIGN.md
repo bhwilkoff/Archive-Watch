@@ -365,6 +365,65 @@ stale app for days (`web-platform-patterns`).
 
 ---
 
+**7.7 The web-TV player (binding, 2026-10-03).** The owner, starting the
+Samsung submission: *"update all features and design to the current state on
+other platforms."* The web-TV player had the transport readout and nothing
+else a remote could reach — subtitles could not be chosen, the end-of-film
+card could not be operated, a muted Party Play could not be unmuted, and
+there was no way between channels or episodes. It now carries the verbs the
+other TVs carry, in the shape Android TV and Roku already settled on:
+
+| Press | In a film or episode | In a channel |
+|---|---|---|
+| OK | play / pause | play / pause |
+| ◀ ▶ (and REW / FF) | 10 s back / forward | 10 s back / forward |
+| **Up** | opens **Player Options** | the channel above, joined at the current second (§5.2a) |
+| Down | — | the channel below |
+| CH+ / CH− | — | as Up / Down |
+| **held OK** (0.6 s) | opens Player Options | opens Player Options |
+| ⏭ ⏮ (MediaTrackNext / Previous) | next / previous in the queue | next / previous channel |
+| Back | closes Options first, then the player | same |
+
+**Player Options** is one row of full-word buttons over the transport, focus
+on the first; ◀ ▶ move along it, OK acts, Down or Back closes it. A button
+appears only where it applies, and says its current state:
+**Subtitles: Off / English / …** (cycles through the film's tracks; §5.5),
+**Speed 1×** (not in a room — a room plays at the host's rate),
+**Previous episode / Next episode** (a queue), **Sound on / Sound off** and
+**Open title** and **Remember this film** (an ephemeral lineup: Party Play, a
+channel, a marathon — §5.6), **Choose copy** (two or more copies; not in a
+room or a channel), **Autoplay next: On / Off** (a single film).
+
+**The transport names the film**: its title above the progress bar, with the
+synopsis's first lines while paused (§5.3, Decision 037) — never painted over
+the picture while it plays.
+
+**The end-of-film card owns the keys while it is up**: the player's OK and
+◀ ▶ yield to focus navigation, focus lands on its first film, and "Stop
+autoplay" is a button like the others.
+
+This supersedes §5.1's "web-TV uses the platform `<video>` element's
+controls": those are Chrome's pointer widgets and were removed on TV in
+2026-09 (TIZEN-GLASS-FINDINGS). The transport is a readout, not a scrubber —
+the anti-pattern §8 names is a custom SCRUBBER, which this is not.
+
+---
+
+**7.8 Web-TV Detail is a scene (binding, 2026-10-03).** Owner, on the S90C:
+*"The individual item view seems not particularly well designed. The cast/crew
+seems to go off the right side of the screen and the left side of the screen
+seems almost entirely unused."* Measured: the web's 1200px column centred
+(360px empty each side), its body track with no minimum, so the cast row blew
+it out to 2,620px. The rule, from the `ten-foot-detail-design` skill as Roku
+and Android TV already apply it: the page spans the title-safe width; the
+poster stands WHOLE on the left beside the film's head (eyebrow, title, meta,
+tagline, actions with Play first, synopsis, facts — `.detail-head`); cast,
+scenes, More Like This and the reviews are full-width rows below, each
+scrolling within itself, so nothing reaches past the safe band. The ambient
+wash (`.detail-ambient`) stays the only thing that may crop.
+
+---
+
 ## §8 — Anti-patterns (never)
 
 - ❌ Shipping the phone/tablet layout with bigger fonts and calling it a TV app.

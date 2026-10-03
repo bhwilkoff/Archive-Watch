@@ -82,6 +82,43 @@ stage() {
   fi
 }
 
+# DEBUG HOOKS, for testing on a retail set that offers no shell, no screenshot
+# and no inspector (docs/tizen-signing.md). Both are off unless asked for, and
+# the package is renamed ArchiveWatch-debug.wgt when either is on.
+#
+#   AW_TV_INSPECT=10.0.0.90:8080   load Chii's target script, so Chrome DevTools
+#                                  on this Mac inspects the app ON the TV
+#                                  (console, DOM, network, focus). Run:
+#                                  chii start -p 8080
+#   AW_TV_LIVE=http://10.0.0.90:8099/?tv=1
+#                                  boot the app from a server on this Mac
+#                                  instead of the package, so a change reaches
+#                                  the TV with a reload. NOT the shipped origin:
+#                                  final checks are always on a packaged build.
+debug_hooks() {
+  local dest="$1"
+  if [ -n "${AW_TV_INSPECT:-}" ]; then
+    sed -i '' "s#<head>#<head><script src=\"http://${AW_TV_INSPECT}/target.js\"></script>#" "$dest/index.html"
+    # A WIDGET WITH NO CSP OF ITS OWN ONLY RUNS ITS OWN SCRIPTS: the set ran
+    # the debug package and never requested target.js (2026-10-03). So the
+    # debug package names the inspector host; the store package declares none.
+    sed -i '' "s#</widget>#  <tizen:content-security-policy>default-src * data: blob: 'unsafe-inline' 'unsafe-eval'; script-src 'self' 'unsafe-inline' 'unsafe-eval' http://${AW_TV_INSPECT}; connect-src * ws: wss:</tizen:content-security-policy>\n</widget>#" "$dest/config.xml"
+    echo "    inspector hook -> http://${AW_TV_INSPECT}/target.js"
+  fi
+  if [ -n "${AW_TV_LIVE:-}" ]; then
+    cat > "$dest/live-launcher.html" <<HTML
+<!doctype html><meta charset="utf-8"><title>Archive Watch (live)</title>
+<body style="background:#000;color:#fff;font:32px sans-serif;padding:96px">
+Loading from ${AW_TV_LIVE}…
+<script>location.replace("${AW_TV_LIVE}")</script>
+HTML
+    sed -i '' 's#<content src="index.html"/>#<content src="live-launcher.html"/>#' "$dest/config.xml"
+    local host; host="$(echo "$AW_TV_LIVE" | sed -E 's#^[a-z]+://([^/:]+).*#\1#')"
+    sed -i '' "s#<tizen:allow-navigation>#<tizen:allow-navigation>${host} #" "$dest/config.xml"
+    echo "    live launcher -> ${AW_TV_LIVE}"
+  fi
+}
+
 build_webos() {
   echo "==> webOS"
   local app="$ROOT/tv/webos/app"
@@ -117,6 +154,7 @@ build_tizen() {
   sed -E "s/^([[:space:]]*)version=\"[0-9][^\"]*\"/\1version=\"$VERSION\"/" \
     "$ROOT/tv/tizen/config.xml" > "$app/config.xml"
   cp "$ROOT/tv/tizen/icon.png" "$app/"
+  debug_hooks "$app"
   mkdir -p "$OUT"
   if command -v tizen >/dev/null 2>&1; then
     tizen build-web -- "$app"
@@ -132,6 +170,14 @@ build_tizen() {
       [ -e "$f" ] || continue
       mv "$f" "$OUT/$(basename "${f// /}")"
     done
+    # A DEBUG package is named as one, so it can never be uploaded by mistake;
+    # a store package must carry no debug hook at all.
+    if [ -n "${AW_TV_INSPECT:-}${AW_TV_LIVE:-}" ]; then
+      mv "$OUT/ArchiveWatch.wgt" "$OUT/ArchiveWatch-debug.wgt"
+      echo "    DEBUG package -> $OUT/ArchiveWatch-debug.wgt (never upload this)"
+    elif grep -rqE "target\.js|live-launcher" "$app/.buildResult" 2>/dev/null; then
+      echo "  !! a debug hook is inside the store package" >&2; exit 1
+    fi
     echo "    .wgt -> $OUT"
   else
     echo "    tizen CLI not installed — staged only at $app"

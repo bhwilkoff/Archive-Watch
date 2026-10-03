@@ -49,6 +49,17 @@
 
   const SEEK_STEP = 10;   // seconds per FF/REW press — the TV convention.
 
+  // Channel and track keys, spelled per platform (§7.3): Tizen's registered
+  // names deliver 427/428 and 10233/10232; webOS sends PageUp/PageDown for
+  // CH+/CH- and 176/177 for the track keys.
+  const CH_UP = new Set([427, 33]);
+  const CH_DOWN = new Set([428, 34]);
+  const TRACK_NEXT = new Set([10233, 176]);
+  const TRACK_PREV = new Set([10232, 177]);
+  const HOLD_MS = 600;    // a held OK opens Player Options (TV-DESIGN §7.7)
+  // Tizen's media pipeline breaks on a playbackRate change (see optionButtons).
+  const FIXED_RATE = PLATFORM === 'tizen';
+
   /* ------------------------------------------------------------------ *
    * Focus engine (§3, §7.2)
    * ------------------------------------------------------------------ */
@@ -843,8 +854,29 @@
    * means "where I was", not "start again". */
   var arriving = false, arriveTimer = null;
 
+  // ONLY A BACK RESTORES. This used to test "has this route been focused
+  // before", so a film page opened FRESH from a card (the end-of-film card,
+  // More Like This) reopened on wherever focus had last been there — "Home"
+  // in the nav, measured on the S90C 2026-10-03 — instead of Play.
+  var returning = false;
+  // WHICH ROUTES WE CAME THROUGH, so a return is recognised however it is
+  // made — the Back key, history.back(), the platform's own back event: the
+  // new route being the one before this one is what "back" means.
+  var navStack = [];
+  function noteRoute() {
+    var r = routeKey();
+    if (navStack.length > 1 && navStack[navStack.length - 2] === r) {
+      navStack.pop();
+      returning = true;
+    } else if (navStack[navStack.length - 1] !== r) {
+      navStack.push(r);
+      if (navStack.length > 50) navStack.shift();
+    }
+  }
   function beginArrival() {
-    if (lastFocus[routeKey()]) return;      // returning: Back owns the choice
+    var back = returning;
+    returning = false;
+    if (back && lastFocus[routeKey()]) return;      // returning: Back owns the choice
     arriving = true;
     clearTimeout(arriveTimer);
     arriveTimer = setTimeout(function () { arriving = false; }, 6000);
@@ -865,12 +897,13 @@
   function claimFocus() {
     clearTimeout(claimTimer);
     let tries = 0;
+    const wasReturning = returning;     // read now: beginArrival clears it
     (function attempt() {
       const active = document.activeElement;
       if (active && active !== document.body && isReachable(active)) return;
       const pool = candidates();
       if (pool.length) {
-        const want = lastFocus[routeKey()];
+        const want = wasReturning ? lastFocus[routeKey()] : null;
         if (want) {
           const back = pool.find(function (el) { return elKey(el) === want; });
           if (back) { focusEl(back); return; }
@@ -1044,13 +1077,15 @@
     transportEl.className = 'tv-transport';
     transportEl.setAttribute('aria-hidden', 'true');   // a readout, not a control
     transportEl.innerHTML =
+      '<p class="tv-tp-title"></p>' +
+      '<p class="tv-tp-desc"></p>' +
       '<div class="tv-tp-row">' +
         '<span class="tv-tp-state"></span>' +
         '<span class="tv-tp-now"></span>' +
         '<div class="tv-tp-bar"><i></i></div>' +
         '<span class="tv-tp-dur"></span>' +
       '</div>' +
-      '<p class="tv-tp-hint">OK play/pause · ◀ ▶ 10s · Back to exit</p>';
+      '<p class="tv-tp-hint"></p>';
     stage.appendChild(transportEl);
     return transportEl;
   }
@@ -1064,6 +1099,205 @@
     el.querySelector('.tv-tp-dur').textContent = isFinite(d) ? fmtTime(d) : '';
     el.querySelector('.tv-tp-bar i').style.width =
       (isFinite(d) && d > 0 ? Math.min(100, (t / d) * 100) : 0) + '%';
+    // THE TRANSPORT NAMES THE FILM (§5.3, Decision 037): the title always, the
+    // synopsis only while paused — never painted over a picture that plays.
+    var ctx = playerCtx();
+    el.querySelector('.tv-tp-title').textContent =
+      (ctx && ctx.title) || (document.getElementById('player-title') || {}).textContent || '';
+    var desc = (document.getElementById('player-overlay-desc') || {}).textContent || '';
+    var dEl = el.querySelector('.tv-tp-desc');
+    dEl.textContent = video.paused ? desc : '';
+    dEl.hidden = !video.paused || !desc;
+    el.querySelector('.tv-tp-hint').textContent = ctx && ctx.channel
+      ? 'OK play/pause · ▲ ▼ change channel · hold OK for options · Back to exit'
+      : 'OK play/pause · ◀ ▶ 10s · ▲ options · Back to exit';
+  }
+
+  function playerCtx() {
+    try { return window.AWPlayer ? window.AWPlayer.ctx() : null; } catch (e) { return null; }
+  }
+
+  /* ------------------------------------------------------------------ *
+   * PLAYER OPTIONS (TV-DESIGN §7.7)
+   *
+   * One row of full-word buttons over the transport. Before it existed the
+   * remote could play, pause and seek and nothing else: subtitles could not
+   * be chosen (§5.5), a muted Party Play could not be unmuted (§5.6), there
+   * was no way to the next episode or the channel above. Each button appears
+   * only where it applies and says its current state; the row is rebuilt on
+   * every action so a label never lies about what it will do next.
+   * ------------------------------------------------------------------ */
+
+  var optionsEl = null;
+
+  function optionsOpen() { return !!(optionsEl && optionsEl.isConnected && !optionsEl.hidden); }
+
+  function closeOptions() {
+    if (optionsEl) optionsEl.hidden = true;
+    var v = activeVideo();
+    if (v) showTransport();
+  }
+
+  function trackLabel(t) { return t.label || t.language || 'Subtitles'; }
+
+  function optionButtons(video) {
+    var P = window.AWPlayer, ctx = playerCtx() || {};
+    var out = [];
+    function add(label, act) { out.push({ label: label, act: act }); }
+
+    // SUBTITLES: Off, then each track in turn.
+    var tracks = Array.prototype.filter.call(video.textTracks || [],
+      function (t) { return t.kind === 'subtitles' || t.kind === 'captions'; });
+    if (tracks.length) {
+      var on = tracks.findIndex(function (t) { return t.mode === 'showing'; });
+      add('Subtitles: ' + (on < 0 ? 'Off' : trackLabel(tracks[on])), function () {
+        var next = on + 1 >= tracks.length ? -1 : on + 1;
+        tracks.forEach(function (t, i) { t.mode = i === next ? 'showing' : 'disabled'; });
+      });
+    }
+    // SPEED — not in a room, which plays at the host's rate, and NOT ON
+    // TIZEN: a QN65S90C (Tizen 9.0) accepted playbackRate=1.5, fired
+    // ratechange, snapped back to 1 and dropped to readyState 0, the film
+    // crawling at 0.15 s a second until it was reloaded (measured 2026-10-03).
+    if (!ctx.room && !ctx.channel && !FIXED_RATE) {
+      var rates = [1, 1.25, 1.5, 2, 0.75];
+      var r = video.playbackRate || 1;
+      add('Speed ' + r + '×', function () {
+        var i = rates.indexOf(r);
+        video.playbackRate = rates[(i + 1) % rates.length];
+        try { localStorage.setItem('aw_rate', String(video.playbackRate)); } catch (e) { /* private */ }
+      });
+    }
+    if (P && P.canStep(-1)) add('Previous episode', function () { P.step(-1); return 'close'; });
+    if (P && P.canStep(1)) add(ctx.lineup ? 'Next' : 'Next episode', function () { P.step(1); return 'close'; });
+    // AN EPHEMERAL LINEUP'S THREE VERBS (§5.6).
+    if (ctx.lineup) {
+      add(video.muted ? 'Sound on' : 'Sound off', function () { video.muted = !video.muted; });
+      add('Open title', function () { closeOptions(); if (P) P.openTitle(); return 'close'; });
+      add(ctx.remembered ? 'Remembered' : 'Remember this film', function () {
+        if (P && !ctx.remembered) P.remember();
+      });
+    }
+    // COPIES — two or more; never in a room (the host's copy is the rule,
+    // Decision 143) or a channel (the program keeps the clock).
+    if (P && !ctx.room && !ctx.channel && !ctx.lineup && video.dataset.awCopies === ctx.id) {
+      add('Choose copy', function () { chooseCopy(); return 'keep'; });
+    }
+    if (P && !ctx.lineup && !ctx.channel && !ctx.room && !ctx.queue) {
+      add('Autoplay next: ' + (P.autoplay ? 'On' : 'Off'), function () { P.autoplay = !P.autoplay; });
+    }
+    return out;
+  }
+
+  function renderOptions(video, focusIndex) {
+    var stage = video.parentElement;
+    if (!stage) return;
+    if (!optionsEl || !stage.contains(optionsEl)) {
+      optionsEl = document.createElement('div');
+      optionsEl.className = 'tv-options';
+      optionsEl.setAttribute('role', 'toolbar');
+      optionsEl.setAttribute('aria-label', 'Player options');
+      stage.appendChild(optionsEl);
+    }
+    var buttons = optionButtons(video).map(function (o) {
+      var b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'tv-opt';
+      b.textContent = o.label;
+      b.addEventListener('click', function () {
+        var keep = o.act();
+        if (keep === 'keep') return;
+        if (keep === 'close') { closeOptions(); return; }
+        var at = Array.prototype.indexOf.call(optionsEl.children, b);
+        // Rebuilt, so the label says the NEW state; focus stays put.
+        setTimeout(function () { if (optionsOpen()) renderOptions(activeVideo() || video, at); }, 60);
+      });
+      return b;
+    });
+    optionsEl.replaceChildren.apply(optionsEl, buttons);
+    optionsEl.classList.remove('tv-options-list');
+    optionsEl.hidden = false;
+    var i = Math.min(Math.max(0, focusIndex || 0), buttons.length - 1);
+    if (buttons[i]) buttons[i].focus({ preventScroll: true });
+    // The transport stays up underneath while the options are open.
+    var tp = ensureTransport(video);
+    if (tp) { paintTransport(video); tp.classList.add('on'); clearTimeout(transportTimer); }
+  }
+
+  function openOptions(video) {
+    // Learn whether this film has a choice of copy before the row is drawn;
+    // the row draws at once and gains the button when the answer arrives.
+    var P = window.AWPlayer, ctx = playerCtx();
+    renderOptions(video, 0);
+    if (P && ctx && !ctx.lineup && !ctx.room && !ctx.channel && video.dataset.awCopies !== ctx.id) {
+      P.versions(ctx.id).then(function (list) {
+        if (list && list.length > 1 && (playerCtx() || {}).id === ctx.id) {
+          video.dataset.awCopies = ctx.id;
+          if (optionsOpen()) renderOptions(video, 0);
+        }
+      }).catch(function () {});
+    }
+  }
+
+  function chooseCopy() {
+    var P = window.AWPlayer, ctx = playerCtx();
+    if (!P || !ctx) return;
+    P.versions(ctx.id).then(function (list) {
+      var chosen = P.chosenCopy(ctx.id);
+      var items = [{ label: (chosen ? '' : '✓ ') + 'Default copy', v: null }]
+        .concat(list.map(function (v) {
+          var on = chosen && chosen.item === v.item && chosen.name === v.name;
+          return { label: (on ? '✓ ' : '') + P.copyLabel(v), v: v };
+        }));
+      // A COLUMN, not the row: a film can have a dozen copies (measured: 11
+      // for The Man Who Laughs), which wrapped upward off the picture.
+      optionsEl.classList.add('tv-options-list');
+      optionsEl.replaceChildren.apply(optionsEl, items.map(function (it) {
+        var b = document.createElement('button');
+        b.type = 'button';
+        b.className = 'tv-opt tv-opt-copy';
+        b.textContent = it.label;
+        b.addEventListener('click', function () { closeOptions(); P.chooseCopy(it.v); });
+        return b;
+      }));
+      if (optionsEl.firstChild) optionsEl.firstChild.focus({ preventScroll: true });
+    });
+  }
+
+  function optionsKey(code, ev) {
+    var buttons = Array.prototype.slice.call(optionsEl.querySelectorAll('.tv-opt'));
+    var i = buttons.indexOf(document.activeElement);
+    if (optionsEl.classList.contains('tv-options-list')) {
+      // The copy list: Up/Down walk it, Back returns to the row.
+      if (BACK_KEYS.has(code)) { ev.preventDefault(); var v0 = activeVideo(); if (v0) renderOptions(v0, 0); return true; }
+      if (code === KEY.UP || code === KEY.DOWN) {
+        ev.preventDefault();
+        var m = Math.min(Math.max(0, i + (code === KEY.DOWN ? 1 : -1)), buttons.length - 1);
+        if (buttons[m]) buttons[m].focus();
+        return true;
+      }
+      if (code === KEY.LEFT || code === KEY.RIGHT) { ev.preventDefault(); return true; }
+    }
+    if (BACK_KEYS.has(code) || code === KEY.DOWN) { ev.preventDefault(); closeOptions(); return true; }
+    if (code === KEY.LEFT || code === KEY.RIGHT) {
+      ev.preventDefault();
+      var n = i < 0 ? 0 : Math.min(Math.max(0, i + (code === KEY.RIGHT ? 1 : -1)), buttons.length - 1);
+      if (buttons[n]) buttons[n].focus({ preventScroll: true });
+      return true;
+    }
+    if (code === KEY.ENTER) {
+      ev.preventDefault();
+      if (buttons[i]) buttons[i].click(); else if (buttons[0]) buttons[0].focus();
+      return true;
+    }
+    if (code === KEY.UP) { ev.preventDefault(); return true; }
+    return false;      // media keys still work under an open row
+  }
+
+  /** The end-of-film card owns the keys while it is up (§7.7). */
+  function endcardUp() {
+    var c = document.getElementById('player-endcard');
+    return !!(c && !c.hidden && c.offsetParent !== null);
   }
 
   function showTransport() {
@@ -1116,6 +1350,7 @@
    * ------------------------------------------------------------------ */
 
   function goBack() {
+    if (optionsOpen()) { closeOptions(); return; }
     // §1.7 — Back is layered, and the layers matter.
     //
     // An OPEN OVERLAY IS THE TOP LAYER. Backing out of the player used to run
@@ -1322,6 +1557,18 @@
     }, true);
   }
 
+  var sawKeyUp = false, okTimer = null, okHeld = false;
+  function onKeyUp(ev) {
+    sawKeyUp = true;
+    if (ev.keyCode !== KEY.ENTER) return;
+    if (okTimer) {
+      clearTimeout(okTimer); okTimer = null;
+      var v = activeVideo();
+      if (v && !optionsOpen() && !endcardUp()) togglePlay(v);
+    }
+    okHeld = false;
+  }
+
   function onKeyDown(ev) {
     const code = ev.keyCode;
     diagKey(code);
@@ -1350,14 +1597,47 @@
                           // the player or the focus engine goes on to consume
     cancelArrival();      // the viewer is driving now; never yank their focus
 
+    if (BACK_KEYS.has(code) && optionsOpen()) { ev.preventDefault(); closeOptions(); return; }
     if (BACK_KEYS.has(code)) { ev.preventDefault(); goBack(); return; }
 
     const video = activeVideo();
-    if (video) {
+    if (video && optionsOpen() && optionsKey(code, ev)) return;
+    if (video && endcardUp()) {
+      // Focus navigation, not the transport: OK picks the focused card.
+      if (!document.activeElement || !document.activeElement.closest('#player-endcard')) {
+        const first = document.querySelector('#player-endcard a[href], #player-endcard button');
+        if (first) first.focus({ preventScroll: true });
+      }
+    } else if (video) {
       adoptVideo(video);          // the player is opened by the app, not by us
       showTransport();            // any press brings the readout back
+      const ctx = playerCtx() || {};
+      const P = window.AWPlayer;
+      if (CH_UP.has(code) || (ctx.channel && code === KEY.UP)) {
+        ev.preventDefault(); if (P) P.surf(-1); return;
+      }
+      if (CH_DOWN.has(code) || (ctx.channel && code === KEY.DOWN)) {
+        ev.preventDefault(); if (P) P.surf(1); return;
+      }
+      if (TRACK_NEXT.has(code) || TRACK_PREV.has(code)) {
+        ev.preventDefault();
+        const d = TRACK_NEXT.has(code) ? 1 : -1;
+        if (P) { if (ctx.channel) P.surf(d); else P.step(d); }
+        return;
+      }
+      if (code === KEY.UP) { ev.preventDefault(); openOptions(video); return; }
+      if (code === KEY.ENTER) {
+        // HELD OK opens Player Options; a tap toggles on release. Only where
+        // the platform delivers keyup — otherwise toggle at once, as before.
+        ev.preventDefault();
+        if (!sawKeyUp) { togglePlay(video); return; }
+        if (ev.repeat || okTimer) return;
+        okTimer = setTimeout(function () { okTimer = null; okHeld = true; openOptions(video); },
+                             HOLD_MS);
+        return;
+      }
       switch (code) {
-        case KEY.PLAY_PAUSE: case KEY.ENTER:
+        case KEY.PLAY_PAUSE:
           ev.preventDefault(); togglePlay(video); return;
         case KEY.PLAY: ev.preventDefault(); video.play(); return;
         case KEY.PAUSE: ev.preventDefault(); video.pause(); return;
@@ -1456,7 +1736,8 @@
   function registerTizenKeys() {
     if (PLATFORM !== 'tizen' || !window.tizen || !tizen.tvinputdevice) return;
     ['MediaPlayPause', 'MediaPlay', 'MediaPause', 'MediaStop',
-     'MediaRewind', 'MediaFastForward'].forEach(function (name) {
+     'MediaRewind', 'MediaFastForward', 'MediaTrackNext', 'MediaTrackPrevious',
+     'ChannelUp', 'ChannelDown'].forEach(function (name) {
       try { tizen.tvinputdevice.registerKey(name); } catch (e) { /* not all models expose all keys */ }
     });
   }
@@ -1493,10 +1774,12 @@
     installHero();
     installPointerBridge();
     window.addEventListener('keydown', onKeyDown, true);
+    window.addEventListener('keyup', onKeyUp, true);
 
     // Re-claim focus whenever the viewer swaps views. Hash routing means we do
     // not need to hook showView() at all — no view code changes (§7.1).
     window.addEventListener('hashchange', function () {
+      noteRoute();
       closePicker();
       closeShare();
       closeConfirm();
@@ -1528,12 +1811,17 @@
     window.AWTV = window.AWTV || {};
     window.AWTV.shareQR = shareQR;
     window.AWTV.confirm = tvConfirm;
+    // watch.js applies a saved speed on every start(); a platform whose player
+    // cannot change rate must never have one applied.
+    window.AWTV.fixedRate = FIXED_RATE;
+    if (FIXED_RATE) { try { localStorage.removeItem('aw_rate'); } catch (e) { /* private */ } }
 
     tvPickers();
     heroSync();
     claimFocus();
     // A deep link (or a side-loaded app opened straight onto a route) fires no
     // hashchange, so arrival has to be started at boot as well.
+    noteRoute();
     beginArrival();
   }
 

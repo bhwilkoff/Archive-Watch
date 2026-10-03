@@ -2189,7 +2189,8 @@
       const colour = shuffle(all.filter(p => p.colour));
       const rest = shuffle(all.filter(p => !p.colour));
       const queue = [...colour, ...rest].slice(0, 40);
-      Player.start({ ...queue[0], queue, queueIndex: 0, persist: false, muted: true });
+      Player.start({ ...queue[0], queue, queueIndex: 0, persist: false, muted: true,
+                     lineup: 'party' });
       return true;
     },
   };
@@ -2261,7 +2262,8 @@
         if (!cartoon) return;
         const queue = shuffle(cartoon.programs).map(p =>
           ({ id: p[0], title: `${p[1]} · Cartoon Marathon`, url: p[3] }));
-        if (queue.length) Player.start({ ...queue[0], queue, queueIndex: 0, persist: false });
+        if (queue.length) Player.start({ ...queue[0], queue, queueIndex: 0, persist: false,
+                                        lineup: 'marathon' });
       };
       const host = $('cartoons-shelves');
       const animation = Data.rows.filter(r => r[3] === 'animation' && Data.rec(r));
@@ -2457,11 +2459,13 @@
         ...this.schedule.channels,
       ];
       const until = now.getTime() + 26 * 3600e3;
+      this.guide = [];
       for (const ch of guideChannels) {
         const slots = ch.user
           ? Scheduler.schedule(ch.id, ch.programs, now)
           : Scheduler.published(this.schedule, ch, anchor.getTime(), until);
         if (!slots.length) continue;
+        this.guide.push({ ch, slots });
         const row = document.createElement('div');
         row.className = 'epg-row';
         const rail = document.createElement('div');
@@ -2570,7 +2574,22 @@
       const now = Date.now();
       const startAt = (slot.start <= now && slot.end > now && playable[0].id === slot.prog[0])
         ? Math.max(0, (now - slot.start) / 1000) : 0;
-      Player.start({ ...playable[0], queue: playable, queueIndex: 0, startAt, persist: false });
+      Player.start({ ...playable[0], queue: playable, queueIndex: 0, startAt, persist: false,
+                     lineup: 'channel', channel: ch.id });
+    },
+
+    /** Channel up/down from inside the player (TV-DESIGN §5.2a, §7.7): the
+        row above or below in the guide, joined at the current second. */
+    surf(delta) {
+      const guide = this.guide || [];
+      const at = guide.findIndex(g => g.ch.id === Player.ctx?.channel);
+      if (at < 0 || guide.length < 2) return false;
+      const { ch, slots } = guide[(at + delta + guide.length) % guide.length];
+      const now = Date.now();
+      const slot = slots.find(s => s.start <= now && s.end > now) || slots[0];
+      Player.persist();
+      this.tune(ch, slots, slot);
+      return true;
     },
 
     /** Create-channel dialog: type + era only (the web index has no genre —
@@ -3459,8 +3478,10 @@
     },
 
     async start({ id, title, url, queue = null, queueIndex = 0,
-                  startAt = 0, persist = true, muted = false, room = false }) {
-      this.ctx = { id, title, queue, queueIndex, persist, muted };
+                  startAt = 0, persist = true, muted = false, room = false,
+                  lineup = null, channel = null }) {
+      this.ctx = { id, title, queue, queueIndex, persist, muted, room, lineup, channel,
+                   remembered: false };
       /* WHICH FILM was played, as one aggregate count. Fired HERE rather than
          on a `play` event because the queue advances by calling start() again:
          a listener on the element would count a six-film lineup as one film,
@@ -3526,8 +3547,10 @@
       }
 
       $('player').showModal();
-      // A room plays at the HOST's rate, never this viewer's saved speed.
-      video.playbackRate = room ? 1 : Number(localStorage.getItem('aw_rate') || 1);
+      // A room plays at the host's rate; a TV whose player cannot change rate
+      // (Tizen: AWTV.fixedRate) never has a saved speed applied.
+      video.playbackRate = (room || window.AWTV?.fixedRate) ? 1
+        : Number(localStorage.getItem('aw_rate') || 1);
       if (!$('player-rate').hidden) $('player-rate').value = String(video.playbackRate);
       try { await video.play(); } catch { /* user gesture rules; controls remain */ }
 
@@ -3558,18 +3581,61 @@
 
       clearInterval(this.saveTimer);
       this.saveTimer = setInterval(() => this.persist(), 10000);
+      // A WEDGED ELEMENT FIRES NOTHING. Recovery used to run only on `waiting`,
+      // and a Samsung S90C (Tizen 9.0) left a film at readyState 0 for minutes
+      // after a seek with no event of any kind — so nothing ever retried. A
+      // film that should be playing and has not moved in 12 s is reset.
+      clearInterval(this.watchdog);
+      this.lastMovedAt = Date.now();
+      this.lastSeen = -1;
+      this.watchdog = setInterval(() => {
+        if (!this.ctx || video.paused || video.ended || !$('player').open) return;
+        if (video.currentTime !== this.lastSeen) {
+          this.lastSeen = video.currentTime;
+          this.lastMovedAt = Date.now();
+          return;
+        }
+        if (Date.now() - this.lastMovedAt > 12000 && video.readyState < 3) {
+          this.lastMovedAt = Date.now();
+          this.recover('stall');
+        }
+      }, 3000);
 
-      video.onerror = () => this.recover('error');   // a real error needs the full reset
+      // AN ERROR AT THE END IS THE END. Tizen's pipeline (Samsung S90C, Tizen
+      // 9.0, 2026-10-03) reports MEDIA_ERR_NETWORK "PIPELINE_ERROR_NETWORK" as
+      // a progressive download runs out, with `ended` already true and no
+      // `ended` event — so a finished film was "recovered" instead of offering
+      // what to watch next. Anything else still gets the full reset.
+      video.onerror = () => {
+        // A real duration and a playhead at it — `ended` alone can be stale
+        // from the previous film on this same element (seen on the S90C: the
+        // card came up over a film that had just started).
+        const left = isFinite(video.duration) && video.duration > 0
+          ? video.duration - video.currentTime : Infinity;
+        if (left < 2) { video.onended?.(); return; }
+        this.recover('error');
+      };
       this._lastBufferedEnd = 0;
-      video.onwaiting = () => this.onStall();
-      video.onplaying = () => clearTimeout(this.stallTimer);
+      video.onwaiting = () => this.armStall();
+      video.onseeking = () => { this.lastSeekAt = Date.now(); };
+      video.onplaying = () => {
+        clearTimeout(this.stallTimer);
+        // A film that is playing has not ended: the end card never sits over
+        // a picture (Watch again, a reload, a late error all lead here).
+        const card = $('player-endcard');
+        if (card && !card.hidden) { card.hidden = true; clearInterval(this.countdown); }
+        if (this.ctx) this.ctx.finished = false;
+      };
       video.onended = () => {
+        if (this.ctx?.finished) return;        // the error path may also call this
+        if (this.ctx) this.ctx.finished = true;
         this.persist();
         const { queue, queueIndex, persist } = this.ctx || {};
         if (queue && queueIndex + 1 < queue.length) {
           const next = queue[queueIndex + 1];
           this.start({ ...next, queue, queueIndex: queueIndex + 1, persist,
-                       muted: this.ctx?.muted });
+                       muted: this.ctx?.muted, lineup: this.ctx?.lineup,
+                       channel: this.ctx?.channel });
           return;
         }
         // A standalone film used to end by closing the dialog, which drops the
@@ -3612,6 +3678,7 @@
       again.textContent = 'Watch again';
       again.onclick = () => {
         host.hidden = true;
+        if (this.ctx) this.ctx.finished = false;   // so the next ending is seen
         const v = $('video');
         v.currentTime = 0;
         v.play().catch(() => {});
@@ -3669,10 +3736,27 @@
             often un-sticks a transient underrun WITHOUT dropping the buffer;
         (3) only if still stalled after a short window fall through to the full
             src-reset recover('stall'). */
+    /** A `waiting` is not yet a stall. It used to run onStall() at once, and
+        onStall's first step is a seek (the nudge) — so a long seek, which on a
+        television legitimately waits seconds for a new byte range, was nudged,
+        then reset, then the reset's own `waiting` nudged again: measured on a
+        Samsung S90C (Tizen 9.0), 2026-10-03, a seek to the last five seconds
+        of a film looped emptied/loadstart/stalled and never played them. Give
+        it a grace period first — longer around a seek — and ignore the events
+        a reset causes. */
+    armStall() {
+      if (Date.now() < (this.recoveringUntil || 0)) return;
+      clearTimeout(this.stallTimer);
+      const video = $('video');
+      const nearSeek = video.seeking || Date.now() - (this.lastSeekAt || 0) < 10000;
+      this.stallTimer = setTimeout(() => this.onStall(), nearSeek ? 10000 : 4000);
+    },
+
     onStall() {
       clearTimeout(this.stallTimer);
       const video = $('video');
       if (!this.ctx || !video.src) return;
+      if (!video.paused && video.readyState >= 3) return;   // it recovered on its own
       const bufferedEnd = video.buffered.length
         ? video.buffered.end(video.buffered.length - 1) : 0;
       // Stage 1 — bytes still flowing and the buffer is growing: extend, wait.
@@ -3714,12 +3798,21 @@
     recover(kind) {
       const video = $('video');
       if (!this.ctx || !video.src) return;
+      // Re-entrancy: clearing src fires an `error` and `emptied` of its own,
+      // and onerror is recover('error') — a reset must not trigger a reset.
+      if (Date.now() < (this.recoveringUntil || 0)) return;
+      this.recoveringUntil = Date.now() + 10000;   // its own emptied/waiting are not stalls
       const t = video.currentTime || 0;
       this.persist();
       const src = video.src;
-      video.src = '';
+      // A FULL reload, and the seek waits for metadata: a currentTime set on
+      // an element with nothing loaded is dropped (Tizen 9.0 dropped it every
+      // time, and the film resumed nowhere).
+      video.removeAttribute('src');
+      video.load();
       video.src = src;
-      video.currentTime = t;
+      video.load();
+      if (t > 0) video.addEventListener('loadedmetadata', () => { video.currentTime = t; }, { once: true });
       video.play().catch(() => {
         const e = $('player-error');
         e.textContent = `Playback ${kind === 'stall' ? 'stalled' : 'failed'} — ` +
@@ -3730,9 +3823,26 @@
 
     persist() {
       const video = $('video');
+      // AN EPHEMERAL LINEUP ENTERS THE HISTORY after a title has run 60 s,
+      // with no resume position, so Continue Watching never sees it
+      // (TV-DESIGN §5.6, the tvOS rule since 2026-08-15). A commercial is
+      // not a film anyone watched.
+      if (this.ctx?.lineup && !this.ctx.remembered && video.currentTime >= 60
+          && !/Commercial break/.test(this.ctx.title || '')) this.remember();
       if (!this.ctx || this.ctx.persist === false) return;
       if (!video.duration || !isFinite(video.duration)) return;
       DB.saveProgress(this.ctx.id, video.currentTime, video.duration, this.ctx.title);
+      window.AWDriveSync?.nudge();
+    },
+
+    /** Write the history record now, keeping any resume position it had. */
+    async remember() {
+      if (!this.ctx) return;
+      const { id, title } = this.ctx;
+      this.ctx.remembered = true;
+      const prior = await DB.progressFor(id).catch(() => null);
+      await DB.saveProgress(id, prior?.position || 0, prior?.duration || 0,
+                            (title || '').replace(/ · .*$/, ''));
       window.AWDriveSync?.nudge();
     },
 
@@ -3768,6 +3878,7 @@
       const video = $('video');
       this.persist();
       clearInterval(this.saveTimer);
+      clearInterval(this.watchdog);
       clearTimeout(this.stallTimer);
       clearTimeout(this.overlayHideTimer);
       clearInterval(this.countdown);   // an autoplay timer must not outlive the player
@@ -3780,6 +3891,53 @@
       video.load();
       $('player').close();
     },
+  };
+
+  /** THE NARROW INTERFACE THE SMART-TV LAYER DRIVES (TV-DESIGN §7.7). tv.js
+   *  feature-detects it; nothing on the web reads it. It exists because this
+   *  file is one closure and the TV's Player Options need the player's own
+   *  verbs — the next episode, the channel above, the film's other copies —
+   *  rather than a second copy of them in tv.js. */
+  window.AWPlayer = {
+    ctx: () => Player.ctx,
+    canStep(d) {
+      const c = Player.ctx;
+      if (!c?.queue || c.channel) return false;
+      const i = c.queueIndex + d;
+      return i >= 0 && i < c.queue.length;
+    },
+    step(d) {
+      if (!this.canStep(d)) return false;
+      const c = Player.ctx;
+      Player.persist();
+      Player.start({ ...c.queue[c.queueIndex + d], queue: c.queue, queueIndex: c.queueIndex + d,
+                     persist: c.persist, muted: c.muted, lineup: c.lineup, channel: c.channel });
+      return true;
+    },
+    surf: d => ChannelsView.surf(d),
+    remember: () => Player.remember(),
+    openTitle() {
+      const id = Player.ctx?.id;
+      if (!id) return;
+      Player.close();
+      location.hash = `#/item/${encodeURIComponent(id)}`;
+    },
+    versions: id => Versions.list(id),
+    copyLabel: v => Versions.label(v),
+    chosenCopy: id => Versions.chosen(id),
+    /** Switch copy mid-film, at the same second. */
+    async chooseCopy(v) {
+      const c = Player.ctx;
+      if (!c) return;
+      Versions.choose(c.id, v);
+      const det = await Details.get(c.id).catch(() => null);
+      const url = Versions.preferred(c.id, det?.downloadURL);
+      if (!url) return;
+      Player.start({ id: c.id, title: c.title, url, startAt: $('video').currentTime || 0,
+                     persist: c.persist });
+    },
+    get autoplay() { return Prefs.autoplay; },
+    set autoplay(v) { Prefs.autoplay = v; },
   };
 
   /* ---------------------------------------------------------------- *

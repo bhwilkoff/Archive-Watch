@@ -409,14 +409,14 @@ check('Tizen back (10009) navigates', global._wentBack, true);
   check('...a key press CANCELS it, so focus is never yanked from the viewer',
         /cancelArrival\(\);\s*\/\/ the viewer is driving/.test(tv), true);
   check('...and RETURNING to a route leaves the remembered tile alone',
-        /if \(lastFocus\[routeKey\(\)\]\) return;/.test(tv), true);
+        /if \(back && lastFocus\[routeKey\(\)\]\) return;/.test(tv), true);
   check('...started on a hashchange AND at boot, for a deep link',
         (tv.match(/beginArrival\(\)/g) || []).length >= 3, true);
 
   // The regression this caused, and why the column owns the width.
   check('the Detail grid column and the poster are sized TOGETHER',
-        /\.tv \.detail \{ grid-template-columns/.test(css)
-        && /\.tv \.detail-art img \{ width: 100%/.test(css), true);
+        /grid-template-columns: 360px minmax\(0, 1fr\)/.test(css)
+        && /\.tv \.detail-art img \{ width: 360px/.test(css), true);
   check('prose has a readable measure at 1920',
         /\.tv #item-desc[\s\S]{0,200}max-width/.test(css), true);
 }
