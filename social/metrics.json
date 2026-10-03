@@ -2035,6 +2035,38 @@
     "reposts": 0,
     "replies": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mwhn4zt2w42h",
+   "platform": "bluesky",
+   "id": "theconquestofeverest",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-09-27T01:21:37.845692+00:00",
+   "sampled": "2026-10-03T01:57:33.019716+00:00",
+   "metrics": {
+    "likes": 1,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mwubsx2btp2h",
+   "platform": "bluesky",
+   "id": "silent-im-bade-aka-in-the-bath",
+   "slot": "now-showing",
+   "format": "card",
+   "window": "24h",
+   "posted": "2026-10-02T02:03:54.077519+00:00",
+   "sampled": "2026-10-03T01:57:33.019716+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }

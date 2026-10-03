@@ -1669,6 +1669,18 @@
    "kind": "silent-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-10-03T01:57:20.327747+00:00",
+   "id": "skipper_learns_a_lesson",
+   "title": "Skipper Learns A Lesson",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mwwrwh2vkz2y",
+   "format": "video",
+   "kind": "short-film",
+   "mediaId": null,
+   "reviewer": "oldfilmaddik"
   }
  ]
 }
