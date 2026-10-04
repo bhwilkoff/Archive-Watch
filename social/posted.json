@@ -1753,6 +1753,54 @@
    "kind": "silent-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-10-04T18:43:17.412351+00:00",
+   "id": "your_chance_to_live_tech",
+   "title": "Your Chance To Live: Technological Failures",
+   "slot": "from-the-vaults",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mx32m3c7tq2y",
+   "format": "video",
+   "kind": "ephemeral",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-04T18:43:17.412351+00:00",
+   "id": "your_chance_to_live_tech",
+   "title": "Your Chance To Live: Technological Failures",
+   "slot": "from-the-vaults",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117384112729582288",
+   "format": "video",
+   "kind": "ephemeral",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-04T18:43:17.412351+00:00",
+   "id": "your_chance_to_live_tech",
+   "title": "Your Chance To Live: Technological Failures",
+   "slot": "from-the-vaults",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DeFTjn7I_05/",
+   "format": "card",
+   "kind": "ephemeral",
+   "mediaId": "117384112353775294",
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-04T18:43:17.412351+00:00",
+   "id": "your_chance_to_live_tech",
+   "title": "Your Chance To Live: Technological Failures",
+   "slot": "from-the-vaults",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=noLNzxE8dHU",
+   "format": "video",
+   "kind": "ephemeral",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }

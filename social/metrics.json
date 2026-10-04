@@ -2161,6 +2161,37 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mwyk7zagpg2x",
+   "platform": "bluesky",
+   "id": "the-mummys-tomb-1942_202105",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-03T18:44:53.163493+00:00",
+   "sampled": "2026-10-04T18:43:56.428619+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117378456629721607",
+   "platform": "mastodon",
+   "id": "the-mummys-tomb-1942_202105",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-03T18:44:53.163493+00:00",
+   "sampled": "2026-10-04T18:43:56.428619+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }
