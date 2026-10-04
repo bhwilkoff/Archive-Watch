@@ -2098,6 +2098,69 @@
     "reposts": 0,
     "replies": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mwjilaolgp22",
+   "platform": "bluesky",
+   "id": "you_and_your_work",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-09-27T19:05:26.389938+00:00",
+   "sampled": "2026-10-04T02:38:50.570654+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117344563569389784",
+   "platform": "mastodon",
+   "id": "you_and_your_work",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-09-27T19:05:26.389938+00:00",
+   "sampled": "2026-10-04T02:38:50.570654+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mwk6hybkqs2g",
+   "platform": "bluesky",
+   "id": "silent-the-bomb-idea",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-09-28T01:37:13.240884+00:00",
+   "sampled": "2026-10-04T02:38:50.570654+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mwwrwh2vkz2y",
+   "platform": "bluesky",
+   "id": "skipper_learns_a_lesson",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-03T01:57:20.327747+00:00",
+   "sampled": "2026-10-04T02:38:50.570654+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }
