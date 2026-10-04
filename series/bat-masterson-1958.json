@@ -1,0 +1,57 @@
+{
+  "version": 2,
+  "seriesID": "bat-masterson-1958",
+  "tvmazeID": 4379,
+  "title": "Bat Masterson",
+  "yearStart": 1958,
+  "yearEnd": 1961,
+  "overview": "Bat Masterson is loosely based on the life and adventures of real life lawman, army scout, gunfighter and journalist. Dressed-up dandy (derby and cane), gambler and lawman roams the West charming women and defending the unjustly accused. His primary weapon was his wit (and cane) rather than his gun.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/71207-2.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Action",
+    "Western"
+  ],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "bat-masterson-tv-1959-s01e35-the-desert-ship",
+          "seasonNumber": 1,
+          "episodeNumber": 35,
+          "title": "The Desert Ship",
+          "overview": "Two Dutch treasure hunters search for a legendary Spanish galleon that sank in the Colorado River. Bat attempts to rescue the unwary pair from a desert sandstorm and two crooks who are out to steal the jewels if the ship is found.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/533/1332771.jpg",
+          "airDate": "1959-07-15",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Bat Masterson TV 1959 colorized s01e35 The Desert Ship.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 196577081,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/bat-masterson-tv-1959-s01e35-the-desert-ship/Bat%20Masterson%20TV%201959%20colorized%20s01e35%20The%20Desert%20Ship.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 108,
+  "tvdbID": "71207",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Gene Barry",
+      "character": "Bat Masterson",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256364/photo/63ac8ceeb8504.jpg"
+    }
+  ]
+}

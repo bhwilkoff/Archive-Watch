@@ -1,0 +1,104 @@
+{
+  "version": 2,
+  "seriesID": "gideon-s-way-1965",
+  "tvmazeID": 33497,
+  "title": "Gideon's Way",
+  "yearStart": 1965,
+  "yearEnd": 1966,
+  "overview": "Gideon's Way is a crime drama based on the novels by John Creasey.",
+  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/78321/posters/664da54f86ace.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Crime"
+  ],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "gideons-way-tv-1964-s01e07-to-catch-a-tiger",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "To Catch a Tiger",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/gideons-way-tv-1964-s01e07-to-catch-a-tiger",
+          "airDate": "1965-04-29",
+          "year": 1965,
+          "runtimeSeconds": 3300,
+          "videoFile": {
+            "name": "Gideon's Way TV 1964 colorized s01e07 To Catch a Tiger.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 309523795,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/gideons-way-tv-1964-s01e07-to-catch-a-tiger/Gideon%27s%20Way%20TV%201964%20colorized%20s01e07%20To%20Catch%20a%20Tiger.mp4"
+        },
+        {
+          "archiveID": "gideons-way-tv-1965-s01e17-the-wall",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "The Wall",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/gideons-way-tv-1965-s01e17-the-wall",
+          "airDate": "1965-09-16",
+          "year": 1965,
+          "runtimeSeconds": 3300,
+          "videoFile": {
+            "name": "Gideon's Way TV 1965 colorized s01e17 The Wall.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 429403925,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/gideons-way-tv-1965-s01e17-the-wall/Gideon%27s%20Way%20TV%201965%20colorized%20s01e17%20The%20Wall.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2,
+  "canonicalEpisodesCount": 26,
+  "tvdbID": "78321",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "John Gregson",
+      "character": "Commander George Gideon",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/445767/photo/64939b8e4c9a4.jpg"
+    },
+    {
+      "name": "Alexander Davion",
+      "character": "Det. Chief Insp. David Keen",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/264829/photo/633c740c96137.jpg"
+    },
+    {
+      "name": "Daphne Anderson",
+      "character": "Kate Gideon",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Richard James",
+      "character": "Matthew Gideon",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Reginald Jessup",
+      "character": "Det. Supt. Lemaitre",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Giles Watling",
+      "character": "Malcolm Gideon",
+      "order": 5,
+      "profilePath": null
+    }
+  ]
+}

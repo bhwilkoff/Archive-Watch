@@ -1,0 +1,99 @@
+{
+  "version": 2,
+  "seriesID": "richard-diamond-private-detective-1957",
+  "tvmazeID": 17475,
+  "title": "Richard Diamond, Private Detective",
+  "yearStart": 1957,
+  "yearEnd": 1960,
+  "overview": "Richard Diamond, Private Detective was a crime drama series that started its life on radio from 1949-1953 and then aired on television from 1957-1960 with a new cast.Richard Diamond is a former officer of the NYPD, who is now a private detective.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/70454-2.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Crime",
+    "Mystery"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "richard_diamond_-_2x05_arson",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Arson",
+          "overview": "Diamond is hired to investigate a fire in a fur shop which killed an accountant who was working there.",
+          "stillURL": "https://image.tmdb.org/t/p/w780/q3nCGaGyxFEgEinvei9MOpoYbRC.jpg",
+          "airDate": "1958-01-30",
+          "year": 1958,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "richard_diamond_-_2x05_arson.mp4",
+            "format": "h.264",
+            "sizeBytes": 147452285,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/richard_diamond_-_2x05_arson/richard_diamond_-_2x05_arson.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 77,
+  "tvdbID": "70454",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Regis Toomey",
+      "character": "Lt. McGough",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/1045.jpg"
+    },
+    {
+      "name": "David Janssen",
+      "character": "Richard Diamond",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/1046.jpg"
+    },
+    {
+      "name": "Barbara Bain",
+      "character": "Karen Wells",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259631/photo/6320e09fee80d.jpg"
+    },
+    {
+      "name": "Mary Tyler Moore",
+      "character": "",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/254680/photo/630d03a89cd15.jpg"
+    },
+    {
+      "name": "Hillary Brooke",
+      "character": "Sam",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Russ Conway",
+      "character": "",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/258734/photo/63b7a4b96d838.jpg"
+    },
+    {
+      "name": "Roxanne Brooks",
+      "character": "",
+      "order": 6,
+      "profilePath": null
+    },
+    {
+      "name": "Richard Devon",
+      "character": "",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/260282/photo/63e67573814f9.jpg"
+    }
+  ]
+}

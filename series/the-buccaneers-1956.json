@@ -19,6 +19,47 @@
   "creator": null,
   "seasons": [
     {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "buccaneers-tv-19-s-6-colorized-s-01e-01-blackbeard",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Blackbeard",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/buccaneers-tv-19-s-6-colorized-s-01e-01-blackbeard",
+          "airDate": "1956-09-19",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Buccaneers TV 19S6 colorized s01e01 \"Blackbeard\".mp4",
+            "format": "MPEG4",
+            "sizeBytes": 133462058,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/buccaneers-tv-19-s-6-colorized-s-01e-01-blackbeard/Buccaneers%20TV%2019S6%20colorized%20s01e01%20%22Blackbeard%22.mp4"
+        },
+        {
+          "archiveID": "buccaneers-tv-1956-colorized-s-01e-03-captain-dan-tempest",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Captain Dan Tempest",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/buccaneers-tv-1956-colorized-s-01e-03-captain-dan-tempest",
+          "airDate": "1956-10-03",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Buccaneers TV 1956 colorized s01e03 \"Captain Dan Tempest\".mp4",
+            "format": "MPEG4",
+            "sizeBytes": 250285934,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/buccaneers-tv-1956-colorized-s-01e-03-captain-dan-tempest/Buccaneers%20TV%201956%20colorized%20s01e03%20%22Captain%20Dan%20Tempest%22.mp4"
+        }
+      ]
+    },
+    {
       "seasonNumber": null,
       "episodes": [
         {
@@ -294,7 +335,7 @@
       ]
     }
   ],
-  "episodesCount": 15,
+  "episodesCount": 17,
   "canonicalEpisodesCount": 39,
   "tvdbID": "78691",
   "artworkSource": "tvdb",
@@ -359,8 +400,5 @@
       "order": 9,
       "profilePath": null
     }
-  ],
-  "seriesImdbID": "tt0048850",
-  "canonicalEpisodeCount": 36,
-  "canonicalSeasons": 1
+  ]
 }

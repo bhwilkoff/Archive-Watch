@@ -1,0 +1,91 @@
+{
+  "version": 2,
+  "seriesID": "love-thy-neighbour-1972",
+  "tvmazeID": 7552,
+  "title": "Love Thy Neighbour",
+  "yearStart": 1972,
+  "yearEnd": 1976,
+  "overview": "Love Thy Neighbour is a British sitcom, which was transmitted from 13 April 1972 until 22 January 1976, spanning seven series and fifty-four episodes. The series was produced by Thames Television for the ITV network. A hugely popular sitcom highlighting and examining the clashes of class, and colour, in early-1970s Britain. Eddie Booth is a passionately left-wing, somewhat racist bigot, so when his new neighbours turn out to be black, he's far from pleased. But even worse than that - they vote Conservative. Understandably, Eddie puts Bill's back up right from the off. Despite their differences, however, each man is far more alike the other than either would admit, and a begrudging respect develops between them. After all, there is a common enemy: their wives!",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/71534-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "s2e07_202002",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Sex Appeal",
+          "overview": "When Joan decides to make herself more attractive to her husband Eddie, she little realises that it will start off a chain of events which will bring the uneasy truth between them and their black neighbours, Barbie and Bill Reynolds, into open warfare.",
+          "stillURL": "https://archive.org/download/archivewatch-covers/s2e07_202002.e939bcbf.jpg",
+          "airDate": "1972-05-25",
+          "year": 1972,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S2E07.All.Star.Comedy.Carnival.1972.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 452242930,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s2e07_202002/S2E07.All.Star.Comedy.Carnival.1972.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 53,
+  "tvdbID": "71534",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Paul Luty",
+      "character": "Nobby Garside",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/318352/photo/64b9a442e7be0.jpg"
+    },
+    {
+      "name": "Nina Baden-Semper",
+      "character": "Barbie Reynolds",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/318353/photo/64b9937f3e285.jpg"
+    },
+    {
+      "name": "Keith Marsh",
+      "character": "Jacko Jackson",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/270844/photo/64b99710a9fdf.jpg"
+    },
+    {
+      "name": "Jack Smethurst",
+      "character": "Eddie Booth",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/318354/photo/6868f1f9dfe8f.jpg"
+    },
+    {
+      "name": "Tommy Godfrey",
+      "character": "Arthur",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/318355/photo/64977f3db1cf6.jpg"
+    },
+    {
+      "name": "Kate Williams",
+      "character": "Joan Booth",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/260698/photo/64b993a5c1dce.jpg"
+    },
+    {
+      "name": "Rudolph Walker",
+      "character": "Bill Reynolds",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/318356/photo/62bc11e5b1b5d.jpg"
+    }
+  ]
+}

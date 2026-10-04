@@ -1,0 +1,111 @@
+{
+  "version": 2,
+  "seriesID": "the-gene-autry-show-1950",
+  "tvmazeID": 4653,
+  "title": "The Gene Autry Show",
+  "yearStart": 1950,
+  "yearEnd": 1955,
+  "overview": "The already legendary singing cowboy rode with his comic pal Pat Buttram from town to town bringing justice, song and his horse Champion to the old Southwest on The Gene Autry Show.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/78281-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Action",
+    "Adventure",
+    "Western"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "gene-autry-show-tv-1950-s01e02-gold-dust-charlie",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Gold Dust Charlie",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/gene-autry-show-tv-1950-s01e02-gold-dust-charlie",
+          "airDate": "1950-07-30",
+          "year": 1950,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Gene Autry Show TV 1950 colorized s01e02 Gold Dust Charlie.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 288807567,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/gene-autry-show-tv-1950-s01e02-gold-dust-charlie/Gene%20Autry%20Show%20TV%201950%20colorized%20s01e02%20Gold%20Dust%20Charlie.mp4"
+        },
+        {
+          "archiveID": "gene-autry-show-tv-1950-s01e09-the-posse",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Posse",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/gene-autry-show-tv-1950-s01e09-the-posse",
+          "airDate": "1950-09-17",
+          "year": 1950,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Gene Autry Show TV 1950 colorized s01e09 The Posse.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 346816783,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/gene-autry-show-tv-1950-s01e09-the-posse/Gene%20Autry%20Show%20TV%201950%20colorized%20s01e09%20The%20Posse.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2,
+  "canonicalEpisodesCount": 91,
+  "tvdbID": "78281",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Pat Buttram",
+      "character": "",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Gene Autry",
+      "character": "",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Denver Pyle",
+      "character": "",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Sheila Ryan",
+      "character": "",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/442771/photo/6350416c5b325.jpg"
+    },
+    {
+      "name": "Gail Davis",
+      "character": "",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Gregg Barton",
+      "character": "",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Dick Jones",
+      "character": "",
+      "order": 6,
+      "profilePath": null
+    }
+  ]
+}

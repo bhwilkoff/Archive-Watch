@@ -1,0 +1,109 @@
+{
+  "version": 2,
+  "seriesID": "the-larkins-1958",
+  "tvmazeID": 43220,
+  "title": "The Larkins",
+  "yearStart": 1958,
+  "yearEnd": 1964,
+  "overview": "Meet the Larkins--the put-upon and crafty Alf, his domineering wife, Ada, aimless son Eddie, daughter Joyce and her American ex-GI husband Jeff, a barely employable writer of stories for cowboy comic \"The Bullet\". They all live in a state that falls somewhat short of domestic bliss at 66, Sycamore Street, in a suburb of London, next to inquisitive neighbour Hetty and her family.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/144221-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheLarkins1x01WideOpenHouse",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Larkins - 1x01 - Wide Open House",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheLarkins1x01WideOpenHouse",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 2268,
+          "videoFile": {
+            "name": "The Larkins 1x01 Wide Open House.mp4",
+            "format": "h.264",
+            "sizeBytes": 235166948,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheLarkins1x01WideOpenHouse/The%20Larkins%201x01%20Wide%20Open%20House.mp4"
+        },
+        {
+          "archiveID": "TheLarkins1x07CheistmasWithTheLarkins",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Larkins - 1x07 - Christmas with the Larkins",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheLarkins1x07CheistmasWithTheLarkins",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1724,
+          "videoFile": {
+            "name": "The Larkins 1x07 Cheistmas With The Larkins.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 77889647,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheLarkins1x07CheistmasWithTheLarkins/The%20Larkins%201x07%20Cheistmas%20With%20The%20Larkins.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2,
+  "canonicalEpisodesCount": 40,
+  "tvdbID": "144221",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Peggy Mount",
+      "character": "Ada Larkins",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/206/517266.jpg"
+    },
+    {
+      "name": "David Kossoff",
+      "character": "Alf Larkins",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/206/517267.jpg"
+    },
+    {
+      "name": "Barbara Mitchell",
+      "character": "Hetty Prout",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/49/124807.jpg"
+    },
+    {
+      "name": "Ronan O'Casey",
+      "character": "Jeff Rogers",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/206/517271.jpg"
+    },
+    {
+      "name": "Ruth Trouncer",
+      "character": "Joyce Rogers",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Shaun O'Riordan",
+      "character": "Eddie Larkins",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Hilary Bamberger",
+      "character": "Myrtle Prout",
+      "order": 6,
+      "profilePath": null
+    }
+  ]
+}

@@ -1,0 +1,104 @@
+{
+  "version": 2,
+  "seriesID": "michael-shayne-1960",
+  "tvmazeID": 39669,
+  "title": "Michael Shayne",
+  "yearStart": 1960,
+  "yearEnd": 1961,
+  "overview": "Michael Shayne is a private detective who solves crimes in Miami, Florida. The hour-long filmed mystery series, based on the detective novels of Brett Halliday, stars Richard Denning as a worldly private-eye who is equally at home in the gutter or glitter of Miami's Strip, and whose interests range from tall drinks to open cars. Patricia Donohue co-stars as Shayne's secretary, Lucy.",
+  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/77474/posters/6a87ac2b882c5.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Crime"
+  ],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "michael-shayne-tv-1960-colorized-s01e06-shoot-the-works",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Shoot the Works",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/michael-shayne-tv-1960-colorized-s01e06-shoot-the-works",
+          "airDate": "1960-11-11",
+          "year": 1960,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Michael Shayne TV 1960 colorized s01e06 Shoot the Works.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 172515802,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/michael-shayne-tv-1960-colorized-s01e06-shoot-the-works/Michael%20Shayne%20TV%201960%20colorized%20s01e06%20Shoot%20the%20Works.mp4"
+        },
+        {
+          "archiveID": "michael-shayne-tv-1960-s01e13-murder-in-wonderland",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Murder in Wonderland",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/michael-shayne-tv-1960-s01e13-murder-in-wonderland",
+          "airDate": "1960-12-30",
+          "year": 1960,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Michael Shayne TV 1960 colorized s01e13 Murder in Wonderland.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 360205074,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/michael-shayne-tv-1960-s01e13-murder-in-wonderland/Michael%20Shayne%20TV%201960%20colorized%20s01e13%20Murder%20in%20Wonderland.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2,
+  "canonicalEpisodesCount": 32,
+  "tvdbID": "77474",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Gary Clarke",
+      "character": "Dick Hamilton",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Margie Regan",
+      "character": "Lucy Carr",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Richard Denning",
+      "character": "Michael Shayne",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Herbert Rudley",
+      "character": "Lt. Will Gentry",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Patricia Donahue",
+      "character": "Lucy Hamilton",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257489/photo/634da5c201301.jpg"
+    },
+    {
+      "name": "Jerry Paris",
+      "character": "Tim Rourke",
+      "order": 5,
+      "profilePath": null
+    }
+  ]
+}

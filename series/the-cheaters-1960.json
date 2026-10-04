@@ -1,0 +1,79 @@
+{
+  "version": 2,
+  "seriesID": "the-cheaters-1960",
+  "tvmazeID": 40336,
+  "title": "The Cheaters",
+  "yearStart": 1960,
+  "yearEnd": 1962,
+  "overview": "John Hunter is an insurance claim investigator who thwarts attempts done by cheaters to his company.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/179/448729.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Crime",
+    "Mystery"
+  ],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "the-cheaters-tv-1961-s02e20-case-of-george-peterson",
+          "seasonNumber": 2,
+          "episodeNumber": 20,
+          "title": "The Case of George Peterson",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-cheaters-tv-1961-s02e20-case-of-george-peterson",
+          "airDate": "1962-05-05",
+          "year": 1962,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Cheaters TV 1961 colorized s02e20 Case of George Peterson.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 226530929,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-cheaters-tv-1961-s02e20-case-of-george-peterson/The%20Cheaters%20TV%201961%20colorized%20s02e20%20Case%20of%20George%20Peterson.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 39,
+  "cast": [
+    {
+      "name": "John Ireland",
+      "character": "John Hunter",
+      "order": 0,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/525/1313789.jpg"
+    },
+    {
+      "name": "Robert Ayres",
+      "character": "Walter Allen",
+      "order": 1,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/402/1006838.jpg"
+    },
+    {
+      "name": "Ann Hanslip",
+      "character": "Walter Allen's Secretary",
+      "order": 2,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/418/1045813.jpg"
+    },
+    {
+      "name": "Reginald Marsh",
+      "character": "Inspector Martin",
+      "order": 3,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/28/70099.jpg"
+    },
+    {
+      "name": "Valentine Dyall",
+      "character": "Inspector Kellogg of Scotland Yard",
+      "order": 4,
+      "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/402/1006843.jpg"
+    }
+  ]
+}

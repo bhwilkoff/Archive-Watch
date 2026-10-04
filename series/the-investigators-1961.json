@@ -1,0 +1,86 @@
+{
+  "version": 2,
+  "seriesID": "the-investigators-1961",
+  "tvmazeID": 26276,
+  "title": "The Investigators",
+  "yearStart": 1961,
+  "yearEnd": 1961,
+  "overview": "B/W crime drama series that narrated the adventures of five insurance investigators, Russ Andrews, Bill Davis, Danny Clayton, Steve Banks and female investigator Maggie Peters. Polly Walters was the office secretary. These operators ran an agency which dealt with fraud and scam cases that involved insurance premiums.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77425-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Crime"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-investigators-tv-1961-s01e02-the-oracle",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Oracle",
+          "overview": "A religious tabernacle and its robed prophet, Nostradamus, The Oracle, fall under the scrutiny of insurance investigator Russ Andrews and Steve Banks when members of his fanatical following begin liquidating their endowment and annuity policies to turn the funds over to the Nostradamus Foundation.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/481/1202951.jpg",
+          "airDate": "1961-10-12",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Investigators TV 1961 colorized s01e02 The Oracle.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 261281386,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-investigators-tv-1961-s01e02-the-oracle/The%20Investigators%20TV%201961%20colorized%20s01e02%20The%20Oracle.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 13,
+  "tvdbID": "77425",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Asher Dann",
+      "character": "Danny Clayton",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/8504217/photo/652b45841a582.jpg"
+    },
+    {
+      "name": "June Kenney",
+      "character": "Polly Walters",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/380859/photo/652b4f52a0dc9.jpg"
+    },
+    {
+      "name": "James Franciscus",
+      "character": "Russ Andrews",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/269963/photo/652a232d99aec.jpg"
+    },
+    {
+      "name": "Al Austin",
+      "character": "Bill Davis",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/7939862/photo/652a240a2e2a3.jpg"
+    },
+    {
+      "name": "James Philbrook",
+      "character": "Steve Banks",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/259912/photo/652a24295c985.jpg"
+    },
+    {
+      "name": "Mary Murphy",
+      "character": "Maggie Peters",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257914/photo/652ab6035ceec.jpg"
+    }
+  ]
+}

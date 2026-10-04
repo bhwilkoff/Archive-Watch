@@ -110,6 +110,24 @@
           "downloadURL": "https://archive.org/download/mackenzies-raiders-tv-1958-colorized-s01e05-deadly-mirror/Mackenzies%20Raiders%20TV%201958%20colorized%20s01e05%20Deadly%20Mirror.mp4"
         },
         {
+          "archiveID": "mackenzies-raiders-tv-1958-colorized-s01e06-attack",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Attack",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/mackenzies-raiders-tv-1958-colorized-s01e06-attack",
+          "airDate": "1958-11-14",
+          "year": 1958,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Mackenzies Raiders TV 1958 colorized s01e06 Attack.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 147197281,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mackenzies-raiders-tv-1958-colorized-s01e06-attack/Mackenzies%20Raiders%20TV%201958%20colorized%20s01e06%20Attack.mp4"
+        },
+        {
           "archiveID": "mackenzies-raiders-tv-1958-colorized-s01e07-hostage",
           "seasonNumber": 1,
           "episodeNumber": 7,
@@ -148,7 +166,7 @@
       ]
     }
   ],
-  "episodesCount": 7,
+  "episodesCount": 8,
   "canonicalEpisodesCount": 39,
   "tvdbID": "293116",
   "artworkSource": "tvdb",
@@ -165,8 +183,5 @@
       "order": 1,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/295668/photo/63ee94659040b.jpg"
     }
-  ],
-  "seriesImdbID": "tt0051292",
-  "canonicalEpisodeCount": 23,
-  "canonicalSeasons": 1
+  ]
 }

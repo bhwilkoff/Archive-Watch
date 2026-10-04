@@ -1,13 +1,17 @@
 {
-  "version": 1,
+  "version": 2,
   "seriesID": "the-lawless-years-1959",
+  "tvmazeID": 94732,
   "title": "The Lawless Years",
   "yearStart": 1959,
-  "yearEnd": 1959,
-  "overview": "The Lawless Years is an American crime drama series that aired on NBC from April 16 1959, to September 22, 1961. The series is the first of its kind set set during the Roaring 20s, having predated ABC's far more successful The Untouchables by six months. The series stars James Gregory and Robert Karnes.",
+  "yearEnd": 1961,
+  "overview": "Barney Ruditsky is a New York City police officer in the Roaring '20s who fights organized crime. The show is loosely based on the real-life Ruditsky, who was a New York police officer during the period.",
   "posterURL": "https://artworks.thetvdb.com/banners/posters/76633-1.jpg",
   "backdropURL": null,
-  "genres": [],
+  "genres": [
+    "Drama",
+    "Crime"
+  ],
   "networks": [
     "NBC"
   ],
@@ -21,11 +25,11 @@
           "seasonNumber": 1,
           "episodeNumber": 1,
           "title": "The Nick Joseph Story",
-          "overview": "Detective Ruditsky relates the story of Nick Joseph, a small-time hood from Manhattan's Lower East Side, who rises from petty theft to become an ace contract killer for the syndicate's notorious Murder, Inc.",
+          "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/67ZNTkXIr82WZYz3P98BNLhljc.jpg",
           "airDate": "1959-04-16",
           "year": 1959,
-          "runtimeSeconds": 1562,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "Pilot.mp4",
             "format": "h.264",
@@ -35,33 +39,15 @@
           "downloadURL": "https://archive.org/download/TheLawlessYears-Episode01-TheNickJosephStory1959_92/Pilot.mp4"
         },
         {
-          "archiveID": "TheLawlessYears-Episode01-TheNickJosephStory1959",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "The Immigrant",
-          "overview": "An immigrant woman tries to get Ruditsky to set her son on the straight and narrow. It seems as though he's been hanging around with a gang of hoodlums. Ruditsky gives it his best effort but it could be a tough sell.",
-          "stillURL": "https://image.tmdb.org/t/p/w500/67ZNTkXIr82WZYz3P98BNLhljc.jpg",
-          "airDate": "1959-04-23",
-          "year": 1959,
-          "runtimeSeconds": 1563,
-          "videoFile": {
-            "name": "Ep1TheNickJosephStory.mp4",
-            "format": "h.264",
-            "sizeBytes": 153421026,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/TheLawlessYears-Episode01-TheNickJosephStory1959/Ep1TheNickJosephStory.mp4"
-        },
-        {
           "archiveID": "TheLawlessYears-Episode03-TheJaneCooperStory1959",
           "seasonNumber": 1,
           "episodeNumber": 3,
           "title": "The Jane Cooper Story",
-          "overview": "Jane Cooper, recently paroled from prison, proves that she hasn't learned anything when she once again begins hanging around with underworld characters. Only this time it seems as though her mobster boyfriends keep dying off.",
+          "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/67ZNTkXIr82WZYz3P98BNLhljc.jpg",
           "airDate": "1959-04-30",
           "year": 1959,
-          "runtimeSeconds": 1557,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "Ep3TheJaneCooperStory.mp4",
             "format": "h.264",
@@ -74,12 +60,12 @@
           "archiveID": "TheLawlessYears-Episode04-TheCutieJaffeStory1959",
           "seasonNumber": 1,
           "episodeNumber": 4,
-          "title": "The Story Of Cutie Jaffe",
-          "overview": "Cutie Jaffe, a small-time hood with big time ambitions, begins knocking over some of his brother-in-law's bootlegging trucks. Will Cutie rise in the underworld hierarchy or is he headed for a hard fall?",
+          "title": "The Cutie Jaffe Story",
+          "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/67ZNTkXIr82WZYz3P98BNLhljc.jpg",
           "airDate": "1959-05-07",
           "year": 1959,
-          "runtimeSeconds": 1562,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "ep04_TheStoryofCutieJaffe_1959.mp4",
             "format": "h.264",
@@ -93,11 +79,11 @@
           "seasonNumber": 1,
           "episodeNumber": 5,
           "title": "The Dutch Schultz Story",
-          "overview": "Dutch Schultz wants to bump off special prosecutor Thomas Dewey who has been after him. The syndicate bigwigs deny him permission to make the hit but the Dutchman proceeds with his plans anyway.",
+          "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/67ZNTkXIr82WZYz3P98BNLhljc.jpg",
           "airDate": "1959-05-14",
           "year": 1959,
-          "runtimeSeconds": 1558,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "ep05_TheDutchShultzStory_1959.mp4",
             "format": "h.264",
@@ -110,12 +96,12 @@
           "archiveID": "TheLawlessYears-Episode06-TheLionAndTheMouse1959",
           "seasonNumber": 1,
           "episodeNumber": 6,
-          "title": "The Lion And The Mouse",
-          "overview": "Small time racketeer Eddie Safronek plots revenge against the hoods who beat him up and left him for dead.",
+          "title": "The Lion and the Mouse",
+          "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/67ZNTkXIr82WZYz3P98BNLhljc.jpg",
           "airDate": "1959-05-21",
           "year": 1959,
-          "runtimeSeconds": 1554,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "ep06TheLionAndTheMouse.mp4",
             "format": "h.264",
@@ -129,11 +115,11 @@
           "seasonNumber": 1,
           "episodeNumber": 12,
           "title": "Framed",
-          "overview": "When Ruditsky can't be bribed by a waterfront crime gang they attempt to frame him by making it look like he's on the take.",
+          "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/67ZNTkXIr82WZYz3P98BNLhljc.jpg",
           "airDate": "1959-07-16",
           "year": 1959,
-          "runtimeSeconds": 1544,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "TheLawlessYears-framed.ia.mp4",
             "format": "h.264 IA",
@@ -143,33 +129,15 @@
           "downloadURL": "https://archive.org/download/TheLawlessYears-Episode12-Framed1959/TheLawlessYears-framed.ia.mp4"
         },
         {
-          "archiveID": "storyofluckysilva",
-          "seasonNumber": 1,
-          "episodeNumber": 16,
-          "title": "The Story of Lucky Silva",
-          "overview": "ucky Silva is a small-time hood who by a combination of circumstance, ambition, and drive rises quickly to a position of prominence in New York's Mafia.",
-          "stillURL": "https://image.tmdb.org/t/p/w500/67ZNTkXIr82WZYz3P98BNLhljc.jpg",
-          "airDate": "1959-08-13",
-          "year": 1959,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "storyofluckysilva.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 160605395,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/storyofluckysilva/storyofluckysilva.ia.mp4"
-        },
-        {
           "archiveID": "themorrisonstory",
           "seasonNumber": 1,
           "episodeNumber": 17,
           "title": "The Morrison Story",
-          "overview": "A judge is murdered right before a state crime commission is scheduled to take a look into his activities.",
+          "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/67ZNTkXIr82WZYz3P98BNLhljc.jpg",
           "airDate": "1959-08-20",
           "year": 1959,
-          "runtimeSeconds": null,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "themorrisonstory.ia.mp4",
             "format": "h.264 IA",
@@ -183,11 +151,11 @@
           "seasonNumber": 1,
           "episodeNumber": 18,
           "title": "The Poison Ivy Story",
-          "overview": "Ruditsky is temporarily assigned to duty in a Brooklyn precinct and must get the goods on a gang of hooligans who are pulling off a series of drug store robberies.",
+          "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/67ZNTkXIr82WZYz3P98BNLhljc.jpg",
           "airDate": "1959-08-27",
           "year": 1959,
-          "runtimeSeconds": 1552,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "TheLawlessYears-thePoisonIvyStory.ia.mp4",
             "format": "h.264 IA",
@@ -197,12 +165,51 @@
           "downloadURL": "https://archive.org/download/TheLawlessYears-Episode18-ThePoisonIvyStory1959/TheLawlessYears-thePoisonIvyStory.ia.mp4"
         }
       ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "TheLawlessYears-Episode01-TheNickJosephStory1959",
+          "seasonNumber": null,
+          "episodeNumber": 1,
+          "title": "The Immigrant",
+          "overview": "An immigrant woman tries to get Ruditsky to set her son on the straight and narrow. It seems as though he's been hanging around with a gang of hoodlums. Ruditsky gives it his best effort but it could be a tough sell.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/67ZNTkXIr82WZYz3P98BNLhljc.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1563,
+          "videoFile": {
+            "name": "Ep1TheNickJosephStory.mp4",
+            "format": "h.264",
+            "sizeBytes": 153421026,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheLawlessYears-Episode01-TheNickJosephStory1959/Ep1TheNickJosephStory.mp4"
+        },
+        {
+          "archiveID": "storyofluckysilva",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Story of Lucky Silva",
+          "overview": "ucky Silva is a small-time hood who by a combination of circumstance, ambition, and drive rises quickly to a position of prominence in New York's Mafia.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/67ZNTkXIr82WZYz3P98BNLhljc.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "storyofluckysilva.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 160605395,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/storyofluckysilva/storyofluckysilva.ia.mp4"
+        }
+      ]
     }
   ],
   "episodesCount": 10,
-  "seriesImdbID": "tt0052484",
-  "canonicalEpisodeCount": 47,
-  "canonicalSeasons": 3,
+  "canonicalEpisodesCount": 47,
   "tvdbID": "76633",
   "artworkSource": "tvdb",
   "cast": [

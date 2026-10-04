@@ -1,0 +1,87 @@
+{
+  "version": 2,
+  "seriesID": "the-invisible-man-1975",
+  "tvmazeID": 10072,
+  "title": "The Invisible Man",
+  "yearStart": 1975,
+  "yearEnd": 1976,
+  "overview": "1970s sci-fi adventure, inspired by the H.G. Wells story The Invisible Man. It starred David McCallum as Dr. Daniel Westin, who after finding out that his experiments into invisiblity were going to be used for military purposes, he destroys his lab and records - leaving him permanantly invisible and on the run.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76793-2.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Action",
+    "Adventure"
+  ],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-invisible-man-the-complete-series-1975_202505",
+          "seasonNumber": 1,
+          "episodeNumber": null,
+          "title": "The Invisible Man",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-invisible-man-the-complete-series-1975_202505",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 4402,
+          "videoFile": {
+            "name": "The Invisible Man S01E00 - Pilot.mp4",
+            "format": "h.264",
+            "sizeBytes": 415663474,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-the-complete-series-1975_202505/The%20Invisible%20Man%20S01E00%20-%20Pilot.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-complete-series-1958",
+          "seasonNumber": 1,
+          "episodeNumber": null,
+          "title": "The Invisible Man",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-invisible-man-complete-series-1958",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1533,
+          "videoFile": {
+            "name": "The Invisible Man S01E00 - Piolt.mp4",
+            "format": "h.264",
+            "sizeBytes": 145576468,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-complete-series-1958/The%20Invisible%20Man%20S01E00%20-%20Piolt.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2,
+  "canonicalEpisodesCount": 13,
+  "tvdbID": "76793",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "David McCallum",
+      "character": "Dr Daniel Westin",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257542/photo/6849d4b34ad5e.jpg"
+    },
+    {
+      "name": "Melinda Fee",
+      "character": "Dr Kate Westin",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/49469.jpg"
+    },
+    {
+      "name": "Craig Stevens",
+      "character": "Walter Carlson",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/315132.jpg"
+    }
+  ]
+}

@@ -1,0 +1,66 @@
+{
+  "version": 2,
+  "seriesID": "union-pacific-1958",
+  "tvmazeID": 41330,
+  "title": "Union Pacific",
+  "yearStart": 1958,
+  "yearEnd": 1959,
+  "overview": "Union Pacific is a television series that aired in syndication from 1958 until 1959. This show was inspired by the 1939 film also named Union Pacific, starring Joel McCrea, Barbara Stanwyck, and Robert Preston.",
+  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/187/468807.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Western"
+  ],
+  "networks": [
+    "Syndication"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "union-pacific-tv-1958-colorized-s01e01-black-hills-incident",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Black Hills Incident",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/union-pacific-tv-1958-colorized-s01e01-black-hills-incident",
+          "airDate": "1958-09-27",
+          "year": 1958,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Union Pacific TV 1958 colorized s01e01 Black Hills Incident.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 238887433,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/union-pacific-tv-1958-colorized-s01e01-black-hills-incident/Union%20Pacific%20TV%201958%20colorized%20s01e01%20Black%20Hills%20Incident.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 38,
+  "tvdbID": "70384",
+  "cast": [
+    {
+      "name": "Judd Pratt",
+      "character": "",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Susan Cummings",
+      "character": "",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257845/photo/62f963df14704.jpg"
+    },
+    {
+      "name": "Jeff Morrow",
+      "character": "",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257846/photo/6080da4c2cc4f.jpg"
+    }
+  ]
+}

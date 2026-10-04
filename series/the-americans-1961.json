@@ -1,0 +1,69 @@
+{
+  "version": 2,
+  "seriesID": "the-americans-1961",
+  "tvmazeID": 22151,
+  "title": "The Americans",
+  "yearStart": 1961,
+  "yearEnd": 1961,
+  "overview": "The Americans is set during the American Civil War, the series focuses on two brothers fighting on opposite sides of the conflict.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77513-2.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Action",
+    "War"
+  ],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-americans-tv-1961-s01e09-the-guerrillas",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Guerrillas",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-americans-tv-1961-s01e09-the-guerrillas",
+          "airDate": "1961-03-20",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Americans TV 1961 s01e09 The Guerrillas.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 195454389,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-americans-tv-1961-s01e09-the-guerrillas/The%20Americans%20TV%201961%20s01e09%20The%20Guerrillas.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 17,
+  "tvdbID": "77513",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "John McIntire",
+      "character": "",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/265716/photo/6471187c4f09f.jpg"
+    },
+    {
+      "name": "Darryl Hickman",
+      "character": "",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Dick Davalos",
+      "character": "",
+      "order": 2,
+      "profilePath": null
+    }
+  ]
+}

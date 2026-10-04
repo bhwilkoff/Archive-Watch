@@ -38,6 +38,24 @@
           "downloadURL": "https://archive.org/download/StoriesOfTheCentury-BelleStarr/StoriesOfTheCentury-1x01-BelleStar.mp4"
         },
         {
+          "archiveID": "stories-of-the-century-tv-1954-colorized-s01e01-belle-starr",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Stories of the Century TV",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/stories-of-the-century-tv-1954-colorized-s01e01-belle-starr",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1580,
+          "videoFile": {
+            "name": "Stories of the Century TV 1954 colorized s01e01 Belle Starr.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 192295422,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-the-century-tv-1954-colorized-s01e01-belle-starr/Stories%20of%20the%20Century%20TV%201954%20colorized%20s01e01%20Belle%20Starr.mp4"
+        },
+        {
           "archiveID": "StoriesOfTheCentury-BillyTheKid",
           "seasonNumber": 1,
           "episodeNumber": 2,
@@ -54,6 +72,24 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/StoriesOfTheCentury-BillyTheKid/StoriesOfTheCentury-1x02-BillyTheKid.mp4"
+        },
+        {
+          "archiveID": "stories-of-the-century-tv-1954-s01e02-billy-the-kid",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Stories of the Century TV",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/stories-of-the-century-tv-1954-s01e02-billy-the-kid",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1581,
+          "videoFile": {
+            "name": "Stories of the Century TV 1954 colorized s01e02 Billy the Kid.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 336131890,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-the-century-tv-1954-s01e02-billy-the-kid/Stories%20of%20the%20Century%20TV%201954%20colorized%20s01e02%20Billy%20the%20Kid.mp4"
         },
         {
           "archiveID": "StoriesOfTheCentury-FrankAndJesseJames",
@@ -74,6 +110,24 @@
           "downloadURL": "https://archive.org/download/StoriesOfTheCentury-FrankAndJesseJames/StoriesOfTheCentury-1x03-FrankAndJesseJames.mp4"
         },
         {
+          "archiveID": "stories-of-the-century-tv-1954-s01e03-frank-and-jesse-james",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Stories of the Century TV",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/stories-of-the-century-tv-1954-s01e03-frank-and-jesse-james",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1581,
+          "videoFile": {
+            "name": "Stories of the Century TV 1954 colorized s01e03 Frank and Jesse James.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 196487060,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-the-century-tv-1954-s01e03-frank-and-jesse-james/Stories%20of%20the%20Century%20TV%201954%20colorized%20s01e03%20Frank%20and%20Jesse%20James.mp4"
+        },
+        {
           "archiveID": "StoriesOfTheCentury-Geronimo_426",
           "seasonNumber": 1,
           "episodeNumber": 4,
@@ -90,6 +144,24 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/StoriesOfTheCentury-Geronimo_426/StoriesOfTheCentury-1x04-Geronimo.mp4"
+        },
+        {
+          "archiveID": "stories-of-the-century-tv-1954-s01e04-geronimo",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Stories of the Century TV",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/stories-of-the-century-tv-1954-s01e04-geronimo",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1567,
+          "videoFile": {
+            "name": "Stories of the Century TV 1954 colorized s01e04 Geronimo.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 206638963,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-the-century-tv-1954-s01e04-geronimo/Stories%20of%20the%20Century%20TV%201954%20colorized%20s01e04%20Geronimo.mp4"
         },
         {
           "archiveID": "StoriesOfTheCentury-QuantrillAndHisRaiders",
@@ -128,6 +200,24 @@
           "downloadURL": "https://archive.org/download/Stories_of_the_Century_CattleKate/cattlekate.mp4"
         },
         {
+          "archiveID": "stories-of-the-century-tv-1954-s01e06-cattle-kate",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Stories of the Century TV",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/stories-of-the-century-tv-1954-s01e06-cattle-kate",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1575,
+          "videoFile": {
+            "name": "Stories of the Century TV 1954 colorized s01e06 Cattle Kate.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 209414311,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-the-century-tv-1954-s01e06-cattle-kate/Stories%20of%20the%20Century%20TV%201954%20colorized%20s01e06%20Cattle%20Kate.mp4"
+        },
+        {
           "archiveID": "StoriesOfTheCentury-SamBass",
           "seasonNumber": 1,
           "episodeNumber": 7,
@@ -146,6 +236,24 @@
           "downloadURL": "https://archive.org/download/StoriesOfTheCentury-SamBass/StoriesOfTheCentury-1x07-SamBass.mp4"
         },
         {
+          "archiveID": "stories-of-the-century-tv-1954-colorized-s01e07-sam-bass",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Stories of the Century TV",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/stories-of-the-century-tv-1954-colorized-s01e07-sam-bass",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1541,
+          "videoFile": {
+            "name": "Stories of the Century TV 1954 colorized s01e07 Sam Bass.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 220380635,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-the-century-tv-1954-colorized-s01e07-sam-bass/Stories%20of%20the%20Century%20TV%201954%20colorized%20s01e07%20Sam%20Bass.mp4"
+        },
+        {
           "archiveID": "StoriesOfTheCentury-JohnnyRingo",
           "seasonNumber": 1,
           "episodeNumber": 8,
@@ -162,6 +270,42 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/StoriesOfTheCentury-JohnnyRingo/StoriesOfTheCentury-1x08-JohnnyRingo.mp4"
+        },
+        {
+          "archiveID": "stories-of-the-century-tv-1954-colorized-s01e08-johnny-ringo",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Stories of the Century TV",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/stories-of-the-century-tv-1954-colorized-s01e08-johnny-ringo",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1541,
+          "videoFile": {
+            "name": "Stories of the Century TV 1954 colorized s01e08 Johnny Ringo.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 234542381,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-the-century-tv-1954-colorized-s01e08-johnny-ringo/Stories%20of%20the%20Century%20TV%201954%20colorized%20s01e08%20Johnny%20Ringo.mp4"
+        },
+        {
+          "archiveID": "stories-of-the-century-tv-1954-colorized-s01e09-the-dalton-gang",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Stories of the Century TV",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/stories-of-the-century-tv-1954-colorized-s01e09-the-dalton-gang",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1582,
+          "videoFile": {
+            "name": "Stories of the Century TV 1954 colorized s01e09 The Dalton Gang.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 242982006,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-the-century-tv-1954-colorized-s01e09-the-dalton-gang/Stories%20of%20the%20Century%20TV%201954%20colorized%20s01e09%20The%20Dalton%20Gang.mp4"
         },
         {
           "archiveID": "StoriesOfTheCentury-TheDaltonGang",
@@ -198,6 +342,24 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/StoriesOfTheCentury-DocHolliday/StoriesOfTheCentury-1x10-DocHolliday.mp4"
+        },
+        {
+          "archiveID": "stories-of-the-century-tv-1954-colorized-s01e10-doc-holliday",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Stories of the Century TV",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/stories-of-the-century-tv-1954-colorized-s01e10-doc-holliday",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1547,
+          "videoFile": {
+            "name": "Stories of the Century TV 1954 colorized s01e10 Doc Holliday.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 194992309,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-the-century-tv-1954-colorized-s01e10-doc-holliday/Stories%20of%20the%20Century%20TV%201954%20colorized%20s01e10%20Doc%20Holliday.mp4"
         },
         {
           "archiveID": "StoriesOfTheCentury-TheYoungerBrothers",
@@ -374,7 +536,7 @@
       ]
     }
   ],
-  "episodesCount": 19,
+  "episodesCount": 28,
   "canonicalEpisodesCount": 39,
   "tvdbID": "78108",
   "artworkSource": "tvdb",
@@ -397,8 +559,5 @@
       "order": 2,
       "profilePath": "https://artworks.thetvdb.com/banners/actors/61649.jpg"
     }
-  ],
-  "seriesImdbID": "tt0046647",
-  "canonicalEpisodeCount": 17,
-  "canonicalSeasons": 2
+  ]
 }

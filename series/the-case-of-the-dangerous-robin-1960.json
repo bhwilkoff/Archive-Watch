@@ -1,0 +1,81 @@
+{
+  "version": 2,
+  "seriesID": "the-case-of-the-dangerous-robin-1960",
+  "tvmazeID": 60022,
+  "title": "The Case of the Dangerous Robin",
+  "yearStart": 1960,
+  "yearEnd": 1961,
+  "overview": "Robin Scott is an investigator of fraudulent insurance claims.",
+  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/413603/posters/61c7d8dba211d.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Crime",
+    "Mystery"
+  ],
+  "networks": [
+    "Syndication"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "case-of-the-dangerous-robin-tv-1960-colorized-s01e10-the-zippered-notebook",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Zippered Notebook",
+          "overview": "Robin flies to Antwerp, Belgium, in an effort to track down a valuable notebook filled with research information.",
+          "stillURL": "https://archive.org/services/img/case-of-the-dangerous-robin-tv-1960-colorized-s01e10-the-zippered-notebook",
+          "airDate": "1960-12-12",
+          "year": 1960,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Case of the Dangerous Robin TV 1960 colorized s01e10 The Zippered Notebook.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 183548159,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/case-of-the-dangerous-robin-tv-1960-colorized-s01e10-the-zippered-notebook/Case%20of%20the%20Dangerous%20Robin%20TV%201960%20colorized%20s01e10%20The%20Zippered%20Notebook.mp4"
+        },
+        {
+          "archiveID": "case-of-the-dangerous-robin-tv-1961-s01e26-tin-caper",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "China Passage",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/case-of-the-dangerous-robin-tv-1961-s01e26-tin-caper",
+          "airDate": "1961-04-03",
+          "year": 1961,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Case of the Dangerous Robin TV 1961 colorized s01e26 Tin Caper.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 165751372,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/case-of-the-dangerous-robin-tv-1961-s01e26-tin-caper/Case%20of%20the%20Dangerous%20Robin%20TV%201961%20colorized%20s01e26%20Tin%20Caper.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 2,
+  "canonicalEpisodesCount": 38,
+  "tvdbID": "413603",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Rick Jason",
+      "character": "Robin Scott",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/269905/photo/61bf8f2e236a9.jpg"
+    },
+    {
+      "name": "Jean Blake Fleming",
+      "character": "Phyllis Collier",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/8026562/photo/61c7d885c4bde.jpg"
+    }
+  ]
+}

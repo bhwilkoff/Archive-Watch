@@ -1,0 +1,63 @@
+{
+  "version": 2,
+  "seriesID": "colonel-march-of-scotland-yard-1956",
+  "tvmazeID": 58442,
+  "title": "Colonel March of Scotland Yard",
+  "yearStart": 1956,
+  "yearEnd": 1957,
+  "overview": "Colonel March of Scotland Yard is based on the character created by John Dickson Carr under the pen name Carter Dickson. Boris Karloff, famous for his affiliation with Universal Studios during the \"Golden Age of Hollywood Horror Movies,\" portrays Colonel March, of the Department of Queer Complaints who investigates unusual cases, locked-room murders, and mysteries concerning the supernatural. The British series was filmed at Southhall Studios, Middlesex, England from December 1954 - Spring 1955. Boris, 65 years old at the time, as Colonel March is not afraid to get right into the thick of things, often confronting the perpetrators directly. In 1953, a film called Colonel March Investigates was made by Fountain Films Production. It combined three episodes (Hot Money, Death in the Dressing Room, and The New Invisible Man) Karloff narrates the three segments and stars as the lead.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/78711-2.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Crime",
+    "Mystery"
+  ],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "colonel-march-of-scotland-yard-tv-1954-colorized-s01e04-at-night-all-cats-are-gray",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Abominable Snowman",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/colonel-march-of-scotland-yard-tv-1954-colorized-s01e04-at-night-all-cats-are-gray",
+          "airDate": "1956-04-08",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Colonel March of Scotland Yard TV 1954 colorized s01e04 At Night All Cats Are Gray.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 177931032,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/colonel-march-of-scotland-yard-tv-1954-colorized-s01e04-at-night-all-cats-are-gray/Colonel%20March%20of%20Scotland%20Yard%20TV%201954%20colorized%20s01e04%20At%20Night%20All%20Cats%20Are%20Gray.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 26,
+  "tvdbID": "78711",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Boris Karloff",
+      "character": "Colonel March",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/266111/photo/609baccb98a39.jpg"
+    },
+    {
+      "name": "Ewan Roberts",
+      "character": "Inspector Ames",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/454557.jpg"
+    }
+  ]
+}

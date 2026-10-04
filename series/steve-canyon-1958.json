@@ -1,0 +1,77 @@
+{
+  "version": 2,
+  "seriesID": "steve-canyon-1958",
+  "tvmazeID": 55165,
+  "title": "Steve Canyon",
+  "yearStart": 1958,
+  "yearEnd": 1959,
+  "overview": "Steve Canyon was the chief troubleshooter/test pilot for the U.S. Air Force. The first half of the season had Steve working from base to base, until mid-season when he was moved permanently at Big Thunder Air Force base in California.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77261-1.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "steve-canyon-tv-1959-colorized-s01e17-the-search",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "The Search",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/steve-canyon-tv-1959-colorized-s01e17-the-search",
+          "airDate": "1959-01-15",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steve Canyon TV 1959 colorized s01e17 The Search.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 233502178,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/steve-canyon-tv-1959-colorized-s01e17-the-search/Steve%20Canyon%20TV%201959%20colorized%20s01e17%20The%20Search.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 34,
+  "tvdbID": "77261",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Dean Fredericks",
+      "character": "Lt. Col. Steve Canyon",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Jerry Paris",
+      "character": "Maj. 'Willie' Williston",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Paul Frees",
+      "character": "Narrator",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/264249/photo/606cc29aa6e56.jpg"
+    },
+    {
+      "name": "Jackson Beck",
+      "character": "Announcer",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/314914/photo/66b1b2b528793.jpg"
+    },
+    {
+      "name": "Abel Fernandez",
+      "character": "Airman Abel Featherstone",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/329136/photo/630a43e66188a.jpg"
+    }
+  ]
+}

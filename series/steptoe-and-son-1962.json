@@ -17,6 +17,29 @@
   "creator": null,
   "seasons": [
     {
+      "seasonNumber": 0,
+      "episodes": [
+        {
+          "archiveID": "Steptoe_and_Son",
+          "seasonNumber": 0,
+          "episodeNumber": 1,
+          "title": "Steptoe and Son",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Steptoe & Son/X-Mas Specials/S00E01 - Christmas Special The Party.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1150008227,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/X-Mas%20Specials/S00E01%20-%20Christmas%20Special%20The%20Party.ia.mp4"
+        }
+      ]
+    },
+    {
       "seasonNumber": 1,
       "episodes": [
         {
@@ -110,29 +133,6 @@
           "downloadURL": "https://archive.org/download/SteptoeAndSon1x05/Steptoe%20And%20Son_%20S1E5%20-%20The%20Holiday.mp4"
         }
       ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "Steptoe_and_Son",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Steptoe and Son",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1962,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Steptoe & Son/X-Mas Specials/S00E01 - Christmas Special The Party.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 1150008227,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/X-Mas%20Specials/S00E01%20-%20Christmas%20Special%20The%20Party.ia.mp4"
-        }
-      ]
     }
   ],
   "episodesCount": 6,
@@ -152,8 +152,5 @@
       "order": 1,
       "profilePath": null
     }
-  ],
-  "seriesImdbID": "tt0057785",
-  "canonicalEpisodeCount": 33,
-  "canonicalSeasons": 9
+  ]
 }

@@ -21,6 +21,42 @@
       "seasonNumber": 1,
       "episodes": [
         {
+          "archiveID": "annie-oakley-tv-1954-colorized-s01e01-annie-and-the-brass-collar",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Annie and the Brass Collar",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/annie-oakley-tv-1954-colorized-s01e01-annie-and-the-brass-collar",
+          "airDate": "1954-01-09",
+          "year": 1954,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Annie Oakley TV 1954 colorized s01e01 Annie and the Brass Collar.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 281230410,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/annie-oakley-tv-1954-colorized-s01e01-annie-and-the-brass-collar/Annie%20Oakley%20TV%201954%20colorized%20s01e01%20Annie%20and%20the%20Brass%20Collar.mp4"
+        },
+        {
+          "archiveID": "annie-oakley-tv-1954-colorized-s01e02-annie-trusts-a-convict",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Annie Oakley TV",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/annie-oakley-tv-1954-colorized-s01e02-annie-trusts-a-convict",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1483,
+          "videoFile": {
+            "name": "Annie Oakley TV 1954 colorized s01e02 Annie Trusts a Convict.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 301232616,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/annie-oakley-tv-1954-colorized-s01e02-annie-trusts-a-convict/Annie%20Oakley%20TV%201954%20colorized%20s01e02%20Annie%20Trusts%20a%20Convict.mp4"
+        },
+        {
           "archiveID": "AnnieOakley-AnnieTrustsAConvict",
           "seasonNumber": 1,
           "episodeNumber": 2,
@@ -37,6 +73,24 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/AnnieOakley-AnnieTrustsAConvict/AnnieOakley-AnnieTrustsAConvict.mp4"
+        },
+        {
+          "archiveID": "annie-oakley-tv-1954-colorized-s01-e03-gunplay",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Annie Oakley TV",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/annie-oakley-tv-1954-colorized-s01-e03-gunplay",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1489,
+          "videoFile": {
+            "name": "Annie Oakley TV 1954 colorized S01E03 Gunplay.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 309777531,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/annie-oakley-tv-1954-colorized-s01-e03-gunplay/Annie%20Oakley%20TV%201954%20colorized%20S01E03%20Gunplay.mp4"
         },
         {
           "archiveID": "AnnieOakley-Gunplay",
@@ -57,6 +111,24 @@
           "downloadURL": "https://archive.org/download/AnnieOakley-Gunplay/AnnieOakley-Gunplay.mp4"
         },
         {
+          "archiveID": "annie-oakley-tv-1954-colorized-s01e04-the-dude-stagecoach",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Annie Oakley TV",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/annie-oakley-tv-1954-colorized-s01e04-the-dude-stagecoach",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Annie Oakley TV 1954 colorized S01E04 The Dude Stagecoach.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 324406246,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/annie-oakley-tv-1954-colorized-s01e04-the-dude-stagecoach/Annie%20Oakley%20TV%201954%20colorized%20S01E04%20The%20Dude%20Stagecoach.mp4"
+        },
+        {
           "archiveID": "AnnieOakley-TheDudeStagecoach",
           "seasonNumber": 1,
           "episodeNumber": 4,
@@ -73,6 +145,24 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/AnnieOakley-TheDudeStagecoach/AnnieOakley-TheDudeStagecoach.mp4"
+        },
+        {
+          "archiveID": "annie-oakley-tv-1954-colorized-s01e05-ambush-canyon",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Ambush Canyon",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/annie-oakley-tv-1954-colorized-s01e05-ambush-canyon",
+          "airDate": "1954-02-06",
+          "year": 1954,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Annie Oakley TV 1954 colorized S01E05 Ambush Canyon.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 302287446,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/annie-oakley-tv-1954-colorized-s01e05-ambush-canyon/Annie%20Oakley%20TV%201954%20colorized%20S01E05%20Ambush%20Canyon.mp4"
         },
         {
           "archiveID": "AnnieOakley-AnnieFindsStrangeTreasure",
@@ -95,7 +185,7 @@
       ]
     }
   ],
-  "episodesCount": 4,
+  "episodesCount": 9,
   "canonicalEpisodesCount": 81,
   "tvdbID": "77365",
   "artworkSource": "tvdb",
@@ -118,8 +208,5 @@
       "order": 2,
       "profilePath": null
     }
-  ],
-  "seriesImdbID": "tt0046578",
-  "canonicalEpisodeCount": 27,
-  "canonicalSeasons": 3
+  ]
 }

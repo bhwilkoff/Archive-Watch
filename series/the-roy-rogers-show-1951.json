@@ -1,0 +1,80 @@
+{
+  "version": 2,
+  "seriesID": "the-roy-rogers-show-1951",
+  "tvmazeID": 2149,
+  "title": "The Roy Rogers Show",
+  "yearStart": 1951,
+  "yearEnd": 1957,
+  "overview": "After dozens of cowboy films stretching back to the 1930s, Roy Rogers finally came to the small screen for this long-running hit TV series. He of course was joined by his longtime love and costar, the sparklingly beautiful Dale Evans.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77296-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Adventure",
+    "Western"
+  ],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "roy-rogers-show-tv-1953-s03e04-bullets-and-a-burro",
+          "seasonNumber": 3,
+          "episodeNumber": 4,
+          "title": "Bullets and a Burro",
+          "overview": "After hearing an old prospector brag that he struck it rich in Dale's café, an outlaw gang, headed by the sheriff's brother, decides to rob him of his claim. Roy sets out to stop them and keep the old man safe.",
+          "stillURL": "https://archive.org/services/img/roy-rogers-show-tv-1953-s03e04-bullets-and-a-burro",
+          "airDate": "1953-11-15",
+          "year": 1953,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Roy Rogers Show TV 1953 colorized s03e04 Bullets and a Burro.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 237395209,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roy-rogers-show-tv-1953-s03e04-bullets-and-a-burro/Roy%20Rogers%20Show%20TV%201953%20colorized%20s03e04%20Bullets%20and%20a%20Burro.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 100,
+  "tvdbID": "77296",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Dale Evans",
+      "character": "Herself",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/338802/photo/64c527d72bcac.jpg"
+    },
+    {
+      "name": "Reed Howes",
+      "character": "",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Pat Brady",
+      "character": "Himself",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Roy Rogers",
+      "character": "Himself",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Harry Harvey",
+      "character": "Sheriff",
+      "order": 4,
+      "profilePath": null
+    }
+  ]
+}

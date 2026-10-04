@@ -1,0 +1,68 @@
+{
+  "version": 2,
+  "seriesID": "the-sentimental-agent-1963",
+  "tvmazeID": 68606,
+  "title": "The Sentimental Agent",
+  "yearStart": 1963,
+  "yearEnd": 1963,
+  "overview": "Argentinian shipping agent Carlos Varela (Carlos Thompson) finds that the people using his services often need a lot more of his help than purely shipping goods.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/250384-2.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Crime"
+  ],
+  "networks": [
+    "ITV1"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-sentimental-agent-tv-1963-colorized-s01e06-meet-my-son-henry",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Meet My Son, Henry",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-sentimental-agent-tv-1963-colorized-s01e06-meet-my-son-henry",
+          "airDate": "1963-11-02",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Sentimental Agent TV 1963 colorized s01e06.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 367205690,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-sentimental-agent-tv-1963-colorized-s01e06-meet-my-son-henry/The%20Sentimental%20Agent%20TV%201963%20colorized%20s01e06.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 13,
+  "tvdbID": "250384",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Carlos Thompson",
+      "character": "Carlos Varela",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/287014.jpg"
+    },
+    {
+      "name": "Clemence Bettany",
+      "character": "Miss Carter",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/287015.jpg"
+    },
+    {
+      "name": "Burt Kwouk",
+      "character": "Chin",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/281115/photo/610ef526eedbd.jpg"
+    }
+  ]
+}

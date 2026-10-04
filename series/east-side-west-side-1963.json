@@ -1,0 +1,80 @@
+{
+  "version": 2,
+  "seriesID": "east-side-west-side-1963",
+  "tvmazeID": 40790,
+  "title": "East Side/West Side",
+  "yearStart": 1963,
+  "yearEnd": 1964,
+  "overview": "Neil Brock is a young social worker in the slums of New York City; his boss is Frieda Hechlinger; and Jane Foster is the office secretary. This dramatic series features stories about child abuse, drug abuse, rip-offs of the welfare system, crime, etc., i.e., all of the problems of the inner city.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/77309-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Crime"
+  ],
+  "networks": [
+    "CBS"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "east-side-west-side-s-1-e-01-the-sinner",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "No Hiding Place",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/east-side-west-side-s-1-e-01-the-sinner",
+          "airDate": "1963-12-02",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "East Side:West Side - S1E10 No Hiding Place.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 543891977,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/East%20Side%3AWest%20Side%20-%20S1E10%20No%20Hiding%20Place.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 26,
+  "tvdbID": "77309",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Elizabeth Wilson",
+      "character": "",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/291910/photo/62e89e23167f8.jpg"
+    },
+    {
+      "name": "Cicely Tyson",
+      "character": "",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/269873/photo/64d660e54db92.jpg"
+    },
+    {
+      "name": "George C. Scott",
+      "character": "",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/254737/photo/609066b0bb367.jpg"
+    },
+    {
+      "name": "Linden Chiles",
+      "character": "",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "John McMartin",
+      "character": "",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/271617/photo/62f7f55df3bcc.jpg"
+    }
+  ]
+}

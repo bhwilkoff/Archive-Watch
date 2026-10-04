@@ -69,7 +69,7 @@
       "name": "Elizabeth Shepherd",
       "character": "Syrie Van Epp",
       "order": 3,
-      "profilePath": null
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/343988/photo/6ab9668fb1a71.jpg"
     },
     {
       "name": "John Sharp",
@@ -77,8 +77,5 @@
       "order": 4,
       "profilePath": null
     }
-  ],
-  "seriesImdbID": "tt0180348",
-  "canonicalEpisodeCount": 0,
-  "canonicalSeasons": null
+  ]
 }
