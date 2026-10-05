@@ -2239,6 +2239,100 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mwmso6phrg23",
+   "platform": "bluesky",
+   "id": "bodyandsoul1947",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-09-29T02:43:58.575653+00:00",
+   "sampled": "2026-10-05T22:02:47.982322+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mwomiy327p2s",
+   "platform": "bluesky",
+   "id": "Betty_Boop_a_Language_All_My_Own_1935",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-09-29T19:59:04.255128+00:00",
+   "sampled": "2026-10-05T22:02:47.982322+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117356099058071427",
+   "platform": "mastodon",
+   "id": "Betty_Boop_a_Language_All_My_Own_1935",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-09-29T19:59:04.255128+00:00",
+   "sampled": "2026-10-05T22:02:47.982322+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mx32m3c7tq2y",
+   "platform": "bluesky",
+   "id": "your_chance_to_live_tech",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-04T18:43:17.412351+00:00",
+   "sampled": "2026-10-05T22:02:47.982322+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117384112729582288",
+   "platform": "mastodon",
+   "id": "your_chance_to_live_tech",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-04T18:43:17.412351+00:00",
+   "sampled": "2026-10-05T22:02:47.982322+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mx3spgzxv62m",
+   "platform": "bluesky",
+   "id": "harrietcraig1950usafeaturingjoancrawfordwendellcoreyfilmnoirfullmovie.",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-05T01:54:40.213180+00:00",
+   "sampled": "2026-10-05T22:02:47.982322+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }

@@ -1813,6 +1813,54 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-10-05T22:01:05.436905+00:00",
+   "id": "ThatUncertainFeeling",
+   "title": "That Uncertain Feeling",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mx5w6jsgty2m",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "earplay"
+  },
+  {
+   "at": "2026-10-05T22:01:05.436905+00:00",
+   "id": "ThatUncertainFeeling",
+   "title": "That Uncertain Feeling",
+   "slot": "now-showing",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117390557332601695",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "earplay"
+  },
+  {
+   "at": "2026-10-05T22:01:05.436905+00:00",
+   "id": "ThatUncertainFeeling",
+   "title": "That Uncertain Feeling",
+   "slot": "now-showing",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DeIPHkzFTJF/",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": "117390556430241609",
+   "reviewer": "earplay"
+  },
+  {
+   "at": "2026-10-05T22:01:05.436905+00:00",
+   "id": "ThatUncertainFeeling",
+   "title": "That Uncertain Feeling",
+   "slot": "now-showing",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=OpHCW3_89RE",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "earplay"
   }
  ]
 }
