@@ -4,7 +4,7 @@
   "tvmazeID": 4379,
   "title": "Bat Masterson",
   "yearStart": 1958,
-  "yearEnd": 1961,
+  "yearEnd": 1959,
   "overview": "Bat Masterson is loosely based on the life and adventures of real life lawman, army scout, gunfighter and journalist. Dressed-up dandy (derby and cane), gambler and lawman roams the West charming women and defending the unjustly accused. His primary weapon was his wit (and cane) rather than his gun.",
   "posterURL": "https://artworks.thetvdb.com/banners/posters/71207-2.jpg",
   "backdropURL": null,
@@ -21,6 +21,78 @@
     {
       "seasonNumber": 1,
       "episodes": [
+        {
+          "archiveID": "bat-masterson-s-01-e-01-double-showdown-colorized-ai",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Bat Masterson S 01 E 01 Double Showdown ( Colorized, AI)",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bat-masterson-s-01-e-01-double-showdown-colorized-ai",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1509,
+          "videoFile": {
+            "name": "Bat Masterson S01E01 Double Showdown (Colorized,AI).mp4",
+            "format": "h.264",
+            "sizeBytes": 149599689,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/bat-masterson-s-01-e-01-double-showdown-colorized-ai/Bat%20Masterson%20S01E01%20Double%20Showdown%20%28Colorized%2CAI%29.mp4"
+        },
+        {
+          "archiveID": "bat-masterson-tv-1958-s01e01-double-showdown",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Bat Masterson TV 1958 colorized s01e01 Double Showdown",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bat-masterson-tv-1958-s01e01-double-showdown",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1558,
+          "videoFile": {
+            "name": "Bat Masterson TV 1958 colorized s01e01 Double Showdown.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 193572127,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/bat-masterson-tv-1958-s01e01-double-showdown/Bat%20Masterson%20TV%201958%20colorized%20s01e01%20Double%20Showdown.mp4"
+        },
+        {
+          "archiveID": "bat-masterson-colorized-s-1e-4-stampede-at-tent-city",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Bat Masterson TV 1958 colorized s01e04 Stampede at Tent City",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/bat-masterson-colorized-s-1e-4-stampede-at-tent-city",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1559,
+          "videoFile": {
+            "name": "Bat Masterson colorized s1e4 Stampede at Tent City.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 151855529,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/bat-masterson-colorized-s-1e-4-stampede-at-tent-city/Bat%20Masterson%20colorized%20s1e4%20Stampede%20at%20Tent%20City.ia.mp4"
+        },
+        {
+          "archiveID": "BatMasterson-TheFighter",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Bat Masterson - The Fighter",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/BatMasterson-TheFighter",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1559,
+          "videoFile": {
+            "name": "Bat_Masterson_-_The_Fighter.mp4",
+            "format": "h.264",
+            "sizeBytes": 161799778,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/BatMasterson-TheFighter/Bat_Masterson_-_The_Fighter.mp4"
+        },
         {
           "archiveID": "bat-masterson-tv-1959-s01e35-the-desert-ship",
           "seasonNumber": 1,
@@ -42,7 +114,7 @@
       ]
     }
   ],
-  "episodesCount": 1,
+  "episodesCount": 5,
   "canonicalEpisodesCount": 108,
   "tvdbID": "71207",
   "artworkSource": "tvdb",
@@ -53,5 +125,8 @@
       "order": 0,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256364/photo/63ac8ceeb8504.jpg"
     }
-  ]
+  ],
+  "seriesImdbID": "tt0052445",
+  "canonicalEpisodeCount": 108,
+  "canonicalSeasons": 3
 }

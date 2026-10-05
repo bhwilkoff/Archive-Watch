@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-10-04T10:32:02Z",
+  "updated_at": "2026-10-05T11:36:13Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 18402,
-    "wanted": 18178,
-    "fulfilled": 224,
-    "series_with_gaps": 363
+    "total": 18641,
+    "wanted": 18413,
+    "fulfilled": 228,
+    "series_with_gaps": 371
   },
   "wants": [
     {
@@ -13949,6 +13949,1079 @@
       "added_at": "2026-06-19T09:23:32Z"
     },
     {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 1,
+      "title": "Double Showdown",
+      "episodeImdbID": "tt0519305",
+      "status": "fulfilled",
+      "added_at": "2026-10-05T11:14:26Z",
+      "fulfilled_at": "2026-10-05T11:36:13Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 2,
+      "title": "Two Graves for Swan Valley",
+      "episodeImdbID": "tt0519377",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 3,
+      "title": "Dynamite Blows Two Ways",
+      "episodeImdbID": "tt0519308",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 4,
+      "title": "Stampede at Tent City",
+      "episodeImdbID": "tt0519342",
+      "status": "fulfilled",
+      "added_at": "2026-10-05T11:14:26Z",
+      "fulfilled_at": "2026-10-05T11:36:13Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 5,
+      "title": "The Fighter",
+      "episodeImdbID": "tt0519356",
+      "status": "fulfilled",
+      "added_at": "2026-10-05T11:14:26Z",
+      "fulfilled_at": "2026-10-05T11:36:13Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 6,
+      "title": "Bear Bait",
+      "episodeImdbID": "tt0519287",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 7,
+      "title": "A Noose Fits Anybody",
+      "episodeImdbID": "tt0519279",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 8,
+      "title": "Dude's Folly",
+      "episodeImdbID": "tt0519307",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 9,
+      "title": "The Treasure of Worry Hill",
+      "episodeImdbID": "tt0519372",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 10,
+      "title": "Cheyenne Club",
+      "episodeImdbID": "tt0519293",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 11,
+      "title": "General Sherman's March Through Dodge City",
+      "episodeImdbID": "tt0935182",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 12,
+      "title": "Trail Pirate",
+      "episodeImdbID": "tt0519376",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 13,
+      "title": "Double Trouble in Trinidad",
+      "episodeImdbID": "tt0519306",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 14,
+      "title": "Election Day",
+      "episodeImdbID": "tt0519309",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 15,
+      "title": "One Bullet from Broken Bow",
+      "episodeImdbID": "tt0519333",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 16,
+      "title": "A Personal Matter",
+      "episodeImdbID": "tt0519280",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 17,
+      "title": "License to Cheat",
+      "episodeImdbID": "tt0519323",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 18,
+      "title": "Sharpshooter",
+      "episodeImdbID": "tt0519339",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 19,
+      "title": "River Boat",
+      "episodeImdbID": "tt0519336",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 20,
+      "title": "Battle of the Pass",
+      "episodeImdbID": "tt0519286",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 21,
+      "title": "Marked Deck",
+      "episodeImdbID": "tt0519326",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 22,
+      "title": "Incident in Leadville",
+      "episodeImdbID": "tt0519317",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 23,
+      "title": "The Tumbleweed Wagon",
+      "episodeImdbID": "tt0519373",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 24,
+      "title": "Brunette Bombshell",
+      "episodeImdbID": "tt0519289",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 25,
+      "title": "Deadline",
+      "episodeImdbID": "tt0519299",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 26,
+      "title": "Man of Action",
+      "episodeImdbID": "tt0519325",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 27,
+      "title": "A Matter of Honor",
+      "episodeImdbID": "tt0519278",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 28,
+      "title": "Lottery of Death",
+      "episodeImdbID": "tt0519324",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 29,
+      "title": "The Death of Bat Masterson",
+      "episodeImdbID": "tt0519351",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 30,
+      "title": "The Secret Is Death",
+      "episodeImdbID": "tt0519370",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 31,
+      "title": "Promised Land",
+      "episodeImdbID": "tt0519335",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 32,
+      "title": "The Conspiracy: Part 1",
+      "episodeImdbID": "tt0519348",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 33,
+      "title": "The Conspiracy: Part 2",
+      "episodeImdbID": "tt0519349",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 34,
+      "title": "The Black Pearls",
+      "episodeImdbID": "tt0519346",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 36,
+      "title": "The Romany Knives",
+      "episodeImdbID": "tt0519369",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 1,
+      "episode": 37,
+      "title": "Buffalo Kill",
+      "episodeImdbID": "tt0519290",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 1,
+      "title": "To the Manner Born",
+      "episodeImdbID": "tt0519375",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 2,
+      "title": "Wanted: Dead",
+      "episodeImdbID": "tt0519379",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 3,
+      "title": "No Funeral for Thorn",
+      "episodeImdbID": "tt0519332",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 4,
+      "title": "Shakedown at St. Joe",
+      "episodeImdbID": "tt0519338",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 5,
+      "title": "Lady Luck",
+      "episodeImdbID": "tt0519319",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 6,
+      "title": "Who'll Bury My Violence?",
+      "episodeImdbID": "tt0519381",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 7,
+      "title": "Dead Men Don't Pay Debts",
+      "episodeImdbID": "tt0519298",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 8,
+      "title": "Death and Taxes",
+      "episodeImdbID": "tt0519301",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 9,
+      "title": "Bat Plays a Dead Man's Hand",
+      "episodeImdbID": "tt0519284",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 10,
+      "title": "Garrison Finish",
+      "episodeImdbID": "tt0519314",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 11,
+      "title": "The Canvas and the Cane",
+      "episodeImdbID": "tt0519347",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 12,
+      "title": "The Inner Circle",
+      "episodeImdbID": "tt0519360",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 13,
+      "title": "The Pied Piper of Dodge City",
+      "episodeImdbID": "tt0519364",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 14,
+      "title": "A Picture of Death",
+      "episodeImdbID": "tt0519281",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 15,
+      "title": "Pigeon and Hawk",
+      "episodeImdbID": "tt0519334",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 16,
+      "title": "Flume to the Mother Lode",
+      "episodeImdbID": "tt0519313",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 17,
+      "title": "Death by the Half Dozen",
+      "episodeImdbID": "tt0519303",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 18,
+      "title": "Deadly Diamonds",
+      "episodeImdbID": "tt0519300",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 19,
+      "title": "Mr. Fourpaws",
+      "episodeImdbID": "tt0519329",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 20,
+      "title": "Six Feet of Gold",
+      "episodeImdbID": "tt0519340",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 21,
+      "title": "Cattle and Cane",
+      "episodeImdbID": "tt0519292",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 22,
+      "title": "The Disappearance of Bat Masterson",
+      "episodeImdbID": "tt0519353",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 23,
+      "title": "The Snare",
+      "episodeImdbID": "tt0519371",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 24,
+      "title": "Three Bullets for Bat",
+      "episodeImdbID": "tt0519374",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 25,
+      "title": "The Reluctant Witness",
+      "episodeImdbID": "tt0519368",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 26,
+      "title": "Come Out Fighting",
+      "episodeImdbID": "tt0519294",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 27,
+      "title": "Stage to Nowhere",
+      "episodeImdbID": "tt0519341",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 28,
+      "title": "Incident at Fort Bowie",
+      "episodeImdbID": "tt0519316",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 29,
+      "title": "Masterson's Arcadia Club",
+      "episodeImdbID": "tt0519327",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 30,
+      "title": "Welcome to Paradise",
+      "episodeImdbID": "tt0519380",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 31,
+      "title": "A Grave Situation",
+      "episodeImdbID": "tt0519276",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 32,
+      "title": "Gold Is Where You Steal It",
+      "episodeImdbID": "tt0911156",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 33,
+      "title": "Wanted: Alive Please",
+      "episodeImdbID": "tt0519378",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 34,
+      "title": "The Elusive Baguette",
+      "episodeImdbID": "tt0519354",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 35,
+      "title": "The Big Gamble",
+      "episodeImdbID": "tt0519345",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 36,
+      "title": "Blood on the Money",
+      "episodeImdbID": "tt0519288",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 2,
+      "episode": 37,
+      "title": "Barbary Castle",
+      "episodeImdbID": "tt0519283",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 1,
+      "title": "Debt of Honor",
+      "episodeImdbID": "tt0519304",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 2,
+      "title": "Law of the Land",
+      "episodeImdbID": "tt0519321",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 3,
+      "title": "Bat Trap",
+      "episodeImdbID": "tt0519285",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 4,
+      "title": "The Rage of Princess Anne",
+      "episodeImdbID": "tt0519367",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 5,
+      "title": "The Hunter",
+      "episodeImdbID": "tt0519359",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 6,
+      "title": "Murder Can Be Dangerous",
+      "episodeImdbID": "tt0519330",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 7,
+      "title": "High Card Loses",
+      "episodeImdbID": "tt0519315",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 8,
+      "title": "Dakota Showdown",
+      "episodeImdbID": "tt0519296",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 9,
+      "title": "The Last of the Night Raiders",
+      "episodeImdbID": "tt0519362",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 10,
+      "title": "Last Stop to Austin",
+      "episodeImdbID": "tt0519320",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 11,
+      "title": "A Time to Die",
+      "episodeImdbID": "tt0519282",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 12,
+      "title": "Death by Decree",
+      "episodeImdbID": "tt0519302",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 13,
+      "title": "The Lady Plays Her Hand",
+      "episodeImdbID": "tt0519361",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 14,
+      "title": "Tempest at Tioga Pass",
+      "episodeImdbID": "tt0519343",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 15,
+      "title": "The Court Martial of Major Mars",
+      "episodeImdbID": "tt0519350",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 16,
+      "title": "The Price of Paradise",
+      "episodeImdbID": "tt0519366",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 17,
+      "title": "End of the Line",
+      "episodeImdbID": "tt0519310",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 18,
+      "title": "The Prescott Campaign",
+      "episodeImdbID": "tt0519365",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 19,
+      "title": "Bullwhacker's Bounty",
+      "episodeImdbID": "tt0519291",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 20,
+      "title": "A Lesson in Violence",
+      "episodeImdbID": "tt0519277",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 21,
+      "title": "Run for Your Money",
+      "episodeImdbID": "tt0519337",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 22,
+      "title": "Terror on the Trinity",
+      "episodeImdbID": "tt0519344",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 23,
+      "title": "Episode in Eden",
+      "episodeImdbID": "tt0519311",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 24,
+      "title": "The Good and the Bad",
+      "episodeImdbID": "tt0519358",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 25,
+      "title": "No Amnesty for Death",
+      "episodeImdbID": "tt0519331",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 26,
+      "title": "Ledger of Guilt",
+      "episodeImdbID": "tt0519322",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 27,
+      "title": "Meeting at Mimbers",
+      "episodeImdbID": "tt0519328",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 28,
+      "title": "Dagger Dance",
+      "episodeImdbID": "tt0519295",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 29,
+      "title": "The Fourth Man",
+      "episodeImdbID": "tt0519357",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 30,
+      "title": "Dead Man's Claim",
+      "episodeImdbID": "tt0519297",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 31,
+      "title": "The Marble Slab",
+      "episodeImdbID": "tt0519363",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 32,
+      "title": "Farmer with a Badge",
+      "episodeImdbID": "tt0519312",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 33,
+      "title": "The Fatal Garment",
+      "episodeImdbID": "tt0519355",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "bat-masterson-1958",
+      "seriesTitle": "Bat Masterson",
+      "season": 3,
+      "episode": 34,
+      "title": "Jeopardy at Jackson Hole",
+      "episodeImdbID": "tt0519318",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
       "seriesID": "bear-in-the-big-blue-house-1997",
       "seriesTitle": "Bear in the Big Blue House",
       "season": 1,
@@ -27504,6 +28577,147 @@
       "episodeImdbID": "tt0543718",
       "status": "wanted",
       "added_at": "2026-06-03T23:58:16Z"
+    },
+    {
+      "seriesID": "colonel-march-of-scotland-yard-1956",
+      "seriesTitle": "Colonel March of Scotland Yard",
+      "season": 1,
+      "episode": 1,
+      "title": "The Sorcerer",
+      "episodeImdbID": "tt0544293",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "colonel-march-of-scotland-yard-1956",
+      "seriesTitle": "Colonel March of Scotland Yard",
+      "season": 1,
+      "episode": 3,
+      "title": "Present Tense",
+      "episodeImdbID": "tt0544278",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "colonel-march-of-scotland-yard-1956",
+      "seriesTitle": "Colonel March of Scotland Yard",
+      "season": 1,
+      "episode": 6,
+      "title": "The Invisible Knife",
+      "episodeImdbID": "tt0544287",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "colonel-march-of-scotland-yard-1956",
+      "seriesTitle": "Colonel March of Scotland Yard",
+      "season": 1,
+      "episode": 7,
+      "title": "The Strange Event at Roman Fall",
+      "episodeImdbID": "tt0544295",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "colonel-march-of-scotland-yard-1956",
+      "seriesTitle": "Colonel March of Scotland Yard",
+      "season": 1,
+      "episode": 8,
+      "title": "The Headless Hat",
+      "episodeImdbID": "tt0544286",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "colonel-march-of-scotland-yard-1956",
+      "seriesTitle": "Colonel March of Scotland Yard",
+      "season": 1,
+      "episode": 9,
+      "title": "The Second Mona Lisa",
+      "episodeImdbID": "tt0544290",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "colonel-march-of-scotland-yard-1956",
+      "seriesTitle": "Colonel March of Scotland Yard",
+      "season": 1,
+      "episode": 12,
+      "title": "The Devil Sells His Soul",
+      "episodeImdbID": "tt0544285",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "colonel-march-of-scotland-yard-1956",
+      "seriesTitle": "Colonel March of Scotland Yard",
+      "season": 1,
+      "episode": 15,
+      "title": "Death and the Other Monkey",
+      "episodeImdbID": "tt0544272",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "colonel-march-of-scotland-yard-1956",
+      "seriesTitle": "Colonel March of Scotland Yard",
+      "season": 1,
+      "episode": 18,
+      "title": "Error at Daybreak",
+      "episodeImdbID": "tt0544279",
+      "status": "fulfilled",
+      "added_at": "2026-10-05T11:14:26Z",
+      "fulfilled_at": "2026-10-05T11:36:13Z"
+    },
+    {
+      "seriesID": "colonel-march-of-scotland-yard-1956",
+      "seriesTitle": "Colonel March of Scotland Yard",
+      "season": 1,
+      "episode": 22,
+      "title": "The Deadly Gift",
+      "episodeImdbID": "tt0544284",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "colonel-march-of-scotland-yard-1956",
+      "seriesTitle": "Colonel March of Scotland Yard",
+      "season": 1,
+      "episode": 23,
+      "title": "The Case of the Lively Ghost",
+      "episodeImdbID": "tt0544282",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "colonel-march-of-scotland-yard-1956",
+      "seriesTitle": "Colonel March of Scotland Yard",
+      "season": 1,
+      "episode": 25,
+      "title": "The New Invisible Man",
+      "episodeImdbID": "tt0544289",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "colonel-march-of-scotland-yard-1956",
+      "seriesTitle": "Colonel March of Scotland Yard",
+      "season": 1,
+      "episode": 26,
+      "title": "Passage at Arms",
+      "episodeImdbID": "tt0544277",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "commando-cody-sky-marshal-of-the-universe-1955",
+      "seriesTitle": "Commando Cody: Sky Marshal of the Universe",
+      "season": 1,
+      "episode": 2,
+      "title": "Atomic Peril",
+      "episodeImdbID": "tt0545022",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
     },
     {
       "seriesID": "coronet-blue-1967",
@@ -45607,6 +46821,246 @@
       "episodeImdbID": "tt0845669",
       "status": "wanted",
       "added_at": "2026-06-05T08:10:01Z"
+    },
+    {
+      "seriesID": "east-side-west-side-1963",
+      "seriesTitle": "East Side/West Side",
+      "season": 1,
+      "episode": 1,
+      "title": "The Sinner",
+      "episodeImdbID": "tt0568760",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "east-side-west-side-1963",
+      "seriesTitle": "East Side/West Side",
+      "season": 1,
+      "episode": 2,
+      "title": "Age of Consent",
+      "episodeImdbID": "tt0568739",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "east-side-west-side-1963",
+      "seriesTitle": "East Side/West Side",
+      "season": 1,
+      "episode": 3,
+      "title": "You Can't Beat the System",
+      "episodeImdbID": "tt0568764",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "east-side-west-side-1963",
+      "seriesTitle": "East Side/West Side",
+      "season": 1,
+      "episode": 4,
+      "title": "Something for the Girls",
+      "episodeImdbID": "tt0568753",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "east-side-west-side-1963",
+      "seriesTitle": "East Side/West Side",
+      "season": 1,
+      "episode": 5,
+      "title": "I Before E Except After C",
+      "episodeImdbID": "tt0568744",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "east-side-west-side-1963",
+      "seriesTitle": "East Side/West Side",
+      "season": 1,
+      "episode": 6,
+      "title": "No Wings at All",
+      "episodeImdbID": "tt0568749",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "east-side-west-side-1963",
+      "seriesTitle": "East Side/West Side",
+      "season": 1,
+      "episode": 7,
+      "title": "Who Do You Kill?",
+      "episodeImdbID": "tt0568763",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "east-side-west-side-1963",
+      "seriesTitle": "East Side/West Side",
+      "season": 1,
+      "episode": 8,
+      "title": "Go Fight City Hall",
+      "episodeImdbID": "tt0568742",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "east-side-west-side-1963",
+      "seriesTitle": "East Side/West Side",
+      "season": 1,
+      "episode": 9,
+      "title": "Not Bad for Openers",
+      "episodeImdbID": "tt0568750",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "east-side-west-side-1963",
+      "seriesTitle": "East Side/West Side",
+      "season": 1,
+      "episode": 11,
+      "title": "Where's Harry",
+      "episodeImdbID": "tt0568762",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "east-side-west-side-1963",
+      "seriesTitle": "East Side/West Side",
+      "season": 1,
+      "episode": 12,
+      "title": "My Child on Monday Morning",
+      "episodeImdbID": "tt0568747",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "east-side-west-side-1963",
+      "seriesTitle": "East Side/West Side",
+      "season": 1,
+      "episode": 13,
+      "title": "Creeps Live Here",
+      "episodeImdbID": "tt0568740",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "east-side-west-side-1963",
+      "seriesTitle": "East Side/West Side",
+      "season": 1,
+      "episode": 14,
+      "title": "The $5.98 Dress",
+      "episodeImdbID": "tt0568755",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "east-side-west-side-1963",
+      "seriesTitle": "East Side/West Side",
+      "season": 1,
+      "episode": 15,
+      "title": "The Beatnik and the Politician",
+      "episodeImdbID": "tt0568756",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "east-side-west-side-1963",
+      "seriesTitle": "East Side/West Side",
+      "season": 1,
+      "episode": 16,
+      "title": "One Drink at a Time",
+      "episodeImdbID": "tt0568752",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "east-side-west-side-1963",
+      "seriesTitle": "East Side/West Side",
+      "season": 1,
+      "episode": 17,
+      "title": "It's War, Man",
+      "episodeImdbID": "tt0568746",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "east-side-west-side-1963",
+      "seriesTitle": "East Side/West Side",
+      "season": 1,
+      "episode": 18,
+      "title": "Don't Grow Old",
+      "episodeImdbID": "tt0568741",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "east-side-west-side-1963",
+      "seriesTitle": "East Side/West Side",
+      "season": 1,
+      "episode": 19,
+      "title": "The Street",
+      "episodeImdbID": "tt0568761",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "east-side-west-side-1963",
+      "seriesTitle": "East Side/West Side",
+      "season": 1,
+      "episode": 21,
+      "title": "The Passion of the Nickel Player",
+      "episodeImdbID": "tt0568759",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "east-side-west-side-1963",
+      "seriesTitle": "East Side/West Side",
+      "season": 1,
+      "episode": 22,
+      "title": "Take Sides with the Sun",
+      "episodeImdbID": "tt0568754",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "east-side-west-side-1963",
+      "seriesTitle": "East Side/West Side",
+      "season": 1,
+      "episode": 23,
+      "title": "The Name of the Game",
+      "episodeImdbID": "tt0568758",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "east-side-west-side-1963",
+      "seriesTitle": "East Side/West Side",
+      "season": 1,
+      "episode": 24,
+      "title": "Nothing But the Half Truth",
+      "episodeImdbID": "tt0568751",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "east-side-west-side-1963",
+      "seriesTitle": "East Side/West Side",
+      "season": 1,
+      "episode": 25,
+      "title": "The Givers",
+      "episodeImdbID": "tt0568757",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "east-side-west-side-1963",
+      "seriesTitle": "East Side/West Side",
+      "season": 1,
+      "episode": 26,
+      "title": "Here Today",
+      "episodeImdbID": "tt0568743",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
     },
     {
       "seriesID": "eastenders-1985",
@@ -81264,6 +82718,196 @@
       "added_at": "2026-07-27T07:24:21Z"
     },
     {
+      "seriesID": "love-thy-neighbour-1972",
+      "seriesTitle": "Love Thy Neighbour",
+      "season": 1,
+      "episode": 0,
+      "title": "Pilot",
+      "episodeImdbID": "tt0947388",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "love-thy-neighbour-1972",
+      "seriesTitle": "Love Thy Neighbour",
+      "season": 1,
+      "episode": 1,
+      "title": "New Neighbours",
+      "episodeImdbID": "tt0814914",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "love-thy-neighbour-1972",
+      "seriesTitle": "Love Thy Neighbour",
+      "season": 1,
+      "episode": 2,
+      "title": "Limbo Dancing",
+      "episodeImdbID": "tt0814915",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "love-thy-neighbour-1972",
+      "seriesTitle": "Love Thy Neighbour",
+      "season": 1,
+      "episode": 3,
+      "title": "The Petition",
+      "episodeImdbID": "tt0814916",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "love-thy-neighbour-1972",
+      "seriesTitle": "Love Thy Neighbour",
+      "season": 1,
+      "episode": 4,
+      "title": "Factory Dispute",
+      "episodeImdbID": "tt0814917",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "love-thy-neighbour-1972",
+      "seriesTitle": "Love Thy Neighbour",
+      "season": 1,
+      "episode": 5,
+      "title": "The Seven Year Itch",
+      "episodeImdbID": "tt0814918",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "love-thy-neighbour-1972",
+      "seriesTitle": "Love Thy Neighbour",
+      "season": 1,
+      "episode": 6,
+      "title": "Refused a Drink",
+      "episodeImdbID": "tt0814919",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "love-thy-neighbour-1972",
+      "seriesTitle": "Love Thy Neighbour",
+      "season": 2,
+      "episode": 1,
+      "title": "The Housewarming Party",
+      "episodeImdbID": "tt0814921",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "love-thy-neighbour-1972",
+      "seriesTitle": "Love Thy Neighbour",
+      "season": 2,
+      "episode": 2,
+      "title": "Voodoo",
+      "episodeImdbID": "tt0814922",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "love-thy-neighbour-1972",
+      "seriesTitle": "Love Thy Neighbour",
+      "season": 2,
+      "episode": 3,
+      "title": "Clarky Leaves",
+      "episodeImdbID": "tt0814923",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "love-thy-neighbour-1972",
+      "seriesTitle": "Love Thy Neighbour",
+      "season": 2,
+      "episode": 4,
+      "title": "The Bedroom Suite",
+      "episodeImdbID": "tt0814924",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "love-thy-neighbour-1972",
+      "seriesTitle": "Love Thy Neighbour",
+      "season": 3,
+      "episode": 4,
+      "title": "The Lion and the Lamb",
+      "episodeImdbID": "tt0814930",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "love-thy-neighbour-1972",
+      "seriesTitle": "Love Thy Neighbour",
+      "season": 3,
+      "episode": 5,
+      "title": "The Lift",
+      "episodeImdbID": "tt0814931",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "love-thy-neighbour-1972",
+      "seriesTitle": "Love Thy Neighbour",
+      "season": 5,
+      "episode": 4,
+      "title": "Cat's Away",
+      "episodeImdbID": "tt1300997",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "love-thy-neighbour-1972",
+      "seriesTitle": "Love Thy Neighbour",
+      "season": 5,
+      "episode": 5,
+      "title": "Ghosts",
+      "episodeImdbID": "tt1301527",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "love-thy-neighbour-1972",
+      "seriesTitle": "Love Thy Neighbour",
+      "season": 6,
+      "episode": 5,
+      "title": "Royal Blood",
+      "episodeImdbID": "tt1301532",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "love-thy-neighbour-1972",
+      "seriesTitle": "Love Thy Neighbour",
+      "season": 7,
+      "episode": 1,
+      "title": "Famous Crimes",
+      "episodeImdbID": "tt1301536",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "love-thy-neighbour-1972",
+      "seriesTitle": "Love Thy Neighbour",
+      "season": 7,
+      "episode": 3,
+      "title": "The Protection of the Law",
+      "episodeImdbID": "tt1255697",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "love-thy-neighbour-1972",
+      "seriesTitle": "Love Thy Neighbour",
+      "season": 8,
+      "episode": 7,
+      "title": "The Lodger",
+      "episodeImdbID": "tt1301544",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
       "seriesID": "lucas-tanner-1974",
       "seriesTitle": "Lucas Tanner",
       "season": 1,
@@ -83763,6 +85407,146 @@
       "episodeImdbID": "tt0932820",
       "status": "wanted",
       "added_at": "2026-06-05T16:31:07Z"
+    },
+    {
+      "seriesID": "man-of-the-world-1962",
+      "seriesTitle": "Man of the World",
+      "season": 1,
+      "episode": 2,
+      "title": "Masquerade in Spain",
+      "episodeImdbID": "tt0641241",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "man-of-the-world-1962",
+      "seriesTitle": "Man of the World",
+      "season": 1,
+      "episode": 3,
+      "title": "Blaze of Glory",
+      "episodeImdbID": "tt0641235",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "man-of-the-world-1962",
+      "seriesTitle": "Man of the World",
+      "season": 1,
+      "episode": 4,
+      "title": "The Runaways",
+      "episodeImdbID": "tt0641252",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "man-of-the-world-1962",
+      "seriesTitle": "Man of the World",
+      "season": 1,
+      "episode": 6,
+      "title": "The Sentimental Agent",
+      "episodeImdbID": "tt0641253",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "man-of-the-world-1962",
+      "seriesTitle": "Man of the World",
+      "season": 1,
+      "episode": 7,
+      "title": "Highland Story",
+      "episodeImdbID": "tt0641238",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "man-of-the-world-1962",
+      "seriesTitle": "Man of the World",
+      "season": 1,
+      "episode": 8,
+      "title": "Nature of Justice",
+      "episodeImdbID": "tt0641242",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "man-of-the-world-1962",
+      "seriesTitle": "Man of the World",
+      "season": 1,
+      "episode": 10,
+      "title": "Portrait of a Girl",
+      "episodeImdbID": "tt0641243",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "man-of-the-world-1962",
+      "seriesTitle": "Man of the World",
+      "season": 1,
+      "episode": 11,
+      "title": "Specialist for the Kill",
+      "episodeImdbID": "tt0641245",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "man-of-the-world-1962",
+      "seriesTitle": "Man of the World",
+      "season": 1,
+      "episode": 12,
+      "title": "A Family Affair",
+      "episodeImdbID": "tt0641234",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "man-of-the-world-1962",
+      "seriesTitle": "Man of the World",
+      "season": 1,
+      "episode": 13,
+      "title": "Shadow of the Wall",
+      "episodeImdbID": "tt0641244",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "man-of-the-world-1962",
+      "seriesTitle": "Man of the World",
+      "season": 2,
+      "episode": 3,
+      "title": "Double Exposure",
+      "episodeImdbID": "tt0641237",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "man-of-the-world-1962",
+      "seriesTitle": "Man of the World",
+      "season": 2,
+      "episode": 4,
+      "title": "Jungle Mission",
+      "episodeImdbID": "tt0641240",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "man-of-the-world-1962",
+      "seriesTitle": "Man of the World",
+      "season": 2,
+      "episode": 5,
+      "title": "In the Picture",
+      "episodeImdbID": "tt0641239",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "man-of-the-world-1962",
+      "seriesTitle": "Man of the World",
+      "season": 2,
+      "episode": 7,
+      "title": "The Prince",
+      "episodeImdbID": "tt0641251",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
     },
     {
       "seriesID": "man-with-a-camera-1958",
@@ -99622,6 +101406,506 @@
       "episodeImdbID": "tt1587588",
       "status": "wanted",
       "added_at": "2026-06-20T07:57:19Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 1,
+      "episode": 1,
+      "title": "The Mickey Farmer Case",
+      "episodeImdbID": "tt0686475",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 1,
+      "episode": 2,
+      "title": "Custody",
+      "episodeImdbID": "tt0686427",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 1,
+      "episode": 3,
+      "title": "Escape from Oak Lane",
+      "episodeImdbID": "tt0686434",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 1,
+      "episode": 4,
+      "title": "The Homicide Habit",
+      "episodeImdbID": "tt0686470",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 1,
+      "episode": 6,
+      "title": "Hit and Run",
+      "episodeImdbID": "tt0686438",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 1,
+      "episode": 9,
+      "title": "The Torch Carriers",
+      "episodeImdbID": "tt0686485",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 1,
+      "episode": 10,
+      "title": "The Pete Rocco Case",
+      "episodeImdbID": "tt0686479",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 1,
+      "episode": 11,
+      "title": "Venus of Park Avenue",
+      "episodeImdbID": "tt0686487",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 1,
+      "episode": 12,
+      "title": "Merry-Go-Round Case",
+      "episodeImdbID": "tt0686446",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 2,
+      "episode": 1,
+      "title": "The Space Society",
+      "episodeImdbID": "tt0686483",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 2,
+      "episode": 2,
+      "title": "The Dark Horse",
+      "episodeImdbID": "tt0686466",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 2,
+      "episode": 3,
+      "title": "The Payoff",
+      "episodeImdbID": "tt0686477",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 2,
+      "episode": 4,
+      "title": "Double Jeopardy",
+      "episodeImdbID": "tt0686430",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 2,
+      "episode": 6,
+      "title": "The Ed Church Case",
+      "episodeImdbID": "tt0686467",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 2,
+      "episode": 9,
+      "title": "A Cup of Black Coffee",
+      "episodeImdbID": "tt0686412",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 2,
+      "episode": 10,
+      "title": "The George Dale Case",
+      "episodeImdbID": "tt0686469",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 2,
+      "episode": 11,
+      "title": "Juvenile Jacket",
+      "episodeImdbID": "tt0686441",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 2,
+      "episode": 13,
+      "title": "Short Haul",
+      "episodeImdbID": "tt0686458",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 2,
+      "episode": 14,
+      "title": "Another Man's Poison",
+      "episodeImdbID": "tt0686416",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 2,
+      "episode": 15,
+      "title": "The Purple Penguin",
+      "episodeImdbID": "tt0686481",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 2,
+      "episode": 17,
+      "title": "The Percentage Takers",
+      "episodeImdbID": "tt0686478",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 2,
+      "episode": 21,
+      "title": "Snow Queen",
+      "episodeImdbID": "tt0686459",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 3,
+      "episode": 1,
+      "title": "The Sport",
+      "episodeImdbID": "tt0686484",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 3,
+      "episode": 8,
+      "title": "Marineland Mystery",
+      "episodeImdbID": "tt0686443",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 3,
+      "episode": 9,
+      "title": "Charity Affair",
+      "episodeImdbID": "tt0686423",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 3,
+      "episode": 12,
+      "title": "Jukebox",
+      "episodeImdbID": "tt0686440",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 3,
+      "episode": 14,
+      "title": "The Limping Man",
+      "episodeImdbID": "tt0686472",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 3,
+      "episode": 16,
+      "title": "Rough Cut",
+      "episodeImdbID": "tt0686455",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 3,
+      "episode": 17,
+      "title": "Family Affair",
+      "episodeImdbID": "tt0686436",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 3,
+      "episode": 18,
+      "title": "Design for Murder",
+      "episodeImdbID": "tt0686429",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 3,
+      "episode": 19,
+      "title": "Hoodlum",
+      "episodeImdbID": "tt0686439",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 3,
+      "episode": 20,
+      "title": "Act of Grace",
+      "episodeImdbID": "tt0686414",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 3,
+      "episode": 21,
+      "title": "Bookie",
+      "episodeImdbID": "tt0686420",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 3,
+      "episode": 23,
+      "title": "The Runaway",
+      "episodeImdbID": "tt0686482",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 3,
+      "episode": 25,
+      "title": "The Messenger",
+      "episodeImdbID": "tt0686474",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 3,
+      "episode": 26,
+      "title": "The Counselor",
+      "episodeImdbID": "tt0686465",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 3,
+      "episode": 27,
+      "title": "The Image",
+      "episodeImdbID": "tt0686471",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 3,
+      "episode": 28,
+      "title": "The Adjuster",
+      "episodeImdbID": "tt0686461",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 3,
+      "episode": 29,
+      "title": "Marked for Murder",
+      "episodeImdbID": "tt0686444",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 3,
+      "episode": 30,
+      "title": "The Caller",
+      "episodeImdbID": "tt0686462",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 3,
+      "episode": 31,
+      "title": "One Dead Cat",
+      "episodeImdbID": "tt0686449",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 3,
+      "episode": 32,
+      "title": "Dead to the World",
+      "episodeImdbID": "tt0686428",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 4,
+      "episode": 1,
+      "title": "The Popskull",
+      "episodeImdbID": "tt0686480",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 4,
+      "episode": 3,
+      "title": "Fallen Star",
+      "episodeImdbID": "tt0686435",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 4,
+      "episode": 4,
+      "title": "Coat of Arms",
+      "episodeImdbID": "tt0686425",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 4,
+      "episode": 5,
+      "title": "Double Trouble",
+      "episodeImdbID": "tt0686431",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 4,
+      "episode": 6,
+      "title": "The Lovely Fraud",
+      "episodeImdbID": "tt0686473",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 4,
+      "episode": 7,
+      "title": "Accent on Murder",
+      "episodeImdbID": "tt0686413",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 4,
+      "episode": 8,
+      "title": "East of Danger",
+      "episodeImdbID": "tt0686432",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "richard-diamond-private-detective-1957",
+      "seriesTitle": "Richard Diamond, Private Detective",
+      "season": 4,
+      "episode": 10,
+      "title": "The Mouse",
+      "episodeImdbID": "tt0686476",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
     },
     {
       "seriesID": "riders-in-the-sky-1989",
@@ -121753,6 +124037,116 @@
       "episodeImdbID": "tt6037288",
       "status": "wanted",
       "added_at": "2026-06-05T08:10:01Z"
+    },
+    {
+      "seriesID": "steve-canyon-1958",
+      "seriesTitle": "Steve Canyon",
+      "season": 1,
+      "episode": 1,
+      "title": "Operation Towline",
+      "episodeImdbID": "tt0710200",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "steve-canyon-1958",
+      "seriesTitle": "Steve Canyon",
+      "season": 1,
+      "episode": 4,
+      "title": "Project Heartbeat",
+      "episodeImdbID": "tt0887680",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "steve-canyon-1958",
+      "seriesTitle": "Steve Canyon",
+      "season": 1,
+      "episode": 7,
+      "title": "Fear of Flying",
+      "episodeImdbID": "tt0710192",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "steve-canyon-1958",
+      "seriesTitle": "Steve Canyon",
+      "season": 1,
+      "episode": 11,
+      "title": "Operation Crash Landing",
+      "episodeImdbID": "tt0710195",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "steve-canyon-1958",
+      "seriesTitle": "Steve Canyon",
+      "season": 1,
+      "episode": 13,
+      "title": "The Gift",
+      "episodeImdbID": "tt0710203",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "steve-canyon-1958",
+      "seriesTitle": "Steve Canyon",
+      "season": 1,
+      "episode": 16,
+      "title": "Operation Nose Wheel",
+      "episodeImdbID": "tt0840959",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "steve-canyon-1958",
+      "seriesTitle": "Steve Canyon",
+      "season": 1,
+      "episode": 19,
+      "title": "Operation Souvenir",
+      "episodeImdbID": "tt0710198",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "steve-canyon-1958",
+      "seriesTitle": "Steve Canyon",
+      "season": 1,
+      "episode": 20,
+      "title": "The Fight",
+      "episodeImdbID": "tt0710202",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "steve-canyon-1958",
+      "seriesTitle": "Steve Canyon",
+      "season": 1,
+      "episode": 21,
+      "title": "The Robbery",
+      "episodeImdbID": "tt0710204",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "steve-canyon-1958",
+      "seriesTitle": "Steve Canyon",
+      "season": 1,
+      "episode": 22,
+      "title": "Blackmail",
+      "episodeImdbID": "tt0710191",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "steve-canyon-1958",
+      "seriesTitle": "Steve Canyon",
+      "season": 1,
+      "episode": 30,
+      "title": "The Korean Story",
+      "episodeImdbID": "tt0887681",
+      "status": "wanted",
+      "added_at": "2026-10-05T11:14:26Z"
     },
     {
       "seriesID": "stories-of-the-century-1954",
