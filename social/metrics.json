@@ -2192,6 +2192,53 @@
     "reposts": 0,
     "replies": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mwmadwip5a2t",
+   "platform": "bluesky",
+   "id": "la-boheme_202512",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-09-28T21:16:09.689519+00:00",
+   "sampled": "2026-10-05T01:54:50.323376+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117350739990918400",
+   "platform": "mastodon",
+   "id": "la-boheme_202512",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-09-28T21:16:09.689519+00:00",
+   "sampled": "2026-10-05T01:54:50.323376+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mwzep7gxfu2y",
+   "platform": "bluesky",
+   "id": "temple_of_moloch",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-04T02:38:36.068199+00:00",
+   "sampled": "2026-10-05T01:54:50.323376+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }

@@ -1801,6 +1801,18 @@
    "kind": "ephemeral",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-10-05T01:54:40.213180+00:00",
+   "id": "harrietcraig1950usafeaturingjoancrawfordwendellcoreyfilmnoirfullmovie.",
+   "title": "Harriet Craig",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mx3spgzxv62m",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
