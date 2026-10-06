@@ -2333,6 +2333,22 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mwpaxdz6dy2s",
+   "platform": "bluesky",
+   "id": "tarzan_and_the_green_goddess",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-09-30T02:04:57.070130+00:00",
+   "sampled": "2026-10-06T02:56:35.348253+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }
