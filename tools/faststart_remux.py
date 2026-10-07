@@ -328,6 +328,30 @@ def validate_remux(original_url: str, out_path: Path):
     return (True, "ok", f"video={nv} audio={na} dur={nd}")
 
 
+def hosted_files(item: str) -> dict:
+    """{name: size} of what the hosting item already holds, or {} if unreadable."""
+    try:
+        with urllib.request.urlopen(f"https://archive.org/metadata/{item}/files", timeout=60) as r:
+            files = json.load(r).get("result") or []
+        return {f["name"]: int(f.get("size") or 0) for f in files if f.get("name")}
+    except Exception as e:  # noqa: BLE001 — adoption is an optimization; never fatal
+        print(f"[faststart] could not list '{item}': {e}", file=sys.stderr)
+        return {}
+
+
+def matches_original(original_url: str, hosted_url: str):
+    """(ok, detail): the hosted remux has the original's codecs and duration. It
+    is read over HTTP, where a faststart file answers from its first bytes."""
+    orig, out = ffprobe_summary(original_url), ffprobe_summary(hosted_url)
+    if not orig or not out:
+        return (False, "unprobable")
+    if (orig[0], orig[1]) != (out[0], out[1]):
+        return (False, f"streams origin={orig[:2]} hosted={out[:2]}")
+    if orig[2] and out[2] and abs(orig[2] - out[2]) > max(DURATION_TOL_S, orig[2] * DURATION_TOL_FRAC):
+        return (False, f"duration origin={orig[2]} hosted={out[2]}")
+    return (True, f"video={out[0]} audio={out[1]} dur={out[2]}")
+
+
 # ---------------------------------------------------------------------------
 # Manifest / catalog
 # ---------------------------------------------------------------------------
@@ -467,6 +491,10 @@ def main() -> int:
                   "Use --dry-run to build+validate locally, or set the keys.", file=sys.stderr)
             return 2
         ensure_item(args.item, auth)
+    # A remux already on the hosting item is adopted rather than rebuilt: the
+    # runner that made it can lose its catalog before publishing (2026-10-07, a
+    # GitHub outage failed the publish after Sunrise's 2-hour remux and upload).
+    hosted = hosted_files(args.item) if not args.dry_run else {}
 
     stats = {"ok": 0, "validated": 0, "download_fail": 0, "remux_fail": 0,
              "validate_fail": 0, "upload_fail": 0, "marked": 0}
@@ -482,6 +510,17 @@ def main() -> int:
                       f"{len(targets) - i + 1} item(s) left for the next run")
                 break
             print(f"[{i}/{len(targets)}] {aid}  <-  {url}", flush=True)
+            if hosted.get(name, 0) > 1_000_000:
+                ok, detail = matches_original(url, f"{BASE_URL}/{args.item}/{name}")
+                print(f"       already hosted: {'adopt' if ok else 'rebuild'} [{detail}]")
+                if ok:
+                    repoint(it, args.item, name)
+                    it.pop("faststartFailedAt", None)
+                    it.pop("faststartFailReason", None)
+                    flush_catalog(cat)
+                    stats["ok"] += 1
+                    print(f"       hosted + re-pointed -> {BASE_URL}/{args.item}/{name}")
+                    continue
 
             def record(status, reason="", detail=""):
                 mlog.write(json.dumps({"archiveID": aid, "status": status, "reason": reason,
