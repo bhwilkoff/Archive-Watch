@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-10-06T10:59:25Z",
+  "updated_at": "2026-10-07T10:48:25Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 18641,
-    "wanted": 18413,
+    "total": 18799,
+    "wanted": 18571,
     "fulfilled": 228,
-    "series_with_gaps": 371
+    "series_with_gaps": 377
   },
   "wants": [
     {
@@ -132309,6 +132309,626 @@
       "added_at": "2026-06-05T08:10:01Z"
     },
     {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 1,
+      "episode": 1,
+      "title": "The Birth of the Blade",
+      "episodeImdbID": "tt0505930",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 1,
+      "episode": 3,
+      "title": "An Adventure with Audubon",
+      "episodeImdbID": "tt0505889",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 1,
+      "episode": 4,
+      "title": "Deputy Sheriff",
+      "episodeImdbID": "tt0505904",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 1,
+      "episode": 5,
+      "title": "Trapline",
+      "episodeImdbID": "tt0505954",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 1,
+      "episode": 7,
+      "title": "Natchez Trace",
+      "episodeImdbID": "tt0505920",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 1,
+      "episode": 9,
+      "title": "The Ghost of Jean Battoo",
+      "episodeImdbID": "tt0505939",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 1,
+      "episode": 10,
+      "title": "The Secessionist",
+      "episodeImdbID": "tt0505949",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 1,
+      "episode": 11,
+      "title": "Land Jumpers",
+      "episodeImdbID": "tt0505915",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 1,
+      "episode": 12,
+      "title": "The Select Females",
+      "episodeImdbID": "tt0505950",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 1,
+      "episode": 13,
+      "title": "Jim Bowie and His Slave",
+      "episodeImdbID": "tt0505913",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 1,
+      "episode": 14,
+      "title": "Outlaw Kingdom",
+      "episodeImdbID": "tt0505922",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 1,
+      "episode": 15,
+      "title": "The Swordsman",
+      "episodeImdbID": "tt0505952",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 1,
+      "episode": 16,
+      "title": "The Return of the Alcibiade",
+      "episodeImdbID": "tt0505948",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 1,
+      "episode": 17,
+      "title": "Monsieur Francois",
+      "episodeImdbID": "tt0505919",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 1,
+      "episode": 18,
+      "title": "A Horse for Old Hickory",
+      "episodeImdbID": "tt0505887",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 1,
+      "episode": 19,
+      "title": "The Beggar of New Orleans",
+      "episodeImdbID": "tt0505929",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 1,
+      "episode": 20,
+      "title": "Osceola",
+      "episodeImdbID": "tt0505921",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 1,
+      "episode": 21,
+      "title": "Master at Arms",
+      "episodeImdbID": "tt0505917",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 1,
+      "episode": 22,
+      "title": "Convoy Gold",
+      "episodeImdbID": "tt0505898",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 1,
+      "episode": 23,
+      "title": "Spanish Intrigue",
+      "episodeImdbID": "tt0505927",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 1,
+      "episode": 24,
+      "title": "Bayou Tontine",
+      "episodeImdbID": "tt0505893",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 1,
+      "episode": 25,
+      "title": "German George",
+      "episodeImdbID": "tt0505906",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 1,
+      "episode": 26,
+      "title": "An Eye for an Eye",
+      "episodeImdbID": "tt0505890",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 1,
+      "episode": 28,
+      "title": "Jackson's Assassination",
+      "episodeImdbID": "tt0505911",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 1,
+      "episode": 29,
+      "title": "Rezin Bowie, Gambler",
+      "episodeImdbID": "tt0505925",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 1,
+      "episode": 31,
+      "title": "The Pearl and the Crown",
+      "episodeImdbID": "tt0505944",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 1,
+      "episode": 32,
+      "title": "The General's Disgrace",
+      "episodeImdbID": "tt0505938",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 1,
+      "episode": 35,
+      "title": "Country Cousin",
+      "episodeImdbID": "tt0505900",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 1,
+      "episode": 36,
+      "title": "The Bound Girl",
+      "episodeImdbID": "tt0505931",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 1,
+      "episode": 37,
+      "title": "The Bounty Hunter",
+      "episodeImdbID": "tt0505932",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 1,
+      "episode": 38,
+      "title": "Gone to Texas",
+      "episodeImdbID": "tt0505907",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 2,
+      "episode": 1,
+      "title": "Epitaph for an Indian",
+      "episodeImdbID": "tt0505905",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 2,
+      "episode": 2,
+      "title": "Flowers for McDonough",
+      "episodeImdbID": "tt0886718",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 2,
+      "episode": 3,
+      "title": "The Irishman",
+      "episodeImdbID": "tt0505941",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 2,
+      "episode": 4,
+      "title": "Counterfeit Dixie",
+      "episodeImdbID": "tt0505899",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 2,
+      "episode": 5,
+      "title": "Bullet Metal",
+      "episodeImdbID": "tt0886717",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 2,
+      "episode": 6,
+      "title": "The Quarantine",
+      "episodeImdbID": "tt0505947",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 2,
+      "episode": 7,
+      "title": "A Fortune for Madame",
+      "episodeImdbID": "tt0505885",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 2,
+      "episode": 8,
+      "title": "House Divided",
+      "episodeImdbID": "tt0886719",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 2,
+      "episode": 9,
+      "title": "The Whip",
+      "episodeImdbID": "tt0886720",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 2,
+      "episode": 10,
+      "title": "The Pearls of Talimeco",
+      "episodeImdbID": "tt0505945",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 2,
+      "episode": 11,
+      "title": "Charivari",
+      "episodeImdbID": "tt0505896",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 2,
+      "episode": 12,
+      "title": "Hare and Tortoise",
+      "episodeImdbID": "tt0505908",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 2,
+      "episode": 13,
+      "title": "The Bridegroom",
+      "episodeImdbID": "tt0505933",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 2,
+      "episode": 14,
+      "title": "The Alligator",
+      "episodeImdbID": "tt0505928",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 2,
+      "episode": 15,
+      "title": "Country Girl",
+      "episodeImdbID": "tt0505901",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 2,
+      "episode": 16,
+      "title": "Mexican Adventure",
+      "episodeImdbID": "tt0505918",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 2,
+      "episode": 17,
+      "title": "Silk Purse",
+      "episodeImdbID": "tt0505926",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 2,
+      "episode": 18,
+      "title": "Choctaw Honor",
+      "episodeImdbID": "tt0505897",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 2,
+      "episode": 19,
+      "title": "The Close Shave",
+      "episodeImdbID": "tt0505937",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 2,
+      "episode": 20,
+      "title": "Pirate on Horseback",
+      "episodeImdbID": "tt0505924",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 2,
+      "episode": 21,
+      "title": "Curfew Cannon",
+      "episodeImdbID": "tt0505902",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 2,
+      "episode": 23,
+      "title": "Deaf Smith",
+      "episodeImdbID": "tt0505903",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 2,
+      "episode": 24,
+      "title": "Ursula",
+      "episodeImdbID": "tt0505956",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 2,
+      "episode": 26,
+      "title": "A Grave for Jim Bowie",
+      "episodeImdbID": "tt0505886",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 2,
+      "episode": 27,
+      "title": "Up the Creek",
+      "episodeImdbID": "tt0505955",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 2,
+      "episode": 29,
+      "title": "Horse Thief",
+      "episodeImdbID": "tt0505910",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 2,
+      "episode": 33,
+      "title": "Bad Medicine",
+      "episodeImdbID": "tt0505892",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 2,
+      "episode": 35,
+      "title": "Bowie's Baby",
+      "episodeImdbID": "tt0505894",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 2,
+      "episode": 36,
+      "title": "The Cave",
+      "episodeImdbID": "tt0505936",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 2,
+      "episode": 37,
+      "title": "Man on the Street",
+      "episodeImdbID": "tt0505916",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-adventures-of-jim-bowie-1956",
+      "seriesTitle": "The Adventures of Jim Bowie",
+      "season": 2,
+      "episode": 38,
+      "title": "The Puma",
+      "episodeImdbID": "tt0505946",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
       "seriesID": "the-adventures-of-kit-carson-1951",
       "seriesTitle": "The Adventures of Kit Carson",
       "season": 1,
@@ -134718,6 +135338,66 @@
       "episodeImdbID": "tt0511077",
       "status": "wanted",
       "added_at": "2026-06-21T08:38:20Z"
+    },
+    {
+      "seriesID": "the-americans-1961",
+      "seriesTitle": "The Americans",
+      "season": 1,
+      "episode": 1,
+      "title": "Harper's Ferry",
+      "episodeImdbID": "tt0511931",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-americans-1961",
+      "seriesTitle": "The Americans",
+      "season": 1,
+      "episode": 2,
+      "title": "Rebellion at Blazing Rock",
+      "episodeImdbID": "tt0511934",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-americans-1961",
+      "seriesTitle": "The Americans",
+      "season": 1,
+      "episode": 6,
+      "title": "Half Moon Road",
+      "episodeImdbID": "tt0511930",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-americans-1961",
+      "seriesTitle": "The Americans",
+      "season": 1,
+      "episode": 8,
+      "title": "The Escape",
+      "episodeImdbID": "tt0511938",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-americans-1961",
+      "seriesTitle": "The Americans",
+      "season": 1,
+      "episode": 14,
+      "title": "Long Way Back",
+      "episodeImdbID": "tt0511932",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-americans-1961",
+      "seriesTitle": "The Americans",
+      "season": 1,
+      "episode": 15,
+      "title": "The War Between the States",
+      "episodeImdbID": "tt0511946",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
     },
     {
       "seriesID": "the-avengers-1961",
@@ -144453,6 +145133,236 @@
       "episodeImdbID": "tt7690094",
       "status": "wanted",
       "added_at": "2026-06-02T08:32:33Z"
+    },
+    {
+      "seriesID": "the-cheaters-1960",
+      "seriesTitle": "The Cheaters",
+      "season": 1,
+      "episode": 3,
+      "title": "The Weasel",
+      "episodeImdbID": "tt0539600",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-cheaters-1960",
+      "seriesTitle": "The Cheaters",
+      "season": 1,
+      "episode": 5,
+      "title": "The Authentic McCoy",
+      "episodeImdbID": "tt0539589",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-cheaters-1960",
+      "seriesTitle": "The Cheaters",
+      "season": 1,
+      "episode": 6,
+      "title": "The Legacy",
+      "episodeImdbID": "tt0539594",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-cheaters-1960",
+      "seriesTitle": "The Cheaters",
+      "season": 1,
+      "episode": 7,
+      "title": "For the Price of Two",
+      "episodeImdbID": "tt0931548",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-cheaters-1960",
+      "seriesTitle": "The Cheaters",
+      "season": 1,
+      "episode": 9,
+      "title": "Libel",
+      "episodeImdbID": "tt0539586",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-cheaters-1960",
+      "seriesTitle": "The Cheaters",
+      "season": 1,
+      "episode": 11,
+      "title": "A Question of Murder",
+      "episodeImdbID": "tt0931544",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-cheaters-1960",
+      "seriesTitle": "The Cheaters",
+      "season": 2,
+      "episode": 1,
+      "title": "An Obituary for a Champion",
+      "episodeImdbID": "tt0539579",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-cheaters-1960",
+      "seriesTitle": "The Cheaters",
+      "season": 2,
+      "episode": 3,
+      "title": "Washday S.O.S.",
+      "episodeImdbID": "tt0931556",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-cheaters-1960",
+      "seriesTitle": "The Cheaters",
+      "season": 2,
+      "episode": 4,
+      "title": "A Case of Larceny",
+      "episodeImdbID": "tt0931542",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-cheaters-1960",
+      "seriesTitle": "The Cheaters",
+      "season": 2,
+      "episode": 5,
+      "title": "The Slope of Death",
+      "episodeImdbID": "tt0539599",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-cheaters-1960",
+      "seriesTitle": "The Cheaters",
+      "season": 2,
+      "episode": 6,
+      "title": "The Mighty Warrior",
+      "episodeImdbID": "tt0539597",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-cheaters-1960",
+      "seriesTitle": "The Cheaters",
+      "season": 2,
+      "episode": 7,
+      "title": "A Tale of Two Ships",
+      "episodeImdbID": "tt0539578",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-cheaters-1960",
+      "seriesTitle": "The Cheaters",
+      "season": 2,
+      "episode": 9,
+      "title": "Murder Fugue",
+      "episodeImdbID": "tt0539587",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-cheaters-1960",
+      "seriesTitle": "The Cheaters",
+      "season": 2,
+      "episode": 10,
+      "title": "The Safe Way",
+      "episodeImdbID": "tt0931554",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-cheaters-1960",
+      "seriesTitle": "The Cheaters",
+      "season": 2,
+      "episode": 13,
+      "title": "Affairs of the Heart",
+      "episodeImdbID": "tt0931545",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-cheaters-1960",
+      "seriesTitle": "The Cheaters",
+      "season": 2,
+      "episode": 14,
+      "title": "The Bite",
+      "episodeImdbID": "tt0931550",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-cheaters-1960",
+      "seriesTitle": "The Cheaters",
+      "season": 2,
+      "episode": 15,
+      "title": "A Hood from Canada",
+      "episodeImdbID": "tt0931543",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-cheaters-1960",
+      "seriesTitle": "The Cheaters",
+      "season": 2,
+      "episode": 16,
+      "title": "The Hair of the Dog",
+      "episodeImdbID": "tt0931553",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-cheaters-1960",
+      "seriesTitle": "The Cheaters",
+      "season": 2,
+      "episode": 17,
+      "title": "Time to Kill",
+      "episodeImdbID": "tt0931555",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-cheaters-1960",
+      "seriesTitle": "The Cheaters",
+      "season": 2,
+      "episode": 18,
+      "title": "The Dashing Major",
+      "episodeImdbID": "tt0539591",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-cheaters-1960",
+      "seriesTitle": "The Cheaters",
+      "season": 2,
+      "episode": 19,
+      "title": "Legs, £50,000 Each",
+      "episodeImdbID": "tt0539585",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-cheaters-1960",
+      "seriesTitle": "The Cheaters",
+      "season": 2,
+      "episode": 26,
+      "title": "Knight of the Road",
+      "episodeImdbID": "tt0539583",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-cheaters-1960",
+      "seriesTitle": "The Cheaters",
+      "season": 2,
+      "episode": 27,
+      "title": "Diamond Studded Malaria",
+      "episodeImdbID": "tt0931546",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
     },
     {
       "seriesID": "the-chronic-rift-1990",
@@ -171538,6 +172448,496 @@
       "added_at": "2026-06-07T07:52:55Z"
     },
     {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 1,
+      "episode": 0,
+      "title": "Pilot",
+      "episodeImdbID": "tt1989345",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 1,
+      "episode": 5,
+      "title": "The Train Robbery",
+      "episodeImdbID": "tt0690982",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 1,
+      "episode": 7,
+      "title": "The Outlaw's Girl",
+      "episodeImdbID": "tt0690974",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 1,
+      "episode": 9,
+      "title": "Outlaw's Town",
+      "episodeImdbID": "tt0690943",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 1,
+      "episode": 13,
+      "title": "Ghost Gulch",
+      "episodeImdbID": "tt0690917",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 1,
+      "episode": 18,
+      "title": "The Hermit's Secret",
+      "episodeImdbID": "tt0690962",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 1,
+      "episode": 20,
+      "title": "Ghost Town Gold",
+      "episodeImdbID": "tt0690918",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 1,
+      "episode": 21,
+      "title": "Doublecrosser",
+      "episodeImdbID": "tt0690910",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 1,
+      "episode": 22,
+      "title": "Carnival Killer",
+      "episodeImdbID": "tt0690903",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 2,
+      "episode": 4,
+      "title": "The Feud",
+      "episodeImdbID": "tt0690961",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 2,
+      "episode": 8,
+      "title": "The Knockout",
+      "episodeImdbID": "tt0690967",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 2,
+      "episode": 9,
+      "title": "The Run-A-Round",
+      "episodeImdbID": "tt0690976",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 2,
+      "episode": 13,
+      "title": "The Mingo Kid",
+      "episodeImdbID": "tt0690972",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 2,
+      "episode": 14,
+      "title": "The Long Chance",
+      "episodeImdbID": "tt0690970",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 3,
+      "episode": 1,
+      "title": "The Milliner from Medicine Creek",
+      "episodeImdbID": "tt0690971",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 3,
+      "episode": 6,
+      "title": "M Stands for Murder",
+      "episodeImdbID": "tt0690936",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 3,
+      "episode": 7,
+      "title": "The Peddler from the Pecos",
+      "episodeImdbID": "tt0690975",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 3,
+      "episode": 9,
+      "title": "Little Dynamite",
+      "episodeImdbID": "tt0690934",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 3,
+      "episode": 10,
+      "title": "The Kid from Silver City",
+      "episodeImdbID": "tt0690966",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 3,
+      "episode": 11,
+      "title": "The Secret of Indian Gap",
+      "episodeImdbID": "tt0690978",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 3,
+      "episode": 12,
+      "title": "The Deputy Sheriff",
+      "episodeImdbID": "tt0690908",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 3,
+      "episode": 13,
+      "title": "The High-Graders of Paradise Valley",
+      "episodeImdbID": "tt0690963",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 4,
+      "episode": 2,
+      "title": "The Young Defenders",
+      "episodeImdbID": "tt0690984",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 4,
+      "episode": 3,
+      "title": "Backfire",
+      "episodeImdbID": "tt0690894",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 4,
+      "episode": 5,
+      "title": "The Hijackers",
+      "episodeImdbID": "tt0690964",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 4,
+      "episode": 12,
+      "title": "The Big Chance",
+      "episodeImdbID": "tt0690958",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 4,
+      "episode": 15,
+      "title": "Born Fugitive",
+      "episodeImdbID": "tt0690899",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 4,
+      "episode": 17,
+      "title": "Ginger Horse",
+      "episodeImdbID": "tt0690919",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 4,
+      "episode": 18,
+      "title": "The Showdown",
+      "episodeImdbID": "tt0690980",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 5,
+      "episode": 3,
+      "title": "Violence in Paradise Valley",
+      "episodeImdbID": "tt0690990",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 5,
+      "episode": 4,
+      "title": "The Brothers O'Dell",
+      "episodeImdbID": "tt0690959",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 5,
+      "episode": 5,
+      "title": "The Scavenger",
+      "episodeImdbID": "tt0690977",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 5,
+      "episode": 6,
+      "title": "Treasure of Paradise Valley",
+      "episodeImdbID": "tt0690987",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 5,
+      "episode": 7,
+      "title": "Three Masked Men",
+      "episodeImdbID": "tt0690985",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 5,
+      "episode": 8,
+      "title": "Ambush",
+      "episodeImdbID": "tt0690892",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 5,
+      "episode": 10,
+      "title": "False Faces",
+      "episodeImdbID": "tt0690913",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 5,
+      "episode": 12,
+      "title": "Smoking Guns",
+      "episodeImdbID": "tt0690956",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 5,
+      "episode": 15,
+      "title": "The Horse Mixup",
+      "episodeImdbID": "tt0690965",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 6,
+      "episode": 1,
+      "title": "Head for Cover",
+      "episodeImdbID": "tt0690924",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 6,
+      "episode": 4,
+      "title": "His Weight in Wildcats",
+      "episodeImdbID": "tt0690927",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 6,
+      "episode": 5,
+      "title": "Paleface Justice",
+      "episodeImdbID": "tt0690945",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 6,
+      "episode": 6,
+      "title": "Tossup",
+      "episodeImdbID": "tt0690986",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 6,
+      "episode": 8,
+      "title": "Deadlock at Dark Canyon",
+      "episodeImdbID": "tt0690906",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 6,
+      "episode": 9,
+      "title": "End of the Trail",
+      "episodeImdbID": "tt0690912",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 6,
+      "episode": 10,
+      "title": "Junior Outlaw",
+      "episodeImdbID": "tt0690932",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 6,
+      "episode": 11,
+      "title": "High Stakes",
+      "episodeImdbID": "tt0690926",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 6,
+      "episode": 12,
+      "title": "Accessory to Crime",
+      "episodeImdbID": "tt0690891",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 6,
+      "episode": 13,
+      "title": "Portrait of Murder",
+      "episodeImdbID": "tt0690949",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-roy-rogers-show-1951",
+      "seriesTitle": "The Roy Rogers Show",
+      "season": 6,
+      "episode": 14,
+      "title": "Brady's Bonanza",
+      "episodeImdbID": "tt0690901",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
       "seriesID": "the-second-hundred-years-1967",
       "seriesTitle": "The Second Hundred Years",
       "season": 1,
@@ -171926,6 +173326,86 @@
       "episodeImdbID": "tt2507574",
       "status": "wanted",
       "added_at": "2026-06-04T08:24:27Z"
+    },
+    {
+      "seriesID": "the-sentimental-agent-1963",
+      "seriesTitle": "The Sentimental Agent",
+      "season": 1,
+      "episode": 1,
+      "title": "All That Jazz",
+      "episodeImdbID": "tt0698112",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-sentimental-agent-1963",
+      "seriesTitle": "The Sentimental Agent",
+      "season": 1,
+      "episode": 4,
+      "title": "Never Play Cards with Strangers",
+      "episodeImdbID": "tt0698117",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-sentimental-agent-1963",
+      "seriesTitle": "The Sentimental Agent",
+      "season": 1,
+      "episode": 8,
+      "title": "The Height of Fashion",
+      "episodeImdbID": "tt0698120",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-sentimental-agent-1963",
+      "seriesTitle": "The Sentimental Agent",
+      "season": 1,
+      "episode": 9,
+      "title": "A Very Desirable Plot",
+      "episodeImdbID": "tt0698111",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-sentimental-agent-1963",
+      "seriesTitle": "The Sentimental Agent",
+      "season": 1,
+      "episode": 10,
+      "title": "Finishing School",
+      "episodeImdbID": "tt0698114",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-sentimental-agent-1963",
+      "seriesTitle": "The Sentimental Agent",
+      "season": 1,
+      "episode": 11,
+      "title": "The Scroll of Islam",
+      "episodeImdbID": "tt0698121",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-sentimental-agent-1963",
+      "seriesTitle": "The Sentimental Agent",
+      "season": 1,
+      "episode": 12,
+      "title": "Not Quite Fully Covered",
+      "episodeImdbID": "tt0698118",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "the-sentimental-agent-1963",
+      "seriesTitle": "The Sentimental Agent",
+      "season": 1,
+      "episode": 13,
+      "title": "A Box of Tricks",
+      "episodeImdbID": "tt0698109",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
     },
     {
       "seriesID": "the-single-guy-1995",
@@ -180839,6 +182319,106 @@
       "episodeImdbID": "tt0937155",
       "status": "wanted",
       "added_at": "2026-06-03T23:58:16Z"
+    },
+    {
+      "seriesID": "union-pacific-1958",
+      "seriesTitle": "Union Pacific",
+      "season": 1,
+      "episode": 6,
+      "title": "The Surveyor",
+      "episodeImdbID": "tt2715890",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "union-pacific-1958",
+      "seriesTitle": "Union Pacific",
+      "season": 1,
+      "episode": 7,
+      "title": "Indian Treaty",
+      "episodeImdbID": "tt2715892",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "union-pacific-1958",
+      "seriesTitle": "Union Pacific",
+      "season": 1,
+      "episode": 8,
+      "title": "Bridge at Devil's Canyon",
+      "episodeImdbID": "tt2715896",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "union-pacific-1958",
+      "seriesTitle": "Union Pacific",
+      "season": 1,
+      "episode": 9,
+      "title": "DeKett Territory",
+      "episodeImdbID": "tt2715898",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "union-pacific-1958",
+      "seriesTitle": "Union Pacific",
+      "season": 1,
+      "episode": 10,
+      "title": "End of Track",
+      "episodeImdbID": "tt2715900",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "union-pacific-1958",
+      "seriesTitle": "Union Pacific",
+      "season": 1,
+      "episode": 12,
+      "title": "The Haunted Hills",
+      "episodeImdbID": "tt2715918",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "union-pacific-1958",
+      "seriesTitle": "Union Pacific",
+      "season": 1,
+      "episode": 13,
+      "title": "The Challenger",
+      "episodeImdbID": "tt2715920",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "union-pacific-1958",
+      "seriesTitle": "Union Pacific",
+      "season": 1,
+      "episode": 14,
+      "title": "The Impractical Joker",
+      "episodeImdbID": "tt2715924",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "union-pacific-1958",
+      "seriesTitle": "Union Pacific",
+      "season": 1,
+      "episode": 15,
+      "title": "Roadblock",
+      "episodeImdbID": "tt2715926",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
+    },
+    {
+      "seriesID": "union-pacific-1958",
+      "seriesTitle": "Union Pacific",
+      "season": 1,
+      "episode": 16,
+      "title": "Patterns for Revenge",
+      "episodeImdbID": "tt2715928",
+      "status": "wanted",
+      "added_at": "2026-10-07T10:48:25Z"
     },
     {
       "seriesID": "veronica-mars-2004",
