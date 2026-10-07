@@ -179,6 +179,45 @@ def main() -> int:
         check("series declares a tv_show type",
               'content="video.tv_show"' in hs, True)
 
+        # 5. Search Console, 2026-10-05: 128 crawled URLs were 404 because a
+        #    merge deleted the merged-away id's page, and nine "Dark Shadows
+        #    (1966)" discs rendered identical pages, so Google kept one.
+        idx5 = td / "index5.json"
+        idx5.write_text(json.dumps({"items": [
+            ["disc-1", "Dark Shadows", 1966, "tv-special"],
+            ["disc-2", "Dark Shadows", 1966, "tv-special"],
+            ["suddenly", "Suddenly", 1954, "feature-film"],
+        ]}), encoding="utf-8")
+        al = td / "aliases.json"
+        al.write_text(json.dumps({"Suddenly_1954": "suddenly", "old_hop": "Suddenly_1954",
+                                  "gone_old": "gone_new", "disc-1": "suddenly"}), encoding="utf-8")
+        r5 = subprocess.run(
+            [sys.executable, str(REPO / "tools" / "build_share_pages.py"),
+             "--out", str(td / "site5"), "--index", str(idx5), "--details", str(td / "nodetails"),
+             "--aliases", str(al)], capture_output=True, text=True)
+        check("build with aliases succeeds", r5.returncode, 0)
+        s5 = td / "site5"
+        fwd = s5 / "item" / "Suddenly_1954" / "index.html"
+        hf5 = fwd.read_text(encoding="utf-8") if fwd.exists() else ""
+        check("a merged id forwards to its survivor",
+              'content="0; url=https://archivewatch.org/item/suddenly/"' in hf5, True)
+        check("the forward names the survivor as canonical",
+              '<link rel="canonical" href="https://archivewatch.org/item/suddenly/">' in hf5, True)
+        hop = s5 / "item" / "old_hop" / "index.html"
+        check("a chain of merges forwards to the end",
+              hop.exists() and "/item/suddenly/" in hop.read_text(encoding="utf-8"), True)
+        check("no forward to a survivor with no page", (s5 / "item" / "gone_old").exists(), False)
+        check("a live page is never replaced by a forward",
+              "Dark Shadows" in (s5 / "item" / "disc-1" / "index.html").read_text(encoding="utf-8"), True)
+        sm5 = "".join(p.read_text(encoding="utf-8") for p in s5.glob("sitemap-*.xml"))
+        check("forwards are not in the sitemap", "Suddenly_1954" in sm5, False)
+        t1 = (s5 / "item" / "disc-1" / "index.html").read_text(encoding="utf-8")
+        t2 = (s5 / "item" / "disc-2" / "index.html").read_text(encoding="utf-8")
+        check("two uploads sharing a name get different titles",
+              "<title>Dark Shadows (1966) [disc-1]" in t1 and "<title>Dark Shadows (1966) [disc-2]" in t2, True)
+        check("a unique name keeps its plain title",
+              "<title>Suddenly (1954) — free" in (s5 / "item" / "suddenly" / "index.html").read_text(encoding="utf-8"), True)
+
     bad = [c for c in CASES if not c[1]]
     for name, ok, got, want in CASES:
         print(f"  {'PASS' if ok else 'FAIL'}  {name}"

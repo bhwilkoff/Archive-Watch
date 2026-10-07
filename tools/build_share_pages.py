@@ -48,6 +48,7 @@ import html
 import json
 import re
 import sys
+from collections import Counter
 from pathlib import Path
 
 REPO = Path(__file__).resolve().parent.parent
@@ -428,6 +429,45 @@ def write_directory(out: Path, entries) -> list:
     return written
 
 
+REDIRECT = """<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<title>Archive Watch</title>
+<link rel="canonical" href="{url}">
+<meta http-equiv="refresh" content="0; url={url}">
+</head>
+<body><p><a href="{url}">Continue to Archive Watch</a></p></body>
+</html>
+"""
+
+
+def write_alias_redirects(out: Path, path: Path, pages: set) -> int:
+    """A merged-away id (Decision 085) keeps a page at its old URL that forwards
+    to the survivor's. Its page used to vanish at the merge, so every link
+    already shared, and every URL Google had crawled, became a 404 (Search
+    Console, 2026-10-05: 128 of them). GitHub Pages cannot send a 301; a
+    zero-second meta refresh is the redirect Google reads as permanent. These
+    pages are not in the sitemap: a sitemap lists canonical URLs only."""
+    if not path.exists():
+        return 0
+    aliases = json.loads(path.read_text(encoding="utf-8"))
+    n = 0
+    for old, new in aliases.items():
+        for _ in range(5):              # a survivor can itself have merged
+            if new in pages or new not in aliases:
+                break
+            new = aliases[new]
+        if old in pages or new not in pages or not safe_segment(old):
+            continue
+        d = out / "item" / old
+        d.mkdir(parents=True, exist_ok=True)
+        (d / "index.html").write_text(REDIRECT.format(url=e(f"{SITE}/item/{new}/")),
+                                      encoding="utf-8")
+        n += 1
+    return n
+
+
 def write_sitemaps(out: Path, urls, lastmod: str) -> None:
     """sitemap.xml is an INDEX of files of at most SITEMAP_CHUNK URLs (Google
     takes 50,000; smaller files keep each fetch light). robots.txt names it."""
@@ -455,6 +495,7 @@ def main() -> int:
     ap.add_argument("--index", default=str(REPO / "catalog-index.json"))
     ap.add_argument("--details", default=str(REPO / "details"))
     ap.add_argument("--episodes", default=str(REPO / "episodes-index.json"))
+    ap.add_argument("--aliases", default=str(REPO / "aliases.json"))
     ap.add_argument("--limit", type=int, default=0, help="0 = every item")
     args = ap.parse_args()
 
@@ -508,8 +549,17 @@ def main() -> int:
             return (f"{SITE}/series/{slug}/", f"{SITE}/series/{slug}") if slug else (None, None)
         return (f"{SITE}/item/{aid}/", f"{SITE}/item/{aid}") if safe_segment(aid) else (None, None)
 
+    # Two uploads that share a title and year rendered identical pages, and
+    # Google indexed one and set the rest aside as duplicates (Search Console,
+    # 2026-10-05: nine "Dark Shadows (1966)" discs). Such a page names its
+    # archive.org item so each one says which upload it is.
+    same_name = Counter(
+        (title_key(strip_html(str(at(r, I_TITLE) or ""))), at(r, I_YEAR))
+        for r in rows if not str(at(r, I_ID) or "").startswith("series:"))
+
     urls = []
     directory = []
+    pages = set()
     made = skipped = 0
     for r in rows:
         aid = str(at(r, I_ID) or "")
@@ -549,6 +599,8 @@ def main() -> int:
             bits.append(f"dir. {director}")
         meta = "  ·  ".join(bits)
         headline = title + (f" ({year})" if year else "")
+        twin = (not aid.startswith("series:")
+                and same_name[(title_key(title), year)] > 1)
 
         desc = clip(synopsis, 180) if synopsis else meta
         if "free" not in desc.lower():
@@ -571,7 +623,8 @@ def main() -> int:
                            ("Studio", ", ".join(as_list(x.get("st")))),
                            ("Released", x.get("rd")), ("Original title", x.get("ot")),
                            ("Series", x.get("fr")), ("Awards", x.get("aw")),
-                           ("Running time", f"{mins} minutes" if mins else None)):
+                           ("Running time", f"{mins} minutes" if mins else None),
+                           ("Internet Archive item", aid if twin else None)):
             if val:
                 facts.append((label, strip_html(str(val))))
         comm = at(d, D_COMMUNITY) or {}
@@ -613,13 +666,16 @@ def main() -> int:
             episodes=episodes_by_slug.get(aid[len("series:"):], ()) if aid.startswith("series:") else ())
         path.mkdir(parents=True, exist_ok=True)
         (path / "index.html").write_text(build_page(
-            url=url, app_arg=app_arg, title_tag=f"{headline} — free to watch on Archive Watch",
+            url=url, app_arg=app_arg,
+            title_tag=(f"{headline} [{aid}]" if twin else headline) + " — free to watch on Archive Watch",
             og_title=headline, desc=desc, image=backdrop or poster, wide=bool(backdrop),
             og_type=og_type, body=body, ld=ld), encoding="utf-8")
         urls.append(url)
+        pages.add(aid)
         directory.append((title_key(title) or title.lower(), headline, kind, url))
         made += 1
 
+    forwarded = write_alias_redirects(out, Path(args.aliases), pages)
     urls += write_directory(out, directory)
     write_sitemaps(out, urls, str(index.get("updatedAt") or "")[:10])
 
@@ -648,6 +704,7 @@ def main() -> int:
     (out / "list" / "index.html").write_text(LIST_LANDING, encoding="utf-8")
 
     note = f"; skipped {skipped} unsafe id(s)" if skipped else ""
+    note += f"; {forwarded:,} merged id(s) forward to their survivor"
     print(f"[share] wrote {made:,} share pages under {out}/item and "
           f"{out}/series{note}; plus the /list/ playlist landing page and "
           f"sitemap.xml ({len(urls) + 1:,} URLs)")

@@ -126,6 +126,15 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
     whose key has no a-z letter joins 0-9), linked from the viewer's footer
     and every page's footer, so each film is two plain links from the home
     page. It is in the sitemap too.
+  - **A merged-away id keeps its URL** (Search Console, 2026-10-05: 128
+    crawled pages had become 404 when their uploads merged): `/item/{old}/`
+    is a zero-second meta refresh with a canonical to the survivor's page,
+    built from `aliases.json` (Decision 085). It is not in the sitemap. A
+    title the catalog HIDES still 404s; that is the right answer for it.
+  - **Two pages never share a title**: when uploads share a title and year,
+    each page's `<title>` and Details name its archive.org item, so
+    Dark Shadows' nine discs are nine pages rather than one page and eight
+    duplicates.
 
 - **§3.3 One router.** `route()` reads the hash, `showView(name)` toggles
   `<section hidden>`. Per-view `IntersectionObserver`s are disconnected on
