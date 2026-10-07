@@ -145,7 +145,13 @@ function buildSeries(d) {
   add({ key: "android-acq", label: "Android listing acquisitions", unit: " acquisitions",
         view: "reach", lag: 14, points: pts(h.playAcquisition?.daily, "date", "acquisitions"),
         src: "https://play.google.com/console", reader: "play_acquisition",
-        staleNote: "no new day in Google's store-performance export" });
+        // There is no other route to this number: the Reporting API is vitals
+        // only, and the Console's own stats service takes the play_console
+        // scope, which Google refuses to a service account (unauthorized_client)
+        // and to our OAuth client (invalid_scope) — both measured 2026-10-07.
+        staleNote: h.playAcquisition?.exportWritten
+          ? `Google last wrote its store-listing export on ${day(h.playAcquisition.exportWritten)}; it documents 3 to 7 days`
+          : "no new day in Google's store-performance export" });
   add({ key: "android-inst", label: "Android installs", unit: " installs", view: "reach", lag: 14,
         points: pts(h.playInstalls?.daily, "date", "installs"),
         src: "https://play.google.com/console", reader: "play_reports",

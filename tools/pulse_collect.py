@@ -558,6 +558,26 @@ def _gcs_bytes(bucket, obj):
     return None, None
 
 
+def _gcs_updated(bucket, obj):
+    """When Google last wrote an object, or None. The newest ROW says how far
+    the data reaches; only the object's own write time says whether Google is
+    still writing it (play_bucket_probe.py, 2026-09-14 and 2026-10-07)."""
+    from google.oauth2 import service_account
+    from googleapiclient.discovery import build as _build
+    key = os.environ.get("PLAY_SERVICE_ACCOUNT_JSON",
+                         os.path.expanduser("~/.config/play/archivewatch-play.json"))
+    scopes = ["https://www.googleapis.com/auth/devstorage.read_only"]
+    try:
+        if key.strip().startswith("{"):
+            creds = service_account.Credentials.from_service_account_info(json.loads(key), scopes=scopes)
+        else:
+            creds = service_account.Credentials.from_service_account_file(key, scopes=scopes)
+        gcs = _build("storage", "v1", credentials=creds, cache_discovery=False)
+        return (gcs.objects().get(bucket=bucket, object=obj).execute().get("updated") or "")[:10] or None
+    except Exception:                                # noqa: BLE001
+        return None
+
+
 def _play_csv(raw):
     """Play writes these as UTF-16 with a BOM, which reads as mojibake if you
     assume UTF-8 and produces a header nothing matches."""
@@ -811,6 +831,7 @@ def play_acquisition(state):
         m = (m - dt.timedelta(days=1)).replace(day=1)
 
     by_day, by_country, by_source = {}, {}, {}
+    written = None
     for ym in months:
         for dim, sink in (("country", by_country), ("traffic_source", by_source)):
             # TWO families live here and only one is current: `total_*` is a
@@ -819,12 +840,14 @@ def play_acquisition(state):
             # to the rollup for older months where only it exists.
             raw = None
             for stem in ("store_performance", "total_store_performance"):
-                raw, _ = _gcs_bytes(
-                    bucket, f"stats/store_performance/{stem}_{PLAY_PACKAGE}_{ym}_{dim}.csv")
+                obj = f"stats/store_performance/{stem}_{PLAY_PACKAGE}_{ym}_{dim}.csv"
+                raw, _ = _gcs_bytes(bucket, obj)
                 if raw:
                     break
             if not raw:
                 continue
+            if dim == "country":
+                written = max(filter(None, (written, _gcs_updated(bucket, obj))), default=None)
             try:
                 rows = _play_csv(raw)
             except Exception:                        # noqa: BLE001
@@ -850,7 +873,7 @@ def play_acquisition(state):
     vis = sum(r["visitors"] for r in daily[-28:])
     top = lambda d: dict(sorted(d.items(), key=lambda kv: -kv[1])[:12])  # noqa: E731
     state["health"]["playAcquisition"] = {
-        "daily": daily, "asOf": daily[-1]["date"],
+        "daily": daily, "asOf": daily[-1]["date"], "exportWritten": written,
         "acquisitions28d": acq, "visitors28d": vis,
         "conversion28d": round(acq / vis, 4) if vis else None,
         "byCountry": top(by_country), "bySource": top(by_source),

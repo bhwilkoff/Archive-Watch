@@ -362,6 +362,21 @@ repo's version moves on every commit, so it was true of every row within an
 hour. `ops/fixed-in.json` carries the Android `versionCode` of each fix, so a
 crash is judged against Android builds rather than an Apple build number.
 
+### 11b. Play store-listing acquisitions have one route, and it is late (2026-10-07)
+
+`play_acquisition` reads `stats/store_performance/` in the Play reports bucket.
+That is the ONLY route a program has: the Play Developer Reporting API
+(v1beta1 and v1alpha1) is vitals only, and the Console's own statistics
+service (`playconsolestatsfrontend-pa`) requires the `play_console` scope,
+which Google refuses to our service account (`unauthorized_client`) and to our
+OAuth client signed in as a Console user (`invalid_scope`). Both were measured
+2026-10-07. Google documents the export as "posted within 3 to 7 days"; in
+practice it is written roughly monthly (Jul 12, Aug 12, Sep 13, Sep 30), so the
+series is judged at 14 days and its alert names the date Google last wrote the
+file (`playAcquisition.exportWritten`). An alert here is Google's export being
+late, not our reader; `tools/play_bucket_probe.py` lists the folder and each
+file's newest row to prove it. The Console itself shows the current figure.
+
 ### 11a. Is the catalog in Google? (`search_index`, 2026-09-25)
 
 The film pages (WEB-DESIGN §3.2a) exist so every film can be found in search.

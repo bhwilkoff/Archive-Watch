@@ -54,7 +54,8 @@ def main() -> int:
     # question. A probe that leaks the thing it was given is not worth running.
     print(f"bucket: {bucket[:14]}… ({len(bucket)} chars)")
 
-    for prefix in ("stats/installs/", "stats/ratings/", "stats/crashes/", "stats/"):
+    for prefix in ("stats/installs/", "stats/ratings/", "stats/crashes/",
+                   "stats/store_performance/", "stats/"):
         objs, page = [], None
         while True:
             q = {"prefix": prefix, "maxResults": "1000"}
@@ -83,10 +84,14 @@ def main() -> int:
         # fresh and fat; the question the listing cannot answer is what is IN
         # them, which is the only thing that explains a reader stopping at a
         # date three weeks before the file was written.
-        if prefix == "stats/installs/":
+        # Store performance is dumped in full for our package: on 2026-10-07
+        # acquisitions stood at 09-24 while installs had reached 09-30, and
+        # the newest ROW of each file is the only thing that tells a reader
+        # fault from an export that stopped.
+        if prefix in ("stats/installs/", "stats/store_performance/"):
             for o in objs:
                 n = o["name"]
-                if PKG in n and "_202609_" in n:
+                if PKG in n and (prefix == "stats/store_performance/" or "_202609_" in n):
                     url = (f"https://storage.googleapis.com/storage/v1/b/"
                            f"{urllib.parse.quote(bucket)}/o/"
                            f"{urllib.parse.quote(n, safe='')}?alt=media")
@@ -100,7 +105,7 @@ def main() -> int:
                         except Exception:                            # noqa: BLE001
                             text = None
                     lines = (text or "").splitlines()
-                    print(f"\n  --- {n.rsplit('/',1)[-1]}  {len(raw)} bytes, "
+                    print(f"\n  --- {n.rsplit('/',1)[-1]}  {o.get('updated','?')[:19]}  {len(raw)} bytes, "
                           f"{len(lines)} line(s)")
                     for ln in lines[:6]:
                         print("      " + ln[:170])
