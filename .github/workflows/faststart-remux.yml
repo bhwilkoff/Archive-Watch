@@ -49,7 +49,11 @@ jobs:
   #    holds the catalog-writers lock.
   remux:
     runs-on: ubuntu-latest
-    timeout-minutes: 300
+    # The tool stops starting items at 150 min (--budget-minutes) and caps one
+    # download at 45; the step's own limit is the backstop, and the publish step
+    # runs even if it fires. Seven runs (2026-09-30..10-06) hit the old 300-min
+    # job limit with the publish step skipped and the catalog lock held all day.
+    timeout-minutes: 240
     # Skip the workflow_run trigger when the upstream strict verify FAILED.
     if: ${{ github.event_name != 'workflow_run' || github.event.workflow_run.conclusion == 'success' }}
     concurrency:
@@ -77,6 +81,7 @@ jobs:
 
       - name: Remux + host + re-point (bounded)
         id: remux
+        timeout-minutes: 200
         env:
           IAS3_ACCESS_KEY: ${{ secrets.IAS3_ACCESS_KEY }}
           IAS3_SECRET_KEY: ${{ secrets.IAS3_SECRET_KEY }}
@@ -91,10 +96,16 @@ jobs:
           echo '```' >> $GITHUB_STEP_SUMMARY; tail -6 remux.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
 
       - name: Remediate + publish catalog
-        if: ${{ steps.remux.outputs.hosted == '1' }}
+        # always(): a killed remux step must not discard the items it already
+        # re-pointed or marked failed. Read from the log, because a killed
+        # step never writes its outputs.
+        if: always()
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          if ! grep -qE "hosted \+ re-pointed|marked failed" remux.log 2>/dev/null; then
+            echo "nothing hosted or marked; catalog unchanged"; exit 0
+          fi
           python tools/remediate_catalog.py
           python tools/catalog_release.py publish
 

@@ -115,15 +115,20 @@ def ensure_item(item: str, auth: str) -> None:
 
 
 def put_file(item: str, local: Path, remote: str, auth: str, retries: int = 4) -> bool:
-    data = local.read_bytes()
+    # STREAMED from disk with a per-operation timeout. It used to read the whole
+    # file into memory and give the PUT one 600 s timeout, so a 5.4 GB remux
+    # (Sunrise, 2026-10-06) failed every attempt with "write operation timed out".
+    size = local.stat().st_size
     for attempt in range(1, retries + 1):
-        req = urllib.request.Request(f"{S3}/{item}/{remote}", method="PUT", data=data)
+        fh = open(local, "rb")
+        req = urllib.request.Request(f"{S3}/{item}/{remote}", method="PUT", data=fh)
+        req.add_header("content-length", str(size))
         req.add_header("authorization", auth)
         req.add_header("content-type", "video/mp4")
         req.add_header("x-archive-queue-derive", "0")
         req.add_header("x-archive-keep-old-version", "0")
         try:
-            urllib.request.urlopen(req, timeout=600)
+            urllib.request.urlopen(req, timeout=120)
             return True
         except urllib.error.HTTPError as e:
             if e.code == 503 and attempt < retries:   # slow down / reduce request rate
@@ -138,6 +143,8 @@ def put_file(item: str, local: Path, remote: str, auth: str, retries: int = 4) -
                 continue
             print(f"[faststart] upload {remote} error: {e}", file=sys.stderr)
             return False
+        finally:
+            fh.close()
     return False
 
 
@@ -152,9 +159,13 @@ def remote_name(archive_id: str) -> str:
     return f"{slug}.mp4"
 
 
-def download_original(url: str, dest: Path, timeout: int = 120, retries: int = 3) -> bool:
+def download_original(url: str, dest: Path, timeout: int = 120, retries: int = 3,
+                      deadline: float = 0) -> bool:
     """Stream the current downloadURL to dest. archive.org 302-redirects to a storage
-    node; requests follows it. Retries a transient network failure."""
+    node; requests follows it. Retries a transient network failure. `timeout` is
+    per READ, so a trickling origin never trips it: `deadline` (a time.time())
+    bounds the whole download — Le Voyage dans la Lune's ran 3.5 h into the job's
+    kill on 2026-10-06."""
     try:
         import requests
     except ImportError:
@@ -174,6 +185,9 @@ def download_original(url: str, dest: Path, timeout: int = 120, retries: int = 3
                     for chunk in r.iter_content(chunk_size=1 << 20):
                         if chunk:
                             f.write(chunk)
+                        if deadline and time.time() > deadline:
+                            print("[faststart] download over its time budget", file=sys.stderr)
+                            return False
             return dest.exists() and dest.stat().st_size > 0
         except Exception as e:  # noqa: BLE001 — network is broad; retry then give up
             print(f"[faststart] download error (attempt {attempt}): {e}", file=sys.stderr)
@@ -190,14 +204,24 @@ def ffmpeg_faststart(src: Path, dst: Path) -> bool:
     exe = shutil.which("ffmpeg")
     if not exe:
         sys.exit("[faststart] ffmpeg not found on PATH")
-    p = subprocess.run(
-        [exe, "-y", "-v", "error", "-i", str(src),
-         "-map", "0", "-c", "copy", "-movflags", "+faststart", str(dst)],
-        capture_output=True, text=True)
-    if p.returncode != 0:
-        print(f"[faststart] ffmpeg failed: {(p.stderr or '')[:400]}", file=sys.stderr)
-        return False
-    return dst.exists() and dst.stat().st_size > 0
+    # Every stream first; then picture and sound alone, because an MKV's
+    # image-based subtitles (PGS) cannot go in an MP4 and refused the whole remux
+    # (Die Nibelungen, every run 2026-09-30..10-06). The checks compare only
+    # video and audio, so dropping those subtitles changes nothing they judge.
+    for maps in (["-map", "0"], ["-map", "0:v", "-map", "0:a"]):
+        try:
+            p = subprocess.run(
+                [exe, "-y", "-v", "error", "-i", str(src), *maps,
+                 "-c", "copy", "-movflags", "+faststart", str(dst)],
+                capture_output=True, text=True, timeout=1800)
+        except subprocess.TimeoutExpired:
+            print("[faststart] ffmpeg timed out", file=sys.stderr)
+            return False
+        if p.returncode == 0 and dst.exists() and dst.stat().st_size > 0:
+            return True
+        print(f"[faststart] ffmpeg failed ({' '.join(maps)}): {(p.stderr or '')[:400]}",
+              file=sys.stderr)
+    return False
 
 
 def first_box_after_ftyp(path: Path) -> str | None:
@@ -369,9 +393,16 @@ def main() -> int:
                     help="download + remux + validate only; NO upload, NO catalog write")
     ap.add_argument("--keep-local", action="store_true",
                     help="keep the remuxed .mp4 on disk (implied by --dry-run)")
+    ap.add_argument("--budget-minutes", type=float, default=150,
+                    help="start no new item after this many minutes (0 = no budget)")
+    ap.add_argument("--item-minutes", type=float, default=45,
+                    help="give up on one item's download after this many minutes")
+    ap.add_argument("--retry-days", type=int, default=30,
+                    help="skip an item whose last attempt failed within this many days")
     ap.add_argument("--publish", action="store_true",
                     help="catalog_release.py fetch before + remediate/publish after (CI)")
     args = ap.parse_args()
+    started = time.time()
 
     if args.publish and not args.dry_run:
         subprocess.run([sys.executable, str(REPO / "tools" / "catalog_release.py"), "fetch"],
@@ -407,6 +438,13 @@ def main() -> int:
             continue
         if not it.get("downloadURL"):
             continue
+        # The runner's manifest dies with the runner, so a failure is remembered
+        # on the item itself. Without it the same five films (an MKV this cannot
+        # remux, a 5 GB upload, a trickling download) came first every day and
+        # the job was killed at its limit seven runs running.
+        failed = it.get("faststartFailedAt")
+        if failed and not args.ids and time.time() - failed < args.retry_days * 86400:
+            continue
         kept.append(it)
     targets = kept
 
@@ -431,7 +469,7 @@ def main() -> int:
         ensure_item(args.item, auth)
 
     stats = {"ok": 0, "validated": 0, "download_fail": 0, "remux_fail": 0,
-             "validate_fail": 0, "upload_fail": 0}
+             "validate_fail": 0, "upload_fail": 0, "marked": 0}
     with open(manifest, "a") as mlog:
         for i, it in enumerate(targets, 1):
             aid = it["archiveID"]
@@ -439,15 +477,27 @@ def main() -> int:
             name = remote_name(aid)
             orig_path = remux_dir / f"{name}.orig"
             out_path = remux_dir / name
+            if args.budget_minutes and time.time() - started > args.budget_minutes * 60:
+                print(f"[faststart] time budget ({args.budget_minutes:.0f} min) spent; "
+                      f"{len(targets) - i + 1} item(s) left for the next run")
+                break
             print(f"[{i}/{len(targets)}] {aid}  <-  {url}", flush=True)
 
             def record(status, reason="", detail=""):
                 mlog.write(json.dumps({"archiveID": aid, "status": status, "reason": reason,
                                        "detail": detail, "name": name, "at": time.time()}) + "\n")
                 mlog.flush()
+                if status.endswith("_fail") and not args.dry_run:
+                    it["faststartFailedAt"] = time.time()
+                    it["faststartFailReason"] = status
+                    flush_catalog(cat)
+                    stats["marked"] += 1
+                    print(f"       marked failed ({status}); retried after {args.retry_days} days")
 
-            if not download_original(url, orig_path):
+            if not download_original(url, orig_path,
+                                     deadline=time.time() + args.item_minutes * 60):
                 stats["download_fail"] += 1
+                orig_path.unlink(missing_ok=True)
                 record("download_fail")
                 continue
             osz = orig_path.stat().st_size
@@ -478,10 +528,13 @@ def main() -> int:
 
             if not put_file(args.item, out_path, name, auth):
                 stats["upload_fail"] += 1
+                out_path.unlink(missing_ok=True)
                 record("upload_fail")
                 continue
             hosted = f"{BASE_URL}/{args.item}/{name}"
             repoint(it, args.item, name)
+            it.pop("faststartFailedAt", None)
+            it.pop("faststartFailReason", None)
             flush_catalog(cat)
             with open(uploaded_log, "a") as ulog:
                 ulog.write(json.dumps({"archiveID": aid, "url": hosted, "at": time.time()}) + "\n")
@@ -493,7 +546,7 @@ def main() -> int:
 
     print(f"[faststart] done: {stats}")
 
-    if args.publish and not args.dry_run and stats["ok"]:
+    if args.publish and not args.dry_run and (stats["ok"] or stats["marked"]):
         subprocess.run([sys.executable, str(REPO / "tools" / "remediate_catalog.py")], check=False)
         subprocess.run([sys.executable, str(REPO / "tools" / "catalog_release.py"), "publish"],
                        check=True)
