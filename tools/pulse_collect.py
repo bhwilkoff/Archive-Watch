@@ -2596,10 +2596,19 @@ def together_rooms(state):
         k = {"room": "rooms", "guest": "guests"}.get(r.get("kind"))
         if k:
             days.setdefault(r["day"], {})[k] = int(r.get("count") or 0)
+    # The Worker writes a row only on a day a room opened, and it ANSWERED, so a
+    # day with no row is a counted zero, not a missing reading (Decision 108).
+    # Without the fill a quiet week read as a stale reader (Pulse, 2026-10-07:
+    # "newest day is Oct 3").
+    since = "2026-09-25"                              # the tally began with this change
+    day_ = dt.date.fromisoformat(since)
+    while day_ <= dt.datetime.now(dt.timezone.utc).date():
+        days.setdefault(str(day_), {})
+        day_ += dt.timedelta(days=1)
     t = state["health"].setdefault("together", {})
     t["roomsDaily"] = [{"date": k, "rooms": v.get("rooms", 0), "guests": v.get("guests", 0)}
-                       for k, v in sorted(days.items())]
-    t["roomsSince"] = "2026-09-25"                    # the tally began with this change
+                       for k, v in sorted(days.items()) if k >= since]
+    t["roomsSince"] = since
     n = sum(v.get("rooms", 0) for v in days.values())
     return f"{n} room(s), {sum(v.get('guests', 0) for v in days.values())} guest join(s) since the tally began"
 

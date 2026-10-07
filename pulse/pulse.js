@@ -137,10 +137,15 @@ function buildSeries(d) {
   // Lags MEASURED, not assumed: across 15 readings (09-12..09-25) Play's
   // acquisition data ran 6-8 days behind, so 3 called every normal day stale.
   // The install export's own alarm is 14 days (play_reports), past its two
-  // stacked lags (PULSE-ANALYTICS §9).
+  // stacked lags (PULSE-ANALYTICS §9). Acquisitions now take the same 14: the
+  // store-performance file was written 09-30 (data to 09-24) and not again by
+  // 10-07, while the installs file in the same bucket was rewritten that
+  // morning. Google writes each export on its own cadence; 8 called its gap
+  // our reader's fault.
   add({ key: "android-acq", label: "Android listing acquisitions", unit: " acquisitions",
-        view: "reach", lag: 8, points: pts(h.playAcquisition?.daily, "date", "acquisitions"),
-        src: "https://play.google.com/console", reader: "play_acquisition" });
+        view: "reach", lag: 14, points: pts(h.playAcquisition?.daily, "date", "acquisitions"),
+        src: "https://play.google.com/console", reader: "play_acquisition",
+        staleNote: "no new day in Google's store-performance export" });
   add({ key: "android-inst", label: "Android installs", unit: " installs", view: "reach", lag: 14,
         points: pts(h.playInstalls?.daily, "date", "installs"),
         src: "https://play.google.com/console", reader: "play_reports",

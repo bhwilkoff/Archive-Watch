@@ -37,10 +37,10 @@
   {
    "store": "Samsung Apps TV",
    "platform": "Tizen",
-   "state": "NOT SUBMITTED",
-   "version": null,
-   "since": null,
-   "note": "Public Seller is US-only; the signing certificate is backed up (Decision 112).",
+   "state": "IN REVIEW",
+   "version": "1.45.10",
+   "since": "2026-10-03",
+   "note": "Submitted 2026-10-03 to TV Seller Office certification (app 3202610049114, Public Seller, US; 45 model groups 2022-2026). Samsung certifies by hand, ~1-2 weeks, possibly several cycles. Set LIVE here when the Seller Office says it is published.",
    "url": "https://seller.samsungapps.com/",
    "api": null,
    "route": "declared by hand — no API"
