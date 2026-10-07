@@ -6,8 +6,8 @@
    "state": "READY_FOR_SALE",
    "version": "1.45.0",
    "live": "1.45.0",
-   "repoVersion": "1.45.11",
-   "repoBuild": "2107",
+   "repoVersion": "1.45.14",
+   "repoBuild": "2110",
    "url": "https://appstoreconnect.apple.com/apps/6776697407/distribution"
   },
   {
@@ -16,8 +16,8 @@
    "state": "READY_FOR_SALE",
    "version": "1.45.0",
    "live": "1.45.0",
-   "repoVersion": "1.45.11",
-   "repoBuild": "2107",
+   "repoVersion": "1.45.14",
+   "repoBuild": "2110",
    "url": "https://appstoreconnect.apple.com/apps/6776697407/distribution"
   },
   {
@@ -26,8 +26,8 @@
    "state": "READY_FOR_SALE",
    "version": "1.45.0",
    "live": "1.45.0",
-   "repoVersion": "1.45.11",
-   "repoBuild": "2107",
+   "repoVersion": "1.45.14",
+   "repoBuild": "2110",
    "url": "https://appstoreconnect.apple.com/apps/6776697407/distribution"
   },
   {
@@ -101,10 +101,10 @@
   {
    "store": "Samsung Apps TV",
    "platform": "Tizen",
-   "state": "NOT SUBMITTED",
-   "version": null,
-   "since": null,
-   "note": "Public Seller is US-only; the signing certificate is backed up (Decision 112).",
+   "state": "IN REVIEW",
+   "version": "1.45.10",
+   "since": "2026-10-03",
+   "note": "Submitted 2026-10-03 to TV Seller Office certification (app 3202610049114, Public Seller, US; 45 model groups 2022-2026). Samsung certifies by hand, ~1-2 weeks, possibly several cycles. Set LIVE here when the Seller Office says it is published.",
    "url": "https://seller.samsungapps.com/",
    "api": null,
    "route": "declared by hand — no API",
@@ -114,8 +114,8 @@
    "store": "Web (PWA)",
    "platform": "archivewatch.org",
    "state": "LIVE",
-   "version": "bd8fb65",
-   "since": "2026-10-06T23:47:59Z",
+   "version": "8a4dac9",
+   "since": "2026-09-14T06:53:14Z",
    "note": "Ships on every Pages deploy; the version is the deploy's commit, read from GitHub.",
    "url": "https://archivewatch.org",
    "api": null,
@@ -135,9 +135,9 @@
   },
   {
    "store": "Google Play",
-   "average": 3.6,
+   "average": 3.17,
    "count": null,
-   "via": "Play's daily export to 2026-09-29",
+   "via": "Play's daily export to 2026-10-04",
    "url": "https://play.google.com/store/apps/details?id=com.archivewatch.app"
   }
  ],
@@ -307,6 +307,21 @@
  "social": {
   "posts": [
    {
+    "at": "2026-10-07T02:21:15.543965+00:00",
+    "platform": "bluesky",
+    "title": "School's Out",
+    "id": "schools-out_1930",
+    "slot": "double-bill",
+    "format": "video",
+    "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxav4ttinn2x",
+    "likes": null,
+    "reposts": null,
+    "replies": null,
+    "views": null,
+    "window": null,
+    "live": true
+   },
+   {
     "at": "2026-10-06T20:12:59.009060+00:00",
     "platform": "bluesky",
     "title": "London After Midnight",
@@ -389,11 +404,11 @@
     "slot": "viewer-said",
     "format": "video",
     "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mx6gmrop5z2r",
-    "likes": null,
-    "reposts": null,
-    "replies": null,
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
     "views": null,
-    "window": null,
+    "window": "24h",
     "live": true
    },
    {
@@ -798,7 +813,7 @@
     "reposts": 0,
     "replies": 0,
     "views": null,
-    "window": "24h",
+    "window": "7d",
     "live": true
    },
    {
@@ -2090,21 +2105,6 @@
     "views": null,
     "window": null,
     "live": null
-   },
-   {
-    "at": "2026-09-15T01:27:10.140358+00:00",
-    "platform": "bluesky",
-    "title": "What Price Goofy?",
-    "id": "BillSpragueCollection-WhatPriceGoofy-CharleyChase",
-    "slot": "viewer-said",
-    "format": "video",
-    "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mvjhtykntj2i",
-    "likes": 0,
-    "reposts": 0,
-    "replies": 0,
-    "views": null,
-    "window": "7d",
-    "live": true
    }
   ],
   "byPlatform": {
@@ -2150,11 +2150,11 @@
    }
   },
   "totalPosts": 120,
-  "measured": 85,
+  "measured": 86,
   "reach": {
    "bluesky": {
     "followers": 19,
-    "posts": 58
+    "posts": 59
    },
    "mastodon": {
     "followers": 0,
@@ -2179,15 +2179,6 @@
   },
   "appleDownloads": {
    "daily": [
-    {
-     "date": "2026-09-05",
-     "units": 17,
-     "byDevice": {
-      "iPhone": 12,
-      "Apple TV": 3,
-      "iPad": 2
-     }
-    },
     {
      "date": "2026-09-06",
      "units": 34,
@@ -2476,29 +2467,39 @@
       "iPhone": 17,
       "iPad": 5
      }
+    },
+    {
+     "date": "2026-10-06",
+     "units": 33,
+     "byDevice": {
+      "iPhone": 17,
+      "iPad": 9,
+      "Desktop": 3,
+      "Apple TV": 4
+     }
     }
    ],
-   "total14d": 430,
-   "total28d": 1198,
+   "total14d": 434,
+   "total28d": 1212,
    "byDevice": {
-    "iPhone": 780,
-    "Apple TV": 292,
-    "iPad": 163,
-    "Desktop": 46,
+    "iPhone": 785,
+    "Apple TV": 293,
+    "iPad": 170,
+    "Desktop": 49,
     "Apple Vision": 1
    },
    "byCountry": {
-    "US": 736,
+    "US": 743,
     "GB": 74,
-    "CA": 54,
-    "AU": 32,
-    "FR": 28,
+    "CA": 58,
+    "AU": 33,
+    "FR": 27,
     "DE": 21,
-    "SA": 18,
+    "SA": 17,
     "NL": 15,
     "NG": 14,
-    "ES": 14,
     "IT": 13,
+    "ES": 13,
     "MX": 12,
     "IQ": 10,
     "CH": 9
@@ -2506,11 +2507,11 @@
    "byVersion": {
     "1.42.5": 451,
     "1.42.120": 273,
+    "1.45.0": 116,
     "1.42.720": 88,
-    "1.45.0": 83,
     "1.42.53": 83,
-    "1.41": 69,
     "1.42.9": 66,
+    "1.41": 52,
     "1.42.543": 43,
     "1.44.11": 39,
     "1.43.0": 35,
@@ -2518,63 +2519,30 @@
     "1.42.930": 23
    },
    "perDevice": {
-    "Apple TV": {
-     "byCountry": {
-      "US": 171,
-      "GB": 25,
-      "CA": 17,
-      "AU": 15,
-      "NL": 12,
-      "MX": 6,
-      "DE": 5,
-      "NO": 5,
-      "SE": 5,
-      "DK": 5,
-      "IS": 4,
-      "FR": 3,
-      "IT": 3,
-      "RO": 2
-     },
-     "byVersion": {
-      "1.42.120": 83,
-      "1.42.5": 51,
-      "1.45.0": 28,
-      "1.42.720": 28,
-      "1.42.53": 23,
-      "1.42.9": 21,
-      "1.42.543": 18,
-      "1.44.11": 11,
-      "1.43.0": 9,
-      "1.41": 9,
-      "1.42.930": 6,
-      "1.42.94": 5
-     },
-     "units": 292
-    },
     "iPhone": {
      "byCountry": {
-      "US": 430,
+      "US": 431,
       "GB": 41,
       "CA": 30,
-      "FR": 21,
-      "SA": 15,
+      "FR": 20,
       "AU": 15,
+      "SA": 14,
       "NG": 13,
-      "ES": 12,
       "DE": 11,
+      "ES": 11,
+      "GH": 6,
+      "PT": 6,
       "KZ": 6,
       "CH": 6,
-      "IT": 6,
-      "AR": 6,
-      "BR": 6
+      "IT": 6
      },
      "byVersion": {
       "1.42.5": 319,
       "1.42.120": 149,
+      "1.45.0": 59,
       "1.42.53": 54,
-      "1.41": 53,
       "1.42.720": 46,
-      "1.45.0": 42,
+      "1.41": 41,
       "1.42.9": 35,
       "1.43.0": 21,
       "1.42.543": 19,
@@ -2582,14 +2550,14 @@
       "1.44.11": 15,
       "1.42.930": 10
      },
-     "units": 780
+     "units": 785
     },
     "iPad": {
      "byCountry": {
-      "US": 110,
+      "US": 114,
+      "CA": 8,
       "GB": 6,
       "IQ": 5,
-      "CA": 5,
       "DE": 4,
       "FR": 3,
       "AE": 3,
@@ -2599,29 +2567,29 @@
       "SA": 2,
       "IE": 2,
       "GR": 2,
-      "TR": 1
+      "NO": 1
      },
      "byVersion": {
       "1.42.5": 64,
       "1.42.120": 37,
-      "1.45.0": 12,
+      "1.45.0": 21,
       "1.44.11": 11,
       "1.42.720": 9,
       "1.42.9": 7,
-      "1.41": 7,
       "1.42.53": 6,
+      "1.41": 5,
       "1.43.0": 3,
       "1.42.543": 3,
       "1.42.930": 2,
       "1.42.94": 2
      },
-     "units": 163
+     "units": 170
     },
     "Desktop": {
      "byCountry": {
-      "US": 24,
+      "US": 26,
+      "CA": 3,
       "IN": 3,
-      "CA": 2,
       "IT": 2,
       "GB": 2,
       "FR": 1,
@@ -2638,15 +2606,48 @@
       "1.42.5": 17,
       "1.42.930": 5,
       "1.42.94": 5,
+      "1.45.0": 4,
       "1.42.720": 4,
       "1.42.120": 4,
       "1.42.543": 3,
       "1.42.9": 3,
       "1.44.11": 2,
-      "1.43.0": 2,
-      "1.45.0": 1
+      "1.43.0": 2
      },
-     "units": 46
+     "units": 49
+    },
+    "Apple TV": {
+     "byCountry": {
+      "US": 171,
+      "GB": 25,
+      "CA": 17,
+      "AU": 16,
+      "NL": 12,
+      "MX": 6,
+      "DE": 5,
+      "NO": 5,
+      "SE": 5,
+      "DK": 5,
+      "IS": 4,
+      "FR": 3,
+      "IT": 3,
+      "RO": 2
+     },
+     "byVersion": {
+      "1.42.120": 83,
+      "1.42.5": 51,
+      "1.45.0": 32,
+      "1.42.720": 28,
+      "1.42.53": 23,
+      "1.42.9": 21,
+      "1.42.543": 18,
+      "1.44.11": 11,
+      "1.43.0": 9,
+      "1.42.930": 6,
+      "1.41": 6,
+      "1.42.94": 5
+     },
+     "units": 293
     },
     "Apple Vision": {
      "byCountry": {
@@ -2659,8 +2660,8 @@
     }
    },
    "skippedProductTypes": {
-    "F7": 13690,
-    "F3": 293
+    "F7": 13733,
+    "F3": 291
    }
   },
   "playVitals": {
@@ -2791,27 +2792,6 @@
     "ours": "at app.archivewatch.android.app.AppContainer$special$$inlined$-addInterceptor$1.intercept (AppContainer.java:1080)"
    },
    {
-    "type": "CRASH",
-    "cause": "androidx.compose.ui.internal.InlineClassHelperKt.throwIllegalArgumentException",
-    "location": "java.lang.IllegalArgumentException",
-    "users": 1,
-    "reports": 1,
-    "lastSeen": "2026-09-07T19:00:00Z",
-    "firstBuild": "54",
-    "lastBuild": "54",
-    "api": "31-31",
-    "stale": true,
-    "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/46cce2ccb32b3c8eb548f273f0aa655c/details",
-    "fixedIn": {
-     "build": 1018,
-     "version": "1.42.6",
-     "what": "Compose duplicate lazy-list keys",
-     "fix": "List.uniqueBy at 14 call sites; UniqueByTest, negative-controlled",
-     "versionCode": 57
-    },
-    "ours": "Exception java.lang.IllegalArgumentException:"
-   },
-   {
     "type": "APPLICATION_NOT_RESPONDING",
     "cause": "[libc.so] __ioctl",
     "location": "Input dispatching timed out",
@@ -2882,6 +2862,21 @@
      "versionCode": 64
     },
     "ours": "Exception java.lang.OutOfMemoryError: Failed to allocate a 16 byte allocation with 147280 free bytes and 143KB until OOM, target footprint 268435456, growth limit 268435456; giving up on allocation because <1% of heap free after GC."
+   },
+   {
+    "type": "APPLICATION_NOT_RESPONDING",
+    "cause": "app.archivewatch.android.ui.tv.TvDetailScreenKt.TvDetailScreen",
+    "location": "Input dispatching timed out",
+    "users": 1,
+    "reports": 1,
+    "lastSeen": "2026-10-06T17:00:00Z",
+    "firstBuild": "65",
+    "lastBuild": "65",
+    "api": "34-34",
+    "stale": true,
+    "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/d753a1e0384fe2c18e114df1836522fb/details",
+    "fixedIn": null,
+    "ours": "at app.archivewatch.android.ui.tv.TvDetailScreenKt.TvDetailScreen (TvDetailScreen.kt:158)"
    }
   ],
   "playLiveBuild": 66,
@@ -2900,48 +2895,8 @@
    "window": "2026-09-08..2026-10-05"
   },
   "playInstalls": {
-   "asOf": "2026-09-25",
+   "asOf": "2026-09-30",
    "daily": [
-    {
-     "date": "2026-08-29",
-     "installs": 33,
-     "uninstalls": 0,
-     "upgrades": 0,
-     "activeDevices": 382,
-     "userInstalls": 34
-    },
-    {
-     "date": "2026-08-30",
-     "installs": 22,
-     "uninstalls": 0,
-     "upgrades": 0,
-     "activeDevices": 393,
-     "userInstalls": 22
-    },
-    {
-     "date": "2026-08-31",
-     "installs": 28,
-     "uninstalls": 0,
-     "upgrades": 0,
-     "activeDevices": 407,
-     "userInstalls": 29
-    },
-    {
-     "date": "2026-09-01",
-     "installs": 29,
-     "uninstalls": 0,
-     "upgrades": 0,
-     "activeDevices": 402,
-     "userInstalls": 22
-    },
-    {
-     "date": "2026-09-02",
-     "installs": 31,
-     "uninstalls": 0,
-     "upgrades": 0,
-     "activeDevices": 413,
-     "userInstalls": 35
-    },
     {
      "date": "2026-09-03",
      "installs": 28,
@@ -3125,54 +3080,96 @@
      "upgrades": 0,
      "activeDevices": 838,
      "userInstalls": 32
+    },
+    {
+     "date": "2026-09-26",
+     "installs": 34,
+     "uninstalls": 0,
+     "upgrades": 0,
+     "activeDevices": 888,
+     "userInstalls": 26
+    },
+    {
+     "date": "2026-09-27",
+     "installs": 30,
+     "uninstalls": 0,
+     "upgrades": 0,
+     "activeDevices": 886,
+     "userInstalls": 30
+    },
+    {
+     "date": "2026-09-28",
+     "installs": 29,
+     "uninstalls": 0,
+     "upgrades": 0,
+     "activeDevices": 885,
+     "userInstalls": 31
+    },
+    {
+     "date": "2026-09-29",
+     "installs": 28,
+     "uninstalls": 0,
+     "upgrades": 0,
+     "activeDevices": 887,
+     "userInstalls": 29
+    },
+    {
+     "date": "2026-09-30",
+     "installs": 38,
+     "uninstalls": 0,
+     "upgrades": 0,
+     "activeDevices": 907,
+     "userInstalls": 33
     }
    ],
-   "installs28d": 1094,
+   "installs28d": 1110,
    "uninstalls28d": 0,
-   "activeDevices": 838,
+   "activeDevices": 907,
    "byCountry": {
-    "US": 459,
-    "IN": 111,
-    "GB": 68,
-    "NG": 57,
-    "DZ": 55,
-    "CA": 54,
-    "BR": 45,
-    "ZA": 45,
-    "PH": 43,
-    "DE": 41,
-    "AU": 38,
-    "KE": 37
+    "US": 488,
+    "IN": 118,
+    "GB": 75,
+    "NG": 66,
+    "CA": 57,
+    "DZ": 56,
+    "BR": 49,
+    "ZA": 49,
+    "PH": 48,
+    "KE": 45,
+    "DE": 43,
+    "AU": 40
    },
    "byDevice": {
-    "unknown": 115,
-    "sabrina": 31,
-    "a06": 24,
-    "pa3q": 24,
+    "unknown": 129,
+    "sabrina": 36,
+    "a06": 25,
+    "kirkwood": 25,
+    "pa3q": 25,
+    "a16": 23,
     "e3q": 22,
-    "a16": 21,
-    "kirkwood": 20,
     "mdarcy": 20,
-    "m3q": 16,
-    "YOC": 15,
-    "serenity": 15,
-    "a07": 14
+    "m3q": 18,
+    "serenity": 18,
+    "G10": 15,
+    "YOC": 15
    },
    "byOs": {
-    "36": 583,
-    "34": 341,
-    "35": 235,
-    "33": 194,
-    "31": 176,
-    "30": 174,
-    "37": 87,
-    "0": 66,
-    "29": 64,
-    "32": 3
+    "36": 617,
+    "34": 377,
+    "35": 259,
+    "33": 204,
+    "31": 195,
+    "30": 194,
+    "37": 88,
+    "0": 71,
+    "29": 69,
+    "32": 3,
+    "28": 3,
+    "25": 1
    },
    "byVersion": {
+    "60": 469,
     "10": 407,
-    "60": 338,
     "29": 299,
     "54": 262,
     "56": 240,
@@ -3180,27 +3177,27 @@
     "49": 108,
     "48": 78,
     "32": 71,
+    "65": 28,
     "9": 3,
     "2": 0
    },
    "byLanguage": {
-    "en_US": 711,
-    "en_GB": 242,
-    "fr_FR": 111,
-    "es_US": 66,
-    "ar": 59,
-    "en_IN": 58,
-    "pt_BR": 46,
-    "ar_EG": 38,
-    "en_AU": 36,
+    "en_US": 770,
+    "en_GB": 268,
+    "fr_FR": 128,
+    "es_US": 68,
+    "ar": 62,
+    "en_IN": 61,
+    "pt_BR": 50,
+    "ar_EG": 47,
+    "en_AU": 39,
     "en_CA": 33,
-    "en_ZA": 30,
-    "es_ES": 29
+    "en_ZA": 33,
+    "es_ES": 32
    },
    "readVia": "service account",
-   "staleDays": 11,
+   "staleDays": 7,
    "monthsFound": [
-    "2026-08",
     "2026-09"
    ]
   },
@@ -3410,6 +3407,26 @@
      "date": "2026-09-29",
      "daily": 5.0,
      "total": 3.6
+    },
+    {
+     "date": "2026-10-01",
+     "daily": 0.0,
+     "total": 2.7999
+    },
+    {
+     "date": "2026-10-02",
+     "daily": 0.0,
+     "total": 3.25
+    },
+    {
+     "date": "2026-10-03",
+     "daily": 5.0,
+     "total": 0.0
+    },
+    {
+     "date": "2026-10-04",
+     "daily": 0.0,
+     "total": 3.1666
     }
    ],
    "crashes": [
@@ -3624,7 +3641,7 @@
      "anrs": 0
     }
    ],
-   "asOf": "2026-09-30"
+   "asOf": "2026-10-04"
   },
   "playAcquisition": {
    "daily": [
@@ -3923,32 +3940,32 @@
      "name": "crashMetricSet",
      "description": "App crash metrics",
      "metrics": [
-      "crashRate7dUserWeighted",
       "crashRate",
       "userPerceivedCrashRate",
       "crashRate28dUserWeighted",
       "userPerceivedCrashRate7dUserWeighted",
       "userPerceivedCrashRate28dUserWeighted",
       "crashCount",
-      "distinctDevices"
+      "distinctDevices",
+      "crashRate7dUserWeighted"
      ],
      "dimensions": [
-      "deviceType",
-      "osVersion",
       "versionCode",
       "deviceName",
       "deviceOS",
       "deviceModel",
-      "countryCode"
+      "countryCode",
+      "deviceType",
+      "osVersion"
      ],
      "freshnessInfo": [
       {
        "aggregationPeriod": "HOURLY",
-       "latestDataTimestamp": "2026-10-06T21"
+       "latestDataTimestamp": "2026-10-07T11"
       },
       {
        "aggregationPeriod": "DAILY",
-       "latestDataTimestamp": "2026-10-05"
+       "latestDataTimestamp": "2026-10-06"
       }
      ]
     },
@@ -3956,32 +3973,32 @@
      "name": "anrMetricSet",
      "description": "App ANR (Application Not Responding) metrics",
      "metrics": [
-      "anrRate28dUserWeighted",
-      "anrCount",
-      "userPerceivedAnrRate7dUserWeighted",
-      "userPerceivedAnrRate",
-      "anrRate",
-      "anrRate7dUserWeighted",
       "distinctDevices",
+      "anrRate7dUserWeighted",
+      "anrRate",
+      "userPerceivedAnrRate",
+      "userPerceivedAnrRate7dUserWeighted",
+      "anrCount",
+      "anrRate28dUserWeighted",
       "userPerceivedAnrRate28dUserWeighted"
      ],
      "dimensions": [
-      "deviceName",
-      "versionCode",
-      "osVersion",
-      "deviceType",
-      "countryCode",
       "deviceModel",
+      "countryCode",
+      "deviceType",
+      "osVersion",
+      "versionCode",
+      "deviceName",
       "deviceOS"
      ],
      "freshnessInfo": [
       {
        "aggregationPeriod": "HOURLY",
-       "latestDataTimestamp": "2026-10-06T21"
+       "latestDataTimestamp": "2026-10-07T11"
       },
       {
        "aggregationPeriod": "DAILY",
-       "latestDataTimestamp": "2026-10-05"
+       "latestDataTimestamp": "2026-10-06"
       }
      ]
     },
@@ -3989,32 +4006,32 @@
      "name": "lmkMetricSet",
      "description": "Low Memory Killer metrics",
      "metrics": [
-      "userPerceivedLmkRate",
-      "lmkRate",
-      "lmkRate7dUserWeighted",
       "userPerceivedLmkRate28dUserWeighted",
-      "lmkRate28dUserWeighted",
-      "lmkCount",
+      "lmkRate7dUserWeighted",
+      "lmkRate",
+      "userPerceivedLmkRate",
+      "userPerceivedLmkRate7dUserWeighted",
       "distinctDevices",
-      "userPerceivedLmkRate7dUserWeighted"
+      "lmkCount",
+      "lmkRate28dUserWeighted"
      ],
      "dimensions": [
-      "deviceName",
       "versionCode",
-      "osVersion",
-      "deviceType",
-      "countryCode",
+      "deviceName",
+      "deviceOS",
       "deviceModel",
-      "deviceOS"
+      "countryCode",
+      "deviceType",
+      "osVersion"
      ],
      "freshnessInfo": [
       {
        "aggregationPeriod": "HOURLY",
-       "latestDataTimestamp": "2026-10-06T21"
+       "latestDataTimestamp": "2026-10-07T11"
       },
       {
        "aggregationPeriod": "DAILY",
-       "latestDataTimestamp": "2026-10-05"
+       "latestDataTimestamp": "2026-10-06"
       }
      ]
     }
@@ -4302,7 +4319,7 @@
     },
     {
      "date": "2026-10-01",
-     "Total Count of Crashes": 1.0,
+     "Total Count of Crashes": 3.0,
      "Total Count of Devices with Crashes": 1.0,
      "Error Count": 3.0,
      "Channel Installs": 324.0,
@@ -4358,7 +4375,7 @@
      "Bounce Rate": 12.185,
      "Total Minutes Streamed": 14023.0,
      "Average Minutes per Streaming Account": 16.081422018348626,
-     "Streaming Accounts / Cumulative Installs": 15.95,
+     "Streaming Accounts / Cumulative Installs": 15.953,
      "Channel Installs": 724.0,
      "Channel Uninstalls": 66.0,
      "Net Installs": 658.0
@@ -4388,121 +4405,1127 @@
      "date": "2026-10-05",
      "Total Count of Crashes": 2.0,
      "Total Count of Devices with Crashes": 2.0,
-     "Error Count": 2.0
+     "Error Count": 2.0,
+     "Visitors": 643.0,
+     "Viewers": 544.0,
+     "Bounce Rate": 15.397,
+     "Total Minutes Streamed": 11760.0,
+     "Average Minutes per Streaming Account": 21.61764705882353,
+     "Streaming Accounts / Cumulative Installs": 8.484,
+     "Channel Installs": 425.0,
+     "Channel Uninstalls": 46.0,
+     "Net Installs": 379.0
     },
     {
      "date": "2026-10-06",
-     "Total Count of Crashes": 5.0,
-     "Total Count of Devices with Crashes": 2.0,
-     "Error Count": 5.0
+     "Total Count of Crashes": 1.0,
+     "Total Count of Devices with Crashes": 1.0,
+     "Error Count": 1.0
+    },
+    {
+     "date": "2026-10-07",
+     "Total Count of Crashes": 3.0,
+     "Total Count of Devices with Crashes": 3.0,
+     "Error Count": 3.0
     }
    ],
    "headline": {
-    "Rebuffers per Hours Streamed": 0.43,
-    "Rebuffers Sum": 1335.0,
-    "Channel Crashes as % of Total Devices Streaming": 3.1,
-    "Channel Crashes per Streaming Hour": 0.1074,
-    "Average Video Start Time (Seconds)": 9.361,
+    "Rebuffers per Hours Streamed": 0.51,
+    "Rebuffers Sum": 1306.0,
+    "Channel Crashes as % of Total Devices Streaming": 4.0,
+    "Channel Crashes per Streaming Hour": 0.1804,
+    "Average Video Start Time (Seconds)": 9.0,
     "Average Bitrate (Megabits)": 0.128,
-    "Buffering as % of Total Streaming Time": 0.75,
-    "Hours Streamed": 1281.0,
-    "Account Channel Uninstalls": 338.0,
-    "Account Channel Installs": 3097.0,
-    "Avg Daily Viewers": 540.0,
-    "Average Minutes Streamed per Viewer": 20.31
+    "Buffering as % of Total Streaming Time": 0.74,
+    "Hours Streamed": 1302.0,
+    "Account Channel Uninstalls": 353.0,
+    "Account Channel Installs": 3217.0,
+    "Avg Daily Viewers": 561.0,
+    "Average Minutes Streamed per Viewer": 19.91
    },
-   "tiles": [],
-   "dropsRead": 0,
+   "tiles": [
+    "amarillo_1080",
+    "amarillo_4k",
+    "athens",
+    "austin_mustang",
+    "ave_minutes___visitor",
+    "average_daily_visitors",
+    "bailey",
+    "bayside",
+    "benjamin",
+    "benjamin-w",
+    "brewster",
+    "brightscript_crash_logs",
+    "brightscript_crash_logs_with_stacktraces",
+    "briscoe",
+    "bryan",
+    "bryan_2",
+    "camden",
+    "channel_crashes_by_product",
+    "channel_visitors_and_streaming_viewers",
+    "chico",
+    "cooper",
+    "cumulative_net_installs",
+    "damon",
+    "data_transfer_speeds",
+    "devices_with_channel_crashes",
+    "devices_with_channel_crashes_by_product",
+    "el_paso",
+    "fruitland",
+    "ftworth",
+    "gilbert",
+    "gilbert_4k",
+    "install_base_growth",
+    "lakeport",
+    "liberty",
+    "littlefield",
+    "lockhart",
+    "logan",
+    "longview",
+    "madison",
+    "malone",
+    "marlin",
+    "miami",
+    "midland",
+    "minutes_streamed",
+    "nemo",
+    "new_installs",
+    "rebuffers-tile",
+    "rebuffers_per_streaming_hour",
+    "reno",
+    "rockett",
+    "roma",
+    "roxton",
+    "sandia",
+    "shiner",
+    "streaming_ratios",
+    "total_hours_streamed",
+    "trinidad",
+    "uninstalls",
+    "viewership_details",
+    "visits_and_streams"
+   ],
+   "dropsRead": 4,
    "unreadable": [],
    "byReport": {
-    "App Stability": {
-     "daily": [],
+    "App Health": {
+     "daily": [
+      {
+       "date": "2026-09-25",
+       "Total Count of Crashes": 1.0,
+       "Total Count of Devices with Crashes": 1.0,
+       "Error Count": 2.0
+      },
+      {
+       "date": "2026-09-26",
+       "Total Count of Crashes": 2.0,
+       "Total Count of Devices with Crashes": 1.0,
+       "Error Count": 1.0
+      },
+      {
+       "date": "2026-09-27",
+       "Total Count of Crashes": 1.0,
+       "Total Count of Devices with Crashes": 1.0,
+       "Error Count": 1.0
+      },
+      {
+       "date": "2026-09-28",
+       "Total Count of Crashes": 1.0,
+       "Total Count of Devices with Crashes": 1.0,
+       "Error Count": 5.0
+      },
+      {
+       "date": "2026-09-29",
+       "Total Count of Crashes": 1.0,
+       "Total Count of Devices with Crashes": 1.0,
+       "Error Count": 1.0
+      },
+      {
+       "date": "2026-09-30",
+       "Total Count of Crashes": 1.0,
+       "Total Count of Devices with Crashes": 1.0,
+       "Error Count": 1.0
+      },
+      {
+       "date": "2026-10-01",
+       "Total Count of Crashes": 3.0,
+       "Total Count of Devices with Crashes": 1.0,
+       "Error Count": 3.0
+      },
+      {
+       "date": "2026-10-02",
+       "Total Count of Crashes": 1.0,
+       "Total Count of Devices with Crashes": 1.0,
+       "Error Count": 1.0
+      },
+      {
+       "date": "2026-10-03",
+       "Total Count of Crashes": 1.0,
+       "Total Count of Devices with Crashes": 1.0,
+       "Error Count": 1.0
+      },
+      {
+       "date": "2026-10-04",
+       "Error Count": 1.0,
+       "Total Count of Crashes": 1.0,
+       "Total Count of Devices with Crashes": 1.0
+      },
+      {
+       "date": "2026-10-05",
+       "Total Count of Crashes": 2.0,
+       "Total Count of Devices with Crashes": 2.0,
+       "Error Count": 2.0
+      },
+      {
+       "date": "2026-10-06",
+       "Total Count of Crashes": 1.0,
+       "Total Count of Devices with Crashes": 1.0,
+       "Error Count": 1.0
+      },
+      {
+       "date": "2026-10-07",
+       "Total Count of Crashes": 3.0,
+       "Total Count of Devices with Crashes": 3.0,
+       "Error Count": 3.0
+      }
+     ],
+     "headline": {
+      "Channel Crashes as % of Total Devices Streaming": 4.0,
+      "Channel Crashes per Streaming Hour": 0.1804,
+      "Rebuffers per Hours Streamed": 0.51,
+      "Rebuffers Sum": 1306.0,
+      "Average Video Start Time (Seconds)": 9.0,
+      "Average Bitrate (Megabits)": 0.128,
+      "Buffering as % of Total Streaming Time": 0.74
+     },
+     "tiles": [
+      "brightscript_crash_logs",
+      "brightscript_crash_logs_with_stacktraces",
+      "channel_crashes_by_product",
+      "data_transfer_speeds",
+      "devices_with_channel_crashes",
+      "devices_with_channel_crashes_by_product",
+      "rebuffers-tile"
+     ],
+     "tables": {
+      "brightscript_crash_logs": [
+       {
+        "Date": "2026-10-04",
+        "Roku OS Release": "G3",
+        "App Version": "1.0.77",
+        "Error Text": "Function submit() As Void; pkg:/components/BrowseScreen.brs(301)",
+        "Total Count of Crashes": "36",
+        "Total Count of Devices with Crashes": "19"
+       },
+       {
+        "Date": "2026-10-05",
+        "Roku OS Release": "G3",
+        "App Version": "1.0.77",
+        "Error Text": "Function submit() As Void; pkg:/components/BrowseScreen.brs(301)",
+        "Total Count of Crashes": "34",
+        "Total Count of Devices with Crashes": "15"
+       },
+       {
+        "Date": "2026-10-03",
+        "Roku OS Release": "G3",
+        "App Version": "1.0.77",
+        "Error Text": "Function submit() As Void; pkg:/components/BrowseScreen.brs(301)",
+        "Total Count of Crashes": "21",
+        "Total Count of Devices with Crashes": "14"
+       },
+       {
+        "Date": "2026-10-06",
+        "Roku OS Release": "G3",
+        "App Version": "1.0.77",
+        "Error Text": "Function submit() As Void; pkg:/components/BrowseScreen.brs(301)",
+        "Total Count of Crashes": "26",
+        "Total Count of Devices with Crashes": "13"
+       },
+       {
+        "Date": "2026-10-02",
+        "Roku OS Release": "G3",
+        "App Version": "1.0.77",
+        "Error Text": "Function submit() As Void; pkg:/components/BrowseScreen.brs(301)",
+        "Total Count of Crashes": "10",
+        "Total Count of Devices with Crashes": "6"
+       },
+       {
+        "Date": "2026-10-01",
+        "Roku OS Release": "H0",
+        "App Version": "1.0.76",
+        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(197)",
+        "Total Count of Crashes": "4",
+        "Total Count of Devices with Crashes": "4"
+       },
+       {
+        "Date": "2026-10-07",
+        "Roku OS Release": "G3",
+        "App Version": "1.0.77",
+        "Error Text": "Function submit() As Void; pkg:/components/BrowseScreen.brs(301)",
+        "Total Count of Crashes": "3",
+        "Total Count of Devices with Crashes": "3"
+       },
+       {
+        "Date": "2026-10-03",
+        "Roku OS Release": "H0",
+        "App Version": "1.0.77",
+        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(221)",
+        "Total Count of Crashes": "3",
+        "Total Count of Devices with Crashes": "3"
+       },
+       {
+        "Date": "2026-10-02",
+        "Roku OS Release": "H0",
+        "App Version": "1.0.77",
+        "Error Text": "Function submit() As Void; pkg:/components/BrowseScreen.brs(301)",
+        "Total Count of Crashes": "5",
+        "Total Count of Devices with Crashes": "3"
+       },
+       {
+        "Date": "2026-10-06",
+        "Roku OS Release": "G3",
+        "App Version": "1.0.77",
+        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(221)",
+        "Total Count of Crashes": "7",
+        "Total Count of Devices with Crashes": "3"
+       },
+       {
+        "Date": "2026-10-06",
+        "Roku OS Release": "H0",
+        "App Version": "1.0.77",
+        "Error Text": "Function submit() As Void; pkg:/components/BrowseScreen.brs(301)",
+        "Total Count of Crashes": "2",
+        "Total Count of Devices with Crashes": "2"
+       },
+       {
+        "Date": "2026-10-04",
+        "Roku OS Release": "H0",
+        "App Version": "1.0.77",
+        "Error Text": "Function submit() As Void; pkg:/components/BrowseScreen.brs(301)",
+        "Total Count of Crashes": "3",
+        "Total Count of Devices with Crashes": "2"
+       },
+       {
+        "Date": "2026-10-05",
+        "Roku OS Release": "H0",
+        "App Version": "1.0.77",
+        "Error Text": "Function submit() As Void; pkg:/components/BrowseScreen.brs(301)",
+        "Total Count of Crashes": "2",
+        "Total Count of Devices with Crashes": "2"
+       },
+       {
+        "Date": "2026-10-03",
+        "Roku OS Release": "G3",
+        "App Version": "1.0.77",
+        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(221)",
+        "Total Count of Crashes": "2",
+        "Total Count of Devices with Crashes": "2"
+       },
+       {
+        "Date": "2026-10-05",
+        "Roku OS Release": "H0",
+        "App Version": "1.0.77",
+        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(221)",
+        "Total Count of Crashes": "2",
+        "Total Count of Devices with Crashes": "2"
+       },
+       {
+        "Date": "2026-10-02",
+        "Roku OS Release": "G3",
+        "App Version": "1.0.77",
+        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(221)",
+        "Total Count of Crashes": "1",
+        "Total Count of Devices with Crashes": "1"
+       },
+       {
+        "Date": "2026-10-03",
+        "Roku OS Release": "G3",
+        "App Version": "1.0.77",
+        "Error Text": "Function oncontent() As Void; pkg:/components/GridTile.brs(60)",
+        "Total Count of Crashes": "1",
+        "Total Count of Devices with Crashes": "1"
+       },
+       {
+        "Date": "2026-10-04",
+        "Roku OS Release": "G3",
+        "App Version": "1.0.77",
+        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(221)",
+        "Total Count of Crashes": "1",
+        "Total Count of Devices with Crashes": "1"
+       },
+       {
+        "Date": "2026-10-04",
+        "Roku OS Release": "G3",
+        "App Version": "1.0.77",
+        "Error Text": "Function onplay() As Void; pkg:/components/MainScene.brs(2794)",
+        "Total Count of Crashes": "1",
+        "Total Count of Devices with Crashes": "1"
+       },
+       {
+        "Date": "2026-10-01",
+        "Roku OS Release": "G3",
+        "App Version": "1.0.76",
+        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(197)",
+        "Total Count of Crashes": "1",
+        "Total Count of Devices with Crashes": "1"
+       },
+       {
+        "Date": "2026-10-03",
+        "Roku OS Release": "F6",
+        "App Version": "1.0.77",
+        "Error Text": "Function submit() As Void; pkg:/components/BrowseScreen.brs(301)",
+        "Total Count of Crashes": "2",
+        "Total Count of Devices with Crashes": "1"
+       },
+       {
+        "Date": "2026-10-06",
+        "Roku OS Release": "H0",
+        "App Version": "1.0.77",
+        "Error Text": "Function oncontent() As Void; pkg:/components/GridTile.brs(60)",
+        "Total Count of Crashes": "1",
+        "Total Count of Devices with Crashes": "1"
+       },
+       {
+        "Date": "2026-10-03",
+        "Roku OS Release": "H0",
+        "App Version": "1.0.77",
+        "Error Text": "Function oncontent() As Void; pkg:/components/GridTile.brs(60)",
+        "Total Count of Crashes": "1",
+        "Total Count of Devices with Crashes": "1"
+       },
+       {
+        "Date": "2026-10-01",
+        "Roku OS Release": "G3",
+        "App Version": "1.0.76",
+        "Error Text": "Function onplaybackfailed() As Void; pkg:/components/MainScene.brs(2800)",
+        "Total Count of Crashes": "3",
+        "Total Count of Devices with Crashes": "1"
+       },
+       {
+        "Date": "2026-10-04",
+        "Roku OS Release": "H0",
+        "App Version": "1.0.77",
+        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(221)",
+        "Total Count of Crashes": "1",
+        "Total Count of Devices with Crashes": "1"
+       },
+       {
+        "Date": "2026-10-03",
+        "Roku OS Release": "H0",
+        "App Version": "1.0.77",
+        "Error Text": "Function submit() As Void; pkg:/components/BrowseScreen.brs(301)",
+        "Total Count of Crashes": "1",
+        "Total Count of Devices with Crashes": "1"
+       },
+       {
+        "Date": "2026-10-03",
+        "Roku OS Release": "G3",
+        "App Version": "1.0.77",
+        "Error Text": "Function onplay() As Void; pkg:/components/MainScene.brs(2794)",
+        "Total Count of Crashes": "1",
+        "Total Count of Devices with Crashes": "1"
+       }
+      ],
+      "brightscript_crash_logs_with_stacktraces": [
+       {
+        "Error Key Date": "2026-10-07",
+        "Error Count": "3",
+        "Platform": "View report",
+        "App": "View report",
+        "Backtrace": "View report",
+        "Error Text": "Function submit() As Void; pkg:/components/BrowseScreen.brs(301)"
+       },
+       {
+        "Error Key Date": "2026-10-06",
+        "Error Count": "28",
+        "Platform": "View report",
+        "App": "View report",
+        "Backtrace": "View report",
+        "Error Text": "Function submit() As Void; pkg:/components/BrowseScreen.brs(301)"
+       },
+       {
+        "Error Key Date": "2026-10-06",
+        "Error Count": "7",
+        "Platform": "View report",
+        "App": "View report",
+        "Backtrace": "View report",
+        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(221)"
+       },
+       {
+        "Error Key Date": "2026-10-06",
+        "Error Count": "1",
+        "Platform": "View report",
+        "App": "View report",
+        "Backtrace": "View report",
+        "Error Text": "Function oncontent() As Void; pkg:/components/GridTile.brs(60)"
+       },
+       {
+        "Error Key Date": "2026-10-05",
+        "Error Count": "36",
+        "Platform": "View report",
+        "App": "View report",
+        "Backtrace": "View report",
+        "Error Text": "Function submit() As Void; pkg:/components/BrowseScreen.brs(301)"
+       },
+       {
+        "Error Key Date": "2026-10-05",
+        "Error Count": "2",
+        "Platform": "View report",
+        "App": "View report",
+        "Backtrace": "View report",
+        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(221)"
+       },
+       {
+        "Error Key Date": "2026-10-04",
+        "Error Count": "39",
+        "Platform": "View report",
+        "App": "View report",
+        "Backtrace": "View report",
+        "Error Text": "Function submit() As Void; pkg:/components/BrowseScreen.brs(301)"
+       },
+       {
+        "Error Key Date": "2026-10-04",
+        "Error Count": "2",
+        "Platform": "View report",
+        "App": "View report",
+        "Backtrace": "View report",
+        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(221)"
+       },
+       {
+        "Error Key Date": "2026-10-04",
+        "Error Count": "1",
+        "Platform": "View report",
+        "App": "View report",
+        "Backtrace": "View report",
+        "Error Text": "Function onplay() As Void; pkg:/components/MainScene.brs(2794)"
+       },
+       {
+        "Error Key Date": "2026-10-03",
+        "Error Count": "24",
+        "Platform": "View report",
+        "App": "View report",
+        "Backtrace": "View report",
+        "Error Text": "Function submit() As Void; pkg:/components/BrowseScreen.brs(301)"
+       },
+       {
+        "Error Key Date": "2026-10-03",
+        "Error Count": "5",
+        "Platform": "View report",
+        "App": "View report",
+        "Backtrace": "View report",
+        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(221)"
+       },
+       {
+        "Error Key Date": "2026-10-03",
+        "Error Count": "2",
+        "Platform": "View report",
+        "App": "View report",
+        "Backtrace": "View report",
+        "Error Text": "Function oncontent() As Void; pkg:/components/GridTile.brs(60)"
+       },
+       {
+        "Error Key Date": "2026-10-03",
+        "Error Count": "1",
+        "Platform": "View report",
+        "App": "View report",
+        "Backtrace": "View report",
+        "Error Text": "Function onplay() As Void; pkg:/components/MainScene.brs(2794)"
+       },
+       {
+        "Error Key Date": "2026-10-02",
+        "Error Count": "15",
+        "Platform": "View report",
+        "App": "View report",
+        "Backtrace": "View report",
+        "Error Text": "Function submit() As Void; pkg:/components/BrowseScreen.brs(301)"
+       },
+       {
+        "Error Key Date": "2026-10-02",
+        "Error Count": "1",
+        "Platform": "View report",
+        "App": "View report",
+        "Backtrace": "View report",
+        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(221)"
+       },
+       {
+        "Error Key Date": "2026-10-01",
+        "Error Count": "5",
+        "Platform": "View report",
+        "App": "View report",
+        "Backtrace": "View report",
+        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(197)"
+       },
+       {
+        "Error Key Date": "2026-10-01",
+        "Error Count": "3",
+        "Platform": "View report",
+        "App": "View report",
+        "Backtrace": "View report",
+        "Error Text": "Function onplaybackfailed() As Void; pkg:/components/MainScene.brs(2800)"
+       }
+      ]
+     },
+     "emptyTiles": [
+      "channel_crashes_by_product",
+      "devices_with_channel_crashes_by_product"
+     ]
+    },
+    "Viewership Summary": {
+     "daily": [
+      {
+       "date": "2026-09-23",
+       "Visits": 2284.0,
+       "Streams": 717.0,
+       "Total Hours Streamed": 732.0,
+       "Rebuffers per Streaming Hour": 0.11,
+       "Ratio of Streams to Visits": 0.31,
+       "Average Stream Duration (Minutes)": 61.3
+      },
+      {
+       "date": "2026-09-24",
+       "Visits": 1454.0,
+       "Streams": 369.0,
+       "Total Hours Streamed": 388.0,
+       "Rebuffers per Streaming Hour": 0.37,
+       "Ratio of Streams to Visits": 0.25,
+       "Average Stream Duration (Minutes)": 63.1
+      },
+      {
+       "date": "2026-09-25",
+       "Visits": 2511.0,
+       "Streams": 639.0,
+       "Total Hours Streamed": 665.0,
+       "Rebuffers per Streaming Hour": 0.05,
+       "Ratio of Streams to Visits": 0.25,
+       "Average Stream Duration (Minutes)": 62.4
+      },
+      {
+       "date": "2026-09-26",
+       "Visits": 3405.0,
+       "Streams": 683.0,
+       "Total Hours Streamed": 735.0,
+       "Rebuffers per Streaming Hour": 0.09,
+       "Ratio of Streams to Visits": 0.2,
+       "Average Stream Duration (Minutes)": 64.6
+      },
+      {
+       "date": "2026-09-27",
+       "Visits": 3196.0,
+       "Streams": 760.0,
+       "Total Hours Streamed": 807.0,
+       "Rebuffers per Streaming Hour": 0.06,
+       "Ratio of Streams to Visits": 0.24,
+       "Average Stream Duration (Minutes)": 63.7
+      },
+      {
+       "date": "2026-09-28",
+       "Visits": 1711.0,
+       "Streams": 405.0,
+       "Total Hours Streamed": 395.0,
+       "Rebuffers per Streaming Hour": 0.16,
+       "Ratio of Streams to Visits": 0.24,
+       "Average Stream Duration (Minutes)": 58.6
+      },
+      {
+       "date": "2026-09-29",
+       "Visits": 2274.0,
+       "Streams": 623.0,
+       "Total Hours Streamed": 633.0,
+       "Ratio of Streams to Visits": 0.27,
+       "Average Stream Duration (Minutes)": 60.9,
+       "Rebuffers per Streaming Hour": 0.15
+      },
+      {
+       "date": "2026-09-30",
+       "Visits": 2306.0,
+       "Streams": 541.0,
+       "Total Hours Streamed": 551.0,
+       "Ratio of Streams to Visits": 0.23,
+       "Average Stream Duration (Minutes)": 61.1,
+       "Rebuffers per Streaming Hour": 0.05
+      },
+      {
+       "date": "2026-10-01",
+       "Visits": 2664.0,
+       "Streams": 674.0,
+       "Total Hours Streamed": 653.0,
+       "Ratio of Streams to Visits": 0.25,
+       "Average Stream Duration (Minutes)": 58.1,
+       "Rebuffers per Streaming Hour": 0.59
+      },
+      {
+       "date": "2026-10-02",
+       "Total Hours Streamed": 240.0,
+       "Ratio of Streams to Visits": 0.19,
+       "Average Stream Duration (Minutes)": 52.6,
+       "Rebuffers per Streaming Hour": 0.42,
+       "Visits": 1442.0,
+       "Streams": 274.0
+      },
+      {
+       "date": "2026-10-03",
+       "Total Hours Streamed": 808.0,
+       "Ratio of Streams to Visits": 0.17,
+       "Average Stream Duration (Minutes)": 61.2,
+       "Rebuffers per Streaming Hour": 0.9,
+       "Visits": 4780.0,
+       "Streams": 792.0
+      },
+      {
+       "date": "2026-10-04",
+       "Total Hours Streamed": 795.0,
+       "Rebuffers per Streaming Hour": 0.12,
+       "Ratio of Streams to Visits": 0.19,
+       "Average Stream Duration (Minutes)": 62.5,
+       "Visits": 4108.0,
+       "Streams": 764.0
+      },
+      {
+       "date": "2026-10-05"
+      }
+     ],
      "headline": {},
      "tiles": [
-      "amarillo_1080",
-      "amarillo_4k",
-      "athens",
-      "austin_mustang",
-      "bailey",
-      "bayside",
-      "benjamin",
-      "benjamin-w",
-      "brewster",
-      "briscoe",
-      "bryan",
-      "bryan_2",
-      "camden",
-      "chico",
-      "cooper",
-      "damon",
-      "el_paso",
-      "fruitland",
-      "ftworth",
-      "gilbert",
-      "gilbert_4k",
-      "lakeport",
-      "liberty",
-      "littlefield",
-      "lockhart",
-      "logan",
-      "longview",
-      "madison",
-      "malone",
-      "marlin",
-      "miami",
-      "midland",
-      "nemo",
-      "reno",
-      "rockett",
-      "roma",
-      "roxton",
-      "sandia",
-      "shiner",
-      "trinidad"
+      "rebuffers_per_streaming_hour",
+      "streaming_ratios",
+      "viewership_details",
+      "visits_and_streams"
      ],
-     "tables": {},
-     "emptyTiles": [
-      "amarillo_1080",
-      "amarillo_4k",
-      "athens",
-      "austin_mustang",
-      "bailey",
-      "bayside",
-      "benjamin",
-      "benjamin-w",
-      "brewster",
-      "briscoe",
-      "bryan",
-      "bryan_2",
-      "camden",
-      "chico",
-      "cooper",
-      "damon",
-      "el_paso",
-      "fruitland",
-      "ftworth",
-      "gilbert",
-      "gilbert_4k",
-      "lakeport",
-      "liberty",
-      "littlefield",
-      "lockhart",
-      "logan",
-      "longview",
-      "madison",
-      "malone",
-      "marlin",
-      "miami",
-      "midland",
-      "nemo",
-      "reno",
-      "rockett",
-      "roma",
-      "roxton",
-      "sandia",
-      "shiner",
-      "trinidad"
-     ]
+     "tables": {
+      "viewership_details": [
+       {
+        "Hardware": "Amarillo_1080",
+        "Roku Model": "3800X",
+        "Visits": "107",
+        "Streams": "17",
+        "Total Hours Streamed": "8",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Amarillo_1080",
+        "Roku Model": "3800RW",
+        "Visits": "5",
+        "Streams": "0",
+        "Total Hours Streamed": "0",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Amarillo_4K",
+        "Roku Model": "3810R",
+        "Visits": "235",
+        "Streams": "56",
+        "Total Hours Streamed": "36",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Amarillo_4K",
+        "Roku Model": "3811X",
+        "Visits": "9",
+        "Streams": "10",
+        "Total Hours Streamed": "4",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Amarillo_4K",
+        "Roku Model": "3810RW2",
+        "Visits": "95",
+        "Streams": "36",
+        "Total Hours Streamed": "40",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Amarillo_4K",
+        "Roku Model": "3810RW",
+        "Visits": "26",
+        "Streams": "10",
+        "Total Hours Streamed": "9",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Amarillo_4K",
+        "Roku Model": "3810X",
+        "Visits": "100",
+        "Streams": "10",
+        "Total Hours Streamed": "4",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G306X",
+        "Visits": "5",
+        "Streams": "5",
+        "Total Hours Streamed": "6",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "GD35X",
+        "Visits": "5",
+        "Streams": "0",
+        "Total Hours Streamed": "0",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G812X",
+        "Visits": "10",
+        "Streams": "0",
+        "Total Hours Streamed": "0",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G305X",
+        "Visits": "5",
+        "Streams": "0",
+        "Total Hours Streamed": "0",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G816X",
+        "Visits": "6",
+        "Streams": "0",
+        "Total Hours Streamed": "0",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G246X",
+        "Visits": "1",
+        "Streams": "0",
+        "Total Hours Streamed": "0",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G439X",
+        "Visits": "10",
+        "Streams": "0",
+        "Total Hours Streamed": "0",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G217X",
+        "Visits": "150",
+        "Streams": "20",
+        "Total Hours Streamed": "25",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "GE24X",
+        "Visits": "9",
+        "Streams": "0",
+        "Total Hours Streamed": "0",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G819X",
+        "Visits": "16",
+        "Streams": "0",
+        "Total Hours Streamed": "0",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "GE05X",
+        "Visits": "5",
+        "Streams": "0",
+        "Total Hours Streamed": "0",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G846X",
+        "Visits": "25",
+        "Streams": "5",
+        "Total Hours Streamed": "5",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G307X",
+        "Visits": "7",
+        "Streams": "0",
+        "Total Hours Streamed": "0",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G875X",
+        "Visits": "21",
+        "Streams": "11",
+        "Total Hours Streamed": "19",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G829X",
+        "Visits": "181",
+        "Streams": "15",
+        "Total Hours Streamed": "16",
+        "Rebuffers per Streaming Hour": "10.17"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G178X",
+        "Visits": "5",
+        "Streams": "0",
+        "Total Hours Streamed": "0",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G853X",
+        "Visits": "10",
+        "Streams": "0",
+        "Total Hours Streamed": "0",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G133X",
+        "Visits": "11",
+        "Streams": "0",
+        "Total Hours Streamed": "0",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G204X",
+        "Visits": "216",
+        "Streams": "37",
+        "Total Hours Streamed": "48",
+        "Rebuffers per Streaming Hour": "0.10"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G232X",
+        "Visits": "4",
+        "Streams": "0",
+        "Total Hours Streamed": "0",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G512X",
+        "Visits": "34",
+        "Streams": "10",
+        "Total Hours Streamed": "5",
+        "Rebuffers per Streaming Hour": "0.92"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G407X",
+        "Visits": "3",
+        "Streams": "0",
+        "Total Hours Streamed": "0"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G219X",
+        "Visits": "4",
+        "Streams": "0",
+        "Total Hours Streamed": "0",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G107X",
+        "Visits": "21",
+        "Streams": "8",
+        "Total Hours Streamed": "3",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G849X",
+        "Visits": "4",
+        "Streams": "0",
+        "Total Hours Streamed": "0",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G899X",
+        "Visits": "8",
+        "Streams": "15",
+        "Total Hours Streamed": "10",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G229X",
+        "Visits": "10",
+        "Streams": "2",
+        "Total Hours Streamed": "3",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G408X",
+        "Visits": "1",
+        "Streams": "0",
+        "Total Hours Streamed": "0",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "GG13X",
+        "Visits": "3",
+        "Streams": "0",
+        "Total Hours Streamed": "0",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G136X",
+        "Visits": "203",
+        "Streams": "34",
+        "Total Hours Streamed": "41",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G847X",
+        "Visits": "65",
+        "Streams": "9",
+        "Total Hours Streamed": "8",
+        "Rebuffers per Streaming Hour": "0.62"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G140X",
+        "Visits": "28",
+        "Streams": "8",
+        "Total Hours Streamed": "8",
+        "Rebuffers per Streaming Hour": "0.00"
+       },
+       {
+        "Hardware": "Athens",
+        "Roku Model": "G222X",
+        "Visits": "21",
+        "Streams": "5",
+        "Total Hours Streamed": "3",
+        "Rebuffers per Streaming Hour": "0.00"
+       }
+      ],
+      "rebuffers_per_streaming_hour": [
+       {
+        "date": "2026-10-05"
+       },
+       {
+        "date": "2026-10-04",
+        "Total Hours Streamed": "795",
+        "Rebuffers per Streaming Hour": "0.12"
+       },
+       {
+        "date": "2026-10-03",
+        "Total Hours Streamed": "808",
+        "Rebuffers per Streaming Hour": "0.90"
+       },
+       {
+        "date": "2026-10-02",
+        "Total Hours Streamed": "240",
+        "Rebuffers per Streaming Hour": "0.42"
+       },
+       {
+        "date": "2026-10-01",
+        "Total Hours Streamed": "653",
+        "Rebuffers per Streaming Hour": "0.59"
+       },
+       {
+        "date": "2026-09-30",
+        "Total Hours Streamed": "551",
+        "Rebuffers per Streaming Hour": "0.05"
+       },
+       {
+        "date": "2026-09-29",
+        "Total Hours Streamed": "633",
+        "Rebuffers per Streaming Hour": "0.15"
+       }
+      ],
+      "streaming_ratios": [
+       {
+        "date": "2026-10-05"
+       },
+       {
+        "date": "2026-10-04",
+        "Total Hours Streamed": "795",
+        "Ratio of Streams to Visits": "0.19",
+        "Average Stream Duration (Minutes)": "62.5"
+       },
+       {
+        "date": "2026-10-03",
+        "Total Hours Streamed": "808",
+        "Ratio of Streams to Visits": "0.17",
+        "Average Stream Duration (Minutes)": "61.2"
+       },
+       {
+        "date": "2026-10-02",
+        "Total Hours Streamed": "240",
+        "Ratio of Streams to Visits": "0.19",
+        "Average Stream Duration (Minutes)": "52.6"
+       },
+       {
+        "date": "2026-10-01",
+        "Total Hours Streamed": "653",
+        "Ratio of Streams to Visits": "0.25",
+        "Average Stream Duration (Minutes)": "58.1"
+       },
+       {
+        "date": "2026-09-30",
+        "Total Hours Streamed": "551",
+        "Ratio of Streams to Visits": "0.23",
+        "Average Stream Duration (Minutes)": "61.1"
+       },
+       {
+        "date": "2026-09-29",
+        "Total Hours Streamed": "633",
+        "Ratio of Streams to Visits": "0.27",
+        "Average Stream Duration (Minutes)": "60.9"
+       }
+      ],
+      "visits_and_streams": [
+       {
+        "date": "2026-10-05"
+       },
+       {
+        "date": "2026-10-04",
+        "Visits": "4,108",
+        "Streams": "764"
+       },
+       {
+        "date": "2026-10-03",
+        "Visits": "4,780",
+        "Streams": "792"
+       },
+       {
+        "date": "2026-10-02",
+        "Visits": "1,442",
+        "Streams": "274"
+       },
+       {
+        "date": "2026-10-01",
+        "Visits": "2,664",
+        "Streams": "674"
+       },
+       {
+        "date": "2026-09-30",
+        "Visits": "2,306",
+        "Streams": "541"
+       },
+       {
+        "date": "2026-09-29",
+        "Visits": "2,274",
+        "Streams": "623"
+       }
+      ]
+     },
+     "emptyTiles": []
     },
     "App Engagement": {
      "daily": [
@@ -4633,7 +5656,7 @@
        "Bounce Rate": 12.185,
        "Total Minutes Streamed": 14023.0,
        "Average Minutes per Streaming Account": 16.081422018348626,
-       "Streaming Accounts / Cumulative Installs": 15.95,
+       "Streaming Accounts / Cumulative Installs": 15.953,
        "Channel Installs": 724.0,
        "Channel Uninstalls": 66.0,
        "Net Installs": 658.0
@@ -4649,14 +5672,26 @@
        "Visitors": 753.0,
        "Viewers": 617.0,
        "Bounce Rate": 18.061
+      },
+      {
+       "date": "2026-10-05",
+       "Visitors": 643.0,
+       "Viewers": 544.0,
+       "Bounce Rate": 15.397,
+       "Total Minutes Streamed": 11760.0,
+       "Average Minutes per Streaming Account": 21.61764705882353,
+       "Streaming Accounts / Cumulative Installs": 8.484,
+       "Channel Installs": 425.0,
+       "Channel Uninstalls": 46.0,
+       "Net Installs": 379.0
       }
      ],
      "headline": {
-      "Avg Daily Viewers": 540.0,
-      "Average Minutes Streamed per Viewer": 20.31,
-      "Hours Streamed": 1281.0,
-      "Account Channel Installs": 3097.0,
-      "Account Channel Uninstalls": 338.0
+      "Account Channel Installs": 3217.0,
+      "Account Channel Uninstalls": 353.0,
+      "Avg Daily Viewers": 561.0,
+      "Hours Streamed": 1302.0,
+      "Average Minutes Streamed per Viewer": 19.91
      },
      "tiles": [
       "ave_minutes___visitor",
@@ -4672,12 +5707,16 @@
      "tables": {
       "cumulative_net_installs": [
        {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-05",
+        "Agg Channel Metrics Time Grain Account Installs Todate Sum": "6,412"
+       },
+       {
         "Agg Channel Metrics Time Grain Date Key Date": "2026-10-04",
         "Agg Channel Metrics Time Grain Account Installs Todate Sum": "5,987"
        },
        {
         "Agg Channel Metrics Time Grain Date Key Date": "2026-10-03",
-        "Agg Channel Metrics Time Grain Account Installs Todate Sum": "5,467"
+        "Agg Channel Metrics Time Grain Account Installs Todate Sum": "5,466"
        },
        {
         "Agg Channel Metrics Time Grain Date Key Date": "2026-10-02",
@@ -4694,101 +5733,15 @@
        {
         "Agg Channel Metrics Time Grain Date Key Date": "2026-09-29",
         "Agg Channel Metrics Time Grain Account Installs Todate Sum": "3,473"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-09-28",
-        "Agg Channel Metrics Time Grain Account Installs Todate Sum": "3,194"
-       }
-      ],
-      "install_base_growth": [
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-09-28",
-        "Channel Installs": "305",
-        "Channel Uninstalls": "31",
-        "Net Installs": "274"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-09-29",
-        "Channel Installs": "279",
-        "Channel Uninstalls": "39",
-        "Net Installs": "240"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-09-30",
-        "Channel Installs": "345",
-        "Channel Uninstalls": "41",
-        "Net Installs": "304"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-01",
-        "Channel Installs": "324",
-        "Channel Uninstalls": "34",
-        "Net Installs": "290"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-02",
-        "Channel Installs": "600",
-        "Channel Uninstalls": "56",
-        "Net Installs": "544"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-03",
-        "Channel Installs": "724",
-        "Channel Uninstalls": "66",
-        "Net Installs": "658"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-04",
-        "Channel Installs": "520",
-        "Channel Uninstalls": "71",
-        "Net Installs": "449"
-       }
-      ],
-      "minutes_streamed": [
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-04",
-        "Total Minutes Streamed": "12,761",
-        "Average Minutes per Streaming Account": "20.682333873581847",
-        "Streaming Accounts / Cumulative Installs": "10.306%"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-03",
-        "Total Minutes Streamed": "14,023",
-        "Average Minutes per Streaming Account": "16.081422018348626",
-        "Streaming Accounts / Cumulative Installs": "15.950%"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-02",
-        "Total Minutes Streamed": "11,995",
-        "Average Minutes per Streaming Account": "15.659268929503916",
-        "Streaming Accounts / Cumulative Installs": "16.154%"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-01",
-        "Total Minutes Streamed": "8,833",
-        "Average Minutes per Streaming Account": "23.680965147453083",
-        "Streaming Accounts / Cumulative Installs": "9.005%"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-09-30",
-        "Total Minutes Streamed": "9,039",
-        "Average Minutes per Streaming Account": "23.60052219321149",
-        "Streaming Accounts / Cumulative Installs": "10.031%"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-09-29",
-        "Total Minutes Streamed": "9,709",
-        "Average Minutes per Streaming Account": "26.311653116531165",
-        "Streaming Accounts / Cumulative Installs": "10.625%"
-       },
-       {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-09-28",
-        "Total Minutes Streamed": "10,484",
-        "Average Minutes per Streaming Account": "26.01488833746898",
-        "Streaming Accounts / Cumulative Installs": "12.617%"
        }
       ],
       "channel_visitors_and_streaming_viewers": [
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-05",
+        "Visitors": "643",
+        "Viewers": "544",
+        "Bounce Rate": "15.397%"
+       },
        {
         "Agg Channel Metrics Time Grain Date Key Date": "2026-10-04",
         "Visitors": "753",
@@ -4824,1048 +5777,187 @@
         "Visitors": "442",
         "Viewers": "369",
         "Bounce Rate": "16.516%"
+       }
+      ],
+      "minutes_streamed": [
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-05",
+        "Total Minutes Streamed": "11,760",
+        "Average Minutes per Streaming Account": "21.61764705882353",
+        "Streaming Accounts / Cumulative Installs": "8.484%"
        },
        {
-        "Agg Channel Metrics Time Grain Date Key Date": "2026-09-28",
-        "Visitors": "469",
-        "Viewers": "403",
-        "Bounce Rate": "14.072%"
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-04",
+        "Total Minutes Streamed": "12,761",
+        "Average Minutes per Streaming Account": "20.682333873581847",
+        "Streaming Accounts / Cumulative Installs": "10.306%"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-03",
+        "Total Minutes Streamed": "14,023",
+        "Average Minutes per Streaming Account": "16.081422018348626",
+        "Streaming Accounts / Cumulative Installs": "15.953%"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-02",
+        "Total Minutes Streamed": "11,995",
+        "Average Minutes per Streaming Account": "15.659268929503916",
+        "Streaming Accounts / Cumulative Installs": "16.154%"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-01",
+        "Total Minutes Streamed": "8,833",
+        "Average Minutes per Streaming Account": "23.680965147453083",
+        "Streaming Accounts / Cumulative Installs": "9.005%"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-09-30",
+        "Total Minutes Streamed": "9,039",
+        "Average Minutes per Streaming Account": "23.60052219321149",
+        "Streaming Accounts / Cumulative Installs": "10.031%"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-09-29",
+        "Total Minutes Streamed": "9,709",
+        "Average Minutes per Streaming Account": "26.311653116531165",
+        "Streaming Accounts / Cumulative Installs": "10.625%"
+       }
+      ],
+      "install_base_growth": [
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-09-29",
+        "Channel Installs": "279",
+        "Channel Uninstalls": "39",
+        "Net Installs": "240"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-09-30",
+        "Channel Installs": "345",
+        "Channel Uninstalls": "41",
+        "Net Installs": "304"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-01",
+        "Channel Installs": "324",
+        "Channel Uninstalls": "34",
+        "Net Installs": "290"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-02",
+        "Channel Installs": "600",
+        "Channel Uninstalls": "56",
+        "Net Installs": "544"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-03",
+        "Channel Installs": "724",
+        "Channel Uninstalls": "66",
+        "Net Installs": "658"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-04",
+        "Channel Installs": "520",
+        "Channel Uninstalls": "71",
+        "Net Installs": "449"
+       },
+       {
+        "Agg Channel Metrics Time Grain Date Key Date": "2026-10-05",
+        "Channel Installs": "425",
+        "Channel Uninstalls": "46",
+        "Net Installs": "379"
        }
       ]
      },
      "emptyTiles": []
     },
-    "App Health": {
-     "daily": [
-      {
-       "date": "2026-09-25",
-       "Total Count of Crashes": 1.0,
-       "Total Count of Devices with Crashes": 1.0,
-       "Error Count": 2.0
-      },
-      {
-       "date": "2026-09-26",
-       "Total Count of Crashes": 2.0,
-       "Total Count of Devices with Crashes": 1.0,
-       "Error Count": 1.0
-      },
-      {
-       "date": "2026-09-27",
-       "Total Count of Crashes": 1.0,
-       "Total Count of Devices with Crashes": 1.0,
-       "Error Count": 1.0
-      },
-      {
-       "date": "2026-09-28",
-       "Total Count of Crashes": 1.0,
-       "Total Count of Devices with Crashes": 1.0,
-       "Error Count": 5.0
-      },
-      {
-       "date": "2026-09-29",
-       "Total Count of Crashes": 1.0,
-       "Total Count of Devices with Crashes": 1.0,
-       "Error Count": 1.0
-      },
-      {
-       "date": "2026-09-30",
-       "Total Count of Crashes": 1.0,
-       "Total Count of Devices with Crashes": 1.0,
-       "Error Count": 1.0
-      },
-      {
-       "date": "2026-10-01",
-       "Total Count of Crashes": 1.0,
-       "Total Count of Devices with Crashes": 1.0,
-       "Error Count": 3.0
-      },
-      {
-       "date": "2026-10-02",
-       "Total Count of Crashes": 1.0,
-       "Total Count of Devices with Crashes": 1.0,
-       "Error Count": 1.0
-      },
-      {
-       "date": "2026-10-03",
-       "Total Count of Crashes": 1.0,
-       "Total Count of Devices with Crashes": 1.0,
-       "Error Count": 1.0
-      },
-      {
-       "date": "2026-10-04",
-       "Error Count": 1.0,
-       "Total Count of Crashes": 1.0,
-       "Total Count of Devices with Crashes": 1.0
-      },
-      {
-       "date": "2026-10-05",
-       "Total Count of Crashes": 2.0,
-       "Total Count of Devices with Crashes": 2.0,
-       "Error Count": 2.0
-      },
-      {
-       "date": "2026-10-06",
-       "Total Count of Crashes": 5.0,
-       "Total Count of Devices with Crashes": 2.0,
-       "Error Count": 5.0
-      }
-     ],
-     "headline": {
-      "Average Video Start Time (Seconds)": 9.361,
-      "Average Bitrate (Megabits)": 0.128,
-      "Buffering as % of Total Streaming Time": 0.75,
-      "Channel Crashes as % of Total Devices Streaming": 3.1,
-      "Channel Crashes per Streaming Hour": 0.1074,
-      "Rebuffers per Hours Streamed": 0.43,
-      "Rebuffers Sum": 1335.0
-     },
-     "tiles": [
-      "brightscript_crash_logs",
-      "brightscript_crash_logs_with_stacktraces",
-      "channel_crashes_by_product",
-      "data_transfer_speeds",
-      "devices_with_channel_crashes",
-      "devices_with_channel_crashes_by_product",
-      "rebuffers-tile"
-     ],
-     "tables": {
-      "brightscript_crash_logs": [
-       {
-        "Date": "2026-10-04",
-        "Roku OS Release": "G3",
-        "App Version": "1.0.77",
-        "Error Text": "Function submit() As Void; pkg:/components/BrowseScreen.brs(301)",
-        "Total Count of Crashes": "36",
-        "Total Count of Devices with Crashes": "19"
-       },
-       {
-        "Date": "2026-10-05",
-        "Roku OS Release": "G3",
-        "App Version": "1.0.77",
-        "Error Text": "Function submit() As Void; pkg:/components/BrowseScreen.brs(301)",
-        "Total Count of Crashes": "34",
-        "Total Count of Devices with Crashes": "15"
-       },
-       {
-        "Date": "2026-10-03",
-        "Roku OS Release": "G3",
-        "App Version": "1.0.77",
-        "Error Text": "Function submit() As Void; pkg:/components/BrowseScreen.brs(301)",
-        "Total Count of Crashes": "21",
-        "Total Count of Devices with Crashes": "14"
-       },
-       {
-        "Date": "2026-10-02",
-        "Roku OS Release": "G3",
-        "App Version": "1.0.77",
-        "Error Text": "Function submit() As Void; pkg:/components/BrowseScreen.brs(301)",
-        "Total Count of Crashes": "10",
-        "Total Count of Devices with Crashes": "6"
-       },
-       {
-        "Date": "2026-10-01",
-        "Roku OS Release": "H0",
-        "App Version": "1.0.76",
-        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(197)",
-        "Total Count of Crashes": "4",
-        "Total Count of Devices with Crashes": "4"
-       },
-       {
-        "Date": "2026-10-06",
-        "Roku OS Release": "G3",
-        "App Version": "1.0.77",
-        "Error Text": "Function submit() As Void; pkg:/components/BrowseScreen.brs(301)",
-        "Total Count of Crashes": "6",
-        "Total Count of Devices with Crashes": "4"
-       },
-       {
-        "Date": "2026-10-02",
-        "Roku OS Release": "H0",
-        "App Version": "1.0.77",
-        "Error Text": "Function submit() As Void; pkg:/components/BrowseScreen.brs(301)",
-        "Total Count of Crashes": "5",
-        "Total Count of Devices with Crashes": "3"
-       },
-       {
-        "Date": "2026-10-03",
-        "Roku OS Release": "H0",
-        "App Version": "1.0.77",
-        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(221)",
-        "Total Count of Crashes": "3",
-        "Total Count of Devices with Crashes": "3"
-       },
-       {
-        "Date": "2026-10-05",
-        "Roku OS Release": "H0",
-        "App Version": "1.0.77",
-        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(221)",
-        "Total Count of Crashes": "2",
-        "Total Count of Devices with Crashes": "2"
-       },
-       {
-        "Date": "2026-10-04",
-        "Roku OS Release": "H0",
-        "App Version": "1.0.77",
-        "Error Text": "Function submit() As Void; pkg:/components/BrowseScreen.brs(301)",
-        "Total Count of Crashes": "3",
-        "Total Count of Devices with Crashes": "2"
-       },
-       {
-        "Date": "2026-09-30",
-        "Roku OS Release": "G3",
-        "App Version": "1.0.76",
-        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(197)",
-        "Total Count of Crashes": "2",
-        "Total Count of Devices with Crashes": "2"
-       },
-       {
-        "Date": "2026-10-05",
-        "Roku OS Release": "H0",
-        "App Version": "1.0.77",
-        "Error Text": "Function submit() As Void; pkg:/components/BrowseScreen.brs(301)",
-        "Total Count of Crashes": "2",
-        "Total Count of Devices with Crashes": "2"
-       },
-       {
-        "Date": "2026-10-03",
-        "Roku OS Release": "G3",
-        "App Version": "1.0.77",
-        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(221)",
-        "Total Count of Crashes": "2",
-        "Total Count of Devices with Crashes": "2"
-       },
-       {
-        "Date": "2026-10-06",
-        "Roku OS Release": "G3",
-        "App Version": "1.0.77",
-        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(221)",
-        "Total Count of Crashes": "5",
-        "Total Count of Devices with Crashes": "2"
-       },
-       {
-        "Date": "2026-10-03",
-        "Roku OS Release": "G3",
-        "App Version": "1.0.77",
-        "Error Text": "Function onplay() As Void; pkg:/components/MainScene.brs(2794)",
-        "Total Count of Crashes": "1",
-        "Total Count of Devices with Crashes": "1"
-       },
-       {
-        "Date": "2026-09-30",
-        "Roku OS Release": "G3",
-        "App Version": "1.0.76",
-        "Error Text": "Function onplay() As Void; pkg:/components/MainScene.brs(2768)",
-        "Total Count of Crashes": "2",
-        "Total Count of Devices with Crashes": "1"
-       },
-       {
-        "Date": "2026-10-02",
-        "Roku OS Release": "G3",
-        "App Version": "1.0.77",
-        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(221)",
-        "Total Count of Crashes": "1",
-        "Total Count of Devices with Crashes": "1"
-       },
-       {
-        "Date": "2026-09-30",
-        "Roku OS Release": "H0",
-        "App Version": "1.0.76",
-        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(214)",
-        "Total Count of Crashes": "1",
-        "Total Count of Devices with Crashes": "1"
-       },
-       {
-        "Date": "2026-10-04",
-        "Roku OS Release": "H0",
-        "App Version": "1.0.77",
-        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(221)",
-        "Total Count of Crashes": "1",
-        "Total Count of Devices with Crashes": "1"
-       },
-       {
-        "Date": "2026-10-01",
-        "Roku OS Release": "G3",
-        "App Version": "1.0.76",
-        "Error Text": "Function onplaybackfailed() As Void; pkg:/components/MainScene.brs(2800)",
-        "Total Count of Crashes": "3",
-        "Total Count of Devices with Crashes": "1"
-       },
-       {
-        "Date": "2026-09-30",
-        "Roku OS Release": "H0",
-        "App Version": "1.0.76",
-        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(197)",
-        "Total Count of Crashes": "1",
-        "Total Count of Devices with Crashes": "1"
-       },
-       {
-        "Date": "2026-10-03",
-        "Roku OS Release": "H0",
-        "App Version": "1.0.77",
-        "Error Text": "Function oncontent() As Void; pkg:/components/GridTile.brs(60)",
-        "Total Count of Crashes": "1",
-        "Total Count of Devices with Crashes": "1"
-       },
-       {
-        "Date": "2026-10-04",
-        "Roku OS Release": "G3",
-        "App Version": "1.0.77",
-        "Error Text": "Function onplay() As Void; pkg:/components/MainScene.brs(2794)",
-        "Total Count of Crashes": "1",
-        "Total Count of Devices with Crashes": "1"
-       },
-       {
-        "Date": "2026-10-01",
-        "Roku OS Release": "G3",
-        "App Version": "1.0.76",
-        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(197)",
-        "Total Count of Crashes": "1",
-        "Total Count of Devices with Crashes": "1"
-       },
-       {
-        "Date": "2026-10-03",
-        "Roku OS Release": "F6",
-        "App Version": "1.0.77",
-        "Error Text": "Function submit() As Void; pkg:/components/BrowseScreen.brs(301)",
-        "Total Count of Crashes": "2",
-        "Total Count of Devices with Crashes": "1"
-       },
-       {
-        "Date": "2026-10-04",
-        "Roku OS Release": "G3",
-        "App Version": "1.0.77",
-        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(221)",
-        "Total Count of Crashes": "1",
-        "Total Count of Devices with Crashes": "1"
-       },
-       {
-        "Date": "2026-10-03",
-        "Roku OS Release": "H0",
-        "App Version": "1.0.77",
-        "Error Text": "Function submit() As Void; pkg:/components/BrowseScreen.brs(301)",
-        "Total Count of Crashes": "1",
-        "Total Count of Devices with Crashes": "1"
-       },
-       {
-        "Date": "2026-10-03",
-        "Roku OS Release": "G3",
-        "App Version": "1.0.77",
-        "Error Text": "Function oncontent() As Void; pkg:/components/GridTile.brs(60)",
-        "Total Count of Crashes": "1",
-        "Total Count of Devices with Crashes": "1"
-       }
-      ],
-      "brightscript_crash_logs_with_stacktraces": [
-       {
-        "Error Key Date": "2026-10-06",
-        "Error Count": "6",
-        "Platform": "View report",
-        "App": "View report",
-        "Backtrace": "View report",
-        "Error Text": "Function submit() As Void; pkg:/components/BrowseScreen.brs(301)"
-       },
-       {
-        "Error Key Date": "2026-10-06",
-        "Error Count": "5",
-        "Platform": "View report",
-        "App": "View report",
-        "Backtrace": "View report",
-        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(221)"
-       },
-       {
-        "Error Key Date": "2026-10-05",
-        "Error Count": "36",
-        "Platform": "View report",
-        "App": "View report",
-        "Backtrace": "View report",
-        "Error Text": "Function submit() As Void; pkg:/components/BrowseScreen.brs(301)"
-       },
-       {
-        "Error Key Date": "2026-10-05",
-        "Error Count": "2",
-        "Platform": "View report",
-        "App": "View report",
-        "Backtrace": "View report",
-        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(221)"
-       },
-       {
-        "Error Key Date": "2026-10-04",
-        "Error Count": "39",
-        "Platform": "View report",
-        "App": "View report",
-        "Backtrace": "View report",
-        "Error Text": "Function submit() As Void; pkg:/components/BrowseScreen.brs(301)"
-       },
-       {
-        "Error Key Date": "2026-10-04",
-        "Error Count": "2",
-        "Platform": "View report",
-        "App": "View report",
-        "Backtrace": "View report",
-        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(221)"
-       },
-       {
-        "Error Key Date": "2026-10-04",
-        "Error Count": "1",
-        "Platform": "View report",
-        "App": "View report",
-        "Backtrace": "View report",
-        "Error Text": "Function onplay() As Void; pkg:/components/MainScene.brs(2794)"
-       },
-       {
-        "Error Key Date": "2026-10-03",
-        "Error Count": "24",
-        "Platform": "View report",
-        "App": "View report",
-        "Backtrace": "View report",
-        "Error Text": "Function submit() As Void; pkg:/components/BrowseScreen.brs(301)"
-       },
-       {
-        "Error Key Date": "2026-10-03",
-        "Error Count": "5",
-        "Platform": "View report",
-        "App": "View report",
-        "Backtrace": "View report",
-        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(221)"
-       },
-       {
-        "Error Key Date": "2026-10-03",
-        "Error Count": "2",
-        "Platform": "View report",
-        "App": "View report",
-        "Backtrace": "View report",
-        "Error Text": "Function oncontent() As Void; pkg:/components/GridTile.brs(60)"
-       },
-       {
-        "Error Key Date": "2026-10-03",
-        "Error Count": "1",
-        "Platform": "View report",
-        "App": "View report",
-        "Backtrace": "View report",
-        "Error Text": "Function onplay() As Void; pkg:/components/MainScene.brs(2794)"
-       },
-       {
-        "Error Key Date": "2026-10-02",
-        "Error Count": "15",
-        "Platform": "View report",
-        "App": "View report",
-        "Backtrace": "View report",
-        "Error Text": "Function submit() As Void; pkg:/components/BrowseScreen.brs(301)"
-       },
-       {
-        "Error Key Date": "2026-10-02",
-        "Error Count": "1",
-        "Platform": "View report",
-        "App": "View report",
-        "Backtrace": "View report",
-        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(221)"
-       },
-       {
-        "Error Key Date": "2026-10-01",
-        "Error Count": "5",
-        "Platform": "View report",
-        "App": "View report",
-        "Backtrace": "View report",
-        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(197)"
-       },
-       {
-        "Error Key Date": "2026-10-01",
-        "Error Count": "3",
-        "Platform": "View report",
-        "App": "View report",
-        "Backtrace": "View report",
-        "Error Text": "Function onplaybackfailed() As Void; pkg:/components/MainScene.brs(2800)"
-       },
-       {
-        "Error Key Date": "2026-09-30",
-        "Error Count": "3",
-        "Platform": "View report",
-        "App": "View report",
-        "Backtrace": "View report",
-        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(197)"
-       },
-       {
-        "Error Key Date": "2026-09-30",
-        "Error Count": "2",
-        "Platform": "View report",
-        "App": "View report",
-        "Backtrace": "View report",
-        "Error Text": "Function onplay() As Void; pkg:/components/MainScene.brs(2768)"
-       },
-       {
-        "Error Key Date": "2026-09-30",
-        "Error Count": "1",
-        "Platform": "View report",
-        "App": "View report",
-        "Backtrace": "View report",
-        "Error Text": "Function onfocuschanged() As Void; pkg:/components/PosterTile.brs(214)"
-       }
-      ]
-     },
-     "emptyTiles": [
-      "channel_crashes_by_product",
-      "devices_with_channel_crashes_by_product"
-     ]
-    },
-    "Viewership Summary": {
-     "daily": [
-      {
-       "date": "2026-09-23",
-       "Visits": 2284.0,
-       "Streams": 717.0,
-       "Total Hours Streamed": 732.0,
-       "Rebuffers per Streaming Hour": 0.11,
-       "Ratio of Streams to Visits": 0.31,
-       "Average Stream Duration (Minutes)": 61.3
-      },
-      {
-       "date": "2026-09-24",
-       "Visits": 1454.0,
-       "Streams": 369.0,
-       "Total Hours Streamed": 388.0,
-       "Rebuffers per Streaming Hour": 0.37,
-       "Ratio of Streams to Visits": 0.25,
-       "Average Stream Duration (Minutes)": 63.1
-      },
-      {
-       "date": "2026-09-25",
-       "Visits": 2511.0,
-       "Streams": 639.0,
-       "Total Hours Streamed": 665.0,
-       "Rebuffers per Streaming Hour": 0.05,
-       "Ratio of Streams to Visits": 0.25,
-       "Average Stream Duration (Minutes)": 62.4
-      },
-      {
-       "date": "2026-09-26",
-       "Visits": 3405.0,
-       "Streams": 683.0,
-       "Total Hours Streamed": 735.0,
-       "Rebuffers per Streaming Hour": 0.09,
-       "Ratio of Streams to Visits": 0.2,
-       "Average Stream Duration (Minutes)": 64.6
-      },
-      {
-       "date": "2026-09-27",
-       "Visits": 3196.0,
-       "Streams": 760.0,
-       "Total Hours Streamed": 807.0,
-       "Rebuffers per Streaming Hour": 0.06,
-       "Ratio of Streams to Visits": 0.24,
-       "Average Stream Duration (Minutes)": 63.7
-      },
-      {
-       "date": "2026-09-28",
-       "Visits": 1711.0,
-       "Streams": 405.0,
-       "Total Hours Streamed": 395.0,
-       "Rebuffers per Streaming Hour": 0.16,
-       "Ratio of Streams to Visits": 0.24,
-       "Average Stream Duration (Minutes)": 58.6
-      },
-      {
-       "date": "2026-09-29",
-       "Visits": 2274.0,
-       "Streams": 623.0,
-       "Total Hours Streamed": 633.0,
-       "Ratio of Streams to Visits": 0.27,
-       "Average Stream Duration (Minutes)": 60.9,
-       "Rebuffers per Streaming Hour": 0.15
-      },
-      {
-       "date": "2026-09-30",
-       "Visits": 2306.0,
-       "Streams": 541.0,
-       "Total Hours Streamed": 551.0,
-       "Ratio of Streams to Visits": 0.23,
-       "Average Stream Duration (Minutes)": 61.1,
-       "Rebuffers per Streaming Hour": 0.05
-      },
-      {
-       "date": "2026-10-01",
-       "Visits": 2664.0,
-       "Streams": 674.0,
-       "Total Hours Streamed": 653.0,
-       "Ratio of Streams to Visits": 0.25,
-       "Average Stream Duration (Minutes)": 58.1,
-       "Rebuffers per Streaming Hour": 0.59
-      },
-      {
-       "date": "2026-10-02",
-       "Total Hours Streamed": 240.0,
-       "Ratio of Streams to Visits": 0.19,
-       "Average Stream Duration (Minutes)": 52.6,
-       "Rebuffers per Streaming Hour": 0.42,
-       "Visits": 1442.0,
-       "Streams": 274.0
-      },
-      {
-       "date": "2026-10-03",
-       "Total Hours Streamed": 808.0,
-       "Ratio of Streams to Visits": 0.17,
-       "Average Stream Duration (Minutes)": 61.2,
-       "Rebuffers per Streaming Hour": 0.9,
-       "Visits": 4780.0,
-       "Streams": 792.0
-      },
-      {
-       "date": "2026-10-04",
-       "Total Hours Streamed": 795.0,
-       "Rebuffers per Streaming Hour": 0.12,
-       "Ratio of Streams to Visits": 0.19,
-       "Average Stream Duration (Minutes)": 62.5,
-       "Visits": 4108.0,
-       "Streams": 764.0
-      }
-     ],
+    "App Stability": {
+     "daily": [],
      "headline": {},
      "tiles": [
-      "rebuffers_per_streaming_hour",
-      "streaming_ratios",
-      "viewership_details",
-      "visits_and_streams"
+      "amarillo_1080",
+      "amarillo_4k",
+      "athens",
+      "austin_mustang",
+      "bailey",
+      "bayside",
+      "benjamin",
+      "benjamin-w",
+      "brewster",
+      "briscoe",
+      "bryan",
+      "bryan_2",
+      "camden",
+      "chico",
+      "cooper",
+      "damon",
+      "el_paso",
+      "fruitland",
+      "ftworth",
+      "gilbert",
+      "gilbert_4k",
+      "lakeport",
+      "liberty",
+      "littlefield",
+      "lockhart",
+      "logan",
+      "longview",
+      "madison",
+      "malone",
+      "marlin",
+      "miami",
+      "midland",
+      "nemo",
+      "reno",
+      "rockett",
+      "roma",
+      "roxton",
+      "sandia",
+      "shiner",
+      "trinidad"
      ],
-     "tables": {
-      "rebuffers_per_streaming_hour": [
-       {
-        "date": "2026-10-04",
-        "Total Hours Streamed": "795",
-        "Rebuffers per Streaming Hour": "0.12"
-       },
-       {
-        "date": "2026-10-03",
-        "Total Hours Streamed": "808",
-        "Rebuffers per Streaming Hour": "0.90"
-       },
-       {
-        "date": "2026-10-02",
-        "Total Hours Streamed": "240",
-        "Rebuffers per Streaming Hour": "0.42"
-       },
-       {
-        "date": "2026-10-01",
-        "Total Hours Streamed": "653",
-        "Rebuffers per Streaming Hour": "0.59"
-       },
-       {
-        "date": "2026-09-30",
-        "Total Hours Streamed": "551",
-        "Rebuffers per Streaming Hour": "0.05"
-       },
-       {
-        "date": "2026-09-29",
-        "Total Hours Streamed": "633",
-        "Rebuffers per Streaming Hour": "0.15"
-       },
-       {
-        "date": "2026-09-28",
-        "Total Hours Streamed": "395",
-        "Rebuffers per Streaming Hour": "0.16"
-       }
-      ],
-      "streaming_ratios": [
-       {
-        "date": "2026-10-04",
-        "Total Hours Streamed": "795",
-        "Ratio of Streams to Visits": "0.19",
-        "Average Stream Duration (Minutes)": "62.5"
-       },
-       {
-        "date": "2026-10-03",
-        "Total Hours Streamed": "808",
-        "Ratio of Streams to Visits": "0.17",
-        "Average Stream Duration (Minutes)": "61.2"
-       },
-       {
-        "date": "2026-10-02",
-        "Total Hours Streamed": "240",
-        "Ratio of Streams to Visits": "0.19",
-        "Average Stream Duration (Minutes)": "52.6"
-       },
-       {
-        "date": "2026-10-01",
-        "Total Hours Streamed": "653",
-        "Ratio of Streams to Visits": "0.25",
-        "Average Stream Duration (Minutes)": "58.1"
-       },
-       {
-        "date": "2026-09-30",
-        "Total Hours Streamed": "551",
-        "Ratio of Streams to Visits": "0.23",
-        "Average Stream Duration (Minutes)": "61.1"
-       },
-       {
-        "date": "2026-09-29",
-        "Total Hours Streamed": "633",
-        "Ratio of Streams to Visits": "0.27",
-        "Average Stream Duration (Minutes)": "60.9"
-       },
-       {
-        "date": "2026-09-28",
-        "Total Hours Streamed": "395",
-        "Ratio of Streams to Visits": "0.24",
-        "Average Stream Duration (Minutes)": "58.6"
-       }
-      ],
-      "viewership_details": [
-       {
-        "Hardware": "Amarillo_1080",
-        "Roku Model": "3800X",
-        "Visits": "114",
-        "Streams": "18",
-        "Total Hours Streamed": "10",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Amarillo_1080",
-        "Roku Model": "3800RW",
-        "Visits": "5",
-        "Streams": "0",
-        "Total Hours Streamed": "0",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Amarillo_4K",
-        "Roku Model": "3811X",
-        "Visits": "9",
-        "Streams": "10",
-        "Total Hours Streamed": "4",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Amarillo_4K",
-        "Roku Model": "3810RW2",
-        "Visits": "124",
-        "Streams": "48",
-        "Total Hours Streamed": "48",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Amarillo_4K",
-        "Roku Model": "3810RW",
-        "Visits": "28",
-        "Streams": "10",
-        "Total Hours Streamed": "9",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Amarillo_4K",
-        "Roku Model": "3810R",
-        "Visits": "243",
-        "Streams": "59",
-        "Total Hours Streamed": "41",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Amarillo_4K",
-        "Roku Model": "3810X",
-        "Visits": "100",
-        "Streams": "10",
-        "Total Hours Streamed": "4",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G573X",
-        "Visits": "4",
-        "Streams": "0",
-        "Total Hours Streamed": "0",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G407X",
-        "Visits": "3",
-        "Streams": "0",
-        "Total Hours Streamed": "0"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G818X",
-        "Visits": "9",
-        "Streams": "12",
-        "Total Hours Streamed": "4",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "GE24X",
-        "Visits": "9",
-        "Streams": "0",
-        "Total Hours Streamed": "0",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "GD08X",
-        "Visits": "5",
-        "Streams": "5",
-        "Total Hours Streamed": "8",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G308X",
-        "Visits": "2",
-        "Streams": "0",
-        "Total Hours Streamed": "0",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G236X",
-        "Visits": "53",
-        "Streams": "10",
-        "Total Hours Streamed": "9",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G504X",
-        "Visits": "10",
-        "Streams": "0",
-        "Total Hours Streamed": "0",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G891X",
-        "Visits": "39",
-        "Streams": "4",
-        "Total Hours Streamed": "7",
-        "Rebuffers per Streaming Hour": "0.30"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G819X",
-        "Visits": "17",
-        "Streams": "0",
-        "Total Hours Streamed": "0",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G854X",
-        "Visits": "143",
-        "Streams": "11",
-        "Total Hours Streamed": "15",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G309X",
-        "Visits": "20",
-        "Streams": "5",
-        "Total Hours Streamed": "5",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G830X",
-        "Visits": "7",
-        "Streams": "0",
-        "Total Hours Streamed": "0",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G829X",
-        "Visits": "185",
-        "Streams": "18",
-        "Total Hours Streamed": "18",
-        "Rebuffers per Streaming Hour": "8.86"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G439X",
-        "Visits": "10",
-        "Streams": "0",
-        "Total Hours Streamed": "0",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G847X",
-        "Visits": "69",
-        "Streams": "13",
-        "Total Hours Streamed": "12",
-        "Rebuffers per Streaming Hour": "0.41"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G526X",
-        "Visits": "5",
-        "Streams": "5",
-        "Total Hours Streamed": "7",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G846X",
-        "Visits": "37",
-        "Streams": "5",
-        "Total Hours Streamed": "5",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G305X",
-        "Visits": "5",
-        "Streams": "0",
-        "Total Hours Streamed": "0",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G210X",
-        "Visits": "2",
-        "Streams": "0",
-        "Total Hours Streamed": "0",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G845X",
-        "Visits": "96",
-        "Streams": "40",
-        "Total Hours Streamed": "24",
-        "Rebuffers per Streaming Hour": "0.88"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G213X",
-        "Visits": "57",
-        "Streams": "4",
-        "Total Hours Streamed": "2",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G402X",
-        "Visits": "1",
-        "Streams": "0",
-        "Total Hours Streamed": "0"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G211X",
-        "Visits": "78",
-        "Streams": "21",
-        "Total Hours Streamed": "21",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G139X",
-        "Visits": "24",
-        "Streams": "1",
-        "Total Hours Streamed": "1",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G507X",
-        "Visits": "71",
-        "Streams": "19",
-        "Total Hours Streamed": "14",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G550X",
-        "Visits": "8",
-        "Streams": "0",
-        "Total Hours Streamed": "0",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G307X",
-        "Visits": "9",
-        "Streams": "0",
-        "Total Hours Streamed": "0",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G219X",
-        "Visits": "4",
-        "Streams": "0",
-        "Total Hours Streamed": "0",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G232X",
-        "Visits": "4",
-        "Streams": "0",
-        "Total Hours Streamed": "0",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G107X",
-        "Visits": "21",
-        "Streams": "8",
-        "Total Hours Streamed": "3",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "G815X",
-        "Visits": "2",
-        "Streams": "2",
-        "Total Hours Streamed": "5",
-        "Rebuffers per Streaming Hour": "0.00"
-       },
-       {
-        "Hardware": "Athens",
-        "Roku Model": "GG11X",
-        "Visits": "6",
-        "Streams": "0",
-        "Total Hours Streamed": "0",
-        "Rebuffers per Streaming Hour": "0.00"
-       }
-      ],
-      "visits_and_streams": [
-       {
-        "date": "2026-10-04",
-        "Visits": "4,108",
-        "Streams": "764"
-       },
-       {
-        "date": "2026-10-03",
-        "Visits": "4,780",
-        "Streams": "792"
-       },
-       {
-        "date": "2026-10-02",
-        "Visits": "1,442",
-        "Streams": "274"
-       },
-       {
-        "date": "2026-10-01",
-        "Visits": "2,664",
-        "Streams": "674"
-       },
-       {
-        "date": "2026-09-30",
-        "Visits": "2,306",
-        "Streams": "541"
-       },
-       {
-        "date": "2026-09-29",
-        "Visits": "2,274",
-        "Streams": "623"
-       },
-       {
-        "date": "2026-09-28",
-        "Visits": "1,711",
-        "Streams": "405"
-       }
-      ]
-     },
-     "emptyTiles": []
+     "tables": {},
+     "emptyTiles": [
+      "amarillo_1080",
+      "amarillo_4k",
+      "athens",
+      "austin_mustang",
+      "bailey",
+      "bayside",
+      "benjamin",
+      "benjamin-w",
+      "brewster",
+      "briscoe",
+      "bryan",
+      "bryan_2",
+      "camden",
+      "chico",
+      "cooper",
+      "damon",
+      "el_paso",
+      "fruitland",
+      "ftworth",
+      "gilbert",
+      "gilbert_4k",
+      "lakeport",
+      "liberty",
+      "littlefield",
+      "lockhart",
+      "logan",
+      "longview",
+      "madison",
+      "malone",
+      "marlin",
+      "miami",
+      "midland",
+      "nemo",
+      "reno",
+      "rockett",
+      "roma",
+      "roxton",
+      "sandia",
+      "shiner",
+      "trinidad"
+     ]
     }
    },
    "versionsSeen": [
@@ -5882,7 +5974,7 @@
     {
      "version": "1.0.77",
      "firstSeen": "2026-10-02",
-     "lastSeen": "2026-10-06"
+     "lastSeen": "2026-10-07"
     }
    ],
    "reportsSeen": [
@@ -5915,10 +6007,10 @@
   ],
   "catalog": {
    "schema": 15,
-   "items": 25521,
-   "playable": 25247,
-   "professionalArt": 11266,
-   "withBif": 11418,
+   "items": 25912,
+   "playable": 25638,
+   "professionalArt": 11353,
+   "withBif": 11410,
    "builtAt": null
   },
   "webUsage": {
@@ -6060,33 +6152,38 @@
     },
     {
      "date": "2026-10-06",
-     "views": 3194,
-     "visits": 880
+     "views": 3196,
+     "visits": 882
+    },
+    {
+     "date": "2026-10-07",
+     "views": 1864,
+     "visits": 487
     }
    ],
-   "views28d": 79591,
-   "views7d": 22621,
-   "visits28d": 24873,
-   "visits7d": 6263,
+   "views28d": 81442,
+   "views7d": 21742,
+   "visits28d": 25362,
+   "visits7d": 6049,
    "byPath": {
-    "/": 25453,
-    "/item": 22158,
-    "/browse": 19769,
-    "/search": 6180,
-    "/channels": 1416,
-    "/series": 1290,
-    "/library": 1073,
-    "/surprise": 711,
-    "/collections": 548,
-    "/other": 372,
-    "/collection": 341,
-    "/about": 182
+    "/": 25985,
+    "/item": 22709,
+    "/browse": 20207,
+    "/search": 6403,
+    "/channels": 1444,
+    "/series": 1309,
+    "/library": 1096,
+    "/surprise": 726,
+    "/collections": 559,
+    "/other": 375,
+    "/collection": 356,
+    "/about": 184
    },
-   "since": "2026-07-08",
+   "since": "2026-07-09",
    "splitFrom": "2026-09-10"
   },
   "webTitles": {
-   "since": "2026-07-08",
+   "since": "2026-07-09",
    "topPlayed": [
     {
      "id": "boob-tube-the-1975-colleen-brennan-john-alderman-lyllah-torena-elana-casey-jon-r",
@@ -6098,7 +6195,7 @@
     },
     {
      "id": "charlie_chaplin_film_fest",
-     "count": 56
+     "count": 57
     },
     {
      "id": "the.-longest.-day.-1962",
@@ -6121,16 +6218,20 @@
      "count": 35
     },
     {
+     "id": "Horror_Hotel",
+     "count": 33
+    },
+    {
      "id": "SantaandtheThreeBears",
      "count": 32
     },
     {
-     "id": "Horror_Hotel",
-     "count": 31
+     "id": "candy1968hdchristianmarquandmoviehdmpgun.com",
+     "count": 32
     },
     {
-     "id": "candy1968hdchristianmarquandmoviehdmpgun.com",
-     "count": 30
+     "id": "silent-akt-skulpturen-studienfilm-fr-bildende-knstler",
+     "count": 31
     },
     {
      "id": "BaseballBugs_201708",
@@ -6141,31 +6242,31 @@
      "count": 29
     },
     {
-     "id": "silent-akt-skulpturen-studienfilm-fr-bildende-knstler",
-     "count": 29
-    },
-    {
      "id": "tarzans_revenge",
      "count": 27
     },
     {
-     "id": "ptp_the-ten-commandments_cecil-b-demille_blu-ray_x264_mkv_720p_180770",
-     "count": 26
+     "id": "his_girl_friday",
+     "count": 27
     },
     {
-     "id": "his_girl_friday",
-     "count": 25
+     "id": "ptp_the-ten-commandments_cecil-b-demille_blu-ray_x264_mkv_720p_180770",
+     "count": 27
     },
     {
      "id": "suddenly",
-     "count": 24
+     "count": 25
+    },
+    {
+     "id": "TheGhostTrain",
+     "count": 25
     },
     {
      "id": "yojimbo_202012",
      "count": 23
     },
     {
-     "id": "TheGhostTrain",
+     "id": "a-propos-de-nice_1930",
      "count": 23
     },
     {
@@ -6174,19 +6275,15 @@
     },
     {
      "id": "Lady_Confesses",
-     "count": 21
+     "count": 22
     },
     {
-     "id": "a-propos-de-nice_1930",
+     "id": "reefer_madness1938",
      "count": 20
     },
     {
      "id": "the-harder-they-fall-1956",
      "count": 20
-    },
-    {
-     "id": "fruit-is-ripe-the-griechische-feigen-1977-olivia-pascal-betty-verges-jessica-dub",
-     "count": 19
     }
    ],
    "topOpened": [
@@ -6207,20 +6304,24 @@
      "count": 73
     },
     {
+     "id": "Horror_Hotel",
+     "count": 69
+    },
+    {
      "id": "cleopatra-1963_202511",
      "count": 69
     },
     {
-     "id": "Horror_Hotel",
-     "count": 68
-    },
-    {
      "id": "charlie_chaplin_film_fest",
-     "count": 64
+     "count": 66
     },
     {
      "id": "LaBoiteACigares",
      "count": 60
+    },
+    {
+     "id": "suddenly",
+     "count": 51
     },
     {
      "id": "yojimbo_202012",
@@ -6231,16 +6332,12 @@
      "count": 50
     },
     {
-     "id": "suddenly",
+     "id": "reefer_madness1938",
      "count": 50
     },
     {
      "id": "dicktator.-the-1974-paul-daniels-yolanda-beckham-linda-york-ann-perry-vickie-cri",
      "count": 49
-    },
-    {
-     "id": "reefer_madness1938",
-     "count": 48
     },
     {
      "id": "series:all-in-the-family-1971",
@@ -6256,6 +6353,10 @@
     },
     {
      "id": "his_girl_friday",
+     "count": 46
+    },
+    {
+     "id": "candy1968hdchristianmarquandmoviehdmpgun.com",
      "count": 45
     },
     {
@@ -6264,15 +6365,19 @@
     },
     {
      "id": "haunted-house_1929",
-     "count": 43
-    },
-    {
-     "id": "candy1968hdchristianmarquandmoviehdmpgun.com",
-     "count": 42
+     "count": 44
     },
     {
      "id": "TheGhostTrain",
+     "count": 40
+    },
+    {
+     "id": "dracula-1931-colorized",
      "count": 39
+    },
+    {
+     "id": "ptp_the-ten-commandments_cecil-b-demille_blu-ray_x264_mkv_720p_180770",
+     "count": 38
     },
     {
      "id": "series:adam-12-1968",
@@ -6280,15 +6385,7 @@
     },
     {
      "id": "love-swedish-style-1972-karen-ciral-ted-roter-woody-lee-jane-tsentas-rachel-engl",
-     "count": 37
-    },
-    {
-     "id": "ptp_the-ten-commandments_cecil-b-demille_blu-ray_x264_mkv_720p_180770",
-     "count": 36
-    },
-    {
-     "id": "dracula-1931-colorized",
-     "count": 36
+     "count": 38
     }
    ],
    "topAmbient": [],
@@ -6405,15 +6502,20 @@
     },
     {
      "date": "2026-10-06",
-     "open": 760,
+     "open": 762,
      "play": 300
+    },
+    {
+     "date": "2026-10-07",
+     "open": 380,
+     "play": 188
     }
    ],
-   "distinctPlayed": 2627,
-   "distinctOpened": 5031,
+   "distinctPlayed": 2677,
+   "distinctOpened": 5109,
    "totals": {
-    "open": 14116,
-    "play": 6238
+    "open": 14498,
+    "play": 6426
    },
    "scope": "the WEBSITE only — the apps collect nothing, and they are most of the audience, so this is a sample rather than the platform"
   },
@@ -8950,18 +9052,18 @@
    "url": "https://search.google.com/search-console?resource_id=https%3A%2F%2Farchivewatch.org%2F"
   },
   "searchIndex": {
-   "published": 25521,
+   "published": 25912,
    "sampled": 150,
-   "indexedShare": 0.18,
+   "indexedShare": 0.187,
    "byState": {
-    "Discovered - currently not indexed": 83,
-    "URL is unknown to Google": 40,
-    "Submitted and indexed": 27
+    "Discovered - currently not indexed": 77,
+    "URL is unknown to Google": 45,
+    "Submitted and indexed": 28
    },
    "faults": [],
    "examples": [
     {
-     "url": "https://archivewatch.org/item/DeathFromADistance1935/",
+     "url": "https://archivewatch.org/item/Dr._Alban_Its_My_Life_Live_Stars_For_Free/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -8969,7 +9071,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/brother-alfred-1932/",
+     "url": "https://archivewatch.org/item/1945-07-05_Final_Days_of_Struggle_in_Okinawa/",
      "state": "URL is unknown to Google",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -8977,7 +9079,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/LIGHTNINGBRYCE11/",
+     "url": "https://archivewatch.org/item/6234_HM_Ransohoff_Collection_Can_RAN_A_01_40_55_24/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -8985,7 +9087,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/LayThaRifleDown/",
+     "url": "https://archivewatch.org/item/mary-jane-1968/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -8993,7 +9095,15 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/TheSchoolForScandalBasilRathbone1923/",
+     "url": "https://archivewatch.org/item/HurricaneFlorence180913/",
+     "state": "Discovered - currently not indexed",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/BetweenShowers/",
      "state": "URL is unknown to Google",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -9001,7 +9111,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/1935-die-jahrhundertfeier-der-deutschen-eisenbahnen-ein-bildbericht-der-reichsbahn-filmstelle/",
+     "url": "https://archivewatch.org/item/silent-antony-and-cleopatra/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -9009,39 +9119,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/Ingenuit1958_2/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/LaSonadora/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/thisismarshallmcluhanthemediumisthemessage/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/1935-das-einmaleins-der-liebe-luise-ullrich-paul-horbiger-theo-lingen-gustav-waldau-oscar-sima/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/space-academy-episode-8-the-phantom-planet-you-tube/",
+     "url": "https://archivewatch.org/item/an-autumn-afternoon/",
      "state": "URL is unknown to Google",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -9049,7 +9127,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/silent-felix-all-puzzled/",
+     "url": "https://archivewatch.org/item/NormanGo1929/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -9057,7 +9135,15 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/1943-Die-goldene-Spinne/",
+     "url": "https://archivewatch.org/item/sanders-of-the-river/",
+     "state": "Discovered - currently not indexed",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/kh-gh-kh-1972/",
      "state": "URL is unknown to Google",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -9065,31 +9151,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/silent-one-touch-of-nature/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/1958-06-09_Russian_exhibit_of_Sputnik/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/0849_Hoosier_Line_05_00_54_00/",
-     "state": "Discovered - currently not indexed",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/le-sang-dun-poete-jean-cocteau-1930/",
+     "url": "https://archivewatch.org/item/ghost-story-circle-of-fear-complete/",
      "state": "URL is unknown to Google",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -9097,7 +9159,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/a-wicky-wacky-romance-1939/",
+     "url": "https://archivewatch.org/item/drums-of-love_1928/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -9105,7 +9167,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/HM_Lenawee_County_Michigan_Highway_Swimming_Baseball_Kite_Flyin/",
+     "url": "https://archivewatch.org/item/silent-the-good-bad-man/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -9113,7 +9175,15 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/TheGirlFromRio/",
+     "url": "https://archivewatch.org/item/2190_How_to_Use_the_Dial_Phone_00_48_40_00/",
+     "state": "URL is unknown to Google",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/the-widow-from-chicago_1930/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -9121,31 +9191,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/Charas/",
-     "state": "URL is unknown to Google",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/silent-her-sister-from-paris/",
-     "state": "URL is unknown to Google",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/ThatRottenTeaBag/",
-     "state": "URL is unknown to Google",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/silent-m-le-prsident-de-la-rpublique-sur-la-jete-promenade/",
+     "url": "https://archivewatch.org/item/WildlifeOnOneEp95OasisDavidAttenborough23Feb1988/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -9153,7 +9199,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/silent-h-i-morron-kvll/",
+     "url": "https://archivewatch.org/item/dishonored_lady/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -9161,7 +9207,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/FLIRTATIONTitle0401/",
+     "url": "https://archivewatch.org/item/OpenDoor1945_2/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -9169,7 +9215,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/lets-get-movin-1936/",
+     "url": "https://archivewatch.org/item/Duck_Farming/",
      "state": "URL is unknown to Google",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -9177,7 +9223,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/my-pop-my-pop-1940/",
+     "url": "https://archivewatch.org/item/tom-sawyer_1930/",
      "state": "URL is unknown to Google",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -9185,7 +9231,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/blossom-seeley-and-bennie-fields-1927/",
+     "url": "https://archivewatch.org/item/PassporttoHell1932/",
      "state": "URL is unknown to Google",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -9193,7 +9239,15 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/1938-zwischen-den-eltern-willy-fritsch-gusti-huber-hans-leibelt-hans-brausewetter/",
+     "url": "https://archivewatch.org/item/1943-wien-19101h-04m-384x-288-512kb/",
+     "state": "URL is unknown to Google",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/0486_Oddities_Screen_Magazine_Vol_1_No_5_01_14_16_20/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -9201,15 +9255,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/night-life-in-the-army-1942/",
-     "state": "URL is unknown to Google",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/at-hirsizi-banus_movie/",
+     "url": "https://archivewatch.org/item/16mmMoti1961/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -9217,7 +9263,15 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/series/life-with-elizabeth-1953/",
+     "url": "https://archivewatch.org/item/aesops-fable-the-watchdog-1945/",
+     "state": "URL is unknown to Google",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/half-way-to-heaven_1929/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -9225,15 +9279,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/Jesse_James_at_Bay_1941/",
-     "state": "URL is unknown to Google",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/Mommartz_Selbstschusse_1967/",
+     "url": "https://archivewatch.org/item/silent-the-girl-ranchers/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -9241,31 +9287,7 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/H-1515/",
-     "state": "URL is unknown to Google",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/svtplay-jqWAmbW/",
-     "state": "URL is unknown to Google",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/the.-snow.-woman.-1968/",
-     "state": "URL is unknown to Google",
-     "verdict": "NEUTRAL",
-     "lastCrawl": null,
-     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
-     "googleCanonical": null
-    },
-    {
-     "url": "https://archivewatch.org/item/HerTerribleOrdeal1910/",
+     "url": "https://archivewatch.org/item/the-adjutant-of-the-czar_1929/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -9273,7 +9295,87 @@
      "googleCanonical": null
     },
     {
-     "url": "https://archivewatch.org/item/your_very_good_health_TNA/",
+     "url": "https://archivewatch.org/item/silent-le-cake-walk-infernal-aka-the-infernal-cakewalk/",
+     "state": "Discovered - currently not indexed",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/SpeechFu1950/",
+     "state": "Discovered - currently not indexed",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/el-santo-de-la-espada-1970/",
+     "state": "Discovered - currently not indexed",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/histoire-de-detective_1929/",
+     "state": "Discovered - currently not indexed",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/silent-the-seine-flood/",
+     "state": "Discovered - currently not indexed",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/Apollo-15_Onboard-Film-Mags_EE.mxf/",
+     "state": "URL is unknown to Google",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/a-sangre-fria-1946/",
+     "state": "URL is unknown to Google",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/1955MattelMousegetarWithJimmieDodd/",
+     "state": "Discovered - currently not indexed",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/que-noche-de-casamiento-1969/",
+     "state": "Discovered - currently not indexed",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/NasaConnect-FestivalOfFlight/",
+     "state": "URL is unknown to Google",
+     "verdict": "NEUTRAL",
+     "lastCrawl": null,
+     "fetch": "PAGE_FETCH_STATE_UNSPECIFIED",
+     "googleCanonical": null
+    },
+    {
+     "url": "https://archivewatch.org/item/poor-papa_1928/",
      "state": "Discovered - currently not indexed",
      "verdict": "NEUTRAL",
      "lastCrawl": null,
@@ -9296,6 +9398,31 @@
      "guests": 10
     },
     {
+     "date": "2026-09-27",
+     "rooms": 0,
+     "guests": 0
+    },
+    {
+     "date": "2026-09-28",
+     "rooms": 0,
+     "guests": 0
+    },
+    {
+     "date": "2026-09-29",
+     "rooms": 0,
+     "guests": 0
+    },
+    {
+     "date": "2026-09-30",
+     "rooms": 0,
+     "guests": 0
+    },
+    {
+     "date": "2026-10-01",
+     "rooms": 0,
+     "guests": 0
+    },
+    {
      "date": "2026-10-02",
      "rooms": 3,
      "guests": 6
@@ -9304,100 +9431,106 @@
      "date": "2026-10-03",
      "rooms": 3,
      "guests": 3
+    },
+    {
+     "date": "2026-10-04",
+     "rooms": 0,
+     "guests": 0
+    },
+    {
+     "date": "2026-10-05",
+     "rooms": 0,
+     "guests": 0
+    },
+    {
+     "date": "2026-10-06",
+     "rooms": 0,
+     "guests": 0
+    },
+    {
+     "date": "2026-10-07",
+     "rooms": 0,
+     "guests": 0
     }
    ],
    "roomsSince": "2026-09-25",
    "youtubeDaily": [
     {
-     "date": "2026-09-18",
-     "calls": 240,
-     "errors": 46,
-     "units": 1024,
-     "lives": 4
-    },
-    {
      "date": "2026-09-19",
-     "calls": 296,
-     "errors": 0,
-     "units": 2354,
-     "lives": 14
+     "calls": 300,
+     "errors": 46,
+     "units": 1084,
+     "lives": 4
     },
     {
      "date": "2026-09-20",
-     "calls": 102,
+     "calls": 236,
      "errors": 0,
-     "units": 1425,
-     "lives": 9
+     "units": 2294,
+     "lives": 14
     },
     {
      "date": "2026-09-21",
-     "calls": 35,
-     "errors": 2,
-     "units": 182,
-     "lives": 1
+     "calls": 130,
+     "errors": 0,
+     "units": 1600,
+     "lives": 10
     },
     {
      "date": "2026-09-22",
-     "calls": 187,
+     "calls": 31,
      "errors": 2,
-     "units": 383,
-     "lives": 1
+     "units": 31,
+     "lives": 0
     },
     {
      "date": "2026-09-23",
-     "calls": 1715,
+     "calls": 163,
      "errors": 2,
-     "units": 9848,
-     "lives": 12
+     "units": 359,
+     "lives": 1
     },
     {
      "date": "2026-09-24",
-     "calls": 280,
-     "errors": 1,
-     "units": 1240,
-     "lives": 3
+     "calls": 1906,
+     "errors": 3,
+     "units": 10235,
+     "lives": 13
     },
     {
      "date": "2026-09-25",
-     "calls": 87,
+     "calls": 89,
      "errors": 0,
-     "units": 459,
-     "lives": 1
-    },
-    {
-     "date": "2026-09-26",
-     "calls": 175,
-     "errors": 0,
-     "units": 1715,
-     "lives": 4
-    },
-    {
-     "date": "2026-09-30",
-     "calls": 55,
-     "errors": 0,
-     "units": 698,
+     "units": 853,
      "lives": 2
     },
     {
-     "date": "2026-10-01",
-     "calls": 35,
+     "date": "2026-09-26",
+     "calls": 256,
      "errors": 0,
-     "units": 35,
+     "units": 2168,
+     "lives": 5
+    },
+    {
+     "date": "2026-09-27",
+     "calls": 6,
+     "errors": 0,
+     "units": 6,
      "lives": 0
     },
     {
-     "date": "2026-10-02",
-     "calls": 540,
+     "date": "2026-10-01",
+     "calls": 90,
      "errors": 0,
-     "units": 2639,
-     "lives": 1
+     "units": 733,
+     "lives": 2
     },
     {
      "date": "2026-10-03",
-     "calls": 254,
+     "calls": 794,
      "errors": 0,
-     "units": 779,
-     "lives": 0
+     "units": 3418,
+     "lives": 1
     }
    ],
    "youtubeByMethod": {
@@ -9471,77 +9604,109 @@
    "livesNote": "YouTube sign-in shows only",
    "daily": [
     {
-     "date": "2026-09-18",
-     "lives": 4,
-     "units": 1024
-    },
-    {
      "date": "2026-09-19",
-     "lives": 14,
-     "units": 2354
+     "lives": 4,
+     "units": 1084
     },
     {
      "date": "2026-09-20",
-     "lives": 9,
-     "units": 1425
+     "lives": 14,
+     "units": 2294
     },
     {
      "date": "2026-09-21",
-     "lives": 1,
-     "units": 182
+     "lives": 10,
+     "units": 1600
     },
     {
      "date": "2026-09-22",
-     "lives": 1,
-     "units": 383
+     "lives": 0,
+     "units": 31
     },
     {
      "date": "2026-09-23",
-     "lives": 12,
-     "units": 9848
+     "lives": 1,
+     "units": 359
     },
     {
      "date": "2026-09-24",
-     "lives": 3,
-     "units": 1240
+     "lives": 13,
+     "units": 10235
     },
     {
      "date": "2026-09-25",
      "rooms": 1,
      "guests": 1,
-     "lives": 1,
-     "units": 459
+     "lives": 2,
+     "units": 853
     },
     {
      "date": "2026-09-26",
      "rooms": 12,
      "guests": 10,
-     "lives": 4,
-     "units": 1715
+     "lives": 5,
+     "units": 2168
+    },
+    {
+     "date": "2026-09-27",
+     "rooms": 0,
+     "guests": 0,
+     "lives": 0,
+     "units": 6
+    },
+    {
+     "date": "2026-09-28",
+     "rooms": 0,
+     "guests": 0
+    },
+    {
+     "date": "2026-09-29",
+     "rooms": 0,
+     "guests": 0
     },
     {
      "date": "2026-09-30",
-     "lives": 2,
-     "units": 698
+     "rooms": 0,
+     "guests": 0
     },
     {
      "date": "2026-10-01",
-     "lives": 0,
-     "units": 35
+     "rooms": 0,
+     "guests": 0,
+     "lives": 2,
+     "units": 733
     },
     {
      "date": "2026-10-02",
      "rooms": 3,
-     "guests": 6,
-     "lives": 1,
-     "units": 2639
+     "guests": 6
     },
     {
      "date": "2026-10-03",
      "rooms": 3,
      "guests": 3,
-     "lives": 0,
-     "units": 779
+     "lives": 1,
+     "units": 3418
+    },
+    {
+     "date": "2026-10-04",
+     "rooms": 0,
+     "guests": 0
+    },
+    {
+     "date": "2026-10-05",
+     "rooms": 0,
+     "guests": 0
+    },
+    {
+     "date": "2026-10-06",
+     "rooms": 0,
+     "guests": 0
+    },
+    {
+     "date": "2026-10-07",
+     "rooms": 0,
+     "guests": 0
     }
    ],
    "last28": {
@@ -9605,13 +9770,20 @@
      "play": 9,
      "channel": 85,
      "mcp": 0
+    },
+    {
+     "date": "2026-10-07",
+     "signin": 13,
+     "play": 11,
+     "channel": 37,
+     "mcp": 0
     }
    ],
    "since": "2026-09-27",
    "last28": {
-    "signin": 37,
-    "play": 43,
-    "channel": 408,
+    "signin": 50,
+    "play": 54,
+    "channel": 445,
     "mcp": 0
    },
    "prev28": {
@@ -9679,217 +9851,217 @@
   "apple_stores": {
    "ok": true,
    "note": "3 Apple platform(s)",
-   "at": "2026-10-06T23:48:14+00:00"
+   "at": "2026-10-07T14:05:08+00:00"
   },
   "apple_reviews": {
    "ok": true,
    "note": "6 review(s)",
-   "at": "2026-10-06T23:48:15+00:00"
+   "at": "2026-10-07T14:05:09+00:00"
   },
   "apple_rating": {
    "ok": true,
    "note": "4.125 from 8",
-   "at": "2026-10-06T23:48:15+00:00"
+   "at": "2026-10-07T14:05:09+00:00"
   },
   "apple_performance": {
    "ok": true,
    "note": "Apple has not aggregated enough device data yet",
-   "at": "2026-10-06T23:48:15+00:00"
+   "at": "2026-10-07T14:05:10+00:00"
   },
   "apple_downloads": {
    "ok": true,
-   "note": "1282 first-time download(s) over 31 day(s), 5 device type(s), 93 country/countries; skipped 13983 unit(s) across 2 other product type(s)",
-   "at": "2026-10-06T23:48:34+00:00"
+   "note": "1298 first-time download(s) over 31 day(s), 5 device type(s), 97 country/countries; skipped 14024 unit(s) across 2 other product type(s)",
+   "at": "2026-10-07T14:05:31+00:00"
   },
   "play_stores": {
    "ok": true,
    "note": "3 track(s)",
-   "at": "2026-10-06T23:48:35+00:00"
+   "at": "2026-10-07T14:05:32+00:00"
   },
   "play_reviews": {
    "ok": true,
    "note": "0 review(s) in Play's 7-day window",
-   "at": "2026-10-06T23:48:36+00:00"
+   "at": "2026-10-07T14:05:33+00:00"
   },
   "play_vitals": {
    "ok": true,
    "note": "crashRate=0.0, anrRate=0.01",
-   "at": "2026-10-06T23:48:40+00:00"
+   "at": "2026-10-07T14:05:35+00:00"
   },
   "play_crashes": {
    "ok": true,
    "note": "11 cluster(s), 0 still on build 66",
-   "at": "2026-10-06T23:49:18+00:00"
+   "at": "2026-10-07T14:06:00+00:00"
   },
   "play_users": {
    "ok": true,
    "note": "2 day(s) of users, 0 dimension(s)",
-   "at": "2026-10-06T23:49:32+00:00"
+   "at": "2026-10-07T14:06:07+00:00"
   },
   "play_reports": {
    "ok": true,
-   "note": "1094 install(s) over 28 day(s) to 2026-09-25 (11d behind — Play's normal reporting lag), 7 report(s)",
-   "at": "2026-10-06T23:49:52+00:00"
+   "note": "1110 install(s) over 28 day(s) to 2026-09-30 (7d behind — Play's normal reporting lag), 7 report(s)",
+   "at": "2026-10-07T14:06:24+00:00"
   },
   "play_daily_exports": {
    "ok": true,
-   "note": "ratings: 41 day(s) to 2026-09-29, crashes: 42 day(s) to 2026-09-30",
-   "at": "2026-10-06T23:49:56+00:00"
+   "note": "ratings: 45 day(s) to 2026-10-04, crashes: 42 day(s) to 2026-09-30",
+   "at": "2026-10-07T14:06:27+00:00"
   },
   "play_rating": {
    "ok": true,
-   "note": "3.6 from an uncounted number of rating(s), via Play's daily export to 2026-09-29",
-   "at": "2026-10-06T23:49:56+00:00"
+   "note": "3.17 from an uncounted number of rating(s), via Play's daily export to 2026-10-04",
+   "at": "2026-10-07T14:06:27+00:00"
   },
   "play_acquisition": {
    "ok": true,
    "note": "904 acquisition(s) from 2095 visitor(s) to 2026-09-24, 43% conversion",
-   "at": "2026-10-06T23:50:02+00:00"
+   "at": "2026-10-07T14:06:32+00:00"
   },
   "amazon_vitals": {
    "ok": true,
    "note": "3 metric set(s) with data, 0 empty",
-   "at": "2026-10-06T23:50:03+00:00"
+   "at": "2026-10-07T14:06:33+00:00"
   },
   "amazon_installs": {
    "ok": true,
    "note": "46 install(s) across 2 month(s), 8 countries",
-   "at": "2026-10-06T23:50:04+00:00"
+   "at": "2026-10-07T14:06:35+00:00"
   },
   "amazon_live": {
    "ok": true,
    "note": "versionCode 66 is live on Fire TV",
-   "at": "2026-10-06T23:50:14+00:00"
+   "at": "2026-10-07T14:06:43+00:00"
   },
   "roku_engagement": {
    "ok": true,
-   "note": "no delivery waiting — the schedule fires daily at 06:00, so this is normal between runs",
-   "at": "2026-10-06T23:50:14+00:00"
+   "note": "4 drop(s), 9 day(s), 60 tile(s) from 4 report(s) [App Engagement, App Health, App Stability, Viewership Summary]",
+   "at": "2026-10-07T14:06:44+00:00"
   },
   "manual_stores": {
    "ok": true,
    "note": "5 declared store(s), 2 version(s) read rather than declared",
-   "at": "2026-10-06T23:50:15+00:00"
+   "at": "2026-10-07T14:06:45+00:00"
   },
   "social_program": {
    "ok": true,
-   "note": "162 post(s) across 5 platform(s), 85 measured",
-   "at": "2026-10-06T23:50:15+00:00"
+   "note": "163 post(s) across 5 platform(s), 86 measured",
+   "at": "2026-10-07T14:06:45+00:00"
   },
   "social_reach": {
    "ok": true,
    "note": "bluesky=19, mastodon=0, instagram=1",
-   "at": "2026-10-06T23:50:16+00:00"
+   "at": "2026-10-07T14:06:46+00:00"
   },
   "social_replies": {
    "ok": true,
    "note": "1 reply/mention notification(s)",
-   "at": "2026-10-06T23:50:16+00:00"
+   "at": "2026-10-07T14:06:47+00:00"
   },
   "social_liveness": {
    "ok": true,
    "note": "64 live, 0 deleted, 56 could not be checked",
-   "at": "2026-10-06T23:50:28+00:00"
+   "at": "2026-10-07T14:06:56+00:00"
   },
   "youtube_channel": {
    "ok": true,
    "note": "stats need youtube.readonly (the token is upload-only, by design), 0 comment(s)",
-   "at": "2026-10-06T23:50:30+00:00"
+   "at": "2026-10-07T14:06:58+00:00"
   },
   "mentions_reddit": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-10-06T23:50:31+00:00"
+   "at": "2026-10-07T14:06:59+00:00"
   },
   "mentions_hn": {
    "ok": true,
    "note": "0 kept of 0",
-   "at": "2026-10-06T23:50:31+00:00"
+   "at": "2026-10-07T14:06:59+00:00"
   },
   "mentions_lemmy": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-10-06T23:50:33+00:00"
+   "at": "2026-10-07T14:07:01+00:00"
   },
   "mentions_news": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-10-06T23:50:33+00:00"
+   "at": "2026-10-07T14:07:01+00:00"
   },
   "mentions_bluesky": {
    "ok": true,
-   "note": "2 kept",
-   "at": "2026-10-06T23:50:35+00:00"
+   "note": "1 kept",
+   "at": "2026-10-07T14:07:03+00:00"
   },
   "mentions_mastodon": {
    "ok": true,
    "note": "0 kept",
-   "at": "2026-10-06T23:50:37+00:00"
+   "at": "2026-10-07T14:07:05+00:00"
   },
   "github": {
    "ok": true,
    "note": "1 star(s), 1 open issue(s), 1 from outside",
-   "at": "2026-10-06T23:50:38+00:00"
+   "at": "2026-10-07T14:07:08+00:00"
   },
   "workflows": {
    "ok": true,
    "note": "1 finding(s), 1 urgent",
-   "at": "2026-10-06T23:52:15+00:00"
+   "at": "2026-10-07T14:09:02+00:00"
   },
   "catalog": {
    "ok": true,
-   "note": "25521 items, schema 15",
-   "at": "2026-10-06T23:52:15+00:00"
+   "note": "25912 items, schema 15",
+   "at": "2026-10-07T14:09:04+00:00"
   },
   "web_usage": {
    "ok": true,
-   "note": "79591 route view(s) and 24873 visit(s) over 28 day(s), 14 surface(s)",
-   "at": "2026-10-06T23:52:16+00:00"
+   "note": "81457 route view(s) and 25362 visit(s) over 29 day(s), 14 surface(s)",
+   "at": "2026-10-07T14:09:04+00:00"
   },
   "web_titles": {
    "ok": true,
-   "note": "2627 film(s) played, 5031 opened, over 23 day(s)",
-   "at": "2026-10-06T23:52:16+00:00"
+   "note": "2677 film(s) played, 5109 opened, over 24 day(s)",
+   "at": "2026-10-07T14:09:04+00:00"
   },
   "search_console": {
    "ok": true,
    "note": "1606 clicks / 31933 impressions in 28 days to 2026-10-04 (prior 28: 0 / 0)",
-   "at": "2026-10-06T23:52:17+00:00"
+   "at": "2026-10-07T14:09:05+00:00"
   },
   "search_index": {
    "ok": true,
-   "note": "27/150 sampled film pages indexed of 25,521 published; 0 technical fault(s)",
-   "at": "2026-10-06T23:54:26+00:00"
+   "note": "28/150 sampled film pages indexed of 25,912 published; 0 technical fault(s)",
+   "at": "2026-10-07T14:11:09+00:00"
   },
   "together_rooms": {
    "ok": true,
    "note": "19 room(s), 20 guest join(s) since the tally began",
-   "at": "2026-10-06T23:54:26+00:00"
+   "at": "2026-10-07T14:11:09+00:00"
   },
   "youtube_usage": {
    "ok": true,
-   "note": "52 YouTube broadcast(s) in 90 days; peak quota day 9,848/10,000 units",
-   "at": "2026-10-06T23:54:27+00:00"
+   "note": "52 YouTube broadcast(s) in 90 days; peak quota day 10,235/10,000 units",
+   "at": "2026-10-07T14:11:10+00:00"
   },
   "together_summary": {
    "ok": true,
    "note": "28 days: {'rooms': 19, 'guests': 20, 'lives': 52}",
-   "at": "2026-10-06T23:54:27+00:00"
+   "at": "2026-10-07T14:11:10+00:00"
   },
   "feeds_usage": {
    "ok": true,
-   "note": "28 days: 37 player sign-in(s), 43 play(s), 408 channel tune(s), 0 assistant call(s)",
-   "at": "2026-10-06T23:54:27+00:00"
+   "note": "28 days: 50 player sign-in(s), 54 play(s), 445 channel tune(s), 0 assistant call(s)",
+   "at": "2026-10-07T14:11:10+00:00"
   },
   "distribution": {
    "ok": true,
    "note": "App Store: 6 rated",
-   "at": "2026-10-06T23:54:27+00:00"
+   "at": "2026-10-07T14:11:10+00:00"
   },
   "asks": {
    "ok": true,
    "note": "0 request(s), 5 bit(s) of praise",
-   "at": "2026-10-06T23:54:27+00:00"
+   "at": "2026-10-07T14:11:10+00:00"
   }
  },
  "_apply": true,
@@ -10367,10 +10539,28 @@
    "filmPagesIndexed": 0.18,
    "searchClicks28d": 1606,
    "urgent": 1
+  },
+  {
+   "date": "2026-10-07",
+   "appleRating": 4.125,
+   "appleRatings": 8,
+   "playRating": 3.17,
+   "playRatings": null,
+   "reviews": 7,
+   "mentions": 7,
+   "posts": 120,
+   "likes": 2,
+   "followers": 20,
+   "stars": 1,
+   "views14d": null,
+   "catalogItems": 25912,
+   "filmPagesIndexed": 0.187,
+   "searchClicks28d": 1606,
+   "urgent": 1
   }
  ],
- "generatedAt": "2026-10-06T23:54:27+00:00",
- "repoVersion": "1.45.11",
- "repoBuild": "2107",
+ "generatedAt": "2026-10-07T14:11:10+00:00",
+ "repoVersion": "1.45.14",
+ "repoBuild": "2110",
  "_": "Written by tools/pulse_collect.py. `history` is the series and is append-only per day; everything else is the latest reading. A source that could not answer says so in `sources` — never assume a zero."
 }
