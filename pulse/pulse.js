@@ -142,8 +142,12 @@ function buildSeries(d) {
   // 10-07, while the installs file in the same bucket was rewritten that
   // morning. Google writes each export on its own cadence; 8 called its gap
   // our reader's fault.
+  // Google stopped producing the legacy acquisitions metric (the Console's own
+  // series ends 09-28) in favor of install clicks, so once the hand-read clicks
+  // series runs past it, a quiet acquisitions series is not a fault.
+  const acqRetired = (h.playListing?.asOf || "") > (h.playAcquisition?.asOf || "~");
   add({ key: "android-acq", label: "Android listing acquisitions", unit: " acquisitions",
-        view: "reach", lag: 14, points: pts(h.playAcquisition?.daily, "date", "acquisitions"),
+        view: "reach", lag: acqRetired ? 9999 : 14, points: pts(h.playAcquisition?.daily, "date", "acquisitions"),
         src: "https://play.google.com/console", reader: "play_acquisition",
         // There is no other route to this number: the Reporting API is vitals
         // only, and the Console's own stats service takes the play_console
@@ -152,6 +156,11 @@ function buildSeries(d) {
         staleNote: h.playAcquisition?.exportWritten
           ? `Google last wrote its store-listing export on ${day(h.playAcquisition.exportWritten)}; it documents 3 to 7 days`
           : "no new day in Google's store-performance export" });
+  add({ key: "android-clicks", label: "Android install clicks", unit: " clicks",
+        view: "reach", lag: 7, points: pts(h.playListing?.daily, "date", "clicks"),
+        src: "https://play.google.com/console", reader: "play_listing_manual",
+        staleNote: h.playListing?.readAt
+          ? `read by hand from the Play Console on ${day(h.playListing.readAt)}; read it again` : null });
   add({ key: "android-inst", label: "Android installs", unit: " installs", view: "reach", lag: 14,
         points: pts(h.playInstalls?.daily, "date", "installs"),
         src: "https://play.google.com/console", reader: "play_reports",
@@ -182,7 +191,7 @@ function buildSeries(d) {
         view: "engagement", lag: 2, points: pts(h.feeds?.daily, "date", "signin") });
   return m;
 }
-const USAGE = ["apple-dl", "android-acq", "android-inst", "firetv-inst", "roku-inst",
+const USAGE = ["apple-dl", "android-acq", "android-clicks", "android-inst", "firetv-inst", "roku-inst",
                "web-visits", "web-plays", "search-clicks", "search-impr", "together-rooms",
                "feeds-signins"];
 const lastDay = (s) => s.points[s.points.length - 1]?.date;

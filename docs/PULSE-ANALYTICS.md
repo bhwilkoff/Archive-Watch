@@ -377,6 +377,16 @@ file (`playAcquisition.exportWritten`). An alert here is Google's export being
 late, not our reader; `tools/play_bucket_probe.py` lists the folder and each
 file's newest row to prove it. The Console itself shows the current figure.
 
+**Read by hand until the export catches up** (owner, 2026-10-07: *"Pull the
+numbers for Pulse until the report catches up"*). The Console's own legacy
+acquisitions series ALSO ends (09-28): Google moved store listing reporting to
+unique user install clicks. Those, and visitors, are read from Grow users >
+Store listings into `ops/play-listing-manual.json` (`play_listing_manual` ->
+`playListing`, the "Android install clicks" series, stale after 7 days so a
+missed re-read says so). Clicks are not acquisitions (09-24: 37 against 27),
+so the two are never spliced; once clicks run past the acquisitions series,
+the acquisitions series stops alarming.
+
 ### 11a. Is the catalog in Google? (`search_index`, 2026-09-25)
 
 The film pages (WEB-DESIGN §3.2a) exist so every film can be found in search.

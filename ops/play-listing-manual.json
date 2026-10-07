@@ -1,0 +1,137 @@
+{
+ "_": "Read by hand from the Play Console (Grow users > Store listings > Your performance on Play; chart tooltips), because the store_performance export stopped at 2026-09-24 and no API carries these metrics (PULSE-ANALYTICS \u00a711b). Google's current metrics: unique user install clicks and visitors. Checked: these days plus Sep 7 sum to the Console's own 28-day totals (1.22K clicks, 2.12K visitors). Delete this file once the export carries the same days.",
+ "readAt": "2026-10-07",
+ "readBy": "Play Console, ben@learningischange.com session",
+ "daily": [
+  {
+   "date": "2026-09-08",
+   "clicks": 25,
+   "visitors": 61
+  },
+  {
+   "date": "2026-09-09",
+   "clicks": 44,
+   "visitors": 72
+  },
+  {
+   "date": "2026-09-10",
+   "clicks": 158,
+   "visitors": 235
+  },
+  {
+   "date": "2026-09-11",
+   "clicks": 85,
+   "visitors": 126
+  },
+  {
+   "date": "2026-09-12",
+   "clicks": 51,
+   "visitors": 91
+  },
+  {
+   "date": "2026-09-13",
+   "clicks": 45,
+   "visitors": 84
+  },
+  {
+   "date": "2026-09-14",
+   "clicks": 35,
+   "visitors": 61
+  },
+  {
+   "date": "2026-09-15",
+   "clicks": 32,
+   "visitors": 48
+  },
+  {
+   "date": "2026-09-16",
+   "clicks": 41,
+   "visitors": 66
+  },
+  {
+   "date": "2026-09-17",
+   "clicks": 40,
+   "visitors": 66
+  },
+  {
+   "date": "2026-09-18",
+   "clicks": 34,
+   "visitors": 66
+  },
+  {
+   "date": "2026-09-19",
+   "clicks": 35,
+   "visitors": 59
+  },
+  {
+   "date": "2026-09-20",
+   "clicks": 34,
+   "visitors": 59
+  },
+  {
+   "date": "2026-09-21",
+   "clicks": 38,
+   "visitors": 66
+  },
+  {
+   "date": "2026-09-22",
+   "clicks": 37,
+   "visitors": 70
+  },
+  {
+   "date": "2026-09-23",
+   "clicks": 47,
+   "visitors": 83
+  },
+  {
+   "date": "2026-09-24",
+   "clicks": 37,
+   "visitors": 65
+  },
+  {
+   "date": "2026-09-25",
+   "clicks": 38,
+   "visitors": 70
+  },
+  {
+   "date": "2026-09-26",
+   "clicks": 34,
+   "visitors": 63
+  },
+  {
+   "date": "2026-09-27",
+   "clicks": 32,
+   "visitors": 69
+  },
+  {
+   "date": "2026-09-28",
+   "clicks": 34,
+   "visitors": 63
+  },
+  {
+   "date": "2026-09-29",
+   "clicks": 31,
+   "visitors": 65
+  },
+  {
+   "date": "2026-09-30",
+   "clicks": 38,
+   "visitors": 65
+  },
+  {
+   "date": "2026-10-01",
+   "clicks": 37,
+   "visitors": 75
+  },
+  {
+   "date": "2026-10-02",
+   "clicks": 48,
+   "visitors": 89
+  },
+  {
+   "date": "2026-10-03",
+   "clicks": 70,
+   "visitors": 113
+  }
+ ]
+}

@@ -882,6 +882,31 @@ def play_acquisition(state):
             + (f", {acq / vis:.0%} conversion" if vis else ""))
 
 
+PLAY_LISTING_MANUAL = REPO / "ops" / "play-listing-manual.json"
+
+
+def play_listing_manual(state):
+    """Google's CURRENT store-listing metrics (unique user install clicks,
+    visitors), read by hand from the Play Console into
+    ops/play-listing-manual.json. Nothing else carries them: the bucket's
+    store_performance export holds the legacy acquisitions and stopped at
+    09-24, the Console's own legacy series stops at 09-28, the Reporting API
+    is vitals only, and the Console's stats service refuses every credential
+    a program can hold (PULSE-ANALYTICS §11b). Install clicks are NOT
+    acquisitions (09-24: 37 clicks, 27 acquisitions), so they are their own
+    series and never spliced into playAcquisition."""
+    if not PLAY_LISTING_MANUAL.exists():
+        raise RuntimeError("no ops/play-listing-manual.json")
+    doc = json.loads(PLAY_LISTING_MANUAL.read_text(encoding="utf-8"))
+    daily = sorted((r for r in doc.get("daily") or [] if r.get("date")), key=lambda r: r["date"])
+    if not daily:
+        raise RuntimeError("ops/play-listing-manual.json has no days")
+    state["health"]["playListing"] = {"daily": daily, "asOf": daily[-1]["date"],
+                                      "readAt": doc.get("readAt"), "source": "Play Console, read by hand"}
+    return (f"{sum(r.get('clicks') or 0 for r in daily[-28:])} install click(s) to "
+            f"{daily[-1]['date']}, read by hand on {doc.get('readAt')}")
+
+
 def play_rating(state):
     """Public Play listing rating, scraped from the store page's own JSON-LD-ish
     payload. Best effort: Play has no public ratings API."""
@@ -2784,6 +2809,7 @@ SOURCES = [
     ("play_daily_exports", play_daily_exports),
     ("play_rating", play_rating),                        # after the export it falls back to
     ("play_acquisition", play_acquisition),
+    ("play_listing_manual", play_listing_manual),
     ("amazon_vitals", amazon_vitals),
     ("amazon_installs", amazon_installs),
     ("amazon_live", amazon_live),
@@ -2982,6 +3008,7 @@ def main() -> int:
     HEALTH_OWNS = {"play_reports": "playInstalls", "play_crashes": "playCrashes",
                    "play_users": "playUsers", "play_vitals": "playVitals",
                    "play_acquisition": "playAcquisition",
+                   "play_listing_manual": "playListing",
                    "play_daily_exports": "playDaily",
                    "apple_downloads": "appleDownloads", "apple_performance": "applePerf",
                    "amazon_vitals": "amazonVitals", "amazon_installs": "amazonInstalls",
