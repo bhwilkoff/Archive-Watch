@@ -2411,6 +2411,38 @@
     "reposts": 0,
     "replies": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mwrrc7l3tq24",
+   "platform": "bluesky",
+   "id": "gov.ntis.ava09891vnb1",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-01T02:02:42.950941+00:00",
+   "sampled": "2026-10-07T02:21:26.192427+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mx6gmrop5z2r",
+   "platform": "bluesky",
+   "id": "The_Impossible_Voyage",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-06T02:56:25.079049+00:00",
+   "sampled": "2026-10-07T02:21:26.192427+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }
