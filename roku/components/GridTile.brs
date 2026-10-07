@@ -25,6 +25,7 @@ sub init()
     m.tileLabel.lineSpacing = 2
     setSize(192, 288)
     onFocusChanged()
+    if m.top.itemContent <> invalid then onContent()
 end sub
 
 sub onArtLoaded()
@@ -56,6 +57,9 @@ end sub
 sub onContent()
     c = m.top.itemContent
     if c = invalid then return
+    ' itemContent can arrive before init() has found the nodes (1.0.77,
+    ' GridTile.brs(60)); init() replays it at its end.
+    if m.plate = invalid or m.art = invalid or m.caption = invalid or m.tileLabel = invalid then return
     m.plate.visible = true
     m.plate.color = "0x1C1C22FF"
     ' Clear FIRST: a recycled tile keeps the previous film's bitmap until the

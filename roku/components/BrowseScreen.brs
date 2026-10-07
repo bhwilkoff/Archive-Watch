@@ -162,7 +162,14 @@ sub applyCollection(spec as Object)
     if spec = invalid or spec.id = invalid then return
     m.collectionID = spec.id
     m.heading.text = fmt(spec.title)
-    m.chipIndex = [0, 0, 0, 0]
+    ' One slot per chip row. This reset kept four after the length chip made
+    ' five, so submit() read chipIndex[4] as invalid and every collection
+    ' opened from Browse crashed the channel: 1.0.77's top crash,
+    ' BrowseScreen.brs(301) (Roku App Health, 2026-10-02..06).
+    m.chipIndex = []
+    for i = 0 to m.chipDefs.Count() - 1
+        m.chipIndex.Push(0)
+    end for
     m.chipGroup.visible = false
     m.focusRow = 1
     submit()

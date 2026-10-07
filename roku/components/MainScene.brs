@@ -2780,6 +2780,8 @@ end sub
 sub onPlay()
     url = m.detail.play
     if url = invalid or url = "" then return
+    ' Detail can raise play with no item behind it (1.0.77, MainScene.brs(2794)).
+    if m.detail.item = invalid then return
     if m.player = invalid
         m.player = m.overlay.CreateChild("PlayerScreen")
         ' Full-bleed: the player is NOT inset by the rail, because the rail is

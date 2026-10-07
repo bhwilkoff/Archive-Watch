@@ -218,7 +218,9 @@ sub onFocusChanged()
     ' project presents a shelf — the owner's words were "why are the titles not
     ' all listed on the shelves". The META line stays focus-only: year and type
     ' are detail, and six of them per row is noise.
-    m.caption.visible = not m.isTile
+    ' `not (m.isTile = true)`, not `not m.isTile`: focus can change before init()
+    ' assigns isTile, and `not invalid` is a Type Mismatch (1.0.77, line 221).
+    m.caption.visible = not (m.isTile = true)
     m.meta.visible = focused
     ' The meta line sits under the caption's RENDERED height, not under the
     ' three-line reserve: pinned at the reserve it floated 100 px below a
