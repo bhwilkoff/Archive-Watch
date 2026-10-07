@@ -150,10 +150,21 @@ jobs:
             echo "no change in today's reading"; exit 0
           fi
           git commit -m "Pulse: today's reading [skip ci]"
+          # 2026-10-07: a run that checked out seconds before the previous
+          # run pushed hit a conflict on ops/pulse.json, and `pull --rebase
+          # || true` left the rebase half-done, so all five attempts failed.
+          # pulse.json is generated and this run's is the newer reading, so it
+          # wins; stores-manual.json is hand-edited, so main's copy wins.
           for i in 1 2 3 4 5; do
             git push && exit 0
             echo "push attempt $i failed; rebasing"
-            git pull --rebase --autostash origin "${GITHUB_REF_NAME}" || true
+            git fetch origin "${GITHUB_REF_NAME}"
+            if ! git rebase "origin/${GITHUB_REF_NAME}"; then
+              git checkout --theirs ops/pulse.json 2>/dev/null || true
+              git checkout --ours ops/stores-manual.json 2>/dev/null || true
+              git add ops/pulse.json ops/stores-manual.json
+              GIT_EDITOR=true git rebase --continue || git rebase --abort
+            fi
             sleep $((i * 5))
           done
           echo "could not push the reading"; exit 1
