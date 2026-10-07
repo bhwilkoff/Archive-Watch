@@ -1945,6 +1945,54 @@
    "kind": "short-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-10-07T20:46:02.262634+00:00",
+   "id": "the-wedding-march-1928-new-upscaled-version-with-improved-sound-picture-synchronized-sound",
+   "title": "The Wedding March",
+   "slot": "double-bill",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxcsueglne2y",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-07T20:46:02.262634+00:00",
+   "id": "the-wedding-march-1928-new-upscaled-version-with-improved-sound-picture-synchronized-sound",
+   "title": "The Wedding March",
+   "slot": "double-bill",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117401582923166879",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-07T20:46:02.262634+00:00",
+   "id": "the-wedding-march-1928-new-upscaled-version-with-improved-sound-picture-synchronized-sound",
+   "title": "The Wedding March",
+   "slot": "double-bill",
+   "platform": "threads",
+   "url": "https://www.threads.com/@archivewatchapp/post/DeNQAYOgdS2",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-07T20:46:02.262634+00:00",
+   "id": "the-wedding-march-1928-new-upscaled-version-with-improved-sound-picture-synchronized-sound",
+   "title": "The Wedding March",
+   "slot": "double-bill",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DeNQFQKgahE/",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": "117401581977330775",
+   "reviewer": null
   }
  ]
 }
