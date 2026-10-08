@@ -54,6 +54,12 @@ because the loop was stopped mid-stride for a Claude update.
 
 ### Open owner items (nothing else is blocked)
 
+0-NEW-2026-10-08. **iPHONE DUO + NEW APP STORE ASSETS** — researched, nothing
+   blocked: `docs/research/IPHONE-DUO.md` §6 holds five calls (Xcode 27.1 on this
+   Mac for the Duo simulator; CI to the 27.1 SDK, without which the app runs
+   BOXED on a Duo; the header/search image; Duo multi-window; a Duo section in
+   iOS-DESIGN.md). Duo screenshots are required from April 2027.
+
 0-NEW-2026-10-03. **SAMSUNG TV v1.45.10 IS SUBMITTED** (TV Seller Office, app
    3202610049114, Public Seller, US). 45 model groups 2022-2026 incl. four
    licensed `_LIC` groups (owner: "everything from 2022 onward"), rated 12+,
