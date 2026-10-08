@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-10-07T10:48:25Z",
+  "updated_at": "2026-10-08T11:10:33Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 18799,
-    "wanted": 18571,
+    "total": 18898,
+    "wanted": 18670,
     "fulfilled": 228,
-    "series_with_gaps": 377
+    "series_with_gaps": 383
   },
   "wants": [
     {
@@ -88733,6 +88733,196 @@
       "added_at": "2026-06-05T08:10:01Z"
     },
     {
+      "seriesID": "michael-shayne-1960",
+      "seriesTitle": "Michael Shayne",
+      "season": 1,
+      "episode": 3,
+      "title": "Die Like a Dog",
+      "episodeImdbID": "tt0647242",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "michael-shayne-1960",
+      "seriesTitle": "Michael Shayne",
+      "season": 1,
+      "episode": 4,
+      "title": "Framed in Blood",
+      "episodeImdbID": "tt0647246",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "michael-shayne-1960",
+      "seriesTitle": "Michael Shayne",
+      "season": 1,
+      "episode": 8,
+      "title": "This Is It, Michael Shayne",
+      "episodeImdbID": "tt0647267",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "michael-shayne-1960",
+      "seriesTitle": "Michael Shayne",
+      "season": 1,
+      "episode": 10,
+      "title": "Murder Plays Charades",
+      "episodeImdbID": "tt0647250",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "michael-shayne-1960",
+      "seriesTitle": "Michael Shayne",
+      "season": 1,
+      "episode": 11,
+      "title": "Murder and the Wanton Bride",
+      "episodeImdbID": "tt0647252",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "michael-shayne-1960",
+      "seriesTitle": "Michael Shayne",
+      "season": 1,
+      "episode": 12,
+      "title": "Death Selects the Winner",
+      "episodeImdbID": "tt0647241",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "michael-shayne-1960",
+      "seriesTitle": "Michael Shayne",
+      "season": 1,
+      "episode": 14,
+      "title": "The Man with a Cane",
+      "episodeImdbID": "tt0647264",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "michael-shayne-1960",
+      "seriesTitle": "Michael Shayne",
+      "season": 1,
+      "episode": 15,
+      "title": "Spotlight on a Corpse",
+      "episodeImdbID": "tt0647257",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "michael-shayne-1960",
+      "seriesTitle": "Michael Shayne",
+      "season": 1,
+      "episode": 16,
+      "title": "Murder 'Round My Wrist",
+      "episodeImdbID": "tt0647251",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "michael-shayne-1960",
+      "seriesTitle": "Michael Shayne",
+      "season": 1,
+      "episode": 17,
+      "title": "The Badge",
+      "episodeImdbID": "tt0647260",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "michael-shayne-1960",
+      "seriesTitle": "Michael Shayne",
+      "season": 1,
+      "episode": 18,
+      "title": "The Heiress",
+      "episodeImdbID": "tt0647263",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "michael-shayne-1960",
+      "seriesTitle": "Michael Shayne",
+      "season": 1,
+      "episode": 19,
+      "title": "Final Settlement",
+      "episodeImdbID": "tt0647244",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "michael-shayne-1960",
+      "seriesTitle": "Michael Shayne",
+      "season": 1,
+      "episode": 20,
+      "title": "Four Lethal Ladies",
+      "episodeImdbID": "tt0647245",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "michael-shayne-1960",
+      "seriesTitle": "Michael Shayne",
+      "season": 1,
+      "episode": 22,
+      "title": "Murder at the Convention",
+      "episodeImdbID": "tt0647253",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "michael-shayne-1960",
+      "seriesTitle": "Michael Shayne",
+      "season": 1,
+      "episode": 23,
+      "title": "Strike Out",
+      "episodeImdbID": "tt0647258",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "michael-shayne-1960",
+      "seriesTitle": "Michael Shayne",
+      "season": 1,
+      "episode": 28,
+      "title": "Date with Death",
+      "episodeImdbID": "tt0647239",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "michael-shayne-1960",
+      "seriesTitle": "Michael Shayne",
+      "season": 1,
+      "episode": 30,
+      "title": "No Shroud for Shayne",
+      "episodeImdbID": "tt0647255",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "michael-shayne-1960",
+      "seriesTitle": "Michael Shayne",
+      "season": 1,
+      "episode": 31,
+      "title": "It Takes a Heap o' Dyin'",
+      "episodeImdbID": "tt0647247",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "michael-shayne-1960",
+      "seriesTitle": "Michael Shayne",
+      "season": 1,
+      "episode": 32,
+      "title": "Dead Air",
+      "episodeImdbID": "tt0647240",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
       "seriesID": "michel-strogoff-1998",
       "seriesTitle": "Michel Strogoff",
       "season": 1,
@@ -143351,6 +143541,36 @@
       "added_at": "2026-06-07T07:52:55Z"
     },
     {
+      "seriesID": "the-case-of-the-dangerous-robin-1960",
+      "seriesTitle": "The Case of the Dangerous Robin",
+      "season": 1,
+      "episode": 18,
+      "title": "Brink of Disaster",
+      "episodeImdbID": "tt0536933",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-case-of-the-dangerous-robin-1960",
+      "seriesTitle": "The Case of the Dangerous Robin",
+      "season": 1,
+      "episode": 32,
+      "title": "A Matter of Life",
+      "episodeImdbID": "tt0536930",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-case-of-the-dangerous-robin-1960",
+      "seriesTitle": "The Case of the Dangerous Robin",
+      "season": 1,
+      "episode": 35,
+      "title": "Man on the Run",
+      "episodeImdbID": "tt0536944",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
       "seriesID": "the-challenge-1998",
       "seriesTitle": "The Challenge",
       "season": 1,
@@ -153068,6 +153288,586 @@
       "added_at": "2026-06-05T16:31:07Z"
     },
     {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 1,
+      "episode": 1,
+      "title": "Head for Texas",
+      "episodeImdbID": "tt0586039",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 1,
+      "episode": 6,
+      "title": "The Double Switch",
+      "episodeImdbID": "tt0586078",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 1,
+      "episode": 8,
+      "title": "Doublecross Valley",
+      "episodeImdbID": "tt0586024",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 1,
+      "episode": 13,
+      "title": "The Lost Chance",
+      "episodeImdbID": "tt0586084",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 1,
+      "episode": 14,
+      "title": "The Black Rider",
+      "episodeImdbID": "tt0586073",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 1,
+      "episode": 16,
+      "title": "The Breakup",
+      "episodeImdbID": "tt0586074",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 1,
+      "episode": 18,
+      "title": "The Fight at Peaceful Mesa",
+      "episodeImdbID": "tt0586079",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 1,
+      "episode": 19,
+      "title": "Hot Lead",
+      "episodeImdbID": "tt0586044",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 1,
+      "episode": 20,
+      "title": "The Gray Dude",
+      "episodeImdbID": "tt0586081",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 1,
+      "episode": 21,
+      "title": "The Killer Horse",
+      "episodeImdbID": "tt0586083",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 1,
+      "episode": 22,
+      "title": "The Peacemaker",
+      "episodeImdbID": "tt0586088",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 1,
+      "episode": 23,
+      "title": "The Sheriff of Santa Rosa",
+      "episodeImdbID": "tt0586096",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 1,
+      "episode": 25,
+      "title": "The Raiders",
+      "episodeImdbID": "tt0586092",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 1,
+      "episode": 26,
+      "title": "Double Barreled Vengeance",
+      "episodeImdbID": "tt0586023",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 2,
+      "episode": 1,
+      "title": "Ghost Town Raiders",
+      "episodeImdbID": "tt0586033",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 2,
+      "episode": 2,
+      "title": "Frontier Guard",
+      "episodeImdbID": "tt0586029",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 2,
+      "episode": 3,
+      "title": "Silver Dollars",
+      "episodeImdbID": "tt0586065",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 2,
+      "episode": 4,
+      "title": "Killer's Trail",
+      "episodeImdbID": "tt0586047",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 2,
+      "episode": 6,
+      "title": "Warning! Danger!",
+      "episodeImdbID": "tt0586104",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 2,
+      "episode": 7,
+      "title": "Revenge Trail",
+      "episodeImdbID": "tt0586058",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 2,
+      "episode": 9,
+      "title": "Outlaw Escape",
+      "episodeImdbID": "tt0586051",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 2,
+      "episode": 10,
+      "title": "The Kid Comes West",
+      "episodeImdbID": "tt0586082",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 2,
+      "episode": 11,
+      "title": "Return of Maverick Dan",
+      "episodeImdbID": "tt0586057",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 2,
+      "episode": 14,
+      "title": "Melody Mesa",
+      "episodeImdbID": "tt0586049",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 2,
+      "episode": 16,
+      "title": "Rock River Feud",
+      "episodeImdbID": "tt0586061",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 2,
+      "episode": 17,
+      "title": "The Lawless Press",
+      "episodeImdbID": "tt0586085",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 2,
+      "episode": 19,
+      "title": "The Ruthless Renegade",
+      "episodeImdbID": "tt0586094",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 2,
+      "episode": 20,
+      "title": "Hot Lead and Old Lace",
+      "episodeImdbID": "tt0586045",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 2,
+      "episode": 21,
+      "title": "Blazeaway",
+      "episodeImdbID": "tt0586017",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 2,
+      "episode": 22,
+      "title": "Bullets & Bows",
+      "episodeImdbID": "tt0586020",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 2,
+      "episode": 23,
+      "title": "Trouble at Silver Creek",
+      "episodeImdbID": "tt0586102",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 2,
+      "episode": 24,
+      "title": "Six Gun Romeo",
+      "episodeImdbID": "tt0586066",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 2,
+      "episode": 25,
+      "title": "The Sheriff Is a Lady",
+      "episodeImdbID": "tt0586095",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 3,
+      "episode": 1,
+      "title": "Thunder Out West",
+      "episodeImdbID": "tt0586101",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 3,
+      "episode": 2,
+      "title": "Outlaw Stage",
+      "episodeImdbID": "tt0586052",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 3,
+      "episode": 3,
+      "title": "Ghost Mountain",
+      "episodeImdbID": "tt0586031",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 3,
+      "episode": 4,
+      "title": "The Old Prospector",
+      "episodeImdbID": "tt0586087",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 3,
+      "episode": 5,
+      "title": "Narrow Escape",
+      "episodeImdbID": "tt0586050",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 3,
+      "episode": 7,
+      "title": "Gypsy Wagon",
+      "episodeImdbID": "tt0586038",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 3,
+      "episode": 8,
+      "title": "Bandidos",
+      "episodeImdbID": "tt0586014",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 3,
+      "episode": 9,
+      "title": "Dry Gulch at Devil's Elbow",
+      "episodeImdbID": "tt0586025",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 3,
+      "episode": 11,
+      "title": "Steel Ribbon",
+      "episodeImdbID": "tt0586069",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 3,
+      "episode": 13,
+      "title": "Ransom Cross",
+      "episodeImdbID": "tt0586056",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 4,
+      "episode": 2,
+      "title": "Johnny Jackeroo",
+      "episodeImdbID": "tt0586046",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 4,
+      "episode": 3,
+      "title": "Holdup",
+      "episodeImdbID": "tt0586041",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 4,
+      "episode": 4,
+      "title": "Prize Winner",
+      "episodeImdbID": "tt0586055",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 4,
+      "episode": 8,
+      "title": "The Carnival Comes West",
+      "episodeImdbID": "tt0586075",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 4,
+      "episode": 10,
+      "title": "Outlaw of Blue Mesa",
+      "episodeImdbID": "tt0586054",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 4,
+      "episode": 12,
+      "title": "Boots and Ballots",
+      "episodeImdbID": "tt0586018",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 5,
+      "episode": 1,
+      "title": "The Million Dollar Fiddle",
+      "episodeImdbID": "tt0586086",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 5,
+      "episode": 2,
+      "title": "Stage to San Dimas",
+      "episodeImdbID": "tt0586068",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 5,
+      "episode": 3,
+      "title": "The Portrait of White Cloud",
+      "episodeImdbID": "tt0586090",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 5,
+      "episode": 4,
+      "title": "Law Comes to Scorpion",
+      "episodeImdbID": "tt0586048",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 5,
+      "episode": 7,
+      "title": "Ghost Ranch",
+      "episodeImdbID": "tt0586032",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 5,
+      "episode": 9,
+      "title": "Feuding Friends",
+      "episodeImdbID": "tt0586027",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 5,
+      "episode": 10,
+      "title": "Saddle Up",
+      "episodeImdbID": "tt0586062",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 5,
+      "episode": 12,
+      "title": "The Rangerette",
+      "episodeImdbID": "tt0586093",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-gene-autry-show-1950",
+      "seriesTitle": "The Gene Autry Show",
+      "season": 5,
+      "episode": 13,
+      "title": "Dynamite",
+      "episodeImdbID": "tt0586026",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
       "seriesID": "the-george-burns-and-gracie-allen-show-1950",
       "seriesTitle": "The George Burns and Gracie Allen Show",
       "season": 1,
@@ -157288,6 +158088,146 @@
       "added_at": "2026-06-04T08:24:27Z"
     },
     {
+      "seriesID": "the-invisible-man-1975",
+      "seriesTitle": "The Invisible Man",
+      "season": 1,
+      "episode": 1,
+      "title": "The Klae Resource",
+      "episodeImdbID": "tt0612087",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-invisible-man-1975",
+      "seriesTitle": "The Invisible Man",
+      "season": 1,
+      "episode": 2,
+      "title": "The Fine Art of Diplomacy",
+      "episodeImdbID": "tt0612084",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-invisible-man-1975",
+      "seriesTitle": "The Invisible Man",
+      "season": 1,
+      "episode": 3,
+      "title": "Man of Influence",
+      "episodeImdbID": "tt0612079",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-invisible-man-1975",
+      "seriesTitle": "The Invisible Man",
+      "season": 1,
+      "episode": 4,
+      "title": "Eyes Only",
+      "episodeImdbID": "tt0612077",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-invisible-man-1975",
+      "seriesTitle": "The Invisible Man",
+      "season": 1,
+      "episode": 5,
+      "title": "Barnard Wants Out",
+      "episodeImdbID": "tt0612076",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-invisible-man-1975",
+      "seriesTitle": "The Invisible Man",
+      "season": 1,
+      "episode": 7,
+      "title": "Stop When Red Lights Flash",
+      "episodeImdbID": "tt0612083",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-invisible-man-1975",
+      "seriesTitle": "The Invisible Man",
+      "season": 1,
+      "episode": 9,
+      "title": "The Klae Dynasty",
+      "episodeImdbID": "tt0612086",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-invisible-man-1975",
+      "seriesTitle": "The Invisible Man",
+      "season": 1,
+      "episode": 12,
+      "title": "An Attempt to Save Face",
+      "episodeImdbID": "tt0612075",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-islanders-1960",
+      "seriesTitle": "The Islanders",
+      "season": 1,
+      "episode": 4,
+      "title": "Talent for Danger",
+      "episodeImdbID": "tt0612615",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-islanders-1960",
+      "seriesTitle": "The Islanders",
+      "season": 1,
+      "episode": 7,
+      "title": "The Phantom Captain",
+      "episodeImdbID": "tt0612619",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-islanders-1960",
+      "seriesTitle": "The Islanders",
+      "season": 1,
+      "episode": 11,
+      "title": "Deadly Tomorrow",
+      "episodeImdbID": "tt0612604",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-islanders-1960",
+      "seriesTitle": "The Islanders",
+      "season": 1,
+      "episode": 12,
+      "title": "The Widow from Richmond",
+      "episodeImdbID": "tt0612623",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-islanders-1960",
+      "seriesTitle": "The Islanders",
+      "season": 1,
+      "episode": 14,
+      "title": "The Twenty-Six Paper",
+      "episodeImdbID": "tt0612622",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-islanders-1960",
+      "seriesTitle": "The Islanders",
+      "season": 1,
+      "episode": 20,
+      "title": "Island Witness",
+      "episodeImdbID": "tt0612611",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
       "seriesID": "the-jack-benny-program-1950",
       "seriesTitle": "The Jack Benny Program",
       "season": 1,
@@ -159446,6 +160386,56 @@
       "episodeImdbID": "tt15126024",
       "status": "wanted",
       "added_at": "2026-06-05T16:31:07Z"
+    },
+    {
+      "seriesID": "the-larkins-1958",
+      "seriesTitle": "The Larkins",
+      "season": 1,
+      "episode": 1,
+      "title": "Wide Open House",
+      "episodeImdbID": "tt0847333",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-larkins-1958",
+      "seriesTitle": "The Larkins",
+      "season": 1,
+      "episode": 5,
+      "title": "Telly-Ho",
+      "episodeImdbID": "tt0951962",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-larkins-1958",
+      "seriesTitle": "The Larkins",
+      "season": 3,
+      "episode": 1,
+      "title": "Home Win",
+      "episodeImdbID": "tt0951951",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-larkins-1958",
+      "seriesTitle": "The Larkins",
+      "season": 5,
+      "episode": 1,
+      "title": "Cafe Ole",
+      "episodeImdbID": "tt0951935",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
+    },
+    {
+      "seriesID": "the-larkins-1958",
+      "seriesTitle": "The Larkins",
+      "season": 6,
+      "episode": 7,
+      "title": "Country Style",
+      "episodeImdbID": "tt0847332",
+      "status": "wanted",
+      "added_at": "2026-10-08T11:10:33Z"
     },
     {
       "seriesID": "the-lawless-years-1959",
