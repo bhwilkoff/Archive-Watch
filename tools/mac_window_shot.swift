@@ -35,18 +35,28 @@ guard let list = CGWindowListCopyWindowInfo([.optionOnScreenOnly, .excludeDeskto
     print("no window list"); exit(1)
 }
 var sawApp = false
+// A TOOLTIP IS A WINDOW TOO. On 2026-10-08 three App Store shots came back as
+// a hover tooltip ("Suddenly", "Lock-Up") because it was the app's frontmost
+// window. Only ordinary windows (layer 0) count, and the LARGEST one wins.
+var best: (id: Int, title: String, area: Double)?
 for w in list {
     let title = (w[kCGWindowName as String] as? String) ?? ""
     let owner = (w[kCGWindowOwnerName as String] as? String) ?? ""
     guard owner == app else { continue }          // EXACT, and first.
     sawApp = true
+    guard (w[kCGWindowLayer as String] as? Int) == 0 else { continue }
     guard needle.isEmpty || title.contains(needle) else { continue }
-    guard let id = w[kCGWindowNumber as String] as? Int else { continue }
+    guard let id = w[kCGWindowNumber as String] as? Int,
+          let b = w[kCGWindowBounds as String] as? [String: Double] else { continue }
+    let area = (b["Width"] ?? 0) * (b["Height"] ?? 0)
+    if area > (best?.area ?? 0) { best = (id, title, area) }
+}
+if let best {
     let p = Process()
     p.executableURL = URL(fileURLWithPath: "/usr/sbin/screencapture")
-    p.arguments = ["-x", "-o", "-l\(id)", out]
+    p.arguments = ["-x", "-o", "-l\(best.id)", out]
     try? p.run(); p.waitUntilExit()
-    print("captured \"\(title)\" (\(owner)) -> \(out)")
+    print("captured \"\(best.title)\" (\(app)) -> \(out)")
     exit(0)
 }
 // SAY WHICH HALF FAILED. "no window matching X" sent me looking for a missing

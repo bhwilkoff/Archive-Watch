@@ -14,7 +14,7 @@ APP="${1:?usage: mac-shotset.sh /path/to/<app>.app}"
 EXE="$(/usr/libexec/PlistBuddy -c 'Print :CFBundleExecutable' "$APP/Contents/Info.plist" 2>/dev/null)"
 BIN="$APP/Contents/MacOS/$EXE"
 [ -x "$BIN" ] || { echo "no binary at $BIN"; exit 1; }
-OUTDIR="$HOME/Desktop/ArchiveWatch-Mac-Screenshots"
+OUTDIR="${OUTDIR:-$HOME/Desktop/ArchiveWatch-Mac-Screenshots}"
 mkdir -p "$OUTDIR"
 SIZE="${SIZE:-2880x1800}"; W="${SIZE%x*}"; H="${SIZE#*x}"
 BG="${BG:-#0A0A0A}"; MARGIN="${MARGIN:-0.04}"

@@ -23,7 +23,9 @@ from PIL import Image, ImageChops, ImageDraw, ImageEnhance, ImageFilter
 
 REPO = Path(__file__).resolve().parent.parent
 SRC = REPO / "assets/app-store/melies-moon-1902-frame-1440.png"
-OUT = REPO / "assets/app-store/header-21x9-3840x1646.jpg"
+# PNG only: the API's 21:9 header spec (i3840x1646a0) lists .png alone, though
+# Apple's specification page also names .jpg.
+OUT = REPO / "assets/app-store/header-21x9-3840x1646.png"
 
 W, H = 3840, 1646
 FRAME_LINE = 22          # the scan's bottom frame line, cropped away
@@ -61,10 +63,10 @@ def main() -> int:
     if "--check" in sys.argv:
         old = Image.open(OUT).convert("RGB")
         same = old.size == img.size and max(
-            hi for _, hi in ImageChops.difference(old, img).getextrema()) < 24
+            hi for _, hi in ImageChops.difference(old, img).getextrema()) == 0
         print("header matches" if same else "header differs from a fresh render")
         return 0 if same else 1
-    img.save(OUT, "JPEG", quality=92, subsampling=0)
+    img.save(OUT, "PNG", optimize=True)
     print(OUT, img.size)
     return 0
 

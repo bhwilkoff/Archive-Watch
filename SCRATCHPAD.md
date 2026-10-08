@@ -58,7 +58,7 @@ because the loop was stopped mid-stride for a Claude update.
    decisions taken (`docs/research/IPHONE-DUO.md` §6): public Xcode only, an RC
    counts — this Mac has ONLY Xcode 27.1 RC now, CI picks the newest non-beta on
    the `xcode-27` image; Duo features per iOS-DESIGN §2.8; header = the 1902
-   moon (`assets/app-store/header-21x9-3840x1646.jpg`); search asset = a real
+   moon (`assets/app-store/header-21x9-3840x1646.png`); search asset = a real
    capture of the open Duo; new screenshots for EVERY Apple platform
    (`tools/appstore_shots.py`, `tools/mac-shotset.sh`). The Duo simulator is
    driven through Device Hub by accessibility (`tools/duo_pose.js`); simctl has
