@@ -54,11 +54,15 @@ because the loop was stopped mid-stride for a Claude update.
 
 ### Open owner items (nothing else is blocked)
 
-0-NEW-2026-10-08. **iPHONE DUO + NEW APP STORE ASSETS** — researched, nothing
-   blocked: `docs/research/IPHONE-DUO.md` §6 holds five calls (Xcode 27.1 on this
-   Mac for the Duo simulator; CI to the 27.1 SDK, without which the app runs
-   BOXED on a Duo; the header/search image; Duo multi-window; a Duo section in
-   iOS-DESIGN.md). Duo screenshots are required from April 2027.
+0-NEW-2026-10-08. **iPHONE DUO + NEW APP STORE ASSETS — IN PROGRESS.** Owner
+   decisions taken (`docs/research/IPHONE-DUO.md` §6): public Xcode only, an RC
+   counts — this Mac has ONLY Xcode 27.1 RC now, CI picks the newest non-beta on
+   the `xcode-27` image; Duo features per iOS-DESIGN §2.8; header = the 1902
+   moon (`assets/app-store/header-21x9-3840x1646.jpg`); search asset = a real
+   capture of the open Duo; new screenshots for EVERY Apple platform
+   (`tools/appstore_shots.py`, `tools/mac-shotset.sh`). The Duo simulator is
+   driven through Device Hub by accessibility (`tools/duo_pose.js`); simctl has
+   no hinge. Duo screenshots required from April 2027.
 
 0-NEW-2026-10-03. **SAMSUNG TV v1.45.10 IS SUBMITTED** (TV Seller Office, app
    3202610049114, Public Seller, US). 45 model groups 2022-2026 incl. four

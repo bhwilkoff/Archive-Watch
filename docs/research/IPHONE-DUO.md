@@ -222,19 +222,40 @@ What OUR rules add:
 
 ---
 
-## 6. Owner decisions (nothing is blocked today)
+## 6. Decided 2026-10-08
 
-1. **Install Xcode 27.1 RC on this Mac?** Required for the Duo simulator and the
-   screenshots. A large download from developer.apple.com.
-2. **Move App Store builds to Xcode 27.1** (the iOS 27.1 SDK) — the only way the
-   app goes edge-to-edge on a Duo, and required for all uploads by April 2027.
-   Depends on GitHub's runner image; Decision 148 (tvOS floor below 27) and 155
-   (iOS 18 floor) are unaffected — the SDK is not the deployment target.
-3. **The header/search image**: which still (or none), and any words — yours.
-4. **Duo multi-window** (section 3.5): offer "Open in New Window" on the inner
-   display, or keep it iPad-only.
-5. Before any Duo UI change: an iOS-DESIGN.md section for the Duo (binding-doc
-   rule), then PARITY.md.
+1. **Xcode**: owner — *"You should always build for the current version of
+   Xcode that is publicly available (never the betas)"*, then *"a release
+   candidate is the final version."* This Mac now has only Xcode 27.1 RC
+   (27A9275, the iOS 27.1 SDK and the Duo simulator); Xcode-beta is gone.
+2. **CI**: `appstore-build.yml` runs on GitHub's `xcode-27` image (released
+   macOS 27) and selects the newest non-beta Xcode on it. Today that is 27.0;
+   the image's 27.1 is still the September beta, and the RC is requested
+   (actions/runner-images#14850). A 27.0 build fills most of the Duo's inner
+   display; the 27.1 SDK's edge-to-edge look reaches the store when GitHub ships
+   the RC to the image, with no further change here.
+3. **Duo features**: iOS-DESIGN §2.8 — vertical bars, titled toolbar items,
+   art under the strip, regular-width layouts, a second window, Clip Studio's
+   `ArrangementView`; hinge effects and the camera accessory deliberately not.
+4. **Header**: the app icon's own shot — the moon with the rocket in its eye,
+   *A Trip to the Moon* (1902) — at 3840×1646, composed like the in-app hero
+   (Decision 097): the frame at its own shape, the moon centered, an ambient
+   wash of the same frame to 21:9, no text. Why this and not a collage or a
+   film's poster: Apple asks for ONE clear idea a first-time visitor reads at a
+   glance, and recommends the header carry the brand; this is the brand image,
+   unmistakably cinema, unmistakably old, public domain worldwide, and it
+   rated 4+ where the horror canon is not. Source: the 1440×1080 Commons
+   transfer (the icon's 944px still was too small). `tools/make_store_header.py`.
+5. **Search results**: NOT the moon. Apple: search must "state the obvious" and
+   "showcase the firsthand experience"; our icon is already the moon beside the
+   asset, so a moon asset would say the same thing twice and nothing about
+   what the app does. The search asset is a real capture of the app on the
+   open Duo, landscape, cropped to 3:2 — the poster wall of Home, which is what
+   a person searching "classic movies" wants to see.
+6. **Screenshots for every Apple platform**: owner — *"we may want to make new
+   screenshots for all of the apple platforms."* `tools/appstore_shots.py`
+   (iPhone, Duo, iPad, Apple TV; size-checked against App Store Connect's
+   table, alpha flattened) and `tools/mac-shotset.sh` (Mac).
 
 ## Sources
 

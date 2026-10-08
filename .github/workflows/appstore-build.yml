@@ -1,7 +1,8 @@
 name: App Store build (cloud)
 
-# Build + sign + upload the macOS / iOS / tvOS App Store binaries on a GitHub-hosted macos-26 runner
-# (RELEASED macOS + Xcode 26.6). This sidesteps the two local-build rejections (macOS-DESIGN §C2):
+# Build + sign + upload the macOS / iOS / tvOS App Store binaries on GitHub's xcode-27 runner
+# (RELEASED macOS 27 + the newest non-beta Xcode on it). This sidesteps the two local-build
+# rejections (macOS-DESIGN §C2):
 #   - ITMS-90301 — the dev Mac is on a BETA macOS; Apple rejects App Store builds made on a beta OS.
 #   - ITMS-90111 — the Xcode/SDK floor; the runner always has a current GA Xcode.
 # Free for this PUBLIC repo. Signing is MANUAL via .p12 secrets (cloud signing fails for this team
@@ -47,15 +48,26 @@ concurrency:
 
 jobs:
   build:
-    runs-on: macos-26
+    runs-on: xcode-27
     timeout-minutes: 120
     steps:
       - uses: actions/checkout@v5
 
-      - name: Select a released Xcode 26.6+ (clears the ITMS-90111 floor)
+      # The newest Xcode on the image that is NOT a beta (owner, 2026-10-08:
+      # "always build for the current version of Xcode that is publicly
+      # available (never the betas)" — a Release Candidate counts as final).
+      # Version symlinks like Xcode_27.1.app can point at a beta, so the
+      # resolved path is what is judged. The iOS 27.1 SDK is what lets the app
+      # fill both iPhone Duo displays (docs/research/IPHONE-DUO.md §2a).
+      - name: Select the newest non-beta Xcode
         run: |
-          XC="$(ls -d /Applications/Xcode_26.6*.app 2>/dev/null | sort -V | tail -1)"
-          [ -n "$XC" ] || XC="$(ls -d /Applications/Xcode_26.*.app 2>/dev/null | sort -V | tail -1)"
+          XC=""
+          for app in $(ls -d /Applications/Xcode_*.app | sort -V); do
+            real="$(cd "$app" && pwd -P)"
+            case "$real" in *[Bb]eta*) continue ;; esac
+            XC="$real"
+          done
+          [ -n "$XC" ] || { echo "::error::no non-beta Xcode on this image"; exit 1; }
           echo "Selected Xcode: $XC"
           sudo xcode-select -s "$XC"
           echo "DEVELOPER_DIR=$XC/Contents/Developer" >> "$GITHUB_ENV"

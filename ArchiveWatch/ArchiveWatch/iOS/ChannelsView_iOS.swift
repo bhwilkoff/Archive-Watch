@@ -88,7 +88,7 @@ struct ChannelsView: View {
             }
             ToolbarItem(placement: .topBarTrailing) {
                 Button { showCreate = true } label: {
-                    Image(systemName: "plus").accessibilityLabel("Create channel")
+                    Label("Create channel", systemImage: "plus")
                 }
             }
         }

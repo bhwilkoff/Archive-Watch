@@ -19,7 +19,7 @@
 // domestic uplink. Throttling inside the publisher would only prove the
 // arithmetic we already wrote.
 //
-//   DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer xcrun swiftc \
+//   DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcrun swiftc \
 //     -parse-as-library -O \
 //     ArchiveWatch/ArchiveWatch/Studio/RTMPPublisher.swift \
 //     ArchiveWatch/ArchiveWatch/Studio/StudioEngine.swift \

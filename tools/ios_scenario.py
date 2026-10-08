@@ -24,7 +24,7 @@ from pathlib import Path
 DEVICE = os.environ.get("AW_IOS_DEVICE", "B4E756E2-CBFA-5F63-8CEE-21D226637AF7")
 BUNDLE = "app.archivewatch.tvos"
 XCRUN = ["xcrun", "devicectl"]
-ENV = {**os.environ, "DEVELOPER_DIR": "/Applications/Xcode-beta.app/Contents/Developer"}
+ENV = {**os.environ, "DEVELOPER_DIR": "/Applications/Xcode.app/Contents/Developer"}
 OUT = Path(os.environ.get("AW_IOS_OUT", "/tmp/ios-audit"))
 OCR = "/tmp/awocr"
 

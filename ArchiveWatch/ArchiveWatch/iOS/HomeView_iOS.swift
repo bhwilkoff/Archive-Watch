@@ -109,13 +109,13 @@ struct HomeView: View {
             if hSize != .regular {
                 ToolbarItem(placement: .topBarLeading) {
                     Button { router.push(SurpriseRoute()) } label: {
-                        Image(systemName: "shuffle").accessibilityLabel("Surprise me")
+                        Label("Surprise me", systemImage: "shuffle")
                     }
                 }
             }
             ToolbarItem(placement: .topBarTrailing) {
                 Button { router.showSettings = true } label: {
-                    Image(systemName: "gearshape").accessibilityLabel("Settings")
+                    Label("Settings", systemImage: "gearshape")
                 }
             }
         }

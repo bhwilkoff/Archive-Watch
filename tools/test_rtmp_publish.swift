@@ -14,7 +14,7 @@
 // avcC/ASC path and the sample-buffer shapes are exercised, not faked.
 //
 //   brew install mediamtx ffmpeg          # once
-//   DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer xcrun swiftc \
+//   DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcrun swiftc \
 //     -parse-as-library -O \
 //     ArchiveWatch/ArchiveWatch/Studio/RTMPPublisher.swift \
 //     tools/StudioTestMedia.swift tools/test_rtmp_publish.swift -o /tmp/awrtmp && /tmp/awrtmp

@@ -5,7 +5,7 @@
 # ── One-time setup ────────────────────────────────────────────────────────────────────────────
 # 1) Install a RELEASED Xcode (NOT the beta) — App Review rejects beta-toolchain builds. Point at it:
 #       export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
-#    (Leave the beta at /Applications/Xcode-beta.app; this script refuses a "*beta*" DEVELOPER_DIR.)
+#    (Leave the beta at /Applications/Xcode.app; this script refuses a "*beta*" DEVELOPER_DIR.)
 # 2) App Store Connect API key: ASC ▸ Users and Access ▸ Integrations ▸ App Store Connect API ▸
 #    generate a key (Role: App Manager or Admin). Download AuthKey_<KEYID>.p8 (ONE download only),
 #    note the Key ID + Issuer ID, and place the key here:
@@ -51,7 +51,7 @@ if [ -f "tools/asc-credentials.env" ]; then
 fi
 
 # GUARD: never archive with a BETA toolchain — App Review rejects beta-built apps (TestFlight allows
-# them). The beta lives at /Applications/Xcode-beta.app, so a "beta" in the path is the reliable tell.
+# them). The beta lives at /Applications/Xcode.app, so a "beta" in the path is the reliable tell.
 case "$DEV" in
   *[Bb]eta*) echo "REFUSING: DEVELOPER_DIR points at a BETA Xcode ($DEV)."
              echo "App Review rejects beta-toolchain builds. Install a released Xcode and set"

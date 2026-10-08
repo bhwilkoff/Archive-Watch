@@ -22,7 +22,7 @@
 // `overrideThermalState`, and this is the thing that uses it.
 //
 //   brew install mediamtx ffmpeg          # once
-//   DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer xcrun swiftc \
+//   DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcrun swiftc \
 //     -parse-as-library -O \
 //     ArchiveWatch/ArchiveWatch/Studio/RTMPPublisher.swift \
 //     ArchiveWatch/ArchiveWatch/Studio/StudioEngine.swift \

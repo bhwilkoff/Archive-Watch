@@ -12,7 +12,7 @@
 // Passing means: the item reaches .readyToPlay AND reports a legible media
 // selection group containing our subtitle track.
 //
-// Run:  DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer \
+// Run:  DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer \
 //       xcrun swift tools/test_local_master_playback.swift <mp4-url>
 
 import AVFoundation

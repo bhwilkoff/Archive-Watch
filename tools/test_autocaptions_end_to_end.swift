@@ -12,7 +12,7 @@
 //   ffmpeg -ss 300 -t 180 -i "<mp4 url>" -vn -c:a aac /tmp/slice.m4a
 //
 // Run:
-//   DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer xcrun swiftc \
+//   DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcrun swiftc \
 //     -parse-as-library ArchiveWatch/ArchiveWatch/Services/AutoCaptions.swift \
 //     tools/test_autocaptions_end_to_end.swift -o /tmp/awcap && /tmp/awcap /tmp/slice.m4a 180
 

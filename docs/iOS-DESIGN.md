@@ -181,6 +181,50 @@ downloads, the tab still opens straight onto Downloads (Decision 099). This is
 the shape of Apple Music's and the Apple TV app's libraries. A new kind of
 saved thing is a new ROW, never a segment.
 
+2.8 **iPhone Duo is an iPhone with two size classes, not a third app.** Owner,
+2026-10-08: *"if it is an option on the Duo, we should implement the newly
+possible features on the latest device type for Apple."* Apple's guidance
+(HIG "Designing for iPhone Duo", research in `docs/research/IPHONE-DUO.md`): the
+outer display is compact width, the inner display regular width, and every
+pose (open, partly folded, set down, standing) is one of those two.
+
+- **Built with the iOS 27.1 SDK or later**, the app fills both displays and the
+  system moves the tab bar, toolbars and back button into a strip on the right
+  edge (the outer display, and the inner one in landscape). We get that from
+  §2.2's one `TabView` and from `.toolbar` on each `NavigationStack`; **no
+  custom bar, ever**, because a custom bar cannot move.
+- **Every icon toolbar item is a `Label` with a title and a symbol.** The strip
+  shows only symbols, the overflow menu needs the title, and a title-only item
+  stays in a horizontal bar. The ellipsis is reserved for the system's overflow.
+- **Regular width is not "iPad".** Everything §2.2 and the regular-width rules
+  give an iPad (sidebar places, two-column Detail and Series, the Channels grid
+  alone per 2.5c, Clip Studio side by side) is what the OPEN Duo shows. Code
+  and comments say "regular width", never "iPad", for these.
+- **Art under the strip.** A hero or backdrop that reaches the trailing edge
+  extends under the vertical strip with `backgroundExtensionEffect()` instead
+  of stopping short of it. Its subject stays where §1.6 puts it.
+- **The fold.** When the inner display is partly folded, system sheets, alerts,
+  menus and split views move off the fold on their own. **Our own controls stay
+  pinned to an EDGE** — the §8.5 episode capsule top-trailing, the 2.5d channel
+  capsule at the top — and a fold, vertical or horizontal, runs through the
+  middle, so they are clear of it by position. A new overlay control that
+  would sit mid-screen reads `GeometryProxy.reservedRegions(kind: .division)`
+  instead. Captions stay with the picture (they belong to the film, which
+  itself crosses the fold); scrolling content crosses it too, as Apple's own
+  apps do.
+- **A second window on the open Duo.** "Open in New Window" (iPad, §3) is
+  offered wherever the system says a new window can open, so the inner display
+  has it and the outer display does not. It stays gated on
+  `supportsMultipleWindows`, never on the device.
+- **Clip Studio's editor is an `ArrangementView` split** (preview primary,
+  settings secondary) at regular width. Partly folded, the preview sits on
+  one half and the settings on the other, instead of a column crossing the
+  fold. Not in a scroll view, as Apple requires.
+- **Not adopted, deliberately**: hinge-angle effects (`onHingeChange` is for
+  effects, and we have none worth adding); a camera capture accessory (the
+  Studio films its HOST with the front camera, and the accessory serves the
+  rear one); per-pose layouts (Apple: never).
+
 ---
 
 ## §3 — Surface taxonomy (the only allowed shapes)

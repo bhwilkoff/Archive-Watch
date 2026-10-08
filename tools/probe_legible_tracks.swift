@@ -10,7 +10,7 @@
 // Prints every legible option, plus the raw track list, so "the app says it has
 // English subtitles" can be traced to something concrete.
 //
-// Run: DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer \
+// Run: DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer \
 //      xcrun swift tools/probe_legible_tracks.swift <url>
 
 import AVFoundation

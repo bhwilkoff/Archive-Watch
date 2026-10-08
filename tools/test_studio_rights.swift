@@ -6,7 +6,7 @@
 // whole published catalog — because a gate nobody has counted is a gate
 // nobody knows the shape of.
 //
-//   DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer xcrun swiftc \
+//   DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcrun swiftc \
 //     -parse-as-library -O \
 //     ArchiveWatch/ArchiveWatch/Studio/StudioRights.swift \
 //     tools/test_studio_rights.swift -o /tmp/awrights && /tmp/awrights

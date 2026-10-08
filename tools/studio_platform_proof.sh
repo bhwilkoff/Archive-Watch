@@ -22,7 +22,7 @@
 # (bench only: the server keeps the recording, under the output folder's rec/).
 set -u
 cd "$(dirname "$0")/.."
-export DEVELOPER_DIR=${DEVELOPER_DIR:-/Applications/Xcode-beta.app/Contents/Developer}
+export DEVELOPER_DIR=${DEVELOPER_DIR:-/Applications/Xcode.app/Contents/Developer}
 PHONE=${AW_PROOF_DEVICE:-B4E756E2-CBFA-5F63-8CEE-21D226637AF7}   # iPhone 12 — the test device
 [ "$PHONE" = 988DE0A7-63DB-561C-B5FA-2BAAB60643E1 ] && { echo "!! that is the owner's own iPhone"; exit 2; }
 BUNDLE=app.archivewatch.tvos

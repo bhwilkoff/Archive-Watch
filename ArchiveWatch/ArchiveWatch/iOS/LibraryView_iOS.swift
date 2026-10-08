@@ -373,7 +373,7 @@ struct LibraryView: View {
                                 if let shareURL {
                                     ToolbarItem(placement: .topBarTrailing) {
                                         ShareLink(item: shareURL) {
-                                            Image(systemName: "square.and.arrow.up")
+                                            Label("Share", systemImage: "square.and.arrow.up")
                                         }
                                     }
                                 }

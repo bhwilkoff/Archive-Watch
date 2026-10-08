@@ -26,7 +26,7 @@ for a in "$@"; do
   esac
 done
 
-export DEVELOPER_DIR="${DEVELOPER_DIR:-/Applications/Xcode-beta.app/Contents/Developer}"
+export DEVELOPER_DIR="${DEVELOPER_DIR:-/Applications/Xcode.app/Contents/Developer}"
 SCRATCH="${TMPDIR:-/tmp}/aw-studio-suite"
 mkdir -p "$SCRATCH"
 MTX=$(command -v mediamtx || echo /opt/homebrew/bin/mediamtx)

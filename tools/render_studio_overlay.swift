@@ -7,7 +7,7 @@
 // the worst frame the film can put behind it, and a black test card proves
 // nothing about white type.
 //
-//   DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer xcrun swiftc \
+//   DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcrun swiftc \
 //     -parse-as-library -O \
 //     ArchiveWatch/ArchiveWatch/Studio/RTMPPublisher.swift \
 //     ArchiveWatch/ArchiveWatch/Studio/StudioAudio.swift \

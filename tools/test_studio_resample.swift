@@ -29,7 +29,7 @@
 // reimplementation of the OLD hold, which must FAIL: a test that cannot fail
 // on the bug it was written for is not a test (Decision 130).
 //
-//   DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer xcrun swiftc \
+//   DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcrun swiftc \
 //     -parse-as-library -O ArchiveWatch/ArchiveWatch/Studio/StudioAudio.swift \
 //     tools/harness_awdiag.swift tools/test_studio_resample.swift \
 //     -o /tmp/resamptest && /tmp/resamptest

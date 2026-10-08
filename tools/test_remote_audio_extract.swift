@@ -8,7 +8,7 @@
 // export. An audio-only AppleM4A export may behave differently, and the answer
 // decides whether "Get subtitles" costs a few MB or a gigabyte.
 //
-// Run:  DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer \
+// Run:  DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer \
 //       xcrun swift tools/test_remote_audio_extract.swift <url> [seconds]
 //
 // Reports: whether it succeeded, how long it took, and how big the audio is —

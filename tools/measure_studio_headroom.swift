@@ -20,7 +20,7 @@
 // state. What matters is whether achieved fps holds at the target and whether
 // render ms stays under the frame budget (33.3 ms at 30 fps).
 //
-//   DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer xcrun swiftc \
+//   DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcrun swiftc \
 //     -parse-as-library -O \
 //     ArchiveWatch/ArchiveWatch/Studio/RTMPPublisher.swift \
 //     ArchiveWatch/ArchiveWatch/Studio/StudioEngine.swift \

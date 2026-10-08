@@ -1718,9 +1718,10 @@ public actor StudioEngine {
         // back four seconds to where it had started and stop, with nothing in
         // the log to say why, and it did not reproduce. Every rate change now
         // names its reason, and every time jump its new position.
+        let reasonKey = await AVPlayer.rateDidChangeReasonKey
         filmRateNote = NotificationCenter.default.addObserver(
             forName: AVPlayer.rateDidChangeNotification, object: player, queue: nil) { n in
-            let reason = (n.userInfo?[AVPlayer.rateDidChangeReasonKey] as? AVPlayer.RateDidChangeReason)?.rawValue ?? "?"
+            let reason = (n.userInfo?[reasonKey] as? AVPlayer.RateDidChangeReason)?.rawValue ?? "?"
             let rate = (n.object as? AVPlayer)?.rate ?? -1
             let at = (n.object as? AVPlayer)?.currentTime().seconds ?? -1
             awdiag("AWFILM rate -> %.2f at %.2f reason=%@", rate, at, reason)

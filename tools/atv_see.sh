@@ -12,7 +12,7 @@ set -uo pipefail
 OUT="${1:?usage: atv_see.sh <out.png> [min_bytes]}"
 MIN="${2:-400000}"
 DEV="${AW_ATV:-Ben Bedroom}"
-DEVELOPER_DIR="${DEVELOPER_DIR:-/Applications/Xcode-beta.app/Contents/Developer}" \
+DEVELOPER_DIR="${DEVELOPER_DIR:-/Applications/Xcode.app/Contents/Developer}" \
   xcrun devicectl device capture screenshot --device "$DEV" --destination "$OUT" >/dev/null 2>&1
 sz=$(stat -f%z "$OUT" 2>/dev/null || echo 0)
 if [ "$sz" -lt "$MIN" ]; then

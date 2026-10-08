@@ -143,7 +143,7 @@ struct SeriesDetailView: View {
                         Label("Share link…", systemImage: "square.and.arrow.up")
                     }
                 } label: {
-                    Image(systemName: "square.and.arrow.up")
+                    Label("Share and more", systemImage: "square.and.arrow.up")
                 }
             }
         }

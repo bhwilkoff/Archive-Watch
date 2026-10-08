@@ -32,7 +32,7 @@ sys.path.insert(0, str(Path(__file__).parent))
 import devlease  # noqa: E402
 
 REPO = Path(__file__).resolve().parent.parent
-DEVELOPER_DIR = "/Applications/Xcode-beta.app/Contents/Developer"
+DEVELOPER_DIR = "/Applications/Xcode.app/Contents/Developer"
 ENV = {**os.environ, "DEVELOPER_DIR": DEVELOPER_DIR}
 BUNDLE = "app.archivewatch.tvos"
 OCR = "/tmp/awocr"

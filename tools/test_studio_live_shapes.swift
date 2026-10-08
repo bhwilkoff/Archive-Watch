@@ -9,7 +9,7 @@
 //
 // It compiles the REAL source rather than restating it (Decision 119):
 //
-//   DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer xcrun swiftc \
+//   DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcrun swiftc \
 //     -parse-as-library -O \
 //     ArchiveWatch/ArchiveWatch/Studio/StudioPlatformAuth.swift \
 //     ArchiveWatch/ArchiveWatch/Studio/StudioPlatforms.swift \

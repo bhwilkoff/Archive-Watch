@@ -23,9 +23,16 @@ ART_WAIT="${ART_WAIT:-24}"                    # seconds to let posters/backdrops
 # Python with Pillow for the canvas framing (system python3 may lack PIL; the play venv has it).
 PYBIN="tools/.play-venv/bin/python"; [ -x "$PYBIN" ] || PYBIN="python3"
 
-# `|| true`: pkill exits 1 when nothing matches, which under `set -e` would abort the
-# whole run at the first quit (when no app is running yet). No-match is not an error here.
-quit() { pkill -f "Archive Watch.app" 2>/dev/null || true; pkill -f "ArchiveWatchMac" 2>/dev/null || true; sleep 1.5; }
+# Only the copy THIS script launched is ever quit, by its pid — never by name,
+# which would also kill a copy the owner is using (memory
+# dont_kill_the_owners_running_app). The capture is by WINDOW ID through
+# tools/mac_window_shot.swift, never a screen region: a region grab once caught
+# the owner's own documents (memory mac_screenshot_window_only).
+APP_PID=""
+quit() { [ -n "$APP_PID" ] && kill "$APP_PID" 2>/dev/null || true; APP_PID=""; sleep 1.5; }
+WINSHOT="${TMPDIR:-/tmp}/aw-winshot"
+[ -x "$WINSHOT" ] || xcrun swiftc -O tools/mac_window_shot.swift -o "$WINSHOT"
+APP_NAME="$EXE"
 
 size_window() {
   osascript >/dev/null 2>&1 <<OSA || true
@@ -49,17 +56,7 @@ frame_capture() {  # $1 = output name
   sleep 0.6
   # SwiftUI exposes no AXWindowNumber, so capture by REGION from the window's AX bounds (each number
   # coerced `as text` — a bare list would serialize wrong). This is the recipe that actually works here.
-  bounds="$(osascript 2>/dev/null <<'OSA' || true
-tell application "System Events"
-  set p to item 1 of (every process whose name contains "Archive" and visible is true)
-  set w to front window of p
-  set {x, y} to position of w
-  set {ww, hh} to size of w
-  return (x as text) & "," & (y as text) & "," & (ww as text) & "," & (hh as text)
-end tell
-OSA
-)"
-  if [[ "$bounds" =~ ^[0-9.,-]+$ ]]; then screencapture -o -x -R"$bounds" -t png "$raw"; else screencapture -o -x -t png "$raw"; fi
+  "$WINSHOT" "$APP_NAME" "" "$raw" >/dev/null || echo "WARNING: $name: no window of $APP_NAME to capture" >&2
   bytes=$(stat -f%z "$raw" 2>/dev/null || echo 0)
   [ "$bytes" -lt 5000 ] && echo "WARNING: $name capture tiny ($bytes B) — grant Screen Recording permission." >&2
   "$PYBIN" - "$raw" "$out" "$W" "$H" "$BG" "$MARGIN" <<'PY'
@@ -78,6 +75,7 @@ PY
 launch() {  # env assignments... ; launches BIN detached with those env vars
   quit
   env "$@" "$BIN" >/tmp/aw-shot-app.log 2>&1 &
+  APP_PID=$!
   sleep 6                 # app start + window
   size_window
 }
@@ -95,6 +93,7 @@ shot() {  # $1 name ; rest = env assignments
 echo "== warm-up launch (download + cache the full catalog DB + art) =="
 quit
 "$BIN" >/tmp/aw-shot-app.log 2>&1 &
+APP_PID=$!
 sleep "${WARM:-90}"
 quit
 

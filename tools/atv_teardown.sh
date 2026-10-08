@@ -17,7 +17,7 @@ DEV="${1:?device udid}"
 ADDR="${2:-}"
 PYID="${3:-}"
 BUNDLE="app.archivewatch.tvos"
-DEVELOPER_DIR="${DEVELOPER_DIR:-/Applications/Xcode-beta.app/Contents/Developer}"
+DEVELOPER_DIR="${DEVELOPER_DIR:-/Applications/Xcode.app/Contents/Developer}"
 export DEVELOPER_DIR
 PYATV="$HOME/.pyatv-venv/bin/atvremote"
 

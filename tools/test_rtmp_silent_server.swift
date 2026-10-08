@@ -3,7 +3,7 @@
 // step in a task group, which waits for a child that ignores cancellation —
 // the Creation Studio's Export hung on exactly that shape, Mac loop v1.42.807.)
 //
-//   DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer xcrun swiftc \
+//   DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcrun swiftc \
 //     -parse-as-library -O ArchiveWatch/ArchiveWatch/Studio/RTMPPublisher.swift tools/harness_awdiag.swift \
 //     tools/test_rtmp_silent_server.swift -o /tmp/awsilent && /tmp/awsilent
 //

@@ -18,7 +18,7 @@
 // key with a named reason. A TLS failure, a handshake failure, or a hang is a
 // FAIL — those are ours. A refusal is the server working correctly.
 //
-//   DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer xcrun swiftc \
+//   DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcrun swiftc \
 //     -parse-as-library -O \
 //     ArchiveWatch/ArchiveWatch/Studio/RTMPPublisher.swift \
 //     tools/test_rtmp_destinations.swift -o /tmp/awdest && /tmp/awdest

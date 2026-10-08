@@ -12,7 +12,7 @@
 //  3. The auth boundary must say what is missing. A stub that returns a fake
 //     token would make every caller look like it works and fail far away.
 //
-//   DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer xcrun swiftc \
+//   DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcrun swiftc \
 //     -parse-as-library -O \
 //     ArchiveWatch/ArchiveWatch/Studio/StudioPlatforms.swift \
 //     tools/test_studio_platforms.swift -o /tmp/awplat && /tmp/awplat

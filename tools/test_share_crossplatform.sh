@@ -23,7 +23,7 @@ struct Harness {
 }
 SWIFT
 
-DEVELOPER_DIR=${DEVELOPER_DIR:-/Applications/Xcode-beta.app/Contents/Developer} \
+DEVELOPER_DIR=${DEVELOPER_DIR:-/Applications/Xcode.app/Contents/Developer} \
   xcrun swiftc -O -parse-as-library \
     ArchiveWatch/ArchiveWatch/Services/PlaylistShare.swift "$TMP/main.swift" \
     -o "$TMP/awshare"

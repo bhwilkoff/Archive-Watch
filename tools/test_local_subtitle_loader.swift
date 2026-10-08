@@ -9,7 +9,7 @@
 // that it compiles is not proven.
 //
 // Compile the real sources, not copies:
-//   DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer xcrun swiftc \
+//   DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcrun swiftc \
 //     -parse-as-library ArchiveWatch/ArchiveWatch/Networking/AirPlayRouting.swift \
 //     ArchiveWatch/ArchiveWatch/Services/SubtitleStore.swift \
 //     ArchiveWatch/ArchiveWatch/Networking/LocalSubtitleHLSLoader.swift \

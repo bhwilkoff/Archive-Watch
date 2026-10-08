@@ -43,7 +43,7 @@ change that is fine on the 3rd-gen units is not proven until it runs there.
 | Google TV (SEI Dongle R 4K) | `10.0.0.55:5555` | Android 14 / API 34 | adb connected |
 | Fire TV Stick 4K Max (`AFTKRT`) | `10.0.0.139:5555` | Fire OS 8 / Android 11 / API 30 | adb connected |
 | Pixel 8a | `adb-3B211JEKB14516…_adb-tls-connect._tcp` | Android 17 / API 37 | adb over TLS |
-| This Mac | — | macOS 27.0 (26A5425a) | Xcode-beta; `DEVELOPER_DIR` must point at it |
+| This Mac | — | macOS 27.0 (26A5425a) | Xcode 27.1 RC at /Applications/Xcode.app (public Xcode only, never a beta — owner 2026-10-08); `DEVELOPER_DIR` must point at it |
 
 ### The Roku 2 XD is the floor, and it is worth keeping
 
@@ -138,7 +138,7 @@ Requires `DEVELOPER_DIR` exported into the subprocess — it is not inherited
 from a plain `os.environ` copy if the parent shell never set it.
 
 ```bash
-export DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer
+export DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer
 
 xcrun devicectl list devices
 xcrun devicectl device install app --device <UDID> /path/ArchiveWatch.app

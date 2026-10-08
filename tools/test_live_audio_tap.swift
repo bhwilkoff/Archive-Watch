@@ -11,7 +11,7 @@
 // This proves the mechanism before any feature is built on it: attach a tap to a
 // REMOTE archive.org MP4, play, and count the PCM frames that arrive.
 //
-// Run: DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer \
+// Run: DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer \
 //      xcrun swift tools/test_live_audio_tap.swift [url] [seconds]
 
 import AVFoundation

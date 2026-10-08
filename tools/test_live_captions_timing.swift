@@ -17,7 +17,7 @@
 // playback, i.e. a cue's time is close to the wall-clock position it was heard.
 //
 // Build against the shipped sources:
-//   DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer xcrun swiftc \
+//   DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcrun swiftc \
 //     -parse-as-library ArchiveWatch/ArchiveWatch/Services/AutoCaptions.swift \
 //     ArchiveWatch/ArchiveWatch/Services/LiveCaptions.swift \
 //     ArchiveWatch/ArchiveWatch/Networking/ResilientStreamLoader.swift \

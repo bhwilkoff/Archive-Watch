@@ -19,7 +19,7 @@
 // sees. Comparing the two assets side by side is the only way to know.
 //
 // Compile against the SHIPPED loader:
-//   DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer xcrun swiftc \
+//   DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcrun swiftc \
 //     -parse-as-library ArchiveWatch/ArchiveWatch/Networking/AirPlayRouting.swift \
 //     ArchiveWatch/ArchiveWatch/Networking/ResilientStreamLoader.swift \
 //     tools/test_transcribed_track_over_loader.swift -o /tmp/awtrans && /tmp/awtrans <mp4-url>

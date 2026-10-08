@@ -25,7 +25,7 @@
 //
 // Run (swiftc, because `swift <file>` script mode compiles only ONE file and the
 // point is to test the SHIPPED loader, not a copy of it):
-//   DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer \
+//   DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer \
 //   xcrun swiftc -O tools/test_playback_coordination.swift \
 //     ArchiveWatch/ArchiveWatch/Networking/ResilientStreamLoader.swift \
 //     -o /tmp/awcoord && /tmp/awcoord [mp4-url]

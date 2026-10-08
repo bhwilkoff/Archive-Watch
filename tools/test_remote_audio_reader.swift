@@ -7,7 +7,7 @@
 // SpeechAnalyzer directly). If it cannot, the only on-device path is downloading
 // the whole film first, which is worth knowing before building the UI around it.
 //
-// Run:  DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer \
+// Run:  DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer \
 //       xcrun swift tools/test_remote_audio_reader.swift <url> [seconds]
 
 import AVFoundation

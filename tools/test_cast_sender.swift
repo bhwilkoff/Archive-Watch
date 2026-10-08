@@ -9,7 +9,7 @@
 // close, AFTER the session is stopped, and the harness checks the TV is left
 // unmuted and off our receiver.
 //
-//   DEVELOPER_DIR=/Applications/Xcode-beta.app/Contents/Developer xcrun swiftc \
+//   DEVELOPER_DIR=/Applications/Xcode.app/Contents/Developer xcrun swiftc \
 //     -parse-as-library -O ArchiveWatch/ArchiveWatch/Networking/CastClient.swift \
 //     tools/test_cast_sender.swift -o /tmp/awcast && /tmp/awcast 10.0.0.55
 

@@ -16,9 +16,8 @@ struct JoinRoomButton_iOS: View {
     @State private var showing = false
     var body: some View {
         Button { showing = true } label: {
-            Image(systemName: "person.2.wave.2")
+            Label("Join a Watch Together room", systemImage: "person.2.wave.2")
         }
-        .accessibilityLabel("Join a Watch Together room")
         .sheet(isPresented: $showing) { JoinRoomSheet_iOS() }
     }
 }
