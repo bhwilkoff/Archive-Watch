@@ -1993,6 +1993,18 @@
    "kind": "feature-film",
    "mediaId": "117401581977330775",
    "reviewer": null
+  },
+  {
+   "at": "2026-10-08T02:47:42.297922+00:00",
+   "id": "mother-1926-by-vsevolod-pudovkin",
+   "title": "Mother",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxdh32l7qo2p",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
