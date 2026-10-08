@@ -2005,6 +2005,66 @@
    "kind": "silent-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-10-08T20:42:24.833427+00:00",
+   "id": "children-of-divorce-1927-with-sync-music",
+   "title": "Children of Divorce",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxfd4vourp2l",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-08T20:42:24.833427+00:00",
+   "id": "children-of-divorce-1927-with-sync-music",
+   "title": "Children of Divorce",
+   "slot": "now-showing",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117407232037043342",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-08T20:42:24.833427+00:00",
+   "id": "children-of-divorce-1927-with-sync-music",
+   "title": "Children of Divorce",
+   "slot": "now-showing",
+   "platform": "threads",
+   "url": "https://www.threads.com/@archivewatchapp/post/DeP0au1gWzE",
+   "format": "card",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-08T20:42:24.833427+00:00",
+   "id": "children-of-divorce-1927-with-sync-music",
+   "title": "Children of Divorce",
+   "slot": "now-showing",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DeP0ftun4L1/",
+   "format": "card",
+   "kind": "silent-film",
+   "mediaId": "117407230289425650",
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-08T20:42:24.833427+00:00",
+   "id": "children-of-divorce-1927-with-sync-music",
+   "title": "Children of Divorce",
+   "slot": "now-showing",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=M6a5xuexdT4",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
