@@ -37,7 +37,8 @@ struct HomeView: View {
 
     private var shelves: [Featured.Shelf] { store.featured?.shelves ?? [] }
     private var continueItems: [Catalog.Item] {
-        store.itemsByIDs(progress.filter { !$0.isComplete && $0.positionSeconds > 2 }
+        if Showcase.isOn { return [] }
+        return store.itemsByIDs(progress.filter { !$0.isComplete && $0.positionSeconds > 2 }
             .prefix(12).map(\.archiveID))
     }
 
@@ -122,7 +123,7 @@ struct HomeView: View {
         .id(store.dbVersion)   // re-query when the DB swaps (seed → full)
         .task(id: store.dbVersion) { rebuild() }
         .task {
-            if let id = await Tonight.load() {
+            if !Showcase.isOn, let id = await Tonight.load() {
                 heroItems = Tonight.lead(heroItems, with: store.item(id))
             }
         }
@@ -249,6 +250,9 @@ struct HomeView: View {
     /// Hero pool: popular, home-eligible, designed (non-generated) art, preferring
     /// wide TMDb backdrops so the full-bleed banner isn't a blown-up poster.
     private func loadHero() -> [Catalog.Item] {
+        if Showcase.isOn {
+            return Showcase.hero(from: store.itemsByIDs(store.dbHeroCandidates().prefix(400).map(\.id)))
+        }
         // The pool, its artwork, backdrop, rights and recommendation gates are
         // ONE SQLite query (CatalogDB.heroCandidates, the tvOS loop v1.42.849):
         // only the seven shown are decoded, where this decoded 3,000 items to
@@ -299,7 +303,7 @@ private struct HeroCarousel: View {
         // on disappear.
         .task(id: items.map(\.archiveID)) {
             index = 0
-            guard items.count > 1 else { return }
+            guard items.count > 1, !Showcase.isOn else { return }
             while !Task.isCancelled {
                 try? await Task.sleep(for: .seconds(7))
                 if Task.isCancelled { break }

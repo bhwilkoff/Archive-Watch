@@ -23,7 +23,8 @@ struct HomeView: View {
     private let minPerShelf = 9
 
     private var continueItems: [Catalog.Item] {
-        store.itemsByIDs(progress.filter { !$0.isComplete && $0.positionSeconds > 2 }
+        if Showcase.isOn { return [] }
+        return store.itemsByIDs(progress.filter { !$0.isComplete && $0.positionSeconds > 2 }
             .prefix(12).map(\.archiveID)).filter(\.hasProfessionalArtwork)
     }
 
@@ -45,7 +46,7 @@ struct HomeView: View {
         .navigationTitle("Home")
         .task(id: store.dbVersion) { reload() }
         .task {
-            if let id = await Tonight.load() {
+            if !Showcase.isOn, let id = await Tonight.load() {
                 heroItems = Tonight.lead(heroItems, with: store.item(id))
             }
         }
@@ -79,8 +80,9 @@ struct HomeView: View {
         let heroPool = (verified.count >= 7 ? verified : pool).map(\.id)
         var rng = SplitMix(seed: heroSeed)
         let picked = heroPool.shuffled(using: &rng).prefix(7).compactMap { store.item($0) }
-        heroItems = Tonight.lead(picked,
-                                 with: Tonight.currentID.flatMap { store.item($0) })
+        heroItems = Showcase.isOn
+            ? Showcase.hero(from: store.itemsByIDs(store.dbHeroCandidates().prefix(400).map(\.id)))
+            : Tonight.lead(picked, with: Tonight.currentID.flatMap { store.item($0) })
         heroItems.forEach { used.insert($0.dedupKey) }
         continueItems.forEach { used.insert($0.dedupKey) }   // don't resurface Continue Watching
 
@@ -174,7 +176,7 @@ struct HeroCarousel: View {
         // cancels it on disappear, so there is no stray timer firing into a torn-down view.
         .task(id: items.map(\.archiveID)) {
             index = 0
-            guard items.count > 1 else { return }
+            guard items.count > 1, !Showcase.isOn else { return }
             while !Task.isCancelled {
                 try? await Task.sleep(for: .seconds(7))
                 if Task.isCancelled { break }

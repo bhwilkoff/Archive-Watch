@@ -91,8 +91,10 @@ struct BrowseView: View {
     private func reload() {
         if paginable {
             items = store.dbBrowse(contentType: filter.category, decade: filter.decade,
-                                   genre: filter.genre, sort: dbSort, limit: pageSize, offset: 0,
+                                   genre: filter.genre, sort: dbSort,
+                                   limit: Showcase.isOn ? 2000 : pageSize, offset: 0,
                                    runtime: filter.runtime)
+            if Showcase.isOn { items = Showcase.ranked(items) }
             totalCount = store.dbBrowseCount(contentType: filter.category,
                                              decade: filter.decade, genre: filter.genre,
                                              runtime: filter.runtime)
@@ -106,7 +108,7 @@ struct BrowseView: View {
     /// The SQLite read runs on main (fast, single-connection-safe); the heavy
     /// JSON decode runs off-main so fast scrolling doesn't hitch.
     private func loadMore() {
-        guard paginable, !loadingMore, items.count < totalCount else { return }
+        guard paginable, !Showcase.isOn, !loadingMore, items.count < totalCount else { return }
         loadingMore = true
         let jsons = store.dbBrowsePageJSON(contentType: filter.category, decade: filter.decade,
                                            genre: filter.genre, sort: dbSort,

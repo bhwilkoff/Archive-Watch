@@ -74,7 +74,7 @@ PY
 
 launch() {  # env assignments... ; launches BIN detached with those env vars
   quit
-  env "$@" "$BIN" >/tmp/aw-shot-app.log 2>&1 &
+  env AW_SHOWCASE=1 "$@" "$BIN" >/tmp/aw-shot-app.log 2>&1 &
   APP_PID=$!
   sleep 6                 # app start + window
   size_window

@@ -125,12 +125,13 @@ struct BrowseView: View {
         total = store.db?.browseCount(contentType: effectiveType, decade: decade, genre: nil, year: nil,
                                       runtime: runtime) ?? 0
         items = store.browse(contentType: effectiveType, decade: decade, genre: nil, year: nil,
-                             sort: sort, limit: page, offset: 0, runtime: runtime)
+                             sort: sort, limit: Showcase.isOn ? 2000 : page, offset: 0, runtime: runtime)
+        if Showcase.isOn { items = Showcase.ranked(items) }
         offset = items.count
     }
 
     private func loadMore() {
-        guard items.count < total else { return }
+        guard !Showcase.isOn, items.count < total else { return }
         let next = store.browse(contentType: effectiveType, decade: decade, genre: nil, year: nil,
                                sort: sort, limit: page, offset: offset, runtime: runtime)
         items.append(contentsOf: next)

@@ -47,6 +47,9 @@ struct HomeView: View {
     /// look pixelated blown up. Falls back to high-res posters only if too few
     /// backdrops exist.
     private func loadHero() -> [Catalog.Item] {
+        if Showcase.isOn {
+            return Showcase.hero(from: store.dbItemsByIDs(store.dbHeroCandidates().prefix(400).map(\.id)))
+        }
         // Backdrops (wide TMDb art) are sparse near the very top of the
         // popularity ranking — only ~6 of the top 300 have one, which pinned the
         // hero to the same handful every launch. Draw from a much deeper window
@@ -84,7 +87,7 @@ struct HomeView: View {
                 if !heroItems.isEmpty {
                     HeroCarousel(items: heroItems)
                 }
-                ContinueWatchingRow()
+                if !Showcase.isOn { ContinueWatchingRow() }
                 CategoryTilesRow()
                 // Every shelf below is computed in ONE render-order pass sharing a
                 // single seen-set (rebuild()), so a title never repeats across the
@@ -140,7 +143,7 @@ struct HomeView: View {
             awdiag("AWPERF home rebuild %.3fs", Date().timeIntervalSince(t0))
         }
         .task {
-            if let id = await Tonight.load() {
+            if !Showcase.isOn, let id = await Tonight.load() {
                 heroItems = Tonight.lead(heroItems, with: store.dbItem(id))
             }
         }
@@ -351,6 +354,7 @@ struct HeroCarousel: View {
         // Native structured-concurrency auto-advance (replaces a Combine Timer.publish whose @MainActor
         // delivery could trip a Swift-runtime executor fault). Cancelled on disappear.
         .task {
+            guard !Showcase.isOn else { return }
             while !Task.isCancelled {
                 try? await Task.sleep(for: .seconds(7))
                 if Task.isCancelled { break }

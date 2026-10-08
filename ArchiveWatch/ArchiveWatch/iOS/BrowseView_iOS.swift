@@ -227,10 +227,16 @@ struct BrowseView: View {
 
     private func reload() {
         page = 0
+        if Showcase.isOn {
+            items = Showcase.ranked(store.browse(contentType: contentType, decade: decade, sort: sort,
+                                                 limit: 2000, offset: 0, runtime: runtime))
+            return
+        }
         items = store.browse(contentType: contentType, decade: decade, sort: sort,
                              limit: pageSize, offset: 0, runtime: runtime)
     }
     private func loadMore() {
+        if Showcase.isOn { return }
         page += 1
         items += store.browse(contentType: contentType, decade: decade, sort: sort,
                               limit: pageSize, offset: page * pageSize, runtime: runtime)

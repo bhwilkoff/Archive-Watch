@@ -3,7 +3,9 @@
 appstore_shots.py — the App Store screenshot set for every Apple simulator
 surface, captured the same way: launch the Debug build onto a screen through
 the app's own start doors (AW_START_TAB / AW_START_ITEM, no-ops in Release),
-wait for the art, capture the display, and REFUSE a file whose pixel size is
+with AW_SHOWCASE=1 (Services/Showcase.swift: hero-tier rights, professional
+art, no horror, most-voted first; personal rows hidden), wait for the art,
+capture the display, and REFUSE a file whose pixel size is
 not one App Store Connect accepts for that slot.
 
     python3 tools/appstore_shots.py <slot> [--udid UDID] [--only NAME]
@@ -127,7 +129,8 @@ def main():
 
     for name, door, value in shots:
         simctl("terminate", a.udid, BUNDLE, timeout=20)
-        r = simctl("launch", a.udid, BUNDLE, env={f"SIMCTL_CHILD_{door}": value}, timeout=180)
+        r = simctl("launch", a.udid, BUNDLE, env={f"SIMCTL_CHILD_{door}": value,
+                                                   "SIMCTL_CHILD_AW_SHOWCASE": "1"}, timeout=180)
         if r.returncode != 0:
             sys.exit(f"launch failed for {name}: {r.stderr.strip()[:200]}")
         time.sleep(ART_WAIT)
