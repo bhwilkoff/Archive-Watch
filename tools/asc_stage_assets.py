@@ -49,7 +49,7 @@ def localization(aid, platform, version):
     vs = asc.call(f"v1/apps/{aid}/appStoreVersions?filter[platform]={platform}"
                   f"&filter[versionString]={version}&limit=5")["data"]
     if not vs:
-        sys.exit(f"no {platform} version {version} — run asc_release.py ship first")
+        return None, None
     state = vs[0]["attributes"].get("appStoreState")
     locs = asc.call(f"v1/appStoreVersions/{vs[0]['id']}/appStoreVersionLocalizations?limit=50")["data"]
     en = next((l for l in locs if l["attributes"]["locale"] == "en-US"), None)
@@ -91,6 +91,9 @@ def main():
         if platform not in loc_cache:
             loc_cache[platform] = localization(aid, platform, a.version)
         loc, state = loc_cache[platform]
+        if loc is None:
+            print(f"{platform}: no version {a.version} yet (asc_release.py ship opens it) — skipped {slot}")
+            continue
         existing = asc.call(f"v1/appStoreVersionLocalizations/{loc}/placements?limit=200")["data"]
         old = [p for p in existing if p["attributes"].get("placementGroup") == group
                and p["attributes"].get("placementType") == ptype]

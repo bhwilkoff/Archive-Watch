@@ -54,15 +54,12 @@ because the loop was stopped mid-stride for a Claude update.
 
 ### Open owner items (nothing else is blocked)
 
-0-NEW-2026-10-08. **iPHONE DUO + NEW APP STORE ASSETS — IN PROGRESS.** Owner
-   decisions taken (`docs/research/IPHONE-DUO.md` §6): public Xcode only, an RC
-   counts — this Mac has ONLY Xcode 27.1 RC now, CI picks the newest non-beta on
-   the `xcode-27` image; Duo features per iOS-DESIGN §2.8; header = the 1902
-   moon (`assets/app-store/header-21x9-3840x1646.png`); search asset = a real
-   capture of the open Duo; new screenshots for EVERY Apple platform
-   (`tools/appstore_shots.py`, `tools/mac-shotset.sh`). The Duo simulator is
-   driven through Device Hub by accessibility (`tools/duo_pose.js`); simctl has
-   no hinge. Duo screenshots required from April 2027.
+0-NEW-2026-10-08. **1.46.0 IS IN REVIEW (iOS, macOS, tvOS)** with the new header,
+   search asset and screenshots. Still open, nothing blocked: the closed-Duo
+   screenshots wait in the Asset Library for the first store build made with
+   Xcode 27.1 (GitHub's `xcode-27` image lacks it; runner-images#14850); the
+   open and partly-folded Duo poses need the owner's Duo (Device Hub's pose
+   buttons did not respond). Duo screenshots required from April 2027.
 
 0-NEW-2026-10-03. **SAMSUNG TV v1.45.10 IS SUBMITTED** (TV Seller Office, app
    3202610049114, Public Seller, US). 45 model groups 2022-2026 incl. four
@@ -758,6 +755,38 @@ keep serving it.
 
 ## Session Log
 
+### 2026-10-08 — iPhone Duo, the new App Store assets, and screenshots for every Apple platform
+
+Owner: *"There are new fields, screenshots, and a whole new device class that
+need to be figured out for our Apple App Store submissions"*; then *"You should
+always build for the current version of Xcode that is publicly available (never
+the betas)"* / *"a release candidate is the final version"*; *"we may want to
+make new screenshots for all of the apple platforms"*; *"the movies grid and
+even the home screen need better screenshots."* v1.45.20 -> 1.46.0 (2124).
+
+- **Research**: `docs/research/IPHONE-DUO.md` (specs, Asset Library API, HIG,
+  what works in Device Hub). **Xcode**: only 27.1 RC on this Mac; CI on the
+  `xcode-27` image picks the newest non-beta (27.0 today; 1.46.0 built with it).
+- **Duo**: iOS-DESIGN §2.8; titled toolbar items, Detail backdrop under the bar
+  strip, iPhone scenes for a second window. Seen on the CLOSED Duo simulator
+  only: Device Hub's pose buttons ignored even real clicks. Clip Studio's
+  ArrangementView withdrawn until the owner's Duo.
+- **Assets**: header = the 1902 moon (`tools/make_store_header.py`), search =
+  the iPad app's Home; `AW_SHOWCASE=1` (DEBUG) gives Home and Movies the
+  rule-ranked hero-tier, pro-art, no-horror set. 44 screenshots + header +
+  search uploaded through the Asset Library API (`tools/asc_asset_library.py`,
+  `tools/asc_stage_assets.py`) and placed on 1.46.0.
+- **Catalog**: a Castle Films reel wore Disney's 1952 Alice (match_rejects);
+  50 Turner promos wore The Kid, The Gold Rush, Nosferatu... (Decision 163) —
+  the real 68-minute Kid (`Brzdac1921`) surfaced once the trailer stopped
+  winning the merge. Both republished.
+- **1.46.0 is WAITING_FOR_REVIEW on iOS, macOS and tvOS.**
+**Open**: the closed-Duo set is in the Asset Library, NOT placed — it shows the
+27.1 SDK's side strip, so it goes on the first store build made with Xcode 27.1
+(when GitHub adds it to `xcode-27`, actions/runner-images#14850); the open and
+partly-folded poses, and Clip Studio's arrangement, need the owner's Duo
+(after 2026-10-23).
+
 ### 2026-10-03 — the Samsung TV brought to the other platforms, tested on the S90C, packaged
 
 Owner: *"we need to update the Tizen app and get it ready to submit to the
@@ -783,40 +812,5 @@ film's end. Owner answers: keep the marquee's Left/Right; About -> Settings;
 guide steps one program. **Ready**: `~/Desktop/ArchiveWatch-Samsung-1.45.7/`
 (signed `.wgt` + five 1920x1080 screenshots), listing copy in
 `docs/tizen-submission.md` §4. **Open**: the Seller Office account (owner).
-
-### 2026-10-02 — the first full show's seven notes, fixed and tested on the Mac
-
-Owner, after streaming a whole film: dropped 451 and a stutter; resizing and
-cropping "very hard"; the mic off the lips; the call "like a chipmunk"; chat on
-only some scenes; no way to order the feeds; no window without "add a call".
-v1.44.12 -> 1.44.13 (2095). Each is a design-doc section, measured or seen on the glass:
-
-- **Drops** (WATCH-TOGETHER §6.4b, Decision 161): the engine steps the bitrate to
-  80% of what the link carried before dropping, asks for a keyframe once a drop
-  drains, steps back up. Throttled 6 Mbps -> 1.8 Mbps: 263 dropped -> 0. §8.79.
-- **Canvas** (macOS-DESIGN §D14b): corners resize, edge bars crop with the
-  picture held still, ⌥-drag slides, scroll zooms, any tile grabbed where drawn,
-  right-click Arrange/Reset. The old drag read a moving view's local space.
-  Driven with real pointer drags on the running Studio. §8.78 (geometry).
-- **Lip sync** (§D42, Decision 160): capture timestamps on every source; the
-  voice held to the camera frame's age (+40..65 ms late -> +2..13). The mixer no
-  longer loses packets its timer missed. No physical flash/beep check: the
-  camera faces a bright window.
-- **Chipmunk call** (§D42): the tap followed its device's rate only at start
-  and chained a headset mic's buffers in. §8.76 (tone, rate switched mid-run).
-- **Chat** (§D22b): never drawn on a card scene; gave up instead of moving
-  sides; scene switches blanked it. §8.77. **The owner's own "Film" scene has
-  chat OFF** — that, plus four card scenes, is why only Discussion showed it.
-- **Layers**: canvas right-click + Broadcast ▸ Arrange (⇧⌘F ⌥⇧⌘F ⌥⇧⌘B ⇧⌘B).
-- **Windows** (§D40a): Add Window… — any app's window, picture only, at its
-  own shape (was pillarboxed into 16:9); media players refused.
-- **Every show now leaves `AWSHOW`** (unified log, every 10 s, every build).
-
-Also: the suite's 8.2/8.7/8.9/8.16 had stopped compiling (missing sources);
-DECISIONS.md rolled 127-145 to an archive. Bench runs left Debug copies open
-(owner: "6 different copies") — the bench now closes each after its show.
-**Open**: the saved Sources list holds only the camera (no call slot) — not
-traced to these runs; the owner should re-add their call. A physical lip-sync
-check needs a camera that can see a flash. A Mac release carrying this.
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).
