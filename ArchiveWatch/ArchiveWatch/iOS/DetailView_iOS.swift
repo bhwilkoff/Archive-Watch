@@ -690,6 +690,7 @@ private struct DetailHero: View {
                 PosterImage(url: backdrop ?? poster)
                     .blur(radius: 28)
                     .overlay(Color.black.opacity(0.45))
+                    .extendsUnderBars()
             }
             .clipped()
     }

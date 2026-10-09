@@ -216,10 +216,12 @@ pose (open, partly folded, set down, standing) is one of those two.
   offered wherever the system says a new window can open, so the inner display
   has it and the outer display does not. It stays gated on
   `supportsMultipleWindows`, never on the device.
-- **Clip Studio's editor is an `ArrangementView` split** (preview primary,
-  settings secondary) at regular width. Partly folded, the preview sits on
-  one half and the settings on the other, instead of a column crossing the
-  fold. Not in a scroll view, as Apple requires.
+- **Clip Studio's editor: an `ArrangementView` split is the plan, NOT built.**
+  Partly folded, the preview would sit on one half and the settings on the
+  other instead of a column crossing the fold. Written and withdrawn
+  2026-10-08: the default split also stacks the iPad's portrait editor, and the
+  partly-folded pose it exists for could not be reached (Device Hub's pose
+  buttons did not respond in the simulator). Build it on the owner's Duo.
 - **Not adopted, deliberately**: hinge-angle effects (`onHingeChange` is for
   effects, and we have none worth adding); a camera capture accessory (the
   Studio films its HOST with the front camera, and the accessory serves the

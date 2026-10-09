@@ -58,7 +58,7 @@ PHONE_SET = [
     ("04-Detail-TheGeneral", "AW_START_ITEM", "TheGeneral720p1926"),
     ("05-Browse", "AW_START_TAB", "browse"),
     ("06-Detail-ATripToTheMoon", "AW_START_ITEM", "a-trip-to-the-moon-1902-tmdbid-775"),
-    ("07-Detail-TheKid", "AW_START_ITEM", "turner_video_9"),
+    ("07-Detail-SherlockJr", "AW_START_ITEM", "sherlockjr1924_201909"),
 ]
 TV_SET = [
     ("01-Home", "AW_START_TAB", "home"),
