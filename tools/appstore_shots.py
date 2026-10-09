@@ -65,7 +65,7 @@ TV_SET = [
     ("02-Channels", "AW_START_TAB", "channels"),
     ("03-Detail-Metropolis", "AW_START_ITEM", "metropolis-1927-4-k-u-rnemls-bwry"),
     ("04-Detail-TheGeneral", "AW_START_ITEM", "TheGeneral720p1926"),
-    ("05-Movies", "AW_START_TAB", "movies"),
+    ("05-Movies", "AW_START_TAB", "browse"),
     ("06-Collections", "AW_START_TAB", "collections"),
     ("07-TVShows", "AW_START_TAB", "tvShows"),
     ("08-Detail-SherlockJr", "AW_START_ITEM", "sherlockjr1924_201909"),
