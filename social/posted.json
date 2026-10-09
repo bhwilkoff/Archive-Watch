@@ -2065,6 +2065,18 @@
    "kind": "silent-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-10-09T03:01:34.518609+00:00",
+   "id": "1944-the-mark-of-the-whistler-william-castle-vose",
+   "title": "The Mark of the Whistler",
+   "slot": "one-line",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxfycvi3lo2g",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
