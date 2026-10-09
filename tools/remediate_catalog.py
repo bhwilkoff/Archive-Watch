@@ -2922,6 +2922,32 @@ TRAILER_MIN_CANONICAL = 2400    # the matched title must be feature-length
 TRAILER_MAX_FRACTION = 0.25     # ...and the file must be a small piece of it
 TRAILER_SOUND_ERA = 1930
 
+# archive.org's OWN trailer collection is evidence the era guard above cannot
+# outweigh (2026-10-08, the first iPhone Duo screenshots): Turner Classic
+# Movies' promos for silent restorations sit in `movie_trailers`, and with the
+# matched film's identity a 119-second "turner_video_9" was the catalog's only
+# "The Kid" (144k votes), first in every most-voted list. Measured: 64 visible
+# items in that collection. Kept on purpose: anything longer than
+# TRAILER_MAX_ACTUAL (Abraham Lincoln, 85 min; The Great Train Robbery, 12
+# min), anything dated before 1905, when a whole film ran a minute (Sherlock
+# Holmes Baffled, 1900), anything whose title SAYS it is a trailer (a vintage
+# trailer that says so is not posing as the feature), and commercials.
+TRAILER_COLLECTION = "movie_trailers"
+TRAILER_COLLECTION_FROM_YEAR = 1905
+
+
+def _archive_trailer(it, actual) -> bool:
+    """In archive.org's trailer collection and posing as the feature?"""
+    if TRAILER_COLLECTION not in (it.get("collections") or []):
+        return False
+    if (it.get("contentType") or "") == "commercial":
+        return False
+    if not actual or actual > TRAILER_MAX_ACTUAL:
+        return False
+    if (it.get("year") or 0) < TRAILER_COLLECTION_FROM_YEAR:
+        return False
+    return not re.search(r"trailer|preview|teaser", it.get("title") or "", re.I)
+
 
 # Markers owned by the playback/codec/duplicate verifiers. An item carrying one
 # was hidden for a reason this rule cannot see, so restoring it would silently
@@ -2957,6 +2983,8 @@ def _trailer_test(it) -> bool:
     year = it.get("year") or 0
     if not actual or actual > TRAILER_MAX_ACTUAL:
         return False
+    if _archive_trailer(it, actual):
+        return True
     if it.get("isSilentFilm") or (year and year < TRAILER_SOUND_ERA):
         return False
     if ct == "trailer":
@@ -3027,6 +3055,16 @@ def flag_trailers(items, stats):
             continue
         if actual > TRAILER_MAX_ACTUAL:
             continue                      # long enough to be a real short
+        if _archive_trailer(it, actual):
+            it["trailerEvidence"] = f"archive.org collection {TRAILER_COLLECTION}"
+            it["contentTypeWas"] = it.get("contentTypeWas") or ct
+            it["contentType"] = "trailer"
+            it["isTrailer"] = True
+            it["trueRuntimeSeconds"] = int(actual)
+            it["excluded"] = True
+            it["excludedReason"] = "trailer"
+            stats["trailer_flagged_by_collection"] += 1
+            continue
         # A silent, or an explicitly pre-1930 title, is held back — see above.
         # An item with NO year is allowed through only when it was ALREADY judged
         # a trailer, since the era guard cannot speak for it either way.

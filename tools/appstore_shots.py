@@ -94,30 +94,41 @@ def displays(udid):
     return found
 
 
-def brightness(udid, display):
-    """Mean luma of the display right now (0-255), or -1 if it cannot be read."""
+def grab(udid, display):
+    """A small grayscale copy of the display right now, or None."""
     tmp = OUT / ".probe.png"
     tmp.unlink(missing_ok=True)
     simctl("io", udid, "screenshot", f"--display={display}", str(tmp), timeout=60)
     try:
-        from PIL import ImageStat
-        return ImageStat.Stat(Image.open(tmp).convert("L")).mean[0]
+        return Image.open(tmp).convert("L").resize((200, 290))
     except Exception:
-        return -1
+        return None
     finally:
         tmp.unlink(missing_ok=True)
 
 
-def wait_for_content(udid, display, limit):
-    """The app's loading screen is near-black ("Loading the archive..." on a
-    first launch or a new catalog, ~150 MB). Wait it out; a store shot of it
-    is worthless."""
+def differs(a, b, by):
+    from PIL import ImageChops, ImageStat
+    return a is None or b is None or ImageStat.Stat(ImageChops.difference(a, b)).mean[0] > by
+
+
+def wait_for_content(udid, display, limit, before=None):
+    """Wait until the APP is on screen with its content: not the white launch
+    screen, not the black "Loading the archive..." screen (~150 MB on a first
+    launch), not whatever was showing before the launch (the springboard's
+    mid-grey wallpaper passed a brightness test, 2026-10-08), and steady across
+    two looks 15 s apart."""
+    from PIL import ImageStat
     end = time.time() + limit
+    prev = None
     while time.time() < end:
-        b = brightness(udid, display)
-        if 12 < b < 240:   # not the black loading screen, not the white launch screen
-            return True
-        time.sleep(10)
+        img = grab(udid, display)
+        if img is not None:
+            luma = ImageStat.Stat(img).mean[0]
+            if 12 < luma < 240 and differs(img, before, 12) and prev is not None and not differs(img, prev, 6):
+                return True
+            prev = img if 12 < luma < 240 else None
+        time.sleep(15)
     return False
 
 
@@ -152,7 +163,8 @@ def main():
 
     shots = TV_SET if a.slot == "tv" else PHONE_SET
     if a.only:
-        shots = [s for s in shots if a.only.lower() in s[0].lower()]
+        wanted = [w.strip().lower() for w in a.only.split(",")]
+        shots = [s for s in shots if any(w in s[0].lower() for w in wanted)]
     outdir = OUT / a.slot
     outdir.mkdir(parents=True, exist_ok=True)
     disp = a.display or max(displays(a.udid).items(), key=lambda kv: kv[1][0] * kv[1][1])[0]
@@ -164,14 +176,18 @@ def main():
     # Not `simctl openurl archivewatch://item/...`: each one raises the system's
     # "Open in Archive Watch?" prompt over the app. --reuse skips the first
     # launch when the app is already showing Home.
+    before = {"img": None}
+
     def launch(env):
         simctl("terminate", a.udid, BUNDLE, timeout=20)
+        time.sleep(3)
+        before["img"] = grab(a.udid, disp)
         r = simctl("launch", a.udid, BUNDLE, env={**env, "SIMCTL_CHILD_AW_SHOWCASE": "1"}, timeout=180)
         if r.returncode != 0:
             sys.exit(f"launch failed: {r.stderr.strip()[:200]}")
 
     def shoot(name):
-        if not wait_for_content(a.udid, disp, 900):
+        if not wait_for_content(a.udid, disp, 900, before["img"]):
             sys.exit(f"{name}: the app never got past its loading screen in 15 minutes")
         time.sleep(ART_WAIT)
         size = capture(a.udid, disp, outdir / f"{name}{a.suffix}.png", SIZES[a.slot])

@@ -249,6 +249,7 @@ into every session and the index alone carries every title.)
 - 160 — Every sound is held to the age of its own picture, and the audio clock is the wall clock
 - 161 — A narrow link is answered with the bitrate before a dropped frame, and a drop ends at the next keyframe it can ask for
 - 162 — The Samsung TV floor is 2022 (Tizen 6.5, Chromium 85), held by a polyfill file and a build gate
+- 163 — archive.org's own trailer collection outweighs the silent-era guard
 
 ---
 
@@ -834,4 +835,30 @@ against Chromium 85 first; fill it in `js/compat.js`, gate it with
 that drops a model year from the store silently. Re-render the TV layer in the
 Chromium 85 snapshot after a CSS change (recipe: docs/tizen-submission.md
 §2b), with a fresh profile every run.
+
+## 163 — archive.org's own trailer collection outweighs the silent-era guard
+*Date: 2026-10-08*
+
+An item in archive.org's `movie_trailers` collection that runs five minutes or
+less, is dated 1905 or later, is not a commercial and does not say "trailer",
+"preview" or "teaser" in its title is a trailer posing as its feature, whatever
+its era: `remediate_catalog._archive_trailer` hides it as `excludedReason:
+trailer` and records `trailerEvidence`. Decision 052's other tests are unchanged.
+
+**Why**: the first iPhone Duo screenshots ranked films by votes, and the
+catalog's only "The Kid" was `turner_video_9` — a 119-second Turner Classic
+Movies promo carrying the film's identity and 144k votes; three copies of The
+Gold Rush were the same. Decision 052 spares short silents because a four-minute
+silent is usually a surviving fragment, and that guard is right in general —
+but here the archive's own collection says what the file is. Measured: 64 visible
+items in the collection; 50 hide (The Kid, The Gold Rush, Nosferatu, Caligari,
+The General, Wings...), 14 stay (Abraham Lincoln and Know Your Enemy: Japan run
+feature length, The Great Train Robbery 12 minutes, Sherlock Holmes Baffled is a
+1900 film that is a minute long, and the vintage trailers titled as trailers).
+
+**How to apply**: an honestly labeled vintage trailer is an archival object and
+stays; only one wearing a film's identity leaves. A real film wrongly filed in
+the collection comes back by evidence (a runtime over five minutes, a year
+before 1905), never by dropping the collection test. `tools/test_trailer_collection.py`
+holds the case and five controls.
 
