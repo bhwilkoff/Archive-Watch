@@ -578,6 +578,15 @@ film are the downloaded WebVTT rendered into the caption overlay
 (`OfflineSubtitles`), selected by the existing caption-type control, never a
 second overlay drawn on top of the first.
 
+8.7a **A download held for wifi says so** (2026-10-09). Cellular downloads are
+off by default, and the system holds a wifi-only transfer on cellular with no
+error, so the bar sat at "Zero KB" with nothing saying why. While a transfer
+is active, cellular is off and the path is expensive, the sheet shows
+"Waiting for Wi-Fi" and a **Download Over Cellular** button that restarts that
+one transfer with cellular allowed. Turning the Settings toggle on restarts
+the transfers that are waiting, because a task keeps the policy of the
+request it was made with.
+
 8.8 **Watch Together Studio is the PLAYER in a production mode, not a new
 surface.** The host is watching the film; the Studio adds camera, layout,
 audio faders, health and go-live as **overlay affordances** in the §8.5

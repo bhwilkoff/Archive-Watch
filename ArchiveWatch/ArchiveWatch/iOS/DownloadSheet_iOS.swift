@@ -101,6 +101,13 @@ struct DownloadSheet: View {
                     }
                 }
                 .padding(.vertical, 4)
+                if manager.isWaitingForWiFi(row.archiveID) {
+                    Label("Waiting for Wi-Fi", systemImage: "wifi.exclamationmark")
+                        .foregroundStyle(.orange)
+                    Button { manager.downloadOverCellular(row.archiveID) } label: {
+                        Label("Download Over Cellular", systemImage: "antenna.radiowaves.left.and.right")
+                    }
+                }
                 Button { manager.pause(row.archiveID) } label: {
                     Label("Pause", systemImage: "pause.circle")
                 }

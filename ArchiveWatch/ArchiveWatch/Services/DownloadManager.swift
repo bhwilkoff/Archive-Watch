@@ -43,8 +43,56 @@ final class DownloadManager {
     /// film is hundreds of megabytes; spending someone's cellular plan on one
     /// without asking is not a default we get to pick for them.
     var allowsCellular: Bool = UserDefaults.standard.bool(forKey: "downloadOverCellular") {
-        didSet { UserDefaults.standard.set(allowsCellular, forKey: "downloadOverCellular") }
+        didSet {
+            UserDefaults.standard.set(allowsCellular, forKey: "downloadOverCellular")
+            // A task keeps the policy of the request it was made with, so a
+            // download already waiting for wifi would go on waiting after the
+            // viewer said yes.
+            if allowsCellular, !oldValue { restartWaitingTransfers() }
+        }
     }
+
+    /// The system holds a wifi-only transfer on cellular without an error or a
+    /// callback, so the sheet's bar sat at zero with nothing saying why
+    /// (2026-10-09, owner: "it never moved past 0 KB").
+    func isWaitingForWiFi(_ archiveID: String) -> Bool {
+        guard !allowsCellular, !cellularOverride.contains(archiveID),
+              NetworkMonitor.shared.isOnline, NetworkMonitor.shared.isExpensive,
+              let row = row(for: archiveID) else { return false }
+        return row.state.isActive
+    }
+
+    /// Restart one waiting download with cellular allowed, leaving the setting
+    /// as it is. Bytes already received are fetched again: resume data replays
+    /// the original wifi-only request.
+    func downloadOverCellular(_ archiveID: String) {
+        cellularOverride.insert(archiveID)
+        restart(archiveID)
+    }
+
+    private func restartWaitingTransfers() {
+        guard let ctx = container?.mainContext,
+              let rows = try? ctx.fetch(FetchDescriptor<DownloadedFilm>()) else { return }
+        // On wifi a transfer that is moving keeps its bytes; it is only on a
+        // costly network, or before the first byte, that it is waiting.
+        let costly = NetworkMonitor.shared.isExpensive
+        for row in rows where row.state.isActive {
+            let received = progressByID[row.archiveID]?.received ?? row.receivedBytes
+            if costly || received == 0 { restart(row.archiveID) }
+        }
+    }
+
+    private func restart(_ archiveID: String) {
+        guard let row = row(for: archiveID), let url = URL(string: row.remoteURLString) else { return }
+        cancelTask(for: archiveID)
+        row.receivedBytes = 0
+        row.state = .queued
+        try? container?.mainContext.save()
+        progressByID[archiveID] = Transfer(received: 0, expected: row.expectedBytes)
+        resumeTask(archiveID: archiveID, url: url, resumeData: nil)
+    }
+
+    @ObservationIgnored private var cellularOverride: Set<String> = []
 
     @ObservationIgnored private var container: ModelContainer?
     @ObservationIgnored private let shim = SessionShim()
@@ -186,6 +234,7 @@ final class DownloadManager {
 
         // Starting over on a title that already has a partial transfer must not
         // leave the old bytes behind claiming space.
+        cellularOverride.remove(item.archiveID)
         cancelTask(for: item.archiveID)
         OfflineLibrary.removeFiles(for: item.archiveID)
 
@@ -246,6 +295,7 @@ final class DownloadManager {
     /// `DownloadedFilm` is device-local and never synced, so there is nothing
     /// for a tombstone to tell another device (iOS-DESIGN §9.7).
     func remove(_ archiveID: String) {
+        cellularOverride.remove(archiveID)
         cancelTask(for: archiveID)
         OfflineLibrary.removeFiles(for: archiveID)
         progressByID.removeValue(forKey: archiveID)
@@ -282,8 +332,9 @@ final class DownloadManager {
         } else {
             var req = URLRequest(url: url)
             req.timeoutInterval = 60
-            req.allowsCellularAccess = allowsCellular
-            req.allowsExpensiveNetworkAccess = allowsCellular
+            let cellular = allowsCellular || cellularOverride.contains(archiveID)
+            req.allowsCellularAccess = cellular
+            req.allowsExpensiveNetworkAccess = cellular
             task = session.downloadTask(with: req)
         }
         task.taskDescription = archiveID

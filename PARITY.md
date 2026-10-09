@@ -469,7 +469,7 @@ same sentence that offers what it CAN do.
 | Mature-content filter (default ON) | ✅ | ✅ | ✅ `hideAdultContent` toggle | n/a (pre-filtered) | ✅ | Decision 012 |
 | Category visibility toggles | ✅ | ✅ | ⏳ | ✅ About → Preferences; hides the tile AND the items, sharing one count with the tile row | ✅ Settings → Show categories (phone and TV) | |
 | Autoplay/playback options | ✅ | ✅ | ⏳ | ✅ About → Preferences: opt-in autoplay (countdown on the end card, stoppable), commercials, hide-watched, categories. Speed is the browser's own (§5.1a) | ✅ Settings: Autoplay next (Up Next card, 8 s, Play Now / Cancel), Commercial breaks, Hide watched; speed, subtitles and copies in Player Options | |
-| Downloads storage + Remove All | 🚫 | ✅ + cellular toggle (OFF by default) | ✅ (no cellular question on a Mac) | 🚫 | ⏳ | Decision 099 |
+| Downloads storage + Remove All | 🚫 | ✅ + cellular toggle (OFF by default); a transfer held for wifi says "Waiting for Wi-Fi" with Download Over Cellular (iOS-DESIGN §8.7a) | ✅ (no cellular question on a Mac) | 🚫 | ⏳ | Decision 099 |
 | TMDb attribution (required) | ✅ | ✅ | ✅ verbatim notice | ✅ | ✅ | Decision 007 |
 | Donate to Internet Archive | ✅ | ✅ | ✅ | ✅ | ✅ | Decision 010 |
 | Sign-in (sync gate, optional) | ✅ Apple | ✅ Apple | ✅ Sign in with Apple | ✅ Google (+ ⏳ Apple) | ✅ Google (phone AND TV) | only gates sync; status row shows account / last sync / last error / Sync now |
