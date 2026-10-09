@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "updated_at": "2026-10-08T11:10:33Z",
+  "updated_at": "2026-10-09T11:16:17Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 18898,
-    "wanted": 18670,
+    "total": 18903,
+    "wanted": 18675,
     "fulfilled": 228,
     "series_with_gaps": 383
   },
@@ -12081,6 +12081,16 @@
       "seriesID": "are-you-being-served-1972",
       "seriesTitle": "Are You Being Served?",
       "season": 6,
+      "episode": 3,
+      "title": "Do You Take This Man?",
+      "episodeImdbID": "tt0514494",
+      "status": "wanted",
+      "added_at": "2026-10-09T11:16:17Z"
+    },
+    {
+      "seriesID": "are-you-being-served-1972",
+      "seriesTitle": "Are You Being Served?",
+      "season": 6,
       "episode": 4,
       "title": "Shedding the Load",
       "episodeImdbID": "tt0789288",
@@ -12096,6 +12106,16 @@
       "episodeImdbID": "tt0514506",
       "status": "wanted",
       "added_at": "2026-06-06T07:00:09Z"
+    },
+    {
+      "seriesID": "are-you-being-served-1972",
+      "seriesTitle": "Are You Being Served?",
+      "season": 7,
+      "episode": 1,
+      "title": "The Junior",
+      "episodeImdbID": "tt0514535",
+      "status": "wanted",
+      "added_at": "2026-10-09T11:16:17Z"
     },
     {
       "seriesID": "are-you-being-served-1972",
@@ -12276,6 +12296,16 @@
       "episodeImdbID": "tt0514505",
       "status": "wanted",
       "added_at": "2026-06-06T07:00:09Z"
+    },
+    {
+      "seriesID": "are-you-being-served-1972",
+      "seriesTitle": "Are You Being Served?",
+      "season": 10,
+      "episode": 3,
+      "title": "The Hold Up",
+      "episodeImdbID": "tt0514534",
+      "status": "wanted",
+      "added_at": "2026-10-09T11:16:17Z"
     },
     {
       "seriesID": "are-you-being-served-1972",
@@ -78920,6 +78950,16 @@
       "seriesID": "last-of-the-summer-wine-1973",
       "seriesTitle": "Last of the Summer Wine",
       "season": 12,
+      "episode": 7,
+      "title": "The Empire That Foggy Nearly Built",
+      "episodeImdbID": "tt0839109",
+      "status": "wanted",
+      "added_at": "2026-10-09T11:16:17Z"
+    },
+    {
+      "seriesID": "last-of-the-summer-wine-1973",
+      "seriesTitle": "Last of the Summer Wine",
+      "season": 12,
       "episode": 8,
       "title": "The Last Surviving Maurice Chevalier Impression",
       "episodeImdbID": "tt0839119",
@@ -79515,6 +79555,16 @@
       "episodeImdbID": "tt0626044",
       "status": "wanted",
       "added_at": "2026-06-06T07:00:09Z"
+    },
+    {
+      "seriesID": "last-of-the-summer-wine-1973",
+      "seriesTitle": "Last of the Summer Wine",
+      "season": 19,
+      "episode": 4,
+      "title": "Oh Howard, We Should Get One of Those",
+      "episodeImdbID": "tt0626009",
+      "status": "wanted",
+      "added_at": "2026-10-09T11:16:17Z"
     },
     {
       "seriesID": "last-of-the-summer-wine-1973",
