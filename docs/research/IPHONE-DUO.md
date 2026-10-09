@@ -193,6 +193,26 @@ Apple's "show the app in use").
 
 ---
 
+### 4a. What actually works (verified 2026-10-08)
+
+- Xcode 27.1 has no Simulator.app; **Device Hub** replaces it. The iOS 27.1
+  runtime accepts ONLY the iPhone Duo; iPhone 18 Pro and iPad run on 27.0.
+- Poses (Closed / Partially Open / Open) exist only as Device Hub's bottom-bar
+  buttons. They ignore accessibility presses; `tools/duo_pose.js` clicks the
+  button's own frame. Rotate Left/Right are Device Hub menu items. Quitting
+  Device Hub shuts the simulator down, and it does not attach to a Duo booted
+  by `simctl boot` — boot it from Device Hub.
+- Every boot printing "Data Migration Failed" was a CORRUPT RUNTIME (downloaded
+  at 8 GB free); delete + re-download fixed it.
+- On this 8 GB Mac a Duo drives the load average to 100–370; one simulator at a
+  time. A cold app launch is ~2 min to Home; the FIRST launch downloads the
+  ~150 MB catalog (~8 min) and must not be killed, or the cache is lost.
+- `simctl openurl archivewatch://…` raises a system "Open in Archive Watch?"
+  prompt, so screens are reached by relaunching with the start doors.
+- `AW_SHOWCASE=1` (DEBUG) makes Home's hero and the Movies grid take the hero
+  tier's rights, professional art and no horror, most-voted first, and hides
+  Continue Watching (`Services/Showcase.swift`).
+
 ## 5. Header and search results assets for Archive Watch
 
 What Apple asks: one clear idea, a first-time visitor in mind, the app's purpose

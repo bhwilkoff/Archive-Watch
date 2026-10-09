@@ -94,6 +94,33 @@ def displays(udid):
     return found
 
 
+def brightness(udid, display):
+    """Mean luma of the display right now (0-255), or -1 if it cannot be read."""
+    tmp = OUT / ".probe.png"
+    tmp.unlink(missing_ok=True)
+    simctl("io", udid, "screenshot", f"--display={display}", str(tmp), timeout=60)
+    try:
+        from PIL import ImageStat
+        return ImageStat.Stat(Image.open(tmp).convert("L")).mean[0]
+    except Exception:
+        return -1
+    finally:
+        tmp.unlink(missing_ok=True)
+
+
+def wait_for_content(udid, display, limit):
+    """The app's loading screen is near-black ("Loading the archive..." on a
+    first launch or a new catalog, ~150 MB). Wait it out; a store shot of it
+    is worthless."""
+    end = time.time() + limit
+    while time.time() < end:
+        b = brightness(udid, display)
+        if 12 < b < 240:   # not the black loading screen, not the white launch screen
+            return True
+        time.sleep(10)
+    return False
+
+
 def capture(udid, display, dest: Path, allowed):
     dest.unlink(missing_ok=True)
     r = simctl("io", udid, "screenshot", f"--display={display}", str(dest), timeout=60)
@@ -105,9 +132,11 @@ def capture(udid, display, dest: Path, allowed):
         sys.exit(f"REFUSED {dest.name}: {img.size} is not an App Store size for this slot {sorted(allowed)}")
     if img.mode != "RGB":
         img.convert("RGB").save(dest, "PNG")
-    if img.convert("L").getextrema()[1] < 16:
+    from PIL import ImageStat
+    luma = ImageStat.Stat(img.convert("L")).mean[0]
+    if not 12 < luma < 240:
         dest.unlink()
-        sys.exit(f"REFUSED {dest.name}: the frame is black (display off or still booting)")
+        sys.exit(f"REFUSED {dest.name}: the frame is near-black or near-white (loading or launch screen), luma {luma:.0f}")
     return img.size
 
 
@@ -118,6 +147,7 @@ def main():
     ap.add_argument("--only")
     ap.add_argument("--display", help="display uuid (Duo: inner or outer); default = the largest lit one")
     ap.add_argument("--suffix", default="", help="appended to file names, e.g. -outer")
+    ap.add_argument("--reuse", action="store_true", help="the app is already running on Home; don't relaunch it")
     a = ap.parse_args()
 
     shots = TV_SET if a.slot == "tv" else PHONE_SET
@@ -127,17 +157,36 @@ def main():
     outdir.mkdir(parents=True, exist_ok=True)
     disp = a.display or max(displays(a.udid).items(), key=lambda kv: kv[1][0] * kv[1][1])[0]
 
-    for name, door, value in shots:
+    # Never kill the app mid-load: a kill during the first catalog download
+    # (~150 MB, ~8 min on this Mac) throws the cache away and the next launch
+    # starts over (2026-10-08). So Home first, waited out in full, then every
+    # other screen as a relaunch onto the now-cached catalog (~2 min each).
+    # Not `simctl openurl archivewatch://item/...`: each one raises the system's
+    # "Open in Archive Watch?" prompt over the app. --reuse skips the first
+    # launch when the app is already showing Home.
+    def launch(env):
         simctl("terminate", a.udid, BUNDLE, timeout=20)
-        r = simctl("launch", a.udid, BUNDLE, env={f"SIMCTL_CHILD_{door}": value,
-                                                   "SIMCTL_CHILD_AW_SHOWCASE": "1"}, timeout=180)
+        r = simctl("launch", a.udid, BUNDLE, env={**env, "SIMCTL_CHILD_AW_SHOWCASE": "1"}, timeout=180)
         if r.returncode != 0:
-            sys.exit(f"launch failed for {name}: {r.stderr.strip()[:200]}")
+            sys.exit(f"launch failed: {r.stderr.strip()[:200]}")
+
+    def shoot(name):
+        if not wait_for_content(a.udid, disp, 900):
+            sys.exit(f"{name}: the app never got past its loading screen in 15 minutes")
         time.sleep(ART_WAIT)
         size = capture(a.udid, disp, outdir / f"{name}{a.suffix}.png", SIZES[a.slot])
-        print(f"{name}{a.suffix}.png {size[0]}x{size[1]}")
-    simctl("terminate", a.udid, BUNDLE, timeout=20)
+        print(f"{name}{a.suffix}.png {size[0]}x{size[1]}", flush=True)
 
+    home = [s for s in shots if s[1] == "AW_START_TAB" and s[2] == "home"]
+    films = [s for s in shots if s[1] == "AW_START_ITEM"]
+    tabs = [s for s in shots if s not in home and s not in films]
+    if not a.reuse:
+        launch({"SIMCTL_CHILD_AW_START_TAB": "home"})
+    for name, _, _ in home:
+        shoot(name)
+    for name, door, value in films + tabs:
+        launch({f"SIMCTL_CHILD_{door}": value})
+        shoot(name)
 
 if __name__ == "__main__":
     main()
