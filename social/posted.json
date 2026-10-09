@@ -2077,6 +2077,54 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-10-09T20:13:18.651824+00:00",
+   "id": "the-bat-whispers_1930",
+   "title": "The Bat Whispers",
+   "slot": "one-line",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxhrxrt6z72p",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-09T20:13:18.651824+00:00",
+   "id": "the-bat-whispers_1930",
+   "title": "The Bat Whispers",
+   "slot": "one-line",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117412778770514660",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-09T20:13:18.651824+00:00",
+   "id": "the-bat-whispers_1930",
+   "title": "The Bat Whispers",
+   "slot": "one-line",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DeSV2ScgePm/",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": "117412778115523724",
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-09T20:13:18.651824+00:00",
+   "id": "the-bat-whispers_1930",
+   "title": "The Bat Whispers",
+   "slot": "one-line",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=APn8nXfSTPM",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
