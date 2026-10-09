@@ -56,7 +56,9 @@ frame_capture() {  # $1 = output name
   sleep 0.6
   # SwiftUI exposes no AXWindowNumber, so capture by REGION from the window's AX bounds (each number
   # coerced `as text` — a bare list would serialize wrong). This is the recipe that actually works here.
-  "$WINSHOT" "$APP_NAME" "" "$raw" >/dev/null || echo "WARNING: $name: no window of $APP_NAME to capture" >&2
+  # The Creation Studio editor is its own (smaller) document window, so those
+  # shots name it: WIN_TITLE=Untitled. Otherwise the largest window is taken.
+  "$WINSHOT" "$APP_NAME" "${WIN_TITLE:-}" "$raw" >/dev/null || echo "WARNING: $name: no window of $APP_NAME to capture" >&2
   bytes=$(stat -f%z "$raw" 2>/dev/null || echo 0)
   [ "$bytes" -lt 5000 ] && echo "WARNING: $name capture tiny ($bytes B) — grant Screen Recording permission." >&2
   "$PYBIN" - "$raw" "$out" "$W" "$H" "$BG" "$MARGIN" <<'PY'
@@ -80,8 +82,9 @@ launch() {  # env assignments... ; launches BIN detached with those env vars
   size_window
 }
 
-shot() {  # $1 name ; rest = env assignments
+shot() {  # $1 name ; rest = env assignments.  ONLY="09,10" re-shoots just those.
   local name="$1"; shift
+  if [ -n "${ONLY:-}" ] && ! printf '%s' "$ONLY" | tr ',' '\n' | grep -q "^${name%%-*}$"; then return; fi
   echo "→ $name  [$*]"
   launch "$@"
   size_window
@@ -115,8 +118,8 @@ shot 05-channels       AW_START_TAB=channels
 [ -n "$ITEM1" ] && shot 06-detail AW_START_ITEM="$ITEM1"
 [ -n "$ITEM2" ] && shot 07-detail-2 AW_START_ITEM="$ITEM2"
 shot 08-studio-landing AW_START_TAB=create     # Creation Studio tab BEFORE opening/creating a project
-shot 09-studio-editor  AW_CS_TEST=editor
-shot 10-studio-clip    AW_CS_TEST=markclip
+WIN_TITLE=Untitled shot 09-studio-editor  AW_CS_TEST=editor
+WIN_TITLE=Untitled shot 10-studio-clip    AW_CS_TEST=markclip
 shot 11-surprise       AW_START_TAB=surprise
 quit
 
