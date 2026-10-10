@@ -1,10 +1,10 @@
 {
   "schema": 1,
-  "updated_at": "2026-10-09T11:16:17Z",
+  "updated_at": "2026-10-10T10:25:22Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 18903,
-    "wanted": 18675,
+    "total": 19040,
+    "wanted": 18812,
     "fulfilled": 228,
     "series_with_gaps": 383
   },
@@ -105701,11 +105701,41 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 3,
+      "episode": 10,
+      "title": "Robert Klein/Bonnie Raitt",
+      "episodeImdbID": "tt0694868",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 3,
       "episode": 11,
       "title": "Chevy Chase/Billy Joel",
       "episodeImdbID": "tt0694869",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 3,
+      "episode": 12,
+      "title": "O.J. Simpson/Ashford & Simpson",
+      "episodeImdbID": "tt0694870",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 3,
+      "episode": 13,
+      "title": "Art Garfunkel/Stephen Bishop",
+      "episodeImdbID": "tt0694871",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -105721,11 +105751,51 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 3,
+      "episode": 15,
+      "title": "Christopher Lee/Meat Loaf",
+      "episodeImdbID": "tt0694873",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 3,
+      "episode": 16,
+      "title": "Michael Palin/Eugene Record",
+      "episodeImdbID": "tt0694874",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 3,
       "episode": 17,
       "title": "Michael Sarrazin/Keith Jarrett, Gravity",
       "episodeImdbID": "tt0694875",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 3,
+      "episode": 18,
+      "title": "Steve Martin/The Blues Brothers",
+      "episodeImdbID": "tt0694876",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 3,
+      "episode": 19,
+      "title": "Richard Dreyfuss/Jimmy Buffett, Gary Tigerman",
+      "episodeImdbID": "tt0694877",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -105751,11 +105821,31 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 4,
+      "episode": 2,
+      "title": "Fred Willard/Devo",
+      "episodeImdbID": "tt0694930",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 4,
       "episode": 3,
       "title": "Frank Zappa",
       "episodeImdbID": "tt0694932",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 4,
+      "episode": 4,
+      "title": "Steve Martin/Van Morrison",
+      "episodeImdbID": "tt0694933",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -105781,11 +105871,31 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 4,
+      "episode": 8,
+      "title": "Eric Idle/Kate Bush",
+      "episodeImdbID": "tt0694937",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 4,
       "episode": 9,
       "title": "Elliott Gould/Peter Tosh",
       "episodeImdbID": "tt0694938",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 4,
+      "episode": 10,
+      "title": "Michael Palin/The Doobie Brothers",
+      "episodeImdbID": "tt0694920",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -105801,11 +105911,51 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 4,
+      "episode": 12,
+      "title": "Ricky Nelson/Judy Collins",
+      "episodeImdbID": "tt0694922",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 4,
       "episode": 13,
       "title": "Kate Jackson/Delbert McClinton",
       "episodeImdbID": "tt0694923",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 4,
+      "episode": 14,
+      "title": "Gary Busey/Eubie Blake and Gregory Hines",
+      "episodeImdbID": "tt0694924",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 4,
+      "episode": 15,
+      "title": "Margot Kidder/The Chieftains",
+      "episodeImdbID": "tt0694925",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 4,
+      "episode": 16,
+      "title": "Richard Benjamin/Rickie Lee Jones",
+      "episodeImdbID": "tt0694926",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -105881,11 +106031,31 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 5,
+      "episode": 4,
+      "title": "Buck Henry/Tom Petty & The Heartbreakers",
+      "episodeImdbID": "tt0694953",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 5,
       "episode": 5,
       "title": "Bea Arthur/The Roches",
       "episodeImdbID": "tt0694954",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 5,
+      "episode": 6,
+      "title": "Howard Hesseman/Randy Newman",
+      "episodeImdbID": "tt0694955",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -105991,6 +106161,16 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 5,
+      "episode": 17,
+      "title": "Strother Martin/The Specials",
+      "episodeImdbID": "tt0694947",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 5,
       "episode": 18,
       "title": "Bob Newhart/The Amazing Rhythm Aces/Bruce Cockburn",
       "episodeImdbID": "tt0694948",
@@ -106006,6 +106186,16 @@
       "episodeImdbID": "tt0694949",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 5,
+      "episode": 20,
+      "title": "Buck Henry/Andrew Gold/Andrae Crouch & Voices of Unity",
+      "episodeImdbID": "tt0694951",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -106196,6 +106386,16 @@
       "episodeImdbID": "tt0694988",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 7,
+      "episode": 7,
+      "title": "Tim Curry/Meat Loaf/The Neverland Express",
+      "episodeImdbID": "tt0694989",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -106611,6 +106811,16 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 9,
+      "episode": 11,
+      "title": "Don Rickles/Billy Idol",
+      "episodeImdbID": "tt0695014",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 9,
       "episode": 12,
       "title": "Robin Williams/Adam Ant",
       "episodeImdbID": "tt0695015",
@@ -106711,11 +106921,31 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 10,
+      "episode": 4,
+      "title": "Michael McKean/Chaka Khan/The Folksmen",
+      "episodeImdbID": "tt0694468",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 10,
       "episode": 5,
       "title": "George Carlin/Frankie Goes to Hollywood",
       "episodeImdbID": "tt0694469",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 10,
+      "episode": 6,
+      "title": "Ed Asner/The Kinks",
+      "episodeImdbID": "tt0694470",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -106806,6 +107036,26 @@
       "episodeImdbID": "tt0694462",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 10,
+      "episode": 16,
+      "title": "Mr. T and Hulk Hogan/The Commodores",
+      "episodeImdbID": "tt0694463",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 10,
+      "episode": 17,
+      "title": "Christopher Reeve/Santana",
+      "episodeImdbID": "tt0694464",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -106951,6 +107201,16 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 11,
+      "episode": 13,
+      "title": "George Wendt and Francis Ford Coppola/Philip Glass",
+      "episodeImdbID": "tt0694478",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 11,
       "episode": 14,
       "title": "Oprah Winfrey/Joe Jackson",
       "episodeImdbID": "tt0694479",
@@ -107041,6 +107301,16 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 12,
+      "episode": 5,
+      "title": "Robin Williams/Paul Simon",
+      "episodeImdbID": "tt0694507",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 12,
       "episode": 6,
       "title": "Chevy Chase/Steve Martin/Martin Short/Randy Newman",
       "episodeImdbID": "tt0694508",
@@ -107056,6 +107326,16 @@
       "episodeImdbID": "tt0694509",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 12,
+      "episode": 8,
+      "title": "William Shatner/Lone Justice",
+      "episodeImdbID": "tt0694510",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -107106,6 +107386,16 @@
       "episodeImdbID": "tt0694496",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 12,
+      "episode": 14,
+      "title": "Bill Murray/Percy Sledge",
+      "episodeImdbID": "tt0694497",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -107171,6 +107461,16 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 13,
+      "episode": 1,
+      "title": "Steve Martin/Sting",
+      "episodeImdbID": "tt0694512",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 13,
       "episode": 2,
       "title": "Sean Penn/L.L. Cool J/The Pull",
       "episodeImdbID": "tt0694517",
@@ -107221,11 +107521,31 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 13,
+      "episode": 8,
+      "title": "Paul Simon/Linda Ronstadt",
+      "episodeImdbID": "tt0694523",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 13,
       "episode": 9,
       "title": "Robin Williams/James Taylor",
       "episodeImdbID": "tt0694524",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 13,
+      "episode": 10,
+      "title": "Carl Weathers/Robbie Robertson",
+      "episodeImdbID": "tt0694513",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -107241,11 +107561,31 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 13,
+      "episode": 12,
+      "title": "Tom Hanks/Randy Travis",
+      "episodeImdbID": "tt0694515",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 13,
       "episode": 13,
       "title": "Judge Reinhold/10,000 Maniacs",
       "episodeImdbID": "tt0694516",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 14,
+      "episode": 1,
+      "title": "Tom Hanks/Keith Richards",
+      "episodeImdbID": "tt0694525",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -107261,11 +107601,61 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 14,
+      "episode": 3,
+      "title": "John Larroquette/Randy Newman & Mark Knopfler",
+      "episodeImdbID": "tt0694538",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 14,
+      "episode": 4,
+      "title": "Matthew Modine/Edie Brickell & New Bohemians",
+      "episodeImdbID": "tt0694539",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 14,
       "episode": 5,
       "title": "Demi Moore/Johnny Clegg & Savuka",
       "episodeImdbID": "tt0694540",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 14,
+      "episode": 6,
+      "title": "John Lithgow/Tracy Chapman",
+      "episodeImdbID": "tt0694541",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 14,
+      "episode": 7,
+      "title": "Danny DeVito/The Bangles",
+      "episodeImdbID": "tt0694542",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 14,
+      "episode": 8,
+      "title": "Kevin Kline/Bobby McFerrin",
+      "episodeImdbID": "tt0694543",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -107281,6 +107671,16 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 14,
+      "episode": 10,
+      "title": "John Malkovich/Anita Baker",
+      "episodeImdbID": "tt0694526",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 14,
       "episode": 11,
       "title": "Tony Danza/John Hiatt",
       "episodeImdbID": "tt0694527",
@@ -107291,11 +107691,71 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 14,
+      "episode": 12,
+      "title": "Ted Danson/Luther Vandross",
+      "episodeImdbID": "tt0694528",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 14,
+      "episode": 13,
+      "title": "Leslie Nielsen/Cowboy Junkies",
+      "episodeImdbID": "tt0694529",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 14,
+      "episode": 14,
+      "title": "Glenn Close/Gipsy Kings",
+      "episodeImdbID": "tt0694530",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 14,
+      "episode": 15,
+      "title": "Mary Tyler Moore/Elvis Costello",
+      "episodeImdbID": "tt0694531",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 14,
+      "episode": 17,
+      "title": "Dolly Parton",
+      "episodeImdbID": "tt0694533",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 14,
       "episode": 18,
       "title": "Geena Davis/John Mellencamp",
       "episodeImdbID": "tt0694534",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 14,
+      "episode": 20,
+      "title": "Steve Martin/Tom Petty & The Heartbreakers",
+      "episodeImdbID": "tt0694537",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -107311,6 +107771,16 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 15,
+      "episode": 2,
+      "title": "Rick Moranis/Rickie Lee Jones",
+      "episodeImdbID": "tt0694556",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 15,
       "episode": 3,
       "title": "Kathleen Turner/Billy Joel",
       "episodeImdbID": "tt0694558",
@@ -107321,11 +107791,121 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 15,
+      "episode": 4,
+      "title": "James Woods/Don Henley",
+      "episodeImdbID": "tt0694559",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 15,
+      "episode": 5,
+      "title": "Chris Evert/Eurythmics",
+      "episodeImdbID": "tt0694560",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 15,
+      "episode": 6,
+      "title": "Woody Harrelson/David Byrne",
+      "episodeImdbID": "tt0694561",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 15,
+      "episode": 7,
+      "title": "John Goodman/k.d. lang",
+      "episodeImdbID": "tt0694562",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 15,
+      "episode": 8,
+      "title": "Robert Wagner/Linda Ronstadt & Aaron Neville",
+      "episodeImdbID": "tt0694563",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 15,
+      "episode": 9,
+      "title": "Andie MacDowell/Tracy Chapman",
+      "episodeImdbID": "tt0694564",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 15,
+      "episode": 10,
+      "title": "Ed O'Neill/Harry Connick Jr.",
+      "episodeImdbID": "tt0694546",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 15,
+      "episode": 11,
+      "title": "Christopher Walken/Bonnie Raitt",
+      "episodeImdbID": "tt0694547",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 15,
       "episode": 12,
       "title": "Quincy Jones & Co.",
       "episodeImdbID": "tt0694548",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 15,
+      "episode": 13,
+      "title": "Tom Hanks/Aerosmith",
+      "episodeImdbID": "tt0694549",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 15,
+      "episode": 14,
+      "title": "Fred Savage/Technotronic",
+      "episodeImdbID": "tt0694550",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 15,
+      "episode": 15,
+      "title": "Rob Lowe/The Pogues",
+      "episodeImdbID": "tt0694551",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -107351,6 +107931,16 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 15,
+      "episode": 18,
+      "title": "Alec Baldwin/The B-52's",
+      "episodeImdbID": "tt0694554",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 15,
       "episode": 19,
       "title": "Andrew Dice Clay/Julee Cruise/Spanic Boys",
       "episodeImdbID": "tt0694555",
@@ -107371,6 +107961,26 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 16,
+      "episode": 1,
+      "title": "Kyle MacLachlan/Sinéad O'Connor",
+      "episodeImdbID": "tt0694565",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 16,
+      "episode": 2,
+      "title": "Susan Lucci/Hothouse Flowers",
+      "episodeImdbID": "tt0694576",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 16,
       "episode": 3,
       "title": "George Steinbrenner/The Time",
       "episodeImdbID": "tt0694578",
@@ -107381,11 +107991,41 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 16,
+      "episode": 4,
+      "title": "Patrick Swayze/Mariah Carey",
+      "episodeImdbID": "tt0694579",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 16,
       "episode": 6,
       "title": "Dennis Hopper/Paul Simon",
       "episodeImdbID": "tt0694581",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 16,
+      "episode": 7,
+      "title": "John Goodman/Faith No More",
+      "episodeImdbID": "tt0694582",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 16,
+      "episode": 8,
+      "title": "Tom Hanks/Edie Brickell & New Bohemians",
+      "episodeImdbID": "tt0694583",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -107406,6 +108046,16 @@
       "episodeImdbID": "tt0694568",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 16,
+      "episode": 13,
+      "title": "Roseanne Barr/Deee-lite",
+      "episodeImdbID": "tt0694569",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -107470,6 +108120,26 @@
     {
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
+      "season": 16,
+      "episode": 20,
+      "title": "George Wendt/Elvis Costello",
+      "episodeImdbID": "tt0694577",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 17,
+      "episode": 1,
+      "title": "Michael Jordan/Public Enemy",
+      "episodeImdbID": "tt0694585",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
       "season": 17,
       "episode": 2,
       "title": "Jeff Daniels/Color Me Badd",
@@ -107481,11 +108151,41 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 17,
+      "episode": 3,
+      "title": "Kirstie Alley/Tom Petty & The Heartbreakers",
+      "episodeImdbID": "tt0694598",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 17,
       "episode": 4,
       "title": "Christian Slater/Bonnie Raitt",
       "episodeImdbID": "tt0694599",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 17,
+      "episode": 5,
+      "title": "Kiefer Sutherland/Skid Row",
+      "episodeImdbID": "tt0694600",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 17,
+      "episode": 6,
+      "title": "Linda Hamilton/Mariah Carey",
+      "episodeImdbID": "tt0694601",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -107521,6 +108221,16 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 17,
+      "episode": 10,
+      "title": "Rob Morrow/Nirvana",
+      "episodeImdbID": "tt0694586",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 17,
       "episode": 11,
       "title": "Chevy Chase/Robbie Robertson",
       "episodeImdbID": "tt0694587",
@@ -107531,11 +108241,41 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 17,
+      "episode": 12,
+      "title": "Susan Dey/C+C Music Factory",
+      "episodeImdbID": "tt0694588",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 17,
+      "episode": 13,
+      "title": "Jason Priestley/Teenage Fanclub",
+      "episodeImdbID": "tt0694589",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 17,
       "episode": 14,
       "title": "Roseanne & Tom Arnold/Red Hot Chili Peppers",
       "episodeImdbID": "tt0694590",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 17,
+      "episode": 15,
+      "title": "John Goodman/Garth Brooks",
+      "episodeImdbID": "tt0694591",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -107561,6 +108301,26 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 17,
+      "episode": 18,
+      "title": "Jerry Seinfeld/Annie Lennox",
+      "episodeImdbID": "tt0694594",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 17,
+      "episode": 19,
+      "title": "Tom Hanks/Bruce Springsteen",
+      "episodeImdbID": "tt0694595",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 17,
       "episode": 20,
       "title": "Woody Harrelson/Vanessa Williams",
       "episodeImdbID": "tt0694597",
@@ -107581,11 +108341,61 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 18,
+      "episode": 3,
+      "title": "Joe Pesci/Spin Doctors",
+      "episodeImdbID": "tt0694618",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 18,
+      "episode": 4,
+      "title": "Christopher Walken/Arrested Development",
+      "episodeImdbID": "tt0694619",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 18,
       "episode": 5,
       "title": "Catherine O'Hara/10,000 Maniacs",
       "episodeImdbID": "tt0694620",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 18,
+      "episode": 6,
+      "title": "Michael Keaton/Morrissey",
+      "episodeImdbID": "tt0694621",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 18,
+      "episode": 7,
+      "title": "Sinbad/Sade",
+      "episodeImdbID": "tt0694622",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 18,
+      "episode": 8,
+      "title": "Tom Arnold/Neil Young",
+      "episodeImdbID": "tt0694623",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -107611,11 +108421,41 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 18,
+      "episode": 11,
+      "title": "Harvey Keitel/Madonna",
+      "episodeImdbID": "tt0694607",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 18,
       "episode": 12,
       "title": "Luke Perry/Mick Jagger",
       "episodeImdbID": "tt0694608",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 18,
+      "episode": 13,
+      "title": "Alec Baldwin/Paul McCartney",
+      "episodeImdbID": "tt0694609",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 18,
+      "episode": 14,
+      "title": "Bill Murray/Sting",
+      "episodeImdbID": "tt0694610",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -107631,11 +108471,41 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 18,
+      "episode": 16,
+      "title": "Miranda Richardson/Soul Asylum",
+      "episodeImdbID": "tt0694612",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 18,
       "episode": 17,
       "title": "Jason Alexander/Peter Gabriel",
       "episodeImdbID": "tt0694613",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 18,
+      "episode": 18,
+      "title": "Kirstie Alley/Lenny Kravitz",
+      "episodeImdbID": "tt0694614",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 18,
+      "episode": 19,
+      "title": "Christina Applegate/Midnight Oil",
+      "episodeImdbID": "tt0694615",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -107676,6 +108546,16 @@
       "episodeImdbID": "tt0694638",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 19,
+      "episode": 4,
+      "title": "John Malkovich/Billy Joel",
+      "episodeImdbID": "tt0694639",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -107751,6 +108631,16 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 19,
+      "episode": 12,
+      "title": "Patrick Stewart/Salt-N-Pepa",
+      "episodeImdbID": "tt0694628",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 19,
       "episode": 13,
       "title": "Alec Baldwin & Kim Basinger/UB40",
       "episodeImdbID": "tt0694629",
@@ -107820,6 +108710,16 @@
     {
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
+      "season": 19,
+      "episode": 20,
+      "title": "Heather Locklear/Janet Jackson",
+      "episodeImdbID": "tt0694637",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
       "season": 20,
       "episode": 1,
       "title": "Steve Martin/Eric Clapton",
@@ -107846,6 +108746,16 @@
       "episodeImdbID": "tt0694681",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 20,
+      "episode": 4,
+      "title": "Dana Carvey/Edie Brickell & Paul Simon",
+      "episodeImdbID": "tt0694682",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -107881,6 +108791,16 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 20,
+      "episode": 8,
+      "title": "Alec Baldwin/Beastie Boys",
+      "episodeImdbID": "tt0694686",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 20,
       "episode": 9,
       "title": "George Foreman/Hole",
       "episodeImdbID": "tt0694687",
@@ -107906,6 +108826,16 @@
       "episodeImdbID": "tt0694670",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 20,
+      "episode": 12,
+      "title": "Bob Newhart/Des'ree",
+      "episodeImdbID": "tt0694671",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -108011,6 +108941,16 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 21,
+      "episode": 3,
+      "title": "David Schwimmer/Natalie Merchant",
+      "episodeImdbID": "tt0694701",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 21,
       "episode": 4,
       "title": "Gabriel Byrne/Alanis Morissette",
       "episodeImdbID": "tt0694702",
@@ -108041,6 +108981,26 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 21,
+      "episode": 7,
+      "title": "Anthony Edwards/Foo Fighters",
+      "episodeImdbID": "tt0694705",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 21,
+      "episode": 8,
+      "title": "David Alan Grier/Silverchair",
+      "episodeImdbID": "tt0694706",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 21,
       "episode": 9,
       "title": "Madeline Kahn/Bush",
       "episodeImdbID": "tt0694707",
@@ -108051,11 +109011,31 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 21,
+      "episode": 10,
+      "title": "Christopher Walken/Joan Osborne",
+      "episodeImdbID": "tt0694689",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 21,
       "episode": 11,
       "title": "Alec Baldwin/Tori Amos",
       "episodeImdbID": "tt0694690",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 21,
+      "episode": 12,
+      "title": "Danny Aiello/Coolio",
+      "episodeImdbID": "tt0694691",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -108081,11 +109061,61 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 21,
+      "episode": 15,
+      "title": "John Goodman/Everclear",
+      "episodeImdbID": "tt0694694",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 21,
+      "episode": 16,
+      "title": "Phil Hartman/Gin Blossoms",
+      "episodeImdbID": "tt0694695",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 21,
+      "episode": 17,
+      "title": "Steve Forbes/Rage Against the Machine",
+      "episodeImdbID": "tt0694696",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 21,
+      "episode": 18,
+      "title": "Teri Hatcher/Dave Matthews Band",
+      "episodeImdbID": "tt0694697",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 21,
       "episode": 19,
       "title": "Christine Baranski/The Cure",
       "episodeImdbID": "tt0694698",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 21,
+      "episode": 20,
+      "title": "Jim Carrey/Soundgarden",
+      "episodeImdbID": "tt0694700",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -108121,11 +109151,81 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 22,
+      "episode": 4,
+      "title": "Dana Carvey/Dr. Dre",
+      "episodeImdbID": "tt0694722",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 22,
+      "episode": 5,
+      "title": "Chris Rock/The Wallflowers",
+      "episodeImdbID": "tt0694723",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 22,
+      "episode": 6,
+      "title": "Robert Downey Jr/Fiona Apple",
+      "episodeImdbID": "tt0694724",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 22,
+      "episode": 7,
+      "title": "Phil Hartman/Bush",
+      "episodeImdbID": "tt0694725",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 22,
+      "episode": 8,
+      "title": "Martin Short/No Doubt",
+      "episodeImdbID": "tt0694726",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 22,
       "episode": 9,
       "title": "Rosie O'Donnell/Whitney Houston",
       "episodeImdbID": "tt0694727",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 22,
+      "episode": 10,
+      "title": "Kevin Spacey/Beck",
+      "episodeImdbID": "tt0694709",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 22,
+      "episode": 11,
+      "title": "David Alan Grier/Snoop Doggy Dogg",
+      "episodeImdbID": "tt0694710",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -108151,11 +109251,41 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 22,
+      "episode": 14,
+      "title": "Alec Baldwin/Tina Turner",
+      "episodeImdbID": "tt0694713",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 22,
       "episode": 15,
       "title": "Sting/Veruca Salt",
       "episodeImdbID": "tt0694714",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 22,
+      "episode": 16,
+      "title": "Mike Myers/Aerosmith",
+      "episodeImdbID": "tt0694715",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 22,
+      "episode": 17,
+      "title": "Rob Lowe/Spice Girls",
+      "episodeImdbID": "tt0694716",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -108171,11 +109301,31 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 22,
+      "episode": 19,
+      "title": "John Goodman/Jewel",
+      "episodeImdbID": "tt0694718",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 22,
       "episode": 20,
       "title": "Jeff Goldblum/En Vogue",
       "episodeImdbID": "tt0694720",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 23,
+      "episode": 1,
+      "title": "Sylvester Stallone/Jamiroquai",
+      "episodeImdbID": "tt0694728",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -108231,6 +109381,36 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 23,
+      "episode": 7,
+      "title": "Mayor Rudy Giuliani/Sarah McLachlan",
+      "episodeImdbID": "tt0694745",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 23,
+      "episode": 8,
+      "title": "Nathan Lane/Metallica",
+      "episodeImdbID": "tt0694746",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 23,
+      "episode": 9,
+      "title": "Helen Hunt/Hanson",
+      "episodeImdbID": "tt0694747",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 23,
       "episode": 10,
       "title": "Samuel L. Jackson/Ben Folds Five",
       "episodeImdbID": "tt0694729",
@@ -108251,6 +109431,16 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 23,
+      "episode": 12,
+      "title": "John Goodman/Paula Cole",
+      "episodeImdbID": "tt0694731",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 23,
       "episode": 13,
       "title": "Roma Downey/Missy 'Misdemeanor' Elliott",
       "episodeImdbID": "tt0694732",
@@ -108261,11 +109451,41 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 23,
+      "episode": 14,
+      "title": "Garth Brooks",
+      "episodeImdbID": "tt0694733",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 23,
       "episode": 15,
       "title": "Scott Wolf/Natalie Imbruglia",
       "episodeImdbID": "tt0694734",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 23,
+      "episode": 16,
+      "title": "Julianne Moore/Backstreet Boys",
+      "episodeImdbID": "tt0694735",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 23,
+      "episode": 17,
+      "title": "Steve Buscemi/Third Eye Blind",
+      "episodeImdbID": "tt0694736",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -108301,6 +109521,16 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 24,
+      "episode": 1,
+      "title": "Cameron Diaz/Smashing Pumpkins",
+      "episodeImdbID": "tt0694748",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 24,
       "episode": 2,
       "title": "Kelsey Grammer/Sheryl Crow",
       "episodeImdbID": "tt0694759",
@@ -108311,11 +109541,41 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 24,
+      "episode": 3,
+      "title": "Lucy Lawless/Elliott Smith",
+      "episodeImdbID": "tt0694760",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 24,
       "episode": 4,
       "title": "Ben Stiller/Alanis Morrisette",
       "episodeImdbID": "tt0694761",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 24,
+      "episode": 5,
+      "title": "David Spade/Eagle-Eye Cherry",
+      "episodeImdbID": "tt0694762",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 24,
+      "episode": 6,
+      "title": "Joan Allen/Jewel",
+      "episodeImdbID": "tt0694763",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -108341,11 +109601,51 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 24,
+      "episode": 9,
+      "title": "Alec Baldwin/Luciano Pavarotti, Vanessa Williams",
+      "episodeImdbID": "tt0694766",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 24,
+      "episode": 10,
+      "title": "Bill Paxton/Beck",
+      "episodeImdbID": "tt0694749",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 24,
+      "episode": 11,
+      "title": "James Van Der Beek/Everlast",
+      "episodeImdbID": "tt0694750",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 24,
       "episode": 14,
       "title": "Bill Murray/Lucinda Williams",
       "episodeImdbID": "tt0694753",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 24,
+      "episode": 15,
+      "title": "Ray Romano/The Corrs",
+      "episodeImdbID": "tt0694754",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -108361,11 +109661,41 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 24,
+      "episode": 17,
+      "title": "John Goodman/Tom Petty & The Heartbreakers",
+      "episodeImdbID": "tt0694756",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 24,
       "episode": 18,
       "title": "Cuba Gooding, Jr./Ricky Martin",
       "episodeImdbID": "tt0694757",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 24,
+      "episode": 19,
+      "title": "Sarah Michelle Gellar/Backstreet Boys",
+      "episodeImdbID": "tt0694758",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 25,
+      "episode": 1,
+      "title": "Jerry Seinfeld/David Bowie",
+      "episodeImdbID": "tt0694767",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -108381,11 +109711,41 @@
       "seriesID": "saturday-night-live-1975",
       "seriesTitle": "Saturday Night Live",
       "season": 25,
+      "episode": 3,
+      "title": "Norm Macdonald/Dr. Dre & Snoop Dogg",
+      "episodeImdbID": "tt0694780",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 25,
       "episode": 4,
       "title": "Dylan McDermott/Foo Fighters",
       "episodeImdbID": "tt0694781",
       "status": "wanted",
       "added_at": "2026-06-14T08:26:25Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 25,
+      "episode": 5,
+      "title": "Garth Brooks/Chris Gaines",
+      "episodeImdbID": "tt0694782",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
+    },
+    {
+      "seriesID": "saturday-night-live-1975",
+      "seriesTitle": "Saturday Night Live",
+      "season": 25,
+      "episode": 6,
+      "title": "Jennifer Aniston/Sting",
+      "episodeImdbID": "tt0694783",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "saturday-night-live-1975",
@@ -160566,6 +161926,16 @@
       "episodeImdbID": "tt0629919",
       "status": "wanted",
       "added_at": "2026-06-06T07:00:09Z"
+    },
+    {
+      "seriesID": "the-lawless-years-1959",
+      "seriesTitle": "The Lawless Years",
+      "season": 1,
+      "episode": 16,
+      "title": "Lucky Silva",
+      "episodeImdbID": "tt0629891",
+      "status": "wanted",
+      "added_at": "2026-10-10T10:25:22Z"
     },
     {
       "seriesID": "the-lawless-years-1959",
