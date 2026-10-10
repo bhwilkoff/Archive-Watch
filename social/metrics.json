@@ -2693,6 +2693,22 @@
     "reposts": 0,
     "replies": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxfycvi3lo2g",
+   "platform": "bluesky",
+   "id": "1944-the-mark-of-the-whistler-william-castle-vose",
+   "slot": "one-line",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-09T03:01:34.518609+00:00",
+   "sampled": "2026-10-10T02:21:44.371721+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }
