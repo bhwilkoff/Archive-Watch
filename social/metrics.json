@@ -2709,6 +2709,84 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mwzep7gxfu2y",
+   "platform": "bluesky",
+   "id": "temple_of_moloch",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-04T02:38:36.068199+00:00",
+   "sampled": "2026-10-10T19:20:58.729760+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mx32m3c7tq2y",
+   "platform": "bluesky",
+   "id": "your_chance_to_live_tech",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-04T18:43:17.412351+00:00",
+   "sampled": "2026-10-10T19:20:58.729760+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117384112729582288",
+   "platform": "mastodon",
+   "id": "your_chance_to_live_tech",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-04T18:43:17.412351+00:00",
+   "sampled": "2026-10-10T19:20:58.729760+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxhrxrt6z72p",
+   "platform": "bluesky",
+   "id": "the-bat-whispers_1930",
+   "slot": "one-line",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-09T20:13:18.651824+00:00",
+   "sampled": "2026-10-10T19:20:58.729760+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117412778770514660",
+   "platform": "mastodon",
+   "id": "the-bat-whispers_1930",
+   "slot": "one-line",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-09T20:13:18.651824+00:00",
+   "sampled": "2026-10-10T19:20:58.729760+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }
