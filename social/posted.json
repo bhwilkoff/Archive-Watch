@@ -2209,6 +2209,54 @@
    "kind": "ephemeral",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-10-11T19:32:18.899677+00:00",
+   "id": "safety_harm_hides",
+   "title": "Safety: Harm Hides at Home",
+   "slot": "from-the-vaults",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxmqmdf75t2y",
+   "format": "video",
+   "kind": "ephemeral",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-11T19:32:18.899677+00:00",
+   "id": "safety_harm_hides",
+   "title": "Safety: Harm Hides at Home",
+   "slot": "from-the-vaults",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117423941911592997",
+   "format": "video",
+   "kind": "ephemeral",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-11T19:32:18.899677+00:00",
+   "id": "safety_harm_hides",
+   "title": "Safety: Harm Hides at Home",
+   "slot": "from-the-vaults",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DeXavR-HwBo/",
+   "format": "card",
+   "kind": "ephemeral",
+   "mediaId": "117423941571304215",
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-11T19:32:18.899677+00:00",
+   "id": "safety_harm_hides",
+   "title": "Safety: Harm Hides at Home",
+   "slot": "from-the-vaults",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=oWEiQsUkxJk",
+   "format": "video",
+   "kind": "ephemeral",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }

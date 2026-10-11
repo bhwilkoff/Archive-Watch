@@ -2803,6 +2803,53 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mx3spgzxv62m",
+   "platform": "bluesky",
+   "id": "harrietcraig1950usafeaturingjoancrawfordwendellcoreyfilmnoirfullmovie.",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-05T01:54:40.213180+00:00",
+   "sampled": "2026-10-11T19:32:57.984106+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxk7gb4rwf2y",
+   "platform": "bluesky",
+   "id": "silent-rebus-film-nr-1",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-10T19:19:26.659848+00:00",
+   "sampled": "2026-10-11T19:32:57.984106+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117418229827699940",
+   "platform": "mastodon",
+   "id": "silent-rebus-film-nr-1",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-10T19:19:26.659848+00:00",
+   "sampled": "2026-10-11T19:32:57.984106+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }
