@@ -2197,6 +2197,18 @@
    "kind": "animation",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-10-11T01:49:17.673605+00:00",
+   "id": "valley_of_the_tennessee",
+   "title": "The Valley of the Tennessee",
+   "slot": "from-the-vaults",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxkv7er36c2s",
+   "format": "video",
+   "kind": "ephemeral",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }

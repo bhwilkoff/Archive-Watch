@@ -2787,6 +2787,22 @@
     "reposts": 0,
     "replies": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxigk5ga7k2o",
+   "platform": "bluesky",
+   "id": "silent-opus-iv",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-10T02:21:32.150936+00:00",
+   "sampled": "2026-10-11T01:49:28.460065+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }
