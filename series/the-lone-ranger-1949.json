@@ -79,12 +79,12 @@
           "archiveID": "the-lone-ranger-1949-s-01-e-02-the-lone-ranger-fights-on",
           "seasonNumber": 1,
           "episodeNumber": 2,
-          "title": "The Lone Ranger",
+          "title": "The Lone Ranger Fights On",
           "overview": null,
           "stillURL": "https://archive.org/services/img/the-lone-ranger-1949-s-01-e-02-the-lone-ranger-fights-on",
-          "airDate": null,
+          "airDate": "1949-09-22",
           "year": 1949,
-          "runtimeSeconds": 1454,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "The Lone Ranger 1949 (S01E02) The Lone Ranger Fights on.mp4",
             "format": "MPEG4",
@@ -100,7 +100,7 @@
           "title": "The Lone Ranger Fights On",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/sAQSKgrYC0l5kQbLk8QXINAK6F4.jpg",
-          "airDate": "1949-09-22",
+          "airDate": null,
           "year": 1949,
           "runtimeSeconds": 1800,
           "videoFile": {
@@ -434,8 +434,5 @@
       "order": 4,
       "profilePath": "https://artworks.thetvdb.com/banners/actors/14448.jpg"
     }
-  ],
-  "seriesImdbID": "tt0041038",
-  "canonicalEpisodeCount": 179,
-  "canonicalSeasons": 5
+  ]
 }

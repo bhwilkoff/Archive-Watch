@@ -1,30 +1,6 @@
 {
  "shows": [
   {
-   "slug": "saturday-night-live-1975",
-   "tvmazeID": 361,
-   "title": "Saturday Night Live",
-   "matched": true,
-   "canonEps": 1017,
-   "ourItems": 157,
-   "mappedEps": 157,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 157,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "saturday-night-live-1975"
-    }
-   ]
-  },
-  {
    "slug": "playboy-after-dark-1968",
    "tvmazeID": 16338,
    "title": "Playboy After Dark",
@@ -468,6 +444,71 @@
    ]
   },
   {
+   "slug": "stories-of-the-century-1954",
+   "tvmazeID": 16191,
+   "title": "Stories of the Century",
+   "matched": true,
+   "canonEps": 39,
+   "ourItems": 29,
+   "mappedEps": 16,
+   "extras": 13,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 29,
+   "kinds": [
+    "orphan-episode",
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "stories-of-the-century-1954"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "stories-of-the-century-tv-1954-colorized-s01e01-belle-starr"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "stories-of-the-century-tv-1954-s01e04-geronimo"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "stories-of-the-century-tv-1954-colorized-s01e10-doc-holliday"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "stories-of-the-century-tv-1954-s01e02-billy-the-kid"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "stories-of-the-century-tv-1954-colorized-s01e08-johnny-ringo"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "stories-of-the-century-tv-1954-s01e06-cattle-kate"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "stories-of-the-century-tv-1954-colorized-s01e07-sam-bass"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "stories-of-the-century-tv-1954-s01e03-frank-and-jesse-james"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "stories-of-the-century-tv-1954-colorized-s01e09-the-dalton-gang"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "stories-of-the-century-tv-1954-s01e05-quantrill-and-his-raiders"
+    }
+   ]
+  },
+  {
    "slug": "bonanza-1959",
    "tvmazeID": 4378,
    "title": "Bonanza",
@@ -512,6 +553,75 @@
     {
      "kind": "series",
      "ref": "i-married-joan-1952"
+    }
+   ]
+  },
+  {
+   "slug": "the-lone-ranger-1949",
+   "tvmazeID": 2146,
+   "title": "The Lone Ranger",
+   "matched": true,
+   "canonEps": 221,
+   "ourItems": 20,
+   "mappedEps": 11,
+   "extras": 9,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 20,
+   "kinds": [
+    "orphan-episode",
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-lone-ranger-1949"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-lone-ranger-1949-s-01-e-01-enter-the-lone-ranger"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-lone-ranger-1949-s-01-e-02-the-lone-ranger-fights-on"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "lone-ranger-tv-1950-s01e44-white-mans-magic"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-lone-ranger-1949-s-01-e-06-war-horse"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-lone-ranger-1949-s-01-e-03-the-lone-rangers-triumph"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-lone-ranger-tv-1950-s01e38-spanish-gold"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-lone-ranger-tv-1950-s02e09-the-squire"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-lone-ranger-tv-1955-s04e45-adventure-at-arbuckle"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-lone-ranger-1949-s-01-e-04-legion-of-old-timers"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-lone-ranger-1949-s-01-e-05-rustlers-hideout"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-lone-ranger-tv-1955-s04e49-the-bait-gold"
     }
    ]
   },
@@ -564,67 +674,6 @@
    ]
   },
   {
-   "slug": "stories-of-the-century-1954",
-   "tvmazeID": 16191,
-   "title": "Stories of the Century",
-   "matched": true,
-   "canonEps": 39,
-   "ourItems": 28,
-   "mappedEps": 16,
-   "extras": 12,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 28,
-   "kinds": [
-    "orphan-episode",
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "stories-of-the-century-1954"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "stories-of-the-century-tv-1954-colorized-s01e01-belle-starr"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "stories-of-the-century-tv-1954-s01e04-geronimo"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "stories-of-the-century-tv-1954-colorized-s01e10-doc-holliday"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "stories-of-the-century-tv-1954-s01e02-billy-the-kid"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "stories-of-the-century-tv-1954-colorized-s01e08-johnny-ringo"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "stories-of-the-century-tv-1954-s01e06-cattle-kate"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "stories-of-the-century-tv-1954-colorized-s01e07-sam-bass"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "stories-of-the-century-tv-1954-s01e03-frank-and-jesse-james"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "stories-of-the-century-tv-1954-colorized-s01e09-the-dalton-gang"
-    }
-   ]
-  },
-  {
    "slug": "sherlock-holmes-1954",
    "tvmazeID": 22618,
    "title": "Sherlock Holmes",
@@ -638,7 +687,6 @@
    "repickSkipped": 0,
    "availableEps": 24,
    "kinds": [
-    "orphan-episode",
     "series",
     "single"
    ],
@@ -647,10 +695,6 @@
     {
      "kind": "series",
      "ref": "sherlock-holmes-1954"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "sherlock-holmes-1954-s-01-e-14-the-case-of-the-french-interpreter-14-mbps"
     },
     {
      "kind": "single",
@@ -904,75 +948,6 @@
    ]
   },
   {
-   "slug": "the-lone-ranger-1949",
-   "tvmazeID": 2146,
-   "title": "The Lone Ranger",
-   "matched": true,
-   "canonEps": 221,
-   "ourItems": 20,
-   "mappedEps": 11,
-   "extras": 9,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 20,
-   "kinds": [
-    "orphan-episode",
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "the-lone-ranger-1949"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "the-lone-ranger-1949-s-01-e-01-enter-the-lone-ranger"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "the-lone-ranger-1949-s-01-e-02-the-lone-ranger-fights-on"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "lone-ranger-tv-1950-s01e44-white-mans-magic"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "the-lone-ranger-1949-s-01-e-06-war-horse"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "the-lone-ranger-1949-s-01-e-03-the-lone-rangers-triumph"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "the-lone-ranger-tv-1950-s01e38-spanish-gold"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "the-lone-ranger-tv-1950-s02e09-the-squire"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "the-lone-ranger-tv-1955-s04e45-adventure-at-arbuckle"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "the-lone-ranger-1949-s-01-e-04-legion-of-old-timers"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "the-lone-ranger-1949-s-01-e-05-rustlers-hideout"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "the-lone-ranger-tv-1955-s04e49-the-bait-gold"
-    }
-   ]
-  },
-  {
    "slug": "get-smart-1965",
    "tvmazeID": 4340,
    "title": "Get Smart",
@@ -993,6 +968,39 @@
     {
      "kind": "series",
      "ref": "get-smart-1965"
+    }
+   ]
+  },
+  {
+   "slug": "the-buccaneers-1956",
+   "tvmazeID": 28387,
+   "title": "The Buccaneers",
+   "matched": true,
+   "canonEps": 39,
+   "ourItems": 17,
+   "mappedEps": 2,
+   "extras": 15,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 17,
+   "kinds": [
+    "orphan-episode",
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-buccaneers-1956"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "buccaneers-tv-19-s-6-colorized-s-01e-01-blackbeard"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "buccaneers-tv-1956-colorized-s-01e-03-captain-dan-tempest"
     }
    ]
   },
@@ -1045,6 +1053,47 @@
    ]
   },
   {
+   "slug": "the-avengers-1961",
+   "tvmazeID": 1929,
+   "title": "The Avengers",
+   "matched": true,
+   "canonEps": 161,
+   "ourItems": 14,
+   "mappedEps": 8,
+   "extras": 6,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 14,
+   "kinds": [
+    "orphan-episode",
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-avengers-1961"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the.avengers.1965.s04e09.the.hour.that.never.was"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the.avengers.1966.s04e21.a.touch.of.brimstone_202001"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-avengers-s-4e-1"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-avengers-s-5e-1-restored-720p-hd"
+    }
+   ]
+  },
+  {
    "slug": "the-smith-family-1971",
    "tvmazeID": 43528,
    "title": "The Smith Family",
@@ -1093,101 +1142,6 @@
    ]
   },
   {
-   "slug": "the-buccaneers-1956",
-   "tvmazeID": 28387,
-   "title": "The Buccaneers",
-   "matched": true,
-   "canonEps": 39,
-   "ourItems": 17,
-   "mappedEps": 2,
-   "extras": 15,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 17,
-   "kinds": [
-    "orphan-episode",
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "the-buccaneers-1956"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "buccaneers-tv-19-s-6-colorized-s-01e-01-blackbeard"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "buccaneers-tv-1956-colorized-s-01e-03-captain-dan-tempest"
-    }
-   ]
-  },
-  {
-   "slug": "sigmund-and-the-sea-monsters-1973",
-   "tvmazeID": 7305,
-   "title": "Sigmund and the Sea Monsters",
-   "matched": true,
-   "canonEps": 29,
-   "ourItems": 15,
-   "mappedEps": 11,
-   "extras": 4,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 15,
-   "kinds": [
-    "orphan-episode",
-    "series"
-   ],
-   "mergedFrom": 2,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "sigmund-and-the-sea-monsters-1973"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "sigmund-and-the-sea-monsters-s-01-e-04"
-    }
-   ]
-  },
-  {
-   "slug": "the-avengers-1961",
-   "tvmazeID": 1929,
-   "title": "The Avengers",
-   "matched": true,
-   "canonEps": 161,
-   "ourItems": 14,
-   "mappedEps": 8,
-   "extras": 6,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 14,
-   "kinds": [
-    "orphan-episode",
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "the-avengers-1961"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "the.avengers.1965.s04e09.the.hour.that.never.was"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "the.avengers.1966.s04e21.a.touch.of.brimstone_202001"
-    }
-   ]
-  },
-  {
    "slug": "the-george-burns-and-gracie-allen-show-1950",
    "tvmazeID": 21693,
    "title": "The George Burns and Gracie Allen Show",
@@ -1213,90 +1167,6 @@
     {
      "kind": "single",
      "ref": "georgeburnsandgracieallen_202307"
-    }
-   ]
-  },
-  {
-   "slug": "designing-women-1986",
-   "tvmazeID": 7243,
-   "title": "Designing Women",
-   "matched": true,
-   "canonEps": 163,
-   "ourItems": 16,
-   "mappedEps": 16,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 16,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "designing-women-S01E11"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "designing-women-S01E06"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "designing-women-S01E08"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "designing-women-S01E10"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "designing-women-S01E09"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "designing-women-S01E07"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "designing-women-S01E03"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "designing-women-S01E04"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "designing-women-S01E16"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "designing-women-S01E19"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "designing-women-S01E18"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "designing-women-S01E17"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "designing-women-s01e12e13"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "designing-women-S01E22"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "designing-women-s01e21"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "designing-women-S01E20"
     }
    ]
   },
@@ -1349,6 +1219,30 @@
    ]
   },
   {
+   "slug": "sigmund-and-the-sea-monsters-1973",
+   "tvmazeID": 7305,
+   "title": "Sigmund and the Sea Monsters",
+   "matched": true,
+   "canonEps": 29,
+   "ourItems": 15,
+   "mappedEps": 11,
+   "extras": 4,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 15,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "sigmund-and-the-sea-monsters-1973"
+    }
+   ]
+  },
+  {
    "slug": "the-dinah-shore-show-1951",
    "tvmazeID": 10633,
    "title": "The Dinah Shore Show",
@@ -1369,6 +1263,125 @@
     {
      "kind": "series",
      "ref": "the-dinah-shore-show-1951"
+    }
+   ]
+  },
+  {
+   "slug": "annie-oakley-1954",
+   "tvmazeID": 9475,
+   "title": "Annie Oakley",
+   "matched": true,
+   "canonEps": 81,
+   "ourItems": 9,
+   "mappedEps": 6,
+   "extras": 3,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 9,
+   "kinds": [
+    "orphan-episode",
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "annie-oakley-1954"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "annie-oakley-tv-1954-colorized-s01e01-annie-and-the-brass-collar"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "annie-oakley-tv-1954-colorized-s01-e03-gunplay"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "annie-oakley-tv-1954-colorized-s01e05-ambush-canyon"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "annie-oakley-tv-1954-colorized-s01e04-the-dude-stagecoach"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "annie-oakley-tv-1954-colorized-s01e02-annie-trusts-a-convict"
+    }
+   ]
+  },
+  {
+   "slug": "saturday-night-live-1975",
+   "tvmazeID": 361,
+   "title": "Saturday Night Live",
+   "matched": true,
+   "canonEps": 1017,
+   "ourItems": 14,
+   "mappedEps": 14,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 14,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "saturday-night-live-1975"
+    }
+   ]
+  },
+  {
+   "slug": "the-outer-limits-1963",
+   "tvmazeID": 2147,
+   "title": "The Outer Limits",
+   "matched": true,
+   "canonEps": 49,
+   "ourItems": 8,
+   "mappedEps": 6,
+   "extras": 2,
+   "repicked": 1,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 8,
+   "kinds": [
+    "orphan-episode",
+    "series",
+    "single"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-outer-limits-1963"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-outer-limits-tv-1963-s01e05-the-sixth-finger"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-outer-limits-tv-1964-s02e05-demon-with-a-glass-hand"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-outer-limits-tv-1964-s02e07-the-invisible-enemy"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-outer-limits-s02e09-i-robot"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-outer-limits-1963-s01e01"
+    },
+    {
+     "kind": "single",
+     "ref": "the-outer-limits-1995_202304"
     }
    ]
   },
@@ -1498,52 +1511,6 @@
    ]
   },
   {
-   "slug": "the-outer-limits-1963",
-   "tvmazeID": 2147,
-   "title": "The Outer Limits",
-   "matched": true,
-   "canonEps": 49,
-   "ourItems": 8,
-   "mappedEps": 6,
-   "extras": 2,
-   "repicked": 1,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 8,
-   "kinds": [
-    "orphan-episode",
-    "series",
-    "single"
-   ],
-   "mergedFrom": 2,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "the-outer-limits-1963"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "the-outer-limits-tv-1963-s01e05-the-sixth-finger"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "the-outer-limits-tv-1964-s02e05-demon-with-a-glass-hand"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "the-outer-limits-tv-1964-s02e07-the-invisible-enemy"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "the-outer-limits-s02e09-i-robot"
-    },
-    {
-     "kind": "single",
-     "ref": "the-outer-limits-1995_202304"
-    }
-   ]
-  },
-  {
    "slug": "the-third-man-1959",
    "tvmazeID": 59327,
    "title": "The Third Man",
@@ -1641,51 +1608,6 @@
     {
      "kind": "series",
      "ref": "frontier-doctor-1958"
-    }
-   ]
-  },
-  {
-   "slug": "mackenzie-s-raiders-1958",
-   "tvmazeID": 35960,
-   "title": "Mackenzie's Raiders",
-   "matched": true,
-   "canonEps": 39,
-   "ourItems": 8,
-   "mappedEps": 8,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 8,
-   "kinds": [
-    "orphan-episode",
-    "series"
-   ],
-   "mergedFrom": 2,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "mackenzie-s-raiders-1958"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "mackenzies-raiders-tv-1958-colorized-s01e07-hostage"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "mackenzies-raiders-tv-1958-colorized-s01e05-deadly-mirror"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "mackenzies-raiders-tv-1958-colorized-s01e04-indian-agent"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "mackenzies-raiders-tv-1958-colorized-s01e06-attack"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "mackenzies-raiders-tv-1958-s01e03-death-by-the-numbers"
     }
    ]
   },
@@ -1832,137 +1754,6 @@
    ]
   },
   {
-   "slug": "not-the-nine-o-clock-news-1979",
-   "tvmazeID": 8589,
-   "title": "Not the Nine O'Clock News",
-   "matched": true,
-   "canonEps": 27,
-   "ourItems": 12,
-   "mappedEps": 11,
-   "extras": 1,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 12,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "not-the-nine-o-clock-news-s-1x-e-4-6-november-1979_202211"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "not-the-nine-o-clock-news-s-3x-e-7-8-december-1980"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "not-the-nine-o-clock-news-s-3x-e-5-24-november-1980_202211"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "not-the-nine-o-clock-news-s-2x-e-5-28-april-1980_202211"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "not-the-nine-o-clock-news-s-2x-e-4-21-april-1980_202211"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "not-the-nine-o-clock-news-s-3x-e-7-8-december-1980_202211"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "not-the-nine-o-clock-news-s-4x-e-4-22-february-1982"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "not-the-nine-o-clock-news-s-4x-e-1-1-february-1982"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "not-the-nine-o-clock-news-s-4x-e-2-8-february-1982"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "not-the-nine-o-clock-news-s-4x-e-6-8-march-1982"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "not-the-nine-o-clock-news-s-4x-e-3-15-february-1982"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "not-the-nine-o-clock-news-s-4x-e-5-1-march-1982"
-    }
-   ]
-  },
-  {
-   "slug": "last-of-the-summer-wine-1973",
-   "tvmazeID": 8049,
-   "title": "Last of the Summer Wine",
-   "matched": true,
-   "canonEps": 293,
-   "ourItems": 10,
-   "mappedEps": 4,
-   "extras": 6,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 10,
-   "kinds": [
-    "series",
-    "single"
-   ],
-   "mergedFrom": 2,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "last-of-the-summer-wine-1973"
-    },
-    {
-     "kind": "single",
-     "ref": "last-of-the-summer-wine-series-01"
-    }
-   ]
-  },
-  {
-   "slug": "space-patrol-1950",
-   "tvmazeID": 10657,
-   "title": "Space Patrol",
-   "matched": true,
-   "canonEps": 210,
-   "ourItems": 9,
-   "mappedEps": 5,
-   "extras": 4,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 9,
-   "kinds": [
-    "orphan-episode",
-    "series",
-    "single"
-   ],
-   "mergedFrom": 2,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "space-patrol-1950"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "SpacePatrolS01e43TheSpacePatrolCodeBelt"
-    },
-    {
-     "kind": "single",
-     "ref": "space-patrol-s-01e-01-low-480x-360p"
-    }
-   ]
-  },
-  {
    "slug": "the-beverly-hillbillies-1962",
    "tvmazeID": 2139,
    "title": "The Beverly Hillbillies",
@@ -2040,30 +1831,6 @@
    ]
   },
   {
-   "slug": "are-you-being-served-1972",
-   "tvmazeID": 4529,
-   "title": "Are You Being Served?",
-   "matched": true,
-   "canonEps": 64,
-   "ourItems": 10,
-   "mappedEps": 9,
-   "extras": 1,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 10,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "are-you-being-served-1972"
-    }
-   ]
-  },
-  {
    "slug": "dangerous-assignment-1952",
    "tvmazeID": 67906,
    "title": "Dangerous Assignment",
@@ -2093,40 +1860,6 @@
    ]
   },
   {
-   "slug": "fawlty-towers-1975",
-   "tvmazeID": 577,
-   "title": "Fawlty Towers",
-   "matched": true,
-   "canonEps": 12,
-   "ourItems": 8,
-   "mappedEps": 2,
-   "extras": 6,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 8,
-   "kinds": [
-    "orphan-episode",
-    "series",
-    "single"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "fawlty-towers-1975"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "fawlty-towers-complete-series-1975"
-    },
-    {
-     "kind": "single",
-     "ref": "fawlty_towers_202604"
-    }
-   ]
-  },
-  {
    "slug": "flash-gordon-1954",
    "tvmazeID": 34934,
    "title": "Flash Gordon",
@@ -2152,6 +1885,64 @@
     {
      "kind": "single",
      "ref": "flash-gordon-tv-show"
+    }
+   ]
+  },
+  {
+   "slug": "space-patrol-1950",
+   "tvmazeID": 10657,
+   "title": "Space Patrol",
+   "matched": true,
+   "canonEps": 210,
+   "ourItems": 9,
+   "mappedEps": 5,
+   "extras": 4,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 9,
+   "kinds": [
+    "series",
+    "single"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "space-patrol-1950"
+    },
+    {
+     "kind": "single",
+     "ref": "space-patrol-s-01e-01-low-480x-360p"
+    }
+   ]
+  },
+  {
+   "slug": "the-ed-wynn-show-1949",
+   "tvmazeID": 55223,
+   "title": "The Ed Wynn Show",
+   "matched": true,
+   "canonEps": 38,
+   "ourItems": 9,
+   "mappedEps": 0,
+   "extras": 9,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 9,
+   "kinds": [
+    "series",
+    "single"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-ed-wynn-show-1949"
+    },
+    {
+     "kind": "single",
+     "ref": "TheEdWynnShow1950"
     }
    ]
   },
@@ -2204,75 +1995,6 @@
    ]
   },
   {
-   "slug": "annie-oakley-1954",
-   "tvmazeID": 9475,
-   "title": "Annie Oakley",
-   "matched": true,
-   "canonEps": 81,
-   "ourItems": 9,
-   "mappedEps": 6,
-   "extras": 3,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 9,
-   "kinds": [
-    "orphan-episode",
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "annie-oakley-1954"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "annie-oakley-tv-1954-colorized-s01e01-annie-and-the-brass-collar"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "annie-oakley-tv-1954-colorized-s01-e03-gunplay"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "annie-oakley-tv-1954-colorized-s01e05-ambush-canyon"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "annie-oakley-tv-1954-colorized-s01e04-the-dude-stagecoach"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "annie-oakley-tv-1954-colorized-s01e02-annie-trusts-a-convict"
-    }
-   ]
-  },
-  {
-   "slug": "bayou-classic-1974",
-   "tvmazeID": 72855,
-   "title": "Bayou Classic",
-   "matched": true,
-   "canonEps": 52,
-   "ourItems": 9,
-   "mappedEps": 0,
-   "extras": 9,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 9,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "bayou-classic-1974"
-    }
-   ]
-  },
-  {
    "slug": "have-gun-will-travel-1957",
    "tvmazeID": 3360,
    "title": "Have Gun - Will Travel",
@@ -2306,6 +2028,35 @@
    ]
   },
   {
+   "slug": "mackenzie-s-raiders-1958",
+   "tvmazeID": 35960,
+   "title": "Mackenzie's Raiders",
+   "matched": true,
+   "canonEps": 39,
+   "ourItems": 8,
+   "mappedEps": 8,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 8,
+   "kinds": [
+    "orphan-episode",
+    "series"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "mackenzie-s-raiders-1958"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "mackenzies-raiders-tv-1958-colorized-s01e06-attack"
+    }
+   ]
+  },
+  {
    "slug": "petticoat-junction-1963",
    "tvmazeID": 2134,
    "title": "Petticoat Junction",
@@ -2335,30 +2086,6 @@
     {
      "kind": "single",
      "ref": "PetticoatJunction_742"
-    }
-   ]
-  },
-  {
-   "slug": "the-ed-wynn-show-1949",
-   "tvmazeID": 55223,
-   "title": "The Ed Wynn Show",
-   "matched": true,
-   "canonEps": 38,
-   "ourItems": 9,
-   "mappedEps": 0,
-   "extras": 9,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 9,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "the-ed-wynn-show-1949"
     }
    ]
   },
@@ -2488,6 +2215,40 @@
    ]
   },
   {
+   "slug": "fawlty-towers-1975",
+   "tvmazeID": 577,
+   "title": "Fawlty Towers",
+   "matched": true,
+   "canonEps": 12,
+   "ourItems": 8,
+   "mappedEps": 1,
+   "extras": 7,
+   "repicked": 1,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 8,
+   "kinds": [
+    "orphan-episode",
+    "series",
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "fawlty-towers-1975"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "fawlty-towers-complete-series-1975"
+    },
+    {
+     "kind": "single",
+     "ref": "fawlty_towers_202604"
+    }
+   ]
+  },
+  {
    "slug": "outlaws-1960",
    "tvmazeID": 61843,
    "title": "Outlaws",
@@ -2597,39 +2358,31 @@
    ]
   },
   {
-   "slug": "wildlife-on-one-1977",
-   "tvmazeID": 13065,
-   "title": "Wildlife on One",
+   "slug": "coronet-blue-1967",
+   "tvmazeID": 39927,
+   "title": "Coronet Blue",
    "matched": true,
-   "canonEps": 253,
-   "ourItems": 5,
+   "canonEps": 13,
+   "ourItems": 6,
    "mappedEps": 5,
-   "extras": 0,
-   "repicked": 0,
+   "extras": 1,
+   "repicked": 1,
    "deadItems": 0,
    "repickSkipped": 0,
-   "availableEps": 5,
+   "availableEps": 6,
    "kinds": [
     "orphan-episode",
     "series"
    ],
-   "mergedFrom": 2,
+   "mergedFrom": 1,
    "consumedRefs": [
     {
      "kind": "series",
-     "ref": "wildlife-on-one-1977"
+     "ref": "coronet-blue-1967"
     },
     {
      "kind": "orphan-episode",
-     "ref": "wildlife-on-one-s09e02-the-great-hedgehog.mystery-x264"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "wildlife-on-one-s12e01-run-rabbit-run-x264"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "wildlife-on-one-s15e04-the-case-of-the-vanishing-squirrel-x264-dvd-skinnyv"
+     "ref": "Coronet-Blue-1967-Series"
     }
    ]
   },
@@ -2959,15 +2712,15 @@
    ]
   },
   {
-   "slug": "coronet-blue-1967",
-   "tvmazeID": 39927,
-   "title": "Coronet Blue",
+   "slug": "are-you-being-served-1972",
+   "tvmazeID": 4529,
+   "title": "Are You Being Served?",
    "matched": true,
-   "canonEps": 13,
+   "canonEps": 64,
    "ourItems": 6,
    "mappedEps": 5,
    "extras": 1,
-   "repicked": 1,
+   "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
    "availableEps": 6,
@@ -2978,7 +2731,31 @@
    "consumedRefs": [
     {
      "kind": "series",
-     "ref": "coronet-blue-1967"
+     "ref": "are-you-being-served-1972"
+    }
+   ]
+  },
+  {
+   "slug": "bayou-classic-1974",
+   "tvmazeID": 72855,
+   "title": "Bayou Classic",
+   "matched": true,
+   "canonEps": 52,
+   "ourItems": 6,
+   "mappedEps": 0,
+   "extras": 6,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 6,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "bayou-classic-1974"
     }
    ]
   },
@@ -3080,6 +2857,35 @@
     {
      "kind": "series",
      "ref": "ivanhoe-1958"
+    }
+   ]
+  },
+  {
+   "slug": "last-of-the-summer-wine-1973",
+   "tvmazeID": 8049,
+   "title": "Last of the Summer Wine",
+   "matched": true,
+   "canonEps": 293,
+   "ourItems": 5,
+   "mappedEps": 1,
+   "extras": 4,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 5,
+   "kinds": [
+    "series",
+    "single"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "last-of-the-summer-wine-1973"
+    },
+    {
+     "kind": "single",
+     "ref": "last-of-the-summer-wine-series-01"
     }
    ]
   },
@@ -3250,6 +3056,30 @@
     {
      "kind": "series",
      "ref": "as-the-world-turns-1956"
+    }
+   ]
+  },
+  {
+   "slug": "bat-masterson-1958",
+   "tvmazeID": 4379,
+   "title": "Bat Masterson",
+   "matched": true,
+   "canonEps": 108,
+   "ourItems": 5,
+   "mappedEps": 3,
+   "extras": 2,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 5,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "bat-masterson-1958"
     }
    ]
   },
@@ -3427,6 +3257,39 @@
     {
      "kind": "single",
      "ref": "13_demon_street_black_hand_1959"
+    }
+   ]
+  },
+  {
+   "slug": "abc-in-concert-1972",
+   "tvmazeID": 22594,
+   "title": "ABC in Concert",
+   "matched": true,
+   "canonEps": 298,
+   "ourItems": 2,
+   "mappedEps": 0,
+   "extras": 2,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 2,
+   "kinds": [
+    "orphan-episode",
+    "series"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "abc-in-concert-1972"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "bbc-in-concert-s-01-e-01-joni-mitchell-9-october-1970_202509"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "bbc-in-concert-s-01-e-03-elton-john-23-oct-1970"
     }
    ]
   },
@@ -3844,6 +3707,105 @@
    ]
   },
   {
+   "slug": "the-invisible-man-1975",
+   "tvmazeID": 10072,
+   "title": "The Invisible Man",
+   "matched": true,
+   "canonEps": 13,
+   "ourItems": 2,
+   "mappedEps": 1,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 2,
+   "kinds": [
+    "orphan-episode",
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-invisible-man-1975"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-invisible-man-the-complete-series-1975_202505"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-invisible-man-complete-series-1958"
+    }
+   ]
+  },
+  {
+   "slug": "the-islanders-1960",
+   "tvmazeID": 75165,
+   "title": "The Islanders",
+   "matched": true,
+   "canonEps": 26,
+   "ourItems": 2,
+   "mappedEps": 2,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 2,
+   "kinds": [
+    "orphan-episode",
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-islanders-1960"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-islanders-tv-1960-s01e01-five-o-clock-friday"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-islanders-tv-1961-colorized-s01e17-to-bell-the-cat"
+    }
+   ]
+  },
+  {
+   "slug": "the-larkins-1958",
+   "tvmazeID": 43220,
+   "title": "The Larkins",
+   "matched": true,
+   "canonEps": 40,
+   "ourItems": 2,
+   "mappedEps": 0,
+   "extras": 2,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 2,
+   "kinds": [
+    "orphan-episode",
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-larkins-1958"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "TheLarkins1x01WideOpenHouse"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "TheLarkins1x07CheistmasWithTheLarkins"
+    }
+   ]
+  },
+  {
    "slug": "the-new-adventures-of-gilligan-1974",
    "tvmazeID": 32019,
    "title": "The New Adventures of Gilligan",
@@ -3973,6 +3935,35 @@
    ]
   },
   {
+   "slug": "arrest-and-trial-1963",
+   "tvmazeID": 13451,
+   "title": "Arrest and Trial",
+   "matched": true,
+   "canonEps": 30,
+   "ourItems": 2,
+   "mappedEps": 2,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 2,
+   "kinds": [
+    "orphan-episode",
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "arrest-and-trial-1963"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "ArrestAndTrial1963"
+    }
+   ]
+  },
+  {
    "slug": "beat-the-clock-1950",
    "tvmazeID": 77798,
    "title": "Beat the Clock",
@@ -4025,7 +4016,7 @@
    "tvmazeID": 2548,
    "title": "Emmerdale",
    "matched": true,
-   "canonEps": 8875,
+   "canonEps": 8881,
    "ourItems": 3,
    "mappedEps": 0,
    "extras": 3,
@@ -4070,35 +4061,6 @@
     {
      "kind": "orphan-episode",
      "ref": "gemini-man-complete-series-1976"
-    }
-   ]
-  },
-  {
-   "slug": "in-search-of-1977",
-   "tvmazeID": 1476,
-   "title": "In Search of.....",
-   "matched": true,
-   "canonEps": 152,
-   "ourItems": 2,
-   "mappedEps": 2,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 2,
-   "kinds": [
-    "series",
-    "single"
-   ],
-   "mergedFrom": 2,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "in-search-of-1977"
-    },
-    {
-     "kind": "single",
-     "ref": "In-Search-Of-complete-series"
     }
    ]
   },
@@ -4205,6 +4167,35 @@
     {
      "kind": "series",
      "ref": "land-of-the-lost-1974"
+    }
+   ]
+  },
+  {
+   "slug": "lucas-tanner-1974",
+   "tvmazeID": 11515,
+   "title": "Lucas Tanner",
+   "matched": true,
+   "canonEps": 23,
+   "ourItems": 2,
+   "mappedEps": 2,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 2,
+   "kinds": [
+    "orphan-episode",
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "lucas-tanner-1974"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "Lucas-Tanner-1974-Series"
     }
    ]
   },
@@ -4401,35 +4392,6 @@
    ]
   },
   {
-   "slug": "the-amazing-spider-man-1977",
-   "tvmazeID": 7623,
-   "title": "The Amazing Spider-Man",
-   "matched": true,
-   "canonEps": 14,
-   "ourItems": 2,
-   "mappedEps": 1,
-   "extras": 1,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 2,
-   "kinds": [
-    "orphan-episode",
-    "series"
-   ],
-   "mergedFrom": 2,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "the-amazing-spider-man-1977"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "the-amazing-spider-man-complete-series-1977"
-    }
-   ]
-  },
-  {
    "slug": "you-are-there-1953",
    "tvmazeID": 18427,
    "title": "You Are There",
@@ -4450,38 +4412,6 @@
     {
      "kind": "series",
      "ref": "you-are-there-1953"
-    }
-   ]
-  },
-  {
-   "slug": "h-g-wells-invisible-man-1959",
-   "tvmazeID": 3586,
-   "title": "H.G. Wells' Invisible Man",
-   "matched": true,
-   "canonEps": 26,
-   "ourItems": 3,
-   "mappedEps": 3,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 3,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "invisible-man-tv-1959-s01e12-odds-against-death"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "invisible-man-tv-1959-s02e08-the-white-rabbit"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "invisible-man-tv-1959-s02e04-the-prize"
     }
    ]
   },
@@ -4518,11 +4448,11 @@
    ]
   },
   {
-   "slug": "treehouse-detectives-2018",
-   "tvmazeID": 21822,
-   "title": "Treehouse Detectives",
+   "slug": "treehouse-masters-2013",
+   "tvmazeID": 1446,
+   "title": "Treehouse Masters",
    "matched": true,
-   "canonEps": 20,
+   "canonEps": 98,
    "ourItems": 3,
    "mappedEps": 0,
    "extras": 3,
@@ -4546,30 +4476,6 @@
     {
      "kind": "single",
      "ref": "treehouse-tv-2008-part-2"
-    }
-   ]
-  },
-  {
-   "slug": "abc-in-concert-1972",
-   "tvmazeID": 22594,
-   "title": "ABC in Concert",
-   "matched": true,
-   "canonEps": 298,
-   "ourItems": 2,
-   "mappedEps": 0,
-   "extras": 2,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 2,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "abc-in-concert-1972"
     }
    ]
   },
@@ -4632,30 +4538,6 @@
    ]
   },
   {
-   "slug": "arrest-and-trial-1963",
-   "tvmazeID": 13451,
-   "title": "Arrest and Trial",
-   "matched": true,
-   "canonEps": 30,
-   "ourItems": 2,
-   "mappedEps": 2,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 2,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "arrest-and-trial-1963"
-    }
-   ]
-  },
-  {
    "slug": "arthur-of-the-britons-1972",
    "tvmazeID": 26958,
    "title": "Arthur of the Britons",
@@ -4710,6 +4592,54 @@
     {
      "kind": "single",
      "ref": "blanskysbeauties"
+    }
+   ]
+  },
+  {
+   "slug": "colonel-march-of-scotland-yard-1956",
+   "tvmazeID": 58442,
+   "title": "Colonel March of Scotland Yard",
+   "matched": true,
+   "canonEps": 26,
+   "ourItems": 2,
+   "mappedEps": 1,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 2,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "colonel-march-of-scotland-yard-1956"
+    }
+   ]
+  },
+  {
+   "slug": "gideon-s-way-1965",
+   "tvmazeID": 33497,
+   "title": "Gideon's Way",
+   "matched": true,
+   "canonEps": 26,
+   "ourItems": 2,
+   "mappedEps": 2,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 2,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "gideon-s-way-1965"
     }
    ]
   },
@@ -4897,11 +4827,11 @@
    ]
   },
   {
-   "slug": "lucas-tanner-1974",
-   "tvmazeID": 11515,
-   "title": "Lucas Tanner",
+   "slug": "michael-shayne-1960",
+   "tvmazeID": 39669,
+   "title": "Michael Shayne",
    "matched": true,
-   "canonEps": 23,
+   "canonEps": 32,
    "ourItems": 2,
    "mappedEps": 2,
    "extras": 0,
@@ -4916,7 +4846,7 @@
    "consumedRefs": [
     {
      "kind": "series",
-     "ref": "lucas-tanner-1974"
+     "ref": "michael-shayne-1960"
     }
    ]
   },
@@ -5109,6 +5039,117 @@
    ]
   },
   {
+   "slug": "the-amazing-spider-man-1977",
+   "tvmazeID": 7623,
+   "title": "The Amazing Spider-Man",
+   "matched": true,
+   "canonEps": 14,
+   "ourItems": 2,
+   "mappedEps": 1,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 2,
+   "kinds": [
+    "orphan-episode",
+    "series"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-amazing-spider-man-1977"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-amazing-spider-man-complete-series-1977"
+    }
+   ]
+  },
+  {
+   "slug": "the-americans-1961",
+   "tvmazeID": 22151,
+   "title": "The Americans",
+   "matched": true,
+   "canonEps": 17,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 1,
+   "kinds": [
+    "orphan-episode",
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-americans-1961"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-americans-tv-1961-s01e09-the-guerrillas"
+    }
+   ]
+  },
+  {
+   "slug": "the-case-of-the-dangerous-robin-1960",
+   "tvmazeID": 60022,
+   "title": "The Case of the Dangerous Robin",
+   "matched": true,
+   "canonEps": 38,
+   "ourItems": 2,
+   "mappedEps": 2,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 2,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-case-of-the-dangerous-robin-1960"
+    }
+   ]
+  },
+  {
+   "slug": "the-cheaters-1960",
+   "tvmazeID": 40336,
+   "title": "The Cheaters",
+   "matched": true,
+   "canonEps": 39,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 1,
+   "kinds": [
+    "orphan-episode",
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-cheaters-1960"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-cheaters-tv-1961-s02e20-case-of-george-peterson"
+    }
+   ]
+  },
+  {
    "slug": "the-cisco-kid-1950",
    "tvmazeID": 2141,
    "title": "The Cisco Kid",
@@ -5129,6 +5170,88 @@
     {
      "kind": "series",
      "ref": "the-cisco-kid-1950"
+    }
+   ]
+  },
+  {
+   "slug": "the-gene-autry-show-1950",
+   "tvmazeID": 4653,
+   "title": "The Gene Autry Show",
+   "matched": true,
+   "canonEps": 91,
+   "ourItems": 2,
+   "mappedEps": 2,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 2,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-gene-autry-show-1950"
+    }
+   ]
+  },
+  {
+   "slug": "the-girl-with-something-extra-1973",
+   "tvmazeID": 24659,
+   "title": "The Girl with Something Extra",
+   "matched": true,
+   "canonEps": 22,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 1,
+   "kinds": [
+    "orphan-episode",
+    "series"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-girl-with-something-extra-1973"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "The-Girl-With-Something-Extra-1973"
+    }
+   ]
+  },
+  {
+   "slug": "the-investigators-1961",
+   "tvmazeID": 26276,
+   "title": "The Investigators",
+   "matched": true,
+   "canonEps": 13,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 1,
+   "kinds": [
+    "orphan-episode",
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-investigators-1961"
+    },
+    {
+     "kind": "orphan-episode",
+     "ref": "the-investigators-tv-1961-s01e02-the-oracle"
     }
    ]
   },
@@ -5269,230 +5392,6 @@
     {
      "kind": "orphan-episode",
      "ref": "the-world-at-war-complete-series-1973"
-    }
-   ]
-  },
-  {
-   "slug": "the-invisible-man-1975",
-   "tvmazeID": 10072,
-   "title": "The Invisible Man",
-   "matched": true,
-   "canonEps": 13,
-   "ourItems": 2,
-   "mappedEps": 0,
-   "extras": 2,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 2,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "the-invisible-man-the-complete-series-1975_202505"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "the-invisible-man-complete-series-1958"
-    }
-   ]
-  },
-  {
-   "slug": "the-larkins-1958",
-   "tvmazeID": 43220,
-   "title": "The Larkins",
-   "matched": true,
-   "canonEps": 40,
-   "ourItems": 2,
-   "mappedEps": 0,
-   "extras": 2,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 2,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "TheLarkins1x01WideOpenHouse"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "TheLarkins1x07CheistmasWithTheLarkins"
-    }
-   ]
-  },
-  {
-   "slug": "the-islanders-1960",
-   "tvmazeID": 75165,
-   "title": "The Islanders",
-   "matched": true,
-   "canonEps": 26,
-   "ourItems": 2,
-   "mappedEps": 2,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 2,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "the-islanders-tv-1960-s01e01-five-o-clock-friday"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "the-islanders-tv-1961-colorized-s01e17-to-bell-the-cat"
-    }
-   ]
-  },
-  {
-   "slug": "gideon-s-way-1965",
-   "tvmazeID": 33497,
-   "title": "Gideon's Way",
-   "matched": true,
-   "canonEps": 26,
-   "ourItems": 2,
-   "mappedEps": 2,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 2,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "gideons-way-tv-1964-s01e07-to-catch-a-tiger"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "gideons-way-tv-1965-s01e17-the-wall"
-    }
-   ]
-  },
-  {
-   "slug": "the-case-of-the-dangerous-robin-1960",
-   "tvmazeID": 60022,
-   "title": "The Case of the Dangerous Robin",
-   "matched": true,
-   "canonEps": 38,
-   "ourItems": 2,
-   "mappedEps": 2,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 2,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 2,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "case-of-the-dangerous-robin-tv-1960-colorized-s01e10-the-zippered-notebook"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "case-of-the-dangerous-robin-tv-1961-s01e26-tin-caper"
-    }
-   ]
-  },
-  {
-   "slug": "the-gene-autry-show-1950",
-   "tvmazeID": 4653,
-   "title": "The Gene Autry Show",
-   "matched": true,
-   "canonEps": 91,
-   "ourItems": 2,
-   "mappedEps": 2,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 2,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "gene-autry-show-tv-1950-s01e02-gold-dust-charlie"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "gene-autry-show-tv-1950-s01e09-the-posse"
-    }
-   ]
-  },
-  {
-   "slug": "michael-shayne-1960",
-   "tvmazeID": 39669,
-   "title": "Michael Shayne",
-   "matched": true,
-   "canonEps": 32,
-   "ourItems": 2,
-   "mappedEps": 2,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 2,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "michael-shayne-tv-1960-colorized-s01e06-shoot-the-works"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "michael-shayne-tv-1960-s01e13-murder-in-wonderland"
-    }
-   ]
-  },
-  {
-   "slug": "freddy-s-nightmares-1988",
-   "tvmazeID": 4089,
-   "title": "Freddy's Nightmares",
-   "matched": true,
-   "canonEps": 44,
-   "ourItems": 2,
-   "mappedEps": 0,
-   "extras": 2,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 2,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "Freddy.s.Nightmares.1x10.The.Bride.Wore.Red"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "Freddy.s.Nightmares.1x09.Rebel.Without.a.Car"
     }
    ]
   },
@@ -5725,6 +5624,30 @@
    ]
   },
   {
+   "slug": "commando-cody-sky-marshal-of-the-universe-1955",
+   "tvmazeID": 21868,
+   "title": "Commando Cody: Sky Marshal of the Universe",
+   "matched": true,
+   "canonEps": 12,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 1,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "commando-cody-sky-marshal-of-the-universe-1955"
+    }
+   ]
+  },
+  {
    "slug": "danger-man-1960",
    "tvmazeID": 16146,
    "title": "Danger Man",
@@ -5745,6 +5668,30 @@
     {
      "kind": "series",
      "ref": "danger-man-1960"
+    }
+   ]
+  },
+  {
+   "slug": "east-side-west-side-1963",
+   "tvmazeID": 40790,
+   "title": "East Side/West Side",
+   "matched": true,
+   "canonEps": 26,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 1,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "east-side-west-side-1963"
     }
    ]
   },
@@ -5917,6 +5864,54 @@
    ]
   },
   {
+   "slug": "love-thy-neighbour-1972",
+   "tvmazeID": 7552,
+   "title": "Love Thy Neighbour",
+   "matched": true,
+   "canonEps": 53,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 1,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "love-thy-neighbour-1972"
+    }
+   ]
+  },
+  {
+   "slug": "man-of-the-world-1962",
+   "tvmazeID": 40981,
+   "title": "Man of the World",
+   "matched": true,
+   "canonEps": 20,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 1,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "man-of-the-world-1962"
+    }
+   ]
+  },
+  {
    "slug": "multi-coloured-swap-shop-1976",
    "tvmazeID": 7898,
    "title": "Multi-Coloured Swap Shop",
@@ -6037,6 +6032,30 @@
    ]
   },
   {
+   "slug": "richard-diamond-private-detective-1957",
+   "tvmazeID": 17475,
+   "title": "Richard Diamond, Private Detective",
+   "matched": true,
+   "canonEps": 77,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 1,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "richard-diamond-private-detective-1957"
+    }
+   ]
+  },
+  {
    "slug": "sight-and-sound-in-concert-1977",
    "tvmazeID": 80168,
    "title": "Sight and Sound In Concert",
@@ -6109,6 +6128,30 @@
    ]
   },
   {
+   "slug": "steve-canyon-1958",
+   "tvmazeID": 55165,
+   "title": "Steve Canyon",
+   "matched": true,
+   "canonEps": 34,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 1,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "steve-canyon-1958"
+    }
+   ]
+  },
+  {
    "slug": "supercar-1961",
    "tvmazeID": 5915,
    "title": "Supercar",
@@ -6153,6 +6196,30 @@
     {
      "kind": "series",
      "ref": "the-adventurer-1972"
+    }
+   ]
+  },
+  {
+   "slug": "the-adventures-of-jim-bowie-1956",
+   "tvmazeID": 16100,
+   "title": "The Adventures of Jim Bowie",
+   "matched": true,
+   "canonEps": 76,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 1,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-adventures-of-jim-bowie-1956"
     }
    ]
   },
@@ -6253,30 +6320,6 @@
    ]
   },
   {
-   "slug": "the-girl-with-something-extra-1973",
-   "tvmazeID": 24659,
-   "title": "The Girl with Something Extra",
-   "matched": true,
-   "canonEps": 22,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 1,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "the-girl-with-something-extra-1973"
-    }
-   ]
-  },
-  {
    "slug": "the-jensen-code-1973",
    "tvmazeID": 24975,
    "title": "The Jensen Code",
@@ -6373,6 +6416,30 @@
    ]
   },
   {
+   "slug": "the-roy-rogers-show-1951",
+   "tvmazeID": 2149,
+   "title": "The Roy Rogers Show",
+   "matched": true,
+   "canonEps": 100,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 1,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-roy-rogers-show-1951"
+    }
+   ]
+  },
+  {
    "slug": "the-second-hundred-years-1967",
    "tvmazeID": 17413,
    "title": "The Second Hundred Years",
@@ -6393,6 +6460,30 @@
     {
      "kind": "series",
      "ref": "the-second-hundred-years-1967"
+    }
+   ]
+  },
+  {
+   "slug": "the-sentimental-agent-1963",
+   "tvmazeID": 68606,
+   "title": "The Sentimental Agent",
+   "matched": true,
+   "canonEps": 13,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 1,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-sentimental-agent-1963"
     }
    ]
   },
@@ -6441,6 +6532,30 @@
     {
      "kind": "series",
      "ref": "the-undersea-world-of-jacques-cousteau-1968"
+    }
+   ]
+  },
+  {
+   "slug": "union-pacific-1958",
+   "tvmazeID": 41330,
+   "title": "Union Pacific",
+   "matched": true,
+   "canonEps": 38,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 1,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "union-pacific-1958"
     }
    ]
   },
@@ -6814,30 +6929,6 @@
    ]
   },
   {
-   "slug": "love-thy-neighbour-1972",
-   "tvmazeID": 7552,
-   "title": "Love Thy Neighbour",
-   "matched": true,
-   "canonEps": 53,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 1,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "s2e07_202002"
-    }
-   ]
-  },
-  {
    "slug": "the-fabulous-life-presents-my-big-fat-fabulous-wedding-2007",
    "tvmazeID": 38230,
    "title": "The Fabulous Life Presents: My Big Fat Fabulous Wedding",
@@ -6907,30 +6998,6 @@
    ]
   },
   {
-   "slug": "commando-cody-sky-marshal-of-the-universe-1955",
-   "tvmazeID": 21868,
-   "title": "Commando Cody: Sky Marshal of the Universe",
-   "matched": true,
-   "canonEps": 12,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 1,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "commando-cody-tv-1955-colorized-s01e01-enemies-of-the-universe"
-    }
-   ]
-  },
-  {
    "slug": "the-mind-of-mr-j-g-reeder-1969",
    "tvmazeID": 37193,
    "title": "The Mind of Mr. J.G. Reeder",
@@ -6951,30 +7018,6 @@
     {
      "kind": "orphan-episode",
      "ref": "the-mind-of-jg-reeder-complete-series-1969"
-    }
-   ]
-  },
-  {
-   "slug": "richard-diamond-private-detective-1957",
-   "tvmazeID": 17475,
-   "title": "Richard Diamond, Private Detective",
-   "matched": true,
-   "canonEps": 77,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 1,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "richard_diamond_-_2x05_arson"
     }
    ]
   },
@@ -7003,11 +7046,11 @@
    ]
   },
   {
-   "slug": "colonel-march-of-scotland-yard-1956",
-   "tvmazeID": 58442,
-   "title": "Colonel March of Scotland Yard",
+   "slug": "the-californians-1957",
+   "tvmazeID": 26277,
+   "title": "The Californians",
    "matched": true,
-   "canonEps": 26,
+   "canonEps": 69,
    "ourItems": 1,
    "mappedEps": 1,
    "extras": 0,
@@ -7022,16 +7065,16 @@
    "consumedRefs": [
     {
      "kind": "orphan-episode",
-     "ref": "colonel-march-of-scotland-yard-tv-1954-colorized-s01e04-at-night-all-cats-are-gray"
+     "ref": "the-californians-tv-1958-s01e25-death-by-proxy"
     }
    ]
   },
   {
-   "slug": "the-adventures-of-jim-bowie-1956",
-   "tvmazeID": 16100,
-   "title": "The Adventures of Jim Bowie",
+   "slug": "atom-man-vs-superman-1950",
+   "tvmazeID": 7077,
+   "title": "Atom Man vs. Superman",
    "matched": true,
-   "canonEps": 76,
+   "canonEps": 15,
    "ourItems": 1,
    "mappedEps": 1,
    "extras": 0,
@@ -7046,319 +7089,7 @@
    "consumedRefs": [
     {
      "kind": "orphan-episode",
-     "ref": "adventures-of-jim-bowie-tv-1958-colorized-s02e30-jim-bowie-apache"
-    }
-   ]
-  },
-  {
-   "slug": "bat-masterson-1958",
-   "tvmazeID": 4379,
-   "title": "Bat Masterson",
-   "matched": true,
-   "canonEps": 108,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 1,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "bat-masterson-tv-1959-s01e35-the-desert-ship"
-    }
-   ]
-  },
-  {
-   "slug": "the-investigators-1961",
-   "tvmazeID": 26276,
-   "title": "The Investigators",
-   "matched": true,
-   "canonEps": 13,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 1,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "the-investigators-tv-1961-s01e02-the-oracle"
-    }
-   ]
-  },
-  {
-   "slug": "east-side-west-side-1963",
-   "tvmazeID": 40790,
-   "title": "East Side/West Side",
-   "matched": true,
-   "canonEps": 26,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 1,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "east-side-west-side-s-1-e-01-the-sinner"
-    }
-   ]
-  },
-  {
-   "slug": "union-pacific-1958",
-   "tvmazeID": 41330,
-   "title": "Union Pacific",
-   "matched": true,
-   "canonEps": 38,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 1,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "union-pacific-tv-1958-colorized-s01e01-black-hills-incident"
-    }
-   ]
-  },
-  {
-   "slug": "steve-canyon-1958",
-   "tvmazeID": 55165,
-   "title": "Steve Canyon",
-   "matched": true,
-   "canonEps": 34,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 1,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "steve-canyon-tv-1959-colorized-s01e17-the-search"
-    }
-   ]
-  },
-  {
-   "slug": "man-of-the-world-1962",
-   "tvmazeID": 40981,
-   "title": "Man of the World",
-   "matched": true,
-   "canonEps": 20,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 1,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "man-of-the-world-tv-1962-colorized-s01e01-death-of-a-conference"
-    }
-   ]
-  },
-  {
-   "slug": "the-cheaters-1960",
-   "tvmazeID": 40336,
-   "title": "The Cheaters",
-   "matched": true,
-   "canonEps": 39,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 1,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "the-cheaters-tv-1961-s02e20-case-of-george-peterson"
-    }
-   ]
-  },
-  {
-   "slug": "the-americans-1961",
-   "tvmazeID": 22151,
-   "title": "The Americans",
-   "matched": true,
-   "canonEps": 17,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 1,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "the-americans-tv-1961-s01e09-the-guerrillas"
-    }
-   ]
-  },
-  {
-   "slug": "the-sentimental-agent-1963",
-   "tvmazeID": 68606,
-   "title": "The Sentimental Agent",
-   "matched": true,
-   "canonEps": 13,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 1,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "the-sentimental-agent-tv-1963-colorized-s01e06-meet-my-son-henry"
-    }
-   ]
-  },
-  {
-   "slug": "the-roy-rogers-show-1951",
-   "tvmazeID": 2149,
-   "title": "The Roy Rogers Show",
-   "matched": true,
-   "canonEps": 100,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 1,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "roy-rogers-show-tv-1953-s03e04-bullets-and-a-burro"
-    }
-   ]
-  },
-  {
-   "slug": "degrassi-high-1989",
-   "tvmazeID": 3624,
-   "title": "Degrassi High",
-   "matched": true,
-   "canonEps": 28,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 1,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "degrassi-high-s-05-e-02-bad-blood-part-2"
-    }
-   ]
-  },
-  {
-   "slug": "veronica-s-closet-1997",
-   "tvmazeID": 12736,
-   "title": "Veronica's Closet",
-   "matched": true,
-   "canonEps": 66,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 1,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "veronicasclosets2e5veronicascrushedpartialconvertvideoonline.com"
-    }
-   ]
-  },
-  {
-   "slug": "american-playhouse-1982",
-   "tvmazeID": 18176,
-   "title": "American Playhouse",
-   "matched": true,
-   "canonEps": 162,
-   "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 1,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "american-playhouse-s-6e-6-eleanor-in-her-own-words-1"
+     "ref": "atom-man-vs.-superman-1950-1x-15-superman-salva-el-universo"
     }
    ]
   },
@@ -7382,29 +7113,6 @@
     {
      "kind": "single",
      "ref": "on-the-buses-1969-73"
-    }
-   ]
-  },
-  {
-   "slug": "the-ed-wynn-show-1958",
-   "tvmazeID": 40536,
-   "title": "The Ed Wynn Show",
-   "matched": true,
-   "canonEps": 16,
-   "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "kinds": [
-    "single"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "single",
-     "ref": "TheEdWynnShow1950"
     }
    ]
   },
@@ -7455,11 +7163,11 @@
    ]
   },
   {
-   "slug": "the-great-train-robbery-2013",
-   "tvmazeID": 6884,
-   "title": "The Great Train Robbery",
+   "slug": "the-great-rhino-robbery-2024",
+   "tvmazeID": 72842,
+   "title": "The Great Rhino Robbery",
    "matched": true,
-   "canonEps": 2,
+   "canonEps": 3,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -7524,11 +7232,11 @@
    ]
   },
   {
-   "slug": "doug-to-the-rescue-2021",
-   "tvmazeID": 55657,
-   "title": "Doug to the Rescue",
+   "slug": "amanda-to-the-rescue-2018",
+   "tvmazeID": 39403,
+   "title": "Amanda to the Rescue",
    "matched": true,
-   "canonEps": 6,
+   "canonEps": 20,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -7666,7 +7374,7 @@
    "tvmazeID": 9539,
    "title": "NBC Nightly News",
    "matched": true,
-   "canonEps": 4851,
+   "canonEps": 4858,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -7704,6 +7412,29 @@
     {
      "kind": "single",
      "ref": "TheBigHands"
+    }
+   ]
+  },
+  {
+   "slug": "in-search-of-1977",
+   "tvmazeID": 1476,
+   "title": "In Search of.....",
+   "matched": true,
+   "canonEps": 152,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "kinds": [
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "single",
+     "ref": "In-Search-Of-complete-series"
     }
    ]
   },
@@ -7754,11 +7485,11 @@
    ]
   },
   {
-   "slug": "hotel-1982",
-   "tvmazeID": 7365,
+   "slug": "hotel-2016",
+   "tvmazeID": 44814,
    "title": "Hotel",
    "matched": true,
-   "canonEps": 115,
+   "canonEps": 65,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -7869,11 +7600,11 @@
    ]
   },
   {
-   "slug": "mr-bean-1990",
-   "tvmazeID": 1719,
+   "slug": "mr-bean-2002",
+   "tvmazeID": 5251,
    "title": "Mr. Bean",
    "matched": true,
-   "canonEps": 14,
+   "canonEps": 156,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -8237,11 +7968,11 @@
    ]
   },
   {
-   "slug": "a-fine-romance-1981",
-   "tvmazeID": 7755,
+   "slug": "a-fine-romance-1989",
+   "tvmazeID": 41745,
    "title": "A Fine Romance",
    "matched": true,
-   "canonEps": 26,
+   "canonEps": 12,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -8652,11 +8383,11 @@
    ]
   },
   {
-   "slug": "big-brother-best-shows-ever-2020",
-   "tvmazeID": 48066,
-   "title": "Big Brother: Best Shows Ever",
+   "slug": "the-armando-iannucci-shows-2001",
+   "tvmazeID": 2574,
+   "title": "The Armando Iannucci Shows",
    "matched": true,
-   "canonEps": 10,
+   "canonEps": 8,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -8790,11 +8521,11 @@
    ]
   },
   {
-   "slug": "alice-2009",
-   "tvmazeID": 1024,
+   "slug": "alice-1976",
+   "tvmazeID": 7553,
    "title": "Alice",
    "matched": true,
-   "canonEps": 2,
+   "canonEps": 202,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -9712,14 +9443,14 @@
    ]
   },
   {
-   "slug": "possibly-the-greatest-alchemist-of-all-time-2025",
-   "tvmazeID": 77247,
-   "title": "Possibly the Greatest Alchemist of All Time",
+   "slug": "the-fake-alchemist",
+   "tvmazeID": 94941,
+   "title": "The Fake Alchemist",
    "matched": true,
-   "canonEps": 12,
+   "canonEps": 0,
    "ourItems": 1,
    "mappedEps": 0,
-   "extras": 1,
+   "extras": 0,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -10219,11 +9950,11 @@
    ]
   },
   {
-   "slug": "franklin-2024",
-   "tvmazeID": 74480,
+   "slug": "franklin-2025",
+   "tvmazeID": 84366,
    "title": "Franklin",
    "matched": true,
-   "canonEps": 8,
+   "canonEps": 6,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -10380,11 +10111,11 @@
    ]
   },
   {
-   "slug": "dr-slump-1981",
-   "tvmazeID": 55244,
+   "slug": "dr-slump-1997",
+   "tvmazeID": 55245,
    "title": "Dr. Slump",
    "matched": true,
-   "canonEps": 243,
+   "canonEps": 74,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -10449,11 +10180,11 @@
    ]
   },
   {
-   "slug": "tv-systrar-2021",
-   "tvmazeID": 50970,
-   "title": "Två systrar",
+   "slug": "tvf-pitchers-2015",
+   "tvmazeID": 7329,
+   "title": "TVF Pitchers",
    "matched": true,
-   "canonEps": 8,
+   "canonEps": 10,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -11116,9 +10847,9 @@
    ]
   },
   {
-   "slug": "alice-zouroku-2017",
-   "tvmazeID": 25928,
-   "title": "Alice & Zouroku",
+   "slug": "alice-or-alice-2018",
+   "tvmazeID": 35313,
+   "title": "Alice or Alice",
    "matched": true,
    "canonEps": 12,
    "ourItems": 1,
@@ -11190,7 +10921,7 @@
    "tvmazeID": 8144,
    "title": "Meego",
    "matched": true,
-   "canonEps": 6,
+   "canonEps": 13,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -11348,11 +11079,11 @@
    ]
   },
   {
-   "slug": "the-misery-index-2019",
-   "tvmazeID": 43103,
-   "title": "The Misery Index",
+   "slug": "misery-loves-company-1995",
+   "tvmazeID": 37170,
+   "title": "Misery Loves Company",
    "matched": true,
-   "canonEps": 49,
+   "canonEps": 8,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -11394,18 +11125,17 @@
    ]
   },
   {
-   "slug": "227-1985",
-   "tvmazeID": 7602,
-   "title": "227",
+   "slug": "22-7-2020",
+   "tvmazeID": 45672,
+   "title": "22/7",
    "matched": true,
-   "canonEps": 116,
+   "canonEps": 12,
    "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
-   "availableEps": 1,
    "kinds": [
     "single"
    ],
@@ -11813,7 +11543,7 @@
    "tvmazeID": 3309,
    "title": "The Waltons",
    "matched": true,
-   "canonEps": 217,
+   "canonEps": 215,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -12821,7 +12551,6 @@
   "Love_That_Bob_Ep4x26_Bob_Goes_Bird_Watching",
   "PeteAndGladys1960CbsSneakPreview",
   "on-the-buses-1969-73",
-  "TheEdWynnShow1950",
   "Tales_Of_Tomorrow_-_World_Of_Water",
   "Tales_Of_Tomorrow_-_Red_Dust",
   "Andy_Griffith_The_Robbery",
@@ -12835,6 +12564,7 @@
   "Tales_Of_Tomorrow_-_Time_To_Go",
   "NbcNews17march1949",
   "TheBigHands",
+  "In-Search-Of-complete-series",
   "1958NflChampionship",
   "the-persuaders-1971-72",
   "hotel_202312",
@@ -12989,6 +12719,7 @@
   "the-mary-tyler-moore-show-complete-series",
   "misery_202309",
   "charles-in-charge-s-05-e-08-paper-covers-rock",
+  "227-s-4-e-23-jackee-most-convert-video-online.com",
   "the.-michael.-richards.-show.-s-01-e-02.-simplification.-vhsrip.x-264",
   "perfect-strangers-Lando18",
   "the-bradys-e-01-start-your-engines",
@@ -13220,7 +12951,7 @@
   {
    "title": "H.G. Wells' Invisible Man",
    "year": 1959,
-   "items": 28,
+   "items": 3,
    "kind": "series",
    "ref": "h-g-wells-invisible-man-1959"
   },
@@ -13367,7 +13098,7 @@
   {
    "title": "PTL Club",
    "year": 1975,
-   "items": 3,
+   "items": 2,
    "kind": "series",
    "ref": "ptl-club-1975"
   },
@@ -14056,13 +13787,6 @@
    "items": 1,
    "kind": "orphan-episode",
    "ref": "s-01-e-01-murder-in-monmartre-1"
-  },
-  {
-   "title": "Gene Autry Show Double Barreled Vengenance",
-   "year": 1951,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "Gene-Autry_Double-Barreled-Vengenance_3D"
   },
   {
    "title": "T H E Cat",
@@ -14758,13 +14482,6 @@
    "ref": "the.avengers.s05e10.never.never.say.die"
   },
   {
-   "title": "Bat Masterson Double Showdown",
-   "year": 1958,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "bat-masterson-tv-1958-s01e01-double-showdown"
-  },
-  {
    "title": "The Rifleman The Marshal",
    "year": 1958,
    "items": 1,
@@ -15031,39 +14748,11 @@
    "ref": "just-jimmy-a-match-for-jim"
   },
   {
-   "title": "Invisible Man The Prize and Flight into Darkness",
-   "year": 1959,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "InvisibleMan-ThePrize1959"
-  },
-  {
-   "title": "Invisible Man Point of Destruction",
-   "year": 1959,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "InvisibleMan-PointOfDestruction1959"
-  },
-  {
-   "title": "The Invisible Man Shadow Bomb",
-   "year": 1959,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "TheInvisibleMan-ShadowBomb1959"
-  },
-  {
    "title": "\"The Gray Ghost\" Point of Honor",
    "year": 1957,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "the-gray-ghost-tv-1957-colorized-s01e04-point-of-honor"
-  },
-  {
-   "title": "\"Bat Masterson\" Stampede at Tent City",
-   "year": 1958,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "bat-masterson-colorized-s-1e-4-stampede-at-tent-city"
   },
   {
    "title": "\"Trackdown\" The Bounty Hunter",
@@ -15234,20 +14923,6 @@
    "ref": "pathfinders-1972-s-01-e-03"
   },
   {
-   "title": "53 11 15 The Jack Benny Program S 04e 04 Johnnie Ray Show",
-   "year": 1953,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "531115TheJackBennyProgramS04e04JohnnieRayShow"
-  },
-  {
-   "title": "54 10 17 The Jack Benny Program S 05e 02 Jam Session At Jack's",
-   "year": 1954,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "541017TheJackBennyProgramS05e02JamSessionAtJacks"
-  },
-  {
    "title": "topper s 01 e 19 com fan trip to lisbon",
    "year": 1954,
    "items": 1,
@@ -15255,585 +14930,81 @@
    "ref": "topper-s-01-e-19-1954-tv-com-fan-trip-to-lisbon"
   },
   {
-   "title": "54 10 31 The Jack Benny Program S 05e 03 How Jack Met Mary",
-   "year": 1954,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "541031TheJackBennyProgramS05e03HowJackMetMary"
-  },
-  {
-   "title": "54 01 17 The Jack Benny Program S 04e 07 Liberace Show",
-   "year": 1954,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "540117TheJackBennyProgramS04e07LiberaceShow"
-  },
-  {
-   "title": "54 03 21 The Jack Benny Program S 04e 10 Goldie, Fields And Glide",
-   "year": 1954,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "540321TheJackBennyProgramS04e10GoldieFieldsAndGlide"
-  },
-  {
-   "title": "54 12 26 The Jack Benny Program S 05e 07 San Diego Naval Training Center Show",
-   "year": 1954,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "541226TheJackBennyProgramS05e07SanDiegoNavalTrainingCenterShow"
-  },
-  {
-   "title": "54 02 07 The Jack Benny Program S 04e 08 Jack Dreams He's Married To Mary",
-   "year": 1954,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "540207TheJackBennyProgramS04e08JackDreamsHesMarriedToMary"
-  },
-  {
-   "title": "55 12 04 The Jack Benny Program S 06e 06 Jack's Camping Trip",
+   "title": "Secret File U S A",
    "year": 1955,
    "items": 1,
    "kind": "orphan-episode",
-   "ref": "551204TheJackBennyProgramS06e06JacksCampingTrip"
+   "ref": "secret-file-u-s-a-tv-1955-s01e04-mission-m"
   },
   {
-   "title": "55 01 09 The Jack Benny Program S 05e 08 Burglar Tries To Break Into The Vault",
-   "year": 1955,
+   "title": "Bonanza Bitter Water S01",
+   "year": 1960,
    "items": 1,
    "kind": "orphan-episode",
-   "ref": "550109TheJackBennyProgramS05e08BurglarTriesToBreakIntoTheVault"
+   "ref": "bonanzabitterwaterhq"
   },
   {
-   "title": "55 11 20 The Jack Benny Program S 06e 05 Jack Gives Johnny Carson Advice",
-   "year": 1955,
+   "title": "Candle Cove (",
+   "year": 1971,
    "items": 1,
    "kind": "orphan-episode",
-   "ref": "551120TheJackBennyProgramS06e05JackGivesJohnnyCarsonAdvice"
+   "ref": "candle-cove-welcome-to-our-ship-1971"
   },
   {
-   "title": "55 02 06 The Jack Benny Program S 05e 10 Four O' Clock In The Morning Show",
-   "year": 1955,
+   "title": "Hullabaloo February 14",
+   "year": 1966,
    "items": 1,
    "kind": "orphan-episode",
-   "ref": "550206TheJackBennyProgramS05e10FourOClockInTheMorningShow"
+   "ref": "hullabaloo-february-14-1966-s-2-e-22"
   },
   {
-   "title": "55 04 17 The Jack Benny Program S 05e 15 Preparing For New York Trip",
-   "year": 1955,
+   "title": "Hullabaloo March 21",
+   "year": 1966,
    "items": 1,
    "kind": "orphan-episode",
-   "ref": "550417TheJackBennyProgramS05e15PreparingForNewYorkTrip"
+   "ref": "hullabaloo-march-21-1966-s-2-e-27"
   },
   {
-   "title": "55 12 18 The Jack Benny Program S 06e 07 Frances And Edgar Bergen Show",
-   "year": 1955,
+   "title": "Jimmy Dean Halloween Show",
+   "year": 1963,
    "items": 1,
    "kind": "orphan-episode",
-   "ref": "551218TheJackBennyProgramS06e07FrancesAndEdgarBergenShow"
+   "ref": "jimmy-dean-halloween-show"
   },
   {
-   "title": "56 03 11 The Jack Benny Program S 06e 13 Jack Drives To Palm Springs",
-   "year": 1956,
+   "title": "What Makes Shaw Run Run Whicker's Orient",
+   "year": 1972,
    "items": 1,
    "kind": "orphan-episode",
-   "ref": "560311TheJackBennyProgramS06e13JackDrivesToPalmSprings"
+   "ref": "what-makes-shaw-run-run-1972-whickers-orient-s-01e-01"
   },
   {
-   "title": "56 12 30 The Jack Benny Program S 07e 08 Talent Show",
-   "year": 1956,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "561230TheJackBennyProgramS07e08TalentShow"
-  },
-  {
-   "title": "56 12 02 The Jack Benny Program S 07e 06 Jack Locked In The Tower Of London",
-   "year": 1956,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "561202TheJackBennyProgramS07e06JackLockedInTheTowerOfLondon"
-  },
-  {
-   "title": "56 02 12 The Jack Benny Program S 06e 11 William Holden Frances Bergen Show",
-   "year": 1956,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "560212TheJackBennyProgramS06e11WilliamHoldenFrancesBergenShow"
-  },
-  {
-   "title": "56 04 22 The Jack Benny Program S 06e 16 Jack Tries To Get A Passport",
-   "year": 1956,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "560422TheJackBennyProgramS06e16JackTriesToGetAPassport"
-  },
-  {
-   "title": "56 11 18 The Jack Benny Program S 07e 05 Beverly Hills Police Station",
-   "year": 1956,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "561118TheJackBennyProgramS07e05BeverlyHillsPoliceStation"
-  },
-  {
-   "title": "56 03 25 The Jack Benny Program S 06e 14 Jack Opens Beverly Hills Office",
-   "year": 1956,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "560325TheJackBennyProgramS06e14JackOpensBeverlyHillsOffice"
-  },
-  {
-   "title": "57 03 24 The Jack Benny Program S 07e 14 Jack In Paris",
+   "title": "Zorro S01 PT BR",
    "year": 1957,
    "items": 1,
    "kind": "orphan-episode",
-   "ref": "570324TheJackBennyProgramS07e14JackInParis"
+   "ref": "1957-zorro-s-01"
   },
   {
-   "title": "57 01 13 The Jack Benny Program S 07e 09 Jack And Mary In Rome",
-   "year": 1957,
+   "title": "jackie gleason show",
+   "year": 1968,
    "items": 1,
    "kind": "orphan-episode",
-   "ref": "570113TheJackBennyProgramS07e09JackAndMaryInRome"
+   "ref": "jackie-gleason-show-season-7-1968-1969"
   },
   {
-   "title": "57 04 07 The Jack Benny Program S 07e 15 Mary's May Company Reunion",
-   "year": 1957,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "570407TheJackBennyProgramS07e15MarysMayCompanyReunion"
-  },
-  {
-   "title": "58 11 30 The Jack Benny Program S 09e 06 Jack Goes To The Doctor",
-   "year": 1958,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "581130TheJackBennyProgramS09e06JackGoesToTheDoctor"
-  },
-  {
-   "title": "58 01 12 The Jack Benny Program S 08e 09 Jack Takes A Beaver To The Dentist",
-   "year": 1958,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "580112TheJackBennyProgramS08e09JackTakesABeaverToTheDentist"
-  },
-  {
-   "title": "58 01 26 The Jack Benny Program S 08e 10 Honeymooners Show",
-   "year": 1958,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "580126TheJackBennyProgramS08e10HoneymoonersShow"
-  },
-  {
-   "title": "58 02 09 The Jack Benny Program S 08e 11 Jack At The Races",
-   "year": 1958,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "580209TheJackBennyProgramS08e11JackAtTheRaces"
-  },
-  {
-   "title": "59 01 25 The Jack Benny Program S 09e 10 Ernie Kovacs Show",
-   "year": 1959,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "590125TheJackBennyProgramS09e10ErnieKovacsShow"
-  },
-  {
-   "title": "59 11 15 The Jack Benny Program S 10e 04 Mr And Mrs Jimmy Stewart Show",
-   "year": 1959,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "591115TheJackBennyProgramS10e04Mr.AndMrs.JimmyStewartShow"
-  },
-  {
-   "title": "59 03 22 The Jack Benny Program S 09e 14 Edgar Bergen Show",
-   "year": 1959,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "590322TheJackBennyProgramS09e14EdgarBergenShow"
-  },
-  {
-   "title": "Mackenzie's Raiders colorized",
-   "year": 1959,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "mackenzies-raiders-tv-1958-colorized-s01e13-the-impostor"
-  },
-  {
-   "title": "59 02 08 The Jack Benny Program S 09e 11 Jack Goes To A Nightclub",
-   "year": 1959,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "590208TheJackBennyProgramS09e11JackGoesToANightclub"
-  },
-  {
-   "title": "60 12 04 The Jack Benny Program S 11e 07 Lunch Counter Murder",
-   "year": 1960,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "601204TheJackBennyProgramS11e07LunchCounterMurder"
-  },
-  {
-   "title": "60 01 10 The Jack Benny Program S 10e 08 Ben Blue Show",
-   "year": 1960,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "600110TheJackBennyProgramS10e08BenBlueShow"
-  },
-  {
-   "title": "60 11 06 The Jack Benny Program S 11e 04 Hong Kong Suit",
-   "year": 1960,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "601106TheJackBennyProgramS11e04HongKongSuit"
-  },
-  {
-   "title": "Perry Como Show March 31,",
-   "year": 1960,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "perrycomomarch311960divx"
-  },
-  {
-   "title": "61 01 08 The Jack Benny Program S 11e 12 Jack Goes To The Vault",
-   "year": 1961,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "610108TheJackBennyProgramS11e12JackGoesToTheVault"
-  },
-  {
-   "title": "61 03 05 The Jack Benny Program S 11e 20 Detective Story",
-   "year": 1961,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "610305TheJackBennyProgramS11e20DetectiveStory"
-  },
-  {
-   "title": "61 11 19 The Jack Benny Program S 12e 05 Tennessee Ernie Ford Show",
-   "year": 1961,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "611119TheJackBennyProgramS12e05TennesseeErnieFordShow"
-  },
-  {
-   "title": "61 01 01 The Jack Benny Program S 11e 11 Jack Casting For Television Special",
-   "year": 1961,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "610101TheJackBennyProgramS11e11JackCastingForTelevisionSpecial"
-  },
-  {
-   "title": "61 12 10 The Jack Benny Program S 12e 08 Jack Goes To The Cafeteria",
-   "year": 1961,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "611210TheJackBennyProgramS12e08JackGoesToTheCafeteria"
-  },
-  {
-   "title": "61 02 26 The Jack Benny Program S 11e 19 Jack Dreams He's A Surgeon",
-   "year": 1961,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "610226TheJackBennyProgramS11e19JackDreamsHesASurgeon"
-  },
-  {
-   "title": "61 03 19 The Jack Benny Program S 11e 22 Las Vegas Show",
-   "year": 1961,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "610319TheJackBennyProgramS11e22LasVegasShow"
-  },
-  {
-   "title": "62 01 07 The Jack Benny Program S 12e 12 Jack Does Opera",
-   "year": 1962,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "620107TheJackBennyProgramS12e12JackDoesOpera"
-  },
-  {
-   "title": "62 10 16 The Jack Benny Program S 13e 04 Air Force Sketch",
-   "year": 1962,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "621016TheJackBennyProgramS13e04AirForceSketch"
-  },
-  {
-   "title": "62 12 04 The Jack Benny Program S 13e 10 Jack And Bob Hope In Vaudeville",
-   "year": 1962,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "621204TheJackBennyProgramS13e10JackAndBobHopeInVaudeville"
-  },
-  {
-   "title": "62 02 11 The Jack Benny Program S 12e 17 Ghost Town Western",
-   "year": 1962,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "620211TheJackBennyProgramS12e17GhostTownWestern"
-  },
-  {
-   "title": "62 03 11 The Jack Benny Program S 12e 20 Alexander Hamilton Show",
-   "year": 1962,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "620311TheJackBennyProgramS12e20AlexanderHamiltonShow"
-  },
-  {
-   "title": "62 10 23 The Jack Benny Program S 13e 05 Lawrence Welk Show",
-   "year": 1962,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "621023TheJackBennyProgramS13e05LawrenceWelkShow"
-  },
-  {
-   "title": "62 04 08 The Jack Benny Program S 12e 24 Jack Is A Violin Teacher",
-   "year": 1962,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "620408TheJackBennyProgramS12e24JackIsAViolinTeacher"
-  },
-  {
-   "title": "62 12 18 The Jack Benny Program S 13e 12 Jack And The Crying Cab Driver",
-   "year": 1962,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "621218TheJackBennyProgramS13e12JackAndTheCryingCabDriver"
-  },
-  {
-   "title": "The Beverly Hillbillies Getting Settled",
-   "year": 1962,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "thebeverlyhillbilliesgettingsettledhq"
-  },
-  {
-   "title": "64 04 21 The Jack Benny Program S 14e 28 I Am The Fiddler",
-   "year": 1964,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "640421TheJackBennyProgramS14e28IAmTheFiddler"
-  },
-  {
-   "title": "64 10 23 The Jack Benny Program S 15e 05 Jack Makes A Comedy Record",
-   "year": 1964,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "641023TheJackBennyProgramS15e05JackMakesAComedyRecord"
-  },
-  {
-   "title": "64 01 14 The Jack Benny Program S 14e 15 Peter, Paul And Mary Show",
-   "year": 1964,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "640114TheJackBennyProgramS14e15PeterPaulAndMaryShow"
-  },
-  {
-   "title": "64 01 21 The Jack Benny Program S 14e 16 Nat King Cole Show",
-   "year": 1964,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "640121TheJackBennyProgramS14e16NatKingColeShow"
-  },
-  {
-   "title": "64 01 07 The Jack Benny Program S 14e 14 How Jack Met George Burns",
-   "year": 1964,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "640107TheJackBennyProgramS14e14HowJackMetGeorgeBurns"
-  },
-  {
-   "title": "64 10 02 The Jack Benny Program S 15e 02 Lucille Ball Show",
-   "year": 1964,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "641002TheJackBennyProgramS15e02LucilleBallShow"
-  },
-  {
-   "title": "64 04 07 The Jack Benny Program S 14e 26 Jack Goes To An Allergy Doctor",
-   "year": 1964,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "640407TheJackBennyProgramS14e26JackGoesToAnAllergyDoctor"
-  },
-  {
-   "title": "64 01 28 The Jack Benny Program S 14e 17 Bobby Darin Show",
-   "year": 1964,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "640128TheJackBennyProgramS14e17BobbyDarinShow"
-  },
-  {
-   "title": "64 02 18 The Jack Benny Program S 14e 20 The Final Le Blanc Sketch",
-   "year": 1964,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "640218TheJackBennyProgramS14e20TheFinalLeBlancSketch"
-  },
-  {
-   "title": "64 03 24 The Jack Benny Program S 14e 24 Jack Renews His Drivers' License",
-   "year": 1964,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "640324TheJackBennyProgramS14e24JackRenewsHisDriversLicense"
-  },
-  {
-   "title": "64 12 04 The Jack Benny Program S 15e 11 Wayne Newton Show",
-   "year": 1964,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "641204TheJackBennyProgramS15e11WayneNewtonShow"
-  },
-  {
-   "title": "64 10 09 The Jack Benny Program S 15e 03 Andy Williams Show",
-   "year": 1964,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "641009TheJackBennyProgramS15e03AndyWilliamsShow"
-  },
-  {
-   "title": "65 03 19 The Jack Benny Program S 15e 24 Jack's Navy Buddy Returns",
-   "year": 1965,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "650319TheJackBennyProgramS15e24JacksNavyBuddyReturns"
-  },
-  {
-   "title": "65 01 29 The Jack Benny Program S 15e 17 Kingston Trio Show",
-   "year": 1965,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "650129TheJackBennyProgramS15e17KingstonTrioShow"
-  },
-  {
-   "title": "65 01 08 The Jack Benny Program S 15e 15 Jack Jones Show",
-   "year": 1965,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "650108TheJackBennyProgramS15e15JackJonesShow"
-  },
-  {
-   "title": "65 02 12 The Jack Benny Program S 15e 19 The Stradivarius Story",
-   "year": 1965,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "650212TheJackBennyProgramS15e19TheStradivariusStory"
-  },
-  {
-   "title": "65 01 22 The Jack Benny Program S 15e 16 Jack Adopts A Son",
-   "year": 1965,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "650122TheJackBennyProgramS15e16JackAdoptsASon"
-  },
-  {
-   "title": "Smothers Brothers Comedy Hour 67 02 05",
+   "title": "Malibu U",
    "year": 1967,
    "items": 1,
    "kind": "orphan-episode",
-   "ref": "67-02-05-1-01-ed-sullivan-jim-nabors-jill-st.-john_202404"
+   "ref": "Malibu-U-1967"
   },
   {
-   "title": "The Nasty Nephew",
-   "year": 1973,
+   "title": "the jackie gleason show",
+   "year": 1967,
    "items": 1,
    "kind": "orphan-episode",
-   "ref": "sigmund-and-the-sea-monsters-s-01-e-06"
-  },
-  {
-   "title": "OCT 19 Equal Pay & Equality; Women's Liberation, According Archie Bunker",
-   "year": 1974,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "1974OCT19_Equal_Pay_Equality_Womens_Liberation_According_Archie_Bunker"
-  },
-  {
-   "title": "Flambards EDGE Of The CLOUD",
-   "year": 1979,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "flambards-1979-03-09-s-1-e-07-by-alan-plater-edge-of-the-cloud"
-  },
-  {
-   "title": "Flambards FLYING HIGH",
-   "year": 1979,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "flambards-1979-03-16-s-1-e-08-by-alex-glasgow-flying-high"
-  },
-  {
-   "title": "Flambards SING NO SAD SONGS",
-   "year": 1979,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "flambards-1979-03-23-s-1-e-09-by-alan-plater-sing-no-sad-songs"
-  },
-  {
-   "title": "Flambards NEW BLOOD",
-   "year": 1979,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "flambards-1979-03-30-s-1-e-10-by-william-humble-new-blood"
-  },
-  {
-   "title": "Street Hawk S 01 E 03 The Adjuster",
-   "year": 1985,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "street-hawk-s-01-e-03-the-adjuster"
-  },
-  {
-   "title": "Club Connect Pilot Episode (",
-   "year": 1988,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "club-connect-1988-pilot-episode"
-  },
-  {
-   "title": "Club Connect Radio Jobs (",
-   "year": 1991,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "club-connect-s-05-e-06-radio-jobs"
-  },
-  {
-   "title": "South Park Mutant Turkeys are Back!",
-   "year": 1997,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "south-park-mutant-turkeys-are-back"
-  },
-  {
-   "title": "The Joey Bishop Show Joey's Hideaway (",
-   "year": 2019,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "thejoeybishopshowjoeyshideaways3e15convertvideoonline.com"
-  },
-  {
-   "title": "The Joey Bishop Show Ring a Ding Ding (",
-   "year": 2019,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "thejoeybishopshowringadingdings1e11convertvideoonline.com"
-  },
-  {
-   "title": "The Cavanaughs A Chorus Malign (",
-   "year": 2021,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "the-cavanaughs-a-chorus-malign-s-1-e-10"
-  },
-  {
-   "title": "Carter Country Gamblers Unanimous (",
-   "year": 2022,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "carter-country-gamblers-unanimous-s-2-e-6"
-  },
-  {
-   "title": "Austin City Limits The Geezenslaws",
-   "year": 2023,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "austin-city-limits-the-geezenslaws-s-11e-2-partial"
+   "ref": "the-jackie-gleason-show-season-6-1967-1968"
   },
   {
    "title": "Lucy meets John Wayne",
@@ -15981,6 +15152,13 @@
    "items": 1,
    "kind": "single",
    "ref": "TLS_Lucy_And_The_French_Movie_Star"
+  },
+  {
+   "title": "S 2 E 07.",
+   "year": null,
+   "items": 1,
+   "kind": "single",
+   "ref": "s2e07_202002"
   },
   {
    "title": "Viv Visits Lucy",
@@ -24969,6 +24147,27 @@
    "items": 1,
    "kind": "single",
    "ref": "dvd-6861-the-partridge-family"
+  },
+  {
+   "title": "Invisible Man - Secret Experiment (1958)",
+   "year": null,
+   "items": 1,
+   "kind": "single",
+   "ref": "InvisibleMan-SecretExperiment1958"
+  },
+  {
+   "title": "MPD PSYCHO ep 03 - 04 (Serie) Italiano",
+   "year": null,
+   "items": 1,
+   "kind": "single",
+   "ref": "mpd-psycho-04"
+  },
+  {
+   "title": "Sazae-san 052-421 (1970-1977)",
+   "year": null,
+   "items": 1,
+   "kind": "single",
+   "ref": "sazae-san-059-to-421"
   }
  ]
 }

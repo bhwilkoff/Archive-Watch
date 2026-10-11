@@ -24,13 +24,13 @@
         {
           "archiveID": "the-invisible-man-the-complete-series-1975_202505",
           "seasonNumber": 1,
-          "episodeNumber": null,
+          "episodeNumber": 1,
           "title": "The Invisible Man",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/the-invisible-man-the-complete-series-1975_202505",
-          "airDate": null,
+          "overview": "Scientist Daniel Westin and his wife Kate are developing a process to teleport matter via laser beams, and accidentally create a means of invisibility. However, after Daniel prematurely tests it on himself, the process goes wrong, trapping him in an invisible state... and foreign powers want the secret of his process.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/59/149363.jpg",
+          "airDate": "1975-05-06",
           "year": 1975,
-          "runtimeSeconds": 4402,
+          "runtimeSeconds": 5400,
           "videoFile": {
             "name": "The Invisible Man S01E00 - Pilot.mp4",
             "format": "h.264",
@@ -83,8 +83,5 @@
       "order": 2,
       "profilePath": "https://artworks.thetvdb.com/banners/actors/315132.jpg"
     }
-  ],
-  "seriesImdbID": "tt0072515",
-  "canonicalEpisodeCount": 9,
-  "canonicalSeasons": 1
+  ]
 }
