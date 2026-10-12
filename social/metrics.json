@@ -2850,6 +2850,53 @@
     "reposts": 0,
     "replies": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mx5w6jsgty2m",
+   "platform": "bluesky",
+   "id": "ThatUncertainFeeling",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-05T22:01:05.436905+00:00",
+   "sampled": "2026-10-12T02:22:37.987302+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117390557332601695",
+   "platform": "mastodon",
+   "id": "ThatUncertainFeeling",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-05T22:01:05.436905+00:00",
+   "sampled": "2026-10-12T02:22:37.987302+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxkv7er36c2s",
+   "platform": "bluesky",
+   "id": "valley_of_the_tennessee",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-11T01:49:17.673605+00:00",
+   "sampled": "2026-10-12T02:22:37.987302+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }
