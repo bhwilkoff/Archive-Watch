@@ -4,7 +4,7 @@
   "tvmazeID": 40790,
   "title": "East Side/West Side",
   "yearStart": 1963,
-  "yearEnd": 1964,
+  "yearEnd": 1963,
   "overview": "Neil Brock is a young social worker in the slums of New York City; his boss is Frieda Hechlinger; and Jane Foster is the office secretary. This dramatic series features stories about child abuse, drug abuse, rip-offs of the welfare system, crime, etc., i.e., all of the problems of the inner city.",
   "posterURL": "https://artworks.thetvdb.com/banners/posters/77309-1.jpg",
   "backdropURL": null,
@@ -23,11 +23,11 @@
         {
           "archiveID": "east-side-west-side-s-1-e-01-the-sinner",
           "seasonNumber": 1,
-          "episodeNumber": 10,
-          "title": "No Hiding Place",
+          "episodeNumber": 1,
+          "title": "The Sinner",
           "overview": null,
           "stillURL": "https://archive.org/services/img/east-side-west-side-s-1-e-01-the-sinner",
-          "airDate": "1963-12-02",
+          "airDate": null,
           "year": 1963,
           "runtimeSeconds": 3600,
           "videoFile": {
@@ -76,5 +76,8 @@
       "order": 4,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/271617/photo/62f7f55df3bcc.jpg"
     }
-  ]
+  ],
+  "seriesImdbID": "tt0056753",
+  "canonicalEpisodeCount": 25,
+  "canonicalSeasons": 1
 }
