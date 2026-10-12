@@ -2897,6 +2897,100 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mx6gmrop5z2r",
+   "platform": "bluesky",
+   "id": "The_Impossible_Voyage",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-06T02:56:25.079049+00:00",
+   "sampled": "2026-10-12T22:35:42.531132+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxaakdwhms2y",
+   "platform": "bluesky",
+   "id": "london-after-midnight_1927",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-06T20:12:59.009060+00:00",
+   "sampled": "2026-10-12T22:35:42.531132+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117395790076178053",
+   "platform": "mastodon",
+   "id": "london-after-midnight_1927",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-06T20:12:59.009060+00:00",
+   "sampled": "2026-10-12T22:35:42.531132+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxmqmdf75t2y",
+   "platform": "bluesky",
+   "id": "safety_harm_hides",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-11T19:32:18.899677+00:00",
+   "sampled": "2026-10-12T22:35:42.531132+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117423941911592997",
+   "platform": "mastodon",
+   "id": "safety_harm_hides",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-11T19:32:18.899677+00:00",
+   "sampled": "2026-10-12T22:35:42.531132+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxnhjlfl3l2m",
+   "platform": "bluesky",
+   "id": "TheRockyRoad1910",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-12T02:22:22.468693+00:00",
+   "sampled": "2026-10-12T22:35:42.531132+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }
