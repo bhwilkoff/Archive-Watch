@@ -2329,6 +2329,66 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": "Shetland60N"
+  },
+  {
+   "at": "2026-10-13T20:41:52.044498+00:00",
+   "id": "The_Wonderful_Wizard_of_Oz",
+   "title": "The Wonderful Wizard of Oz",
+   "slot": "viewer-said",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxrvgg3uz42d",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": "judeblack, bbc"
+  },
+  {
+   "at": "2026-10-13T20:41:52.044498+00:00",
+   "id": "The_Wonderful_Wizard_of_Oz",
+   "title": "The Wonderful Wizard of Oz",
+   "slot": "viewer-said",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117435539787340623",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": "judeblack, bbc"
+  },
+  {
+   "at": "2026-10-13T20:41:52.044498+00:00",
+   "id": "The_Wonderful_Wizard_of_Oz",
+   "title": "The Wonderful Wizard of Oz",
+   "slot": "viewer-said",
+   "platform": "threads",
+   "url": "https://www.threads.com/@archivewatchapp/post/DecsR-UCZlr",
+   "format": "card",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": "judeblack, bbc"
+  },
+  {
+   "at": "2026-10-13T20:41:52.044498+00:00",
+   "id": "The_Wonderful_Wizard_of_Oz",
+   "title": "The Wonderful Wizard of Oz",
+   "slot": "viewer-said",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DecsWk7iWdQ/",
+   "format": "card",
+   "kind": "silent-film",
+   "mediaId": "117435539432649004",
+   "reviewer": "judeblack, bbc"
+  },
+  {
+   "at": "2026-10-13T20:41:52.044498+00:00",
+   "id": "The_Wonderful_Wizard_of_Oz",
+   "title": "The Wonderful Wizard of Oz",
+   "slot": "viewer-said",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=AnudZtr67_4",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": "judeblack, bbc"
   }
  ]
 }
