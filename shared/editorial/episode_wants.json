@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-10-12T11:50:11Z",
+  "updated_at": "2026-10-13T11:28:57Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 19040,
-    "wanted": 18812,
+    "total": 19108,
+    "wanted": 18880,
     "fulfilled": 228,
-    "series_with_gaps": 383
+    "series_with_gaps": 384
   },
   "wants": [
     {
@@ -144949,6 +144949,686 @@
       "episodeImdbID": "tt0533080",
       "status": "wanted",
       "added_at": "2026-06-07T07:52:55Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 1,
+      "title": "The Vigilantes Begin",
+      "episodeImdbID": "tt1099330",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 2,
+      "title": "All That Glitters",
+      "episodeImdbID": "tt1099331",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 3,
+      "title": "The Noose",
+      "episodeImdbID": "tt0535459",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 4,
+      "title": "The Avenger",
+      "episodeImdbID": "tt0535442",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 5,
+      "title": "The Search for Lucy Manning",
+      "episodeImdbID": "tt0535464",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 6,
+      "title": "The Lost Queue",
+      "episodeImdbID": "tt0535454",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 7,
+      "title": "The Regulators",
+      "episodeImdbID": "tt0535463",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 8,
+      "title": "Man from Boston",
+      "episodeImdbID": "tt0535425",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 9,
+      "title": "The Barber's Boy",
+      "episodeImdbID": "tt0535443",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 10,
+      "title": "The Magic Box",
+      "episodeImdbID": "tt0535455",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 11,
+      "title": "Little Lost Man",
+      "episodeImdbID": "tt0535423",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 12,
+      "title": "Strange Quarantine",
+      "episodeImdbID": "tt0535440",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 13,
+      "title": "Truce of the Tree",
+      "episodeImdbID": "tt0535466",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 14,
+      "title": "The PO 8",
+      "episodeImdbID": "tt0535460",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 15,
+      "title": "The Coward",
+      "episodeImdbID": "tt0535445",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 16,
+      "title": "Panic on Montgomery Street",
+      "episodeImdbID": "tt0535432",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 17,
+      "title": "China Doll",
+      "episodeImdbID": "tt0535410",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 18,
+      "title": "Mr. Valejo",
+      "episodeImdbID": "tt0535426",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 19,
+      "title": "The Alice Pritchard Case",
+      "episodeImdbID": "tt0535441",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 20,
+      "title": "The Man from Paris",
+      "episodeImdbID": "tt0535457",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 21,
+      "title": "The Duel",
+      "episodeImdbID": "tt0535446",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 22,
+      "title": "Sorley Boy",
+      "episodeImdbID": "tt0535438",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 23,
+      "title": "Gentleman from Philadelphia",
+      "episodeImdbID": "tt0535417",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 24,
+      "title": "The Marshal",
+      "episodeImdbID": "tt0535458",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 26,
+      "title": "The Street",
+      "episodeImdbID": "tt0535465",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 27,
+      "title": "J. Jimmerson Jones, Inc.",
+      "episodeImdbID": "tt0535422",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 28,
+      "title": "Skeleton in the Closet",
+      "episodeImdbID": "tt0535437",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 29,
+      "title": "Pipeline",
+      "episodeImdbID": "tt0535433",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 30,
+      "title": "The Foundling",
+      "episodeImdbID": "tt0535448",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 31,
+      "title": "Second Trial",
+      "episodeImdbID": "tt0535435",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 32,
+      "title": "The Inner Circle",
+      "episodeImdbID": "tt0535452",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 33,
+      "title": "The Golden Bride",
+      "episodeImdbID": "tt0535451",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 34,
+      "title": "Murietta",
+      "episodeImdbID": "tt0535427",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 35,
+      "title": "Shanghai Queen",
+      "episodeImdbID": "tt0535436",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 36,
+      "title": "Bridal Bouquet",
+      "episodeImdbID": "tt0535408",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 1,
+      "episode": 37,
+      "title": "Golden Grapes",
+      "episodeImdbID": "tt1262218",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 2,
+      "episode": 1,
+      "title": "Dishonor for Matt Wayne",
+      "episodeImdbID": "tt0535416",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 2,
+      "episode": 2,
+      "title": "Mutineers from Hell",
+      "episodeImdbID": "tt0535428",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 2,
+      "episode": 3,
+      "title": "Lola Montez",
+      "episodeImdbID": "tt0535424",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 2,
+      "episode": 4,
+      "title": "A Girl Named Sam",
+      "episodeImdbID": "tt0535403",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 2,
+      "episode": 5,
+      "title": "The Salted Gold Mine",
+      "episodeImdbID": "tt1099332",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 2,
+      "episode": 6,
+      "title": "Overland Mail",
+      "episodeImdbID": "tt0535431",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 2,
+      "episode": 7,
+      "title": "Prince of Thieves",
+      "episodeImdbID": "tt0535434",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 2,
+      "episode": 8,
+      "title": "Hangtown",
+      "episodeImdbID": "tt0535421",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 2,
+      "episode": 9,
+      "title": "Dangerous Journey",
+      "episodeImdbID": "tt0535413",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 2,
+      "episode": 10,
+      "title": "Halfway House",
+      "episodeImdbID": "tt0535420",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 2,
+      "episode": 11,
+      "title": "The Painless Extractionist",
+      "episodeImdbID": "tt0535461",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 2,
+      "episode": 12,
+      "title": "Old Sea Dog",
+      "episodeImdbID": "tt0535429",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 2,
+      "episode": 13,
+      "title": "The Long Night",
+      "episodeImdbID": "tt0535453",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 2,
+      "episode": 14,
+      "title": "The Man Who Owned San Francisco",
+      "episodeImdbID": "tt0535456",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 2,
+      "episode": 15,
+      "title": "The First Gold Brick",
+      "episodeImdbID": "tt0535447",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 2,
+      "episode": 16,
+      "title": "The Painted Lady",
+      "episodeImdbID": "tt0535462",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 2,
+      "episode": 17,
+      "title": "Bella Union",
+      "episodeImdbID": "tt0535407",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 2,
+      "episode": 18,
+      "title": "Crimps' Meat",
+      "episodeImdbID": "tt0535412",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 2,
+      "episode": 19,
+      "title": "Corpus Delicti",
+      "episodeImdbID": "tt0535411",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 2,
+      "episode": 20,
+      "title": "A Turn in the Trail",
+      "episodeImdbID": "tt0535405",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 2,
+      "episode": 21,
+      "title": "Wolf's Head",
+      "episodeImdbID": "tt0535467",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 2,
+      "episode": 22,
+      "title": "Cat's Paw",
+      "episodeImdbID": "tt0535409",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 2,
+      "episode": 23,
+      "title": "Gold-Tooth Charlie",
+      "episodeImdbID": "tt0535418",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 2,
+      "episode": 24,
+      "title": "Stampede at Misery Flats",
+      "episodeImdbID": "tt0535439",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 2,
+      "episode": 25,
+      "title": "Guns for King Joseph",
+      "episodeImdbID": "tt0535419",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 2,
+      "episode": 26,
+      "title": "Deadly Tintype",
+      "episodeImdbID": "tt0535414",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 2,
+      "episode": 27,
+      "title": "A Hundred Barrels",
+      "episodeImdbID": "tt0535404",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 2,
+      "episode": 28,
+      "title": "The Fugitive",
+      "episodeImdbID": "tt0535449",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 2,
+      "episode": 29,
+      "title": "The Fur Story",
+      "episodeImdbID": "tt0535450",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 2,
+      "episode": 30,
+      "title": "One Ton of Peppercorns",
+      "episodeImdbID": "tt0535430",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 2,
+      "episode": 31,
+      "title": "The Bell Tolls",
+      "episodeImdbID": "tt0535444",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
+    },
+    {
+      "seriesID": "the-californians-1957",
+      "seriesTitle": "The Californians",
+      "season": 2,
+      "episode": 32,
+      "title": "An Act of Faith",
+      "episodeImdbID": "tt0535406",
+      "status": "wanted",
+      "added_at": "2026-10-13T11:28:57Z"
     },
     {
       "seriesID": "the-case-of-the-dangerous-robin-1960",

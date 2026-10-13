@@ -63,5 +63,8 @@
       "order": 2,
       "profilePath": "https://artworks.thetvdb.com/banners/person/276603/primary.jpg"
     }
-  ]
+  ],
+  "seriesImdbID": "tt0054578",
+  "canonicalEpisodeCount": 16,
+  "canonicalSeasons": 1
 }
