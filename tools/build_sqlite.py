@@ -208,35 +208,36 @@ def shelf_rights_ok(it):
 
 
 # "New to Archive Watch" (owner, 2026-09-25: "Yes, all platforms"): what the
-# catalog GAINED recently. `addedAt` is stamped at ingest; items ingested
-# before the stamp existed take their candidate's `ingested_at` from the
-# discovery queue, so the row is right on the first build rather than empty
-# for a month. Rules: docs/*-DESIGN.md "New to Archive Watch".
+# catalog GAINED recently, by the `addedAt` stamped at ingest and nothing else.
+# The discovery queue's `ingested_at` was a first-build fallback; it carried
+# one bulk stamp (2026-09-25T05:04:44Z) on 1,555 long-standing films, so
+# Nosferatu and The Kid were "new" (2026-10-14).
+#
+# The row takes the HERO's evidence bar, as the community rows do (owner,
+# 2026-09-25): a title is newest exactly when it has had the least time in
+# the audits, and the owner saw unvetted titles here — Fox, MGM, Paramount
+# and Columbia features on `presumed_pd` that the printed renewal record
+# happens to miss, and wrong-match years like a 2009 Prelinger reel.
+# Rules: docs/*-DESIGN.md "New to Archive Watch".
 NEW_ARRIVALS_SHELF = "new-arrivals"
 NEW_ARRIVALS_DAYS = 45
 
 
-def _queue_ingested_at():
-    try:
-        q = json.loads((REPO / "shared" / "editorial" / "discovery_candidates.json")
-                       .read_text(encoding="utf-8"))
-    except Exception:  # noqa: BLE001
-        return {}
-    q = q if isinstance(q, list) else q.get("candidates", [])
-    return {c["iaid"]: c["ingested_at"] for c in q
-            if c.get("status") == "ingested" and c.get("iaid") and c.get("ingested_at")}
-
-
-_QUEUE_ADDED = None
-
-
 def added_at(it):
-    global _QUEUE_ADDED
-    if it.get("addedAt"):
-        return str(it["addedAt"])
-    if _QUEUE_ADDED is None:
-        _QUEUE_ADDED = _queue_ingested_at()
-    return _QUEUE_ADDED.get(it.get("archiveID"))
+    return str(it["addedAt"]) if it.get("addedAt") else None
+
+
+def new_arrival_rights_ok(it):
+    """The marquee's bar (build_catalog_index.hero_safe; the buckets and year
+    are SHELF_MODERN_*, which test_hero_rule_parity holds to the hero's)."""
+    bucket = _rights_bucket(it)
+    if bucket not in SHELF_MODERN_BUCKETS:
+        return False
+    try:
+        y = it.get("year")
+        return not (y is not None and int(y) >= SHELF_MODERN_YEAR and bucket != "safe_pd_age")
+    except (TypeError, ValueError):
+        return True
 
 
 def _new_arrivals_since():
@@ -271,7 +272,7 @@ def _shelf_ids_for(it):
         return set()
     ids = set(it.get("shelves") or [])
     a = added_at(it)
-    if a and a[:10] >= NEW_ARRIVALS_SINCE:
+    if a and a[:10] >= NEW_ARRIVALS_SINCE and new_arrival_rights_ok(it):
         ids.add(NEW_ARRIVALS_SHELF)
     if hour_or_less(it):
         ids.add(HOUR_OR_LESS_SHELF)
