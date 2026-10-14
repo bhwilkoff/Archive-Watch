@@ -2401,6 +2401,66 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-10-14T19:24:20.957697+00:00",
+   "id": "AbrahamLincoln_877",
+   "title": "Abraham Lincoln",
+   "slot": "double-bill",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxubkp63cv2y",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-14T19:24:20.957697+00:00",
+   "id": "AbrahamLincoln_877",
+   "title": "Abraham Lincoln",
+   "slot": "double-bill",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117440897236902621",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-14T19:24:20.957697+00:00",
+   "id": "AbrahamLincoln_877",
+   "title": "Abraham Lincoln",
+   "slot": "double-bill",
+   "platform": "threads",
+   "url": "https://www.threads.com/@archivewatchapp/post/DefIM61FE6v",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-14T19:24:20.957697+00:00",
+   "id": "AbrahamLincoln_877",
+   "title": "Abraham Lincoln",
+   "slot": "double-bill",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DefIRSHlEfC/",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": "117440896867635315",
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-14T19:24:20.957697+00:00",
+   "id": "AbrahamLincoln_877",
+   "title": "Abraham Lincoln",
+   "slot": "double-bill",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=ZZrF4A2TCdU",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
