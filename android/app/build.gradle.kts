@@ -62,7 +62,8 @@ android {
         // applicationId must match it. The Kotlin namespace above stays
         // app.archivewatch.android (source packages don't move).
         applicationId = "com.archivewatch.app"
-        // Android 6+ on every store (owner, 2026-09-25; Decision 141). Lint NewApi
+        // Android 6+ is the FIRE TV floor (owner, 2026-09-25; Decision 141); the
+        // google flavor raises its own to 24 (Decision 165). Lint NewApi
         // must stay clean at this floor, and the ISRG roots in
         // network_security_config.xml are what let Android 6.0-7.0 download
         // the catalog at all.
@@ -123,6 +124,10 @@ android {
         create("google") {
             dimension = "store"
             // Same applicationId — Play is the store for this flavor.
+            // Android 7: Play's automatic protection refuses a bundle below
+            // API 24 (upload of vc67 rejected 2026-10-15; owner chose to raise
+            // the Play floor, Decision 165). Fire TV keeps 23 below.
+            minSdk = 24
         }
         create("amazon") {
             dimension = "store"

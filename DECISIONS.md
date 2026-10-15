@@ -251,6 +251,7 @@ into every session and the index alone carries every title.)
 - 162 — The Samsung TV floor is 2022 (Tizen 6.5, Chromium 85), held by a polyfill file and a build gate
 - 163 — archive.org's own trailer collection outweighs the silent-era guard
 - 164 — Roblox is shelved: the films are what it cannot carry well
+- 165 — The Play build's floor is Android 7, because Play's automatic protection requires it; Fire TV keeps Android 6
 
 ---
 
@@ -887,3 +888,25 @@ VideoPlayer API, a real image quota, or the owner choosing a silent
 cinematheque), and then follow §8.2's order: free measurements before any
 spend or build. Whatever changes, never stream frames from off-platform or hide
 video inside images.
+
+## 165 — The Play build's floor is Android 7, because Play's automatic protection requires it; Fire TV keeps Android 6
+*Date: 2026-10-15*
+
+The `google` flavor declares `minSdk = 24` (Android 7.0); the `amazon` flavor
+keeps `minSdk = 23` (Android 6.0), so Decision 141's floor now holds for Fire
+TV only.
+
+**Why**: the crash-fix release (versionCode 67) was refused at upload — *"Play
+automatic protection requires a minimum SDK version of 24 or higher. The
+uploaded App Bundle has a minimum SDK version of 23."* versionCode 66 had
+uploaded at 23 on 2026-09-30, so the requirement arrived on Play's side in
+between. Asked to choose between switching automatic protection off, raising
+the Play floor, or holding the release, the owner chose to raise the Play
+floor. Play withholds per-API user counts below its minimum audience, so how
+many Android 6 viewers this drops could not be measured; they keep the version
+they have and stop receiving Play updates.
+
+**How to apply**: do not lower the google flavor below 24 while automatic
+protection is on. Fire TV is the Android 6 build now: lint NewApi and
+`canHostShow` still have to hold at 23 there, and the ISRG roots in
+network_security_config.xml are still what let it download the catalog.

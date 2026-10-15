@@ -16,7 +16,7 @@ or tvOS rule, that inversion is deliberate — do not "harmonize" them.
   tvOS chrome; never invent a custom control where an M3 one exists
   (`native-platform-first`).
 - **§1.2 Compose-only, single Activity.** No Fragments, no AppCompat, no
-  XML layouts beyond the splash/launcher theme. `minSdk 23` on both flavors (Decision 141), edge-to-edge.
+  XML layouts beyond the splash/launcher theme. `minSdk 24` on Play and `minSdk 23` on Fire TV (Decisions 141, 165), edge-to-edge.
 - **§1.3 One shared data plane** (Decisions 017/028). The phone consumes the
   same `catalog.sqlite` (bundled seed → cached → downloaded `.zz`), the same
   `featured.json`, and the same `series/*.json` as every other client. No
