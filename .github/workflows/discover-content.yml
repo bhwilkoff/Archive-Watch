@@ -348,7 +348,9 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python tools/catalog_release.py publish
 
-      - name: Rebuild app DB
+      - name: Confirm the new titles' rights, then rebuild the app DB
+        # Not publish-db directly: the build hides a modern title only once
+        # rights-audit has confirmed it, and that ran BEFORE this ingest.
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-        run: bash tools/gh_dispatch.sh publish-db.yml
+        run: bash tools/gh_dispatch.sh rights-audit.yml -f then_publish=true

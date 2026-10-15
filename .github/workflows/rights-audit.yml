@@ -31,6 +31,10 @@ on:
         description: 'Concurrent archive.org fetches'
         required: false
         default: '12'
+      then_publish:
+        description: 'Dispatch publish-db when done (discover-content sets this, so new ingests ship confirmed)'
+        required: false
+        default: 'false'
 
 concurrency:
   group: catalog-writers
@@ -42,6 +46,7 @@ jobs:
     timeout-minutes: 330
     permissions:
       contents: write   # catalog_release.py publish uploads a release asset
+      actions: write    # dispatch publish-db when then_publish is set
     steps:
       - uses: actions/checkout@v5
       - uses: actions/setup-python@v6
@@ -112,3 +117,12 @@ jobs:
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python tools/catalog_release.py publish
+
+      - name: Rebuild app DB (after a fresh ingest)
+        # discover-content hands off here instead of to publish-db: a modern
+        # title is hidden only once confirmed, so publishing straight after
+        # ingest served the night's unconfirmed uploads for a day.
+        if: github.event.inputs.then_publish == 'true'
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: bash tools/gh_dispatch.sh publish-db.yml
