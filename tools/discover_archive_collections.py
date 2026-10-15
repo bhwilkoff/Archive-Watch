@@ -62,7 +62,6 @@ DEFAULT_COLLECTIONS = [
     "SciFi_Horror",
     "Comedy_Films",
     "short_films",
-    "newsandpublicaffairs",
     # `documentary_films` was here and does not exist on archive.org under
     # any spelling (0 items, 2026-09-24); documentaries arrive via FedFlix,
     # prelinger and the government collections below.
@@ -94,6 +93,16 @@ DEFAULT_COLLECTIONS = [
     "georgesmelies", "vintage_cartoons",       # Home shelves never swept (2026-09-24)
     "nasaeclips", "jsc-pao-video-collection",  # NASA gov PD
 ]
+
+# Mined only once the backlog is through: every collection above added nothing
+# tonight and the queue is below DEFERRED_BELOW. Owner, 2026-10-15: "Council
+# meeting collections are not going to yield anything useful for our app. I
+# think it is safe to skip them or only look at them once the full backlog has
+# been run through." Measured the night before: of 600 queued from
+# newsandpublicaffairs, 377 were 1978+ and 210 undated (council meetings,
+# 2024 review clips); 10 of 164 ingested survived the rights rules.
+DEFERRED_COLLECTIONS = ["newsandpublicaffairs"]
+DEFERRED_BELOW = 1000
 
 
 def load_existing_ids():
@@ -313,6 +322,29 @@ def main():
                 added += 1
                 c_added += 1
         print(f"  collection:{coll:24} +{c_added} new", flush=True)
+
+    # Feed 4 — the deferred collections, only when the backlog is through.
+    # Until then their waiting candidates leave the queue, so they cannot
+    # spend ingest's nightly budget; they are rediscovered when this opens.
+    if added == 0 and awaiting[0] < DEFERRED_BELOW:
+        for coll in DEFERRED_COLLECTIONS:
+            room = args.max_awaiting - awaiting[0]
+            c_added = 0
+            for it in scrape_collection(coll, session,
+                                        per_collection=min(args.per_collection, room),
+                                        min_downloads=args.min_downloads,
+                                        is_new=is_new):
+                if add_candidate(it, source="archive_collection", collection=coll):
+                    added += 1
+                    c_added += 1
+            print(f"  collection:{coll:24} +{c_added} new (deferred, backlog through)", flush=True)
+    else:
+        dropped = [k for k, c in existing.items()
+                   if c.get("status") == "new" and c.get("archiveCollection") in DEFERRED_COLLECTIONS]
+        for k in dropped:
+            del existing[k]
+        print(f"  deferred {', '.join(DEFERRED_COLLECTIONS)}: not mined until the backlog "
+              f"is through; {len(dropped)} waiting candidates dropped", flush=True)
 
     # Re-order: archive-collection candidates (already playable) and
     # high-confidence first.
