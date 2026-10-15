@@ -1426,7 +1426,7 @@ private fun TvPlayerOptionsPanel(
                         Text("Copies", style = MaterialTheme.typography.labelLarge,
                             color = Color(0xFF9A9A9A), modifier = Modifier.padding(top = 10.dp))
                     }
-                    items(v.size, key = { v[it].name }) { i ->
+                    items(v.size, key = { v[it].choiceKey }) { i ->
                         val ver = v[i]
                         TvMenuRow(ver.label, if (chosenVersion == ver.choiceKey) "✓" else null, null) {
                             app.archivewatch.android.data.ArchiveVersions.choose(context, spec.id, ver)

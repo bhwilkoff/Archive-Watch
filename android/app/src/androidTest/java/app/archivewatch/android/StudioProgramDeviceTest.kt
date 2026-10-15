@@ -136,8 +136,8 @@ class StudioProgramDeviceTest {
         gl.makeCurrent()
         pg.updateFilmFrame(); pg.updateCameraFrame()
         gl.clear(0f, 0f, 0f)
-        pg.drawFilm(aspect)
-        pg.drawCameraCorner(4f / 3f)
+        pg.drawFilm(aspect, app.archivewatch.android.studio.LayoutRect(0f, 0f, 1280f, 720f))
+        pg.drawCamera(4f / 3f, app.archivewatch.android.studio.StudioLayout.CORNER.rects(1280f, 720f, 4f / 3f).camera!!)
         pg.drawOverlay()
         gl.swap(n.toLong() * 1_000_000_000L / fps)
     }

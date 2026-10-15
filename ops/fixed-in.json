@@ -50,19 +50,33 @@
    "fix": "full-screen RenderEffect blur removed on televisions and low-RAM devices; the 96 px upscale is the wash (a driver stall, so a mitigation, verified by the cluster not recurring)",
    "versionCode": 64
   },
-  "a6de15e9a91794d45b55e1a9282d0460": {
-   "build": 1704,
-   "version": "1.42.692",
-   "what": "ANR: RenderThread stalled in the Mali GPU driver",
-   "fix": "as e585dd3f: no Gaussian RenderEffect on TV / low-RAM (mitigation)",
-   "versionCode": 64
-  },
   "48ef98e1faadb5ac9a4b0d3f74ec490d": {
    "build": 1704,
    "version": "1.42.692",
    "what": "ANR: RenderThread stalled in the Mali GPU driver",
    "fix": "as e585dd3f: no Gaussian RenderEffect on TV / low-RAM (mitigation)",
    "versionCode": 64
+  },
+  "d8f3f3a47403796f7588b6662fa7f762": {
+   "build": 2134,
+   "version": "1.46.10",
+   "versionCode": 67,
+   "what": "IllegalArgumentException 'background can not be translucent: #0' opening the Cast device chooser (Android 11-12)",
+   "fix": "mediarouter's in-app chooser reads AppCompat colorPrimary from the ACTIVITY theme, which never set it; the google flavor's Theme.ArchiveWatch now does. CastChooserThemeTest on the Pixel, with the old theme as a control"
+  },
+  "d1f2cb1856b94afba267c223e4504f35": {
+   "build": 2134,
+   "version": "1.46.10",
+   "versionCode": 67,
+   "what": "Compose duplicate lazy-list key in the TV copy picker",
+   "fix": "rows keyed by file NAME, which a merged upload often shares with the title's own item; now keyed by choiceKey and deduplicated. Reproduced on the Google TV with the store build (Once Over), gone with the fix"
+  },
+  "fe8e0f792a1d13eae2bb766a0656bf38": {
+   "build": 2134,
+   "version": "1.46.10",
+   "versionCode": 67,
+   "what": "Compose duplicate lazy-list key in the TV copy picker",
+   "fix": "rows keyed by file NAME, which a merged upload often shares with the title's own item; now keyed by choiceKey and deduplicated. Reproduced on the Google TV with the store build (Once Over), gone with the fix"
   }
  },
  "note": "The id here is the LARGEST cluster of the five that share the subcompose stack. They are one bug; Play splits them by device and version. Add the others' ids as they surface."

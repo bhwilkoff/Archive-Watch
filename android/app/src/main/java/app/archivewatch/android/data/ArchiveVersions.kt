@@ -80,6 +80,7 @@ object ArchiveVersions {
         val own = files(itemID)
         val others = (mergedIDs?.invoke(itemID) ?: emptyList())
             .filter { it != itemID }
+            .distinct()
             .flatMap { other -> files(other).map { it.copy(isOtherUpload = true) } }
         return ordered(own + others)
     }
@@ -117,8 +118,13 @@ object ArchiveVersions {
         }.getOrDefault(emptyList())
     }
 
-    private fun ordered(out: List<Version>): List<Version> {
-                val sorted = out.sortedWith(
+    /** One row per [Version.choiceKey], which the TV pickers key their rows
+     *  by. A merged upload often carries the SAME file name as the title's own
+     *  item (Betty_Boop_The_Candid_Candidate_1937 and its _944 twin share
+     *  `The_Candid_Candidate_1937_512kb.mp4`), and a bare-name key crashed the
+     *  TV's copy picker (Play clusters d1f2cb18, fe8e0f79, v66). */
+    internal fun ordered(out: List<Version>): List<Version> {
+                val sorted = out.distinctBy { it.choiceKey }.sortedWith(
                     compareByDescending<Version> { it.heightPixels ?: 0 }
                         .thenByDescending { it.sizeBytes },
                 )

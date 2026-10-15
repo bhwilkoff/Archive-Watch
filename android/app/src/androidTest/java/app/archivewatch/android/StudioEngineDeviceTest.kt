@@ -45,7 +45,7 @@ class StudioEngineDeviceTest {
         assumeTrue("no RTMP server at $host:$port — skipping", serverIsUp())
 
         val engine = StudioEngine()
-        engine.layoutShowsCamera = false     // no camera on a television (§9.6)
+        engine.layout = app.archivewatch.android.studio.StudioLayout.FILM     // no camera on a television (§9.6)
         engine.filmAspect = 4f / 3f
         val tap = StudioFilmAudioTap()
         val instr = InstrumentationRegistry.getInstrumentation()

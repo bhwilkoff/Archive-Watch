@@ -129,7 +129,7 @@ class StudioAudioDeviceTest {
         gl.makeCurrent()
         pg.updateFilmFrame()
         gl.clear(0f, 0f, 0f)
-        pg.drawFilm(4f / 3f)
+        pg.drawFilm(4f / 3f, app.archivewatch.android.studio.LayoutRect(0f, 0f, 1280f, 720f))
         gl.swap(n.toLong() * 1_000_000_000L / fps)
     }
 }

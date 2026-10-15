@@ -44,7 +44,7 @@ class StudioRenderCostTest {
 
     private fun run(withDisplay: Boolean): Pair<Double, Long> = runBlocking {
         val engine = StudioEngine()
-        engine.layoutShowsCamera = false
+        engine.layout = app.archivewatch.android.studio.StudioLayout.FILM
         engine.filmAspect = 4f / 3f
         val instr = InstrumentationRegistry.getInstrumentation()
         val scope = CoroutineScope(SupervisorJob())

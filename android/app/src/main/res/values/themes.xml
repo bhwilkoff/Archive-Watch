@@ -8,7 +8,11 @@
 
     <!-- A cinema, not a settings app: the app theme is always dark
          (ANDROID-DESIGN theme rules); Compose pins the dark scheme. -->
-    <style name="Theme.ArchiveWatch" parent="android:Theme.Material.NoActionBar">
+    <!-- The google flavor re-declares Theme.ArchiveWatch over this base to add
+         AppCompat's colorPrimary, which only that flavor's classpath has. -->
+    <style name="Theme.ArchiveWatch" parent="Theme.ArchiveWatch.Base" />
+
+    <style name="Theme.ArchiveWatch.Base" parent="android:Theme.Material.NoActionBar">
         <item name="android:windowBackground">@color/brand_background</item>
         <!-- Opaque, like the window: mediarouter (the Cast chooser) refuses a
              translucent colorBackground and threw on the Cast button. -->

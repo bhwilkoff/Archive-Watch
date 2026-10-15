@@ -942,7 +942,7 @@ private fun TvVersionOverlay(
                             chosen = null
                         }
                     }
-                    items(v.size, key = { v[it].name }) { i ->
+                    items(v.size, key = { v[it].choiceKey }) { i ->
                         val ver = v[i]
                         TvVersionRow(
                             label = ver.label,

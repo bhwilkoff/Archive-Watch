@@ -77,7 +77,7 @@ class StudioFilmDeviceTest {
             gl.makeCurrent()
             programGl.updateFilmFrame()
             gl.clear(0f, 0f, 0f)
-            programGl.drawFilm(4f / 3f)
+            programGl.drawFilm(4f / 3f, app.archivewatch.android.studio.LayoutRect(0f, 0f, 1280f, 720f))
             gl.swap(n.toLong() * 1_000_000_000L / fps)
             enc.drain { _, _, _ -> }
             n++
@@ -93,7 +93,7 @@ class StudioFilmDeviceTest {
             var guard = 0
             while (enc.avcC == null && guard < 60) {
                 gl.makeCurrent(); programGl.updateFilmFrame()
-                gl.clear(0f, 0f, 0f); programGl.drawFilm(4f / 3f)
+                gl.clear(0f, 0f, 0f); programGl.drawFilm(4f / 3f, app.archivewatch.android.studio.LayoutRect(0f, 0f, 1280f, 720f))
                 gl.swap((n + guard).toLong() * 1_000_000_000L / fps)
                 enc.drain { _, _, _ -> }
                 guard++
@@ -123,7 +123,7 @@ class StudioFilmDeviceTest {
             gl.makeCurrent()
             programGl.updateFilmFrame()
             gl.clear(0f, 0f, 0f)
-            programGl.drawFilm(4f / 3f)
+            programGl.drawFilm(4f / 3f, app.archivewatch.android.studio.LayoutRect(0f, 0f, 1280f, 720f))
             gl.swap(frame.toLong() * 1_000_000_000L / fps)
             enc.drain { a, k, t -> p.sendVideo(a, k, t, t) }
             frame++

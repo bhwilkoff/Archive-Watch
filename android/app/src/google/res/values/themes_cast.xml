@@ -10,4 +10,13 @@
         <item name="colorPrimary">#FFFF5C35</item>
         <item name="colorAccent">#FFFF5C35</item>
     </style>
+
+    <!-- mediarouter's in-app device chooser (Android 12 and older) is built
+         from the ACTIVITY's context, not the button's, and reads AppCompat's
+         colorPrimary from it: unset, it is 0, and calculateContrast threw
+         "background can not be translucent: #0" when a viewer tapped Cast
+         (Play cluster d8f3f3a4, Android 11-12 phones, v66). -->
+    <style name="Theme.ArchiveWatch" parent="Theme.ArchiveWatch.Base">
+        <item name="colorPrimary">#FFFF5C35</item>
+    </style>
 </resources>
