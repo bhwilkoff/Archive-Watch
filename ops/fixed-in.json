@@ -60,21 +60,21 @@
   "d8f3f3a47403796f7588b6662fa7f762": {
    "build": 2134,
    "version": "1.46.10",
-   "versionCode": 67,
+   "versionCode": 68,
    "what": "IllegalArgumentException 'background can not be translucent: #0' opening the Cast device chooser (Android 11-12)",
    "fix": "mediarouter's in-app chooser reads AppCompat colorPrimary from the ACTIVITY theme, which never set it; the google flavor's Theme.ArchiveWatch now does. CastChooserThemeTest on the Pixel, with the old theme as a control"
   },
   "d1f2cb1856b94afba267c223e4504f35": {
    "build": 2134,
    "version": "1.46.10",
-   "versionCode": 67,
+   "versionCode": 68,
    "what": "Compose duplicate lazy-list key in the TV copy picker",
    "fix": "rows keyed by file NAME, which a merged upload often shares with the title's own item; now keyed by choiceKey and deduplicated. Reproduced on the Google TV with the store build (Once Over), gone with the fix"
   },
   "fe8e0f792a1d13eae2bb766a0656bf38": {
    "build": 2134,
    "version": "1.46.10",
-   "versionCode": 67,
+   "versionCode": 68,
    "what": "Compose duplicate lazy-list key in the TV copy picker",
    "fix": "rows keyed by file NAME, which a merged upload often shares with the title's own item; now keyed by choiceKey and deduplicated. Reproduced on the Google TV with the store build (Once Over), gone with the fix"
   }
