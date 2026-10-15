@@ -19,6 +19,9 @@ files under `docs/research/roblox/`:
 | `04-integration.md` | HttpService, Open Cloud push into Roblox, deep links, cross-platform rooms, posters |
 | `05-theaters-3d.md` | Reserved-server instancing, theater building, lighting/audio, budgets, AI-only asset pipeline, precedents |
 | `06-ui-aesthetic.md` | React Luau, UI Styling tokens, fonts, console focus, 3D UI, captions, safe areas |
+| `07-youtube-streaming-precedents.md` | How "YouTube in Roblox" projects work, what they achieved, how Roblox treats them |
+| `08-frame-streaming-limits.md` | HttpService, relay, EditableImage, decode and audio limits for streaming without uploads |
+| `09-playback-without-uploads.md` | **The no-fee answer**: why not to stream off-platform, and the moderated-flipbook route, measured on a 1902 film |
 
 Nothing has been built, uploaded or bought. Researched against Roblox's docs as
 they read on 2026-10-15; Roblox changes these limits often (video length went
@@ -40,6 +43,15 @@ quota. So Roblox can carry a **curated program** of public-domain films, not the
 catalog. The theaters, the rooms that connect to our other platforms, the
 interface in our design system, and an agent-driven build and test workflow
 are all well supported.
+
+**Update, same day (09):** there is a free route that stays inside Roblox's
+rules: films cut into frame sheets, uploaded as images (no fee, no documented
+cap), moderated like any image, and played as a flipbook in exact sync. It
+works at about 256x192 and 12 fps. Silent films can be scored from Roblox's
+licensed music library, so they need no audio upload. It costs upload volume,
+not money (~400 images for an 11-minute short), so it suits a curated silent
+program, not the catalog. Streaming from off-platform, as the "YouTube in
+Roblox" projects do, is what Roblox staff told creators not to do.
 
 ## 2. What fits and what does not
 
