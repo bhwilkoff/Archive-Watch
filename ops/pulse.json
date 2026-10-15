@@ -56,9 +56,9 @@
    "store": "Google Play",
    "platform": "Internal",
    "state": "COMPLETED",
-   "version": "1.43.0",
-   "live": "1.43.0",
-   "build": "66",
+   "version": "1.46.11",
+   "live": "1.46.11",
+   "build": "68",
    "url": "https://play.google.com/console/developers/app/com.archivewatch.app"
   },
   {
@@ -116,8 +116,8 @@
    "store": "Web (PWA)",
    "platform": "archivewatch.org",
    "state": "LIVE",
-   "version": "21829f5",
-   "since": "2026-10-15T21:51:00Z",
+   "version": "9a9619d",
+   "since": "2026-10-15T21:56:02Z",
    "note": "Ships on every Pages deploy; the version is the deploy's commit, read from GitHub.",
    "url": "https://archivewatch.org",
    "api": null,
@@ -8599,7 +8599,7 @@
   "apple_stores": {
    "ok": true,
    "note": "3 Apple platform(s)",
-   "at": "2026-10-15T21:52:00+00:00"
+   "at": "2026-10-15T22:02:33+00:00"
   },
   "apple_reviews": {
    "ok": true,
@@ -8624,7 +8624,7 @@
   "play_stores": {
    "ok": true,
    "note": "3 track(s)",
-   "at": "2026-10-15T21:52:02+00:00"
+   "at": "2026-10-15T22:02:34+00:00"
   },
   "play_reviews": {
    "ok": true,
@@ -8639,7 +8639,7 @@
   "play_crashes": {
    "ok": true,
    "note": "12 cluster(s), 5 still on build 66",
-   "at": "2026-10-15T21:52:35+00:00"
+   "at": "2026-10-15T22:03:02+00:00"
   },
   "play_users": {
    "ok": true,
@@ -8684,17 +8684,17 @@
   "amazon_live": {
    "ok": true,
    "note": "versionCode 66 is live on Fire TV",
-   "at": "2026-10-15T21:52:45+00:00"
+   "at": "2026-10-15T22:03:11+00:00"
   },
   "roku_engagement": {
    "ok": true,
    "note": "no delivery waiting — the schedule fires daily at 06:00, so this is normal between runs",
-   "at": "2026-10-15T21:52:45+00:00"
+   "at": "2026-10-15T22:03:12+00:00"
   },
   "manual_stores": {
    "ok": true,
    "note": "5 declared store(s), 2 version(s) read rather than declared",
-   "at": "2026-10-15T21:52:46+00:00"
+   "at": "2026-10-15T22:03:12+00:00"
   },
   "social_program": {
    "ok": true,
@@ -9456,7 +9456,7 @@
    "urgent": 0
   }
  ],
- "generatedAt": "2026-10-15T21:52:46+00:00",
+ "generatedAt": "2026-10-15T22:03:12+00:00",
  "repoVersion": "1.46.11",
  "repoBuild": "2135",
  "_": "Written by tools/pulse_collect.py. `history` is the series and is append-only per day; everything else is the latest reading. A source that could not answer says so in `sources` — never assume a zero."
