@@ -2473,6 +2473,66 @@
    "kind": "silent-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-10-15T19:05:00.056750+00:00",
+   "id": "silent-mabel-at-the-wheel",
+   "title": "Mabel at the Wheel",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxwqx5yvmz2m",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-15T19:05:00.056750+00:00",
+   "id": "silent-mabel-at-the-wheel",
+   "title": "Mabel at the Wheel",
+   "slot": "now-showing",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117446483816137881",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-15T19:05:00.056750+00:00",
+   "id": "silent-mabel-at-the-wheel",
+   "title": "Mabel at the Wheel",
+   "slot": "now-showing",
+   "platform": "threads",
+   "url": "https://www.threads.com/@archivewatchapp/post/Dehqy3IGdRS",
+   "format": "card",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-15T19:05:00.056750+00:00",
+   "id": "silent-mabel-at-the-wheel",
+   "title": "Mabel at the Wheel",
+   "slot": "now-showing",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/Dehq3rqD1Me/",
+   "format": "card",
+   "kind": "silent-film",
+   "mediaId": "117446483435700152",
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-15T19:05:00.056750+00:00",
+   "id": "silent-mabel-at-the-wheel",
+   "title": "Mabel at the Wheel",
+   "slot": "now-showing",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=nnmR937icfg",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
