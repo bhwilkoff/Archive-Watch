@@ -1,5 +1,12 @@
 # Roblox as an Archive Watch platform — research (2026-10-15)
 
+> **STATUS: SHELVED (owner, 2026-10-15).** *"I don't think we should pursue the
+> roblox platform for the time being. Make sure that we have fully documented
+> the pathway, but I don't think that it is worth the time and effort for such
+> a compromised experience."* Nothing was built, no account was created, no
+> Robux were spent. Decision 164 records the call; §8 below is the pathway to
+> pick up if a trigger in §8.1 happens.
+
 Owner, 2026-10-15: *"I'd like to start doing research on another major platform
 that we could start publishing to and developing for: Roblox. ... a robust
 'Watch Together' experience that could connect up with other users across the
@@ -172,3 +179,57 @@ the single unknown that could end the project. Build toward a **curated
 cinematheque**: real films in rooms of their era, shared or private, joinable
 from our other apps by code. Do not promise the catalog on Roblox until Roblox
 lifts the length, fee or URL restrictions.
+
+## 8. If this is ever picked up again: the pathway
+
+Shelved because the experience at the center, playing our films, is
+compromised on every route Roblox allows today: paid 5-minute video uploads
+(~$400 a feature), or a free flipbook at 256x192 and 12 fps that suits only a
+curated silent program (09). The theaters, rooms, interface and tooling were
+never the obstacle.
+
+### 8.1 What would justify reopening it
+
+Re-read `01-video.md`'s sources and reopen only if one of these changes:
+
+1. **Video terms**: the 5-minute length, the 2,000 Robux fee, or the two-videos
+   per-client limit is lifted or cut substantially (staff called all three "on
+   the table", nothing committed).
+2. **URL playback**: Roblox allows video from a moderated or allow-listed
+   external URL. Our films would then stream from archive.org with no upload.
+3. **VideoPlayer API** ships (roadmap: mid 2027), replicating play and pause
+   from the server, which makes Watch Together sync cheap.
+4. **Image quota** turns out to be truly uncapped and moderation accepts frame
+   sheets at volume (09 §3 unknowns 1-2), making the flipbook a real program
+   rather than a pilot.
+5. **The owner wants a curated silent cinematheque** on Roblox for its own
+   sake, at flipbook quality.
+
+### 8.2 The order of work, if reopened
+
+1. **Free measurements first** (§5 items 4-6, 09 §3 unknowns 1-4): create a
+   Roblox account (the owner's identity; uploads need 13+ ID verification),
+   install Roblox Studio on this Mac and sign in, read
+   `GET /cloud/v2/users/{id}/asset-quotas`, upload a handful of the
+   *A Trip to the Moon* frame sheets (recipe in 09 §3), and step them on a
+   mid-range phone. Check HttpService reaches our Worker and `launchData`
+   survives the deep link.
+2. **Owner decisions in §6** (program, uploader, 16+ or under-16, Creator
+   Rewards, poster art), plus the Community Standards exclusions in §3.1,
+   which are stricter than our catalog.
+3. **Paid measurements only if the free route fails** (§5 items 1-3, ~6,000
+   Robux): moderation of public-domain video, seams, picture quality.
+4. **Build** in the shape of §4: a `roblox/` Rojo project with the toolchain in
+   02, a Lobby place and reserved-server Theater place (05), the interface
+   from one shared token file (06), rooms bridged by our Worker through Open
+   Cloud MessagingService (04), and a pipeline in `tools/` that cuts and
+   uploads segments or sheets.
+5. **Ship** per 03: 16+ first, then the under-16 track if wanted.
+
+### 8.3 Left behind on purpose
+
+- No `roblox/` directory, no tools, no account, no API key, no spend.
+- The flipbook experiment ran in a session scratch directory and was not kept;
+  the ffmpeg command in 09 §3 reproduces it from `ATripToTheMoon20Fps`.
+- Never stream frames from off-platform (09 §2) and never hide video in images
+  (09 §5), whatever changes; both circumvent Roblox's moderation.

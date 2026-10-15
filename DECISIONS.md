@@ -250,6 +250,7 @@ into every session and the index alone carries every title.)
 - 161 — A narrow link is answered with the bitrate before a dropped frame, and a drop ends at the next keyframe it can ask for
 - 162 — The Samsung TV floor is 2022 (Tizen 6.5, Chromium 85), held by a polyfill file and a build gate
 - 163 — archive.org's own trailer collection outweighs the silent-era guard
+- 164 — Roblox is shelved: the films are what it cannot carry well
 
 ---
 
@@ -862,3 +863,27 @@ the collection comes back by evidence (a runtime over five minutes, a year
 before 1905), never by dropping the collection test. `tools/test_trailer_collection.py`
 holds the case and five controls.
 
+## 164 — Roblox is shelved: the films are what it cannot carry well
+*Date: 2026-10-15*
+
+Archive Watch does not build for Roblox. The research stays in
+`docs/research/ROBLOX.md` and `docs/research/roblox/01-09`, with the pathway
+and the conditions for reopening in ROBLOX.md §8. Nothing was built, no
+account was created and no Robux were spent.
+
+**Why**: the owner, after the research: *"I don't think we should pursue the
+roblox platform for the time being. Make sure that we have fully documented the
+pathway, but I don't think that it is worth the time and effort for such a
+compromised experience."* Roblox plays only video it hosts: 5-minute assets at
+2,000 Robux each (~$400 a feature, ~$7M for the catalog). The free route that
+stays inside its rules, films as moderated image flipbooks, plays at 256x192
+and 12 fps and suits only a curated silent program. Streaming from off-platform,
+as "YouTube in Roblox" projects do, is what Roblox staff told creators not to
+do. The theaters, rooms, interface and tooling all fit; the films do not.
+
+**How to apply**: do not start Roblox work on a new idea for playback alone;
+reopen only on a trigger in ROBLOX.md §8.1 (video terms, URL playback, the
+VideoPlayer API, a real image quota, or the owner choosing a silent
+cinematheque), and then follow §8.2's order: free measurements before any
+spend or build. Whatever changes, never stream frames from off-platform or hide
+video inside images.
