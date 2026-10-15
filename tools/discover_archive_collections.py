@@ -187,7 +187,10 @@ def main():
                          "entered, from the calendar. Empty string disables.")
     ap.add_argument("--max-awaiting", type=int, default=4000,
                     help="Stop adding once this many candidates await ingest "
-                         "(~4 nights at ingest's 900). Measured 2026-09-25: the "
+                         "(~4 nights at ingest's 900; the workflow passes 9,000 "
+                         "against ingest's 3,000 since 2026-10-14, when 29 of 39 "
+                         "collections had never been reached because prelinger "
+                         "refilled the 4,000 every night). Measured 2026-09-25: the "
                          "first full-depth sweep queued +12,369 in one night and "
                          "doubled the committed queue file; newsandpublicaffairs "
                          "alone holds 3.4M items, so without a ceiling the queue "

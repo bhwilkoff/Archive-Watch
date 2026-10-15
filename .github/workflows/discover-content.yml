@@ -34,7 +34,7 @@ on:
       max_items:
         description: 'Max candidates to ingest this run'
         required: false
-        default: '900'
+        default: '3000'
       prioritize_source:
         description: 'Drain this discoverySource first (e.g. commercials)'
         required: false
@@ -51,6 +51,10 @@ on:
         description: 'Max TV series to resolve canonical episode lists for'
         required: false
         default: '40'
+      max_awaiting:
+        description: 'Stop queueing archive-collection candidates once this many await ingest'
+        required: false
+        default: '9000'
       arch_per_collection:
         description: 'Max items to mine per Internet Archive collection'
         required: false
@@ -141,6 +145,7 @@ jobs:
           python tools/discover_archive_collections.py \
             --per-collection ${{ github.event.inputs.arch_per_collection || '600' }} \
             --pd-age-backfill 300 \
+            --max-awaiting ${{ github.event.inputs.max_awaiting || '9000' }} \
             ${{ github.event.inputs.pd_day_years && format('--pd-day-years {0}', github.event.inputs.pd_day_years) || '' }} \
             | tee arch_discover.log
 
@@ -171,7 +176,7 @@ jobs:
           # enrich_movies (TMDb, uncapped) fills metadata in the OMDb workflow).
           # This lets the cap be high enough to actually drain the queue.
           python tools/ingest_candidates.py \
-            --max-items ${{ github.event.inputs.max_items || '900' }} \
+            --max-items ${{ github.event.inputs.max_items || '3000' }} \
             --resolve-limit ${{ github.event.inputs.resolve_limit || '600' }} \
             ${{ github.event.inputs.prioritize_source && format('--prioritize-source {0}', github.event.inputs.prioritize_source) || '' }} \
             --workers 6 --no-seed --skip-omdb \
