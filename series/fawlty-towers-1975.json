@@ -1,1 +1,190 @@
-{"version":2,"seriesID":"fawlty-towers-1975","tvmazeID":577,"title":"Fawlty Towers","yearStart":1975,"yearEnd":1979,"overview":"Fawlty Towers is set in a fictional hotel in the seaside town of Torquay. The plots centre on tense, rude and put-upon owner Basil Fawlty, his bossy wife Sybil, comparatively normal chambermaid Polly, who is often the peacemaker and voice of reason, and hapless Spanish waiter Manuel, showing their attempts to run the hotel amidst farcical situations and an array of demanding and eccentric guests.","posterURL":"https://artworks.thetvdb.com/banners/posters/75932-6.jpg","backdropURL":null,"genres":["Comedy"],"networks":["BBC Two"],"creator":null,"seasons":[{"seasonNumber":null,"episodes":[{"archiveID":"LDFT7579","seasonNumber":null,"episodeNumber":null,"title":"Fawlty Towers","overview":null,"stillURL":"https://image.tmdb.org/t/p/w500/tvTYIjujN87dcKAmSLqcvAahykH.jpg","airDate":null,"year":1975,"runtimeSeconds":null,"videoFile":{"name":"Fawlty Towers.ia.mp4","format":"h.264 IA","sizeBytes":4873091838,"tier":2},"downloadURL":"https://archive.org/download/LDFT7579/Fawlty%20Towers.ia.mp4"},{"archiveID":"fawlty-towers-basil-the-rat-1984-uk-vhs","seasonNumber":null,"episodeNumber":null,"title":"Fawlty Towers - Basil The Rat","overview":null,"stillURL":"https://archive.org/services/img/fawlty-towers-basil-the-rat-1984-uk-vhs","airDate":null,"year":null,"runtimeSeconds":5621,"videoFile":{"name":"Fawlty Towers Basil The Rat (1984 UK VHS).ia.mp4","format":"h.264 IA","sizeBytes":562622405,"tier":1},"downloadURL":"https://archive.org/download/fawlty-towers-basil-the-rat-1984-uk-vhs/Fawlty%20Towers%20Basil%20The%20Rat%20%281984%20UK%20VHS%29.ia.mp4"},{"archiveID":"fawlty-towers-the-psychiatrist-1984-uk-vhs","seasonNumber":null,"episodeNumber":null,"title":"Fawlty Towers - The Psychiatrist","overview":null,"stillURL":"https://archive.org/services/img/fawlty-towers-the-psychiatrist-1984-uk-vhs","airDate":null,"year":null,"runtimeSeconds":5895,"videoFile":{"name":"Fawlty Towers The Psychiatrist (1984 UK VHS).ia.mp4","format":"h.264 IA","sizeBytes":644785813,"tier":1},"downloadURL":"https://archive.org/download/fawlty-towers-the-psychiatrist-1984-uk-vhs/Fawlty%20Towers%20The%20Psychiatrist%20%281984%20UK%20VHS%29.ia.mp4"},{"archiveID":"fawlty-towers-the-germans-vhs-uk-full-tapes-1984-version","seasonNumber":null,"episodeNumber":null,"title":"Fawlty Towers The Germans","overview":null,"stillURL":"https://archive.org/services/img/fawlty-towers-the-germans-vhs-uk-full-tapes-1984-version","airDate":null,"year":null,"runtimeSeconds":5461,"videoFile":{"name":"Fawlty Towers The Germans (VHS UK Full Tapes 1984 Version).ia.mp4","format":"h.264 IA","sizeBytes":404920705,"tier":1},"downloadURL":"https://archive.org/download/fawlty-towers-the-germans-vhs-uk-full-tapes-1984-version/Fawlty%20Towers%20The%20Germans%20%28VHS%20UK%20Full%20Tapes%201984%20Version%29.ia.mp4"},{"archiveID":"fawlty-towers-the-kipper-and-the-corpse-vhs-uk-full-tapes-1984-version","seasonNumber":null,"episodeNumber":null,"title":"Fawlty Towers The Kipper And The Corpse","overview":null,"stillURL":"https://archive.org/services/img/fawlty-towers-the-kipper-and-the-corpse-vhs-uk-full-tapes-1984-version","airDate":null,"year":null,"runtimeSeconds":5569,"videoFile":{"name":"Fawlty Towers The Kipper And The Corpse (VHS UK Full Tapes 1984 Version).ia.mp4","format":"h.264 IA","sizeBytes":472524608,"tier":1},"downloadURL":"https://archive.org/download/fawlty-towers-the-kipper-and-the-corpse-vhs-uk-full-tapes-1984-version/Fawlty%20Towers%20The%20Kipper%20And%20The%20Corpse%20%28VHS%20UK%20Full%20Tapes%201984%20Version%29.ia.mp4"},{"archiveID":"VCCFawlty","seasonNumber":null,"episodeNumber":null,"title":"Steve Oliver's Vinyl Comedy Club: Fawlty Towers 'Mrs Richards'","overview":null,"stillURL":"https://archive.org/services/img/VCCFawlty","airDate":null,"year":null,"runtimeSeconds":2196,"videoFile":{"name":"Fawlty Towers.ia.mp4","format":"h.264 IA","sizeBytes":804091672,"tier":1},"downloadURL":"https://archive.org/download/VCCFawlty/Fawlty%20Towers.ia.mp4"}]}],"episodesCount":6,"canonicalEpisodesCount":12,"tvdbID":"75932","artworkSource":"tvdb","cast":[{"name":"John Cleese","character":"Basil Fawlty","order":0,"profilePath":"https://artworks.thetvdb.com/banners/person/254792/primary.jpg"},{"name":"Prunella Scales","character":"Sybil Fawlty","order":1,"profilePath":"https://artworks.thetvdb.com/banners/v4/actor/281934/photo/65f33daac266d.jpg"},{"name":"Andrew Sachs","character":"Manuel","order":2,"profilePath":"https://artworks.thetvdb.com/banners/v4/actor/272543/photo/62f9508580f42.jpg"},{"name":"Connie Booth","character":"Polly","order":3,"profilePath":"https://artworks.thetvdb.com/banners/v4/actor/397816/photo/621686c7ab8c6.jpg"},{"name":"Ballard Berkeley","character":"Major Gowen","order":4,"profilePath":"https://artworks.thetvdb.com/banners/actors/42069.jpg"},{"name":"Renee Roberts","character":"Miss Gatsby","order":5,"profilePath":"https://artworks.thetvdb.com/banners/actors/42070.jpg"},{"name":"Gilly Flower","character":"Miss Abitha Tibbs","order":6,"profilePath":"https://artworks.thetvdb.com/banners/actors/42071.jpg"},{"name":"Brian Hall","character":"Terry","order":7,"profilePath":"https://artworks.thetvdb.com/banners/actors/42073.jpg"}]}
+{
+  "version": 2,
+  "seriesID": "fawlty-towers-1975",
+  "tvmazeID": 577,
+  "title": "Fawlty Towers",
+  "yearStart": 1975,
+  "yearEnd": 1979,
+  "overview": "Fawlty Towers is set in a fictional hotel in the seaside town of Torquay. The plots centre on tense, rude and put-upon owner Basil Fawlty, his bossy wife Sybil, comparatively normal chambermaid Polly, who is often the peacemaker and voice of reason, and hapless Spanish waiter Manuel, showing their attempts to run the hotel amidst farcical situations and an array of demanding and eccentric guests.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/75932-6.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [
+    "BBC Two"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "LDFT7579",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Fawlty Towers",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/tvTYIjujN87dcKAmSLqcvAahykH.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Fawlty Towers.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 4873091838,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LDFT7579/Fawlty%20Towers.ia.mp4"
+        },
+        {
+          "archiveID": "fawlty-towers-basil-the-rat-1984-uk-vhs",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Fawlty Towers - Basil The Rat",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/fawlty-towers-basil-the-rat-1984-uk-vhs",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 5621,
+          "videoFile": {
+            "name": "Fawlty Towers Basil The Rat (1984 UK VHS).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 562622405,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/fawlty-towers-basil-the-rat-1984-uk-vhs/Fawlty%20Towers%20Basil%20The%20Rat%20%281984%20UK%20VHS%29.ia.mp4"
+        },
+        {
+          "archiveID": "fawlty-towers-the-psychiatrist-1984-uk-vhs",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Fawlty Towers - The Psychiatrist",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/fawlty-towers-the-psychiatrist-1984-uk-vhs",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 5895,
+          "videoFile": {
+            "name": "Fawlty Towers The Psychiatrist (1984 UK VHS).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 644785813,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/fawlty-towers-the-psychiatrist-1984-uk-vhs/Fawlty%20Towers%20The%20Psychiatrist%20%281984%20UK%20VHS%29.ia.mp4"
+        },
+        {
+          "archiveID": "fawlty-towers-the-germans-vhs-uk-full-tapes-1984-version",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Fawlty Towers The Germans",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/fawlty-towers-the-germans-vhs-uk-full-tapes-1984-version",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 5461,
+          "videoFile": {
+            "name": "Fawlty Towers The Germans (VHS UK Full Tapes 1984 Version).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 404920705,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/fawlty-towers-the-germans-vhs-uk-full-tapes-1984-version/Fawlty%20Towers%20The%20Germans%20%28VHS%20UK%20Full%20Tapes%201984%20Version%29.ia.mp4"
+        },
+        {
+          "archiveID": "fawlty-towers-the-kipper-and-the-corpse-vhs-uk-full-tapes-1984-version",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Fawlty Towers The Kipper And The Corpse",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/fawlty-towers-the-kipper-and-the-corpse-vhs-uk-full-tapes-1984-version",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 5569,
+          "videoFile": {
+            "name": "Fawlty Towers The Kipper And The Corpse (VHS UK Full Tapes 1984 Version).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 472524608,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/fawlty-towers-the-kipper-and-the-corpse-vhs-uk-full-tapes-1984-version/Fawlty%20Towers%20The%20Kipper%20And%20The%20Corpse%20%28VHS%20UK%20Full%20Tapes%201984%20Version%29.ia.mp4"
+        },
+        {
+          "archiveID": "VCCFawlty",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Steve Oliver's Vinyl Comedy Club: Fawlty Towers 'Mrs Richards'",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/VCCFawlty",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2196,
+          "videoFile": {
+            "name": "Fawlty Towers.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 804091672,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/VCCFawlty/Fawlty%20Towers.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6,
+  "canonicalEpisodesCount": 12,
+  "tvdbID": "75932",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "John Cleese",
+      "character": "Basil Fawlty",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/254792/primary.jpg"
+    },
+    {
+      "name": "Prunella Scales",
+      "character": "Sybil Fawlty",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/281934/photo/65f33daac266d.jpg"
+    },
+    {
+      "name": "Andrew Sachs",
+      "character": "Manuel",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/272543/photo/62f9508580f42.jpg"
+    },
+    {
+      "name": "Connie Booth",
+      "character": "Polly",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/397816/photo/621686c7ab8c6.jpg"
+    },
+    {
+      "name": "Ballard Berkeley",
+      "character": "Major Gowen",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/42069.jpg"
+    },
+    {
+      "name": "Renee Roberts",
+      "character": "Miss Gatsby",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/42070.jpg"
+    },
+    {
+      "name": "Gilly Flower",
+      "character": "Miss Abitha Tibbs",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/42071.jpg"
+    },
+    {
+      "name": "Brian Hall",
+      "character": "Terry",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/42073.jpg"
+    }
+  ],
+  "seriesImdbID": "tt0072500",
+  "canonicalEpisodeCount": 12,
+  "canonicalSeasons": 2
+}
