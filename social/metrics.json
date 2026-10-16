@@ -3226,6 +3226,53 @@
     "reposts": 0,
     "replies": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxhrxrt6z72p",
+   "platform": "bluesky",
+   "id": "the-bat-whispers_1930",
+   "slot": "one-line",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-09T20:13:18.651824+00:00",
+   "sampled": "2026-10-16T01:14:22.331593+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117412778770514660",
+   "platform": "mastodon",
+   "id": "the-bat-whispers_1930",
+   "slot": "one-line",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-09T20:13:18.651824+00:00",
+   "sampled": "2026-10-16T01:14:22.331593+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxuvwyh57t2y",
+   "platform": "bluesky",
+   "id": "silent-the-rough-house",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-15T01:29:07.367110+00:00",
+   "sampled": "2026-10-16T01:14:22.331593+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }
