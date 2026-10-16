@@ -3273,6 +3273,53 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxigk5ga7k2o",
+   "platform": "bluesky",
+   "id": "silent-opus-iv",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-10T02:21:32.150936+00:00",
+   "sampled": "2026-10-16T18:50:53.831239+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxwqx5yvmz2m",
+   "platform": "bluesky",
+   "id": "silent-mabel-at-the-wheel",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-15T19:05:00.056750+00:00",
+   "sampled": "2026-10-16T18:50:53.831239+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117446483816137881",
+   "platform": "mastodon",
+   "id": "silent-mabel-at-the-wheel",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-15T19:05:00.056750+00:00",
+   "sampled": "2026-10-16T18:50:53.831239+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }
