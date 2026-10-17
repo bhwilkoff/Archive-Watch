@@ -20,8 +20,12 @@ count is in "To measure".
 1. **There is no TMDb for radio.** No source offers a free, licensed, keyed
    API with episode-level credits. The best episode data (RadioGOLDINdex,
    ~123,000 programs) is an HTML-only database at a university, with no
-   published API and no stated reuse license. Plan for **permission + polite
-   scraping**, not an API key.
+   published API and no stated reuse license. Its FACTS (dates, titles,
+   credits) are not copyrightable (*Feist v. Rural*, 1991), so plan for
+   **polite scraping with credit and a link back on every episode, and ask
+   Goldin/UMKC for an export in parallel**, not an API key. (Owner question,
+   2026-10-17: "If Google can index the Goldin's index, why would we need
+   special permission to do so?" — we don't for facts; see §1.1 Access.)
 2. **Wikidata is the only open (CC0) graph**, and it is thin below the series
    level: `radio series` (Q14623351) and `radio series episode` classes exist,
    `Suspense` (Q1548940) carries 946 episodes as a number (P1113), but only a
@@ -82,8 +86,13 @@ count is in "To measure".
   plus the source of the recording (disc, AFRS, etc.). Confirm field list by
   probe.
 - **Access**: HTML only. No API, no dataset, no license statement found.
-  Scraping 123k pages from a university server needs written permission from
-  Goldin/UMKC first.
+  MEASURED 2026-10-17: `radiogoldin.library.umkc.edu/robots.txt` is a 404 (no
+  robots file) and the home page states no terms of use. Facts are free to
+  take (*Feist*); permission is NOT a legal prerequisite for dates, titles and
+  credits. Ask anyway, at the same time as building: an export beats scraping
+  an old HTML front end, it is a university server hosting one man's life
+  work, and the OTR community is small. Scrape slowly (sequential, cached,
+  honest User-Agent), credit Goldin and link each episode to its entry.
 - **Identifiers**: UNVERIFIED whether pages carry a stable program id in the
   URL. If they do, it is the best episode id available anywhere; record it.
 - **Quality**: Graham "prefer[s] its dates when they conflict with other
@@ -91,7 +100,8 @@ count is in "To measure".
   discs; he also warns "the listings aren't 100 percent accurate and the
   search by artist and search by programs aren't perfectly synced."
 - **Use**: primary source for episode credits and the date tie-breaker; its
-  plot descriptions are Goldin's prose — permission required before display.
+  plot descriptions are Goldin's prose (copyrightable expression, unlike the
+  facts) — permission required before displaying them verbatim.
 
 ### 1.2 OTRR (Old Time Radio Researchers) — logs, OTTER, OTRRpedia, certified sets
 
