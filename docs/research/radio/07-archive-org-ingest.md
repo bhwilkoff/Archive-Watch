@@ -1,401 +1,528 @@
 # 07 — The Internet Archive OTR corpus, and how to ingest it (2026-10-17)
 
-Research track 7 of the radio sister-app study. Written in a container whose
-network policy blocks archive.org; every archive.org fact below comes from
-**web search results/snippets** (marked "per search snippet"), from Archive
-Watch's own working code (which was verified live when it was written), or
-is marked **UNVERIFIED**. Nothing here was measured against a live endpoint
-in this session. The "To measure" section holds the probes, including a
-complete stdlib script ready to save as `tools/probe_otr_corpus.py`.
-
-Also note: this session's shared web-search budget ran out before searches
-for Inner Sanctum, Lights Out, the Joe Hehn collection and a few other items
-could run. Those gaps are named where they fall.
+Research track 7 of the radio sister-app study. The first draft was written
+with archive.org blocked and only web search available. Network access then
+opened, so **every number marked MEASURED 2026-10-17 below came from the
+live archive.org APIs**, with the exact query beside it. Raw outputs are in
+`/tmp/claude-0/-home-user-Archive-Watch/b5ae32f7-ceba-58ad-ae5d-827ee8529aa6/scratchpad/otr-probe/`
+(`report.json`, `items.jsonl` with 12,171 items, `files.jsonl` with 16,544
+parsed audio files, `meta/` with 400 cached metadata responses,
+`famous_structure.txt`). These are session scratch files: rerun the probe
+to reproduce them. The probe is saved as `tools/probe_otr_corpus.py`
+(Python 3 stdlib only) and also printed in full at the end of this
+document. Facts that came only from web search are marked
+"per search snippet", and anything not confirmed is marked UNVERIFIED.
 
 ## Verdict
 
-1. **The unit of content is the FILE, not the item.** Archive Watch's film
-   model (one item = one film, `pick_video` picks one derivative) does not
-   carry over. An OTR item is usually a whole series, a season, a year, or an
-   alphabet range ("Singles and Doubles T-Z"), with tens to hundreds of MP3s
-   inside; episodes are rows in `files[]` of `/metadata/{id}`. There is also a
-   minority of one-episode-per-item uploads (`TSP420617`,
-   `xminusone19550424nocontact001`, `JackBennyProgram481017SorryWrongNumber`),
-   so the ingest must handle both shapes and treat them as the same broadcast.
-2. **OTRR (Old Time Radio Researchers) is the spine.** Its uploads
-   (`OTRR_<Series>_Singles`, `OTRR_Certified_<Series>`, per-year and
-   per-season splits such as `OTRR_Suspense_Singles_By_Year_1942`,
-   `OTRR_Lux_Radio_Theatre_Season_13_Singles`) carry the closest thing the
-   hobby has to edited episode identity: `Series_YY-MM-DD_epNNN_Title.mp3`
-   filenames, with `xx` placeholders where unknown. The index is
-   `archive.org/details/OTRR_Home_Page`.
-3. **Episode identity = (series, broadcast date), corroborated by duration
-   and md5.** Filenames are the main carrier; file-level `title`/`track`
-   tags are a second witness when present (UNVERIFIED how often they are).
-   Dates come in at least five spellings (YY-MM-DD, YYMMDD, YYYY-MM-DD,
-   "YYYY MM DD", MMDDYYYY); the 1942-06-17 premiere of Suspense is
-   "The Burning Court" (`TSP420617`), which shows how a date key unifies
-   uploads with different titles.
-4. **OTRR items carry Creative Commons BY-NC-ND licences** (per search
-   snippets: X Minus One 3.0, Escape 3.0, Lux 4.0). That is a claim over
-   OTRR's compilation and restoration. It is not evidence the recordings are
-   public domain, and the NC/ND terms bind any redistribution we do (Decision
-   140's "an uploader's word is not enough" applies in both directions). The
-   rights track owns the verdict; ingest only records `licenseurl` per item as
-   provenance.
-5. **APIs needed are the ones Archive Watch already uses**: the Scrape API
-   (`/services/search/v1/scrape`, cursor, `count` up to 5,000 in our own
-   working code), `/metadata/{id}` for `files[]` and `reviews[]`,
-   advancedsearch fields `downloads`/`num_favorites`/`avg_rating`/
-   `num_reviews`, the be-api views service, and member lists
-   (`/services/users/@{user}/lists`). The new parts are the file-level
-   parser, a per-file playable picker for audio, and a cross-item dedupe.
-6. **Corpus size is unknown from here.** No search result gave a count for
-   `collection:oldtimeradio`. One sub-collection (`lumedwards`, "Old Time Radio
-   Researchers Collection") shows "collection size 676" per search snippet.
-   OTRR's Suspense Singles is ~32.2 GB and its Lux Singles ~31.3 GB (snippets).
-   The probe script measures all of this in one run.
+1. **Episodes are FILES, and the big files-per-item numbers come from
+   OTRR.** MEASURED: `collection:oldtimeradio` holds **8,952 items**
+   (8,808 `mediatype:audio`), with **807,585 files** counting
+   derivatives, and **5.32 TB**. Across the 12,171 OTR-relevant items the
+   probe found, the median item has 12 files and the 90th percentile 162.
+   In a 400-item sample, **192 items held more than one episode and 124
+   held exactly one**. The largest single item is `OTRR_LoneRanger_Singles`:
+   2,221 episodes and 1,051 hours. Archive Watch's film model (one item =
+   one film, then `pick_video`) cannot be reused. The catalog row has to be
+   the episode (a file), with the item kept as provenance.
+2. **OTRR is the spine, and it is far better structured than the web said.**
+   MEASURED: 526 `OTRR_*` items, 1.43 TB, median 97 files per item. In the
+   sample, **83.7% of OTRR episode files yield a full broadcast date from
+   the filename alone**, 9.7% yield only a decade (`4x-xx-xx`), and 4.1%
+   do not parse. The ID3 `album` tag on OTRR files carries
+   `"MM/DD/YY, episode N"`. It agrees with the filename date 6,763 times
+   and disagrees 159 times, so it is a real second witness.
+3. **Filename conventions are many, but a small set of families covers
+   them.** MEASURED over 16,544 audio files: 14 regex families (section
+   2.1) parse **93.8%**, and **80.2% get a full date**. Outside OTRR, only
+   49.7% of files get a date and 22.8% do not parse at all. That is where a
+   tag, item-title or description-log fallback earns its keep.
+4. **The same broadcast is uploaded many times, and md5 never links
+   different uploads.** MEASURED on Suspense: the community items
+   `SUSPENSE`, `SUSPENSE2` and `SUSPENSE3` share 89, 90 and 77 dates with
+   `OTRR_Suspense_Singles`, and **0 md5 matches**. Durations for the same
+   date differ by 33-43 s at the median and 92-160 s at the 90th
+   percentile, with a maximum of 357 s. The only md5 duplicates in the
+   sample (534) are OTRR's mega-items against their own per-year and
+   per-season splits. So the merge key is (series, date). Duration only
+   flags a "partial" or "AFRS cut" copy. It must not veto a merge at
+   ±90 s.
+5. **Play the uploaded MP3. Do not play a derivative.** MEASURED: 92% of
+   original audio files are `VBR MP3` (15,184 of 16,544 works), and
+   archive.org derives only `Ogg Vorbis` from them (7,312). It makes no
+   second MP3. FLAC and WAVE originals (about 6%) do get a `VBR MP3`
+   derivative (428 seen). `/download/` answers **302** to a storage node
+   (`dn721300.ca.archive.org/0/items/...`) with `accept-ranges: bytes`.
+6. **archive.org has already transcribed many OTR files.** MEASURED:
+   `OTRR_Suspense_Singles` holds 911 MP3s and 911 each of `.autogenerated.vtt`,
+   `.autogenerated.txt` and `.autogenerated.asr.srt`. Across the sample
+   there are 4,063 WebVTT and 2,715 SubRip files. That makes full-text
+   search possible inside episodes. It is ASR, though: Decision 043
+   dropped archive.org ASR as *captions* for films, and the same quality
+   question applies here.
+7. **Rights metadata is mostly absent, and where present it is an
+   uploader's word.** MEASURED over the 12,171 items: 9,226 have no
+   `licenseurl`, 934 carry the old CC "publicdomain", 553 the PD Mark, and
+   about 945 carry OTRR's CC BY-NC-ND (2.5 / 3.0 / 4.0). None of this is
+   evidence a recording is public domain (Decision 140). The NC-ND terms
+   are OTRR's claim over its restorations and compilations. The rights
+   track decides. Ingest only records the `licenseurl` per copy.
 
 ---
 
 ## 1. Where OTR lives on archive.org
 
-### 1.1 Collections and families (identifiers as seen in search results)
+### 1.1 Collections and counts — MEASURED 2026-10-17
 
-| Id / family | What it is | Evidence | Status |
-|---|---|---|---|
-| `oldtimeradio` | The main "Old Time Radio" collection; a 2006 IA blog post calls it "our Old Time Radio collection" while describing a user uploading hundreds of Superman episodes into it | blog.archive.org 2006-10-24; library.missouri.edu tip 2016 | count UNVERIFIED |
-| `lumedwards` | "Old Time Radio Researchers Collection", parent `oldtimeradio`, "collection size 676" | per search snippet of archive.org/details/lumedwards | snippet only |
-| `OTRR_*` items, uploader **OTRRArchive** | OTRR's own sets: `OTRR_<Series>_Singles` (sampler, "Single Episodes Page"), `OTRR_Certified_<Series>` (older certified sets), `..._By_Year_YYYY`, `..._Season_NN_Singles` | many snippets (Suspense, Gunsmoke, Lux, X Minus One, Dimension X, Escape, Jack Benny, Johnny Dollar, Whistler, Box 13, Hallmark...) | structure from snippets |
-| `OTRR_Home_Page` | OTRR's alphabetical index of every series page, updated 2020-01-11 per snippet | archive.org/details/OTRR_Home_Page | snippet |
-| `Singles_And_Doubles_Singles_A-C` ... `_T-Z` | OTRR's set for series with one or two surviving episodes, split by alphabet | archive.org/details/Singles_And_Doubles_Singles_T-Z | snippet |
-| `radioprograms` | cited by a forum post as "a huge collection of old time radio shows" | rblind.com post 2421891 | existence UNVERIFIED |
-| "The Joe Hehn Memorial Collection" (e.g. `Suspense1JHMC`, `OTRCatalogs`) | collector-sourced sets; also holds 1960s-70s collector catalogs | snippets of archive.org/details/Suspense1JHMC, /OTRCatalogs | snippet |
-| "The Suspense Project" (`TSP420617`, `TSP420902`, `80thAnnivSuspenseMarathon`) | one item per Suspense broadcast, id `TSP` + YYMMDD | snippets | snippet |
-| Misc. user sets | `ClassicRadioShows`, `oldtimeyradioshowscollection`, `USA-Golden-Age-of-Radio`, `UniqueOldTimeRadioEpisodes`, `SUSPENSE_Radio_Digitally_Restored_Collection`, `JackBenny1` ("Jack Benny 143 Eps", 2.0 GB), `FibberMcgeeMolly1930s` ("63 Eps"), `XMinus1_A`, `XMinus1B`, `SUSPENSE2`, `Dimension-X`, `RkoOrsonWelles-TheShadow-RadioRecodings` (33 recordings, 1937-38) | snippets | snippet |
-| `librivoxaudio` | LibriVox audiobooks. Not radio drama; relevant only as a separate shelf (LibriVox's "dramatic works" are modern readings, PD by dedication) | not searched this session | UNVERIFIED |
-| Radio news (2016+), TV news | IA's broadcast-news collections; out of scope (modern, not OTR) | uark libguide | out of scope |
+Query: `https://archive.org/advancedsearch.php?q=<q>&rows=0&output=json` → `response.numFound`.
 
-**mediatype.** Archive Watch filters films on `mediatype:movies`. OTR items
-should be `mediatype:audio`. Whether a distinct `radio` mediatype exists (and
-what holds it) could not be confirmed: the one search on it returned nothing
-relevant. **UNVERIFIED** — the probe counts both.
+| Query | numFound | What it is |
+|---|---:|---|
+| `collection:oldtimeradio` | **8,952** | "Old Time Radio"; the main collection |
+| `collection:oldtimeradio AND mediatype:audio` | 8,808 | the rest are 245 texts (logs, scripts, catalogs), 102 movies, 84 images, 16 sub-collections (counts from scrape enumeration) |
+| `collection:oldtimeradio AND mediatype:collection` | 14 | sub-collections, listed below |
+| `collection:theoldtimeradio` | 437 | "The Old Time Radio Showcase", entirely inside `oldtimeradio` (0 outside it) |
+| `identifier:OTRR_*` | **526** | OTRR's uploads (Singles, Certified, splits) |
+| `identifier:OTRR_*Singles*` | 296 | OTRR Single Episodes pages, including per-year and per-season splits |
+| `identifier:OTRR_Certified_*` | 175 | Certified sets. **These are ZIPs of CD images** (e.g. `OTRR_Certified_Suspense` = 36 × `..._CD_NNof36.zip`) and cannot be streamed |
+| `uploader:OTRRArchive*` | 408 | note that OTRR items are ALSO uploaded under personal addresses (`OTRR_Suspense_Singles_By_Year_1942`, `OTRR_X_Minus_One_Singles`, `OTRR_Whistler_Singles`, `OTRR_Lux_Radio_Theater_Singles` all show `mikedavisstripmaster@yahoo.com`), so uploader is not the OTRR test; the `OTRR_` prefix and the `OTRR` subject are |
+| `subject:"otrr"` | 638 | |
+| `collection:lumedwards` | 692 | "Old Time Radio Researchers Collection" |
+| `subject:"old time radio"` | 7,895 | of which **3,149 are outside `oldtimeradio`**, so the subject seed matters. Example: `OrsonWelles_MercuryTheatre` sits in `hifidelity`, not in `oldtimeradio` |
+| `collection:radioprograms` | 5,081,025 | "Radio Show and Programs Archive" (5,035,584 audio), the umbrella for all community audio. **Never enumerate it** |
+| `collection:librivoxaudio` | 21,891 | audiobooks; out of scope as radio |
+| `mediatype:radio` | 0 | **there is no `radio` mediatype**; OTR is `audio` |
 
-### 1.2 OTRR's tiers (what an `OTRR_*` item claims to be)
+Sub-collections of `oldtimeradio`, member counts (`collection:<id>` numFound) and titles (`/metadata/<id>/metadata/title`):
 
-Per search snippets of OTRR item pages (Hallmark, Box 13, Case Dismissed,
-Hollywood Spotlight, Suspense):
+| Id | Members | Title |
+|---|---:|---|
+| `radiobooks` | 823 | Radio Performances of Books |
+| `lumedwards` | 692 | Old Time Radio Researchers Collection |
+| `jackbennyradio` | 237 | Jack Benny Radio Shows (also holds `OTRR_Gunsmoke_Singles`, so sub-collection membership is not series identity) |
+| `armedforcesradioservice` | 225 | Armed Forces Radio Service |
+| `bobandraytoaster` | 195 | Bob and Ray For the Truly Desperate |
+| `joe-hehn` | 143 | The Joe Hehn Memorial Collection |
+| `fibbermcgee` | 132 | Fibber McGee and Molly |
+| `suspenseradio` | 88 | Suspense: The Radio Show |
+| `casey-crime-photographer` | 84 | The Casey, Crime Photographer Project |
+| `jay_hickerson_collection` | 79 | The Jay A. Hickerson Memorial Collection |
+| `abbottandcostelloradio` | 66 | Abbott and Costello |
+| `ytjdradio` | 20 | Yours Truly, Johnny Dollar |
+| `noackradioarchive` | 3 | Noack Radio Archive |
+| `fav-the_jay_a_hickerson_memorial_collection` | 1 | a favorites list |
 
-- **Single Episodes Page** (`*_Singles`): "provided in case you want to
-  sample the shows"; "The Certified Set includes extras not found here."
-  Despite the name it is the near-complete run as individual files (Suspense
-  Singles: "approximately 895" episodes, ~32.2 GB, split per year).
-- **Maintained Set**: "all known episodes in the best available audio
-  condition with the most accurate dates and titles known to be in general
-  circulation"; replaces the older **Certified Accurate** / **Certified
-  Complete** labels (pre-2019 items still carry those).
-- **Non-Maintained Set**: not through OTRR's maintenance process.
-- **Curated Set** (e.g. `OTRR_Curated_Hollywood_Spotlight`): "below the level
-  of our Maintained sets but above most of the library".
-- Items are tagged with subjects like "OTRR Set", "OTRR Single Episodes" and a
-  release code "OTRR - YYYY-MM"; versions are replaced in place ("updated with
-  Version 2 files (01-Jan-2020)", Box 13; "Version 3 files (14-May-2011)",
-  X Minus One).
-- **"In many cases, file names have been modified from the original OTRR
-  names to conform to archive.org naming requirements."** So the regexes must
-  tolerate underscores-for-spaces, dropped apostrophes and similar.
+Also seen in item `collection` lists: `the-suspense-project` (921 of the enumerated items), and `opensource_audio` (628).
 
-Use of the tier in ranking: OTRR Maintained/Certified > OTRR Singles > OTRR
-Curated > Joe Hehn / Suspense Project style dedicated collections > generic
-user uploads. This is a provenance signal for choosing the default copy, the
-radio analogue of Decision 040's best-copy score — not a rights signal.
+**Favorites appear as collections.** The most common `collection` values
+on the enumerated items include `fav-piazza24` (1,357), `fav-dave_smith_2021`
+(1,347), `fav-david_smith1967` (1,280) and dozens more. These are members'
+favorites lists, and they are the "archive.org users' lists and
+favorites" source the owner's no-AI-lists rule points to (Decision 041;
+see also `tools/harvest_member_lists.py`).
 
-### 1.3 Named series, what the snippets reveal (all NEED MEASUREMENT)
+Totals over the 12,171 unique items the five seeds found (scrape fields
+`item_size` and `files_count`, MEASURED): 8.43 TB; 1,037,763 files; 211
+million downloads. The `oldtimeradio` part alone is 5.32 TB, 807,585 files
+and 207 million downloads.
 
-| Series | Item ids seen | Structure as described in snippets |
-|---|---|---|
-| Suspense | `OTRR_Suspense_Singles` (~32.2 GB, ~895 eps, per-year pages e.g. `OTRR_Suspense_Singles_By_Year_1942`); `OTRR_Certified_Suspense` (2012-12, ~22.4 GB); `TSP420617` (1942-06-17 The Burning Court, VBR MP3); `TSP420902`, `SuspenseTheHitchHiker09021942` (three versions: studio recording, broadcast aircheck...); `Suspense1JHMC`; `SUSPENSE2`; `SUSPENSE_Radio_Digitally_Restored_Collection` | series-set, per-year sets AND one-item-per-episode, all for the same broadcasts: the dedupe case in miniature |
-| Lux Radio Theatre | `OTRR_Lux_Radio_Theater_Singles` (Aug 2015, CC BY-NC-ND 4.0, ~31.3 GB); `OTRR_Lux_Radio_Theatre_Season_13_Singles` (2015-08-10, ~1.9 GB); seasons 2-21 on the home page | per-season split; note "Theater" vs "Theatre" in ids |
-| X Minus One | `OTRR_X_Minus_One_Singles` (v3 2011-05-14, CC BY-NC-ND 3.0 US); `XMinus1_A` (file `xminusone_550424_NoContact.mp3` 12.7M + .ogg); `XMinus1B`; `xminusone19550424nocontact001` (27.3M, title "X Minus One 1955 04 24 No Contact ( 001)") | 124 eps + pilot per Wikipedia; SFFaudio commenter counts 126 with 12 doubled (Dimension X rebroadcasts) — a same-title-different-date case |
-| Dimension X | `OTRR_Dimension_X_Singles` (2006, tagged 1950, 1951); `Dimension-X` (2005, "public domain", per-episode MP3) | the two items disagree on licence |
-| The Shadow | `RkoOrsonWelles-TheShadow-RadioRecodings` (33 Welles recordings 1937-38, Blue Coal + Goodrich) | OTRR item not found in this session's searches |
-| Gunsmoke | `OTRR_Gunsmoke_Singles`; `OTRR_Certified_Gunsmoke` (2015) | 1952 has partial/missing episodes per OTRR log (e.g. 1952-05-03 Ben Thompson, first 7:43 survives) — a *partial* flag is needed |
-| Yours Truly, Johnny Dollar | `OTRR_YoursTrulyJohnnyDollar_Singles` (~5M views per snippet; v2 Jan 2020) | ids are not uniformly underscored (`YoursTrulyJohnnyDollar`) |
-| Jack Benny | `OTRR_Jack_Benny_Singles` (season pages 1932-34 ... 1954-55); `JackBenny1` (143 eps, 2.0 GB, "public domain"); `JackBennyProgram481017SorryWrongNumber` (one episode, ~13 MB MP3 + OGG) | the YYMMDD-in-CamelCase id pattern |
-| Fibber McGee and Molly | `FibberMcgeeMolly1930s` (63 eps) | OTRR item not found this session |
-| The Whistler | `OTRR_Whistler_Singles`; filename `Whistler_xx-xx-xx_epxxx_Kaleidoscope_epAFRTS.mp3` | AFRTS versions marked in the filename |
-| Escape | `OTRR_Escape_Singles` (2012-02-14, ~6.5 GB, CC BY-NC-ND 3.0) | |
-| Lights Out | none found | Wikipedia: many recordings lost, titles changed often. Search budget ran out |
-| Mercury Theatre ("War of the Worlds") | `WarOfTheWorlds1938RadioBroadcast256kbps` (from a Nostr post, UNVERIFIED) | OTRR log lists 1938-10-30 as available; Mercury became Campbell Playhouse 1938-12-09 — one programme, two series names |
-| Inner Sanctum | OTRR home page lists "Inner Sanctum Mysteries - Single Episodes" | id not seen |
-| Dragnet | none found on archive.org in searches | podcast re-hosts cite OTRR |
-| Command Performance | none found on archive.org in searches | AFRS numbering (#1-#400+) is the identity, not dates |
-| Ranger Bill (filename example) | `OTRR_Ranger_Bill_Singles`: `Ranger_Bill_54-04-25_ep145_Tony's_Place_aka_Standing_Firm_For_What's_Right` | canonical OTRR pattern with `aka` alternate title |
+Upload years (`publicdate`) of `oldtimeradio` items peak in 2021 (2,154
+items), and 102 items were added in 2026. The corpus is still growing, so
+ingest has to run incrementally.
+
+### 1.2 OTRR's tiers
+
+OTRR's own page text (per search snippets; the subjects were MEASURED on
+`OTRR_Suspense_Singles_By_Year_1942`: `OTRR; Old Time Radio Researchers Group;
+OTR; Old Time Radio; OTRR Set; OTRR Single Episodes; Suspense; ...; OTRR By;
+OTRR Suspense by Year; OTRR Updated Release; OTRR - 2020-01`):
+
+- **Single Episodes** (`OTRR_<Series>_Singles`): despite the "sampler"
+  wording, these are the near-complete runs as individual MP3s, and they
+  are the streamable form.
+- **Splits** (`..._Singles_By_Year_YYYY`, `..._Season_NN_Singles`,
+  `..._Singles_1949-1950`, `..._Bob_Bailey_2`): the same files as the
+  mega-item, re-uploaded smaller. MEASURED: md5-identical files, e.g.
+  54 shared between `OTRR_Lux_Radio_Theater_Singles` and
+  `OTRR_Lux_Radio_Theatre_Season_10_Singles`.
+- **Certified / Maintained sets** (`OTRR_Certified_*`): ZIP archives.
+  They are useful only as provenance ("OTRR certified this run"). Nothing
+  in them can be played.
+- Versioning is in place: an item is "updated with Version 2 files", and
+  the subject carries a release code `OTRR - YYYY-MM`. Re-ingest an item
+  when its `OTRR - YYYY-MM` subject or its file md5s change.
+
+### 1.3 The famous series — MEASURED 2026-10-17
+
+Query per series: `advancedsearch.php?q=title:("<series>") AND (collection:oldtimeradio OR identifier:OTRR_* OR subject:"old time radio")&fl[]=identifier,downloads,files_count,item_size,title&sort[]=downloads desc&rows=6`.
+The structure columns come from `/metadata/<id>` (`famous_structure.txt`).
+`files_count` includes derivatives. "Eps" counts original audio files.
+
+| Series | numFound | Top items (downloads · files · size) | Structure measured |
+|---|---:|---|---|
+| Suspense | 1,048 | `OTRR_Suspense_Singles` (2,425,097 · 7,418 · 34.6 GB); `suspenseradio` (sub-collection, 88 members); `SUSPENSE`, `SUSPENSE2`, `SUSPENSE3`, `SUSPENSE4` (~180-280 files each) | OTRR Singles: 911 VBR MP3 eps, 430 h, filenames `Suspense 420617 001 The Burning Court (128-44) 28455 30m00s.mp3` (F0), plus ASR vtt/txt/srt for every episode. `SUSPENSE`: 92 × 64Kbps MP3 named `42-06-17_Burning_Court.mp3` (F7, no series in the name), licence "publicdomain" |
+| Lux Radio Theatre | 89 | `OTRR_Lux_Radio_Theater_Singles` (821,173 · 5,875 · 33.6 GB); `Lux01`, `Lux02`, `Lux08`, `Lux09`, `Lux10` | OTRR: 789 eps, 758 h, CC BY-NC-ND 4.0; `LuxRadioTheatre46-09-02535OurVinesHaveTenderGrapes.mp3` (F1d) and `Lux_Radio_Theatre_49-06-27_664_Every_Girl_Should_Be_Married_AFRS.mp3` (F1). An AFRS copy sits next to the network copy for the same date (`...TheBarrettsOfWimpoleStreet.mp3` 3,563 s vs `...afrs.mp3` 3,056 s) |
+| X Minus One | 37 | `OTRR_X_Minus_One_Singles` (1,609,559 · 863 · 3.2 GB); `xminusoneotr` (330 files); `OTRR_Certified_X_Minus_One` (ZIP); single-episode items `XMinusOne2881956SurfaceTension`, `X_Minus_One_560515_Hallucination_Orbit`; `XMinusOneJHMC` (Joe Hehn) | OTRR: 122 eps, 51 h, `XMinusOne55-04-24001NoContact.mp3`, tag title `X Minus One 55-04-24 (001) No Contact`, album `04/24/55, episode 1`. `xminusoneotr`: 81 × 32Kbps MP3 `X_Minus_One-A_Gun_for_Dinosaur.mp3`, **no date at all** (F8), album tag "Retrovision.TV" |
+| Dimension X | 28 | `OTRR_Dimension_X_Singles` (1,114,757 · 310 · 1.4 GB); `Dimension-X` (131 files); `OTRR_Certified_Dimension_X`; `DimensionX1951092249Requiem_201703` (208 files, 2.2 GB) | |
+| The Shadow | 133 | `the-shadow-1938-10-09-141-death-stalks-the-shadow` ("239 Episodes", 482,451 · 964 · 6.0 GB); `RkoOrsonWelles-TheShadow-RadioRecodings` (232 files); `the-shadow-radio-show-1937-1954-old-time-radio-all-available-episodes` (825 files) | 239 eps, 112 h, `The Shadow 1937-09-26 (87) The Death House Rescue.mp3` (F1c). **The item id is named after one episode while holding 239**, so an item id is not an episode id |
+| Gunsmoke | 25 | `OTRR_Gunsmoke_Singles` (7,392,449 · 3,966 · 12.5 GB); `gunsmoke_radio_show_1952-1961_improved_audio_no_commercials` (1,907 files); `GUNSMOKE01`, `02`, `04`, `05` | OTRR: 487 eps, 256 h, CC BY-NC-ND 2.5, `Gunsmoke 52-05-03 (002) Ben Thompson (act 1).mp3` at 463 s, **the partial episode the OTRR log describes** ("first 7:43 survives"), so the duration does flag partials |
+| Yours Truly, Johnny Dollar | 44 | `OTRR_YoursTrulyJohnnyDollar_Singles` (5,347,645 · 2,893 · 14.2 GB); `ytjdradio` (sub-collection); `..._Singles_Bob_Bailey_2` (30-minute eps); `..._Singles_Bob_Bailey` (15-minute serials); `YTJD_B`, `YTJD_D` | `YTJD 1957-09-29 554 The Doubtful Dairy Matter [AFRTS].mp3`; the abbreviation `YTJD` needs an alias table |
+| Fibber McGee and Molly | 35 | `fibbermcgee` (sub-collection, 132); `fibber-mc-gee-and-molly` ("1254 Episodes", 303,689 · 5,031 · 12.4 GB); `FibberMcGeeandMolly1940`, `1941`, `1942`; `FibberMcgeeMolly1930s` | 1,255 eps, 475 h, `FMM 1931-06-01 (xx) Smackout.mp3` (abbreviation `FMM`, unknown number `xx`) |
+| Jack Benny | 241 | `jackbennyradio` (sub-collection, 237); `JackBenny1` (581 files); `TheJackBennyProgram` (225,425 · 3,435 · 27.9 GB); `OTRR_Jack_Benny_Singles_1949-1950`, `_1946-1947`, `_1941-1942` | `TheJackBennyProgram`: 686 eps, 327 h, PD Mark, `1932-05-02 - 001) First Show.mp3` (F7, no series in the name). OTRR: `JB 1936-11-15 Buck Benny Rides Again One.mp3` (abbreviation `JB`) |
+| The Whistler | 87 | `OTRR_Whistler_Singles` (1,460,968 · 3,021 · 12.1 GB); `The_Whistler_508_Episodes` (860 files); `TheWhistler1945_0`, `1947`, `1949`; `OTRR_Certified_Whistler` (17.8 GB ZIP) | OTRR: 502 eps, 239 h, `Whistler_42-05-16_ep001_Retribution.mp3` (F1) |
+| Escape | 65 | `OTRR_Escape_Singles` (805,884 · 1,510 · 7.0 GB); `otr_escape`; `Escape19471948`, `Escape19491950`; `Escape_page1`; `OTRR_Certified_Escape` | 250 eps, 121 h |
+| Lights Out | 39 | `LightsOutoldTimeRadio` (621,245 · 349 · 0.8 GB); `lights-out-1943-04-20-29-kill` ("71 Episodes"); `lights-out-360617-cat-wife`; single episodes `LightsOut19470716DeathRobbery`, `LightsOut-19430309_023_the_ball` | 86 eps, 37 h, `LightsOut-1936-06-17CatWife.mp3`, and `LightsOut-1936-08-5MoneyMoneyMoney.mp3` (single-digit day) |
+| Mercury Theatre / War of the Worlds | 7 / 22 | `OrsonWelles_MercuryTheatre` (17,924 · 90 · 1.4 GB, in `hifidelity`, NOT `oldtimeradio`); `MercuryTheatreOnTheAir381030WarOfTheWorlds` (single episode); `WarOfTheWorlds1938RadioBroadcast256kbps` (exists, 54,534 downloads, 36 files, 2.8 GB); `war-of-the-worlds_mixdown3` ("Remastered") | `01 38-07-11 Dracula.mp3` (a track prefix, then the date; F7); about 1-hour episodes (3,561 s) |
+| Inner Sanctum | 67 | `OTRR_Inner_Sanctum_Mysteries_Singles` (784,009 · 784 · 5.2 GB); `otr_innersanctummysteries`; `OTRR_Certified_Inner_Sanctum_Mysteries`; `TheInnerSanctum1945`; `Inner_Sanctum_otr` | `Inner Sanctum  41-12-21 The Man from Yesterday.mp3` (double space); `Inner_Sanctum_-_450109_Desert_Death.mp3` |
+| Dragnet | 27 | `Dragnet_OTR` (3,128,240 · 595 · 2.0 GB); `OTRR_Dragnet_Singles` (2,857,253 · 3,120 · 6.4 GB); `dragnet`; `Dragnet2` ("Individual Files", 11.8 GB); `OTRR_Certified_Dragnet`; `Dragnet-OTR` | `Dragnet_OTR`: 298 × 32/24Kbps MP3 `Dragnet_49-06-10_ep002_Homicide.mp3`, **no ID3 tags**, licence "publicdomain"; OTRR: `Dragnet_52-01-10_135_The_Big_Red_Part_2.mp3` |
+| Command Performance | 30 | `CommandPerformance` (297,067 · 888 · 5.3 GB); `command-performance-1948-12-25-xx-christmas-1948` ("293 episodes"); single episodes `CommandPerformance450215DickTracyInBFlat` etc. | `CP_42-03-01_ep001-Eddie_Cantor.mp3`; **mixed bitrates in one item** (24 to 256 kbps across 10 MP3 format labels) |
+
+Single-episode items found earlier by web search (`TSP420617` and
+`TSP420902` from The Suspense Project, `xminusone19550424nocontact001`,
+`JackBennyProgram481017SorryWrongNumber`) exist alongside these, so the
+same broadcast has both an item-level copy and a file-level copy.
+
+Views service, MEASURED
+(`https://be-api.us.archive.org/views/v1/short/OTRR_Suspense_Singles,TSP420617,OTRR_Gunsmoke_Singles`):
+`OTRR_Gunsmoke_Singles` all_time 7,392,449 / last_30day 25,048 / last_7day 5,495;
+`OTRR_Suspense_Singles` 2,425,097 / 17,355 / 4,130; `TSP420617` 471 / 7 / 0.
+Views exist per ITEM only. There is no per-episode count, so an episode's
+popularity has to come from other evidence (reviews that name it, members'
+lists, being the item's own namesake).
+
+Reviews, MEASURED (`/metadata/<id>` → `reviews[]`): `OTRR_Gunsmoke_Singles`
+66, `Dragnet_OTR` 50, `SUSPENSE` 36, `OTRR_X_Minus_One_Singles` 35,
+`OTRR_Certified_Suspense` 27, `LightsOutoldTimeRadio` 23,
+`OTRR_Suspense_Singles_By_Year_1942` 6. Reviews of a series set are about
+the set. Whether reviewers name episodes is unmeasured (section 6).
 
 ---
 
 ## 2. How episode identity is carried
 
-### 2.1 Filename families (the primary witness)
+### 2.1 Filename families — MEASURED hit rates
 
-From the examples above plus the OTRR convention ("uniformly named using the
-OTRR program otter", per OTR Daily via search). Regexes are written against
-the file's basename with extension removed and `_` normalized to space only
-after the first pass (OTRR uses `_` as a field separator).
+Measured over 16,544 audio works (one row per original plus its
+derivatives) from 400 sampled items: 201 OTRR items, 199 others, chosen at
+random with seed 17. In the table, "Share" is the share of all 16,544
+works, and "OTRR files" is the count among the 14,729 OTRR works. The
+regexes are the ones in `tools/probe_otr_corpus.py` and are tried in this
+order:
 
-| Family | Example (real, from snippets) | Fields |
-|---|---|---|
-| **F1 OTRR** | `Ranger_Bill_54-04-25_ep145_Tony's_Place_aka_Standing_Firm_For_What's_Right`; `Whistler_xx-xx-xx_epxxx_Kaleidoscope_epAFRTS` | series, YY-MM-DD (or xx), epNNN (or xxx), title, optional `aka`, optional version tag (`epAFRTS`) |
-| **F2 compact YYMMDD** | `xminusone_550424_NoContact`; ids `TSP420617`, `JackBennyProgram481017SorryWrongNumber` | series, YYMMDD, CamelCase title |
-| **F3 full date, spaced** | title "X Minus One 1955 04 24 No Contact ( 001)"; "The Suspense Project: 1942-06-17 The Burning Court" | series, YYYY MM DD, title, (NNN) |
-| **F4 US order** | `SuspenseTheHitchHiker09021942`; title "Suspense: The Hitch-Hiker 09-02-1942" | series, title, MM-DD-YYYY |
-| **F5 number only** | (common in user sets; e.g. "Dimension X 11 Zero Hour" style — exact spelling UNVERIFIED) | series, NNN, title |
-| **F6 none** | anything else | fall back to file `title` tag, then to item title |
+| Family | Real example (item) | Share | OTRR files |
+|---|---|---:|---:|
+| F0 otrr v2 | `Suspense 420617 001 The Burning Court (128-44) 28455 30m00s` (`OTRR_Suspense_Singles_By_Year_1942`). Fields: series, YYMMDD, epNNN, title, (kbps-kHz), size in KiB, MMmSSs | 7.3% | 1,201 |
+| F1 otrr_ep | `Whistler_42-05-16_ep001_Retribution`; `Space_Patrol_53-02-14_020_The_Mysterious_Meteor`; `CP_42-03-01_ep001-Eddie_Cantor`; `MBF_5x.xx.xx_ep49_...`; `Whistler_xx-xx-xx_epxxx_Kaleidoscope_epAFRTS`; `Lux_Radio_Theatre_45-11-05_500R_Destry_Rides_Again` | 31.7% | 5,048 |
+| F1c paren_num | `Gunsmoke 52-04-26 (001) Billy the Kid`; `The Shadow 1937-09-26 (87) ...`; `FMM 1931-06-01 (xx) Smackout` | 21.3% | 2,775 |
+| F1d camel_glued | `TheLoneRanger38-08-190868Bar-xCattleDrive`; `XMinusOne55-04-24001NoContact`; `LightsOut-1936-06-17CatWife` | 21.2% | 3,428 |
+| F1e series_date_title | `Inner Sanctum  41-12-21 The Man from Yesterday`; `MGM Movie Previews 53-xx-xx Caddy` | 4.2% | 619 |
+| F5 number only | `Dimension X 011 Zero Hour`; `The Golden Gate Quartet Sings 008`-style | 3.2% | 177 |
+| F0b camel yymmdd+num | `Pwh541114319AGuyNamedScottc` (`OTRR_Proudly_We_Hail_Singles`) | 2.1% | 354 |
+| F1f paren_num_first | `Father Knows Best (055) 1950-11-02 Too Many Problems` | 1.5% | 252 |
+| F2b series yymmdd title | `Inner_Sanctum_-_450109_Desert_Death` | 0.8% | 54 |
+| F8 series-dash-title | `X_Minus_One-A_Gun_for_Dinosaur` (`xminusoneotr`, no date) | 0.3% | 10 |
+| F2 yymmdd | `xminusone_550424_NoContact`; `TSP420617`; `JackBennyProgram481017SorryWrongNumber` | 0.1% | 3 |
+| F7 date_first | `42-06-17_Burning_Court`; `1932-05-02 - 001) First Show`; `01 38-07-11 Dracula` | 0.1% | 1 |
+| F4 us mmddyyyy | `SuspenseTheHitchHiker09021942` | <0.1% | 0 |
+| F6 none | see below | **6.2%** | 607 |
 
-Date normalization rules:
-- Two-digit years map to 19YY (OTR window 1920-1975). A YY outside the
-  series' run (from the series log) demotes the parse to "unconfirmed".
-- `aa-bb-cc`: if `aa > 12` it is YY-MM-DD; if `cc > 31` impossible; if
-  `aa <= 12` and `cc` within run years, it may be MM-DD-YY — resolve by
-  majority order across the item (an item uses one convention).
-- `xx` in any field means unknown, never zero.
-- A date must be a real calendar day; Feb 30 is a parse failure, logged.
+Outcome, MEASURED:
 
-### 2.2 File-level metadata (the secondary witness)
+| | Works | Items | Hours | Full date | Decade only | Unparsed |
+|---|---:|---:|---:|---:|---:|---:|
+| OTRR | 14,729 | 123 with audio | 6,884 | **83.7%** | 1,431 (9.7%) | 4.1% |
+| non-OTRR | 1,815 | 193 with audio | 808 | **49.7%** | 42 | 22.8% |
+| all | 16,544 | 316 | 7,692 | **80.0%** (80.2% with the tag fallback) | 1,473 | 6.2% |
 
-`/metadata/{id}` returns `files[]`; each entry carries `name`, `source`
-(`original` | `derivative` | `metadata`), `format`, `size`, `md5`, `crc32`,
-`sha1`, `mtime`, and for media often `length` (per the Metadata API docs and
-the 2013 IA blog post on video duration fields; that `length` is present on
-audio files is **UNVERIFIED** but Archive Watch's `runtime_from_file` already
-parses both `HH:MM:SS` and seconds forms). For MP3 originals with ID3 tags,
-archive.org commonly exposes `title`, `track`, `album`, `creator`/`artist`,
-`genre` per file — **UNVERIFIED**; measured by the probe (`tag_hit_rate`).
-Derivatives carry `original: <source filename>`, which is how a VBR MP3 or
-Ogg derivative is tied back to its upload.
+Of the 400 sampled items, 84 had no audio works: the Certified ZIP sets and
+text, image and movie items.
 
-Formats to expect (archive.org format reference via search): **VBR MP3**,
-**Ogg Vorbis** (derivative), **64Kbps MP3** (old derivative: IA stopped
-making 64 kb MP3s for new derivatives in 2009 but kept existing ones),
-"128Kbps MP3", "Flac", "WAVE", plus non-audio noise: "Spectrogram", "PNG",
-"Item Tile", "Metadata", "Archive BitTorrent", "Columbia Peaks" (exact names
-**UNVERIFIED**; the probe prints the distribution).
+What is still unparsed (MEASURED examples, worth the next families):
+`Clyde Beatty Show 50xxxx (020) The Bear` and `Firefighters 49xxxx (026)
+...` (YYxxxx dates), `Molly__The_Captain_50-06-27` (date with no title),
+`361114_Hamlet_Part_2` (YYMMDD first), `Afrs732-WordsWithMusic-withoutPoetry04-29-47`
+(AFRS number with an MM-DD-YY date), `mellow080213` (a 2013 modern show
+in `IAMT2012-2013`, correctly unparsed), `And the Winner Is..., Series 2,
+Episode 2` (a BBC series and episode number), and biography and extra
+files (`Kathleen Lockhart Biography.mp3`). The OTRR unparsed files sit
+mainly in `OTRR_Firefighters_Singles` (153), `OTRR_Golden_Gate_Quartet_Sings_Singles`
+(79), `OTRR_Singles_And_Doubles_vol_2_Singles` (76) and
+`OTRR_Proudly_We_Hail_Singles` (69).
+
+Rules learned from the measurement:
+- **Series names in filenames need an alias table.** `FMM`, `JB`, `YTJD`,
+  `CP`, `MBF`, `Pwh`, `BCRC` and `TheLoneRanger`/`The Lone Ranger` are
+  real examples. The item's `title` and its OTRR series subject supply the
+  canonical name. Do not trust the filename's series token alone.
+- **A date may be partial.** `5x.xx.xx`, `3x-xx-xx` and `53-xx-xx` occur
+  (1,473 decade-only works). Keep the decade and leave the date null. Never
+  invent a day.
+- **An episode number may carry a suffix.** `500R` means a rebroadcast.
+  Keep it as the variant, and keep the number.
+- **The variant is in the name.** AFRS (405 works) and AFRTS (201) show up
+  as `_AFRS`, `afrs` glued to the title, `[AFRTS]`, `{AFRTS}` or
+  `_epAFRTS`. An AFRS copy and the network copy of the same date are two
+  copies of one episode: the network copy is the default, and the AFRS
+  copy is a version.
+- MM-DD-YY written in a YY-MM-DD slot did not occur in the sample (the
+  `_mdy` branch never fired). The swap check stays as a guard.
+
+### 2.2 File-level metadata — MEASURED
+
+Keys present on original audio file entries in `/metadata/<id>` → `files[]`
+(25,263 audio file entries, derivatives included):
+
+| Key | Present | Notes |
+|---|---:|---|
+| name, source, format, mtime, size, md5, crc32, sha1 | 100% | |
+| **length** | 99.9% (99.8% of works) | seconds as a decimal string (`"1800.44"`), and **sometimes `MM:SS`** (`"28:48"` seen); parse both (`archive_lib.runtime_from_file` already does) |
+| height, width | 88.6% | album-art dimensions from the MP3 |
+| title | 92.8% of works | ID3 title; OTRR files carry `Billy the Kid` or the full `X Minus One 55-04-24 (001) No Contact` |
+| track | 93.2% | track order inside the set, **not** the episode number |
+| album | 73.5% | OTRR: **`MM/DD/YY, episode N`**, a structured second witness (MEASURED: agrees with the filename date 6,763 times, disagrees 159, supplies a date the filename lacked 35 times). Elsewhere: series or set names, or "Retrovision.TV" |
+| artist / creator / genre / comment | 88% / 75% / 86% / ~42% | |
+| original | on derivatives | links an `Ogg Vorbis` or `VBR MP3` derivative to its upload |
+| external-identifier | ~22% | AcoustID ids (`urn:acoustid:71960f38-...`, MEASURED); a candidate cross-upload dedupe key |
+| bitrate | 3% | rarely set, so derive bitrate from size ÷ length |
+
+Formats, MEASURED. Original audio: VBR MP3 15,184 · Flac 945 · 128Kbps MP3
+481 · 32Kbps MP3 266 · 64Kbps MP3 165 · 24bit Flac 46 · WAVE 35 · "Audio"
+25 · minor others. Derivative audio: Ogg Vorbis 7,312 · VBR MP3 428 ·
+64Kbps MP3 322 · Flac 35. Non-audio companions on every episode: `PNG`
+(waveform, 16,526), `Spectrogram` (16,236), `Columbia Peaks` (`.afpk`,
+15,228), `Essentia Low/High GZ` (audio features, ~1,980 each), and ASR
+`Text` / `Web Video Text Tracks` / `SubRip` (4,084 / 4,063 / 2,715).
+
+**ASR transcripts** are `<stem>.autogenerated.vtt` (source `original`, so
+uploaded by archive.org's own process), `<stem>.autogenerated.txt` and
+`<stem>.autogenerated.asr.srt` (a SubRip derivative of the vtt). They are
+keyed to the MP3 by the shared stem.
 
 ### 2.3 Item-level metadata
 
-`metadata.identifier`, `title`, `creator`, `date`/`year`, `subject` (OTRR
-release tags live here), `collection` (list), `description` (HTML, often the
-OTRR boilerplate plus a series log), `licenseurl`, `uploader`, `publicdate`,
-`addeddate`. Search-side fields: `downloads`, `week`, `month`,
-`num_favorites`, `avg_rating`, `num_reviews`, `item_size`, `files_count`
-(Archive Watch's `harvest_community_signals.py` reads the first six live).
+MEASURED on `OTRR_Suspense_Singles_By_Year_1942`: `title "Suspense - Single
+Episodes - 1942"`, `collection [suspenseradio, oldtimeradio, radioprograms,
+theoldtimeradio]`, a long `subject` string (above), `licenseurl
+http://creativecommons.org/licenses/by-nc-nd/4.0/`, `date 2020-01-12`
+(**the upload date, not the broadcast date**), `mediatype audio`. The
+scrape API does not return `uploader` (always empty in `items.jsonl`). Use
+`/metadata/<id>` for it.
 
 ---
 
-## 3. APIs (what each is for, with what we already know works)
+## 3. APIs, MEASURED behavior
 
-| API | URL | Use | Notes |
-|---|---|---|---|
-| Scrape | `https://archive.org/services/search/v1/scrape?q=&fields=&sorts=&count=&cursor=` | enumerate every candidate item | cursor paging; `count` minimum 100 per IA help; Archive Watch uses 5,000 in `discover_archive_collections.py`; `total_only=true` for counts; if `identifier` is in `sorts` it must be last; returns `items`, `count`, `total`, `cursor` |
-| Advanced Search | `https://archive.org/advancedsearch.php?q=&fl[]=&rows=&output=json` | batched signal reads (`identifier:(a OR b ...)`) | sorted paging capped at 10,000 — use Scrape for enumeration |
-| Metadata | `https://archive.org/metadata/{id}` (sub-paths `/metadata`, `/files`, `/reviews`?) | `files[]` (episodes), `metadata`, `reviews[]` | `reviews[]` entries have `reviewtitle`, `reviewbody`, `stars`, `reviewer`, `reviewdate` (Archive Watch's `harvest_reviews.py` + `comment_fit.py` consume these) |
-| Download | `https://archive.org/download/{id}/{urlquoted filename}` | the playable URL | 302 to a storage node (`ia8xxxxx.us.archive.org/...`); keep the `/download/` form in the catalog and let the client follow the redirect (Decision 031/034's node pinning and failover apply to audio too). Range requests supported (Decision 029's CORS/Range matrix covers it for the web) |
-| Views | `https://be-api.us.archive.org/views/v1/short/{id1},{id2},...` | all-time/30d/7d views | item-level only. A view = play press or file download, once per user per day (archive.org/developers/views.html). **Per-file (per-episode) counts do not exist** — popularity of an episode must come from elsewhere (item views spread over files, reviews mentioning titles, member lists) |
-| Member lists | `https://archive.org/services/users/@{user}/lists` | human lists (Decision 041, owner's "no AI lists" rule) | as `harvest_member_lists.py` |
-| Full-text search | IA's FTS indexes OCR text; for audio it is of little use, except for scanned scripts, logs and the Joe Hehn collector catalogs | not measured | low priority |
+| API | Measured | Use |
+|---|---|---|
+| Scrape `https://archive.org/services/search/v1/scrape?q=&fields=&count=5000&cursor=` | Enumerated all five seeds to completion with `count=5000` (e.g. `collection:oldtimeradio` total 8,952, read 8,952). **Two anomalies**: `total_only=true` returned `total 8952` for EVERY query tried (`identifier:OTRR_*`, `mediatype:radio`, `collection:librivoxaudio`...), and some `count=100&fields=identifier` calls returned a bogus single record (`theses-and-dissertations`, total 1). Never trust a scrape total alone. Cross-check against advancedsearch `numFound`, which was consistent | enumeration |
+| advancedsearch `rows=0` | consistent counts; used for every count in section 1.1 | counts, batched signals |
+| `/metadata/<id>` | full `files[]` and `reviews[]`; OTRR mega-items run to several MB (`OTRR_Suspense_Singles`: 911 episodes × 8 files each) | episodes, reviews |
+| `/download/<id>/<quoted name>` | `HTTP/2 302` → `https://dn721300.ca.archive.org/0/items/<id>/<name>`, `accept-ranges: bytes` | playback URL. Store the `/download/` form; the client follows the redirect (Decisions 031/034) |
+| be-api views | `{"<id>": {"all_time", "last_30day", "last_7day", "have_data"}}` | item momentum only |
+| `/services/users/@<user>/lists` | not re-measured; used live by `harvest_member_lists.py` | human lists |
 
-**Etiquette.** IA publishes no fixed quota. Its 2023 post asks bulk users to
-"start slowly, and ramp up", to email info@archive.org before a large
-project, and, if blocked, to reach out rather than retry; the block page
-names Aitratelimit@archive.org. A September 2026 secondary report says
-Wayback (not the item APIs) now answers HTTP 429 under bot load. Rules for
-our ingest: a descriptive User-Agent (the existing `A.UA`), one metadata
-request at a time at <= 1-2 req/s, exponential backoff on 429/5xx, resume
-from a checkpoint, and an email to info@archive.org before the first full
-harvest.
+Pace used for the measurement: sequential requests, a 0.7 s pause, with
+backoff on 429/5xx. No HTTP error or retry appears in the final run's log (the first run's
+log was overwritten, so its record is not kept). A 400-item sample took ~40 minutes, because
+the OTRR metadata responses are large. **A full harvest (~12,200 items) at
+this pace takes ~20 hours.** Run it incrementally (new or changed items
+only, keyed on `OTRR - YYYY-MM` subjects and `publicdate`). Per IA's 2023
+guidance, email info@archive.org before the first full pass.
 
 ---
 
-## 4. Ingest algorithm
+## 4. Ingest algorithm (revised against the measurements)
 
 ### 4.1 Data model produced (per episode)
 
 ```
 Episode {
-  seriesKey      "suspense"                       normalized series
-  airDate        "1942-06-17" | null              ISO, day precision or null
-  airDateQuality "parsed" | "item-majority" | "log-confirmed" | "unknown"
-  epNumber       1 | null                         series episode number (OTRR epNNN, AFRS #)
+  seriesKey      "suspense"                     canonical series (alias table + item title + OTRR subject)
+  airDate        "1942-06-17" | null            ISO day, or null
+  decade         "1940s" | null                 from a partial date like 4x-xx-xx
+  dateWitnesses  ["filename:F0", "album-tag"]   which sources gave the date (Decision 084)
+  epNumber       1 | null                       OTRR epNNN / (NNN) / AFRS #
   title          "The Burning Court"
-  altTitles      ["..."]                          aka, other uploads' titles
-  variant        "AFRS" | "rehearsal" | "aircheck" | "partial" | null
-  durationSec    1782
-  copies [ Copy{archiveID, file, format, bitrate, sizeBytes, md5, durationSec,
-                source(original|derivative), tier, licenseurl, parsedBy(F1..F6)} ]
-  defaultCopy    index into copies
+  altTitles      [...]                          aka, other uploads' titles
+  copies [ Copy{archiveID, file, format, kbps, sizeBytes, md5, durationSec,
+                variant(network|AFRS|AFRTS|rebroadcast|partial|rehearsal),
+                tier(otrr_singles|otrr_split|dedicated|user), licenseurl,
+                parsedBy, asrVtt?} ]
+  defaultCopy    index
 }
 ```
 
-The episode, not the item, is the catalog row. Items become provenance and
-"collections" (OTRR set = a shelf from data). This mirrors Archive Watch's
-versions picker (`item_aliases`, Decisions 040/143/158): a broadcast has many
-copies, one default.
-
-### 4.2 Pseudocode (Python)
+### 4.2 Pseudocode
 
 ```python
-SCRAPE = "https://archive.org/services/search/v1/scrape"
-META   = "https://archive.org/metadata/"
+SEEDS = ['collection:oldtimeradio', 'identifier:OTRR_*', 'subject:"old time radio"',
+         'subject:"otrr"', 'collection:lumedwards']           # never collection:radioprograms
 
-SEED_QUERIES = [
-    'collection:oldtimeradio',
-    'collection:radioprograms',
-    'identifier:OTRR_*',
-    'subject:"old time radio" AND mediatype:audio',
-    'subject:"otrr"',
-]
+def enumerate_items(s):
+    for q in SEEDS:
+        for it in scrape(q, fields="identifier,title,mediatype,collection,item_size,"
+                                   "files_count,subject,licenseurl,publicdate", count=5000):
+            if it["mediatype"] != "audio":
+                continue                                   # texts/images = logs, scripts, art
+            yield it
+    # cross-check every scrape total with advancedsearch numFound (scrape anomaly, section 3)
 
-def enumerate_items(session):
-    seen = set()
-    for q in SEED_QUERIES:
-        cursor = None
-        while True:
-            p = {"q": q, "count": 5000,
-                 "fields": "identifier,title,mediatype,collection,downloads,"
-                           "item_size,files_count,subject,licenseurl,publicdate"}
-            if cursor: p["cursor"] = cursor
-            data = get_json(session, SCRAPE, p)
-            for it in data.get("items", []):
-                if it["identifier"] not in seen:
-                    seen.add(it["identifier"]); yield it
-            cursor = data.get("cursor")
-            if not cursor: break
-            sleep(0.5)
+def playable_files(meta):
+    for f in meta["files"]:
+        n = f["name"]
+        if not n.lower().endswith((".mp3", ".flac", ".wav", ".ogg")):   # ZIPs are not playable
+            continue
+        if str(f.get("private", "")).lower() == "true" or re.search(r"(^|/)history/|\.~\d+~$", n):
+            continue
+        yield f
 
-AUDIO_EXT = (".mp3", ".ogg", ".flac", ".wav", ".m4a", ".opus")
-FORMAT_RANK = [  # lower is better; MP3 first because every client (Roku, Tizen 2022) plays it
-    lambda f: is_mp3(f) and f["source"] == "original",      # the upload itself; no re-encode loss
-    lambda f: f["format"] == "VBR MP3",                       # derivative of a lossless original
-    lambda f: is_mp3(f),                                      # 128Kbps / 64Kbps derivatives
-    lambda f: f["format"] == "Ogg Vorbis",
-    lambda f: f["format"] in ("Flac", "WAVE"),                # too large to stream as default
-]
+def best_file(group):                       # group = an original + its derivatives
+    rank = [lambda f: f["source"] == "original" and "MP3" in f["format"],   # 92% case
+            lambda f: f["source"] == "derivative" and f["format"] == "VBR MP3",  # from FLAC/WAV
+            lambda f: "MP3" in f["format"],
+            lambda f: f["format"] == "Ogg Vorbis"]
+    for pred in rank:
+        m = [f for f in group if pred(f)]
+        if m:
+            return max(m, key=lambda f: int(f.get("size") or 0))
+    return None                             # FLAC-only with no derivative: not served
 
-def episodes_of(item_meta):
-    files = [f for f in item_meta["files"]
-             if f["name"].lower().endswith(AUDIO_EXT)
-             and str(f.get("private", "")).lower() != "true"        # archive_lib lesson
-             and not re.search(r"(^|/)history/|\.~\d+~$", f["name"])]  # replaced revisions
-    by_work = group_by(files, key=lambda f: stem(f.get("original") or f["name"]))
-    order = item_date_order(files)          # majority YY-MM-DD vs MM-DD-YY across the item
-    for stem_key, group in by_work.items():
-        best = min(group, key=lambda f: (rank(f, FORMAT_RANK), -int(f.get("size") or 0)))
-        parsed = parse_name(stem_key, order) or parse_tags(best) or parse_item_title(item_meta)
-        yield Candidate(series=normalize_series(parsed.series or item_series(item_meta)),
-                        date=parsed.date, num=parsed.num, title=parsed.title,
-                        variant=parsed.variant, file=best,
-                        duration=runtime(best.get("length")),
-                        md5=best.get("md5"), parsed_by=parsed.family,
-                        archive_id=item_meta["metadata"]["identifier"],
-                        licenseurl=item_meta["metadata"].get("licenseurl"),
-                        tier=otrr_tier(item_meta))
-
-def dedupe(cands):
-    # exact file: same md5 anywhere => same copy (re-uploads of one file)
-    # same broadcast: (series, date) equal AND durations agree
+def episodes_of(meta):
     groups = defaultdict(list)
-    for c in cands:
-        key = (c.series, c.date) if c.date else (c.series, "n", c.num) if c.num \
-              else (c.series, "t", norm_title(c.title))
-        groups[key].append(c)
-    for key, cs in groups.items():
-        for cluster in cluster_by_duration(cs, tol=lambda d: max(90, 0.05 * d)):
-            # a same-date cluster that splits on duration is TWO things:
-            # a partial recording, an AFRS cut, or an East/West repeat
-            yield Episode.from_copies(cluster, default=best_copy(cluster))
+    for f in playable_files(meta):
+        groups[stem(f.get("original") or f["name"])].append(f)
+    for st, group in groups.items():
+        f = best_file(group)
+        if not f: continue
+        p = parse(f["name"])                               # section 2.1 families
+        tag = parse_album_tag(f.get("album"))              # "MM/DD/YY, episode N"
+        date = p["date"] or (tag and tag["date"])
+        series = canonical_series(p["series"], meta["metadata"])   # alias table first
+        yield Copy(series, date, p["decade"], p["num"] or (tag and tag["num"]),
+                   p["title"] or f.get("title"), p["variant"], f,
+                   seconds(f.get("length")), asr=st + ".autogenerated.vtt")
 
-def best_copy(cluster):
-    return min(cluster, key=lambda c: (
-        c.variant is not None,          # the broadcast before AFRS/rehearsal cuts
-        TIER_ORDER[c.tier],             # OTRR maintained > singles > curated > dedicated > user
-        -(c.duration or 0) if c.variant == "partial" else 0,
-        -bitrate(c.file)))
+def merge(copies):
+    by_key = defaultdict(list)
+    for c in copies:
+        key = (c.series, c.date) if c.date else \
+              (c.series, "n", c.num) if c.num else (c.series, "t", norm(c.title))
+        by_key[key].append(c)
+    for key, cs in by_key.items():
+        cs = drop_exact(cs, key=lambda c: c.md5)    # OTRR mega-item vs its own split: same md5
+        ep = Episode(key, cs)
+        longest = max(c.duration or 0 for c in cs)
+        for c in cs:                                # duration FLAGS, never splits (section 4.3)
+            if c.duration and c.duration < 0.6 * longest:
+                c.variant = c.variant or "partial"
+        ep.default = min(cs, key=lambda c: (c.variant is not None, TIER[c.tier],
+                                            -(c.kbps or 0)))
+        yield ep
 ```
 
-Rules carried from Archive Watch:
-- **Additive, merge-guarded writes** (Decision 020): an ingest run adds and
-  updates episodes; it never replaces the episode table with a smaller one,
-  and a run that produced nothing goes red (Decisions 093/107).
-- **A replaced or private file is never a copy** (`archive_lib.pick_video`'s
-  two filters, both reused above).
-- **Merged-away keys forward** (Decision 085): when two episode keys are
-  later found to be one broadcast, the losing key forwards to the survivor
-  so favorites and history do not vanish.
-- **Record the evidence** (Decision 084): store `parsedBy`, the raw
-  filename, and the md5/duration that justified a merge.
-- **Same title is not same broadcast**: X Minus One reran Dimension X scripts;
-  Lux, Suspense and Escape reused scripts. The key is the date, never the
-  title alone; a title-only key is used only for undated files and is marked
-  low confidence.
+### 4.3 Measured thresholds
 
-### 4.3 Regex families (concrete)
+- **The merge key is (canonical series, date).** In the Suspense
+  comparison it matched 89/91, 90/91 and 77/78 of the community items'
+  dates to OTRR's.
+- **Duration agreement**: the same broadcast across uploads differs by
+  33-43 s at the median, 92-160 s at the 90th percentile, and 357 s at
+  most (MEASURED). A ±90 s veto would wrongly split 10-22% of true
+  matches (80/89, 70/90, 60/77 within 90 s). Use duration only to flag a copy under ~60% of the longest as
+  `partial` (Gunsmoke 1952-05-03 is 463 s against ~1,740 s).
+- **md5** identifies only re-uploads of one file (OTRR splits). Across
+  independent uploads it matched 0 times.
+- **Same date, different variant**: AFRS/AFRTS copies of a network
+  broadcast are shorter (Lux 3,056 s vs 3,563 s). The filename variant
+  tag decides that a copy is a variant, not the duration.
+- **Item ids lie about content.** `the-shadow-1938-10-09-141-death-stalks-the-shadow`
+  holds 239 episodes. Never derive an episode from an item id unless the
+  item holds exactly one audio work.
 
-```python
-YMD2 = r"(?P<yy>\d{2}|xx)-(?P<mm>\d{2}|xx)-(?P<dd>\d{2}|xx)"
-F1 = re.compile(rf"^(?P<series>.+?)_{YMD2}_(?:ep)?(?P<num>\d{{1,4}}|x+)_(?P<title>.+?)"
-                r"(?:_aka_(?P<aka>.+?))?(?:_ep(?P<variant>AFRTS|AFRS|Rehearsal|Audition))?$", re.I)
-F2 = re.compile(r"^(?P<series>[A-Za-z][A-Za-z_ ]*?)[_ -]?(?P<yy>[1-7]\d)(?P<mm>0[1-9]|1[0-2])"
-                r"(?P<dd>0[1-9]|[12]\d|3[01])[_ -]?(?P<title>[A-Za-z].*)?$")
-F3 = re.compile(r"^(?P<series>.+?)[ _-]+(?P<yyyy>19[2-7]\d)[ ._-](?P<mm>\d{2})[ ._-](?P<dd>\d{2})"
-                r"[ _-]*(?P<title>.*?)(?:\(\s*(?P<num>\d{1,4})\s*\))?$")
-F4 = re.compile(r"^(?P<head>.+?)[ _-]*(?P<mm>0[1-9]|1[0-2])[-_ ]?(?P<dd>[0-3]\d)"
-                r"[-_ ]?(?P<yyyy>19[2-7]\d)$")
-F5 = re.compile(r"^(?P<series>.+?)[ _-]+(?:#|ep\.?|no\.?\s*)?(?P<num>\d{1,4})[ _-]+(?P<title>[A-Za-z].+)$", re.I)
-```
-
-Order of attempts: F1, F3, F4, F2, F5. F2 is tried late because six digits in
-a CamelCase id can be a catalogue number; it requires the YY to fall in the
-series' run when a run is known.
+Rules carried from Archive Watch: additive merge-guarded writes (Decision
+020); a run that produced nothing goes red (093/107); private and history
+files are never copies (`archive_lib.pick_video`); merged-away keys
+forward (085); record the evidence (084). And the lesson of
+`backfill_tv_episodes.py`: ingest applies no rights judgment of its own,
+but it must carry what the rights audit needs (`licenseurl`, airDate, the
+series' network and country) onto every copy, so that nothing reaches a
+shelf unjudged (SCRATCHPAD's television-rights section).
 
 ---
 
-## 5. Open structural questions (answered by the probe)
+## 5. Hours and size estimates (MEASURED sample, scaled — treat as ranges)
 
-1. Share of OTR files that sit in multi-episode items versus one-file items.
-2. Hit rate of F1-F5 over all audio files, and over OTRR files alone.
-3. Whether `title`/`track`/`album` tags are present on originals, and how
-   often they agree with the filename parse.
-4. Format distribution, and whether OTRR originals are already MP3 (so no
-   VBR derivative exists and the original is what plays).
-5. Total hours (sum of `length`) and duplicate rate (md5 collisions; same
-   series+date across items).
-6. Top series by file count, to pick the first shelves.
-7. `mediatype` distribution (audio versus anything else) under each seed.
+| Group | Sampled | Hours in sample | Scaled by item count | Scaled by bytes |
+|---|---|---:|---:|---:|
+| OTRR (526 items, 1.43 TB) | 201 | 6,884 | ~18,000 h | ~16,000 h |
+| Other OTR items (11,645, 7.0 TB) | 199 | 808 | ~47,000 h | ~81,000 h |
+
+These are hours of uploads, not of distinct broadcasts. OTRR's splits
+re-upload the mega-items' files, and community sets repeat OTRR's
+broadcasts (above). Distinct dated broadcasts in the sample: 12,099
+(series+date), of which 734 already appear in more than one sampled item.
+A defensible statement is "on the order of tens of thousands of hours of
+uploads; the distinct catalog is smaller and unmeasured". The full-pass
+probe (`--sample all`) measures it.
+
+Top series by episode files in the sample (normalized series token;
+OTRR-dominated because half the sample is OTRR): theloneranger 2,170 ·
+suspense 1,168 · familytheater 525 · whistler 503 · gunsmoke 480 ·
+proudlywehail 423 · jb (Jack Benny) 397 · claudia 388 · gueststar 381 ·
+callingallcars 298 · philharris 250 · bcrc 222 · rangerbill 221 ·
+theaterfive 221 · firefighters 196 · ourmissbrooks 191 · duffystavern 173 ·
+innersanctum 155 · nickcarter 150 · fatherknowsbest 149. Biggest sampled
+items by hours: `OTRR_LoneRanger_Singles` 1,051 h · `OTRR_Lux_Radio_Theater_Singles`
+758 · `OTRR_Suspense_Singles` 430 · `OTRR_Gunsmoke_Singles` 256 ·
+`OTRR_Family_Theater_Singles` 246 · `OTRR_Whistler_Singles` 239 ·
+`OTRR_Proudly_We_Hail_Singles` 219 · `OTRR_Dragnet_Singles` 162.
 
 ---
 
-## To measure
+## 6. Still to measure
 
-### A. One-liners
+1. **Full pass**: `python3 -I tools/probe_otr_corpus.py --sample all --pause 1.0 --out <dir>`
+   (~20 h). It gives true totals, distinct broadcasts and the cross-item
+   duplicate rate.
+2. **Reviews that name episodes**: for the ten most-reviewed OTRR items,
+   count reviews whose text contains an episode title parsed from the same
+   item. This could supply an episode-level "loved" signal from human data.
+3. **ASR coverage**: count `.autogenerated.vtt` against MP3s over the full
+   pass, and judge WER on 10 episodes against OTRR's log titles (Decision
+   062's discipline).
+4. **`external-identifier`** (AcoustID) values: check whether they
+   link independent uploads of one broadcast (md5 cannot).
+5. **OTRR description logs**: test whether the item `description` holds a
+   parseable dated episode list. That would be a third identity witness
+   for the 4-23% unparsed files.
+6. The next filename families (section 2.1, unparsed examples), then a
+   re-measure. Target: <2% unparsed in OTRR and <10% elsewhere.
+
+### Exact commands used for this document
 
 ```bash
-# Collection totals (Scrape API total_only)
-for q in 'collection:oldtimeradio' 'collection:radioprograms' 'identifier:OTRR_*' \
-         'subject:"old time radio"' 'collection:lumedwards' 'mediatype:radio'; do
-  printf '%s\t' "$q"
-  curl -sG https://archive.org/services/search/v1/scrape \
-       --data-urlencode "q=$q" --data-urlencode total_only=true | python3 -c 'import sys,json;print(json.load(sys.stdin).get("total"))'
-done
-
-# One OTRR item's file shape
-curl -s https://archive.org/metadata/OTRR_Suspense_Singles_By_Year_1942 | \
-  python3 -c 'import sys,json;d=json.load(sys.stdin);[print(f.get("format"),f.get("source"),f.get("length"),f.get("title"),f.get("track"),f["name"]) for f in d["files"][:40]]'
-
-# Does a /download/ URL redirect to a storage node and accept Range?
-curl -sI -r 0-1023 "https://archive.org/download/TSP420617/" | head -5
+# counts (section 1.1)
+curl -sG https://archive.org/advancedsearch.php --data-urlencode "q=collection:oldtimeradio" \
+     --data-urlencode rows=0 --data-urlencode output=json
+# famous series (section 1.3)
+curl -sG https://archive.org/advancedsearch.php \
+  --data-urlencode 'q=title:("Suspense") AND (collection:oldtimeradio OR identifier:OTRR_* OR subject:"old time radio")' \
+  --data-urlencode "fl[]=identifier" --data-urlencode "fl[]=downloads" --data-urlencode "fl[]=files_count" \
+  --data-urlencode "fl[]=item_size" --data-urlencode "fl[]=title" --data-urlencode "sort[]=downloads desc" \
+  --data-urlencode rows=6 --data-urlencode output=json
+# file structure
+curl -s https://archive.org/metadata/OTRR_Suspense_Singles_By_Year_1942
+# redirect + range
+curl -sI "https://archive.org/download/OTRR_Suspense_Singles_By_Year_1942/Suspense%20420617%20001%20The%20Burning%20Court%20%28128-44%29%2028455%2030m00s.mp3"
+# views
+curl -s "https://be-api.us.archive.org/views/v1/short/OTRR_Suspense_Singles,TSP420617,OTRR_Gunsmoke_Singles"
+# the probe (sections 2, 5)
+python3 -I tools/probe_otr_corpus.py --out otr-probe --sample 400 --pause 0.7
 ```
 
-### B. `tools/probe_otr_corpus.py` (Python 3 stdlib only, save verbatim)
+---
+
+## Appendix — `tools/probe_otr_corpus.py` (as run 2026-10-17)
 
 ```python
 #!/usr/bin/env python3
@@ -439,38 +566,26 @@ META = "https://archive.org/metadata/"
 
 SEEDS = {
     "oldtimeradio": "collection:oldtimeradio",
-    "radioprograms": "collection:radioprograms",
     "otrr_ids": "identifier:OTRR_*",
     "subject_otr": 'subject:"old time radio"',
     "subject_otrr": 'subject:"otrr"',
     "lumedwards": "collection:lumedwards",
-    "mediatype_radio": "mediatype:radio",
 }
+# Counted only (advancedsearch numFound), never enumerated: radioprograms is
+# archive.org's umbrella "Radio Show and Programs Archive" (millions of items,
+# mostly modern community audio), librivoxaudio is audiobooks.
+COUNT_ONLY = [
+    "collection:oldtimeradio", "collection:oldtimeradio AND mediatype:audio",
+    "collection:radioprograms", "collection:librivoxaudio", "mediatype:radio",
+    "identifier:OTRR_*", 'subject:"otrr"', 'subject:"old time radio"',
+    'subject:"old time radio" AND NOT collection:oldtimeradio',
+    "collection:lumedwards", "uploader:OTRRArchive*",
+]
+ADV = "https://archive.org/advancedsearch.php"
 FIELDS = ("identifier,title,mediatype,collection,downloads,item_size,"
           "files_count,subject,licenseurl,publicdate,uploader")
 
 AUDIO_EXT = (".mp3", ".ogg", ".flac", ".wav", ".m4a", ".opus", ".aiff", ".wma")
-
-YMD2 = r"(?P<yy>\d{2}|xx)-(?P<mm>\d{2}|xx)-(?P<dd>\d{2}|xx)"
-PATTERNS = [
-    ("F1_otrr", re.compile(
-        rf"^(?P<series>.+?)_{YMD2}_(?:ep)?(?P<num>\d{{1,4}}|x+)_(?P<title>.+?)"
-        r"(?:_aka_(?P<aka>.+?))?(?:_ep(?P<variant>AFRTS|AFRS|Rehearsal|Audition))?$", re.I)),
-    ("F1b_otrr_spaced", re.compile(
-        rf"^(?P<series>.+?)[ _]+{YMD2}[ _]+(?:ep|#)?(?P<num>\d{{1,4}}|x+)?[ _]*(?P<title>.*)$", re.I)),
-    ("F3_iso", re.compile(
-        r"^(?P<series>.+?)[ _-]+(?P<yyyy>19[2-7]\d)[ ._-](?P<mm>\d{2})[ ._-](?P<dd>\d{2})"
-        r"[ _-]*(?P<title>.*?)(?:\(\s*(?P<num>\d{1,4})\s*\))?$")),
-    ("F4_us", re.compile(
-        r"^(?P<head>.+?)[ _-]*(?P<mm>0[1-9]|1[0-2])[-_ ]?(?P<dd>[0-3]\d)"
-        r"[-_ ]?(?P<yyyy>19[2-7]\d)$")),
-    ("F2_yymmdd", re.compile(
-        r"^(?P<series>[A-Za-z][A-Za-z_ ]*?)[_ -]?(?P<yy>[1-7]\d)(?P<mm>0[1-9]|1[0-2])"
-        r"(?P<dd>0[1-9]|[12]\d|3[01])(?:[_ -]?(?P<title>[A-Za-z].*))?$")),
-    ("F5_number", re.compile(
-        r"^(?P<series>.+?)[ _-]+(?:#|ep\.?|no\.?\s*)?(?P<num>\d{1,4})[ _-]+(?P<title>[A-Za-z].+)$", re.I)),
-]
-
 
 def get_json(url, params=None, *, pause, tries=6):
     if params:
@@ -495,6 +610,10 @@ def get_json(url, params=None, *, pause, tries=6):
 
 
 def scrape(q, *, pause, count=5000):
+    # Seen 2026-10-17: some scrape calls answered a bogus single record
+    # ("theses-and-dissertations", total 1) and total_only=true returned the
+    # same total for every query; so totals are cross-checked against
+    # advancedsearch numFound in the report, never trusted alone.
     total = None
     cursor = None
     while True:
@@ -547,6 +666,90 @@ def valid_date(y, m, d):
         return False
 
 
+# Filename families, in the order they are tried. Every example is a real
+# file name measured 2026-10-17 (item id in brackets).
+# yy may be "4x" (decade known, year not) or "xx"; month/day may be "xx".
+_D = r"(?P<yyyy>19[2-7]\d)|(?P<yy>[2-7][\dx]|xx)"
+_DATE_DASH = rf"(?:{_D})[-.](?P<mm>\d{{1,2}}|xx)[-.](?P<dd>\d{{1,2}}|xx)"
+_NUM = r"(?P<num>\d{1,4}[A-Za-z]?|x{1,4})"
+PATTERNS = [
+    # "Suspense 420617 001 The Burning Court (128-44) 28455 30m00s"  [OTRR_Suspense_Singles_By_Year_1942]
+    #  OTRR v2: series YYMMDD epNNN title (kbps-kHz) KiB MMmSSs
+    ("F0_otrr_v2", re.compile(
+        r"^(?P<series>.+?)[ _](?P<yy>\d{2}|xx)(?P<mm>\d{2}|xx)(?P<dd>\d{2}|xx)[ _]"
+        r"(?P<num>\d{1,4}|x{1,4})[ _](?P<title>.+?)"
+        r"(?:[ _]\((?P<kbps>\d{2,3})-(?P<khz>\d{2})\))?(?:[ _](?P<kib>\d{3,7}))?"
+        r"(?:[ _](?P<mins>\d{1,3})m(?P<secs>\d{2})s)?$", re.I)),
+    # "Whistler_42-05-16_ep001_Retribution", "Whistler_xx-xx-xx_epxxx_Kaleidoscope_epAFRTS",
+    # "CP_42-03-01_ep001-Eddie_Cantor", "Dragnet_49-06-10_ep002_Homicide"   [OTRR_Whistler_Singles, CommandPerformance, Dragnet_OTR]
+    ("F1_otrr_ep", re.compile(
+        rf"^(?P<series>.+?)[ _-]+{_DATE_DASH}[ _-]+(?:ep)?{_NUM}[ _-]+(?P<title>.+?)"
+        r"(?:_aka_(?P<aka>.+?))?(?:[ _-]ep(?P<variant>AFRTS|AFRS|Rehearsal|Audition))?$", re.I)),
+    # "Space_Patrol_53-02-14_020_The_Mysterious_Meteor", "YTJD 1957-09-29 554 The Doubtful Dairy Matter [AFRTS]",
+    # "MBF_5x.xx.xx_ep49_First_Song", "Lux_Radio_Theatre_45-11-05_500R_Destry_Rides_Again" are F1 too.
+    # "Gunsmoke 52-04-26 (001) Billy the Kid", "The Shadow 1937-09-26 (87) The Death House Rescue",
+    # "FMM 1931-06-01 (xx) Smackout"   [OTRR_Gunsmoke_Singles, the-shadow-..., fibber-mc-gee-and-molly]
+    ("F1c_paren_num", re.compile(
+        rf"^(?P<series>.+?)[ _-]+{_DATE_DASH}[ _-]*\({_NUM}\)[ _-]*(?P<title>.+)$", re.I)),
+    # "Father Knows Best (055) 1950-11-02 Too Many Problems"   [OTRR_Father_Knows_Best_Singles]
+    ("F1f_paren_num_first", re.compile(
+        rf"^(?P<series>.+?)[ _-]*\({_NUM}\)[ _-]*{_DATE_DASH}[ _-]+(?P<title>.+)$", re.I)),
+    # "XMinusOne55-04-24001NoContact", "LuxRadioTheatre46-09-02535OurVinesHaveTenderGrapes",
+    # "LightsOut-1936-06-17CatWife"   [OTRR_X_Minus_One_Singles, OTRR_Lux_Radio_Theater_Singles, LightsOutoldTimeRadio]
+    ("F1d_camel_glued", re.compile(
+        rf"^(?P<series>[A-Za-z][A-Za-z'&]+?)[-_ ]?{_DATE_DASH}(?P<num>\d{{3,4}})?[-_ ]?(?P<title>[A-Za-z].*)$")),
+    # "Pwh541114319AGuyNamedScottc" (YYMMDD + NNN glued, CamelCase)   [OTRR_Proudly_We_Hail_Singles]
+    ("F0b_camel_yymmdd_num", re.compile(
+        r"^(?P<series>[A-Za-z]+?)(?P<yy>[2-7]\d)(?P<mm>\d{2})(?P<dd>\d{2})(?P<num>\d{3,4})(?P<title>[A-Z].*)$")),
+    # "Inner_Sanctum_-_450109_Desert_Death"   [Inner_Sanctum_otr]
+    ("F2b_series_yymmdd_title", re.compile(
+        r"^(?P<series>.+?)[ _-]+(?P<yy>[2-7]\d)(?P<mm>\d{2})(?P<dd>\d{2})[ _-]+(?P<title>[A-Za-z].*)$")),
+    # "X Minus One 1955 04 24 No Contact ( 001)"   [xminusone19550424nocontact001 title]
+    ("F3_spaced_date", re.compile(
+        r"^(?P<series>.+?)[ _-]+(?P<yyyy>19[2-7]\d)[ _](?P<mm>\d{2})[ _](?P<dd>\d{2})"
+        r"[ _-]*(?P<title>.*?)(?:\(\s*(?P<num>\d{1,4})\s*\))?$")),
+    # "Series 42-06-17 Title" / "Series_1942-06-17_Title" (no episode number)
+    ("F1e_series_date_title", re.compile(
+        rf"^(?P<series>[A-Za-z].*?)[ _-]+{_DATE_DASH}[ _-]+(?P<title>[A-Za-z].*)$")),
+    # "42-06-17_Burning_Court", "1932-05-02 - 001) First Show", "01 38-07-11 Dracula"
+    #  no series in the name: the ITEM supplies it   [SUSPENSE, TheJackBennyProgram, OrsonWelles_MercuryTheatre]
+    ("F7_date_first", re.compile(
+        rf"^(?:\d{{1,3}}[ _.-]+)?{_DATE_DASH}[ _-]*(?:-[ _]*)?(?:\(?(?P<num>\d{{1,4}})\)[ _-]*)?(?P<title>.*)$")),
+    # "SuspenseTheHitchHiker09021942"   [SuspenseTheHitchHiker09021942]
+    ("F4_us_mmddyyyy", re.compile(
+        r"^(?P<head>.+?)[ _-]*(?P<mm>0[1-9]|1[0-2])[-_ ]?(?P<dd>[0-3]\d)[-_ ]?(?P<yyyy>19[2-7]\d)$")),
+    # "xminusone_550424_NoContact", "X_Minus_One_560515_Hallucination_Orbit", "TSP420617",
+    # "JackBennyProgram481017SorryWrongNumber"
+    ("F2_yymmdd", re.compile(
+        r"^(?P<series>[A-Za-z][A-Za-z_ ]*?)[_ -]?(?P<yy>[1-7]\d)(?P<mm>0[1-9]|1[0-2])"
+        r"(?P<dd>0[1-9]|[12]\d|3[01])(?:[_ -]?(?P<title>[A-Za-z].*))?$")),
+    # "Dimension X 011 Zero Hour" (number, no date)
+    ("F5_number", re.compile(
+        r"^(?P<series>.+?)[ _-]+(?:#|ep\.?|no\.?\s*)?(?P<num>\d{1,4})[ _-]+(?P<title>[A-Za-z].+)$", re.I)),
+    # "X_Minus_One-A_Gun_for_Dinosaur" (series + title, nothing else)   [xminusoneotr]
+    ("F8_series_dash_title", re.compile(r"^(?P<series>[A-Za-z][A-Za-z_ ]+?)-(?P<title>[A-Za-z].+)$")),
+]
+# The OTRR sets also write identity into the ID3 album tag:
+# album "04/26/52, episode 1"   [OTRR_Gunsmoke_Singles, OTRR_X_Minus_One_Singles, OTRR_Lux_Radio_Theater_Singles]
+ALBUM_TAG = re.compile(r"^(?P<mm>\d{1,2}|xx)/(?P<dd>\d{1,2}|xx)/(?P<yy>\d{2}|xx),\s*episode\s*(?P<num>\d{1,4}|x+)", re.I)
+AFRS = re.compile(r"(?:^|[ _(\[{\-]|(?<=[a-z]))(afrs|afrts)(?:$|[ _)\]}\-])", re.I)
+
+
+def _date(g, fam):
+    yyyy = g.get("yyyy")
+    yy = g.get("yy")
+    if not yyyy and yy and yy.lower() != "xx":
+        yyyy = "19" + yy
+    mm, dd = g.get("mm") or "", g.get("dd") or ""
+    if not yyyy or not mm or not dd or "x" in (mm + dd).lower():
+        return None, False
+    if valid_date(yyyy, mm, dd):
+        return f"{yyyy}-{int(mm):02d}-{int(dd):02d}", False
+    if yy and valid_date("19" + dd, yy, mm):          # MM-DD-YY written in a YY-MM-DD slot
+        return f"19{dd}-{int(yy):02d}-{int(mm):02d}", True
+    return None, None                                  # digits that are not a date
+
+
 def parse(name):
     s = stem(name)
     for fam, rx in PATTERNS:
@@ -554,31 +757,40 @@ def parse(name):
         if not m:
             continue
         g = m.groupdict()
-        yyyy = g.get("yyyy")
-        if not yyyy and g.get("yy") and g["yy"].lower() != "xx":
-            yyyy = "19" + g["yy"]
-        date = None
-        if yyyy and g.get("mm") and g.get("dd") and "x" not in (g["mm"] + g["dd"]).lower():
-            if valid_date(yyyy, g["mm"], g["dd"]):
-                date = f"{yyyy}-{g['mm']}-{g['dd']}"
-            elif fam.startswith("F1") and valid_date("19" + g["dd"], g["yy"], g["mm"]):
-                date = f"19{g['dd']}-{g['yy']}-{g['mm']}"   # MM-DD-YY written in the YY-MM-DD slot
-                fam += "_mdy"
-            elif fam in ("F2_yymmdd",):
-                continue                                     # six digits that are not a date
-        if g.get("head") is not None:          # F4: "Series: Title" or a bare CamelCase run
+        date, swapped = _date(g, fam)
+        if swapped is None and fam in ("F0_otrr_v2", "F0b_camel_yymmdd_num", "F2_yymmdd",
+                                       "F2b_series_yymmdd_title", "F1d_camel_glued",
+                                       "F7_date_first", "F1e_series_date_title"):
+            continue
+        if swapped:
+            fam += "_mdy"
+        if g.get("head") is not None:
             head = re.sub(r"[_]+", " ", g["head"]).strip(" -")
             ser, _, ttl = head.partition(":") if ":" in head else ("", "", head)
             g = dict(g, series=ser.strip(), title=ttl.strip())
-        series = re.sub(r"[_]+", " ", g.get("series") or "").strip()
+        series = re.sub(r"[_]+", " ", g.get("series") or "").strip(" -") or None
         num = g.get("num")
-        return {"family": fam, "series": series,
-                "date": date, "num": None if not num or "x" in num.lower() else int(num),
-                "title": re.sub(r"[_]+", " ", g.get("title") or "").strip() or None,
+        variant = g.get("variant") or (AFRS.search(s).group(1).upper() if AFRS.search(s) else None)
+        yy = g.get("yy") or ""
+        decade = (g.get("yyyy") or "")[:3] + "0s" if g.get("yyyy") else \
+            ("19" + yy[0] + "0s" if yy[:1].isdigit() else None)
+        return {"family": fam, "series": series, "date": date, "decade": decade,
+                "num": None if not num or "x" in num.lower() else int(re.sub(r"\D", "", num)),
+                "title": re.sub(r"[_]+", " ", g.get("title") or "").strip(" -") or None,
                 "aka": re.sub(r"[_]+", " ", g.get("aka") or "").strip() or None,
-                "variant": g.get("variant")}
-    return {"family": "F6_none", "series": None, "date": None, "num": None,
+                "variant": variant}
+    return {"family": "F6_none", "series": None, "date": None, "decade": None, "num": None,
             "title": None, "aka": None, "variant": None}
+
+
+def parse_album_tag(album):
+    m = ALBUM_TAG.match((album or "").strip())
+    if not m:
+        return None
+    g = m.groupdict()
+    date, _ = _date(g, "tag")
+    num = g.get("num")
+    return {"date": date, "num": None if "x" in num.lower() else int(num)}
 
 
 def norm_series(s):
@@ -597,7 +809,10 @@ def main():
     a = ap.parse_args()
     os.makedirs(os.path.join(a.out, "meta"), exist_ok=True)
 
-    report = {"seeds": {}, "date": time.strftime("%Y-%m-%d")}
+    report = {"seeds": {}, "date": time.strftime("%Y-%m-%d"), "numFound": {}}
+    for q in COUNT_ONLY:
+        d = get_json(ADV, {"q": q, "rows": 0, "output": "json"}, pause=a.pause)
+        report["numFound"][q] = (d or {}).get("response", {}).get("numFound")
     items = {}
     for key, q in SEEDS.items():
         n = 0
@@ -617,6 +832,14 @@ def main():
         for it in items.values():
             fh.write(json.dumps(it) + "\n")
 
+    combo = collections.Counter("+".join(sorted(it["seeds"])) for it in items.values())
+    report["seed_overlap"] = combo.most_common(20)
+    coll = collections.Counter()
+    for it in items.values():
+        c = it.get("collection") or []
+        for x in (c if isinstance(c, list) else [c]):
+            coll[x] += 1
+    report["collections_of_items_top"] = coll.most_common(40)
     mt = collections.Counter(str(it.get("mediatype")) for it in items.values())
     report["unique_items"] = len(items)
     report["mediatype"] = dict(mt.most_common())
@@ -642,6 +865,11 @@ def main():
     fam = collections.Counter(); fam_otrr = collections.Counter()
     fmt = collections.Counter(); src = collections.Counter()
     tags = collections.Counter(); series_files = collections.Counter()
+    file_keys = collections.Counter(); series_files_otrr = collections.Counter()
+    orig_fmt = collections.Counter(); deriv_fmt = collections.Counter()
+    item_hours = []
+    dated = 0; tag_dated = 0; tag_only = 0; tag_agree = 0; tag_disagree = 0
+    variants = collections.Counter(); no_series_in_name = 0
     per_item_audio = []
     md5s = collections.Counter(); bcast = collections.defaultdict(set)
     secs_total = 0.0; secs_known = 0; audio_files = 0
@@ -662,6 +890,11 @@ def main():
             files = meta.get("files") or []
             for f in files:
                 fmt[str(f.get("format"))] += 1
+                if (f.get("name") or "").lower().endswith(AUDIO_EXT):
+                    for k in f:
+                        file_keys[k] += 1
+                    (orig_fmt if f.get("source") == "original" else deriv_fmt)[str(f.get("format"))] += 1
+            ih = 0.0
             audio = [f for f in files if (f.get("name") or "").lower().endswith(AUDIO_EXT)
                      and str(f.get("private", "")).lower() != "true"
                      and not re.search(r"(^|/)history/|\.~\d+~$", f.get("name") or "")]
@@ -675,6 +908,23 @@ def main():
                 orig = next((g for g in group if g.get("source") == "original"), group[0])
                 src[str(orig.get("source"))] += 1
                 p = parse(orig["name"])
+                tp = parse_album_tag(orig.get("album"))
+                if p["date"]:
+                    dated += 1
+                if tp and tp["date"]:
+                    tag_dated += 1
+                    if not p["date"]:
+                        tag_only += 1
+                    elif tp["date"] == p["date"]:
+                        tag_agree += 1
+                    else:
+                        tag_disagree += 1
+                if p.get("decade") and not p["date"]:
+                    variants["decade_only_date"] += 1
+                if p["variant"]:
+                    variants[p["variant"]] += 1
+                if p["family"] != "F6_none" and not p["series"]:
+                    no_series_in_name += 1
                 fam[p["family"]] += 1
                 if iaid.startswith("OTRR_"):
                     fam_otrr[p["family"]] += 1
@@ -683,11 +933,13 @@ def main():
                         tags[t] += 1
                 s = seconds(orig.get("length"))
                 if s:
-                    secs_total += s; secs_known += 1
+                    secs_total += s; secs_known += 1; ih += s
                 if orig.get("md5"):
                     md5s[orig["md5"]] += 1
                 ser = norm_series(p["series"] or (meta.get("metadata") or {}).get("title"))
                 series_files[ser] += 1
+                if iaid.startswith("OTRR_"):
+                    series_files_otrr[ser] += 1
                 if p["date"]:
                     bcast[(ser, p["date"])].add(iaid)
                 fh.write(json.dumps({"id": iaid, "name": orig["name"], "format": orig.get("format"),
@@ -695,6 +947,7 @@ def main():
                                      "size": orig.get("size"), "md5": orig.get("md5"),
                                      "tag_title": orig.get("title"), "tag_track": orig.get("track"),
                                      **p}) + "\n")
+            item_hours.append((iaid, round(ih / 3600, 1), len(works)))
 
     if pick:
         per_item_audio.sort()
@@ -712,10 +965,23 @@ def main():
         report["tag_hit_rate"] = {k: round(v / max(audio_files, 1), 3) for k, v in tags.items()}
         report["hours_in_sample"] = round(secs_total / 3600, 1)
         report["length_known_rate"] = round(secs_known / max(audio_files, 1), 3)
+        report["date_coverage"] = {
+            "filename_date": round(dated / max(audio_files, 1), 3),
+            "album_tag_date": round(tag_dated / max(audio_files, 1), 3),
+            "date_from_tag_only": tag_only, "tag_agrees_with_name": tag_agree,
+            "tag_disagrees_with_name": tag_disagree,
+            "any_date": round((dated + tag_only) / max(audio_files, 1), 3)}
+        report["variants"] = dict(variants)
+        report["parsed_but_series_from_item"] = no_series_in_name
         report["md5_duplicates"] = sum(v - 1 for v in md5s.values() if v > 1)
         report["broadcasts_in_several_items"] = sum(1 for v in bcast.values() if len(v) > 1)
         report["distinct_dated_broadcasts"] = len(bcast)
         report["top_series_by_files"] = series_files.most_common(40)
+        report["top_series_by_files_otrr"] = series_files_otrr.most_common(40)
+        report["audio_file_keys"] = file_keys.most_common()
+        report["audio_format_original"] = orig_fmt.most_common(20)
+        report["audio_format_derivative"] = deriv_fmt.most_common(20)
+        report["biggest_items_by_hours"] = sorted(item_hours, key=lambda x: -x[1])[:25]
         if a.sample != "all" and report.get("files_count_per_item"):
             report["note"] = ("sample-based numbers; scale by unique_items/sampled_items "
                               "only as a rough estimate")
@@ -732,27 +998,19 @@ if __name__ == "__main__":
     main()
 ```
 
-What to read in the report:
-- `seeds.*.reported_total` — the counts this document could not give.
-- `audio_works_per_item.multi_episode_items` vs `single_episode_items` —
-  confirms (or refutes) the "episodes are files" premise.
-- `filename_family` — if `F6_none` exceeds ~20%, invest in tag-based and
-  description-log-based identity before shipping shelves.
-- `format_all_files` and `audio_source` — confirms whether OTRR originals are
-  MP3 and whether VBR MP3 derivatives exist for them.
-- `broadcasts_in_several_items` and `md5_duplicates` — sizes the dedupe.
-
-### C. Further probes
-
-- Reviews on an OTRR set: `curl -s https://archive.org/metadata/OTRR_X_Minus_One_Singles | python3 -c 'import sys,json;r=json.load(sys.stdin).get("reviews",[]);print(len(r));[print(x.get("stars"),x.get("reviewtitle")) for x in r[:10]]'` — reviews are per ITEM, so for a series set they are about the set; check whether reviewers name episodes (a data source for an episode shelf that is not AI-written).
-- Views: `curl -s https://be-api.us.archive.org/views/v1/short/OTRR_Suspense_Singles,TSP420617`.
-- Whether `mediatype:radio` exists: `curl -sG https://archive.org/services/search/v1/scrape --data-urlencode 'q=mediatype:radio' --data-urlencode total_only=true`.
-- Description logs: OTRR descriptions often embed a dated episode list; `curl -s https://archive.org/metadata/OTRR_Escape_Singles/metadata/description` and test whether lines parse as `MM-DD-YY Title` — a third identity witness.
-- Searches this session could not run (budget exhausted): OTRR item ids for Inner Sanctum, Lights Out, Dragnet, Fibber McGee, The Shadow, Mercury Theatre; whether `WarOfTheWorlds1938RadioBroadcast256kbps` exists; Joe Hehn Memorial Collection id and size; `librivoxaudio` total.
-
 ---
 
 ## Sources
+
+Live endpoints measured 2026-10-17 (exact queries in section 6):
+- https://archive.org/advancedsearch.php
+- https://archive.org/services/search/v1/scrape
+- https://archive.org/metadata/{identifier} (items in sections 1.3 and the 400 sampled ids in `items.jsonl` / `meta/`)
+- https://archive.org/download/OTRR_Suspense_Singles_By_Year_1942/
+- https://be-api.us.archive.org/views/v1/short/
+- https://archive.org/details/OTRR_LoneRanger_Singles, /OTRR_Suspense_Singles, /OTRR_Gunsmoke_Singles, /OTRR_Lux_Radio_Theater_Singles, /OTRR_X_Minus_One_Singles, /OTRR_Whistler_Singles, /OTRR_Inner_Sanctum_Mysteries_Singles, /OTRR_Dragnet_Singles, /Dragnet_OTR, /the-shadow-1938-10-09-141-death-stalks-the-shadow, /fibber-mc-gee-and-molly, /TheJackBennyProgram, /LightsOutoldTimeRadio, /OrsonWelles_MercuryTheatre, /CommandPerformance, /xminusoneotr, /SUSPENSE, /SUSPENSE2, /SUSPENSE3, /OTRR_Certified_Suspense, /WarOfTheWorlds1938RadioBroadcast256kbps
+
+Seen via web search (before network opened):
 
 Archive.org items and pages (seen via search results only):
 - https://archive.org/details/OTRR_Home_Page

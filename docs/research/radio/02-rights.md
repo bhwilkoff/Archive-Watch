@@ -338,7 +338,7 @@ The shares below are **reasoned guesses over those inputs, not measurements of e
 
 ## 11. Questions for the owner (exact wording)
 
-1. **Orphans.** "Federal law protects almost every pre-1972 radio recording until 2067, and most unregistered scripts for decades. The people who claim the famous series have not filed the Copyright Office schedules, and for most episodes no claim a reader can open exists. Do we (a) show only Tier A (government, LibriVox, Creative Commons, pre-1926 records), (b) show an unclaimed episode and hide it the moment a claim appears, or (c) show only a curated set cleared through noncommercial-use notices?" Option (b) is Archive Watch's film temperament, but for audio the law's default is *protected*, not *unknown*. That is why this is yours.
+1. **Orphans.** "Federal law protects almost every pre-1972 radio recording until 2067, and most unregistered scripts for decades. The people who claim the famous series have not filed the Copyright Office schedules, and for most episodes no claim a reader can open exists. Do we (a) show only Tier A (government, LibriVox, Creative Commons, pre-1926 records), (b) show an unclaimed episode and hide it the moment a claim appears, or (c) show only a curated set cleared through noncommercial-use notices?" Option (b) is Archive Watch's film temperament. For audio the law's default is *protected*, but §1401(f)(5) limits an owner who never filed a schedule to actual damages, so (b) is a defensible risk posture rather than a public-domain claim — see §12. That is why this is yours.
 2. **NCU.** "Will we file Notices of Noncommercial Use: one per episode, $50 each, US-only, re-filed when the stated end date passes? And should a lawyer first confirm that a free app in Apple's and Google's stores, with no ads, is a noncommercial use?"
 3. **Commercially sold series.** "When a licensee sells a series (Radio Spirits CDs, licensed audiobooks) but has sent no takedown, do we hide it?"
 4. **Unregistered scripts.** "Treat an unregistered network script as protected (hide unless the recording is a government or LibriVox work), or as unenforced (follow Q1)?"
@@ -348,6 +348,92 @@ The shares below are **reasoned guesses over those inputs, not measurements of e
 8. **Takedowns.** "On a general claim that names no episodes, hide the whole series (proposed: yes, with the letter kept in `takedowns.json`)?"
 9. **News and actuality.** "Confirm: CBS news broadcasts that Sony has scheduled are hidden, and news audio is out of scope for a drama app anyway?"
 10. **Post-1972.** "Confirm: CBS Radio Mystery Theater and other post-1972 series are hidden unless licensed?"
+
+## 12. The practical posture, and the laws that improve it (owner question, 2026-10-17)
+
+Owner: *"There is something wonky about your understanding of audio rights. If
+this site is being used to host these audio files and making them freely
+available, it seems as though in practice the same rules that apply for public
+domain Video seem to apply for public domain audio, even if the 2018 law
+theoretically makes a different case. Are there any fair use or other laws that
+could put us in better standing for utilizing a more expensive rights permission
+structure?"*
+
+**The owner is right about the practice, and the statute supports it more than
+§§1-11 above conveyed.** Those sections answer "is it public domain?" (almost
+never). The owner's question is "what is the exposure of a free app that plays
+unclaimed recordings and removes them on a claim?" — and §1401 itself answers
+that one. Read from law.cornell.edu/uscode/text/17/1401 on 2026-10-17:
+
+1. **No statutory damages or attorney's fees unless the owner filed a schedule.**
+   §1401(f)(5)(A)(i): statutory damages or fees "may be made with respect to an
+   unauthorized use of a sound recording under subsection (a) only if — (I) the
+   rights owner has filed with the Copyright Office a schedule that specifies the
+   title, artist, and rights owner of the sound recording ... and (II) the use
+   occurs after the end of the 90-day period" after it is indexed. Without
+   statutory damages and fees, an owner who never filed can recover only ACTUAL
+   damages and an injunction (§1401(f)(4), equity). For a free, ad-free app
+   playing a recording nobody sells, actual damages are close to nothing, and a
+   lawsuit costs the owner more than it can win. **This is the legal reason
+   RadioEchoes, archive.org and the OTR podcasts operate on notice and takedown,
+   and why it works.** The schedules are searchable (§1.3, 299,447 entries, no
+   hits for the famous drama series), so "filed or not" is a machine-readable
+   test — already bucket `rec_schedule_claim`.
+2. **The DMCA safe harbors apply.** §1401(f)(3): "Section 512 shall apply to a
+   claim under subsection (a)". The app does not host; archive.org does. Linking
+   from a directory is §512(d) ("information location tools"). Protection needs
+   a registered DMCA agent (Copyright Office, $6), expeditious removal on notice,
+   and no "red flag" knowledge. The weak point: a curated catalog is closer to
+   knowledge than a search engine, so the audit's hides-on-evidence are what keep
+   the harbor (we remove what we know is claimed before anyone writes).
+3. **Fair use applies** (§1401(f)(1)(A) applies §§107-110 and 112(f)). Honestly
+   weighed: streaming whole episodes for listening is a WEAK fair use —
+   *Hachette v. Internet Archive* (2d Cir. 2024) rejected whole-work lending by a
+   nonprofit. It is STRONG for: full-text search over transcripts that shows
+   snippets (*Authors Guild v. Google*, 2d Cir. 2015), short excerpts in
+   historical context, and scholarship. Use fair use for search and clips, not as
+   the basis for playback.
+4. **Libraries get more** (§1401(f)(1)(B)): §108(h)'s "last 20 years of term"
+   window is construed as "at any time after the date of enactment" for pre-1972
+   recordings, so a library or archive may reproduce, distribute and PERFORM a
+   PUBLISHED pre-1972 recording that is not commercially exploited, for
+   preservation, scholarship or research. The app is not a library and most
+   broadcasts are unpublished, so this is a partnership avenue (a university
+   library or archive.org as the performing institution), not a rule for us.
+   UNVERIFIED how far it stretches; a lawyer's question.
+5. **The paid route that exists: the statutory webcasting license.** §1401(b):
+   a digital audio transmission of a pre-1972 recording is "considered to be
+   authorized" if it meets §114(d)(2) statutory-license conditions and pays the
+   §114(f) royalty. That is a SoundExchange license — no negotiation, no owner to
+   find. Rates (Copyright Royalty Judges, Web VI, Federal Register 2026-03-10, per
+   search): commercial webcasters $1,100 per channel minimum in 2026 plus
+   per-performance fees; noncommercial EDUCATIONAL webcasters $800 per channel
+   (2026) covering up to 160,000 listener-hours a month per channel; the general
+   noncommercial-webcaster figure is UNVERIFIED (Web V was $1,000 per channel
+   up to 159,140 hours). **It covers only NONINTERACTIVE transmission** — the
+   Radio tab's channels and "Tonight in 1947", never on-demand episodes — and
+   carries conditions that bind the design: no advance program schedule naming
+   the specific recordings (§114(j)(13); a guide that lists tonight's episodes in
+   advance would breach it — UNVERIFIED how this applies to a historical
+   recreation), the "sound recording performance complement" limits per artist,
+   limited skipping, and archived-program rules. It licenses the RECORDING only,
+   never the script or the music.
+6. **Direct licensing** from the claimants (Radio Spirits for The Shadow and its
+   catalog; series estates) is the expensive route for the famous titles the
+   audit hides. Worth one inquiry for a small headline set; not a catalog plan.
+
+**Recommended structure (replaces the framing of Q1 above, does not remove it):**
+
+| Layer | What it plays | Legal basis | Cost |
+|---|---|---|---|
+| 1. Clean | Government, LibriVox, corroborated CC, published ≤ today−101 | Public domain / license | none |
+| 2. Unclaimed, on demand | Pre-1972 broadcasts with no schedule filing, no takedown, no known claimant, no renewed script or source | Notice and takedown under §512, with §1401(f)(5) capping exposure at actual damages; hide the moment a claim a reader can open appears | DMCA agent $6; the audit |
+| 3. Licensed channels | Noninteractive Radio channels, including recordings an owner HAS scheduled | §1401(b) + §114 statutory license via SoundExchange | ~$800-1,100 per channel per year at our scale |
+| 4. Never | Scheduled recordings on demand; claimed series; post-1972; renewed scripts and sources (*Lone Ranger*: script claims carry full statutory damages, because scripts are ordinary registered works) | — | — |
+
+The app must not CALL layer 2 public domain (the Decision 153 lesson): its rights
+line says what is true — "no rights claim known; removed on request" — and the
+takedown path is on the website.
 
 ---
 

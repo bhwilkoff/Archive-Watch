@@ -131,6 +131,34 @@ records) is ~3-8% of the corpus; a curated noncommercial-use program adds ~1-5%;
 keeping unclaimed orphans brings it to ~55-75%; ~25-40% hides on evidence, and
 those are disproportionately the famous series.
 
+### 3a. In practice: the posture that the statute itself supports
+
+The owner pushed back, 2026-10-17: *"in practice the same rules that apply for
+public domain Video seem to apply for public domain audio ... Are there any fair
+use or other laws that could put us in better standing?"* They are right about the
+practice, and §1401 explains why it works (`02-rights.md` §12, statute quoted):
+
+- **§1401(f)(5)**: no statutory damages or attorney's fees unless the owner filed
+  a schedule with the Copyright Office. An unfiled owner can win only actual
+  damages and an injunction — near nothing against a free, ad-free app playing a
+  recording nobody sells. The schedules are searchable, and the famous drama
+  series are not in them.
+- **§1401(f)(3)**: the DMCA safe harbors apply. We link, archive.org hosts;
+  register a DMCA agent ($6) and remove on notice.
+- **§1401(b)**: noninteractive channels can be licensed outright through
+  SoundExchange's statutory webcasting license (~$800-1,100 per channel a year at
+  our scale; conditions include no advance listing of specific recordings).
+- **Fair use** is strong for transcript search and clips, weak for whole-episode
+  listening (*Hachette v. Internet Archive*, 2024).
+- **What stays dangerous**: registered, renewed scripts and source stories (full
+  statutory damages — *Lone Ranger*, 1984), owners who filed schedules, and
+  active claimants (The Shadow).
+
+So the recommended structure is four layers — clean; unclaimed on demand under
+notice and takedown; licensed channels; never — and the app never calls the
+second layer public domain: its rights line reads "no rights claim known;
+removed on request".
+
 The proposed audit is in `02-rights.md` §10: `audit_audio_rights.py`, a
 recording layer and an underlying-work layer, each an ordered `bucket()` as in
 `tools/audit_rights.py` (hides before rescues, first match wins), the stricter
@@ -308,7 +336,7 @@ there. Ordered by what they unblock.
 
 | # | Question | Blocks |
 |---|---|---|
-| Q1 | **Orphans**: show only the strict tier; show unclaimed broadcasts and hide on the first claim; or a curated noncommercial-use set? | The size and identity of the catalog |
+| Q1 | **Orphans**: show only the strict tier; show unclaimed broadcasts on demand and hide on the first claim (recommended — §3a); or a curated noncommercial-use set? Plus: license the Radio channels through SoundExchange? | The size and identity of the catalog |
 | Q2 | **A separate app, or a Radio section in Archive Watch?** (App Store 4.3(a) bears on it; the people/works graph is shared either way) | Repo, bundle id, template choice |
 | Q3 | File noncommercial-use notices ($50 each), after a lawyer confirms a free store app is noncommercial? | Tier B |
 | Q4 | Unregistered network scripts: protected (hide) or follow Q1? | The underlying-work layer |
