@@ -2593,6 +2593,18 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-10-17T01:21:34.218345+00:00",
+   "id": "OurGangJubiloJr.1924",
+   "title": "Jubilo, Jr.",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxzwhdhaoe2m",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }

@@ -3320,6 +3320,53 @@
     "reposts": 0,
     "replies": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxk7gb4rwf2y",
+   "platform": "bluesky",
+   "id": "silent-rebus-film-nr-1",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-10T19:19:26.659848+00:00",
+   "sampled": "2026-10-17T01:21:45.449930+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117418229827699940",
+   "platform": "mastodon",
+   "id": "silent-rebus-film-nr-1",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-10T19:19:26.659848+00:00",
+   "sampled": "2026-10-17T01:21:45.449930+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxxfl7elrb2q",
+   "platform": "bluesky",
+   "id": "morocco-30-1538596735589",
+   "slot": "one-line",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-16T01:14:11.829651+00:00",
+   "sampled": "2026-10-17T01:21:45.449930+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }
