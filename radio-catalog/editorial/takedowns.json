@@ -1,0 +1,1 @@
+{"_doc": "Take-down requests received, one entry per request: {id: {date, claimant, scope: 'series'|'episode'|'recording', key, letter_url}}. A general claim naming a series hides the whole series (02-rights Q8, proposed).", "requests": {}}

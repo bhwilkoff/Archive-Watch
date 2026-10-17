@@ -1,0 +1,6 @@
+{
+  "_doc": "Series-level rights claims a reader can open. Each hides every recording of the series (rec_rights_holder_claim) or every episode (work layer). Add an entry only with a source URL. Key: normalized series name (otr_parse.norm_series).",
+  "shadow": {"series": "The Shadow", "layer": "recording", "claimant": "Advance Magazine Publishers (Conde Nast), licensed to Radio Spirits", "basis": "Published claim that the radio programs are its trademarked and copyrighted property; licensed 2017 CD release", "sources": ["https://en.wikipedia.org/wiki/The_Shadow", "https://thepulp.net/thatspulp/2017/07/14/lost-shadow-radio-shows-found/"]},
+  "loneranger": {"series": "The Lone Ranger", "layer": "work", "claimant": "Lone Ranger Television, Inc. (scripts); exclusive radio licensee Charles Michelson Inc.", "basis": "Scripts registered and renewed; infringement by duplicated radio tapes affirmed, Lone Ranger Television v. Program Radio, 740 F.2d 718 (9th Cir. 1984)", "sources": ["https://law.resource.org/pub/us/case/reporter/F2/740/740.F2d.718.82-4690.html"]},
+  "lumandabner": {"series": "Lum and Abner", "layer": "recording", "claimant": "Chester Lauck estate, via Radio Spirits", "basis": "Takedown notices sent to archive.org (2010)", "sources": ["https://randsesotericotr.podbean.com/category/radio-spirits-removals"]}
+}

@@ -1,0 +1,17 @@
+{
+  "_doc": "Series produced by a US government agency (17 U.S.C. 105), kept as rec_gov_work with govWorkOpenQuestion (docs/research/radio/02 \u00a75: whether 105 reaches the 1401 right is untested; civilian stars and songs carry their own claims). An AFRS rebroadcast of a NETWORK series is not listed here: it falls through as that series. Mail Call, G.I. Journal and Treasury Star Parade are candidates whose source pages were not confirmed on 2026-10-17 (no Wikipedia article for Treasury Star Parade); add them with a source a reader can open.",
+  "commandperformance": {
+    "series": "Command Performance",
+    "agency": "Armed Forces Radio Service (War Department)",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Command_Performance_(radio_series)"
+    ]
+  },
+  "jubilee": {
+    "series": "Jubilee",
+    "agency": "Armed Forces Radio Service (War Department)",
+    "sources": [
+      "https://en.wikipedia.org/wiki/Jubilee_(radio_program)"
+    ]
+  }
+}
