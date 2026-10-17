@@ -43,3 +43,11 @@ CREATE TABLE meta (k TEXT PRIMARY KEY, v TEXT);
 CREATE INDEX ep_series ON episodes(series_key, air_date);
 CREATE INDEX ep_state ON episodes(state);
 CREATE INDEX rec_item ON recordings(archive_id);
+CREATE TABLE scripts (
+  id TEXT PRIMARY KEY, source TEXT, series_key TEXT, air_date TEXT, title TEXT,
+  url TEXT,                      -- the source's own page; clients link here
+  text_cached INTEGER,           -- text held for search and matching only
+  episode_id TEXT,               -- matched broadcast, on series + air date
+  display TEXT                   -- full (clean episode) | link (everything else)
+);
+CREATE INDEX script_ep ON scripts(episode_id);

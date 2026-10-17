@@ -280,6 +280,10 @@ def main():
     for ep in episodes.values():
         if ep["series_key"]:
             by_series[ep["series_key"]].append(ep)
+    by_date = collections.defaultdict(list)
+    for ep in episodes.values():
+        if ep["date"]:
+            by_date[ep["date"]].append(ep)
     series_foreign, series_post = {}, {}
     for k, eps in by_series.items():
         recs = [r for e in eps for r in e["recordings"]]
@@ -320,6 +324,28 @@ def main():
                 else:
                     wants.append((k, dt, e["title"], e.get("length")))
 
+    # Scripts: the Generic Radio Workshop (GRW: "Assume Copyright"), matched on
+    # series + air date. Text is for search; a client shows it in full only for
+    # a clean episode, and otherwise links to the GRW page.
+    grw = load(os.path.join(ia.CACHE, "grw", "scripts.json"), {"scripts": []})
+    script_rows = []
+    for sc in grw["scripts"]:
+        k, _ = resolver.key(re.sub(r"^The\s+", "", sc["series"]))
+        ep = episodes.get(f"{k}|{sc['date']}") if sc.get("date") else None
+        if ep is None and sc.get("date"):
+            # GRW names some series differently ("Columbia Workshop" vs "The Columbia Workshop"):
+            # fall back to any series whose episode on that date carries the same title.
+            nt = A.norm_title(sc["title"].split(":")[-1])
+            for cand in (e for e in by_series.get(k, []) if e["date"] == sc["date"]):
+                ep = cand
+            if ep is None and nt:
+                ep = next((e for e in by_date.get(sc["date"], []) if A.norm_title(e.get("title")) == nt), None)
+        txt = os.path.join(ia.CACHE, "grw", "text", sc["id"] + ".txt")
+        script_rows.append([sc["id"], "genericradio.com", k, sc.get("date"), sc["title"], sc["url"],
+                            os.path.exists(txt), ep["id"] if ep else None])
+        stats["scripts"] += 1
+        stats["scripts_matched"] += bool(ep)
+
     db_path = os.path.join(ia.OUT, "radio-catalog.sqlite")
     tmp = db_path + ".tmp"
     if os.path.exists(tmp):
@@ -359,6 +385,10 @@ def main():
         db.execute("INSERT INTO items VALUES (?,?,?,?,?,?,?,?,?,?)", (
             it["id"], it["title"], json.dumps(it["collections"]), it["licenseurl"], it["uploader"],
             it["publicdate"], bool(it["is_dark"]), it["reviews"], it["avg_stars"], it["transcripts"]))
+    states = dict(db.execute("SELECT id, state FROM episodes").fetchall())
+    for r in script_rows:
+        display = "full" if r[7] and states.get(r[7]) == "keep_clean" else "link"
+        db.execute("INSERT INTO scripts VALUES (?,?,?,?,?,?,?,?,?)", (*r, display))
     db.executemany("INSERT INTO wants VALUES (?,?,?,?)", wants)
     db.execute("INSERT INTO meta VALUES (?,?)", ("built", datetime.datetime.now(datetime.timezone.utc).isoformat()))
     db.execute("INSERT INTO meta VALUES (?,?)", ("pd_published_year", str(A.pd_published_year())))
