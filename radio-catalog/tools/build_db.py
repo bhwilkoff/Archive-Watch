@@ -188,6 +188,20 @@ def main():
     for v in aliases.values() if isinstance(aliases, dict) else []:
         if isinstance(v, str):
             known.setdefault(P.norm_series(v), v)
+    # OTRR's logs: each row names the archive.org file that plays it, so a file
+    # found there takes its series, date, number, title and credits from the log
+    # rather than from its name (date_source "otrr_log").
+    otrr_by_file = {}
+    otrr_rows = []
+    for f in sorted(glob.glob(os.path.join(ia.CACHE, "otrr", "programs", "*.json.gz"))):
+        prog = ia.read_json(f)
+        k = P.norm_series(prog["program"])
+        if k:
+            known.setdefault(k, prog["program"])
+        for r in prog["episodes"]:
+            otrr_rows.append(r)
+            for fl in r["files"]:
+                otrr_by_file[(fl["archive_id"], fl["file"])] = r
     resolver = SeriesResolver(aliases, known)
 
     items = {}
@@ -234,9 +248,18 @@ def main():
             if p["date"] and tag and tag.get("date") and tag["date"] != p["date"]:
                 stats["date_tag_disagrees"] += 1
             key, sname, how = resolver.resolve(p["series"], isr)
-            stats["series:" + how] += 1
             title = p["title"] or (f.get("title") if not P.parse(f.get("title") or "")["date"] else None)
             num = p["num"] if p["num"] is not None else (tag or {}).get("num")
+            orow = otrr_by_file.get((ident, f["name"]))
+            if orow:
+                key, sname, how = P.norm_series(orow["program"]), orow["program"], "otrr_log"
+                if orow["date"]:
+                    if date and date != orow["date"]:
+                        stats["date_otrr_disagrees"] += 1
+                    date, date_source = orow["date"], "otrr_log"
+                title = orow["title"] or title
+                num = int(orow["epnum"]) if str(orow.get("epnum") or "").isdigit() else num
+            stats["series:" + how] += 1
             if not key:
                 ek = f"x:{ident}/{f['name']}"
             elif date:
@@ -252,6 +275,9 @@ def main():
                                           "aka": p["aka"], "decade": p["decade"], "recordings": []})
             if not ep["title"] and title:
                 ep["title"] = title
+            if orow and orow["people"] and not ep.get("people"):
+                ep["people"] = orow["people"]
+                ep["otrr_eid"] = orow["eid"]
             ep["recordings"].append({
                 "archive_id": ident, "file": f["name"], "format": f.get("format"), "source": f.get("source"),
                 "size": int(f["size"]) if str(f.get("size", "")).isdigit() else None,
@@ -404,11 +430,22 @@ def main():
         db.execute("INSERT INTO items VALUES (?,?,?,?,?,?,?,?,?,?)", (
             it["id"], it["title"], json.dumps(it["collections"]), it["licenseurl"], it["uploader"],
             it["publicdate"], bool(it["is_dark"]), it["reviews"], it["avg_stars"], it["transcripts"]))
+    for ep in episodes.values():
+        for pp in ep.get("people") or []:
+            db.execute("INSERT INTO credits VALUES (?,?,?,?,?)", (ep["id"], pp["id"], pp["name"], pp["role"], "otrr.org"))
+    # OTRR log rows that say a recording survives but name no file we harvested.
+    for r in otrr_rows:
+        if r["exists"] and r["date"] and not r["files"]:
+            k = P.norm_series(r["program"])
+            if f"{k}|{r['date']}" not in episodes:
+                wants.append((k, r["date"], r["title"], "otrr"))
     states = dict(db.execute("SELECT id, state FROM episodes").fetchall())
     for r in script_rows:
         display = "full" if r[7] and states.get(r[7]) == "keep_clean" else "link"
         db.execute("INSERT INTO scripts VALUES (?,?,?,?,?,?,?,?,?)", (*r, display))
     db.executemany("INSERT INTO wants VALUES (?,?,?,?)", wants)
+    stats["otrr_rows"] = len(otrr_rows)
+    stats["otrr_files"] = len(otrr_by_file)
     db.execute("INSERT INTO meta VALUES (?,?)", ("built", datetime.datetime.now(datetime.timezone.utc).isoformat()))
     db.execute("INSERT INTO meta VALUES (?,?)", ("pd_published_year", str(A.pd_published_year())))
     db.commit()

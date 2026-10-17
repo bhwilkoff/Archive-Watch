@@ -38,7 +38,7 @@ CREATE TABLE items (
   id TEXT PRIMARY KEY, title TEXT, collections TEXT, licenseurl TEXT, uploader TEXT,
   publicdate TEXT, is_dark INTEGER, reviews INTEGER, avg_stars REAL, transcripts INTEGER
 );
-CREATE TABLE wants (series_key TEXT, air_date TEXT, title TEXT, length TEXT);  -- spine episodes with no archive.org copy
+CREATE TABLE wants (series_key TEXT, air_date TEXT, title TEXT, note TEXT);  -- logged or spine episodes with no archive.org copy (note: RadioEchoes length, or 'otrr')
 CREATE TABLE meta (k TEXT PRIMARY KEY, v TEXT);
 CREATE INDEX ep_series ON episodes(series_key, air_date);
 CREATE INDEX ep_state ON episodes(state);
@@ -51,3 +51,6 @@ CREATE TABLE scripts (
   display TEXT                   -- full (clean episode) | link (everything else)
 );
 CREATE INDEX script_ep ON scripts(episode_id);
+CREATE TABLE credits (episode_id TEXT, person_id TEXT, name TEXT, role TEXT, source TEXT);  -- facts from OTRR's logs
+CREATE INDEX credit_ep ON credits(episode_id);
+CREATE INDEX credit_person ON credits(person_id);
