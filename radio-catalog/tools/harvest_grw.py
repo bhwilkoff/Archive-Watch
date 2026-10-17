@@ -63,8 +63,14 @@ def main():
         body = ia.get(f"{BASE}/files/generic_radio_workshop_radio_script_{sid}.txt", ua=UA, raw=True, timeout=90)
         time.sleep(DELAY)
         if body is None:
-            failed.append("text:" + sid)
-            continue
+            # Some scripts have no text download (404 on ~20%, 2026-10-17); the
+            # show page carries the same script in its scriptbody block.
+            page = fetch(f"/show/{sid}")
+            m = re.search(r"class=.scriptbody[^>]*>(.*?)(?:<div class=.aboutblock|</body>)", page or "", re.S)
+            if not m:
+                failed.append("text:" + sid)
+                continue
+            body = m.group(1).encode("utf-8")
         with open(path, "wb") as f:
             f.write(body)
     ia.write_json(os.path.join(out, "scripts.json"), {"series": len(series), "scripts": list(scripts.values()),
