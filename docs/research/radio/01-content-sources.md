@@ -13,6 +13,56 @@ LOC's OWI collection online status). They are listed with what is known from pri
 knowledge and are marked **UNVERIFIED**. Every number is labeled with where it came from.
 The "To measure" section has the probes that turn these into measurements.
 
+**Update, same day: network access opened.** The claims below marked **MEASURED
+2026-10-17** were checked directly with curl. §0 lists them with the exact command
+used. Where a measurement contradicts a search snippet, the measurement wins and the
+section text has been corrected.
+
+---
+
+## 0. Measured 2026-10-17 (curl from this container)
+
+| # | Fact | Value | Command |
+|---|---|---|---|
+| M1 | Items in `collection:oldtimeradio` | **8,952** (8,808 `mediatype:audio`) | `curl -s -G https://archive.org/advancedsearch.php --data-urlencode 'q=collection:oldtimeradio' -d rows=0 -d output=json \| jq .response.numFound` |
+| M2 | OTRR items (`identifier:OTRR_*`) | **526** | same, `q=identifier:OTRR_*` |
+| M3 | Old Time Radio Researchers Collection (`collection:lumedwards`) | **692** items (the search snippet's "676" was stale) | same, `q=collection:lumedwards` |
+| M4 | archive.org items with subject "old time radio" | **7,895** | same, `q=subject:"old time radio"` |
+| M5 | LibriVox audio on archive.org (`collection:librivoxaudio`) | **21,891** items | same |
+| M6 | OTRR tier labels inside `oldtimeradio` (description phrase match) | "Certified Accurate" 83, "Certified Complete" 63, "Maintained Set" 33 | same, `q=collection:oldtimeradio AND description:"Maintained Set"` etc. |
+| M7 | `oldtimeradio` items carrying any `licenseurl` | **2,316 of 8,952**. Top values: CC publicdomain (retired tool) 916, PD Mark 1.0 411, **CC BY-NC-ND (2.5/3.0/4.0, all variants) ≥711**, CC0 121 | `... -d 'fl[]=licenseurl' -d rows=3000` and tally |
+| M8 | `oldtimeradio` items by item `year` field | **7,276 of 8,952 have no year.** Of those dated: 1930s 34, 1940s 148, 1950s 137, 1960s 79, 1970s 116, 2000s 133, 2010s 514, 2020s 477. The post-2000 values are upload years | `... -d 'fl[]=year' -d rows=10000` and tally by decade |
+| M9 | LibriVox drama, by API genre | "Dramatic Readings" 266, "Plays" 271, `^Drama` 394; **640 distinct projects** in the union. Languages: English 574, German 27, Spanish 10, Multilingual 10, Italian 6, French 5 | `curl -s 'https://librivox.org/api/feed/audiobooks?genre=Plays&format=json&limit=500&offset=0&fields[]=id'`, paged by offset and unioned by id |
+| M10 | LibriVox API limit | **`limit` can no longer exceed 500** (went live about 2026-09-26). Larger requests return "Too many records requested." Page with `offset`, with a delay between requests | `curl -s https://librivox.org/api/info` |
+| M11 | LibriVox record keys (`extended=1`) | `id, title, description, url_text_source, language, copyright_year, num_sections, url_rss, url_zip_file, url_project, url_librivox, url_other, totaltime, totaltimesecs, authors, url_iarchive, sections, genres, translators`. Section keys: `id, section_number, title, listen_url, language, playtime, file_name, readers[{reader_id, display_name}]`. `listen_url` is an archive.org `/download/.../*_64kb.mp3` | `curl -s 'https://librivox.org/api/feed/audiobooks?genre=Dramatic%20Readings&format=json&limit=1&extended=1'` |
+| M12 | LibriVox HTTP | Python urllib's default User-Agent gets **403**; curl works. Send a real UA | (observed) |
+| M13 | NARA OWI sound recordings online | **1,216** hits for "Office of War Information" + Sound Recordings + availableOnline. Each file is a direct MP3 (e.g. `https://catalog.archives.gov/medialz/mopix/208a/GENERALa/208-597a.mp3`). **The series record says `useRestriction: "Restricted - Possibly", specificUseRestrictions: ["Copyright"]`, with the note "Some or all of this material may be restricted by copyright"** | `curl -s 'https://catalog.archives.gov/proxy/records/search?q=%22Office%20of%20War%20Information%22&typeOfMaterials=Sound%20Recordings&availableOnline=true&limit=1'`. This is the catalog web app's proxy; the documented `/api/v2/` path needs an `x-api-key` and returned HTML without one |
+| M14 | loc.gov audio JSON API | Works with no key. `q=radio` gives 1,021 audio results; `q=radio drama` 98 (Memovox radio transcriptions lead); `q="office of war information"` 9 | `curl -s 'https://www.loc.gov/audio/?q=radio&fo=json&c=1' \| jq .pagination.of` |
+| M15 | AAPB has a public Solr API | `api.json` answers with no key. `q="radio drama"` gives 1,950; with `fq=access_types:online`, **214** | `curl -s 'https://americanarchive.org/api.json?q=%22radio%20drama%22&fq=access_types:online&rows=0'` |
+| M16 | Europeana sound items matching hörspiel / "radio drama" / "radio play" | **95 total, 0 with `reusability=open`** | `curl -s 'https://api.europeana.eu/record/v2/search.json?wskey=api2demo&query=h%C3%B6rspiel%20OR%20%22radio%20drama%22%20OR%20%22radio%20play%22&qf=TYPE:SOUND&reusability=open&rows=0'` |
+| M17 | RadioEchoes, home page | "21 Genres of shows, **5,069 Series**, for a total of **129,158 Episodes** ... play ... and download ... all for FREE!" No terms or rights statement on the page | `curl -sL -A '<browser UA>' https://www.radioechoes.com/` |
+| M18 | Old Time Radio Downloads | Footer: "Copyright 2007-2026 Old Time Radio Downloads; Reproduction of text strictly prohibited," and the site promotes buying from **OTRCAT.com**. It is a sister site of a seller. With no User-Agent the site returns a database error | `curl -sL -A '<browser UA>' https://www.oldtimeradiodownloads.com/` |
+| M19 | OTRR copyright policy (full text read) | "We do not own the copyrights ... We believe that the copyrights have expired, or that the shows are in the public domain because they were never copyrighted ... we will remove any recording ... shown to violate a copyright." The page then quotes RadioLovers' secondhand LOC-staff claim that pre-1978 recordings are "generally in the public domain." That claim predates the 2018 MMA | `curl -sL -A '<browser UA>' https://www.otrr.org/OTRRLibrary/copyright.html` (mod_security refuses requests with no UA) |
+| M20 | Generic Radio Workshop ownership statement | "We make no claims to ownership of these materials; **they remain, as they should, the copyright of their respective owners**." Latest additions are dated 08/31/26 | `curl -sL -A '<browser UA>' https://genericradio.com/` |
+| M21 | JFK Library | Cloudflare blocks the container ("Sorry, you have been blocked"). Its PD label remains **search-snippet only** | `curl -sL -A '<browser UA>' https://www.jfklibrary.org/node/437251` |
+| M22 | Wikimedia Commons | `Category:Old-time_radio`, `Category:Radio_programs_of_the_United_States` and `Category:Audio_files_of_radio_programs` **do not exist** under those names (categoryinfo is null). The right category tree is still to be found | `curl -s -A '<project UA>' 'https://commons.wikimedia.org/w/api.php?action=query&prop=categoryinfo&titles=Category:Old-time_radio&format=json'` |
+
+**What the measurements change:**
+- The archive.org OTR corpus is **about 9,000 items**. An item is usually a series or a
+  set, so this is not an episode count; episodes are files (another agent owns the
+  file-level measurement).
+- **About a third of the licensed OTR items carry a CC BY-NC-ND license an uploader put
+  on a 1940s broadcast.** That is exactly the "uploader's word" of Decision 140. An
+  uploader cannot license what it does not own, so an NC-ND tag is not evidence, and
+  neither is a PD Mark. Do not let `licenseurl` admit or exclude an OTR item.
+- **NARA does not call the OWI recordings public domain.** It marks the series
+  "Restricted - Possibly: Copyright." So §10's ranking of OWI as "strong" is downgraded
+  to **medium**: federal origin is likely, but the custodian itself warns. Admit OWI per
+  item, with evidence that the item is a government production.
+- **Europeana has no open radio drama.** Drop it from the plan.
+- **AAPB and loc.gov both have keyless JSON APIs.** They are usable for metadata and
+  provenance today.
+
 ---
 
 ## Verdict
@@ -38,7 +88,8 @@ The "To measure" section has the probes that turn these into measurements.
    are dedicated to the public domain, the texts are pre-1930 US PD, and the API is
    documented.
    (b) **US federal government productions**: OWI (NARA series 208-GENERALa, fully
-   digitized), Treasury (Treasury Star Parade, Guest Star), FCDA (Stars for Defense),
+   digitized; 1,216 online MP3s, but NARA marks the series "Restricted - Possibly:
+   Copyright", M13), Treasury (Treasury Star Parade, Guest Star), FCDA (Stars for Defense),
    AFRS originals, and VOA/USIA (JFK Library labels its USIA items public domain). These
    fall under 17 U.S.C. §105, *but* donated performances, network dubs and music need
    per-series judgment.
@@ -75,7 +126,7 @@ The "To measure" section has the probes that turn these into measurements.
   `Singles_And_Doubles_Singles_A-C` and `..._T-Z`, `OTRR_Home_Page` and
   `OTRR_Old_Radio_Times_Newsletters`. The Old Time Radio Researchers Collection page
   (`archive.org/details/lumedwards`) shows **collectionSize 676** in its metadata (per
-  search snippet, undated). That figure is the number of items, not episodes.
+  search snippet, undated); **MEASURED 2026-10-17: 692 items** (M3). That figure is the number of items, not episodes.
 - **User-curated compilations.** For example `old-time-radio-collection` ("Señor Video"),
   `UniqueOldTimeRadioEpisodes` (L. Maupin), `ChristmasOTRCollection`,
   `oldtimeyradioshowscollection`, and `gang-busters-1955-04-02-...` (88 Gang Busters
@@ -203,8 +254,10 @@ provenance.
   include *Screen Guild Theater* "Double Indemnity" (1950) and *The New Adventures of
   Nero Wolfe* (1951). It also sells RadioKits (Word and PDF scripts plus USB music and
   effects) for staged recreations. Larry Groebe is its archivist.
-- **Rights:** it "makes no claims to ownership." The scripts are separate copyrights from
-  the recordings. A script can be PD while its recording is not, and the reverse.
+- **Rights (MEASURED 2026-10-17, M20):** "We make no claims to ownership of these
+  materials; they remain, as they should, the copyright of their respective owners." So
+  the site itself says the scripts are *not* free. The scripts are separate copyrights
+  from the recordings. A script can be PD while its recording is not, and the reverse.
 - **App role:** (a) script text as **metadata evidence**: cast, credits and the episode
   title as written; (b) a future "read along" or transcript feature if a script is shown
   PD; (c) a **rights witness**, since a registered script is a claim. Ask before scraping.
@@ -218,8 +271,8 @@ provenance.
 
 | Site | What (per search snippet) | Rights posture | Role |
 |---|---|---|---|
-| **RadioEchoes** (radioechoes.com) | "over 95,000" OTR programs to stream or download for free (2018 listing); accepts donated MP3s | No terms found | **Never** as a source: donated files, unknown provenance. Its catalog might serve to cross-check series names |
-| **Old Time Radio Downloads** (oldtimeradiodownloads.com) | No search result reached the site. UNVERIFIED | UNVERIFIED | Probe its terms before any use. Assume **never** |
+| **RadioEchoes** (radioechoes.com) | MEASURED (M17): 5,069 series, 129,158 episodes, 21 genres, free to play and download; accepts donated MP3s | No terms or rights statement on the home page | **Never** as a source: donated files, unknown provenance. Its catalog might serve to cross-check series names |
+| **Old Time Radio Downloads** (oldtimeradiodownloads.com) | MEASURED (M18): free downloads with accounts and an RSS feed; promotes and links OTRCAT.com, i.e. a seller's sister site | "Copyright 2007-2026 ... Reproduction of text strictly prohibited" | **Never** |
 | **cbsrmt.com** (CBS Radio Mystery Theater fan site) | All 1,399 episodes, free | CBSRMT is 1974-82, **post-1972 federal copyright**, CBS. Not PD | **Never** |
 | **Relic Radio** (relicradio.com; podcast feeds; `archive.org/details/RelicRadioShow`) | Curated podcast feeds: The Relic Radio Show, Sci-Fi, The Horror!, Case Closed! | Apple Podcasts lists "Copyright© RelicRadio.com" (the curation, not the shows) | **Precedent** (§12): proves the episodic-feed model. Not a source |
 | **OTR Player** (iOS app id1493221239) | "over 15,000 episodes from more than 130 shows, all free" | UNVERIFIED | A competitor / precedent |
@@ -345,8 +398,9 @@ per-series verification by the rights track.
 1. **LibriVox Dramatic Works.** The PD dedication is on every recording; the texts are
    pre-1930.
 2. **OWI WWII sound recordings, NARA 208-GENERALa.** These are federal records, fully
-   digitized, with an API. Caveat: some OWI programs used network talent and network
-   facilities.
+   digitized, with an API. **Downgraded to medium (MEASURED 2026-10-17, M13):** NARA's
+   own record says "Restricted - Possibly: Copyright." Some OWI programs used network
+   talent and network facilities.
 3. **VOA/USIA programs at the JFK Library.** Each is labeled PD as a work of US
    officials.
 4. **Treasury Department series**: *Treasury Star Parade* (1942-44, "produced by the
@@ -416,15 +470,15 @@ the question.
 |---|---|---|---|---|---|---|
 | 1 | Internet Archive: OTRR sets in `oldtimeradio` | Thousands of series, single-episode MP3s, Certified and Maintained tiers | advancedsearch / scrape / metadata APIs; direct `/download/` URLs (pipeline already exists) | Unproven: OTRR "believes" PD; the MMA says most 1923-72 recordings are protected | Medium: item fields plus parseable file names; tiers as a quality signal | **Primary corpus (plumbing)**; admission per series by the rights audit |
 | 2 | LibriVox (incl. Dramatic Works) | ~500 full-cast plays (2020), plus readings | `api/feed/audiobooks` JSON; audio on archive.org | **Strong**: PD dedication, pre-1930 texts | High: authors, genres, readers, sections, durations | **Primary corpus** (drama shelves) |
-| 3 | NARA catalog (RG 208 OWI, 208-GENERALa) | OWI WWII radio, fully digitized | Catalog API v2 (key), `availableOnline` | **Strong**: federal records (§105), with a per-record check | Medium: NARA descriptions plus paper finding aids | **Primary corpus** (government radio) |
+| 3 | NARA catalog (RG 208 OWI, 208-GENERALa) | OWI WWII radio, 1,216 online MP3s (M13) | Catalog API v2 (key) / catalog proxy, direct MP3 | **Medium**: federal origin, but NARA marks the series "Restricted - Possibly: Copyright" | Medium: NARA descriptions plus paper finding aids | **Primary corpus** (government radio) |
 | 4 | JFK Library USIA/VOA audio | VOA programs 1958-65 | Direct download pages | **Strong**: labeled PD per item | Medium | **Primary** (small) |
 | 5 | Archive.org federal series (Treasury Star Parade, Guest Star, Stars for Defense, AFRS originals) | Government-produced series | Same IA APIs | **Medium**: §105 vs donated talent and music | Medium | **Primary candidates**, per series after review |
 | 6 | Generic Radio Workshop | Scripts 1930-1960 | HTML; ask first | Scripts are their own copyrights | High (credits as written) | **Metadata / rights evidence** |
 | 7 | OTRR logs / OTTER, Haendiges, Digital Deli, RadioGoldIndex, JJ's newspaper logs | Episode logs, air dates, cast | HTML / download; no APIs | n/a (facts) | High, but they disagree; keep sources | **Metadata** (with provenance) |
 | 8 | LOC SONIC / NBC / National Recording Registry | Catalog records; registry list | Web catalog; loc.gov JSON (probe) | The audio is not ours | Medium | **Metadata / editorial badges** |
-| 9 | AAPB | ~12,000 public broadcasting programs online | Reading room (API to probe) | Per-program, mostly protected | High | **Metadata**; probe for PD items |
+| 9 | AAPB | ~12,000 programs online; "radio drama" 1,950, 214 online (M15) | Keyless Solr `api.json` | Per-program, mostly protected | High | **Metadata**; probe for PD items |
 | 10 | Wikimedia Commons | A few PD broadcasts; period images | Commons API | Strong (dual US/source PD templates) | Medium | **Small primary + art** |
-| 11 | Europeana Sounds | European radio programs | Europeana API / SPARQL, rights filter | Per item; filter to open | Medium | **Probe**; small primary if found |
+| 11 | Europeana Sounds | 95 radio-drama sound items, 0 open (M16) | Europeana API | Nothing open | Medium | **Never** (nothing reusable) |
 | 12 | Modern CC audio drama | Independent full-cast shows | Each show's RSS | Per feed (CC BY / BY-SA ok; NC/ND flagged) | Low to medium | **Secondary primary**, per-show admission |
 | 13 | BBC Genome, NFSA, UMD LAB, UMKC Marr, WNYC, Paley | Listings and holdings | Web / on-site | Owned by others | Medium-high | **Metadata / context only** |
 | 14 | Radio Spirits, OTRCat, RUSC, Haendiges' shop | Commercial catalogs | Web | Claims to their transfers / licenses | Medium | **Never** (Radio Spirits' license list as a **claims witness**) |
