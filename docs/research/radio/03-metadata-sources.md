@@ -696,8 +696,9 @@ playable catalog and makes gaps against a log visible.
 crawl delay (5,069 pages ≈ 14 hours — one CI run in the 360-minute job cap needs
 sharding across ~3 jobs, or a resumable cursor; thereafter only `?page=recent`).
 Parse each episode to `(series, date, title, length_s, re_file)`; match to
-archive.org files on normalized series + date, confirmed by length within
-max(90 s, 5%) (`07-archive-org-ingest.md` dedupe rule). Facts are free to take
+archive.org files on normalized series + date; length only flags a partial copy,
+never blocks a match (`07-archive-org-ingest.md`: independent uploads of one
+Suspense date differ by 33-43 s at the median and up to 357 s). Facts are free to take
 (*Feist*); credit RadioEchoes and write to support@radioechoes.com in parallel
 asking for an export — they invite collection contributions in their FAQ, so a
 data partnership is a natural ask.

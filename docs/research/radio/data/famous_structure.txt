@@ -1,0 +1,84 @@
+== OTRR_Gunsmoke_Singles | OTRRArchive@yahoo.com | http://creativecommons.org/licenses/by-nc-nd/2.5/ | colls ['jackbennyradio', 'oldtimeradio', 'radioprograms', 'theoldtimeradio'] | reviews 66
+  formats {('derivative', 'Single Page Processed JP2 ZIP'): 9, ('original', 'VBR MP3'): 487, ('derivative', 'Ogg Vorbis'): 486} hours(orig mp3) 255.9
+    Gunsmoke 52-04-26 (001) Billy the Kid.mp3 | len 1740.04 | tag: Billy the Kid / 01 / 04/26/52, episode 1
+    Gunsmoke 52-05-03 (002) Ben Thompson (act 1).mp3 | len 463.4 | tag: Ben Thompson / 02 / 05/03/52, episode 2
+    Gunsmoke 52-05-10 (003) Jaliscoe.mp3 | len 1759.81 | tag: Jaliscoe / 03 / 05/10/52, episode 3
+    Gunsmoke 52-05-24 (005) Ben Slade's Saloon.mp3 | len 1725.48 | tag: Ben Slade's Saloon / 04 / 05/24/52, episode 5
+== OTRR_X_Minus_One_Singles | mikedavisstripmaster@yahoo.com | http://creativecommons.org/licenses/by-nc-nd/3.0/us/ | colls ['oldtimeradio', 'lumedwards', 'radioprograms', 'theoldtimeradio'] | reviews 35
+  formats {('original', 'VBR MP3'): 122, ('derivative', 'Ogg Vorbis'): 122} hours(orig mp3) 51.0
+    XMinusOne55-04-24001NoContact.mp3 | len 1678.48 | tag: X Minus One 55-04-24 (001) No Contact / 01 / 04/24/55, episode 1
+    XMinusOne55-05-01002TheParade.mp3 | len 1698.22 | tag: X Minus One 55-05-01 (002) The Parade / 02 / 05/01/55, episode 2
+    XMinusOne55-05-08003MarsIsHeaven.mp3 | len 1576.7 | tag: X Minus One 55-05-08 (003) Mars Is Heaven / 03 / 05/08/55, episode 3
+    XMinusOne55-05-15004Universe.mp3 | len 1690.25 | tag: X Minus One 55-05-15 (004) Universe / 04 / 05/15/55, episode 4
+== OTRR_Whistler_Singles | mikedavisstripmaster@yahoo.com | http://creativecommons.org/licenses/by-nc-nd/3.0/ | colls ['oldtimeradio', 'lumedwards', 'radioprograms', 'theoldtimeradio'] | reviews 10
+  formats {('original', 'VBR MP3'): 502} hours(orig mp3) 238.6
+    Whistler_42-05-16_ep001_Retribution.mp3 | len 1772.22 | tag: Retribution / 01 / 05/16/42, episode 1
+    Whistler_42-06-13_ep005_Shrunken_Head.mp3 | len 1770.21 | tag: Shrunken Head / 02 / 06/13/42, episode 5
+    Whistler_42-06-27_ep007_Notes_in_the_Night.mp3 | len 1798.15 | tag: Notes in the Night / 03 / 06/27/42, episode 7
+    Whistler_42-08-22_ep015_Death_Has_a_Thirst.mp3 | len 1772.56 | tag: Death Has a Thirst / 04 / 08/22/42, episode 15
+== fibber-mc-gee-and-molly | jfyuga@yahoo.com | None | colls ['oldtimeradio', 'fibbermcgee', 'radioprograms', 'theoldtimeradio'] | reviews 11
+  formats {('original', 'VBR MP3'): 1255} hours(orig mp3) 474.5
+    FMM 1931-06-01 (xx) Smackout.mp3 | len 1172 | tag: FMM 1931-06-01 (xx) Smackout / 01 / Fibber McGee and Molly
+    FMM 1935-04-16 (1) The Motorcycle Cop, The Judge And Fibber.mp3 | len 1728.56 | tag: FMM 1935-04-16 (1) The Motorcycle Cop, The Judge And Fibber / 02 / Fibber McGee and Molly
+    FMM 1935-04-30 (3) Hot Dogs And A Blowout.mp3 | len 1739.52 | tag: FMM 1935-04-30 (3) Hot Dogs And A Blowout / 00 / Fibber McGee and Molly
+    FMM 1935-05-07 (4) Out of Gas at 42nd and Broadway.mp3 | len 1805.24 | tag: FMM 1935-05-07 (4) Out of Gas at 42nd and Broadway / 04 / Fibber McGee and Molly
+== the-shadow-1938-10-09-141-death-stalks-the-shadow | jfyuga@yahoo.com | None | colls ['oldtimeradio', 'radioprograms', 'theoldtimeradio'] | reviews 3
+  formats {('original', 'VBR MP3'): 239} hours(orig mp3) 112.1
+    The Shadow 1937-09-26 (87) The Death House Rescue.mp3 | len 1753.23 | tag: The Shadow 1937-09-26 (87) The Death House Rescue / 01 / The Shadow
+    The Shadow 1937-10-24 (91) The Temple Bells of Neban.mp3 | len 1764.68 | tag: The Shadow 1937-10-24 (91) The Temple Bells of Neban / 02 / The Shadow
+    The Shadow 1937-10-31 (92) The Three Ghosts.mp3 | len 1774.73 | tag: The Shadow 1937-10-31 (92) The Three Ghosts / 03 / The Shadow
+    The Shadow 1937-11-28 (96) Circle of Death.mp3 | len 1780.38 | tag: The Shadow 1937-11-28 (96) Circle of Death / 04 / The Shadow
+== Dragnet_OTR | mikedavisstripmaster@yahoo.com | http://creativecommons.org/licenses/publicdomain/ | colls ['oldtimeradio', 'lumedwards', 'radioprograms'] | reviews 50
+  formats {('original', '32Kbps MP3'): 292, ('original', '24Kbps MP3'): 6} hours(orig mp3) 139.2
+    Dragnet_49-06-10_ep002_Homicide.mp3 | len 1722.23 | tag: None / None / None
+    Dragnet_49-06-17_ep003_The_Werewolf.mp3 | len 1763.54 | tag: None / None / None
+    Dragnet_49-06-24_ep004_Homicide.mp3 | len 1730.73 | tag: None / None / None
+    Dragnet_49-07-07_ep005_Helen_Corday.mp3 | len 1754.49 | tag: None / None / None
+== TheJackBennyProgram | robertfarrell111@gmail.com | http://creativecommons.org/publicdomain/mark/1.0/ | colls ['jackbennyradio', 'oldtimeradio', 'radioprograms'] | reviews 0
+  formats {('original', 'VBR MP3'): 686, ('derivative', 'Ogg Vorbis'): 686} hours(orig mp3) 326.6
+    1932-05-02 - 001) First Show.mp3 | len 1800.05 | tag: 1932-05-02 - 001) First Show / 01 / Jack Benny
+    1932-05-11 - 004) Jacks 1st Paying Mc Job.mp3 | len 1750.73 | tag: 1932-05-11 - 004) Jacks 1st Paying Mc Job / 1 / Jack Benny
+    1933-01-01 - 070) Outstanding Achievements of 1932 Review.mp3 | len 890.17 | tag: 1933-01-01 - 070) Outstanding Achievements of 1932 Review / 03 / Jack Benny
+    1933-01-22 - 076) Bertha The Sewing Machine Girl.mp3 | len 921.57 | tag: 1933-01-22 - 076) Bertha The Sewing Machine Girl / 04 / Jack Benny
+== LightsOutoldTimeRadio | jeffzkrazie@gmail.com | None | colls ['oldtimeradio', 'radioprograms'] | reviews 23
+  formats {('original', 'VBR MP3'): 86, ('derivative', 'Ogg Vorbis'): 86} hours(orig mp3) 37.1
+    LightsOut-1936-06-17CatWife.mp3 | len 1832.86 | tag: Lights Out - 1936-06-17 Cat Wife / 01 / Lights Out - Series 1 (1936-1939)
+    LightsOut-1936-08-5MoneyMoneyMoney.mp3 | len 1785.9 | tag: Lights Out - 1936-08-5 Money Money Money / 02 / Lights Out - Series 1 (1936-1939)
+    LightsOut-1936-09-09AuthorAndTheThing.mp3 | len 1392.08 | tag: Lights Out - 1936-09-09 Author and the Thing / 03 / Lights Out - Series 1 (1936-1939)
+    LightsOut-1936-09-16TheSea.mp3 | len 1332.26 | tag: Lights Out - 1936-09-16 The Sea / 04 / Lights Out - Series 1 (1936-1939)
+== OrsonWelles_MercuryTheatre | nickpalmer57@gmail.com | None | colls ['hifidelity_potpourri', 'hifidelity'] | reviews 1
+  formats {('original', 'VBR MP3'): 19} hours(orig mp3) 19.0
+    01 38-07-11 Dracula.mp3 | len 3561.47 | tag: 38-07-11 Dracula / 1 / 1938: Mercury Theatre On The Air (CBS)
+    02 38-07-18 Treasure Island.mp3 | len 3841.57 | tag: 38-07-18 Treasure Island / 2 / 1938: Mercury Theatre On The Air (CBS)
+    03 38-07-25 A Tale of Two Cities.mp3 | len 3558.5 | tag: 38-07-25 A Tale of Two Cities / 3 / 1938: Mercury Theatre On The Air (CBS)
+    04 38-08-01 The 39 Steps.mp3 | len 3705.52 | tag: 38-08-01 The 39 Steps / 4 / 1938: Mercury Theatre On The Air (CBS)
+== CommandPerformance | pokermatt@gmail.com | http://creativecommons.org/licenses/publicdomain/ | colls ['oldtimeradio', 'radioprograms'] | reviews 5
+  formats {('original', '32Kbps MP3'): 100, ('original', '64Kbps MP3'): 23, ('original', '256Kbps MP3'): 56, ('original', '48Kbps MP3'): 10, ('original', '128Kbps MP3'): 18, ('original', '160Kbps MP3'): 1, ('original', '24Kbps MP3'): 17, ('original', '80Kbps MP3'): 4, ('original', 'VBR MP3'): 2, ('original', '40Kbps MP3'): 1} hours(orig mp3) 132.7
+    CP_42-03-01_ep001-Eddie_Cantor.mp3 | len 1813.58 | tag: Eddie Cantor / None / 03/01/42, episode 1
+    CP_42-03-09_ep002-Fred_Warren__Joe_Lewis.mp3 | len 1807.91 | tag: Fred Warren, Joe Lewis / None / 03/09/42, episode 2
+    CP_42-03-13_ep003-Kate_Smith___Henny_Youngman.mp3 | len 1825.32 | tag: Kate Smith , Henny Youngman / None / 03/13/42, episode 3
+    CP_42-03-18_ep004-Fred_Allen__Kenny_Baker.mp3 | len 1823.27 | tag: Fred Allen, Kenny Baker / None / 03/18/42, episode 4
+== OTRR_Lux_Radio_Theater_Singles | mikedavisstripmaster@yahoo.com | http://creativecommons.org/licenses/by-nc-nd/4.0/ | colls ['oldtimeradio', 'lumedwards', 'radioprograms', 'theoldtimeradio'] | reviews 7
+  formats {('derivative', 'Single Page Processed JP2 ZIP'): 107, ('original', 'VBR MP3'): 789} hours(orig mp3) 758.0
+    LuxRadioTheatre46-09-02535OurVinesHaveTenderGrapes.mp3 | len 3529.44 | tag: Lux Radio Theatre 46-09-02 (535) Our Vines Have Tender Grapes / 01 / 09/02/46, episode 535
+    LuxRadioTheatre46-09-09536TheBarrettsOfWimpoleStreet.mp3 | len 3562.9 | tag: Lux Radio Theatre 46-09-09 (536) The Barretts of Wimpole Street / 02 / 09/09/46, episode 536
+    LuxRadioTheatre46-09-09536TheBarrettsOfWimpoleStreetafrs.mp3 | len 3056.33 | tag: Lux Radio Theatre 46-09-09 (536) The Barretts of Wimpole Street (AFRS) / 03 / 09/09/46, episode 536
+    LuxRadioTheatre46-09-16537MadameCurieafrs.mp3 | len 3235.97 | tag: Lux Radio Theatre 46-09-16 (537) Madame Curie (AFRS) / 04 / 09/16/46, episode 537
+== xminusoneotr | webranger1962@gmail.com | http://creativecommons.org/licenses/publicdomain/ | colls ['oldtimeradio', 'radioprograms'] | reviews 4
+  formats {('original', '32Kbps MP3'): 81, ('derivative', 'Ogg Vorbis'): 81} hours(orig mp3) 33.9
+    X_Minus_One-A_Gun_for_Dinosaur.mp3 | len 1776.48 | tag: A Gun for Dinosaur / None / Retrovision.TV
+    X_Minus_One-A_Pail_of_Air.mp3 | len 1798.26 | tag: A Pail of Air / None / Retrovision.TV
+    X_Minus_One-Almost_Human.MP3 | len 1431.06 | tag: Almost Human / None / Retrovision.TV
+    X_Minus_One-And_the_Moon_Be_Still_as_Bright.mp3 | len 1440.31 | tag: And the Moon Be Still as Bright / None / Retrovision.TV
+== SUSPENSE | mikedavisstripmaster@yahoo.com | http://creativecommons.org/licenses/publicdomain/ | colls ['suspenseradio', 'oldtimeradio', 'radioprograms'] | reviews 36
+  formats {('original', '64Kbps MP3'): 92, ('derivative', 'Ogg Vorbis'): 92} hours(orig mp3) 45.5
+    40-07-21_CBS_Forecast-The_Lodger-Suspense_audition.mp3 | len 1855.35 | tag: None / 40 / None
+    42-06-17_Burning_Court.mp3 | len 1756.46 | tag: None / 42 / None
+    42-06-24_Wet_Saturday.mp3 | len 1756.78 | tag: None / 42 / None
+    42-08-19_The_Cave_of_Ali_Baba.mp3 | len 1834.94 | tag: None / 42 / None
+== OTRR_Certified_Suspense | OTRRArchive@yahoo.com | http://creativecommons.org/licenses/by-nc-nd/3.0/ | colls ['suspenseradio', 'oldtimeradio', 'radioprograms'] | reviews 27
+  formats {('original', 'ZIP'): 36} hours(orig mp3) 0.0
+    OTRR_Certified_Suspense_Ver2_CD_01of36.zip | len None | tag: None / None / None
+    OTRR_Certified_Suspense_Ver2_CD_02of36.zip | len None | tag: None / None / None
+    OTRR_Certified_Suspense_Ver2_CD_03of36.zip | len None | tag: None / None / None
+    OTRR_Certified_Suspense_Ver2_CD_04of36.zip | len None | tag: None / None / None

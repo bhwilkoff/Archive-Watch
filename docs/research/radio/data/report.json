@@ -1,0 +1,1208 @@
+{
+  "seeds": {
+    "oldtimeradio": {
+      "query": "collection:oldtimeradio",
+      "reported_total": 8952,
+      "read": 8952
+    },
+    "otrr_ids": {
+      "query": "identifier:OTRR_*",
+      "reported_total": 526,
+      "read": 526
+    },
+    "subject_otr": {
+      "query": "subject:\"old time radio\"",
+      "reported_total": 7895,
+      "read": 7895
+    },
+    "subject_otrr": {
+      "query": "subject:\"otrr\"",
+      "reported_total": 638,
+      "read": 638
+    },
+    "lumedwards": {
+      "query": "collection:lumedwards",
+      "reported_total": 692,
+      "read": 692
+    }
+  },
+  "date": "2026-10-17",
+  "numFound": {
+    "collection:oldtimeradio": 8952,
+    "collection:oldtimeradio AND mediatype:audio": 8808,
+    "collection:radioprograms": 5081030,
+    "collection:librivoxaudio": 21889,
+    "mediatype:radio": 0,
+    "identifier:OTRR_*": 526,
+    "subject:\"otrr\"": 638,
+    "subject:\"old time radio\"": 7895,
+    "subject:\"old time radio\" AND NOT collection:oldtimeradio": 3149,
+    "collection:lumedwards": 692,
+    "uploader:OTRRArchive*": 408
+  },
+  "seed_overlap": [
+    [
+      "oldtimeradio",
+      4183
+    ],
+    [
+      "oldtimeradio+subject_otr",
+      3936
+    ],
+    [
+      "subject_otr",
+      3143
+    ],
+    [
+      "lumedwards+oldtimeradio+otrr_ids+subject_otr+subject_otrr",
+      415
+    ],
+    [
+      "lumedwards+oldtimeradio+subject_otr",
+      256
+    ],
+    [
+      "oldtimeradio+otrr_ids+subject_otr+subject_otrr",
+      99
+    ],
+    [
+      "subject_otrr",
+      70
+    ],
+    [
+      "oldtimeradio+subject_otr+subject_otrr",
+      33
+    ],
+    [
+      "lumedwards+oldtimeradio",
+      10
+    ],
+    [
+      "lumedwards+oldtimeradio+subject_otr+subject_otrr",
+      7
+    ],
+    [
+      "subject_otr+subject_otrr",
+      6
+    ],
+    [
+      "oldtimeradio+otrr_ids",
+      5
+    ],
+    [
+      "lumedwards+oldtimeradio+otrr_ids+subject_otrr",
+      4
+    ],
+    [
+      "oldtimeradio+otrr_ids+subject_otrr",
+      3
+    ],
+    [
+      "oldtimeradio+subject_otrr",
+      1
+    ]
+  ],
+  "collections_of_items_top": [
+    [
+      "radioprograms",
+      10368
+    ],
+    [
+      "oldtimeradio",
+      8952
+    ],
+    [
+      "fav-piazza24",
+      1357
+    ],
+    [
+      "fav-dave_smith_2021",
+      1347
+    ],
+    [
+      "fav-david_smith1967",
+      1280
+    ],
+    [
+      "the-suspense-project",
+      921
+    ],
+    [
+      "fav-hans1959",
+      891
+    ],
+    [
+      "fav-johndhu",
+      838
+    ],
+    [
+      "radiobooks",
+      823
+    ],
+    [
+      "fav-mark_shapiro",
+      821
+    ],
+    [
+      "fav-mavau",
+      778
+    ],
+    [
+      "fav-bigmike1967",
+      738
+    ],
+    [
+      "lumedwards",
+      692
+    ],
+    [
+      "fav-michael_hep",
+      678
+    ],
+    [
+      "opensource_audio",
+      628
+    ],
+    [
+      "fav-el_guapo_s_revenge",
+      621
+    ],
+    [
+      "fav-bouncetiger",
+      575
+    ],
+    [
+      "fav-kotskan",
+      570
+    ],
+    [
+      "fav-sfsdradio",
+      552
+    ],
+    [
+      "fav-olddave",
+      528
+    ],
+    [
+      "fav-maximilien78",
+      519
+    ],
+    [
+      "fav-jacobwit",
+      465
+    ],
+    [
+      "fav-eli_l",
+      443
+    ],
+    [
+      "theoldtimeradio",
+      437
+    ],
+    [
+      "fav-emily_webb",
+      435
+    ],
+    [
+      "fav-wayne_price_jr",
+      427
+    ],
+    [
+      "fav-jason_seay639",
+      425
+    ],
+    [
+      "fav-volsnut",
+      421
+    ],
+    [
+      "fav-jim_smith57",
+      384
+    ],
+    [
+      "fav-kingdavethe1st",
+      380
+    ],
+    [
+      "fav-jaybeejb46",
+      377
+    ],
+    [
+      "fav-otrrarchive",
+      361
+    ],
+    [
+      "fav-knowonehere",
+      358
+    ],
+    [
+      "fav-bkde",
+      349
+    ],
+    [
+      "fav-hardcore_collector",
+      339
+    ],
+    [
+      "fav-alinso",
+      332
+    ],
+    [
+      "fav-fathomme",
+      327
+    ],
+    [
+      "fav-pen2",
+      308
+    ],
+    [
+      "podcasts",
+      304
+    ],
+    [
+      "fav-searcharchives",
+      292
+    ]
+  ],
+  "unique_items": 12171,
+  "mediatype": {
+    "audio": 11724,
+    "texts": 245,
+    "movies": 102,
+    "image": 84,
+    "collection": 16
+  },
+  "otrr_items": 523,
+  "licenseurl_top": [
+    [
+      "none",
+      9226
+    ],
+    [
+      "http://creativecommons.org/licenses/publicdomain/",
+      934
+    ],
+    [
+      "http://creativecommons.org/publicdomain/mark/1.0/",
+      553
+    ],
+    [
+      "https://creativecommons.org/licenses/by-nc-nd/4.0/",
+      334
+    ],
+    [
+      "http://creativecommons.org/licenses/by-nc-nd/3.0/",
+      305
+    ],
+    [
+      "http://creativecommons.org/publicdomain/zero/1.0/",
+      126
+    ],
+    [
+      "http://creativecommons.org/licenses/by-nc-nd/4.0/",
+      125
+    ],
+    [
+      "http://creativecommons.org/licenses/by-nc-nd/2.5/",
+      114
+    ],
+    [
+      "https://creativecommons.org/publicdomain/zero/1.0/",
+      112
+    ],
+    [
+      "https://creativecommons.org/publicdomain/mark/1.0/",
+      71
+    ],
+    [
+      "http://creativecommons.org/licenses/by-nc-nd/3.0/us/",
+      67
+    ],
+    [
+      "http://creativecommons.org/licenses/by-nd/3.0/",
+      44
+    ],
+    [
+      "https://creativecommons.org/licenses/by-nd/4.0/",
+      27
+    ],
+    [
+      "http://creativecommons.org/licenses/by/3.0/",
+      25
+    ],
+    [
+      "http://creativecommons.org/licenses/by-nc-sa/3.0/",
+      24
+    ]
+  ],
+  "files_count_per_item": {
+    "median": 12,
+    "p90": 162,
+    "max": 17366,
+    "sum": 1037763
+  },
+  "item_bytes_sum": 8432229418722,
+  "sampled_items": 400,
+  "audio_works_in_sample": 16544,
+  "audio_works_per_item": {
+    "median": 1,
+    "single_episode_items": 124,
+    "multi_episode_items": 192,
+    "max": 2221
+  },
+  "filename_family": {
+    "F1_otrr_ep": [
+      5238,
+      0.317
+    ],
+    "F1c_paren_num": [
+      3525,
+      0.213
+    ],
+    "F1d_camel_glued": [
+      3501,
+      0.212
+    ],
+    "F0_otrr_v2": [
+      1204,
+      0.073
+    ],
+    "F6_none": [
+      1025,
+      0.062
+    ],
+    "F1e_series_date_title": [
+      697,
+      0.042
+    ],
+    "F5_number": [
+      535,
+      0.032
+    ],
+    "F0b_camel_yymmdd_num": [
+      354,
+      0.021
+    ],
+    "F1f_paren_num_first": [
+      252,
+      0.015
+    ],
+    "F2b_series_yymmdd_title": [
+      129,
+      0.008
+    ],
+    "F8_series_dash_title": [
+      49,
+      0.003
+    ],
+    "F2_yymmdd": [
+      18,
+      0.001
+    ],
+    "F7_date_first": [
+      12,
+      0.001
+    ],
+    "F4_us_mmddyyyy": [
+      5,
+      0.0
+    ]
+  },
+  "filename_family_otrr": {
+    "F1_otrr_ep": 5048,
+    "F1d_camel_glued": 3428,
+    "F1c_paren_num": 2775,
+    "F0_otrr_v2": 1201,
+    "F1e_series_date_title": 619,
+    "F6_none": 607,
+    "F0b_camel_yymmdd_num": 354,
+    "F1f_paren_num_first": 252,
+    "F5_number": 177,
+    "F2b_series_yymmdd_title": 54,
+    "F8_series_dash_title": 10,
+    "F2_yymmdd": 3,
+    "F7_date_first": 1
+  },
+  "format_all_files": [
+    [
+      "PNG",
+      16526
+    ],
+    [
+      "Spectrogram",
+      16236
+    ],
+    [
+      "VBR MP3",
+      15612
+    ],
+    [
+      "Columbia Peaks",
+      15228
+    ],
+    [
+      "Ogg Vorbis",
+      7312
+    ],
+    [
+      "Text",
+      4084
+    ],
+    [
+      "Web Video Text Tracks",
+      4063
+    ],
+    [
+      "SubRip",
+      2715
+    ],
+    [
+      "Essentia Low GZ",
+      1993
+    ],
+    [
+      "Essentia High GZ",
+      1969
+    ],
+    [
+      "Metadata",
+      1279
+    ],
+    [
+      "Flac",
+      981
+    ],
+    [
+      "64Kbps MP3",
+      487
+    ],
+    [
+      "128Kbps MP3",
+      481
+    ],
+    [
+      "Item Tile",
+      396
+    ],
+    [
+      "Archive BitTorrent",
+      394
+    ],
+    [
+      "DjVuTXT",
+      372
+    ],
+    [
+      "Djvu XML",
+      372
+    ],
+    [
+      "Scandata",
+      372
+    ],
+    [
+      "Single Page Processed JP2 ZIP",
+      371
+    ],
+    [
+      "JPEG Thumb",
+      324
+    ],
+    [
+      "JPEG",
+      287
+    ],
+    [
+      "ZIP",
+      277
+    ],
+    [
+      "32Kbps MP3",
+      266
+    ],
+    [
+      "chOCR",
+      228
+    ],
+    [
+      "hOCR",
+      228
+    ],
+    [
+      "OCR Page Index",
+      228
+    ],
+    [
+      "OCR Search Text",
+      228
+    ],
+    [
+      "Page Numbers JSON",
+      228
+    ],
+    [
+      "Text PDF",
+      210
+    ]
+  ],
+  "audio_source": {
+    "original": 16544
+  },
+  "tag_hit_rate": {
+    "title": 0.928,
+    "track": 0.932,
+    "album": 0.735,
+    "creator": 0.745,
+    "artist": 0.877,
+    "genre": 0.864
+  },
+  "hours_in_sample": 7692.0,
+  "length_known_rate": 0.998,
+  "date_coverage": {
+    "filename_date": 0.8,
+    "album_tag_date": 0.421,
+    "date_from_tag_only": 35,
+    "tag_agrees_with_name": 6763,
+    "tag_disagrees_with_name": 159,
+    "any_date": 0.802
+  },
+  "variants": {
+    "AFRS": 405,
+    "AFRTS": 201,
+    "decade_only_date": 1473
+  },
+  "parsed_but_series_from_item": 17,
+  "md5_duplicates": 534,
+  "broadcasts_in_several_items": 734,
+  "distinct_dated_broadcasts": 12099,
+  "top_series_by_files": [
+    [
+      "theloneranger",
+      2170
+    ],
+    [
+      "suspense",
+      1168
+    ],
+    [
+      "luxradiotheater",
+      1083
+    ],
+    [
+      "familytheater",
+      525
+    ],
+    [
+      "whistler",
+      514
+    ],
+    [
+      "gunsmoke",
+      487
+    ],
+    [
+      "pwh",
+      410
+    ],
+    [
+      "jb",
+      397
+    ],
+    [
+      "claudia",
+      389
+    ],
+    [
+      "gueststar",
+      381
+    ],
+    [
+      "dragnet",
+      344
+    ],
+    [
+      "ytjd",
+      341
+    ],
+    [
+      "fatherknowsbest",
+      300
+    ],
+    [
+      "callingallcars",
+      298
+    ],
+    [
+      "theaterfive",
+      255
+    ],
+    [
+      "escape",
+      250
+    ],
+    [
+      "philharris",
+      250
+    ],
+    [
+      "bcrcshow",
+      222
+    ],
+    [
+      "innersanctum",
+      222
+    ],
+    [
+      "rangerbill",
+      221
+    ],
+    [
+      "firefighters",
+      196
+    ],
+    [
+      "dangerousassignment",
+      196
+    ],
+    [
+      "ourmissbrooks",
+      191
+    ],
+    [
+      "duffystavern",
+      173
+    ],
+    [
+      "firefighterssingleepisodes",
+      153
+    ],
+    [
+      "nickcarter",
+      150
+    ],
+    [
+      "iamt20122013",
+      139
+    ],
+    [
+      "redhorseranch",
+      128
+    ],
+    [
+      "spacepatrol",
+      112
+    ],
+    [
+      "hopalongcassidy",
+      105
+    ],
+    [
+      "box13",
+      104
+    ],
+    [
+      "pintopeteandhisranchboys",
+      104
+    ],
+    [
+      "claybourne9xxxxx",
+      94
+    ],
+    [
+      "hallsofivy",
+      90
+    ],
+    [
+      "mrdistrictattorney",
+      84
+    ],
+    [
+      "gijive",
+      83
+    ],
+    [
+      "lineup",
+      82
+    ],
+    [
+      "goldengatequartetsingssingleepisodes",
+      79
+    ],
+    [
+      "planetman",
+      77
+    ],
+    [
+      "singlesanddoublescollectionvol2singleepisodes",
+      77
+    ]
+  ],
+  "top_series_by_files_otrr": [
+    [
+      "theloneranger",
+      2170
+    ],
+    [
+      "suspense",
+      1133
+    ],
+    [
+      "luxradiotheater",
+      1083
+    ],
+    [
+      "familytheater",
+      525
+    ],
+    [
+      "whistler",
+      502
+    ],
+    [
+      "gunsmoke",
+      486
+    ],
+    [
+      "pwh",
+      410
+    ],
+    [
+      "jb",
+      397
+    ],
+    [
+      "claudia",
+      389
+    ],
+    [
+      "dragnet",
+      343
+    ],
+    [
+      "ytjd",
+      337
+    ],
+    [
+      "callingallcars",
+      298
+    ],
+    [
+      "theaterfive",
+      255
+    ],
+    [
+      "escape",
+      250
+    ],
+    [
+      "philharris",
+      250
+    ],
+    [
+      "bcrcshow",
+      222
+    ],
+    [
+      "rangerbill",
+      221
+    ],
+    [
+      "firefighters",
+      196
+    ],
+    [
+      "ourmissbrooks",
+      188
+    ],
+    [
+      "duffystavern",
+      164
+    ],
+    [
+      "innersanctum",
+      155
+    ],
+    [
+      "firefighterssingleepisodes",
+      153
+    ],
+    [
+      "fatherknowsbest",
+      151
+    ],
+    [
+      "nickcarter",
+      150
+    ],
+    [
+      "redhorseranch",
+      128
+    ],
+    [
+      "spacepatrol",
+      112
+    ],
+    [
+      "hopalongcassidy",
+      105
+    ],
+    [
+      "box13",
+      104
+    ],
+    [
+      "pintopeteandhisranchboys",
+      104
+    ],
+    [
+      "claybourne9xxxxx",
+      94
+    ],
+    [
+      "hallsofivy",
+      89
+    ],
+    [
+      "mrdistrictattorney",
+      84
+    ],
+    [
+      "lineup",
+      82
+    ],
+    [
+      "goldengatequartetsingssingleepisodes",
+      79
+    ],
+    [
+      "planetman",
+      77
+    ],
+    [
+      "singlesanddoublescollectionvol2singleepisodes",
+      77
+    ],
+    [
+      "casey",
+      76
+    ],
+    [
+      "mamabloomsbrood",
+      76
+    ],
+    [
+      "geneautry",
+      74
+    ],
+    [
+      "jbgs",
+      71
+    ]
+  ],
+  "audio_file_keys": [
+    [
+      "name",
+      25263
+    ],
+    [
+      "source",
+      25263
+    ],
+    [
+      "format",
+      25263
+    ],
+    [
+      "mtime",
+      25263
+    ],
+    [
+      "size",
+      25263
+    ],
+    [
+      "md5",
+      25263
+    ],
+    [
+      "crc32",
+      25263
+    ],
+    [
+      "sha1",
+      25263
+    ],
+    [
+      "length",
+      25238
+    ],
+    [
+      "height",
+      22380
+    ],
+    [
+      "width",
+      22380
+    ],
+    [
+      "title",
+      16381
+    ],
+    [
+      "track",
+      16089
+    ],
+    [
+      "genre",
+      15090
+    ],
+    [
+      "artist",
+      14987
+    ],
+    [
+      "creator",
+      13314
+    ],
+    [
+      "album",
+      13143
+    ],
+    [
+      "comment",
+      10634
+    ],
+    [
+      "original",
+      8097
+    ],
+    [
+      "external-identifier",
+      5632
+    ],
+    [
+      "external-identifier-match-date",
+      5119
+    ],
+    [
+      "bitrate",
+      799
+    ],
+    [
+      "license",
+      34
+    ],
+    [
+      "viruscheck",
+      14
+    ]
+  ],
+  "audio_format_original": [
+    [
+      "VBR MP3",
+      15184
+    ],
+    [
+      "Flac",
+      945
+    ],
+    [
+      "128Kbps MP3",
+      481
+    ],
+    [
+      "32Kbps MP3",
+      266
+    ],
+    [
+      "64Kbps MP3",
+      165
+    ],
+    [
+      "24bit Flac",
+      46
+    ],
+    [
+      "WAVE",
+      35
+    ],
+    [
+      "Audio",
+      25
+    ],
+    [
+      "40Kbps MP3",
+      7
+    ],
+    [
+      "320Kbps MP3",
+      4
+    ],
+    [
+      "256Kbps MP3",
+      3
+    ],
+    [
+      "48Kbps MP3",
+      2
+    ],
+    [
+      "96Kbps MP3",
+      1
+    ],
+    [
+      "AIFF",
+      1
+    ],
+    [
+      "Windows Media Audio",
+      1
+    ]
+  ],
+  "audio_format_derivative": [
+    [
+      "Ogg Vorbis",
+      7312
+    ],
+    [
+      "VBR MP3",
+      428
+    ],
+    [
+      "64Kbps MP3",
+      322
+    ],
+    [
+      "Flac",
+      35
+    ]
+  ],
+  "biggest_items_by_hours": [
+    [
+      "OTRR_LoneRanger_Singles",
+      1051.2,
+      2221
+    ],
+    [
+      "OTRR_Lux_Radio_Theater_Singles",
+      758.0,
+      789
+    ],
+    [
+      "OTRR_Suspense_Singles",
+      429.8,
+      911
+    ],
+    [
+      "OTRR_Gunsmoke_Singles",
+      255.9,
+      487
+    ],
+    [
+      "OTRR_Family_Theater_Singles",
+      246.0,
+      528
+    ],
+    [
+      "OTRR_Whistler_Singles",
+      238.6,
+      502
+    ],
+    [
+      "OTRR_Proudly_We_Hail_Singles",
+      218.7,
+      479
+    ],
+    [
+      "OTRR_Dragnet_Singles",
+      161.9,
+      344
+    ],
+    [
+      "OTRR_Calling_All_Cars_Singles",
+      150.8,
+      298
+    ],
+    [
+      "OTRR_Singles_And_Doubles_vol_2_Singles",
+      138.8,
+      355
+    ],
+    [
+      "IAMT2012-2013",
+      135.0,
+      139
+    ],
+    [
+      "OTRR_Harris_Faye_Singles",
+      125.4,
+      253
+    ],
+    [
+      "OTRR_Escape_Singles",
+      121.4,
+      250
+    ],
+    [
+      "OTRR_Ranger_Bill_Singles",
+      108.0,
+      221
+    ],
+    [
+      "Information-Please",
+      104.4,
+      219
+    ],
+    [
+      "guest-star",
+      93.9,
+      381
+    ],
+    [
+      "OTRR_Claudia_Singles",
+      92.3,
+      389
+    ],
+    [
+      "Otrr_Dangerous_Assignment_Singles",
+      91.8,
+      200
+    ],
+    [
+      "OTRR_Theater_Five_Singles",
+      89.4,
+      256
+    ],
+    [
+      "OTRR_Our_Miss_Brooks_Singles",
+      87.1,
+      193
+    ],
+    [
+      "OTRR_Duffys_Tavern_Singles",
+      78.3,
+      166
+    ],
+    [
+      "OTRR_Father_Knows_Best_Singles",
+      74.4,
+      156
+    ],
+    [
+      "father-knows-best-1949-12-29-19-new-years-eve",
+      73.1,
+      148
+    ],
+    [
+      "OTRR_BCRC_Singles",
+      72.5,
+      222
+    ],
+    [
+      "OTRR_YoursTrulyJohnnyDollar_Singles_Bob_Bailey_2",
+      71.8,
+      179
+    ]
+  ],
+  "note": "sample-based numbers; scale by unique_items/sampled_items only as a rough estimate"
+}

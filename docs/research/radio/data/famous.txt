@@ -1,0 +1,136 @@
+== Suspense
+numFound 1048
+  OTRR_Suspense_Singles 2425097 7418 34.6 GB | Suspense - Single Episodes
+  suspenseradio 1370801 6 0.0 GB | Suspense: The Radio Show
+  SUSPENSE 966252 281 1.8 GB | Suspense 01
+  SUSPENSE2 446564 279 1.8 GB | Suspense page 2
+  SUSPENSE3 407568 239 1.9 GB | Suspense 3
+  SUSPENSE4 280246 178 0.7 GB | Suspense 04
+== Lux Radio
+numFound 89
+  OTRR_Lux_Radio_Theater_Singles 821173 5875 33.6 GB | Lux Radio Theater - Single Episodes
+  Lux01 182754 107 0.9 GB | Lux Radio Theater 01
+  Lux09 134726 86 0.5 GB | Lux Radio Theater 1944
+  Lux02 133798 87 0.6 GB | Lux Radio Theater 1937
+  Lux08 129681 78 0.5 GB | Lux Radio Theater
+  Lux10 111888 60 0.4 GB | Lux Radio Theater 1945
+== X Minus One
+numFound 37
+  OTRR_X_Minus_One_Singles 1609559 863 3.2 GB | X Minus One - Single Episodes
+  xminusoneotr 120608 330 1.1 GB | X Minus One - Old Time Radio
+  OTRR_Certified_X_Minus_One 78104 10 1.6 GB | X Minus One
+  XMinusOne2881956SurfaceTension 4139 11 0.0 GB | X Minus One 28 8 1956 Surface Tension
+  X_Minus_One_560515_Hallucination_Orbit 3849 7 0.0 GB | X Minus One - 560515 - Hallucination Orbit
+  XMinusOneJHMC 3523 25 0.3 GB | X Minus One
+== Dimension X
+numFound 28
+  OTRR_Dimension_X_Singles 1114757 310 1.4 GB | Dimension X - Single Episodes
+  Dimension-X 229955 131 0.5 GB | Dimension X
+  OTRR_Certified_Dimension_X 59001 9 1.3 GB | Dimension X
+  DimensionX1951092249Requiem_201703 11872 208 2.2 GB | Dimension X
+  otr_dimensionx 5607 17 0.0 GB | Dimension X
+  DimensionX1951092249Requiem 2867 121 0.8 GB | Dimension X
+== The Shadow
+numFound 133
+  the-shadow-1938-10-09-141-death-stalks-the-shadow 482451 964 6.0 GB | The Shadow - 239 Episodes of the Old Time Radio Drama
+  RkoOrsonWelles-TheShadow-RadioRecodings 261724 232 0.4 GB | RKO Orson Welles - The Shadow - radio recordings
+  the-shadow-radio-show-1937-1954-old-time-radio-all-available-episodes 173325 825 1.5 GB | The Shadow Radio Show 1937-1954 Old Time Radio (All Available Episodes)
+  390903-102-the-joy-shop 74615 355 0.6 GB | The Shadow of Fu Manchu
+  1937.10.31-the-three-ghosts_202011 24169 844 1.3 GB | The Shadow OTR
+  TheShadowSeason1 24030 53 0.2 GB | The Shadow Season 1
+== Gunsmoke
+numFound 25
+  OTRR_Gunsmoke_Singles 7392449 3966 12.5 GB | Gunsmoke - Single Episodes
+  gunsmoke_radio_show_1952-1961_improved_audio_no_commercials 491307 1907 5.1 GB | Gunsmoke Radio Show (1952-1961) Improved Audio, No Commercials
+  GUNSMOKE04 289451 281 1.3 GB | Gunsmoke 04
+  GUNSMOKE01 278253 219 1.3 GB | Gunsmoke 1
+  GUNSMOKE05 231056 284 1.4 GB | GunSmoke 05
+  GUNSMOKE02 229557 236 1.3 GB | Gunsmoke 2
+== Johnny Dollar
+numFound 44
+  OTRR_YoursTrulyJohnnyDollar_Singles 5347645 2893 14.2 GB | Yours Truly, Johnny Dollar - Single Episodes
+  ytjdradio 2560785 6 0.0 GB | Yours Truly, Johnny Dollar
+  OTRR_YoursTrulyJohnnyDollar_Singles_Bob_Bailey_2 1239837 725 3.9 GB | Yours Truly, Johnny Dollar - Single Episodes - Bob Bailey 30 Minute Episodes
+  YTJD_B 637922 587 1.4 GB | Yours Truly Johnny Dollar 2
+  OTRR_YoursTrulyJohnnyDollar_Singles_Bob_Bailey 369214 1113 4.0 GB | Yours Truly, Johnny Dollar - Single Episodes - Bob Bailey 15 Minute Episodes
+  YTJD_D 343776 331 1.6 GB | Yours Truly Johnny Dollar 4
+== Fibber McGee
+numFound 35
+  fibbermcgee 520068 6 0.0 GB | Fibber McGee and Molly
+  fibber-mc-gee-and-molly 303689 5031 12.4 GB | Fibber McGee and Molly - 1254 Episodes of the Exceptional Old Time Radio Comedy
+  FibberMcGeeandMolly1941 220980 153 0.5 GB | Fibber McGee and Molly - 1941
+  FibberMcGeeandMolly1940 207867 83 0.3 GB | Fibber McGee and Molly - 1940
+  FibberMcGeeandMolly1942 147848 116 0.5 GB | Fibber McGee and Molly - 1942
+  FibberMcgeeMolly1930s 135419 450 1.5 GB | Fibber McGee & Molly! 1930s (63 Eps)
+== Jack Benny
+numFound 241
+  jackbennyradio 3076227 6 0.0 GB | Jack Benny Radio Shows
+  JackBenny1 769219 581 2.2 GB | Jack Benny 143 Eps
+  TheJackBennyProgram 225425 3435 27.9 GB | The Jack Benny Program
+  OTRR_Jack_Benny_Singles_1949-1950 101070 198 1.6 GB | Jack Benny - Single Episodes - 1949-1950
+  OTRR_Jack_Benny_Singles_1946-1947 67813 187 1.5 GB | Jack Benny - Single Episodes - 1946-1947
+  OTRR_Jack_Benny_Singles_1941-1942 63140 183 1.5 GB | Jack Benny - Single Episodes - 1941-1942
+== Whistler
+numFound 87
+  OTRR_Whistler_Singles 1460968 3021 12.1 GB | The Whistler - Single Episodes
+  The_Whistler_508_Episodes 912574 860 3.0 GB | The Whistler - 508 Episodes
+  TheWhistler1949 73540 158 0.8 GB | The Whistler 1949
+  TheWhistler1945_0 66317 95 0.3 GB | The Whistler 1945
+  TheWhistler1947 64652 146 0.7 GB | The Whistler 1947
+  OTRR_Certified_Whistler 54910 37 17.8 GB | The Whistler
+== Escape
+numFound 65
+  OTRR_Escape_Singles 805884 1510 7.0 GB | Escape - Single Episodes
+  otr_escape 167134 89 0.4 GB | Escape
+  Escape19491950 68391 325 1.5 GB | Escape 1949 -1950
+  Escape19471948 54798 217 1.0 GB | Escape 1947 - 1948
+  OTRR_Certified_Escape 41239 19 6.9 GB | Escape
+  Escape_page1 34826 399 5.1 GB | Escape_page1
+== Lights Out
+numFound 39
+  LightsOutoldTimeRadio 621245 349 0.8 GB | Lights Out (Old Time Radio)
+  lights-out-1943-04-20-29-kill 23258 279 0.8 GB | Lights Out - 71 Episodes of the Old Time Radio program
+  LightsOut-GhostOnTheNewsreelNegative 8712 8 0.0 GB | Lights Out - Ghost on the Newsreel Negative
+  lights-out-360617-cat-wife 6126 276 0.8 GB | Lights Out Old Time Radio Show
+  LightsOut19470716DeathRobbery 4699 11 0.0 GB | Lights Out 1947 07 16 Death Robbery
+  LightsOut-19430309_023_the_ball 4049 10 0.1 GB | Lights Out - 19430309_023_The_Ball
+== Mercury Theatre
+numFound 7
+  OrsonWelles_MercuryTheatre 17924 90 1.4 GB | Orson Welles: The Mercury Theatre On the Air (1938)
+  MercuryTheatreOnTheAir381030WarOfTheWorlds 10886 9 0.1 GB | Mercury Theatre On The Air 38 10 30 War Of The Worlds
+  TheMercuryTheatreontheAir 7154 100 0.6 GB | The Mercury Theatre on the Air
+  MercuryTheatre19380711Dracula 3315 11 0.0 GB | Mercury Theatre 1938 07 11 Dracula
+  ColroadoFreeRadioOldTimeRadio 3279 10 0.2 GB | CFR Old Time Radio Presents Mercury Theatre "Around the World in 80 Days"
+  ColoradoFreeRadioGroup 2940 10 0.2 GB | CFR Old Time Radio Presents Mercury Theatre on the Air The Count of Monte Cristo
+== War of the Worlds
+numFound 22
+  WarOfTheWorlds1938RadioBroadcast256kbps 54534 36 2.8 GB | War Of The Worlds 1938 Radio Broadcast with Orson Welles
+  war-of-the-worlds_mixdown3 31572 14 1.6 GB | War of the Worlds Remastered 1938 Broadcast
+  RadioWarOfTheWorldsRecording 28954 14 0.3 GB | Radio War of the Worlds Recording
+  WarOfTheWorldsRadioRecording 18492 17 0.3 GB | War of the Worlds radio recording
+  TheWarOfTheWorldsHGWells 12852 11 0.1 GB | The War Of The Worlds H G Wells
+  MercuryTheatreOnTheAir381030WarOfTheWorlds 10953 9 0.1 GB | Mercury Theatre On The Air 38 10 30 War Of The Worlds
+== Inner Sanctum
+numFound 67
+  OTRR_Inner_Sanctum_Mysteries_Singles 784009 784 5.2 GB | Inner Sanctum Mysteries - Single Episodes
+  otr_innersanctummysteries 76905 73 0.7 GB | Inner Sanctum Mysteries
+  OTRR_Certified_Inner_Sanctum_Mysteries 71887 12 3.1 GB | Inner Sanctum Mysteries
+  TheInnerSanctum1945 55417 129 0.4 GB | The Inner Sanctum 1945
+  Inner_Sanctum_otr 35230 211 2.8 GB | Inner_Sanctum_otr
+  TheInnerSanctum19411943 29542 45 0.1 GB | The Inner Sanctum - 1941 - 1943
+== Dragnet
+numFound 27
+  Dragnet_OTR 3128240 595 2.0 GB | Dragnet the 50's radio show
+  OTRR_Dragnet_Singles 2857253 3120 6.4 GB | Dragnet - Single Episodes
+  dragnet 399953 385 1.4 GB | Dragnet
+  Dragnet2 159529 1081 11.8 GB | Dragnet - Individual Files
+  OTRR_Certified_Dragnet 103787 18 7.0 GB | Dragnet
+  Dragnet-OTR 75054 1126 4.5 GB | Dragnet
+== Command Performance
+numFound 30
+  CommandPerformance 297067 888 5.3 GB | Command Performance
+  command-performance-1948-12-25-xx-christmas-1948 21746 1189 7.3 GB | Command Performance - 293 episodes of the Old Time Radio show
+  CommandPerformanceChristmas 15273 41 1.3 GB | Command Performance Christmas
+  CommandPerformance450215DickTracyInBFlat 3153 12 0.0 GB | Command Performance 45 02 15 Dick Tracy In B Flat
+  otr_commandperformance 3124 18 0.1 GB | Command Performance
+  CommandPerformance420318FredAllenHennyYoungmanGladysSwarthout 2198 11 0.0 GB | Command Performance 42 03 18 Fred Allen, Henny Youngman, Gladys Swarthout

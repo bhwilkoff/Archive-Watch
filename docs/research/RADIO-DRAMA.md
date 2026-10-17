@@ -29,6 +29,7 @@ immediate use."*
 | `radio/06-archive-watch-reuse.md` | Every Archive Watch tool, workflow and decision judged reuse / adapt / replace for audio; transferable lessons; the new repo's layout |
 | `radio/07-archive-org-ingest.md` | The archive.org corpus in depth: item and file structure, filename grammar, APIs, the ingest algorithm and dedupe |
 | `tools/probe_otr_corpus.py` | Stdlib-only probe of the archive.org corpus (counts, formats, filename hit rates, hours, duplicates) |
+| `radio/data/` | The probe's 400-item sample report and the famous-series structure notes (2026-10-17) |
 
 ---
 
@@ -36,9 +37,11 @@ immediate use."*
 
 The content exists in quantity and the engineering is well understood. **The
 rights are the whole question.** archive.org's `oldtimeradio` collection holds
-8,952 items (MEASURED), mostly whole series with hundreds of MP3s each; the Old
-Time Radio Researchers (OTRR) sets inside it are well dated and titled; the
-APIs are the ones Archive Watch already calls. But under current US law nearly
+8,952 items (MEASURED: 807,585 files, 5.32 TB; 12,171 items and 8.43 TB across
+all five OTR search seeds), mostly whole series with hundreds of MP3s each; the
+Old Time Radio Researchers (OTRR) sets inside it are well dated and titled (a
+full broadcast date parses from 83.7% of their filenames); the APIs are the ones
+Archive Watch already calls, and RadioEchoes (5,069 series) is the episode spine. But under current US law nearly
 every network-era radio recording is still protected: sound recordings had no
 federal copyright before 1972, so they never had a renewal to miss, and the
 2018 Music Modernization Act gives most broadcasts federal protection until
@@ -47,9 +50,13 @@ public domain by non-renewal, does not carry over. What is clean is narrow:
 LibriVox's dramatic recordings (640 projects, MEASURED, dedicated to the public
 domain), programs the US government made itself, Creative Commons drama with
 evidence, and published recordings old enough to have aged out (1925 and earlier
-in 2026, one more year every January). **Whether the app also carries the large
-middle — unclaimed orphan broadcasts with no claim a reader can open — is the
-owner's first decision (§7, Q1), and it decides whether this is a LibriVox-and-
+in 2026, one more year every January). **The large middle — unclaimed broadcasts
+with no claim a reader can open — is carried in practice the way archive.org and
+RadioEchoes carry it, and the statute supports that more than "protected until
+2067" suggests: an owner who never filed a schedule cannot win statutory damages
+or fees, the DMCA safe harbor applies, and noninteractive channels can be
+licensed outright through SoundExchange (§3a). Accepting that posture is the
+owner's first decision (§7, Q1); it decides whether this is a LibriVox-and-
 government app or an old-time radio app.** Everything else in this file is
 ready either way.
 
@@ -185,9 +192,15 @@ Old-time radio does not have the shape of a film catalog, nor quite of TV:
   new title, East/West coast repeats, many transfers). Recordings fold into one
   broadcast card as versions (Decisions 040/143/158); performances of one script
   link to each other.
-- **Duplicates** are grouped on series + date, confirmed by duration within
-  max(90 s, 5%) and md5; a same-date group whose durations disagree is two things
-  (partial, AFRS cut, coast repeat). Titles alone are never a key.
+- **Duplicates** are grouped on series + date. MEASURED: md5 NEVER matched across
+  independent uploads of one broadcast, and Suspense durations for one date differ
+  by 33-43 s at the median and up to 357 s, so duration flags partial copies
+  (Gunsmoke 1952-05-03: 463 s against ~1,740 s) and never blocks a merge. Titles
+  alone are never a key. OTRR's per-year items re-upload the big set's files with
+  identical md5s — that IS a true duplicate. AFRS/AFRTS copies (606 files, marked
+  in filenames) are versions of the network broadcast.
+- **A second date witness ships inside the files**: OTRR's `album` tag reads
+  "MM/DD/YY, episode N" and agreed with the filename date 6,763 times against 159.
 - **A series is a list of dated runs, and each run has a kind**: anthology,
   continuing character, serial (arcs, cliffhangers), daily strip/soap,
   comedy-variety, news, broadcast day. Shows changed kind mid-life (Johnny
@@ -208,15 +221,21 @@ the commands or code.
 2. Enumerate items with the Scrape API (cursor paging) over
    `collection:oldtimeradio`, `collection:lumedwards`, `identifier:OTRR_*` and
    `collection:librivoxaudio` with the drama genres; fetch `/metadata/{id}` for
-   `files[]` (name, format, size, length, md5, track/title tags).
-3. Split each item into episodes; parse filenames with the regex families in
-   `radio/07` §2; fall back to ID3 tags (the measured 128 kbps Suspense upload
+   `files[]` (name, format, size, length, md5, track/title tags). Never enumerate
+   `collection:radioprograms` (a 5,081,025-item umbrella for all community
+   audio); there is no `radio` mediatype. Skip `OTRR_Certified_*` (175 ZIPs of CD
+   images, not streamable). Use advancedsearch `numFound` for counts: the scrape
+   API's `total_only` returned 8,952 for every query (MEASURED).
+3. Split each item into episodes; parse filenames with the 14 regex families in
+   `radio/07` (93.8% of 16,544 sampled files parse, 80% to a full date) plus a
+   series-abbreviation alias table (`FMM`, `JB`, `YTJD`, `CP`, `Pwh`...); fall back to ID3 tags (the measured 128 kbps Suspense upload
    carries the air date in clean tags); record `(series, date, number, title)`
    and provenance.
 4. Pick one playable file per recording with `pick_audio` (Archive Watch's
    `archive_lib.pick_video` adapted: keep the private-file and old-revision
-   guards, Decision 104; rank MP3 by MEASURED bitrate, not the format label —
-   archive.org labeled a 32 kbps file "64Kbps MP3").
+   guards, Decision 104; 92% of uploads are VBR MP3 and archive.org derives only
+   Ogg from them, so the uploaded MP3 plays; rank by measured bitrate, not the
+   format label — archive.org labeled a 32 kbps file "64Kbps MP3").
 5. Dedupe (§4) and keep forwarding aliases for merged ids (Decision 085).
 6. Be polite: honest User-Agent, sequential with backoff, only 404/410 means
    gone; email info@archive.org before the first full harvest.
@@ -267,7 +286,10 @@ against ~53 s for `loudnorm`), store the gain in the catalog, apply it at
 playback; never re-encode or re-host (`radio/04` §8). The two measured Suspense
 uploads read -18.85 and -18.39 LUFS; confirm a playback target near -18 LUFS on a
 200-file sample. Never trim silence; chapter the commercials, never skip them.
-Transcripts: whisper.cpp with voice-activity detection, a hallucination gate and
+Transcripts: archive.org has ALREADY generated speech-to-text (vtt/txt/srt) for
+many episodes — all 911 of OTRR's Suspense set (MEASURED) — so measure their
+quality before building anything (Decision 043 dropped these for films). Else
+whisper.cpp with voice-activity detection, a hallucination gate and
 a human sample per series, for search first and labeled automatic where shown
 (Decision 039b's lesson still binds: organ stings and hiss make it invent words).
 

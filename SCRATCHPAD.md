@@ -50,6 +50,12 @@ emulators) · `docs/CAPTIONS.md` · `docs/SHAREPLAY.md` ·
 **Roblox is SHELVED** (owner, 2026-10-15, Decision 164): research and the
 reopening pathway in `docs/research/ROBLOX.md` §8. Nothing built.
 
+**A RADIO DRAMA SISTER APP IS RESEARCHED, NOT BUILT** (owner, 2026-10-17):
+`docs/research/RADIO-DRAMA.md` is the start point (seven detail files in
+`docs/research/radio/`). RadioEchoes is the episode spine, archive.org the
+audio; rights follow §1401, not the film model — Q1 (the unclaimed middle) and
+Q2 (separate app or a section of Archive Watch) are the owner's.
+
 **RESUMING THE STUDIO LOOP**: `docs/STUDIO-LOOP-RESUME.md` (2026-09-23) — the
 prompt verbatim, the bench-harness recipe that produces a real broadcast, the
 six open threads in order, and the traps that cost time this session. Written
@@ -758,6 +764,31 @@ keep serving it.
 
 ## Session Log
 
+### 2026-10-17 — research for a public-domain radio drama app (nothing built)
+
+Owner: *"I'd like to have a public domain audio app that is specifically focused
+upon radio dramas, plays and other public domain radio shows ... The result of
+this loop should be all of the design, metadata, and content research necessary
+to start working on the app in a future session."* Seven parallel tracks;
+network opened mid-session (it had blocked everything but search).
+
+- **Synthesis**: `docs/research/RADIO-DRAMA.md`; detail `docs/research/radio/01-07`,
+  probe `tools/probe_otr_corpus.py`, sample outputs `radio/data/`.
+- **Corpus** (MEASURED): `oldtimeradio` 8,952 items, 807,585 files, 5.32 TB;
+  episodes are files inside items; OTRR filenames give a full date 83.7%.
+  Duplicates never share md5 — merge on series + date.
+- **Spine**: RadioEchoes (owner's question) — 5,069 human-genred series, dated
+  episodes; never play its S3 audio. Goldin's index: facts free (*Feist*), ask
+  for an export anyway (owner's question).
+- **Rights**: pre-1972 recordings are §1401's, protected to 2067 unless
+  published; by-age stays in (1925 in 2026). Owner pushed back on practice:
+  §1401(f)(5) (no statutory damages without a filed schedule), §512, and the
+  §114 SoundExchange license for channels make a four-layer structure (§3a).
+- **Design**: 697 App Store reviews; bedtime and the car; "Tonight in 1947".
+**Open**: owner Q1-Q12 (`RADIO-DRAMA.md` §7). Found, not fixed: Archive Watch's
+`scrape_query`/`adv_search` read a throttled call as "nothing found"; archive.org
+now sends CORS on audio storage nodes, contradicting CATALOG-CONTRACT.
+
 ### 2026-10-08 — iPhone Duo, the new App Store assets, and screenshots for every Apple platform
 
 Owner: *"There are new fields, screenshots, and a whole new device class that
@@ -789,31 +820,5 @@ even the home screen need better screenshots."* v1.45.20 -> 1.46.0 (2124).
 (when GitHub adds it to `xcode-27`, actions/runner-images#14850); the open and
 partly-folded poses, and Clip Studio's arrangement, need the owner's Duo
 (after 2026-10-23).
-
-### 2026-10-03 — the Samsung TV brought to the other platforms, tested on the S90C, packaged
-
-Owner: *"we need to update the Tizen app and get it ready to submit to the
-Samsung App Store. Please update all features and design to the current state
-on other platforms, complete full testing on my Samsung tv, and then get a
-build ready for shipping to the App Store"*, and *"build better tooling"* for
-testing on the set. v1.45.0 -> 1.45.7.
-
-**Tooling**: the TV is driven in-app over a Chii inspector (a debug-only
-package with its own CSP; `tools/tv_chii.mjs`, `tv_inspect.mjs`,
-`tv_press.mjs`, `docs/tizen-signing.md` 2026-10-03); woken by HDMI-CEC from
-the bedroom Apple TV. Samsung's remote WebSocket never answers (memory
-samsung_tv_harness). **Brought to parity**: Player Options (subtitles, copy,
-episodes, autoplay), channel keys and lineups, subtitles drawn at ten-foot
-size, Continue Watching progress, history removal by held OK, QR sharing,
-Collections and Settings in the nav, room joining from a keypad, Top rated,
-Search doors, Detail as a scene (TV-DESIGN §7.8), a guide that reads at ten
-feet and makes channels with the remote (§4.6d). **Samsung's checklist**:
-Return asks before exiting, no screensaver in playback, playback resumes,
-offline notice, cold launch 6.9 s (10 s limit, 5 s ideal); Tizen's player
-breaks on a rate change so there is no Speed, and its end-of-file error is the
-film's end. Owner answers: keep the marquee's Left/Right; About -> Settings;
-guide steps one program. **Ready**: `~/Desktop/ArchiveWatch-Samsung-1.45.7/`
-(signed `.wgt` + five 1920x1080 screenshots), listing copy in
-`docs/tizen-submission.md` §4. **Open**: the Seller Office account (owner).
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).
