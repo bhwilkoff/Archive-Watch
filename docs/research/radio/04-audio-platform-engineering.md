@@ -35,7 +35,7 @@
 | Background refresh | `Services/BackgroundRefresh.swift` | Fetch new episodes and the catalog |
 | Android MediaSession | `android/.../ui/screens/PlayerScreen.kt` (media3-session, switched off on TV per TV-NP) | Promote to a `MediaLibraryService`, switched ON on TV for audio |
 | Web Media Session | `watch.js` around line 3655 (metadata, play, pause, seek, next, previous) | Reuse as is, add `setPositionState` |
-| archive.org Range/CORS facts | `docs/CATALOG-CONTRACT.md` notes; `docs/WEB-DESIGN.md` §2.5 | `download/` nodes serve 206 **without CORS**, which is fine for `<audio>` but blocks `fetch()`. The `/metadata` API **does** send CORS (measured 2026-06-09) |
+| archive.org Range/CORS facts | `docs/CATALOG-CONTRACT.md` notes; `docs/WEB-DESIGN.md` §2.5 | The repo says `download/` nodes serve 206 **without CORS** (measured 2026-06-09). **Re-measured 2026-10-17 for an MP3: the 302 and the node both send `access-control-allow-origin: *`** (§5). The `/metadata` API sends CORS |
 | Resilient loader | Decisions 021/031/034/077 (node pinning, failover, 30-second start guarantee) | Same need. Archive storage nodes fail the same way for MP3 as for MP4 |
 | AirPlay rule | Decision 051: the receiver gets the published origin URL, never 127.0.0.1 | Same rule for AirPlay 2 and HomePod |
 
@@ -222,12 +222,35 @@ Episode ordering (air date, series and episode numbers) comes from data (the con
 
 ## 8. The audio pipeline (CI, GitHub Actions, like the catalog builders)
 
+### 8.0 MEASURED 2026-10-17 [V]: one episode, two uploads
+
+The same broadcast, *Suspense* "The Burning Court" (CBS, 1942-06-17), as two different archive.org uploads. ffmpeg 6.1.1 in this container (4 vCPU).
+
+| | `SUSPENSE/42-06-17_Burning_Court.mp3` | `OTRR_Suspense_Singles/Suspense 420617 001 The Burning Court (128-44) 28455 30m00s.mp3` |
+|---|---|---|
+| archive.org `/metadata` says | format "64Kbps MP3", size 7,025,865, length 1756.46 | format "VBR MP3", source original, size 29,137,361, length 1800.44 |
+| ffprobe says | mp3, **mono**, 44100 Hz, **32 kbps** (7,025,865 B × 8 / 1756.5 s = 32.0 kbps) | mp3, **mono**, 44100 Hz, 128 kbps, plus an embedded **MJPEG cover-art stream** |
+| ID3 tags | none of note | `iTunNORM` present, `genre=OTR-Drama`, `date=1942`, `album=Suspense OTRR Set v2 ...`, `composer=Suspense_1942-06-17_The_Burning_Court_wCharlieRuggles UPGRADE` |
+| Integrated loudness (loudnorm pass 1 / ebur128) | **-18.85 LUFS** / -18.8 | **-18.39 LUFS** / -18.4 |
+| True peak | -2.59 dBTP | **-0.43 dBTP** |
+| LRA | 9.6 LU | 7.6 LU |
+| Time to measure 30 min | loudnorm 52.7 s; **ebur128 10.1 s**; decode only 7.4 s | loudnorm 55.1 s |
+| Leading silence (−45 dB, ≥1 s) | none in the first 3 minutes | none detected at the start |
+| Item `licenseurl` | `creativecommons.org/licenses/publicdomain/` | `creativecommons.org/licenses/by-nc-nd/3.0/` |
+
+What this shows:
+1. **archive.org's `format` label is not the bitrate.** "64Kbps MP3" was 32 kbps. Read the bitrate from ffprobe or compute it from size/length; never show the label.
+2. **The same episode exists as several uploads with different quality**, so best-copy selection is needed (Decision 040 [R]). The OTRR copy has 4× the bitrate, cover art, and clean ID3 tags that carry the air date.
+3. Both copies sit near -18.5 LUFS. A **-18 LUFS playback target** would leave these almost untouched. The 128 kbps copy's -0.43 dBTP peak leaves no room for a boost without a limiter. Measure 200 files before fixing the target (section 12).
+4. Use **`ebur128`** for the CI measurement (about 3 min of audio per second of wall time here). `loudnorm` is about 5× slower because it upsamples internally [K] and is only needed to re-encode, which this app does not do.
+5. **For the rights track:** the OTRR set's item carries a **CC BY-NC-ND** licenseurl on a 1942 broadcast. That is an uploader's claim over a collection, not evidence about the recording (the "uploader's word" class, Decision 140 [R]), and an NC/ND tag must not be read as "free". Hand this to research track 0x (rights).
+
 ### 8.1 What OTR files are like [K, measure in section 12]
 Mostly MP3, **mono**, 32–128 kbps (many 64 kbps or below), 22.05–44.1 kHz, with transfers from transcription discs and tape: **hiss, crackle, hum, wow, clipped peaks, and level differences of 10 dB or more** between episodes of the same series. Many archive.org uploads ship several derivatives (the original plus archive.org's own VBR MP3 and Ogg derivatives) [K]. Pick one file per episode by a rule (original if MP3; else the VBR MP3 derivative), the same "best copy" logic as Decision 040 [R].
 
 ### 8.2 Loudness: measure, store, apply at playback
 - Two-pass `loudnorm`: pass 1 `-af loudnorm=I=-16:TP=-1.5:LRA=11:print_format=json -f null -` reports `input_i`, `input_tp`, `input_lra`, `input_thresh`, `target_offset`. A pass 2 would re-encode with `measured_*` values and `linear=true`, and loudnorm "will revert to dynamic normalization if the target loudness range is lower than the source, or if the target loudness produces a true peak above the limit" (secondary guides [S]). Common spoken-word target -16 LUFS, TP -1.5, LRA 11; ffmpeg-normalize defaults to -23 LUFS (EBU R128 broadcast) (slhck.info [S]).
-- **Only pass 1 is used.** Store `loudness: {i, tp, lra, measuredAt, tool}`; the client computes `gainDb = target - i`, then clamps so `tp + gainDb ≤ -1`. This keeps archive.org's file as the stream (§2.1), costs one decode per file in CI (≈ 1–3 s of CPU per 30-minute mono MP3 [K, measure]), and lets the target change without rerunning.
+- **Only the measurement is used, and `ebur128=peak=true` is the faster way to get it** (§8.0: 10 s vs 53 s per 30-minute file). Store `loudness: {i, tp, lra, measuredAt, tool}`; the client computes `gainDb = target - i`, then clamps so `tp + gainDb ≤ -1`. This keeps archive.org's file as the stream (§2.1), costs one decode per file in CI (≈ 10 s wall per 30-minute mono MP3 with ebur128, measured §8.0; about 2 runner-hours per 1,000 episodes plus download time), and lets the target change without rerunning.
 - **Pick a target that turns most corrections into cuts** (see §2.11, §5): measure the distribution first (section 12), then choose something like -18 or -19 LUFS if most files sit above it. Native platforms that can boost (AVAudioEngine/tap, Android LoudnessEnhancer) apply positive gain; the web cannot.
 - Measure **with the whole file, not a seek window**: loudness stats "are not consistent across different seek/trim settings" [S].
 - Fetching files to measure is a lot of bandwidth over archive.org: about 25 MB × N episodes. A 30,000-episode catalog is about 750 GB downloaded once [arithmetic]. Spread it across scheduled runs with per-source "already attempted" markers (Decision 055) and the commit-a-delta lock discipline (Decision 066) [R]. Be polite to archive.org: low concurrency, a contact User-Agent.
@@ -266,15 +289,16 @@ Legend: Y = supported natively; P = possible with caveats; N = not available or 
 | Lock screen / system controls | Y | Y (Control Center) | Y | Y | Y | Y | Y | Y | Y | ? | ? | N | Y (Media Session [S]) | P | n/a | n/a |
 | Skip intervals | Y [S] | Y | Y | Y | Y (or track buttons, not both [S]) | Y | Y | Y | Y | Y | Y | own UI | Y | P | voice | ? |
 | Speed | Y | Y | Y | ? | Y | Y | ? | ? | ? | Y | Y | ? | Y | Y (fg) | N | N |
-| Downloads / offline | Y (Decision 099) | Y | N (Decision 099) | Y | via phone | Y | via phone | P | P | N | N | N | **N vs archive.org (no CORS) [K]** | N | N | N |
+| Downloads / offline | Y (Decision 099) | Y | N (Decision 099) | Y | via phone | Y | via phone | P | P | N | N | N | P (CORS now sent [V]; test SW caching) | weak (eviction) | N | N |
 | Voice play | Siri/App Intents | Siri | Siri | Siri | Siri | Assistant [S] | Assistant [S] | Assistant | ? | Assistant | Alexa? | Roku voice ? | N | N | Y (skill) | Sonos voice ? |
 | Listen together | SharePlay [S] | SharePlay | SharePlay | N | N | rooms (Worker) [R] | N | N | N | rooms join [R] | rooms join [R] | ? | rooms join [R] | rooms join | N | N |
 | Cast / AirPlay out | AirPlay 2 | AirPlay 2 | (is a receiver) | N | n/a | Cast (google flavor) [S] | n/a | n/a | output picker [S] | (is a receiver) | N | N | Remote Playback API ? | AirPlay | n/a | n/a |
-| Runtime loudness gain | Y (cut; boost via tap) | Y | Y | Y | Y | Y (LoudnessEnhancer) | Y | Y | Y | Y | Y | ? volume field | cut only (no CORS for Web Audio) [K] | cut only | N | N |
-| Runtime EQ | P (tap/engine) | P | P | N | via phone | P (AudioProcessor) | via phone | P | N | P | P | N | N (no CORS) | N | N | N |
+| Runtime loudness gain | Y (cut; boost via tap) | Y | Y | Y | Y | Y (LoudnessEnhancer) | Y | Y | Y | Y | Y | ? volume field | Y via Web Audio if CORS holds [V], else cut only | P | N | N |
+| Runtime EQ | P (tap/engine) | P | P | N | via phone | P (AudioProcessor) | via phone | P | N | P | P | N | P (Web Audio, CORS [V]) | P | N | N |
 | On-device transcript | iOS 26+ SpeechAnalyzer [S] | macOS 26+ | ? | N | N | N (live-mic API only [S]) | N | N | N | N | N | N | N | N | N | N |
 | Widget / home surface | Y (App Intents [S]) | Y | Top Shelf | complication | CarPlay widgets iOS 26 [S] | Glance widget | n/a | n/a | tile | Continue row ? | ? | N | N | N | N | N |
-| Review gate | App Review + CarPlay entitlement [S] | App Review | App Review | App Review | entitlement [S] | Play | Play car review [S] | Play car review | Play Wear review | Play TV review | Amazon | Roku cert [S] | none | none | Alexa cert | Sonos validation [S] |
+| Review gate | App Review + CarPlay entitlement [V] | App Review | App Review | App Review | entitlement + CarPlay guide [V] | Play | Play manual car review, holds updates [V] | same + AAOS screenshots [V] | Play Wear review | Play TV review (TV-NP [V]) | Amazon | Roku cert [S] | none | none | Alexa cert | Sonos validation [S] |
+| Transcript on screen | Y | Y | Y | small | **N ("never show song lyrics") [V]** | Y | **N (ST-1 no auto-scroll) [V]** | N | N | Y | Y | Y | Y | Y | Echo Show captionData WEBVTT [V] | N |
 
 ---
 
@@ -291,7 +315,7 @@ Common to all: progressive MP3 from archive.org through the shared network clien
 - [ ] App Intents: `AudioPlaybackIntent` play series/episode, "resume" with no argument; App Shortcuts phrases
 - [ ] AirPlay route picker
 - [ ] Request the **CarPlay audio entitlement on day one** (calendar lead time)
-- [ ] CarPlay: tab bar (Continue, Series, Downloads), list templates paged under 500 items, `CPNowPlayingTemplate`
+- [ ] CarPlay: tab bar of at most 4 tabs, every list useful at 12 rows, depth of 5 or less, `CPNowPlayingTemplate` populated at all times, Up Next as a list pushed on it, no transcripts [V]
 - [ ] SharePlay listen together (reuse Decision 098)
 
 **macOS**
@@ -315,8 +339,9 @@ Common to all: progressive MP3 from archive.org through the shared network clien
 - [ ] Browse tree with stable IDs (archiveID/filename)
 
 **Android Auto (same APK)**
-- [ ] `automotive_app_desc.xml` `<uses name="media"/>`; root tabs; content-style hints; artwork URIs; voice search
-- [ ] Pass the "Android app quality for cars" media checklist (retrieve the current MUSTs first) [UNVERIFIED]
+- [ ] `automotive_app_desc.xml` `<uses name="media"/>`; root tabs; content-style hints; artwork URIs
+- [ ] Voice: Gemini and Assistant play-from-search (VC-1) [V]; no autoplay at start (MA-1) [V]; launch and load in 10 s or less (DR-2/3) [V]; state restored on relaunch (EP-2) [V]; no "new episode" notifications (IN-1) [V]
+- [ ] Prototype on a non-production track: car review holds every update until approved [V]
 
 **Google TV / Fire TV**
 - [ ] Session ON for audio (confirm the TV audio guideline) [UNVERIFIED]; Back from root to launcher; a now-playing screen with series art; no GMS on Fire TV
@@ -340,15 +365,15 @@ Common to all: progressive MP3 from archive.org through the shared network clien
 ## 11. Review pitfalls for audio apps
 
 **Apple**
-- **5.2.3**: "Apps should not facilitate illegal file sharing or include the ability to save, convert, or download media from third-party sources ... without explicit authorization"; "streaming of audio/video content may also violate Terms of Use"; documentation may be requested; other apps passing "is never an argument"; Movist was pulled in 2019 over "downloading 3rd party media" (forum threads, mjtsai.com [S]). Archive Watch was rejected under 5.2.3 on build 1.0 (36), 2026-06-16, and answered with a paste-ready reply plus a rights-evidence PDF [R: docs/app-store-review-5.2.3-response.md]. **Radio-specific changes to that answer:** (a) the app *does* download (offline episodes), so say plainly that downloads are of public-domain works from archive.org's public endpoints, stored in the app sandbox, never exported as files; (b) OTR rights are messier than film (unpublished broadcasts, transcription discs, scripts and music under separate copyright, and the 1972 sound-recording rule for US pre-1972 recordings under the Music Modernization Act's Classics Protection, which put pre-1923 recordings into the public domain on 2022-01-01 and later recordings on a rolling schedule [K, UNVERIFIED here; the rights track must confirm]); the PDF needs its own radio methodology from the rights research track; (c) never offer "save to Files" / share the MP3.
-- **4.2 Minimum Functionality**: an app should offer "features, content, and UI that go beyond a repackaged website" (Apple text as quoted in forums [S]); rejections cite "usefulness limited by the minimal amount of content or features" [S]. A catalog browser over archive.org could be read that way; the native shell (downloads, CarPlay, Siri, sleep timer, SharePlay, transcripts) is the answer. Do not ship v1 as a thin list player.
-- **4.3 Spam**: a second app from the same developer that looks like Archive Watch with audio could draw a 4.3 "similar apps" question [K, UNVERIFIED]. The audio-first design (car, sleep timer, episodic resume) is what differentiates it; say so in the review notes.
-- **Background audio misuse**: Apple rejects apps that declare the `audio` background mode without playing audible content [K]. Only enter the mode while playing.
-- **CarPlay**: the entitlement is reviewed separately, and the CarPlay guide's guidelines apply [S]; using the wrong template class or a non-audio template is a reject [K].
+- **5.2.3** [V, guidelines dated October 16, 2026]: "Audio/Video Downloading: Apps should not facilitate illegal file sharing or include the ability to save, convert, or download media from third-party sources (such as Apple Music, YouTube, SoundCloud, Vimeo, etc.) without explicit authorization from those sources. Streaming of audio/video content may also violate Terms of Use, so be sure to check before your app accesses those services. Authorization must be provided upon request." Other apps passing "is never an argument" (forum moderator [S]); Movist was pulled in 2019 over "downloading 3rd party media" (mjtsai.com [S]). Archive Watch was rejected under 5.2.3 on build 1.0 (36), 2026-06-16, and answered with a paste-ready reply plus a rights-evidence PDF [R: docs/app-store-review-5.2.3-response.md]. **Radio-specific changes to that answer:** (a) the app *does* download (offline episodes), so say plainly that downloads are of public-domain works from archive.org's public endpoints, stored in the app sandbox, never exported as files; (b) OTR rights are messier than film (unpublished broadcasts, transcription discs, scripts and music under separate copyright, and the 1972 sound-recording rule for US pre-1972 recordings under the Music Modernization Act's Classics Protection, which put pre-1923 recordings into the public domain on 2022-01-01 and later recordings on a rolling schedule [K, UNVERIFIED here; the rights track must confirm]); the PDF needs its own radio methodology from the rights research track; (c) never offer "save to Files" / share the MP3.
+- **4.2 Minimum Functionality** [V]: "Your app should include features, content, and UI that elevate it beyond a repackaged website. If your app is not particularly useful, unique, or 'app-like,' it doesn't belong on the App Store. If your App doesn't provide some sort of lasting entertainment value or adequate utility, it may not be accepted." **4.2.2**: "Other than catalogs, apps shouldn't primarily be marketing materials, advertisements, web clippings, content aggregators, or a collection of links." Rejections cite "usefulness limited by the minimal amount of content or features" [S]. Describe the app in review notes as a **catalog** (the 4.2.2 exception) with native depth: downloads, CarPlay, Siri, sleep timer, SharePlay, transcripts, loudness leveling. Do not ship v1 as a thin list player. **4.2.3(ii)**: if the app must download resources at first launch, "disclose the size of the download and prompt users" [V]. Archive Watch's catalog DB download is the precedent to check.
+- **4.3 Spam** [V]: "(a) Don't create multiple Bundle IDs of the same app ... (b) Don't submit apps that are indistinguishable from what's already widely available." A second app from the Archive Watch developer, built on the same template, is the case (a) describes. The answer is a different product (audio-first, episodic, car), different content (radio, not film), and saying so in the review notes. The owner could also ask whether radio belongs **inside** Archive Watch instead. That is an owner decision this research does not make, and it is the one 4.3(a) poses.
+- **2.5.4** [V]: "Multitasking apps may only use background services for their intended purposes: VoIP, audio playback, location, ..." Only hold the `audio` background mode while actually playing.
+- **CarPlay**: the entitlement is reviewed against "predefined criteria" and the CarPlay Developer Guide's rules apply [V] (no lyrics, templates for their intended types, primarily audio playback). The Review Guidelines introduction lists "CarPlay Audio" among the limited-use entitlements [V].
 - **Metadata**: the App Store listing must not claim "all public domain" more strongly than the evidence (the same rights posture as 5.2.3).
 
 **Google Play**
-- Car apps need to pass the car quality review before listing [S]; Wear and TV form factors each have their own review [K].
+- Car apps get "an additional manual review", and **updates for every device wait until the car review approves** [V]. Wear and TV form factors each have their own review [K]. TV-NP requires the Now Playing card for background audio [V].
 - Foreground service type declaration (`mediaPlayback`) is checked on Android 14+ targets [K].
 - Play's "Repetitive content" and "Minimum functionality" policies mirror Apple's 4.2/4.3 [K, UNVERIFIED].
 - Play automatic protection needs minSdk 24 (Decision 165 [R]).
@@ -362,6 +387,8 @@ Common to all: progressive MP3 from archive.org through the shared network clien
 ---
 
 ## 12. To measure (probes for a session with network access)
+
+Done this session [V]: the Range, CORS and redirect probe on one 32 kbps MP3 (§5); ffprobe and loudness on two files (§8.0); the guideline text for 4.2, 4.3, 5.2.3 and 2.5.4; the CarPlay guide's audio rules; Android car and TV media criteria; the Roku Video and Audio node screensaver fields; Alexa's URL rules. Still to do: everything below, starting with the 200-file loudness distribution and a re-check of the MP4 CORS claim in CATALOG-CONTRACT.
 
 ```bash
 # 1. archive.org MP3 serving: redirect, Range, CORS, content type, Xing TOC
@@ -389,7 +416,8 @@ ffmpeg -hide_banner -nostats -i "$F" -t 120 -af silencedetect=noise=-45dB:d=1.5 
 # Compare with SpeechTranscriber on a Mac running macOS 26 (same files): word error vs a human script if one exists.
 ```
 
-- **Web offline**: in Chrome and Safari, from a page on archivewatch.org, `caches.open('t').then(c=>c.add(new Request(url,{mode:'no-cors'})))` against an archive.org MP3; then try to play it through a Workbox RangeRequestsPlugin route. Expect failure (opaque); record the quota consumed (`navigator.storage.estimate()`).
+- **Web offline**: in Chrome and Safari, from a page on archivewatch.org, `caches.open('t').then(c=>c.add(url))` (CORS mode) against an archive.org MP3, then play it offline through a Workbox RangeRequestsPlugin route with `<audio crossorigin="anonymous">`. Expect success now that `access-control-allow-origin: *` is sent [V]; record `navigator.storage.estimate()`. Repeat across 20 items on different storage nodes to confirm every node sends the header.
+- **Film MP4 CORS** (to settle the contradiction with docs/CATALOG-CONTRACT.md): the same `curl -D - -r 0-1023 -H "Origin: https://archivewatch.org"` against a feature film's MP4 node URL.
 - **iOS PWA background**: on iPhone 15 Pro (iOS 27.2) and iPhone 12 (26.6.1) [R: device list in Decision 155], install a test PWA, play, lock, wait 5/30/120 s paused, resume from Lock Screen. Record each.
 - **Roku screensaver**: on a real Roku, play an MP3 with (a) an Audio node, (b) an Audio node with `disableScreenSaver`, (c) a hidden Video node with `disableScreenSaver=true`; set the system screensaver to 1 minute; record which keeps playing and what the debug console prints.
 - **Alexa redirect**: a test skill `AudioPlayer.Play` with an `archive.org/download/...` URL (302) vs the resolved node URL.
@@ -400,6 +428,19 @@ ffmpeg -hide_banner -nostats -i "$F" -t 120 -af silencedetect=noise=-45dB:d=1.5 
 ---
 
 ## Sources
+
+Fetched and read in full on 2026-10-17 [V]
+- https://developer.apple.com/app-store/review/guidelines/ ("Last Updated: October 16, 2026")
+- https://developer.apple.com/documentation/carplay/requesting-carplay-entitlements.md
+- https://developer.apple.com/carplay/documentation/CarPlay-App-Programming-Guide.pdf (title "CarPlay Developer Guide", October 2026)
+- https://developer.apple.com/carplay/
+- https://developer.android.com/docs/quality-guidelines/car-app-quality
+- https://developer.android.com/docs/quality-guidelines/tv-app-quality (last updated 2026-06-29)
+- https://developer.roku.com/docs/references/scenegraph/media-playback-nodes/video.md
+- https://developer.roku.com/docs/references/scenegraph/media-playback-nodes/audio.md
+- https://developer.amazon.com/en-US/docs/alexa/custom-skills/audioplayer-interface-reference.html
+- https://developer.amazon.com/en-US/docs/alexa/custom-skills/use-long-form-audio.html
+- Measured: https://archive.org/metadata/SUSPENSE, https://archive.org/metadata/OTRR_Suspense_Singles, https://archive.org/metadata/OTRR_Dimension_X_Singles; https://archive.org/download/SUSPENSE/42-06-17_Burning_Court.mp3; the OTRR_Suspense_Singles file "Suspense 420617 001 The Burning Court (128-44) 28455 30m00s.mp3"
 
 Apple
 - https://developer.apple.com/documentation/carplay/requesting-carplay-entitlements.md
