@@ -651,3 +651,53 @@ OTRR ID3 conventions; whether RadioGOLDINdex URLs carry stable ids.
 - https://mcfarlandbooks.com/?p=16579
 - https://ebookfriendly.com/internet-archive-ai-extract-words-from-100-year-old-records/
 - https://www.middlebury.edu/library/node/1689
+
+---
+
+## Addendum: RadioEchoes as the spine (owner question, 2026-10-17)
+
+Owner: *"Can we use radioechoes as the spine and archive.org as the content
+source?"* **Yes — as the series-and-episode list (TVmaze's role in Decision 016),
+not as the only witness for dates, and never as the audio source.** Measured from
+this container on 2026-10-17 (browser User-Agent; the default curl agent gets
+403):
+
+| Fact | Value | How |
+|---|---|---|
+| Series | **5,069**, each tagged with one of 21 genres (Variety 1,546, Drama 818, Comedy 708, Miscellaneous 357, Detective 339, Historical 167, Quiz 155, Thriller 148, Adventure 132, Soap 103, News 103, SciFi 98, Mystery 63, Sports 62, Western 60, Kids 60, WW2 43, Religion 43, Talk 40, Patriotic 14, Espanol 10) | links on `?page=series_all` |
+| One series page | Suspense: **917** episodes, 1940-1962, each with title, "Original Broadcast Date" (YYYY.MM.DD), length (mm:ss), file name and size; the 1940 "Forecast" audition is included | `?page=series&genre=OTR-Thriller&series=Suspense` |
+| What it lacks | No cast, writer, director, network, sponsor or description; no episode numbers; no stable id other than series name + file name | same page |
+| Where its audio lives | Its own S3 bucket (`s3.amazonaws.com/RE-Warehouse/s/suspense_1942-06-17_the_burning_court.mp3`) — its bandwidth, not ours | `?page=play_download&mode=play...` |
+| Terms | robots.txt: `Disallow:` (nothing blocked except admin paths) with `Crawl-delay: 10`; the FAQ and footer state no terms or license; no API | `/robots.txt`, `?page=faqs` |
+
+**Why it fits the spine.** It is the one source that is (a) organized as series
+→ dated episodes, (b) large (5,069 series against OTRR's library of ~80,000
+episodes), (c) machine-readable without an API (one page per series, stable
+`dl_file` names of the form `series_YYYY-MM-DD_title.mp3`, the same key archive.org
+filenames carry), and (d) categorized by people rather than by a model, which
+satisfies "no AI-written lists". Its genre tags can seed the browse taxonomy.
+It lists what SURVIVES, not what aired, which is the right population for a
+playable catalog and makes gaps against a log visible.
+
+**What it must not be.**
+- **Not the only date witness.** It repeats collectors' file dates (Suspense lists
+  "The Burning Court" on both 1942-06-17 and 1945-06-14 — correct, it was
+  re-performed, but the same shape is how a mis-dated copy would look). Cross-check
+  against OTRR logs and RadioGOLDINdex as independent witnesses (Decision 026);
+  record each date's source (Decision 124).
+- **Not the audio source.** Playing its S3 files would put our listeners on its
+  bill and its uptime. archive.org is the content source; a RadioEchoes episode
+  with no archive.org match is a "wants" entry (Decision 032's pattern), not a
+  playable row.
+- **Not a rights finding.** Being listed there says nothing about rights; the
+  audit (`02-rights.md` §10) runs on every episode regardless.
+
+**Method.** Scrape `series_all`, then each series page at the stated 10-second
+crawl delay (5,069 pages ≈ 14 hours — one CI run in the 360-minute job cap needs
+sharding across ~3 jobs, or a resumable cursor; thereafter only `?page=recent`).
+Parse each episode to `(series, date, title, length_s, re_file)`; match to
+archive.org files on normalized series + date, confirmed by length within
+max(90 s, 5%) (`07-archive-org-ingest.md` dedupe rule). Facts are free to take
+(*Feist*); credit RadioEchoes and write to support@radioechoes.com in parallel
+asking for an export — they invite collection contributions in their FAQ, so a
+data partnership is a natural ask.

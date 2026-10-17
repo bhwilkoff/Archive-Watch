@@ -68,7 +68,7 @@ Ranked from `radio/01-content-sources.md` §"Sources to build on":
 | **American Archive of Public Broadcasting** | Small supplement | `api.json` answers with no key; 214 online items match "radio drama" |
 | **Creative Commons modern audio drama** | Admitted one show at a time | Only with corroborated evidence (Decision 140) |
 | **Commercial sellers** (Radio Spirits, OTRCAT, RUSC) | **Never a source** | Useful as a list of rights CLAIMS (a licensed CD closes the noncommercial-use route) |
-| **Listening sites** (RadioEchoes: 5,069 series, 129,158 episodes) | Never a source | Free to listen, no stated terms |
+| **RadioEchoes** (5,069 series, 129,158 episodes) | **The series/episode spine** (owner, 2026-10-17); never the audio source | Human genre tags; dated episode pages; audio on its own S3; no API or terms |
 | **Institutional archives** (LOC NBC collection, UMKC Marr, Paley, WNYC, UMD) | Evidence and metadata only | Reading rooms, not feeds |
 | **Europeana** | Dropped | 95 radio-drama sound items, none openly licensed |
 
@@ -199,22 +199,30 @@ the commands or code.
    P1113 = 946 episodes), checked against years and network. SPARQL in
    `radio/03` "To measure". Few episodes exist on Wikidata; there is no
    RadioGOLDINdex property — proposing one is a contribution back.
-3. Episode facts from independent witnesses: RadioGOLDINdex
+3. **The spine is RadioEchoes** (owner, 2026-10-17: *"Can we use radioechoes as
+   the spine and archive.org as the content source?"* — yes; `radio/03`
+   addendum): 5,069 human-genred series, each a page of dated episodes with
+   title, length and a `series_YYYY-MM-DD_title.mp3` key (Suspense: 917,
+   MEASURED). No API or stated terms; robots allows all at a 10-second crawl
+   delay. Its audio stays on its own S3 and is never played; archive.org is the
+   content source, and a spine episode with no archive.org match is a "wants"
+   entry. It lacks cast, credits and network, so:
+4. Episode facts from independent witnesses: RadioGOLDINdex
    (radiogoldin.library.umkc.edu, ~123,000 programs, the best credits and the
    date tie-breaker), OTRR logs, Wikipedia episode lists, Digital Deli Too,
    Jerry Haendiges. **Facts are free to take** (*Feist v. Rural*, 1991; the owner
    asked, 2026-10-17, *"If Google can index the Goldin's index, why would we need
    special permission to do so?"* — we do not, for facts); prose descriptions are
    not. Scrape slowly with credit and a link back on every episode, and ask
-   Goldin/UMKC and OTRR for exports in parallel. MEASURED: the UMKC host has no
+   Goldin/UMKC, OTRR and RadioEchoes for exports in parallel. MEASURED: the UMKC host has no
    robots.txt and states no terms.
-4. Confirm dates against newspaper listings: JJ's Newspaper Radio Logs (45,000+,
+5. Confirm dates against newspaper listings: JJ's Newspaper Radio Logs (45,000+,
    1930-60), Chronicling America on loc.gov (keyless JSON), Radio Guide / Radio
    Mirror scans on WorldRadioHistory.
-5. Art last: typographic cards by default; Wikimedia Commons publicity photos
+6. Art last: typographic cards by default; Wikimedia Commons publicity photos
    only where the file page shows the no-notice/non-renewal evidence; never
    uploader art.
-6. Verify every match against the item's own signals, runtime included
+7. Verify every match against the item's own signals, runtime included
    (Decision 026); when a match is cleared, remove what it filled (Decision 150).
 
 ### 5.3 Judge rights
@@ -329,7 +337,7 @@ there. Ordered by what they unblock.
    published.
 6. Enrichment (§5.2), loudness (§5.4), then the clients, CarPlay entitlement
    requested on day one because Apple's review of it is slow.
-7. Send the outreach in parallel: Goldin/UMKC and OTRR (exports, and how OTRR's
+7. Send the outreach in parallel: RadioEchoes, Goldin/UMKC and OTRR (exports, and how OTRR's
    NC-ND applies), and info@archive.org before the first full harvest.
 
 ---
