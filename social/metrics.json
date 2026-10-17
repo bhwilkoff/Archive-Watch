@@ -3367,6 +3367,53 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxkv7er36c2s",
+   "platform": "bluesky",
+   "id": "valley_of_the_tennessee",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-11T01:49:17.673605+00:00",
+   "sampled": "2026-10-17T17:58:45.011612+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxzalu34hc2z",
+   "platform": "bluesky",
+   "id": "TheWomanInGreen_894",
+   "slot": "one-line",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-16T18:50:24.521933+00:00",
+   "sampled": "2026-10-17T17:58:45.011612+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117452088376643765",
+   "platform": "mastodon",
+   "id": "TheWomanInGreen_894",
+   "slot": "one-line",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-16T18:50:24.521933+00:00",
+   "sampled": "2026-10-17T17:58:45.011612+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }
