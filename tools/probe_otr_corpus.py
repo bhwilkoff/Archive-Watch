@@ -62,6 +62,14 @@ AUDIO_EXT = (".mp3", ".ogg", ".flac", ".wav", ".m4a", ".opus", ".aiff", ".wma")
 
 YMD2 = r"(?P<yy>\d{2}|xx)-(?P<mm>\d{2}|xx)-(?P<dd>\d{2}|xx)"
 PATTERNS = [
+    # OTRR v2 sets (measured 2026-10-17 on OTRR_Suspense_Singles_By_Year_1942):
+    # "Suspense 420617 001 The Burning Court (128-44) 28455 30m00s"
+    #  series YYMMDD epNNN title (kbps-kHz) KiB MMmSSs
+    ("F0_otrr_v2", re.compile(
+        r"^(?P<series>.+?)[ _](?P<yy>\d{2}|xx)(?P<mm>\d{2}|xx)(?P<dd>\d{2}|xx)[ _]"
+        r"(?P<num>\d{1,4}|x{1,4})[ _](?P<title>.+?)"
+        r"(?:[ _]\((?P<kbps>\d{2,3})-(?P<khz>\d{2})\))?(?:[ _](?P<kib>\d{3,7}))?"
+        r"(?:[ _](?P<mins>\d{1,3})m(?P<secs>\d{2})s)?$", re.I)),
     ("F1_otrr", re.compile(
         rf"^(?P<series>.+?)_{YMD2}_(?:ep)?(?P<num>\d{{1,4}}|x+)_(?P<title>.+?)"
         r"(?:_aka_(?P<aka>.+?))?(?:_ep(?P<variant>AFRTS|AFRS|Rehearsal|Audition))?$", re.I)),
@@ -177,7 +185,7 @@ def parse(name):
             elif fam.startswith("F1") and valid_date("19" + g["dd"], g["yy"], g["mm"]):
                 date = f"19{g['dd']}-{g['yy']}-{g['mm']}"   # MM-DD-YY written in the YY-MM-DD slot
                 fam += "_mdy"
-            elif fam in ("F2_yymmdd",):
+            elif fam in ("F2_yymmdd", "F0_otrr_v2"):
                 continue                                     # six digits that are not a date
         if g.get("head") is not None:          # F4: "Series: Title" or a bare CamelCase run
             head = re.sub(r"[_]+", " ", g["head"]).strip(" -")

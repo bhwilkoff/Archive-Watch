@@ -10,7 +10,7 @@
 > web-search budget (200 calls) ran out part-way through this track, so several
 > planned checks (script libraries, WCAG wording, Library of Congress script
 > holdings, CarPlay's official limits) are listed under **To measure** instead of
-> answered. Facts about Archive Watch itself were read from this repository.
+> answered. Facts about Archive Watch itself were read from this repository. Network access opened late in the session; §1.4 (App Store reviews) was then measured directly with curl against Apple's public endpoints.
 
 ---
 
@@ -58,6 +58,12 @@
    shortens silences; in drama a pause is the performance. Loudness
    normalization (Voice Boost's other half) is the right borrowing, done once in
    the pipeline because OTR transfers vary wildly.
+9. **Measured: bedtime is the category's main use, and the car its second.**
+   In 697 App Store reviews of nine OTR apps (§1.4), sleep or bedtime listening
+   appears in 47 (7%) and the car in 24; the complaints are billing (90),
+   crashes (50), no memory of what was heard, no continuous play, endless play
+   that wakes the sleeper, and VoiceOver-unlabeled buttons. A sleep timer that
+   fades out at the end of an episode is a headline feature, not a setting.
 
 ---
 
@@ -126,6 +132,93 @@ The search tools could not read review pages, so this is what review
     occupational hazard in OTR collecting" ([jackbenny.org forum](https://jackbenny.org/phpBB3/viewtopic.php?p=250));
   - vendors sold *Inner Sanctum* duplicates under alternate titles, and AFRS
     rebroadcasts had their titles removed ([OTRR newsletter, 2012](https://www.otrr.org/FILES/Times_Archive_pdf/2012_05-06MayJun.pdf)).
+
+### 1.4 Measured: 697 App Store reviews of nine OTR apps (2026-10-17)
+
+Network access opened late in this session, so §1.3's summaries were checked
+against the reviews themselves. Method: the iTunes Search API
+(`itunes.apple.com/search?term=old+time+radio&entity=software&limit=50`) for
+the field, then up to three pages of the customer-reviews RSS
+(`itunes.apple.com/us/rss/customerreviews/page=N/id=<ID>/sortby=mostrecent/json`)
+for each of nine OTR apps: 697 reviews, 2012-10-28 to 2026-10-14. Themes are
+regex matches over title + body, so a count is a floor, not a classification.
+Raw files: `/tmp/claude-0/-home-user-Archive-Watch/b5ae32f7-ceba-58ad-ae5d-827ee8529aa6/scratchpad/rev/` (scratch, not kept).
+
+Field (Search API, US store, same day): OTR Player 4.49 from 968 ratings (last
+update 2020-06-16); Vintage Radio 4.59 / 401 (updated 2026-10-03); Old Time Radio
+Streamer 4.55 / 761; Old Time Radio Detectives 4.71 / 699 (2022); Radio Spirits
+4.24 / 657 (2022-08-22); Old Time Radio Shows 3.64 / 102; Dumb.com 2.85 / 112.
+Several are single-developer streams (Old Time Radio Detectives, A.M. America's
+OTR Comedy, Wild West OTR Channel). The ratings counts are small: the whole
+iOS category is a few thousand raters.
+
+| Theme | Reviews | Share |
+|---|---|---|
+| subscription / billing | 90 | 13% |
+| crash / freeze / won't open / stopped working | 50 | 7% |
+| **sleep / bedtime listening** | **47** | **7%** |
+| car / driving | 24 | 3% |
+| mark played / resume / remember position | 19 | 3% |
+| continuous play / "play all" / next episode | 18 | 3% |
+| ads | 16 | 2% |
+| sleep timer named | 15 | 2% |
+| VoiceOver / blind / screen reader | 10 | 1% |
+| the old commercials (all positive) | 6 | 1% |
+| wrong descriptions, counts, duplicates | 5 | 1% |
+
+What the reviewers say, verbatim (app, stars, date):
+
+- **Bedtime is the main use case, and nobody designs for it.** "50 years in,
+  and i'm still going to sleep with these shows playing ... if you just want a
+  rock-solid player that'll run all night, or on a timer, this is an easy pick"
+  (OTR Player, 5, 2026-03-08). "I'm 86 ... I once again fall asleep with my
+  phone next to me, listening to 'Gunsmoke'" (Old Time Radio Streamer, 5,
+  2023-04-29). The failure case: "the shows play endlessly until you shut them
+  off, very annoying if you want to play a show while falling off to sleep, as
+  it NEVER turns off so it wakes you" (Vintage Radio, 1, 2017-01-08). The praised
+  case: "there is a timer to shut it off as the volume is slowly lowered!" (Old
+  Time Radio Streamer, 5, 2016-08-08). Also: "Expensive, no sleep timer" (Radio
+  Spirits, 2, 2026-04-26).
+- **Order and memory.** "no way to keep track of episodes already listened to.
+  With over 61,000 episodes, that's important! ... I have to choose the series,
+  choose the season, and then scroll down through the 200 episodes per season ...
+  'now I'm on #134 of season three'" (Old Time Radio Shows, 2, 2020-05-11). "all
+  I want to be able to do is listen consecutively to episodes in a series,
+  without continuous input from me (after every 12 minute episode) with the App
+  remembering where I left off" (Radio Spirits, 2, 2025-08-26).
+- **The car.** "Given that I listen to OTR mostly in my car, this would be most
+  desirable" — asking for CarPlay (Radio Spirits, 4, 2023-03-19); "when I'm in my
+  car connected to my Bluetooth stereo and have to pause to take a call the app
+  crashes" (Vintage Radio, 4, 2024-11-19); CarPlay's "elapsed time and time
+  remaining labels are way off" (OTR Player, 3, 2023-05-26).
+- **Blind listeners are a real constituency and are routinely shut out.**
+  "VoiceOver just says, 'button' and I have to press each one to find out what it
+  does ... your progress bar is not accurate" (Old Time Radio Shows, 2,
+  2024-04-21); "I can't get past the opening screen because with VoiceOver screen
+  reader I can't touch the microphone" (OTR Player, 2, 2023-04-07); and the
+  counter-case, "please keep this app simple ... so many apps are changing their
+  interface and making it very difficult for voiceover users" (Old Time Radio
+  Streamer, 5, 2018-10-16).
+- **The commercials are wanted.** "Some programs even have news and commercials
+  from yesteryear which I thoroughly enjoy!" (OTR Player, 5, 2023-04-05); "The old
+  commercials are great, maybe add a few of those into the play if possible"
+  (Radio Spirits, 5, 2024-09-21). Supports R8.
+- **Metadata errors are noticed.** "quite a few of the episode descriptions are
+  way off the mark of what the episode is about" (Old Time Radio Shows, 4,
+  2026-03-22); "many series have inaccurate no. of shows in the series" (Vintage
+  Radio, 5, 2016-10-14); "too often there will be the same episode offered
+  several times in the same week" (Old Time Radio Streamer, 4, 2016-04-05).
+- **Ads.** "2 1/2 minutes of repetitive ads, popup ads when pausing" (Old Time
+  Radio Detectives, 1, 2017-03-19); "Can you get rid of ads where the Controls
+  are?" (OTR Player, 2, 2026-03-15).
+- **Loudness.** "The volume is very low ... I am unable to hear because the
+  sound is so low on a great many recordings" (Old Time Radio Shows, 2,
+  2020-03-17) against "The shows are clean, adjusted for uniform volume" as
+  praise (same app, 5, 2026-01-13). Supports R15's normalization.
+- **Family and memory, the learning hook.** "bringing back precious memories of
+  listening to these programs with daddy ... appreciating using my imagination"
+  (Radio Spirits, 5, 2023-10-18); "My wife and I goes to bed at night discovering
+  new genres" (Radio Spirits, 5, 2022-07-30).
 
 **Design consequence**: the product's credibility is its catalog hygiene. A
 listener who hits the same episode twice under two titles has learned the app
@@ -608,6 +701,18 @@ R19 **A radio adaptation and its film link both ways, and each is judged on
 its own rights.** *Why*: §5.2; the film's status says nothing about the
 broadcast's.
 
+R20 **Bedtime is a mode, not a setting.** The sleep timer offers "end of
+this episode" first, fades the volume over its last seconds, and never starts
+the next episode once it has fired; it is reachable from the lock screen's
+app surface in one step. *Why*: §1.4 — 7% of reviews describe falling asleep
+to the app, and the worst-rated failure is a player that "NEVER turns off so it
+wakes you"; the most-praised one lowers the volume slowly.
+
+R21 **Every control is labeled for VoiceOver and TalkBack before it ships,
+and the first screen is usable without sight.** *Why*: §1.4 — blind listeners
+review these apps and are shut out by unlabeled buttons and a first screen that
+needs a tap target they cannot find.
+
 ---
 
 ## §10 — Open owner questions
@@ -642,8 +747,9 @@ broadcast's.
 
 ## To measure (probes for a session with network access)
 
-**M1 — OTR app reviews, real corpus.** Pull App Store reviews for the apps in
-§1.2 and count complaint classes:
+**M1 — OTR app reviews, real corpus.** DONE for the US App Store (§1.4,
+697 reviews). Still open: Google Play reviews (OTR Player, Radio Spirits) and a
+hand classification of a sample to check the regex floors. The probe used:
 ```
 for id in 455577974 324517232 1438072504 1493221239 889955088 389211220 567195102; do
   curl -s "https://itunes.apple.com/us/rss/customerreviews/page=1/id=$id/sortby=mostrecent/json" > rev_$id.json
@@ -770,6 +876,10 @@ OTR apps and streams
 - https://www.wrvo.org/tuned-to-yesterday
 - https://www.wrvo.org/tuned-to-yesterday/2017-05-20/tty-dialer-podcast-30
 - https://metacast.app/podcast/the-radioscope/nFFuyhf3
+
+App Store measurement (§1.4)
+- https://itunes.apple.com/search?term=old+time+radio&entity=software&limit=50
+- https://itunes.apple.com/us/rss/customerreviews/page=1/id=<ID>/sortby=mostrecent/json for IDs 1493221239, 455577974, 1438072504, 389211220, 889955088, 1180304703, 567195102, 1300453480, 1184038094 (pages 1-3)
 
 Collector evidence on bad files
 - https://radio.macinmind.com/journal-2019.php
