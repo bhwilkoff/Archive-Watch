@@ -60,35 +60,6 @@ FIELDS = ("identifier,title,mediatype,collection,downloads,item_size,"
 
 AUDIO_EXT = (".mp3", ".ogg", ".flac", ".wav", ".m4a", ".opus", ".aiff", ".wma")
 
-YMD2 = r"(?P<yy>\d{2}|xx)-(?P<mm>\d{2}|xx)-(?P<dd>\d{2}|xx)"
-PATTERNS = [
-    # OTRR v2 sets (measured 2026-10-17 on OTRR_Suspense_Singles_By_Year_1942):
-    # "Suspense 420617 001 The Burning Court (128-44) 28455 30m00s"
-    #  series YYMMDD epNNN title (kbps-kHz) KiB MMmSSs
-    ("F0_otrr_v2", re.compile(
-        r"^(?P<series>.+?)[ _](?P<yy>\d{2}|xx)(?P<mm>\d{2}|xx)(?P<dd>\d{2}|xx)[ _]"
-        r"(?P<num>\d{1,4}|x{1,4})[ _](?P<title>.+?)"
-        r"(?:[ _]\((?P<kbps>\d{2,3})-(?P<khz>\d{2})\))?(?:[ _](?P<kib>\d{3,7}))?"
-        r"(?:[ _](?P<mins>\d{1,3})m(?P<secs>\d{2})s)?$", re.I)),
-    ("F1_otrr", re.compile(
-        rf"^(?P<series>.+?)_{YMD2}_(?:ep)?(?P<num>\d{{1,4}}|x+)_(?P<title>.+?)"
-        r"(?:_aka_(?P<aka>.+?))?(?:_ep(?P<variant>AFRTS|AFRS|Rehearsal|Audition))?$", re.I)),
-    ("F1b_otrr_spaced", re.compile(
-        rf"^(?P<series>.+?)[ _]+{YMD2}[ _]+(?:ep|#)?(?P<num>\d{{1,4}}|x+)?[ _]*(?P<title>.*)$", re.I)),
-    ("F3_iso", re.compile(
-        r"^(?P<series>.+?)[ _-]+(?P<yyyy>19[2-7]\d)[ ._-](?P<mm>\d{2})[ ._-](?P<dd>\d{2})"
-        r"[ _-]*(?P<title>.*?)(?:\(\s*(?P<num>\d{1,4})\s*\))?$")),
-    ("F4_us", re.compile(
-        r"^(?P<head>.+?)[ _-]*(?P<mm>0[1-9]|1[0-2])[-_ ]?(?P<dd>[0-3]\d)"
-        r"[-_ ]?(?P<yyyy>19[2-7]\d)$")),
-    ("F2_yymmdd", re.compile(
-        r"^(?P<series>[A-Za-z][A-Za-z_ ]*?)[_ -]?(?P<yy>[1-7]\d)(?P<mm>0[1-9]|1[0-2])"
-        r"(?P<dd>0[1-9]|[12]\d|3[01])(?:[_ -]?(?P<title>[A-Za-z].*))?$")),
-    ("F5_number", re.compile(
-        r"^(?P<series>.+?)[ _-]+(?:#|ep\.?|no\.?\s*)?(?P<num>\d{1,4})[ _-]+(?P<title>[A-Za-z].+)$", re.I)),
-]
-
-
 def get_json(url, params=None, *, pause, tries=6):
     if params:
         url = url + "?" + urllib.parse.urlencode(params)
@@ -168,6 +139,77 @@ def valid_date(y, m, d):
         return False
 
 
+# Filename families, in the order they are tried. Every example is a real
+# file name measured 2026-10-17 (item id in brackets).
+_D = r"(?P<yyyy>19[2-7]\d)|(?P<yy>[2-7]\d|xx)"
+_DATE_DASH = rf"(?:{_D})[-.](?P<mm>\d{{1,2}}|xx)[-.](?P<dd>\d{{1,2}}|xx)"
+PATTERNS = [
+    # "Suspense 420617 001 The Burning Court (128-44) 28455 30m00s"  [OTRR_Suspense_Singles_By_Year_1942]
+    #  OTRR v2: series YYMMDD epNNN title (kbps-kHz) KiB MMmSSs
+    ("F0_otrr_v2", re.compile(
+        r"^(?P<series>.+?)[ _](?P<yy>\d{2}|xx)(?P<mm>\d{2}|xx)(?P<dd>\d{2}|xx)[ _]"
+        r"(?P<num>\d{1,4}|x{1,4})[ _](?P<title>.+?)"
+        r"(?:[ _]\((?P<kbps>\d{2,3})-(?P<khz>\d{2})\))?(?:[ _](?P<kib>\d{3,7}))?"
+        r"(?:[ _](?P<mins>\d{1,3})m(?P<secs>\d{2})s)?$", re.I)),
+    # "Whistler_42-05-16_ep001_Retribution", "Whistler_xx-xx-xx_epxxx_Kaleidoscope_epAFRTS",
+    # "CP_42-03-01_ep001-Eddie_Cantor", "Dragnet_49-06-10_ep002_Homicide"   [OTRR_Whistler_Singles, CommandPerformance, Dragnet_OTR]
+    ("F1_otrr_ep", re.compile(
+        rf"^(?P<series>.+?)[ _-]+{_DATE_DASH}[ _-]+ep(?P<num>\d{{1,4}}|x{{1,4}})[ _-]+(?P<title>.+?)"
+        r"(?:_aka_(?P<aka>.+?))?(?:[ _-]ep(?P<variant>AFRTS|AFRS|Rehearsal|Audition))?$", re.I)),
+    # "Gunsmoke 52-04-26 (001) Billy the Kid", "The Shadow 1937-09-26 (87) The Death House Rescue",
+    # "FMM 1931-06-01 (xx) Smackout"   [OTRR_Gunsmoke_Singles, the-shadow-..., fibber-mc-gee-and-molly]
+    ("F1c_paren_num", re.compile(
+        rf"^(?P<series>.+?)[ _-]+{_DATE_DASH}[ _-]*\((?P<num>\d{{1,4}}|x{{1,4}})\)[ _-]*(?P<title>.+)$", re.I)),
+    # "XMinusOne55-04-24001NoContact", "LuxRadioTheatre46-09-02535OurVinesHaveTenderGrapes",
+    # "LightsOut-1936-06-17CatWife"   [OTRR_X_Minus_One_Singles, OTRR_Lux_Radio_Theater_Singles, LightsOutoldTimeRadio]
+    ("F1d_camel_glued", re.compile(
+        rf"^(?P<series>[A-Za-z][A-Za-z'&]+?)[-_ ]?{_DATE_DASH}(?P<num>\d{{3,4}})?[-_ ]?(?P<title>[A-Za-z].*)$")),
+    # "X Minus One 1955 04 24 No Contact ( 001)"   [xminusone19550424nocontact001 title]
+    ("F3_spaced_date", re.compile(
+        r"^(?P<series>.+?)[ _-]+(?P<yyyy>19[2-7]\d)[ _](?P<mm>\d{2})[ _](?P<dd>\d{2})"
+        r"[ _-]*(?P<title>.*?)(?:\(\s*(?P<num>\d{1,4})\s*\))?$")),
+    # "Series 42-06-17 Title" / "Series_1942-06-17_Title" (no episode number)
+    ("F1e_series_date_title", re.compile(
+        rf"^(?P<series>[A-Za-z].*?)[ _-]+{_DATE_DASH}[ _-]+(?P<title>[A-Za-z].*)$")),
+    # "42-06-17_Burning_Court", "1932-05-02 - 001) First Show", "01 38-07-11 Dracula"
+    #  no series in the name: the ITEM supplies it   [SUSPENSE, TheJackBennyProgram, OrsonWelles_MercuryTheatre]
+    ("F7_date_first", re.compile(
+        rf"^(?:\d{{1,3}}[ _.-]+)?{_DATE_DASH}[ _-]*(?:-[ _]*)?(?:\(?(?P<num>\d{{1,4}})\)[ _-]*)?(?P<title>.*)$")),
+    # "SuspenseTheHitchHiker09021942"   [SuspenseTheHitchHiker09021942]
+    ("F4_us_mmddyyyy", re.compile(
+        r"^(?P<head>.+?)[ _-]*(?P<mm>0[1-9]|1[0-2])[-_ ]?(?P<dd>[0-3]\d)[-_ ]?(?P<yyyy>19[2-7]\d)$")),
+    # "xminusone_550424_NoContact", "X_Minus_One_560515_Hallucination_Orbit", "TSP420617",
+    # "JackBennyProgram481017SorryWrongNumber"
+    ("F2_yymmdd", re.compile(
+        r"^(?P<series>[A-Za-z][A-Za-z_ ]*?)[_ -]?(?P<yy>[1-7]\d)(?P<mm>0[1-9]|1[0-2])"
+        r"(?P<dd>0[1-9]|[12]\d|3[01])(?:[_ -]?(?P<title>[A-Za-z].*))?$")),
+    # "Dimension X 011 Zero Hour" (number, no date)
+    ("F5_number", re.compile(
+        r"^(?P<series>.+?)[ _-]+(?:#|ep\.?|no\.?\s*)?(?P<num>\d{1,4})[ _-]+(?P<title>[A-Za-z].+)$", re.I)),
+    # "X_Minus_One-A_Gun_for_Dinosaur" (series + title, nothing else)   [xminusoneotr]
+    ("F8_series_dash_title", re.compile(r"^(?P<series>[A-Za-z][A-Za-z_ ]+?)-(?P<title>[A-Za-z].+)$")),
+]
+# The OTRR sets also write identity into the ID3 album tag:
+# album "04/26/52, episode 1"   [OTRR_Gunsmoke_Singles, OTRR_X_Minus_One_Singles, OTRR_Lux_Radio_Theater_Singles]
+ALBUM_TAG = re.compile(r"^(?P<mm>\d{1,2}|xx)/(?P<dd>\d{1,2}|xx)/(?P<yy>\d{2}|xx),\s*episode\s*(?P<num>\d{1,4}|x+)", re.I)
+AFRS = re.compile(r"(?:^|[ _(\-]|(?<=[a-z]))(afrs|afrts)(?:$|[ _)\-])", re.I)
+
+
+def _date(g, fam):
+    yyyy = g.get("yyyy")
+    yy = g.get("yy")
+    if not yyyy and yy and yy.lower() != "xx":
+        yyyy = "19" + yy
+    mm, dd = g.get("mm") or "", g.get("dd") or ""
+    if not yyyy or not mm or not dd or "x" in (mm + dd).lower():
+        return None, False
+    if valid_date(yyyy, mm, dd):
+        return f"{yyyy}-{int(mm):02d}-{int(dd):02d}", False
+    if yy and valid_date("19" + dd, yy, mm):          # MM-DD-YY written in a YY-MM-DD slot
+        return f"19{dd}-{int(yy):02d}-{int(mm):02d}", True
+    return None, None                                  # digits that are not a date
+
+
 def parse(name):
     s = stem(name)
     for fam, rx in PATTERNS:
@@ -175,31 +217,36 @@ def parse(name):
         if not m:
             continue
         g = m.groupdict()
-        yyyy = g.get("yyyy")
-        if not yyyy and g.get("yy") and g["yy"].lower() != "xx":
-            yyyy = "19" + g["yy"]
-        date = None
-        if yyyy and g.get("mm") and g.get("dd") and "x" not in (g["mm"] + g["dd"]).lower():
-            if valid_date(yyyy, g["mm"], g["dd"]):
-                date = f"{yyyy}-{g['mm']}-{g['dd']}"
-            elif fam.startswith("F1") and valid_date("19" + g["dd"], g["yy"], g["mm"]):
-                date = f"19{g['dd']}-{g['yy']}-{g['mm']}"   # MM-DD-YY written in the YY-MM-DD slot
-                fam += "_mdy"
-            elif fam in ("F2_yymmdd", "F0_otrr_v2"):
-                continue                                     # six digits that are not a date
-        if g.get("head") is not None:          # F4: "Series: Title" or a bare CamelCase run
+        date, swapped = _date(g, fam)
+        if swapped is None and fam in ("F0_otrr_v2", "F2_yymmdd", "F1d_camel_glued", "F7_date_first",
+                                       "F1e_series_date_title"):
+            continue
+        if swapped:
+            fam += "_mdy"
+        if g.get("head") is not None:
             head = re.sub(r"[_]+", " ", g["head"]).strip(" -")
             ser, _, ttl = head.partition(":") if ":" in head else ("", "", head)
             g = dict(g, series=ser.strip(), title=ttl.strip())
-        series = re.sub(r"[_]+", " ", g.get("series") or "").strip()
+        series = re.sub(r"[_]+", " ", g.get("series") or "").strip(" -") or None
         num = g.get("num")
-        return {"family": fam, "series": series,
-                "date": date, "num": None if not num or "x" in num.lower() else int(num),
-                "title": re.sub(r"[_]+", " ", g.get("title") or "").strip() or None,
+        variant = g.get("variant") or (AFRS.search(s).group(1).upper() if AFRS.search(s) else None)
+        return {"family": fam, "series": series, "date": date,
+                "num": None if not num or "x" in num.lower() else int(num),
+                "title": re.sub(r"[_]+", " ", g.get("title") or "").strip(" -") or None,
                 "aka": re.sub(r"[_]+", " ", g.get("aka") or "").strip() or None,
-                "variant": g.get("variant")}
+                "variant": variant}
     return {"family": "F6_none", "series": None, "date": None, "num": None,
             "title": None, "aka": None, "variant": None}
+
+
+def parse_album_tag(album):
+    m = ALBUM_TAG.match((album or "").strip())
+    if not m:
+        return None
+    g = m.groupdict()
+    date, _ = _date(g, "tag")
+    num = g.get("num")
+    return {"date": date, "num": None if "x" in num.lower() else int(num)}
 
 
 def norm_series(s):
@@ -277,6 +324,8 @@ def main():
     file_keys = collections.Counter(); series_files_otrr = collections.Counter()
     orig_fmt = collections.Counter(); deriv_fmt = collections.Counter()
     item_hours = []
+    dated = 0; tag_dated = 0; tag_only = 0; tag_agree = 0; tag_disagree = 0
+    variants = collections.Counter(); no_series_in_name = 0
     per_item_audio = []
     md5s = collections.Counter(); bcast = collections.defaultdict(set)
     secs_total = 0.0; secs_known = 0; audio_files = 0
@@ -315,6 +364,21 @@ def main():
                 orig = next((g for g in group if g.get("source") == "original"), group[0])
                 src[str(orig.get("source"))] += 1
                 p = parse(orig["name"])
+                tp = parse_album_tag(orig.get("album"))
+                if p["date"]:
+                    dated += 1
+                if tp and tp["date"]:
+                    tag_dated += 1
+                    if not p["date"]:
+                        tag_only += 1
+                    elif tp["date"] == p["date"]:
+                        tag_agree += 1
+                    else:
+                        tag_disagree += 1
+                if p["variant"]:
+                    variants[p["variant"]] += 1
+                if p["family"] != "F6_none" and not p["series"]:
+                    no_series_in_name += 1
                 fam[p["family"]] += 1
                 if iaid.startswith("OTRR_"):
                     fam_otrr[p["family"]] += 1
@@ -355,6 +419,14 @@ def main():
         report["tag_hit_rate"] = {k: round(v / max(audio_files, 1), 3) for k, v in tags.items()}
         report["hours_in_sample"] = round(secs_total / 3600, 1)
         report["length_known_rate"] = round(secs_known / max(audio_files, 1), 3)
+        report["date_coverage"] = {
+            "filename_date": round(dated / max(audio_files, 1), 3),
+            "album_tag_date": round(tag_dated / max(audio_files, 1), 3),
+            "date_from_tag_only": tag_only, "tag_agrees_with_name": tag_agree,
+            "tag_disagrees_with_name": tag_disagree,
+            "any_date": round((dated + tag_only) / max(audio_files, 1), 3)}
+        report["variants"] = dict(variants)
+        report["parsed_but_series_from_item"] = no_series_in_name
         report["md5_duplicates"] = sum(v - 1 for v in md5s.values() if v > 1)
         report["broadcasts_in_several_items"] = sum(1 for v in bcast.values() if len(v) > 1)
         report["distinct_dated_broadcasts"] = len(bcast)

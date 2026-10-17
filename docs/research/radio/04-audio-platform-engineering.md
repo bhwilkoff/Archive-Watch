@@ -2,8 +2,9 @@
 
 *Date: 2026-10-17. Research track 04. Nothing here is built.*
 
-**How to read this file.** The container's network policy blocks page fetches; only web search worked, and the session's search budget ran out before every question was asked. So every fact is tagged one of three ways:
+**How to read this file.** For most of this session only web search worked; page fetches were blocked. Network access opened near the end, and the load-bearing claims were then checked against the primary pages, and two archive.org MP3s were measured. Every fact is tagged one of four ways:
 
+- **[V]**: VERIFIED. The primary page was fetched on 2026-10-17 and quoted, or the value was MEASURED in this container (section 8.0). Pages read: App Store Review Guidelines ("Last Updated: October 16, 2026"); the CarPlay Developer Guide PDF (October 2026, footer dated 2026-10-13); Apple's "Requesting CarPlay Entitlements"; Android "Car app quality"; Android "TV app quality" (last updated 2026-06-29); Roku Video and Audio node references; Amazon Alexa AudioPlayer reference.
 - **[S]**: the fact came from a search-result snippet of the URL cited. The page itself was not opened.
 - **[R]**: the fact came from this repository, with a path. Archive Watch has already measured or shipped it.
 - **[K] UNVERIFIED**: prior knowledge of the platform that no source fetched this session confirms. Check it against the live documentation before relying on it. "To measure" (section 12) lists a probe for each of these that matters.
