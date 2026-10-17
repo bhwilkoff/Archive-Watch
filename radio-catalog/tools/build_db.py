@@ -114,6 +114,10 @@ class SeriesResolver:
         return None, None, "none"
 
 
+GENERIC_SERIES = {"various", "variousartists", "unknown", "misc", "miscellaneous", "radio", "oldtimeradio"}
+BROADCAST_ROW = re.compile(r"\b(broadcasts?|radio|aired|transcription|airchecks?|on the air)\b", re.I)
+
+
 def build_schedule_index(rows):
     by_title = collections.defaultdict(list)
     by_artist = collections.defaultdict(list)
@@ -121,6 +125,12 @@ def build_schedule_index(rows):
         nt = A.norm_title(r.get("title"))
         if len(nt) >= 10:
             by_title[nt].append(r)
+        # A schedule protects THAT recording. A label's schedule of a performer's
+        # commercial records says nothing about the performer's radio show, so a
+        # series-level match needs a scheduled row that is itself a broadcast
+        # (Sony's Cronkite/Murrow news, Arista's Tommy Dorsey "radio broadcast").
+        if not BROADCAST_ROW.search(" ".join(str(r.get(k) or "") for k in ("title", "album", "alt_title"))):
+            continue
         for a in (r.get("artist") or "", r.get("album") or ""):
             na = P.norm_series(a)
             if len(na) >= 6:
@@ -129,20 +139,20 @@ def build_schedule_index(rows):
 
 
 def make_schedule_matcher(by_title, by_artist):
-    def tokens(s):
-        return {w for w in re.findall(r"[a-z]{4,}", (s or "").lower())}
-
     def match(ep):
         hits = []
-        for r in by_artist.get(ep["series_key"], [])[:5]:
+        for r in ([] if ep["series_key"] in GENERIC_SERIES else by_artist.get(ep["series_key"], [])[:5]):
             hits.append({"source": "pre-1972 schedule (series named as artist/album)", "title": r.get("title"),
                          "artist": r.get("artist"), "rights_owner": r.get("rights_owner"),
                          "indexed": r.get("index_date")})
         nt = A.norm_title(ep.get("title"))
         if nt and len(nt) >= 10:
-            st = tokens(ep.get("series_name")) | set().union(*[tokens(x.get("creator")) for x in ep["recordings"]])
+            # The whole artist name must appear in the series name or the file's
+            # creator: a shared first name ("John", "Archie") is not the same act.
+            hay = [P.norm_series(ep.get("series_name"))] + [P.norm_series(x.get("creator")) for x in ep["recordings"]]
             for r in by_title.get(nt, []):
-                if st & tokens(r.get("artist")):
+                na = P.norm_series(r.get("artist"))
+                if len(na) >= 6 and any(na in h for h in hay if h):
                     hits.append({"source": "pre-1972 schedule (episode title + artist)", "title": r.get("title"),
                                  "artist": r.get("artist"), "rights_owner": r.get("rights_owner"),
                                  "indexed": r.get("index_date")})
@@ -300,6 +310,14 @@ def main():
     film_ren = collections.defaultdict(list)
     for r in load(AW_RENEWALS, []):
         film_ren[A.norm_title(r["t"])].append(r)
+    script_ren = collections.defaultdict(list)
+    for r in load(os.path.join(ia.CACHE, "cce_drama_renewals.json.gz"), []):
+        name = r.get("series") or re.split(r",|\bNo\.", r["title"])[0]
+        k, _ = resolver.key(name)
+        if k in by_series and r.get("orig_year"):
+            script_ren[k].append(r)
+    if not script_ren:
+        print("WARNING: no script renewals matched any series; work_script_renewed cannot fire", file=sys.stderr)
     sched = load(os.path.join(ia.CACHE, "p72_schedules.json.gz"), {"rows": []})
     if not sched["rows"]:
         print("WARNING: no pre-1972 schedules cached; rec_schedule_claim cannot fire", file=sys.stderr)
@@ -307,6 +325,7 @@ def main():
     ctx = {"takedowns": takedowns, "schedule_match": make_schedule_matcher(bt, ba), "claims": claims,
            "series_post_1972": series_post, "series_foreign": series_foreign, "gov_series": gov,
            "licence_evidence": lic_ev, "published_records": pub_rec, "film_renewals": film_ren,
+           "script_renewals": script_ren,
            "today": datetime.date.today()}
 
     # The spine: attach RadioEchoes genre and episode facts; unmatched RE episodes are wants.

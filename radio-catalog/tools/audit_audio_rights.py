@@ -31,6 +31,11 @@ GOV_PRODUCER = re.compile(
 ADAPTATION_SERIES = {"luxradiotheater", "screenguildtheater", "screenguildplayers", "academyawardtheater",
                      "screendirectorsplayhouse", "hollywoodstartime", "hollywoodradiotheater"}
 POST_1972 = datetime.date(1972, 2, 15)
+# A claimant who renewed this many of a series' scripts is claiming the series:
+# the printed catalogs lose a quarter to a third of entries to OCR (MEASURED,
+# fetch_cce_drama_renewals), so an unmatched episode of such a series is more
+# likely a lost entry than an unrenewed script. A default for the owner (README).
+SERIES_RENEWAL_FLOOR = 10
 
 
 def norm_title(t):
@@ -108,6 +113,18 @@ def work_bucket(ep, ctx):
     claim = ctx["claims"].get(key)
     if claim and claim["layer"] == "work":
         return "work_script_claim", [claim]
+    live = [r for r in ctx.get("script_renewals", {}).get(key, [])
+            if r["orig_year"] + 96 > (ctx.get("today") or datetime.date.today()).year]
+    if live and ep.get("date"):
+        air = datetime.date.fromisoformat(ep["date"])
+        nt = norm_title(ep.get("title"))
+        for r in live:
+            reg = datetime.date.fromisoformat(r["orig_date"]) if r.get("orig_date") else None
+            same_title = nt and len(nt) >= 6 and nt in (norm_title(r.get("episode")), norm_title(r.get("title")))
+            if (same_title and reg and abs(reg.year - air.year) <= 1) or (reg and abs((reg - air).days) <= 30):
+                return "work_script_renewed", [_renewal_ev(r)]
+    if len(live) >= SERIES_RENEWAL_FLOOR:
+        return "work_series_renewals", [{"renewals": len(live), "first": _renewal_ev(live[0])}]
     if key in ADAPTATION_SERIES and ep.get("date") and ep.get("title"):
         year = int(ep["date"][:4])
         for r in ctx["film_renewals"].get(norm_title(ep["title"]), []):
@@ -125,7 +142,13 @@ REC_STATE = {
     "rec_pd_published_age": "keep_clean",
     "rec_orphan_unclaimed": "keep_unclaimed", "rec_no_evidence": "hide_unidentified",
 }
-WORK_HIDES = {"work_script_claim", "work_adapted_renewed"}
+WORK_HIDES = {"work_script_claim", "work_script_renewed", "work_series_renewals", "work_adapted_renewed"}
+
+
+def _renewal_ev(r):
+    return {"source": r.get("src"), "registration": r.get("reg"), "registered": r.get("orig_date"),
+            "renewal": r.get("r") or r.get("r_printed"), "renewed": r.get("r_date"), "claimant": r.get("claimant"),
+            "printed": r.get("text")}
 
 
 def judge(ep, ctx):

@@ -155,6 +155,49 @@ def adapted_renewed_film_hides_lux_episode():
     assert A.judge(e, ctx(film_renewals=ren))["work_bucket"] == "work_none_found"
 
 
+def ren(**kw):
+    r = {"orig_year": 1938, "orig_date": "1938-03-01", "title": "THE GREEN HORNET", "episode": None,
+         "src": "https://archive.org/details/v", "reg": "D1", "r": "R1", "r_date": "1965-01-01", "claimant": "X"}
+    r.update(kw)
+    return r
+
+
+@case
+def renewed_script_hides_its_broadcast_by_date():
+    c = ctx(script_renewals={"greenhornet": [ren()]})
+    e = ep(series_key="greenhornet", date="1938-03-10", title="Anything")
+    j = A.judge(e, c)
+    assert (j["work_bucket"], j["state"]) == ("work_script_renewed", "hide_claim"), j
+    e = ep(series_key="greenhornet", date="1938-07-10", title="Anything")
+    assert A.judge(e, c)["work_bucket"] == "work_none_found"
+
+
+@case
+def renewed_script_hides_its_broadcast_by_title():
+    c = ctx(script_renewals={"vicandsade": [ren(title="Vic and Sade", episode="Uncle Fletcher's Meals", orig_date="1939-01-01", orig_year=1939)]})
+    e = ep(series_key="vicandsade", date="1939-11-20", title="Uncle Fletcher's Meals")
+    assert A.judge(e, c)["work_bucket"] == "work_script_renewed"
+
+
+@case
+def many_renewals_claim_the_series():
+    c = ctx(script_renewals={"nickcarter": [ren(orig_date=f"1944-01-{d:02d}", orig_year=1944) for d in range(1, 11)]})
+    e = ep(series_key="nickcarter", date="1947-06-01")
+    j = A.judge(e, c)
+    assert (j["work_bucket"], j["state"]) == ("work_series_renewals", "hide_claim"), j
+    c = ctx(script_renewals={"nickcarter": [ren(orig_date=f"1944-01-{d:02d}", orig_year=1944) for d in range(1, 10)]})
+    assert A.judge(e, c)["work_bucket"] == "work_none_found"
+
+
+@case
+def an_expired_renewal_claims_nothing():
+    c = ctx(script_renewals={"greenhornet": [ren(orig_year=1930, orig_date="1930-03-01")]})
+    e = ep(series_key="greenhornet", date="1930-03-10")
+    assert A.judge(e, c)["work_bucket"] == "work_none_found"
+    c = ctx(script_renewals={"greenhornet": [ren(orig_year=1931, orig_date="1931-03-01")]})
+    assert A.judge(ep(series_key="greenhornet", date="1931-03-10"), c)["work_bucket"] == "work_script_renewed"
+
+
 @case
 def hides_run_before_rescues():
     c = ctx(gov_series={"x": {}}, series_foreign={"x": {"term": "BBC"}})
