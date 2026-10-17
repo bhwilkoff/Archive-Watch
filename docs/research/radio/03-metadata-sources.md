@@ -11,28 +11,114 @@ through (so BBC Genome terms, the Chronicling America query shape, the Media
 History Digital Library, and Discogs listings could not be searched at all).
 Every fact below either cites the URL a search result came from ("per search
 snippet") or is marked **UNVERIFIED**. Anything numeric that needs a real
-count is in "To measure".
+count is in "To measure". **Superseded in part the same day**: network access
+opened and §0 below is MEASURED; where §0 and a later section disagree, §0
+wins, and the later sections have been corrected in place (marked
+"MEASURED 2026-10-17").
+
+---
+
+## 0. Measured 2026-10-17
+
+Run from this container with curl (polite: sequential, 1-3 s sleeps, an honest
+User-Agent; a browser UA only where a site 403s the default). `sp.sh` is
+`curl -s -G -A "$UA" -H 'Accept: application/sparql-results+json' --data-urlencode "query=$1" https://query.wikidata.org/sparql`.
+`RG=https://radiogoldin.library.umkc.edu`, `OT=https://www.otrr.org/php/jqSelectM7.php`.
+
+**The headline: OTRR already runs the radio "TVmaze" as a keyless JSON API,
+and RadioGOLDINdex answers JSON too.** Neither was visible from search.
+
+| # | Fact | Value | Exact command |
+|---|---|---|---|
+| W1 | Wikidata class ids | `radio program` = **Q1555508** (confirmed); `radio series` Q14623351 ⊂ Q1555508; `radio drama series` **Q3511312** ⊂ radio series; `radio series episode` **Q57608327**; `radio drama` **Q2635894** | `curl .../Special:EntityData/Q14623351.json` (P279); `sp.sh 'SELECT ?c ?l WHERE { VALUES ?c {wd:Q3511312 wd:Q57608327} ?c rdfs:label ?l FILTER(lang(?l)="en") }'` |
+| W2 | Items by direct class (P31) under radio program | radio program 15,855 · radio drama 6,432 · radio series episode **2,286** · radio drama series 1,203 · radio series 558 · radio serial 38 | `sp.sh 'SELECT ?c (COUNT(?x) AS ?n) WHERE { ?c wdt:P279* wd:Q1555508 . ?x wdt:P31 ?c } GROUP BY ?c ORDER BY DESC(?n)'` |
+| W3 | Countries of radio-program items | Japan 9,242 · Norway 2,671 · Netherlands 1,756 · **US 869** · S. Korea 600 · UK 454 | `... ?s wdt:P31/wdt:P279* wd:Q1555508 ; wdt:P495 ?c } GROUP BY ?c` |
+| W4 | Radio series (P31/P279* Q14623351), property coverage | 1,755 items: P449 302 · P580 162 · P582 111 · P1113 415 · **P161 45** · P724 **4** · P18 27 · P373 52 · enwiki 225. Only 50 carry P495=US | `sp.sh "SELECT (COUNT(DISTINCT ?s) AS ?n) WHERE { ?s wdt:P31/wdt:P279* wd:Q14623351 . ?s wdt:P449 [] }"` (one per property) |
+| W5 | The 364 enwiki articles in *Category:American radio dramas*, on Wikidata | 265 typed radio program (others: TV series 18, podcast 12, fictional human 11...). Of 364: P449 **30** · P272 12 · P580 35 · P582 32 · P1113 33 · **P161 15** · P57 16 · P50 8 · P58 4 · P18 58 · P373 38 · P724 **4** · **P1407 (MusicBrainz series) 106** | `curl 'https://en.wikipedia.org/w/api.php?action=query&generator=categorymembers&gcmtitle=Category:American_radio_dramas&gcmlimit=500&gcmnamespace=0&prop=pageprops&ppprop=wikibase_item&format=json'` then `VALUES ?s {...}` counts |
+| W6 | Episode items per series | In Our Time (BBC) 876 · ... **Dimension X 28 · X Minus One 19 · Suspense 1** (The House in Cypress Canyon Q16746144: P179, P57, P58, P577) | `sp.sh 'SELECT ?s (COUNT(?e) AS ?n) WHERE { ?e wdt:P31 wd:Q57608327 ; wdt:P179 ?s } GROUP BY ?s ORDER BY DESC(?n)'` |
+| W7 | Suspense Q1548940 | P31 radio drama series, P495 US, P364 English, **P272** CBS Radio Network (Q18336099) — **no P449**, **no P161**, P580 1942-06-17, P582 1962-09-30, P1113 946, P373 "Suspense", P646, **P1407** 00033e90-2b59-4097-aa00-c35d2d4d7b6f | `sp.sh 'SELECT ?p ?v WHERE { wd:Q1548940 ?p ?v FILTER(STRSTARTS(STR(?p),"http://www.wikidata.org/prop/direct/")) }'` |
+| W8 | External-id properties on radio series items | Beeld & Geluid 518 · Google KG 358 · Freebase 152 · **MusicBrainz series 116** · BBC programme 65 · IMDb 28 · podcast ids... On US radio programs: Freebase 602, Google KG 180, **MusicBrainz series 173**, Britannica 38, IMDb 32 | `... ?s ?d [] . ?prop wikibase:directClaim ?d ; wikibase:propertyType wikibase:ExternalId } GROUP BY ?prop` |
+| W9 | Any OTR-specific Wikidata property | **None.** Every external-id property whose label matches radio/goldin/otr/old time/broadcast/podcast was listed: podcast directories, Radio France, Radio Radicale, radio.net, armradioarchive.am — no RadioGOLDINdex, OTRR, RadioEchoes, Digital Deli or Haendiges | `sp.sh 'SELECT ?p ?l WHERE { ?p a wikibase:Property ; wikibase:propertyType wikibase:ExternalId ; rdfs:label ?l FILTER(lang(?l)="en") FILTER(REGEX(?l,"radio|goldin|otr|old.time|broadcast|podcast","i")) }'` |
+| G1 | RadioGOLDINdex stack and robots | ASP.NET MVC 5.2 on IIS 10, `access-control-allow-origin: *`; robots.txt 404; no terms of use on Home, About or Welcome | `curl -sI $RG/`; text of `$RG/Home/About`, `$RG/Home/Welcome` |
+| G2 | **RadioGOLDINdex has a JSON endpoint** | `POST $RG/Home/radioGoldIndexSearch` (form fields `programName, artistName, dateRange, count, pageNo, sortby, searchCategory`) returns `{status:"Ok", filters:{programsCount, programsList:[{CATALOGNUM, PROGNAME, SDATE, TITLE, PLOT, ARTIST, SOURCE, DURATION, QUALITY, COMPLETE, PROGNUMB, SPONSOR}]}}`. Found in `/Scripts/Custom/Home/RadioGoldinSearch.js` | `curl -s -X POST $RG/Home/radioGoldIndexSearch --data 'programName=Suspense&artistName=&dateRange=&count=5&pageNo=1&sortby=DATE-ASC&searchCategory='` |
+| G3 | Total records | **124,659** (empty query, category All) | `--data 'programName=&artistName=&dateRange=&count=1&pageNo=1&sortby=PROGNUMB-DESC&radioGoldinFilterRequest=PROGNUMB&searchCategory=All'` |
+| G4 | Page size | `count=1000` is honored (1,000 rows in one response), so the whole index is **~125 requests** | `--data 'programName=Suspense&...&count=1000&pageNo=1&sortby=DATE-ASC&searchCategory='` |
+| G5 | Stable id | Yes: **`CATALOGNUM`** (integer, "Catalogue Number"), record page `$RG/ProgramMoreinfo/<CATALOGNUM>`; e.g. 24104 = Suspense 1945-03-01 "My Wife, Geraldine" | `curl -s $RG/ProgramMoreinfo/24104` |
+| G6 | Fields of a record | Catalogue Number, Program Number, Date ("March 01, 1945"), Title, Description (plot), Artists (one string; roles in parentheses: "Robert Tallman (adaptor)", "Larry Marcus (author)", "William Spier (producer, editor, director)", "Lud Gluskin (conductor)"), Source (network + recording source: "CBS net", "CBS net origination, AFRTS rebroadcast", "CBS net, KQW, San Jose aircheck"), Sponsor (Roma Wines), Quality ("Very good to excellent"), Complete, Duration (29:42). **No separate writer/director fields and no disc field** — both live inside Artists/Source | same |
+| G7 | Field fill, programName=Suspense (1,000 of 1,067 rows) | name match is a substring: Suspense 937, Kraft Suspense Theatre 61 (TV). PLOT 934 · DURATION 938 · TITLE 999 · COMPLETE 945 · PROGNUMB 30 · **SPONSOR 0 in JSON** (it IS on the record page) · undated 56. Source includes "CBS-TV net, audio + video" (78) — **the index holds television too** | python summary of the `count=1000` response |
+| G8 | Other slices | year 1947: 5,670 records; artist "Orson Welles": 543 | `dateRange=1947`; `artistName=Orson Welles` |
+| O1 | **OTRR has a keyless JSON API** | `GET $OT?qid=<name>` (from `www.otrr.org/js/otrrM.js` and `OTRRPedia/js/pedia7.js`). robots.txt: `Disallow:` (allow all) | `curl -s https://www.otrr.org/robots.txt`; `grep -oE "qid=[a-zA-Z0-9]+" otrrM.js pedia7.js` |
+| O2 | Program list | `qid=pTitles`: 14,976 titles (with aliases) for **10,783 program ids** (`idp`); Suspense = idp **8654** | `curl -s "$OT?qid=pTitles"` |
+| O3 | Logged episodes | `qid=otterlog` / `qid=epcount`: **3,918 programs with logs, 219,203 log rows**; Suspense 926 rows, 1940-07-22 to 1962-09-30 | `curl -s "$OT?qid=otterlog"` |
+| O4 | **One program's log, with files, credits, plots** | `qid=epprogram&pid=8654` → 926 rows `{eid, date (ISO), epnum, etitle, exists, files, people, plots, infos, links, alltitles}`. `exists=1` on 905. `files` maps each episode to **archive.org identifier + filename + seconds + bytes** (893 rows; `OTRR_Suspense_Singles` 910 files). `people` carries **person ids + role** (863 rows: cast 4,631, director 924, producer 909, announcer 868, writer 818, composer 699 ...). 0 undated rows | `curl -s "$OT?qid=epprogram&pid=8654"` |
+| O5 | **Plots are mostly Goldin's** | `qid=epplots` (13 MB, one request): 44,178 episodes in 1,233 programs carry 47,344 plots, of which **39,179 are tagged `[G Plot]`** (RadioGOLDINdex text) and 8,165 are other contributors'. On Suspense 852 of 864 plotted rows have a `[G Plot]`. The `people` roles mirror Goldin's Artists roles | `curl -s "$OT?qid=epplots"` |
+| O6 | Certified sets | `qid=certified`: 220 rows (accurate 97, complete 67, Maintained 43, Curated 6 ...) with the archive.org identifier, Singles identifier, version and release date; Suspense "accurate V. 2", 2012-10-15, `OTRR_Certified_Suspense` | `curl -s "$OT?qid=certified"` |
+| O7 | OTRRpedia | same endpoint: `qid=progPedia` 10,783 programs (histories with begin/end, network, days, time, length on 4,468; genres 4,519; sponsors 1,997; networks CBS 2,781, NBC 2,047, Mutual 1,526, Blue 1,459, ABC 945); `qid=peoplePedia` **51,130 people**; `qid=programData&idp=8654` (episodes 926, people 118, histories 21, sponsors 11, prints 250, links 116); `qid=dateEps&d1=1947-10-16` = **every logged program that aired that day** (29 rows, 21 surviving) | `curl -s "$OT?qid=progPedia"`, `"$OT?qid=dateEps&d1=1947-10-16"` |
+| O8 | OTTER file | `https://www.otrr.org/OTTER/otter.db`, 9,020,969 bytes, Last-Modified 2017-12-22 — **not SQLite**: a custom binary of the OTTER desktop tool (178,563 strings: titles and notes like "dated 50-06-24 in RGI's log"). Superseded by the JSON API | `curl -sI .../otter.db`; first bytes `\x00\xf8\x08\x00...10-2-4 Ranch` |
+| H1 | Haendiges log index | `https://otrsite.com/radiolog/index.html` (264 KB) links **2,516** log pages (`../logs/logs1003.htm` = Suspense, 951 date strings). `otrsite.com/logs/` is now a page of Facebook audio posts, not the index. robots.txt blocks only `/cgi-bin/`, `/wusage` | `curl -s https://otrsite.com/radiolog/index.html \| grep -oiE 'href="\.\./logs/[^"]+"' \| sort -u \| wc -l` |
+| H2 | Haendiges format and terms | HTML-wrapped fixed-width text: Catalog#, "TITLE", episode #, `mm-dd-yy`, length, stars/comments, with a series header (network, slot, announcer, director, producer, writer). "Post or Modify Date" on each. Footer "Jerry Haendiges Productions © 1996 - 2020"; no license | `curl -s https://otrsite.com/logs/logs1003.htm` |
+| D1 | Digital Deli Too | **Unreachable**: `www.digitaldeliftp.com` and `digitaldeliftp.com` reset the TLS connection twice (proxy log: tunnel closed mid-exchange); plain http not resolvable through the proxy. Format and terms remain as §1.3 (search-only) | `curl -s -o /dev/null -w '%{http_code} %{errormsg}' https://www.digitaldeliftp.com/` |
+| J1 | JJ's Newspaper Radio Logs | One **OCR'd PDF per paper per day**: `RadioLogs/pagesnfiles/logs_files/1940s/1947/47_10Oct/[c]47-10-16-(Thu).pdf` (`[c]` Chicago Daily Tribune, `[L]` LA Times, `[n]` NYT, `[w]` Washington Post); October 1947 has 123 PDFs. The Tribune page lists station + program + network letter: "WBBM Suspense [C]", "WMAQ The Aldrich Family [N]", "WMAQ Burns and Allen [N]" (OCR noise: "WBBAISuspense", "Alystery of the Week"). Built 2008 (CVISION). No robots.txt, no terms; site-wide CGI text search per paper | `curl -g -s 'https://www.jjonz.us/RadioLogs/pagesnfiles/logs_files/1940s/1947/47_10Oct/%5Bc%5D47-10-16-(Thu).pdf' \| pdftotext -layout - -` |
+| L1 | Chronicling America query | `https://www.loc.gov/collections/chronicling-america/?q=%22radio+programs%22+suspense&dates=1947/1947&fo=json&c=25` → 200, 78 pages; each result has `date`, `partof_title`, page `id`, and a `description` holding a **chunk of page OCR** | as given |
+| L2 | Full page OCR | the page's `?fo=json` lists an ALTO XML (`tile.loc.gov/.../0003.xml`, 300 KB; words in `CONTENT=""`); the `.txt` sibling is 404. Key West Citizen 1947-10-02 p.3 carries a syndicated network schedule (source not named on the page) ("Henry Aldrich Family—nbc  Suspense Mystery Drama—cbs  Treasury Agent—abc ...", times OCR-garbled) | `curl -s 'https://www.loc.gov/resource/sn83016244/1947-10-02/ed-1/?sp=3&fo=json'` |
+| L3 | Coverage of "suspense cbs radio" pages | 1935 30 · 1940 15 · 1945 91 · 1947 100 · 1950 55 · 1955 84 · 1960 10. "suspense wtop" 1947: 56 pages, **42 from the Washington Evening Star** (a big-city daily, CBS affiliate WTOP) | `...?q=suspense+cbs+radio&dates=1947/1947&fo=json&c=1` (`pagination.of`) |
+| C1 | Commons category names | `Category:NBC Radio publicity photos`, `Category:CBS Radio publicity photos`, `Category:ABC Radio publicity photos`, `Category:CBS Radio programs`, `Category:NBC Radio programs`, `Category:Radio programs from the United States`, `Category:Suspense (radio series)`. "Old-time radio", "Golden Age of Radio", "Radio programs of the United States" do **not exist** | `action=query&list=search&srnamespace=14&srsearch=intitle:"radio" intitle:"publicity"` |
+| C2 | Publicity-photo license templates (files, subcats to depth 2) | NBC Radio publicity photos 69 (PD-US-no notice 63, not renewed 4, no notice advertisement 2); CBS 73 (68 / 3 / 1, 1 other); ABC 3 (2 / 1); Suspense (radio series) 25 (**not renewed 19**, no notice 4, 2 other) | `generator=categorymembers&gcmtype=file\|subcat&prop=templates&tltemplates=Template:PD-US-no notice\|Template:PD-US-not renewed\|...` |
+| C3 | Wider Commons counts (CirrusSearch totalhits, files) | `deepcat:"Radio programs from the United States"` 20,119 (includes modern); with `hastemplate:"PD-US-no notice"` **452**, with `PD-US-not renewed` **147**. Site-wide: `hastemplate:"PD-US-no notice" "radio"` 3,069; ... `publicity` 886; `PD-US-not renewed` "radio" 2,033; ... `publicity` 563. Commons answered 429 to bursts; ~8 s between calls worked | `action=query&list=search&srnamespace=6&srinfo=totalhits&srsearch=...` |
+| A1 | archive.org collection size | `collection:oldtimeradio` **8,952** items; `identifier:OTRR_*` **526** (236 `_Singles`, 173 `Certified`, 39 `Maintained`) | `advancedsearch.php?q=collection%3Aoldtimeradio&rows=0&output=json` |
+| A2 | Certified vs Singles | `OTRR_Certified_Suspense`: 43 files, 36 ZIPs, no MP3s (BY-NC-ND 3.0, item date 2012-12-05). `OTRR_Suspense_Singles`: 7,418 files — 911 MP3 + per-MP3 OGG, PNG, spectrogram, `.afpk`, **and `.autogenerated.txt` / `.autogenerated.vtt` / `.autogenerated.asr.srt`** (911 each, mtime 2023-03-23), plus 12 OCR'd Wikipedia PDFs of cast | `curl -s https://archive.org/metadata/OTRR_Suspense_Singles` |
+| A3 | **ASR exists, unevenly** | 25 random `oldtimeradio` items: only 1 (an OTRR Singles item, 70/70) carries `.autogenerated.txt`. 9 random OTRR Singles items: 5 have it (128/131, 24/26, 29/29, 19/19), 4 have none | `curl -s https://archive.org/metadata/<id>/files` over `sort[]=random` samples |
+| A4 | ASR quality (Suspense 1942-06-17, "The Burning Court", 4,543 words) | Fluent, punctuated, sentence lines. **Proper nouns phonetic**: "John Dixon Carr" (Dickson), "Julie Hayden" (Haydon), "Charles Vande" (Vanda), "Harold Metford" (Medford), "Gordain Cross" (Gaudan); "Charlie Ruggles", "Bernard Herrmann", "Columbia Broadcasting System" right. **One repetition hallucination**: a two-sentence passage repeated verbatim. The next-week trailer "The Life of Nellie James" matches Haendiges' log for 1942-07-01 | `curl -sL 'https://archive.org/download/OTRR_Suspense_Singles/Suspense%20420617%20001%20The%20Burning%20Court%20(128-44)%2028455%2030m00s.autogenerated.txt'` |
+
+**What this changes.** (1) The episode spine does not have to be scraped from
+HTML: OTRR's `epprogram` gives date + number + title + **the archive.org file
+that plays it** + credited people with ids, for 219,203 logged episodes, and
+RadioGOLDINdex's search endpoint gives 124,659 records with a stable
+catalogue number in ~125 requests. (2) The two are **not independent
+witnesses** for credits or plots: OTRR imports Goldin (`[G Plot]`, the same
+role strings). For dates they are partly independent (OTRR logs are compiled
+from Hickerson and collectors; the "dated ... in RGI's log" notes in OTTER show
+OTRR checking against Goldin, not copying him). (3) Wikidata is a series-label
+and MusicBrainz-id layer for a few hundred US shows and nothing below that.
+(4) Rights and permission are unchanged: a JSON endpoint is not a license.
+Plot text (Goldin's, OTRR contributors') is prose and still needs permission;
+the facts do not.
 
 ---
 
 ## Verdict
 
-1. **There is no TMDb for radio.** No source offers a free, licensed, keyed
+0. **MEASURED 2026-10-17: there IS a TVmaze for radio, it is OTRR's.** OTRR's
+   site runs on a keyless JSON endpoint (`www.otrr.org/php/jqSelectM7.php`,
+   §0 O1-O7): 10,783 programs, 3,918 with logs, 219,203 logged episodes, each
+   with an ISO date, episode number, title, the archive.org identifier and
+   filename that plays it, and credited people with ids and roles; plus
+   OTRRpedia's run histories (network, days, time) and 51,130 people. This
+   is the series-and-episode spine and the archive.org bridge in one, and it
+   should be asked about (and credited) before RadioEchoes is scraped.
+1. **There is no TMDb for radio.** No source offers a licensed, documented
    API with episode-level credits. The best episode data (RadioGOLDINdex,
-   ~123,000 programs) is an HTML-only database at a university, with no
-   published API and no stated reuse license. Its FACTS (dates, titles,
+   **124,659 records**, measured) sits at a university with no published API
+   and no stated reuse license — but its own search page calls an
+   undocumented JSON endpoint that returns 1,000 records per request with a
+   stable catalogue number (§0 G2-G5). Its FACTS (dates, titles,
    credits) are not copyrightable (*Feist v. Rural*, 1991), so plan for
    **polite scraping with credit and a link back on every episode, and ask
    Goldin/UMKC for an export in parallel**, not an API key. (Owner question,
    2026-10-17: "If Google can index the Goldin's index, why would we need
    special permission to do so?" — we don't for facts; see §1.1 Access.)
 2. **Wikidata is the only open (CC0) graph**, and it is thin below the series
-   level: `radio series` (Q14623351) and `radio series episode` classes exist,
-   `Suspense` (Q1548940) carries 946 episodes as a number (P1113), but only a
-   handful of episodes exist as items. **No Wikidata external-ID property was
-   found for RadioGOLDINdex, OTRRpedia, Digital Deli or Haendiges** — the
-   identifier chain that carries Archive Watch (IMDb -> TMDb -> Wikidata P724)
-   does not exist for radio. IMDb explicitly excludes radio shows.
+   level: `radio series` (Q14623351) and `radio series episode` (Q57608327)
+   classes exist, `Suspense` (Q1548940) carries 946 episodes as a number
+   (P1113), but it has **one** episode item. MEASURED: of the 364 enwiki
+   *American radio dramas*, 30 have an original broadcaster (P449), 35 a start
+   date, 15 any cast (P161), 4 an Internet Archive id — and 106 a
+   **MusicBrainz series ID** (P1407), the only id they share widely. **No
+   Wikidata external-ID property exists for RadioGOLDINdex, OTRR, RadioEchoes,
+   Digital Deli or Haendiges** (§0 W9, every radio/broadcast/podcast id
+   property listed) — the identifier chain that carries Archive Watch
+   (IMDb -> TMDb -> Wikidata P724) does not exist for radio. IMDb explicitly
+   excludes radio shows.
 3. **The natural key is (series, broadcast date)**, not an id. OTR uploads
    already encode it in filenames (`Dimension_X_1950-04-08__01_OuterLimit.mp3`,
    OTRR sets). The pipeline mints its own series id and matches every source
@@ -78,14 +164,23 @@ count is in "To measure".
   lacquer and vinyl transcription discs" broadcast 1930s-1950s (UMKC finding
   aid) — requests at soundarchives@umkc.edu.
 - **Coverage**: "over 123,000 radio programs" (UMKC news page, per search
-  snippet of library.umkc.edu/goldin-collection/).
+  snippet of library.umkc.edu/goldin-collection/). MEASURED 2026-10-17:
+  **124,659** records (§0 G3), including some television (78 "CBS-TV net,
+  audio + video" rows among 1,000 Suspense-matching records).
 - **Entities**: searchable by series title, performer, or date (Adam Graham,
-  greatdetectives.net). Entries are known (UNVERIFIED in this session, from
-  general OTR knowledge) to carry broadcast date, network/station, sponsor,
-  cast, announcer, writer, director, a plot description, and running time,
-  plus the source of the recording (disc, AFRS, etc.). Confirm field list by
-  probe.
-- **Access**: HTML only. No API, no dataset, no license statement found.
+  greatdetectives.net). MEASURED fields (§0 G6): Catalogue Number, Program
+  Number, Date, Title, Description, Artists, Source, Sponsor, Quality,
+  Complete, Duration. Writer, director, announcer, composer and adaptor are
+  **not separate fields**: they are parenthesized roles inside the one
+  Artists string ("William Spier (producer, editor, director)"), so they parse.
+  Network and recording source share the Source field ("CBS net origination,
+  AFRTS rebroadcast", "CBS net, KNX, Los Angeles aircheck"); there is no
+  disc/matrix field.
+- **Access**: MEASURED: the site's own search posts to
+  `/Home/radioGoldIndexSearch` and gets JSON (§0 G2); `count=1000` works, so
+  the index is ~125 requests, not 124,659 page fetches. Sponsor is missing
+  from the JSON and present on the `ProgramMoreinfo` page. No dataset, no
+  license statement, CORS open (`*`).
   MEASURED 2026-10-17: `radiogoldin.library.umkc.edu/robots.txt` is a 404 (no
   robots file) and the home page states no terms of use. Facts are free to
   take (*Feist*); permission is NOT a legal prerequisite for dates, titles and
@@ -93,8 +188,10 @@ count is in "To measure".
   an old HTML front end, it is a university server hosting one man's life
   work, and the OTR community is small. Scrape slowly (sequential, cached,
   honest User-Agent), credit Goldin and link each episode to its entry.
-- **Identifiers**: UNVERIFIED whether pages carry a stable program id in the
-  URL. If they do, it is the best episode id available anywhere; record it.
+- **Identifiers**: MEASURED: yes — `CATALOGNUM`, an integer, in the URL
+  `/ProgramMoreinfo/<n>` (e.g. 24104). It is the best episode id available
+  anywhere; record it (`goldinCat`). Note Goldin's catalogue cross-references
+  itself ("see cat. #71234") inside plots.
 - **Quality**: Graham "prefer[s] its dates when they conflict with other
   sources" because entries often rest on examination of the transcription
   discs; he also warns "the listings aren't 100 percent accurate and the
@@ -120,19 +217,36 @@ most archive.org OTR items are built from.
   Versions since 2019 are named by year+month (`v1906` = June 2019).
 - **OTRRpedia**: "a database of many thousands of series with information on
   the stars, number of available episodes, links to other sites and articles"
-  (otrr.org, per snippet). Series-level only. Access/API: UNVERIFIED.
+  (otrr.org, per snippet). MEASURED (§0 O7): not series-level only — the same
+  JSON endpoint serves 10,783 programs (run histories with network, days,
+  time slot and length on 4,468), 51,130 people, per-program data (episodes,
+  people, prints, links), and `dateEps` = everything logged on a given day.
+  `otrrpedia.net` now just redirects to `www.otrr.org/OTRRPedia/pedia.html`.
 - **OTTER**: OTRR's log database tool; its how-to names Jay Hickerson's
   *The Ultimate History of Network Radio Programming and Guide to All
   Circulating Shows* as "the textbook" for compiling a log
   (otrr.org/Files_Reference/HowToCompileASeriesLog.htm). Logs are submitted
-  with the original compiler's name (otrr.org/pg02c_direct.htm). Whether the
-  OTTER database is downloadable as a file: UNVERIFIED — this is the single
-  highest-value question to put to OTRR (a bulk log export would be the radio
-  "TVmaze").
+  with the original compiler's name (otrr.org/pg02c_direct.htm). MEASURED:
+  `www.otrr.org/OTTER/otter.db` is downloadable (9 MB, 2017-12-22) but is the
+  desktop tool's own binary format, not SQLite; the **live logs are served as
+  JSON** (`qid=otterlog`, `qid=epprogram&pid=<idp>`, §0 O3-O4): 219,203 rows
+  across 3,918 programs, each mapped to archive.org files with duration and
+  size. That is the radio "TVmaze". The question to put to OTRR changes from
+  "is there an export?" to "may we read your endpoint on a schedule, and how
+  do you want it credited?"
+- **Not independent of Goldin**: 39,179 of OTRR's 47,344 episode plots are
+  tagged `[G Plot]` (RadioGOLDINdex's text) and its role strings match
+  Goldin's; OTTER notes cite "RGI's log". Treat OTRR + Goldin as ONE witness
+  for credits and plots; for dates OTRR also draws on Hickerson and
+  collectors, and records disagreements with Goldin.
 - **Naming convention**: observed file name
   `Dimension_X_1950-04-08__01_OuterLimit.mp3` (series, ISO date, episode
-  number, title). The classic OTRR pattern `Series yy-mm-dd (ep#) Title.mp3`
-  is from memory and **UNVERIFIED**. OTRR's own page warns archive.org file
+  number, title). MEASURED on `OTRR_Suspense_Singles` (via OTRR's own file
+  map): `Suspense 420617 001 The Burning Court (128-44) 28455 30m00s.mp3` —
+  series, **yymmdd**, 3-digit episode number, title, (kbps-kHz), size in KB,
+  duration — and on other items `Suspense 1942-06-17 The Burning Court.mp3`.
+  The `Series yy-mm-dd (ep#) Title.mp3` form remains UNVERIFIED. OTRR's
+  `files` field gives the mapping directly, so parsing is a fallback. OTRR's own page warns archive.org file
   names "have been modified from the original OTRR names" to fit archive.org
   rules — so parse both forms.
 - **License of the archive.org items**: OTRR items carry
@@ -163,6 +277,9 @@ most archive.org OTR items are built from.
   warns of uncharitable/political commentary — irrelevant to dates, relevant
   if any prose were ever quoted (it should not be).
 - **Identifiers**: none beyond the page slug.
+- MEASURED 2026-10-17: **could not be reached** — both hosts reset the TLS
+  connection on two attempts (§0 D1). Everything in this subsection is still
+  search-only; re-probe from a machine outside this proxy.
 
 ### 1.4 Jerry Haendiges Vintage Radio Logs (otrsite.com)
 
@@ -174,6 +291,15 @@ most archive.org OTR items are built from.
 - Commercial vendor (sells CDs/MP3s); logs are free to read; no license, no
   API, no ids beyond the URL (`loga1031.htm`). Graham: "program logs here that
   are just not available anywhere else."
+- MEASURED (§0 H1-H2): the index is `otrsite.com/radiolog/index.html`
+  (2,516 log links; `otrsite.com/logs/` is now a page of Facebook audio
+  posts). A log is fixed-width text inside HTML: Catalog#, "TITLE", episode
+  number, `mm-dd-yy`, length, stars/comments, under a series header naming
+  network, time slot, announcer, director, producer, writer. Footer
+  "Jerry Haendiges Productions © 1996 - 2020"; robots.txt blocks only
+  `/cgi-bin/` and `/wusage`. Its Suspense log (`logs/logs1003.htm`, modified
+  "September 24th, 20[xx]") lists episodes the OTRR log has, with the same
+  numbering (1 = 06-17-42).
 - **Use**: secondary witness for series with no OTRR/Goldin coverage.
 
 ### 1.5 Other logs seen in passing
@@ -184,7 +310,12 @@ most archive.org OTR items are built from.
   45,000 newspaper radio logs" from the New York Times, Washington Post,
   Chicago Daily Tribune and Los Angeles Times, 1930-1960, searchable by show
   name (per snippet). A ready-made schedule witness; transcriptions of
-  copyrighted papers, so facts only.
+  copyrighted papers, so facts only. MEASURED (§0 J1): page text confirmed;
+  the logs are **page scans as OCR'd PDFs, one per paper per day**, at
+  `pagesnfiles/logs_files/<decade>/<year>/<yy_MMMon>/[c|L|n|w]yy-mm-dd-(Day).pdf`
+  (123 PDFs for October 1947). `pdftotext` yields station + program +
+  network letter ("WBBM Suspense [C]") with OCR noise. No robots.txt, no
+  terms. Curl needs `-g` (the brackets in the file names).
 - **OTR Plot Spot** `https://otrplotspot.com/` — "plot summaries of over 2,200
   episodes from nearly 100 different radio series" (sci-fi, horror, adventure).
   Its own prose: synopsis source **only with permission**, with provenance.
@@ -206,14 +337,19 @@ most archive.org OTR items are built from.
 - `radio series` **Q14623351** — "recurring show on radio"; subclass of
   *radio program* and *serial*; "has parts of the class" *radio series
   episode* (Q-id of the episode class not shown in the snippet — measure).
-- `radio program` — believed **Q1555508** (the task brief's id; search did not
-  confirm the label). UNVERIFIED.
-- `Suspense` **Q1548940** — instance of **radio drama series** (a separate
-  class; Q-id not shown), country US, English, production company CBS Radio
-  Network, 1942-1962, **946 episodes** (P1113), Commons category
-  "Suspense (radio series)".
+- `radio program` **Q1555508** — MEASURED (label "radio program").
+- `radio drama series` **Q3511312** (subclass of radio series, so
+  `P31/P279* Q14623351` catches it), `radio series episode` **Q57608327**,
+  `radio drama` **Q2635894** (6,432 items, mostly single plays, many
+  European) — all MEASURED, counts in §0 W2.
+- `Suspense` **Q1548940** — instance of **radio drama series**, country US,
+  English, production company (P272, not P449) CBS Radio Network
+  Q18336099, 1942-06-17 to 1962-09-30, **946 episodes** (P1113), Commons
+  category "Suspense (radio series)", MusicBrainz series ID (P1407). No cast
+  (P161), no broadcaster (P449), no IA id (MEASURED, §0 W7).
 - Episode example: *The House in Cypress Canyon* **Q16746144** — instance of
-  *radio series episode*, part of the series Suspense.
+  *radio series episode*, part of the series Suspense (P179), with director,
+  screenwriter and publication date. It is Suspense's only episode item.
 - `old-time radio` **Q4353903** — a topic item; only a Freebase id.
 - `Category:Lists of radio series episodes` Q8598297 — the Wikipedia
   category of episode-list pages, a crawl seed.
@@ -224,25 +360,35 @@ episodes (description explicitly covers radio series), P179 part of the
 series, P577 publication date, P1545 series ordinal, P155/P156 follows /
 followed by, P162 producer, P58 screenwriter, P57 director, P859 sponsor,
 P18 image, P373 Commons category, P724 Internet Archive ID (the same bridge
-property Archive Watch uses). P449/P161/P179/P1545 on radio items: assumed
-from general Wikidata modeling, UNVERIFIED on live data.
+property Archive Watch uses). MEASURED usage on live data (§0 W4-W7): P449
+and P161 exist but are rare on US radio (30 and 15 of 364 enwiki American
+radio dramas); network is as often in **P272** production company (Suspense);
+P179 is used on episodes. Read both P449 and P272 for "network".
+**P1407 MusicBrainz series ID** is the most common external id on US radio
+items (106 of 364; 173 of 869 US radio programs) and links to MusicBrainz's
+episode-ordered series — check it before writing MusicBrainz off (§1.9).
 
-**External ids**: a search of wikidata.org for RadioGOLDINdex, OTRRpedia and
-Radio Echoes properties found **none** (only Radio France, radio.net,
-Audio+ show ID etc.). So: (a) there is no Wikidata chain to a radio database
-today; (b) proposing a "RadioGOLDINdex program ID" property is a contribution
-the project could make (only once UMKC ids are confirmed stable).
+**External ids**: MEASURED — the full list of external-id properties whose
+labels match radio/broadcast/podcast/OTR has **none** for RadioGOLDINdex,
+OTRR, RadioEchoes, Digital Deli or Haendiges (§0 W9). So: (a) there is no
+Wikidata chain to a radio database today; (b) proposing a "RadioGOLDINdex
+catalogue number" (stable, MEASURED §0 G5 — but it identifies a recording,
+not a series, so it suits episode items) and an "OTRR program ID" (`idp`,
+10,783 programs) are contributions the project could make.
 
-**Coverage**: notable series yes; episodes rarely. Expect series-level
-enrichment (description via sitelinked Wikipedia, years, network, Commons
-category, image) for the top few hundred series, almost nothing per episode.
+**Coverage**: MEASURED — notable US series partly, episodes almost never.
+Of 364 enwiki American radio dramas, 265 are typed radio program; 30 carry a
+broadcaster, 35 a start date, 33 an episode count, 58 an image. US radio-series
+episode items: Dimension X 28, X Minus One 19, Suspense 1. Expect series
+labels, years for a minority, enwiki sitelinks and MusicBrainz ids; the
+infobox data lives on Wikipedia, not Wikidata.
 
 SPARQL queries (run at `https://query.wikidata.org/sparql`):
 
 ```sparql
 # A. Every radio series (any subclass of radio program), with counts
 SELECT ?class ?classLabel (COUNT(DISTINCT ?s) AS ?n) WHERE {
-  ?class wdt:P279* wd:Q1555508 .            # radio program (verify id)
+  ?class wdt:P279* wd:Q1555508 .            # radio program (id MEASURED; runs, §0 W2)
   ?s wdt:P31 ?class .
   SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
 } GROUP BY ?class ?classLabel ORDER BY DESC(?n)
@@ -251,8 +397,8 @@ SELECT ?class ?classLabel (COUNT(DISTINCT ?s) AS ?n) WHERE {
 ```sparql
 # B. US radio series with network, years, episode count, IA id, image, enwiki
 SELECT ?s ?sLabel ?netLabel ?start ?end ?eps ?ia ?img ?commons ?enwiki WHERE {
-  ?s wdt:P31/wdt:P279* wd:Q14623351 .
-  ?s wdt:P495 wd:Q30 .
+  ?s wdt:P31/wdt:P279* wd:Q1555508 .        # MEASURED: Q14623351 + P495=US finds only 50;
+  ?s wdt:P495 wd:Q30 .                      # radio program + US finds 869; seed from enwiki categories instead (§0 W5)
   OPTIONAL { ?s wdt:P449 ?net }
   OPTIONAL { ?s wdt:P580 ?start }  OPTIONAL { ?s wdt:P582 ?end }
   OPTIONAL { ?s wdt:P1113 ?eps }   OPTIONAL { ?s wdt:P724 ?ia }
@@ -265,8 +411,7 @@ SELECT ?s ?sLabel ?netLabel ?start ?end ?eps ?ia ?img ?commons ?enwiki WHERE {
 ```sparql
 # C. Radio episodes per series (how deep does Wikidata go?)
 SELECT ?series ?seriesLabel (COUNT(?ep) AS ?episodes) WHERE {
-  ?ep wdt:P31/wdt:P279* ?epClass ; wdt:P179 ?series .
-  ?epClass rdfs:label "radio series episode"@en .
+  ?ep wdt:P31 wd:Q57608327 ; wdt:P179 ?series .   # radio series episode (MEASURED)
   SERVICE wikibase:label { bd:serviceParam wikibase:language "en". }
 } GROUP BY ?series ?seriesLabel ORDER BY DESC(?episodes)
 ```
@@ -281,6 +426,7 @@ SELECT ?item ?itemLabel ?ia WHERE {
 
 ```sparql
 # E. Cast of a series (Suspense) — people, for "more with this voice"
+#    MEASURED: returns NOTHING for Suspense (no P161); cast comes from OTRR/Goldin
 SELECT ?p ?pLabel WHERE { wd:Q1548940 wdt:P161 ?p .
   SERVICE wikibase:label { bd:serviceParam wikibase:language "en". } }
 ```
@@ -338,11 +484,18 @@ date evidence for a few series. Low priority.
   range, state and title; coverage "late 1700s through 1963"; the loc.gov site
   returns JSON with no key, and the legacy `chroniclingamerica.loc.gov` host is
   deprecated in favor of loc.gov (per snippets of API directories; exact
-  parameters UNVERIFIED — see probe). OCR quality varies. This is how the app
+  parameters now MEASURED: `q`, `dates=YYYY/YYYY`, `fo=json`, `c` (page size)). OCR quality varies. This is how the app
   can answer **"what aired tonight in 1942"**: find the radio column on a
-  given date and match series names. Coverage of big-city dailies in the
-  1930s-50s is thin (Chronicling America favors smaller papers whose rights
-  are clear) — measure.
+  given date and match series names. MEASURED (§0 L1-L3): the loc.gov query
+  shape works keyless; results carry date, paper, page id and an OCR excerpt;
+  a page's `?fo=json` points to its ALTO XML (word-level OCR). Coverage is
+  not as thin as feared: the **Washington Evening Star** (WTOP = CBS) is in it
+  for 1947, and small papers carry a **syndicated network schedule** ("Suspense
+  Mystery Drama—cbs") that names network shows nationally. OCR garbles times
+  and call letters, so a day's schedule can be reconstructed as a *set of
+  series that aired that day* (good date witness), not reliably as a timed
+  grid. For the four big dailies JJ's logs (§1.5) are cleaner. OTRR's
+  `dateEps` already gives the logged answer for a date (§0 O7).
 - **SONIC** (Sound Online Inventory and Catalog): LOC's catalog of its
   recorded-sound holdings, with a radio-broadcast search screen; NBC
   Collection ~150,000 16-inch lacquer discs 1930s-1980s; in 2006 "only the
@@ -396,6 +549,11 @@ rev. ed., OCLC 186968159; "over 6,000 network shows" per OTRR) — same role.
   `Series_YYYY-MM-DD__NN_Title.mp3`, `Series yy-mm-dd (NN) Title.mp3`
   (UNVERIFIED), plus junk uploads with no date. Like Archive Watch's
   `external-identifier`, the filename **is** the identifier chain here.
+- MEASURED (§0 A1-A2): `collection:oldtimeradio` holds 8,952 items;
+  `identifier:OTRR_*` 526. A `Certified` item is ZIPs only (no streamable
+  MP3: `OTRR_Certified_Suspense` = 36 ZIPs); the playable files are in the
+  matching `_Singles` item (`OTRR_Suspense_Singles`, 911 MP3s with OGG
+  derivatives). OTRR's `certified` endpoint names both identifiers per series.
 - Known trap: one archive.org item holds a whole series (hundreds of files);
   the episode, not the item, is the catalog unit. `date`/`year` on the item
   describe the upload or set, not the episodes.
@@ -413,7 +571,7 @@ filename, never as authority.
 
 | Source | What | Rights assessment |
 |---|---|---|
-| Wikimedia Commons publicity photos | NBC/CBS/Mutual press photos of stars and casts (e.g. File:Connee_Boswell_1941.JPG, Cliff_Arquette_1941.JPG, Eddie_anderson_1947.JPG, Rod_Serling_photo_portrait_1959.JPG) | Tagged "published 1929/1923-1977 without notice" or `PD-US-not renewed` (1931-1963). Good files show the print's back and the press-release stamp. Commons editors themselves note many "no notice" tags have no evidence and that a claim needs "a reliable and verifiable external source". Some CBS files note permission was "for editorial uses only" (a usage restriction, not copyright, but flag). US-only PD (rule of the shorter term warning). **Accept only files whose page shows the evidence; record the template and evidence URL.** |
+| Wikimedia Commons publicity photos | NBC/CBS/Mutual press photos of stars and casts (e.g. File:Connee_Boswell_1941.JPG, Cliff_Arquette_1941.JPG, Eddie_anderson_1947.JPG, Rod_Serling_photo_portrait_1959.JPG) | Tagged "published 1929/1923-1977 without notice" or `PD-US-not renewed` (1931-1963). Good files show the print's back and the press-release stamp. Commons editors themselves note many "no notice" tags have no evidence and that a claim needs "a reliable and verifiable external source". Some CBS files note permission was "for editorial uses only" (a usage restriction, not copyright, but flag). US-only PD (rule of the shorter term warning). **Accept only files whose page shows the evidence; record the template and evidence URL.** MEASURED (§0 C1-C3): the real categories are `NBC Radio publicity photos` (69 files), `CBS Radio publicity photos` (73), `ABC Radio publicity photos` (3) — 131 of those 145 tagged `PD-US-no notice`, 8 `PD-US-not renewed`; `Suspense (radio series)` 25 (19 not renewed). Under `Radio programs from the United States` (deepcat) 452 no-notice and 147 not-renewed files. Site-wide search: ~886 no-notice and ~563 not-renewed files mention radio and publicity. A pool of hundreds, not thousands — enough for star photos of the major series. |
 | Commons `PD-US-no notice advertisement` | Sponsor ads in periodicals 1931-1977 lacking an ad-specific notice | A named Commons template; the ad is judged separately from the magazine. Good for series art (Lux soap ads for Lux Radio Theatre). Same evidence bar. |
 | WorldRadioHistory magazine scans | Covers, program photos, schedules, ads | Per issue: notice + renewal. Pre-1931 issues PD by age (Decision 137 calendar rule); 1931-63 need a renewal check. Site terms UNVERIFIED. |
 | LOC Prints & Photographs | Press photos, studios, performers | Per-item rights statement on loc.gov ("no known restrictions" vs restricted); keyless JSON (`?fo=json`). Same as Archive Watch's LoC layer. |
@@ -442,7 +600,17 @@ art and the most available.
   surviving scripts are held (mcfarlandbooks.com); editor reference.
 - **ASR**: archive.org has experimented with Whisper on 78rpm records
   (ebookfriendly.com, undated); Middlebury transcribed 423 historic radio
-  recordings with Whisper (~10 min per hour of audio). Archive Watch dropped
+  recordings with Whisper (~10 min per hour of audio). MEASURED (§0 A2-A4):
+  archive.org **already ships transcripts** for some OTR items —
+  `<file>.autogenerated.txt`, `.vtt` and `.asr.srt` beside each MP3 (911 of
+  911 on `OTRR_Suspense_Singles`, generated 2023-03-23; 5 of 9 sampled OTRR
+  Singles items; 0 of 24 sampled non-OTRR `oldtimeradio` items). Quality on
+  "The Burning Court" (1942): fluent and punctuated, Whisper-like; proper
+  nouns are phonetic ("John Dixon Carr", "Julie Hayden", "Charles Vande"); one
+  passage is hallucinated as a verbatim repeat. Good enough for full-text
+  search and as a weak credit/next-week witness (its "next week: The Life of
+  Nellie James" matches Haendiges' log), not for display as text, and never
+  as a synopsis. Archive Watch dropped
   archive.org auto-ASR captions for quality (Decision 043) and abandoned CI
   Whisper (Decision 039b) — so generated transcripts are a captions/search
   feature to research on its own, never a metadata source and never shown as
@@ -471,9 +639,11 @@ carries. Radio has none, so the chain starts from a **parsed natural key**.
    └─ OTRRpedia series record (stars, episode count) [access TBD]
 
 3. Episode facts  (each source a witness, keyed by K)
-   ├─ RadioGOLDINdex  -> cast, writer, director, announcer, sponsor,
-   │                     network, runtime, disc source  [permission]
-   ├─ OTRR log (OTTER) -> certified date + title           [ask for export]
+   ├─ OTRR epprogram   -> date + epnum + title + archive.org file map
+   │                     + people(id, role)        [JSON, ask + credit]
+   ├─ RadioGOLDINdex  -> catalogue no., cast/roles, network+source,
+   │                     sponsor, runtime  [JSON search; facts free, plots
+   │                     need permission; same witness as OTRR for credits]
    ├─ Wikipedia episode list -> date, title, stars/author
    ├─ Digital Deli Too -> date + named newspaper citation  [facts only]
    └─ Haendiges log    -> date + title (staleness = log's modify date)
@@ -521,14 +691,23 @@ as a broadcast date.
 1. Write to J. David Goldin and UMKC Marr Sound Archives: may we index
    RadioGOLDINdex facts (and display plot descriptions with credit)? Is there
    an export?
-2. Write to OTRR: is the OTTER log database available as a file, and what do
-   they want in attribution? How do they read their NC-ND on a free app?
+2. Write to OTRR: may we read their public JSON endpoint (`jqSelectM7.php`,
+   §0 O1) on a schedule, how often, and what do they want in attribution?
+   How do they read their NC-ND on a free app? (The OTTER file question is
+   answered: the live logs are already JSON.)
 3. Propose a Wikidata "RadioGOLDINdex program ID" property once ids are
    confirmed stable — contributes the missing chain back to the commons.
 
 ---
 
 ## To measure (for a session with network access)
+
+**Run 2026-10-17** — results in §0. Done: RadioGOLDINdex shape/ids/fields,
+OTRR prefixes and file names, Wikidata class ids and queries A-E, Chronicling
+America, Commons, JJ's, Haendiges. **Still open**: Digital Deli (unreachable
+from this proxy), ID3 tags of an OTRR MP3, Wikipedia episode-list parsing,
+MusicBrainz radio coverage (now worth doing — P1407 is on 173 US radio items),
+BBC Genome terms, oldtimeradiodownloads.com, otrplotspot.com terms.
 
 ```bash
 # RadioGOLDINdex: page shape, ids in URLs, fields, robots/terms
@@ -678,6 +857,16 @@ filenames carry), and (d) categorized by people rather than by a model, which
 satisfies "no AI-written lists". Its genre tags can seed the browse taxonomy.
 It lists what SURVIVES, not what aired, which is the right population for a
 playable catalog and makes gaps against a log visible.
+
+**MEASURED later the same day (§0 O1-O7) — reconsider the spine.** OTRR's
+JSON endpoint is also organized as series → dated episodes, is larger in
+logged rows (219,203 across 3,918 programs, with `exists` marking survival),
+already maps each surviving episode to its **archive.org** identifier and
+filename, carries credited people, and is one bulk request per program
+instead of a 14-hour crawl at a 10-second delay. RadioEchoes keeps two
+advantages: human genre tags on 5,069 series, and survivors OTRR has not
+logged. The likelier shape is OTRR as spine and archive.org bridge,
+RadioEchoes as a genre source and a second survival witness.
 
 **What it must not be.**
 - **Not the only date witness.** It repeats collectors' file dates (Suspense lists
