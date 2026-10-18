@@ -3461,6 +3461,53 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxnhjlfl3l2m",
+   "platform": "bluesky",
+   "id": "TheRockyRoad1910",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-12T02:22:22.468693+00:00",
+   "sampled": "2026-10-18T18:03:29.670743+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3my3o4ddcbb2x",
+   "platform": "bluesky",
+   "id": "YheAirRace",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-17T17:57:31.513922+00:00",
+   "sampled": "2026-10-18T18:03:29.670743+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117457542997385336",
+   "platform": "mastodon",
+   "id": "YheAirRace",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-17T17:57:31.513922+00:00",
+   "sampled": "2026-10-18T18:03:29.670743+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }

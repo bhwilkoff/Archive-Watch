@@ -2677,6 +2677,54 @@
    "kind": "ephemeral",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-10-18T18:01:57.906180+00:00",
+   "id": "gov.ntis.ava18577vnb1",
+   "title": "This Is Korea!",
+   "slot": "from-the-vaults",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3my66tcvs4p2q",
+   "format": "video",
+   "kind": "newsreel",
+   "mediaId": null,
+   "reviewer": "hrsauertieg"
+  },
+  {
+   "at": "2026-10-18T18:01:57.906180+00:00",
+   "id": "gov.ntis.ava18577vnb1",
+   "title": "This Is Korea!",
+   "slot": "from-the-vaults",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117463226009205041",
+   "format": "video",
+   "kind": "newsreel",
+   "mediaId": null,
+   "reviewer": "hrsauertieg"
+  },
+  {
+   "at": "2026-10-18T18:01:57.906180+00:00",
+   "id": "gov.ntis.ava18577vnb1",
+   "title": "This Is Korea!",
+   "slot": "from-the-vaults",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DepSD2II5B2/",
+   "format": "card",
+   "kind": "newsreel",
+   "mediaId": "117463222679806853",
+   "reviewer": "hrsauertieg"
+  },
+  {
+   "at": "2026-10-18T18:01:57.906180+00:00",
+   "id": "gov.ntis.ava18577vnb1",
+   "title": "This Is Korea!",
+   "slot": "from-the-vaults",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=A1MepUDZHzc",
+   "format": "video",
+   "kind": "newsreel",
+   "mediaId": null,
+   "reviewer": "hrsauertieg"
   }
  ]
 }
