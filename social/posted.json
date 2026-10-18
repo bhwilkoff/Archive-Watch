@@ -2665,6 +2665,18 @@
    "kind": "animation",
    "mediaId": null,
    "reviewer": "babysprite"
+  },
+  {
+   "at": "2026-10-18T00:43:59.598812+00:00",
+   "id": "rpsoundofastone",
+   "title": "The Sound of a Stone",
+   "slot": "from-the-vaults",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3my4essfm522m",
+   "format": "card",
+   "kind": "ephemeral",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }

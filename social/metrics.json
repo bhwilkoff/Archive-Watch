@@ -3414,6 +3414,53 @@
     "reposts": 0,
     "replies": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxmqmdf75t2y",
+   "platform": "bluesky",
+   "id": "safety_harm_hides",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-11T19:32:18.899677+00:00",
+   "sampled": "2026-10-18T00:44:02.932932+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117423941911592997",
+   "platform": "mastodon",
+   "id": "safety_harm_hides",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-11T19:32:18.899677+00:00",
+   "sampled": "2026-10-18T00:44:02.932932+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxzwhdhaoe2m",
+   "platform": "bluesky",
+   "id": "OurGangJubiloJr.1924",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-17T01:21:34.218345+00:00",
+   "sampled": "2026-10-18T00:44:02.932932+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }
