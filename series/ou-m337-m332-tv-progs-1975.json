@@ -1,0 +1,255 @@
+{
+  "version": 2,
+  "seriesID": "ou-m337-m332-tv-progs-1975",
+  "sourceID": "m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975",
+  "tvmazeID": null,
+  "title": "OU M337 (+ M332 TV Progs)",
+  "yearStart": 1975,
+  "yearEnd": null,
+  "overview": "An Open University television programme for the course M332/M337 Complex Analysis, 1975.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975.eedf9de9.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975@e00",
+          "sourceID": "m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 0,
+          "title": "The Epsilon-Delta Definitions",
+          "overview": null,
+          "stillURL": "https://archive.org/download/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975.thumbs/M332%20Ep%2000%20The%20Epsilon-Delta%20Definitions_000478.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 1460,
+          "videoFile": {
+            "name": "M332 Ep 00 The Epsilon-Delta Definitions.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 206539591,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975/M332%20Ep%2000%20The%20Epsilon-Delta%20Definitions.mp4"
+        },
+        {
+          "archiveID": "m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975@e01",
+          "sourceID": "m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "of 11 Continuous Functions (18 Feb 1975)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975.thumbs/M332%20Ep%2001%20of%2011%20Continuous%20Functions%20%2818%20Feb%201975%29_000414.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 1204,
+          "videoFile": {
+            "name": "M332 Ep 01 of 11 Continuous Functions (18 Feb 1975).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 170390929,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975/M332%20Ep%2001%20of%2011%20Continuous%20Functions%20%2818%20Feb%201975%29.mp4"
+        },
+        {
+          "archiveID": "m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975@e02",
+          "sourceID": "m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "of 11 The Exponential and Logarithm Functions (11 Mar 1975)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975.thumbs/M332%20Ep%2002%20of%2011%20The%20Exponential%20and%20Logarithm%20Functions%20%2811%20Mar%201975%29_000480.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 1437,
+          "videoFile": {
+            "name": "M332 Ep 02 of 11 The Exponential and Logarithm Functions (11 Mar 1975).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 203629549,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975/M332%20Ep%2002%20of%2011%20The%20Exponential%20and%20Logarithm%20Functions%20%2811%20Mar%201975%29.mp4"
+        },
+        {
+          "archiveID": "m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975@e03",
+          "sourceID": "m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "of 11 Complex Integration (8 Apr 1975)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975.thumbs/M332%20Ep%2003%20of%2011%20Complex%20Integration%20%288%20Apr%201975%29_000478.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 1400,
+          "videoFile": {
+            "name": "M332 Ep 03 of 11 Complex Integration (8 Apr 1975).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 197861935,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975/M332%20Ep%2003%20of%2011%20Complex%20Integration%20%288%20Apr%201975%29.mp4"
+        },
+        {
+          "archiveID": "m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975@e04",
+          "sourceID": "m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "of 11 Taylor Series (29 Apr 1975)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975.thumbs/M332%20Ep%2004%20of%2011%20Taylor%20Series%20%2829%20Apr%201975%29_000476.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 1456,
+          "videoFile": {
+            "name": "M332 Ep 04 of 11 Taylor Series (29 Apr 1975).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 206211464,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975/M332%20Ep%2004%20of%2011%20Taylor%20Series%20%2829%20Apr%201975%29.mp4"
+        },
+        {
+          "archiveID": "m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975@e05",
+          "sourceID": "m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "of 11 Evaluation of Contour Integrals (20 May 1975)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975.thumbs/M332%20Ep%2005%20of%2011%20Evaluation%20of%20Contour%20Integrals%20%2820%20May%201975%29_000480.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 1465,
+          "videoFile": {
+            "name": "M332 Ep 05 of 11 Evaluation of Contour Integrals (20 May 1975).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 207575395,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975/M332%20Ep%2005%20of%2011%20Evaluation%20of%20Contour%20Integrals%20%2820%20May%201975%29.mp4"
+        },
+        {
+          "archiveID": "m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975@e06",
+          "sourceID": "m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "of 11 Cauchy’s Theorem and the Maximum Principle (10 Jun 1975)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975.thumbs/M332%20Ep%2006%20of%2011%20Cauchy%E2%80%99s%20Theorem%20and%20the%20Maximum%20Principle%20%2810%20Jun%201975%29_000474.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 1380,
+          "videoFile": {
+            "name": "M332 Ep 06 of 11 Cauchy’s Theorem and the Maximum Principle (10 Jun 1975).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 195398107,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975/M332%20Ep%2006%20of%2011%20Cauchy%E2%80%99s%20Theorem%20and%20the%20Maximum%20Principle%20%2810%20Jun%201975%29.mp4"
+        },
+        {
+          "archiveID": "m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975@e07",
+          "sourceID": "m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "of 11 Contour Integration (15 Jul 1975)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975.thumbs/M332%20Ep%2007%20of%2011%20Contour%20Integration%20%2815%20Jul%201975%29_000476.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 1453,
+          "videoFile": {
+            "name": "M332 Ep 07 of 11 Contour Integration (15 Jul 1975).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 205447735,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975/M332%20Ep%2007%20of%2011%20Contour%20Integration%20%2815%20Jul%201975%29.mp4"
+        },
+        {
+          "archiveID": "m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975@e08",
+          "sourceID": "m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "of 11 Analytic Continuation (5 Aug 1975)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975.thumbs/M332%20Ep%2008%20of%2011%20Analytic%20Continuation%20%285%20Aug%201975%29_000478.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 1457,
+          "videoFile": {
+            "name": "M332 Ep 08 of 11 Analytic Continuation (5 Aug 1975).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 206536579,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975/M332%20Ep%2008%20of%2011%20Analytic%20Continuation%20%285%20Aug%201975%29.mp4"
+        },
+        {
+          "archiveID": "m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975@e09",
+          "sourceID": "m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "of 11 Bilinear Transformations (30 Aug 1975)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975.thumbs/M332%20Ep%2009%20of%2011%20Bilinear%20Transformations%20%2830%20Aug%201975%29_000420.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 1293,
+          "videoFile": {
+            "name": "M332 Ep 09 of 11 Bilinear Transformations (30 Aug 1975).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 183187037,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975/M332%20Ep%2009%20of%2011%20Bilinear%20Transformations%20%2830%20Aug%201975%29.mp4"
+        },
+        {
+          "archiveID": "m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975@e10",
+          "sourceID": "m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "of 11 Boundary Value Problems (30 Aug 1975)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975.thumbs/M332%20Ep%2010%20of%2011%20Boundary%20Value%20Problems%20%2830%20Aug%201975%29_000478.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 1462,
+          "videoFile": {
+            "name": "M332 Ep 10 of 11 Boundary Value Problems (30 Aug 1975).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 207092368,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975/M332%20Ep%2010%20of%2011%20Boundary%20Value%20Problems%20%2830%20Aug%201975%29.mp4"
+        },
+        {
+          "archiveID": "m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975@e11",
+          "sourceID": "m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "of 11 Revision (14 Oct 1975)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975.thumbs/M332%20Ep%2011%20of%2011%20Revision%20%2814%20Oct%201975%29_000476.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 1389,
+          "videoFile": {
+            "name": "M332 Ep 11 of 11 Revision (14 Oct 1975).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 196729062,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/m-332-ep-05-of-11-evaluation-of-contour-integrals-20-may-1975/M332%20Ep%2011%20of%2011%20Revision%20%2814%20Oct%201975%29.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 12,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

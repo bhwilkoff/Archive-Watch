@@ -1,0 +1,181 @@
+{
+  "version": 2,
+  "seriesID": "the-explorers-1975",
+  "sourceID": "the-explorers-bbc-1975-8-episodes",
+  "tvmazeID": null,
+  "title": "The Explorers",
+  "yearStart": 1975,
+  "yearEnd": null,
+  "overview": "Eight of the ten episodes of The Explorers, the 1975 BBC series introduced by David Attenborough dramatising the journeys of Burke and Wills, Amundsen, Mary Kingsley and others.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/xyNlNkPkbEbhWQTdlDMahzvCijT.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Documentary"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-explorers-bbc-1975-8-episodes@e01",
+          "sourceID": "the-explorers-bbc-1975-8-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Story of Roald Amundsen",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-explorers-bbc-1975-8-episodes/the-explorers-bbc-1975-8-episodes.thumbs/The.Explorers.ep1.The.Story.of.Roald.Amundsen.1975_001090.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2901,
+          "videoFile": {
+            "name": "The.Explorers.ep1.The.Story.of.Roald.Amundsen.1975.mp4",
+            "format": "h.264",
+            "sizeBytes": 277472746,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-explorers-bbc-1975-8-episodes/The.Explorers.ep1.The.Story.of.Roald.Amundsen.1975.mp4"
+        },
+        {
+          "archiveID": "the-explorers-bbc-1975-8-episodes@e02",
+          "sourceID": "the-explorers-bbc-1975-8-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Story of Charles Montague Doughty",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-explorers-bbc-1975-8-episodes/the-explorers-bbc-1975-8-episodes.thumbs/The.Explorers.ep2.The.Story.of.Charles.Montague.Doughty.1975_001121.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2983,
+          "videoFile": {
+            "name": "The.Explorers.ep2.The.Story.of.Charles.Montague.Doughty.1975.mp4",
+            "format": "h.264",
+            "sizeBytes": 287374813,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-explorers-bbc-1975-8-episodes/The.Explorers.ep2.The.Story.of.Charles.Montague.Doughty.1975.mp4"
+        },
+        {
+          "archiveID": "the-explorers-bbc-1975-8-episodes@e04",
+          "sourceID": "the-explorers-bbc-1975-8-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Story of Burke and Wills",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-explorers-bbc-1975-8-episodes/the-explorers-bbc-1975-8-episodes.thumbs/The.Explorers.ep4.The.Story.of.Burke.and.Wills.1975_001164.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3098,
+          "videoFile": {
+            "name": "The.Explorers.ep4.The.Story.of.Burke.and.Wills.1975.mp4",
+            "format": "h.264",
+            "sizeBytes": 298170513,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-explorers-bbc-1975-8-episodes/The.Explorers.ep4.The.Story.of.Burke.and.Wills.1975.mp4"
+        },
+        {
+          "archiveID": "the-explorers-bbc-1975-8-episodes@e05",
+          "sourceID": "the-explorers-bbc-1975-8-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Story of Mary Kingsley",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-explorers-bbc-1975-8-episodes/the-explorers-bbc-1975-8-episodes.thumbs/The.Explorers.ep5.The.Story.of.Mary.Kingsley.1975_001120.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2980,
+          "videoFile": {
+            "name": "The.Explorers.ep5.The.Story.of.Mary.Kingsley.1975.mp4",
+            "format": "h.264",
+            "sizeBytes": 287899088,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-explorers-bbc-1975-8-episodes/The.Explorers.ep5.The.Story.of.Mary.Kingsley.1975.mp4"
+        },
+        {
+          "archiveID": "the-explorers-bbc-1975-8-episodes@e06",
+          "sourceID": "the-explorers-bbc-1975-8-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Story of Jedediah Strong Smith",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-explorers-bbc-1975-8-episodes/the-explorers-bbc-1975-8-episodes.thumbs/The.Explorers.ep6.The.Story.of.Jedediah.Strong.Smith.1975_001100.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2928,
+          "videoFile": {
+            "name": "The.Explorers.ep6.The.Story.of.Jedediah.Strong.Smith.1975.mp4",
+            "format": "h.264",
+            "sizeBytes": 283553325,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-explorers-bbc-1975-8-episodes/The.Explorers.ep6.The.Story.of.Jedediah.Strong.Smith.1975.mp4"
+        },
+        {
+          "archiveID": "the-explorers-bbc-1975-8-episodes@e07",
+          "sourceID": "the-explorers-bbc-1975-8-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Story of Alexander Von Humboldt",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-explorers-bbc-1975-8-episodes/the-explorers-bbc-1975-8-episodes.thumbs/The.Explorers.ep7.The.Story.of.Alexander.Von.Humboldt.1975_001120.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2983,
+          "videoFile": {
+            "name": "The.Explorers.ep7.The.Story.of.Alexander.Von.Humboldt.1975.mp4",
+            "format": "h.264",
+            "sizeBytes": 288256555,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-explorers-bbc-1975-8-episodes/The.Explorers.ep7.The.Story.of.Alexander.Von.Humboldt.1975.mp4"
+        },
+        {
+          "archiveID": "the-explorers-bbc-1975-8-episodes@e08",
+          "sourceID": "the-explorers-bbc-1975-8-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Story of Captain James Cook",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-explorers-bbc-1975-8-episodes/the-explorers-bbc-1975-8-episodes.thumbs/The.Explorers.ep8.The.Story.of.Captain.James.Cook.1975_001170.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3115,
+          "videoFile": {
+            "name": "The.Explorers.ep8.The.Story.of.Captain.James.Cook.1975.mp4",
+            "format": "h.264",
+            "sizeBytes": 302642391,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-explorers-bbc-1975-8-episodes/The.Explorers.ep8.The.Story.of.Captain.James.Cook.1975.mp4"
+        },
+        {
+          "archiveID": "the-explorers-bbc-1975-8-episodes@e10",
+          "sourceID": "the-explorers-bbc-1975-8-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Story of Christopher Columbus",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-explorers-bbc-1975-8-episodes/the-explorers-bbc-1975-8-episodes.thumbs/The.Explorers.ep10.The.Story.of.Christopher.Columbus.1975_001115.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2966,
+          "videoFile": {
+            "name": "The.Explorers.ep10.The.Story.of.Christopher.Columbus.1975.mp4",
+            "format": "h.264",
+            "sizeBytes": 285393786,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-explorers-bbc-1975-8-episodes/The.Explorers.ep10.The.Story.of.Christopher.Columbus.1975.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 8,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": []
+}

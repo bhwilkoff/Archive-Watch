@@ -1,0 +1,2551 @@
+{
+  "version": 2,
+  "seriesID": "esmeralda-noriptv-1905",
+  "sourceID": "esmeralda-ep.-41",
+  "tvmazeID": null,
+  "title": "Esmeralda NorIPTV",
+  "yearStart": 1905,
+  "yearEnd": null,
+  "overview": "It was the first film version of the Hunchback of Notre Dame.",
+  "posterURL": "https://image.tmdb.org/t/p/w780/yPohMvllKNZoDNd7ODCsBsXkWZM.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Short",
+    "Drama"
+  ],
+  "networks": [],
+  "creator": "Alice Guy, Victorin-Hippolyte Jasset",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "esmeralda-ep.-41@e01",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Episode 1",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2603,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.01.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 255359241,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.01.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e02",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Episode 2",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2285,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.02.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 219538529,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.02.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e03",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Episode 3",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2188,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.03.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 210724053,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.03.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e04",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Episode 4",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2462,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.04.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 237758786,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.04.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e05",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Episode 5",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2339,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.05.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 225852319,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.05.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e06",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Episode 6",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2485,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.06.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 241496335,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.06.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e07",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Episode 7",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2443,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.07.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 234432064,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.07.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e08",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Episode 8",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2545,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.08.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 246246777,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.08.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e09",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Episode 9",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2264,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.09.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 217678148,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.09.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e10",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Episode 10",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2510,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.10.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 243247970,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.10.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e11",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Episode 11",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2276,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.11.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 221487307,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.11.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e12",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Episode 12",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2268,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.12.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 219655301,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.12.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e13",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Episode 13",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2352,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.13.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 227367731,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.13.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e14",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Episode 14",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2362,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.14.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 228476331,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.14.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e15",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Episode 15",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2516,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.15.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 241856057,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.15.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e16",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Episode 16",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2403,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.16.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 232060045,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.16.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e17",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Episode 17",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2470,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.17.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 239896543,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.17.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e18",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Episode 18",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2268,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.18.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 219423133,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.18.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e19",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Episode 19",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2398,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.19.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 231407341,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.19.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e20",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Episode 20",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2370,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.20.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 230062979,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.20.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e21",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Episode 21",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2556,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.21.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 247697615,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.21.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e22",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Episode 22",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2579,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.22.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 249691797,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.22.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e23",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Episode 23",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2499,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.23.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 242361387,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.23.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e24",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Episode 24",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2523,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.24.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 243853541,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.24.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e25",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Episode 25",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2519,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.25.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 243863857,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.25.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e26",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Episode 26",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2583,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.26.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 251785763,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.26.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e27",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Episode 27",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2525,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.27.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 244614559,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.27.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e28",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "Episode 28",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2513,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.28.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 243702848,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.28.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e29",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "Episode 29",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2241,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.29.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 217582871,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.29.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e30",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "Episode 30",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2285,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.30.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 221693902,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.30.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e31",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "Episode 31",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2355,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.31.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 230692353,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.31.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e32",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 32,
+          "title": "Episode 32",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2271,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.32.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 219690636,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.32.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e33",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 33,
+          "title": "Episode 33",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2324,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.33.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 225190955,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.33.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e34",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 34,
+          "title": "Episode 34",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2510,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.34.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 242228236,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.34.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e35",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 35,
+          "title": "Episode 35",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2584,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.35.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 250009872,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.35.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e36",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "Episode 36",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2581,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.36.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 251333832,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.36.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e37",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 37,
+          "title": "Episode 37",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2548,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.37.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 245435638,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.37.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e38",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 38,
+          "title": "Episode 38",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2234,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.38.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 216090988,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.38.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e39",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 39,
+          "title": "Episode 39",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2439,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.39.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 236015229,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.39.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e40",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 40,
+          "title": "Episode 40",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2461,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.40.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 237370045,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.40.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e41",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 41,
+          "title": "Episode 41",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2644,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.41.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 256017792,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.41.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e42",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 42,
+          "title": "Episode 42",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2505,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.42.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 242217816,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.42.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e43",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 43,
+          "title": "Episode 43",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2368,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.43.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 229515902,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.43.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e44",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 44,
+          "title": "Episode 44",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2387,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.44.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 230903378,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.44.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e45",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 45,
+          "title": "Episode 45",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2514,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.45.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 242574836,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.45.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e46",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 46,
+          "title": "Episode 46",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2428,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.46.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 235944073,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.46.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e47",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 47,
+          "title": "Episode 47",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2433,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.47.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 234958531,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.47.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e48",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 48,
+          "title": "Episode 48",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2372,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.48.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 228837428,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.48.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e49",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 49,
+          "title": "Episode 49",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2429,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.49.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 235328002,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.49.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e50",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 50,
+          "title": "Episode 50",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2335,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.50.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 225716620,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.50.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e51",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 51,
+          "title": "Episode 51",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2316,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.51.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 224026900,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.51.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e52",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 52,
+          "title": "Episode 52",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2363,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.52.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 228568619,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.52.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e53",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 53,
+          "title": "Episode 53",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2410,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.53.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 234231746,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.53.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e54",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 54,
+          "title": "Episode 54",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2544,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.54.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 246795791,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.54.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e55",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 55,
+          "title": "Episode 55",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2547,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.55.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 246332726,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.55.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e56",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 56,
+          "title": "Episode 56",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2465,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.56.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 239293793,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.56.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e57",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 57,
+          "title": "Episode 57",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2459,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.57.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 238011552,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.57.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e58",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 58,
+          "title": "Episode 58",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2349,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.58.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 227402718,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.58.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e59",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 59,
+          "title": "Episode 59",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2577,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.59.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 250075315,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.59.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e60",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 60,
+          "title": "Episode 60",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2440,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.60.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 235826173,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.60.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e61",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 61,
+          "title": "Episode 61",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2387,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.61.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 231266336,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.61.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e62",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 62,
+          "title": "Episode 62",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2529,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.62.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 245199520,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.62.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e63",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 63,
+          "title": "Episode 63",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2426,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.63.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 235398126,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.63.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e64",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 64,
+          "title": "Episode 64",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2292,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.64.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 221733138,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.64.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e65",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 65,
+          "title": "Episode 65",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2537,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.65.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 244801177,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.65.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e66",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 66,
+          "title": "Episode 66",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2503,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.66.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 242488414,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.66.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e67",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 67,
+          "title": "Episode 67",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2333,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.67.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 225654240,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.67.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e68",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 68,
+          "title": "Episode 68",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2313,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.68.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 224037422,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.68.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e69",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 69,
+          "title": "Episode 69",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2248,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.69.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 217174819,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.69.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e70",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 70,
+          "title": "Episode 70",
+          "overview": null,
+          "stillURL": "https://archive.org/download/esmeralda-ep.-41/esmeralda-ep.-41.thumbs/Esmeralda%20Ep.70_000001.jpg",
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2384,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.70.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 230778527,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.70.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e71",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 71,
+          "title": "Episode 71",
+          "overview": null,
+          "stillURL": "https://archive.org/download/esmeralda-ep.-41/esmeralda-ep.-41.thumbs/Esmeralda%20Ep.71_000001.jpg",
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2209,
+          "videoFile": {
+            "name": "Esmeralda Ep.71.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 213549317,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda%20Ep.71.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e72",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 72,
+          "title": "Episode 72",
+          "overview": null,
+          "stillURL": "https://archive.org/download/esmeralda-ep.-41/esmeralda-ep.-41.thumbs/Esmeralda%20Ep.72_000001.jpg",
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2336,
+          "videoFile": {
+            "name": "Esmeralda Ep.72.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 226296977,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda%20Ep.72.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e73",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 73,
+          "title": "Episode 73",
+          "overview": null,
+          "stillURL": "https://archive.org/download/esmeralda-ep.-41/esmeralda-ep.-41.thumbs/Esmeralda%20Ep.73_000001.jpg",
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2510,
+          "videoFile": {
+            "name": "Esmeralda Ep.73.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 243518533,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda%20Ep.73.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e74",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 74,
+          "title": "Episode 74",
+          "overview": null,
+          "stillURL": "https://archive.org/download/esmeralda-ep.-41/esmeralda-ep.-41.thumbs/Esmeralda%20Ep.74_000001.jpg",
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2536,
+          "videoFile": {
+            "name": "Esmeralda Ep.74.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 245505880,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda%20Ep.74.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e75",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 75,
+          "title": "Episode 75",
+          "overview": null,
+          "stillURL": "https://archive.org/download/esmeralda-ep.-41/esmeralda-ep.-41.thumbs/Esmeralda%20Ep.75_000001.jpg",
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2525,
+          "videoFile": {
+            "name": "Esmeralda Ep.75.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 244028031,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda%20Ep.75.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e76",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 76,
+          "title": "Episode 76",
+          "overview": null,
+          "stillURL": "https://archive.org/download/esmeralda-ep.-41/esmeralda-ep.-41.thumbs/Esmeralda%20Ep.76_000001.jpg",
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2543,
+          "videoFile": {
+            "name": "Esmeralda Ep.76.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 245834106,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda%20Ep.76.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e77",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 77,
+          "title": "Episode 77",
+          "overview": null,
+          "stillURL": "https://archive.org/download/esmeralda-ep.-41/esmeralda-ep.-41.thumbs/Esmeralda%20Ep.77_000001.jpg",
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2569,
+          "videoFile": {
+            "name": "Esmeralda Ep.77.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 248687225,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda%20Ep.77.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e78",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 78,
+          "title": "Episode 78",
+          "overview": null,
+          "stillURL": "https://archive.org/download/esmeralda-ep.-41/esmeralda-ep.-41.thumbs/Esmeralda%20Ep.78_000001.jpg",
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2323,
+          "videoFile": {
+            "name": "Esmeralda Ep.78.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 224969065,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda%20Ep.78.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e79",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 79,
+          "title": "Episode 79",
+          "overview": null,
+          "stillURL": "https://archive.org/download/esmeralda-ep.-41/esmeralda-ep.-41.thumbs/Esmeralda%20Ep.79_000001.jpg",
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2517,
+          "videoFile": {
+            "name": "Esmeralda Ep.79.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 245104245,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda%20Ep.79.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e80",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 80,
+          "title": "Episode 80",
+          "overview": null,
+          "stillURL": "https://archive.org/download/esmeralda-ep.-41/esmeralda-ep.-41.thumbs/Esmeralda%20Ep.80_000001.jpg",
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2426,
+          "videoFile": {
+            "name": "Esmeralda Ep.80.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 464677975,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda%20Ep.80.ia.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e81",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 81,
+          "title": "Episode 81",
+          "overview": null,
+          "stillURL": "https://archive.org/download/esmeralda-ep.-41/esmeralda-ep.-41.thumbs/Esmeralda%20Ep.81_000001.jpg",
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2424,
+          "videoFile": {
+            "name": "Esmeralda Ep.81.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 468322469,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda%20Ep.81.ia.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e82",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 82,
+          "title": "Episode 82",
+          "overview": null,
+          "stillURL": "https://archive.org/download/esmeralda-ep.-41/esmeralda-ep.-41.thumbs/Esmeralda%20Ep.82_000001.jpg",
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2524,
+          "videoFile": {
+            "name": "Esmeralda Ep.82.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 243833672,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda%20Ep.82.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e83",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 83,
+          "title": "Episode 83",
+          "overview": null,
+          "stillURL": "https://archive.org/download/esmeralda-ep.-41/esmeralda-ep.-41.thumbs/Esmeralda%20Ep.83_000001.jpg",
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2585,
+          "videoFile": {
+            "name": "Esmeralda Ep.83.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 249437284,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda%20Ep.83.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e84",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 84,
+          "title": "Episode 84",
+          "overview": null,
+          "stillURL": "https://archive.org/download/esmeralda-ep.-41/esmeralda-ep.-41.thumbs/Esmeralda%20Ep.84_000001.jpg",
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2487,
+          "videoFile": {
+            "name": "Esmeralda Ep.84.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 240620569,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda%20Ep.84.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e85",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 85,
+          "title": "Episode 85",
+          "overview": null,
+          "stillURL": "https://archive.org/download/esmeralda-ep.-41/esmeralda-ep.-41.thumbs/Esmeralda%20Ep.85_000001.jpg",
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2464,
+          "videoFile": {
+            "name": "Esmeralda Ep.85.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 238223402,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda%20Ep.85.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e86",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 86,
+          "title": "Episode 86",
+          "overview": null,
+          "stillURL": "https://archive.org/download/esmeralda-ep.-41/esmeralda-ep.-41.thumbs/Esmeralda%20Ep.86_000001.jpg",
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2553,
+          "videoFile": {
+            "name": "Esmeralda Ep.86.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 247645108,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda%20Ep.86.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e87",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 87,
+          "title": "Episode 87",
+          "overview": null,
+          "stillURL": "https://archive.org/download/esmeralda-ep.-41/esmeralda-ep.-41.thumbs/Esmeralda%20Ep.87_000001.jpg",
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2546,
+          "videoFile": {
+            "name": "Esmeralda Ep.87.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 246485292,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda%20Ep.87.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e88",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 88,
+          "title": "Episode 88",
+          "overview": null,
+          "stillURL": "https://archive.org/download/esmeralda-ep.-41/esmeralda-ep.-41.thumbs/Esmeralda%20Ep.88_000001.jpg",
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2556,
+          "videoFile": {
+            "name": "Esmeralda Ep.88.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 247680970,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda%20Ep.88.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e89",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 89,
+          "title": "Episode 89",
+          "overview": null,
+          "stillURL": "https://archive.org/download/esmeralda-ep.-41/esmeralda-ep.-41.thumbs/Esmeralda%20Ep.89_000001.jpg",
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2559,
+          "videoFile": {
+            "name": "Esmeralda Ep.89.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 247061920,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda%20Ep.89.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e90",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 90,
+          "title": "Episode 90",
+          "overview": null,
+          "stillURL": "https://archive.org/download/esmeralda-ep.-41/esmeralda-ep.-41.thumbs/Esmeralda%20Ep.90_000001.jpg",
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2296,
+          "videoFile": {
+            "name": "Esmeralda Ep.90.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 221453551,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda%20Ep.90.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e91",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 91,
+          "title": "Episode 91",
+          "overview": null,
+          "stillURL": "https://archive.org/download/esmeralda-ep.-41/esmeralda-ep.-41.thumbs/Esmeralda%20Ep.91_000001.jpg",
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2446,
+          "videoFile": {
+            "name": "Esmeralda Ep.91.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 236555943,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda%20Ep.91.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e92",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 92,
+          "title": "Episode 92",
+          "overview": null,
+          "stillURL": "https://archive.org/download/esmeralda-ep.-41/esmeralda-ep.-41.thumbs/Esmeralda%20Ep.92_000001.jpg",
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2385,
+          "videoFile": {
+            "name": "Esmeralda Ep.92.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 232819349,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda%20Ep.92.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e93",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 93,
+          "title": "Episode 93",
+          "overview": null,
+          "stillURL": "https://archive.org/download/esmeralda-ep.-41/esmeralda-ep.-41.thumbs/Esmeralda%20Ep.93_000001.jpg",
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2533,
+          "videoFile": {
+            "name": "Esmeralda Ep.93.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 245313748,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda%20Ep.93.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e94",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 94,
+          "title": "Episode 94",
+          "overview": null,
+          "stillURL": "https://archive.org/download/esmeralda-ep.-41/esmeralda-ep.-41.thumbs/Esmeralda%20Ep.94_000001.jpg",
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2458,
+          "videoFile": {
+            "name": "Esmeralda Ep.94.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 237909128,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda%20Ep.94.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e95",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 95,
+          "title": "Episode 95",
+          "overview": null,
+          "stillURL": "https://archive.org/download/esmeralda-ep.-41/esmeralda-ep.-41.thumbs/Esmeralda%20Ep.95_000001.jpg",
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2482,
+          "videoFile": {
+            "name": "Esmeralda Ep.95.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 239918597,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda%20Ep.95.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e96",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 96,
+          "title": "Episode 96",
+          "overview": null,
+          "stillURL": "https://archive.org/download/esmeralda-ep.-41/esmeralda-ep.-41.thumbs/Esmeralda%20Ep.96_000001.jpg",
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2536,
+          "videoFile": {
+            "name": "Esmeralda Ep.96.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 245652979,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda%20Ep.96.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e97",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 97,
+          "title": "Episode 97",
+          "overview": null,
+          "stillURL": "https://archive.org/download/esmeralda-ep.-41/esmeralda-ep.-41.thumbs/Esmeralda%20Ep.97_000001.jpg",
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2505,
+          "videoFile": {
+            "name": "Esmeralda Ep.97.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 242078744,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda%20Ep.97.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e98",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 98,
+          "title": "Episode 98",
+          "overview": null,
+          "stillURL": "https://archive.org/download/esmeralda-ep.-41/esmeralda-ep.-41.thumbs/Esmeralda%20Ep.98_000001.jpg",
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2584,
+          "videoFile": {
+            "name": "Esmeralda Ep.98.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 250156581,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda%20Ep.98.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e99",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 99,
+          "title": "Episode 99",
+          "overview": null,
+          "stillURL": "https://archive.org/download/esmeralda-ep.-41/esmeralda-ep.-41.thumbs/Esmeralda%20Ep.99_000001.jpg",
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2431,
+          "videoFile": {
+            "name": "Esmeralda Ep.99.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 235446983,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda%20Ep.99.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e100",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 100,
+          "title": "Episode 100",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2551,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.100.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 246997612,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.100.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e101",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 101,
+          "title": "Episode 101",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2405,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.101.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 232707339,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.101.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e102",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 102,
+          "title": "Episode 102",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2549,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.102.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 246787973,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.102.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e103",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 103,
+          "title": "Episode 103",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2339,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.103.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 226602974,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.103.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e104",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 104,
+          "title": "Episode 104",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2393,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.104.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 231956045,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.104.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e105",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 105,
+          "title": "Episode 105",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2388,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.105.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 231251931,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.105.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e109",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 109,
+          "title": "Episode 109",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2297,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.109.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 222291627,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.109.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e110",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 110,
+          "title": "Episode 110",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2448,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.110.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 237083825,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.110.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e111",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 111,
+          "title": "Episode 111",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2435,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.111.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 235811223,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.111.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e112",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 112,
+          "title": "Episode 112",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2559,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.112.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 248742122,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.112.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e113",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 113,
+          "title": "Episode 113",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2377,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.113.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 229393447,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.113.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e114",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 114,
+          "title": "Episode 114",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2436,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.114.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 235597799,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.114.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e116",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 116,
+          "title": "Episode 116",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2484,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.116.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 240937534,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.116.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e117",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 117,
+          "title": "Episode 117",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2473,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.117.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 239534378,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.117.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e118",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 118,
+          "title": "Episode 118",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2508,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.118.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 242668087,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.118.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e119",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 119,
+          "title": "Episode 119",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2487,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.119.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 240602822,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.119.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e120",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 120,
+          "title": "Episode 120",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2457,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.120.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 236889482,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.120.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e121",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 121,
+          "title": "Episode 121",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2459,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.121.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 238450833,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.121.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e122",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 122,
+          "title": "Episode 122",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2591,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.122.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 250814784,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.122.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e123",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 123,
+          "title": "Episode 123",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2451,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.123.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 238046142,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.123.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e124",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 124,
+          "title": "Episode 124",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2573,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.124.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 249184276,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.124.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e125",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 125,
+          "title": "Episode 125",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2533,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.125.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 245802205,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.125.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e126",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 126,
+          "title": "Episode 126",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2419,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.126.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 235551143,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.126.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e127",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 127,
+          "title": "Episode 127",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2398,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.127.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 233277615,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.127.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e128",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 128,
+          "title": "Episode 128",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2489,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.128.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 241433663,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.128.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e129",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 129,
+          "title": "Episode 129",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2431,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.129.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 235999689,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.129.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e130",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 130,
+          "title": "Episode 130",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2362,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.130.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 229702251,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.130.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e131",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 131,
+          "title": "Episode 131",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2472,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.131.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 239208836,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.131.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e132",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 132,
+          "title": "Episode 132",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2305,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.132.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 223317431,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.132.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e134",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 134,
+          "title": "Episode 134",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2466,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.134.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 238829902,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.134.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e135",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 135,
+          "title": "Episode 135",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2441,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.135.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 236104784,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.135.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e136",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 136,
+          "title": "Episode 136",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2403,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.136.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 234031608,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.136.mp4"
+        },
+        {
+          "archiveID": "esmeralda-ep.-41@e137",
+          "sourceID": "esmeralda-ep.-41",
+          "seasonNumber": 1,
+          "episodeNumber": 137,
+          "title": "Episode 137",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1905,
+          "runtimeSeconds": 2558,
+          "videoFile": {
+            "name": "Esmeralda/Esmeralda Ep.137.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 250290857,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/esmeralda-ep.-41/Esmeralda/Esmeralda%20Ep.137.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 132,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": [
+    {
+      "name": "Denise Becker",
+      "character": null,
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Henry Vorins",
+      "character": null,
+      "order": 1,
+      "profilePath": null
+    }
+  ]
+}

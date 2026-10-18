@@ -170,9 +170,12 @@ def load_spines(folder: Path) -> dict:
     spines = {}
     for f in sorted(folder.glob("*.json")):
         try:
-            spines[f] = json.loads(f.read_text(encoding="utf-8"))
+            d = json.loads(f.read_text(encoding="utf-8"))
         except Exception:  # noqa: BLE001
             continue
+        if d.get("sourceID"):   # A bundle spine (Decision 166) is its catalog item's files; the film audit judged that item.
+            continue
+        spines[f] = d
     return spines
 
 

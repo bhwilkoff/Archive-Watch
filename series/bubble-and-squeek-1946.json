@@ -1,0 +1,124 @@
+{
+  "version": 2,
+  "seriesID": "bubble-and-squeek-1946",
+  "sourceID": "bubble-and-squeek-the-complete-collection-1946-48-british-animated-productions",
+  "tvmazeID": null,
+  "title": "Bubble and Squeek",
+  "yearStart": 1946,
+  "yearEnd": null,
+  "overview": "Bubble and Squeek is a British animated cartoon series created in 1946 by George Moreno Jr. It was released by British Animated Productions in Harringay, and was distributed by Pathe Pictures. The films revolve around the adventures of the two main characters: Bubble and Squeek. Their names are derived from the British dish bubble and squeak. All shorts were produced in Technicolor. The series contained 4 films and 1 spin-off which were produced between 1946-1948. The cartoons have faded into obscurity and the only copies online are poor-quality copies from videotapes. George Moreno Jr. was an animator for Universal/Lantz and Fleischer Studios from 1938 to 1940, where he worked on Gulliver's Travels, among other series. During World War II he befriended Richard Smith, showing him the concept of two characters, Bubble and Squeak. After the war Moreno Jr. and Smith developed British Animation Productions studio, and produced the characters and cartoons. Initially being planned as a full theatrical series, the company soon collapse after the United Kingdom lifted its restriction on foreign products, thus bringing in a flood of American-made cartoons to the market. The cartoons revolve around the adventures of its two main characters. Bubble is a taxi driver. Squeek is the taxi whom Bubble drives. The cartoons visit a variety of places, from the funfair to a haunted house. Their adventures are light-hearted.",
+  "posterURL": "https://archive.org/services/img/bubble-and-squeek-the-complete-collection-1946-48-british-animated-productions",
+  "backdropURL": null,
+  "genres": [
+    "Animation"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "bubble-and-squeek-the-complete-collection-1946-48-british-animated-productions@e01",
+          "sourceID": "bubble-and-squeek-the-complete-collection-1946-48-british-animated-productions",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Big City (1946",
+          "overview": null,
+          "stillURL": "https://archive.org/download/bubble-and-squeek-the-complete-collection-1946-48-british-animated-productions/bubble-and-squeek-the-complete-collection-1946-48-british-animated-productions.thumbs/Bubble%20and%20Squeek%20E01%20-%20The%20Big%20City%20%281946%29_000117.jpg",
+          "airDate": null,
+          "year": 1946,
+          "runtimeSeconds": 417,
+          "videoFile": {
+            "name": "Bubble and Squeek E01 - The Big City (1946).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 38307719,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/bubble-and-squeek-the-complete-collection-1946-48-british-animated-productions/Bubble%20and%20Squeek%20E01%20-%20The%20Big%20City%20%281946%29.mp4"
+        },
+        {
+          "archiveID": "bubble-and-squeek-the-complete-collection-1946-48-british-animated-productions@e02",
+          "sourceID": "bubble-and-squeek-the-complete-collection-1946-48-british-animated-productions",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Fun Fair (1947",
+          "overview": null,
+          "stillURL": "https://archive.org/download/bubble-and-squeek-the-complete-collection-1946-48-british-animated-productions/bubble-and-squeek-the-complete-collection-1946-48-british-animated-productions.thumbs/Bubble%20and%20Squeek%20E02%20-%20Fun%20Fair%20%281947%29_000119.jpg",
+          "airDate": null,
+          "year": 1946,
+          "runtimeSeconds": 414,
+          "videoFile": {
+            "name": "Bubble and Squeek E02 - Fun Fair (1947).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 64181150,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/bubble-and-squeek-the-complete-collection-1946-48-british-animated-productions/Bubble%20and%20Squeek%20E02%20-%20Fun%20Fair%20%281947%29.ia.mp4"
+        },
+        {
+          "archiveID": "bubble-and-squeek-the-complete-collection-1946-48-british-animated-productions@e03",
+          "sourceID": "bubble-and-squeek-the-complete-collection-1946-48-british-animated-productions",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Old Manor House (1947",
+          "overview": null,
+          "stillURL": "https://archive.org/download/bubble-and-squeek-the-complete-collection-1946-48-british-animated-productions/bubble-and-squeek-the-complete-collection-1946-48-british-animated-productions.thumbs/Bubble%20and%20Squeek%20E03%20-%20Old%20Manor%20House%20%281947%29_000117.jpg",
+          "airDate": null,
+          "year": 1946,
+          "runtimeSeconds": 413,
+          "videoFile": {
+            "name": "Bubble and Squeek E03 - Old Manor House (1947).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 49071864,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/bubble-and-squeek-the-complete-collection-1946-48-british-animated-productions/Bubble%20and%20Squeek%20E03%20-%20Old%20Manor%20House%20%281947%29.ia.mp4"
+        },
+        {
+          "archiveID": "bubble-and-squeek-the-complete-collection-1946-48-british-animated-productions@e05",
+          "sourceID": "bubble-and-squeek-the-complete-collection-1946-48-british-animated-productions",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Home Sweet Home (1948",
+          "overview": null,
+          "stillURL": "https://archive.org/download/bubble-and-squeek-the-complete-collection-1946-48-british-animated-productions/bubble-and-squeek-the-complete-collection-1946-48-british-animated-productions.thumbs/Bubble%20and%20Squeek%20E05%20-%20Home%20Sweet%20Home%20%281948%29_000147.jpg",
+          "airDate": null,
+          "year": 1946,
+          "runtimeSeconds": 431,
+          "videoFile": {
+            "name": "Bubble and Squeek E05 - Home Sweet Home (1948).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 38096183,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/bubble-and-squeek-the-complete-collection-1946-48-british-animated-productions/Bubble%20and%20Squeek%20E05%20-%20Home%20Sweet%20Home%20%281948%29.mp4"
+        },
+        {
+          "archiveID": "bubble-and-squeek-the-complete-collection-1946-48-british-animated-productions@e06",
+          "sourceID": "bubble-and-squeek-the-complete-collection-1946-48-british-animated-productions",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Loch Ness Legend (1948",
+          "overview": null,
+          "stillURL": "https://archive.org/download/bubble-and-squeek-the-complete-collection-1946-48-british-animated-productions/bubble-and-squeek-the-complete-collection-1946-48-british-animated-productions.thumbs/Bubble%20and%20Squeek%20E06%20-%20Loch%20Ness%20Legend%20%281948%29_000150.jpg",
+          "airDate": null,
+          "year": 1946,
+          "runtimeSeconds": 426,
+          "videoFile": {
+            "name": "Bubble and Squeek E06 - Loch Ness Legend (1948).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 65433272,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/bubble-and-squeek-the-complete-collection-1946-48-british-animated-productions/Bubble%20and%20Squeek%20E06%20-%20Loch%20Ness%20Legend%20%281948%29.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

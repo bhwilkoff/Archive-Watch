@@ -1,0 +1,359 @@
+{
+  "version": 2,
+  "seriesID": "man-from-atlantis-1977",
+  "sourceID": "man-from-atlantis-complete-series-1977",
+  "tvmazeID": null,
+  "title": "Man From Atlantis",
+  "yearStart": 1977,
+  "yearEnd": null,
+  "overview": "Man from Atlantis is an American superhero television series that ran on the NBC network from 1977–78. It began as four TV movies that aired in Spring 1977. The movies achieved high ratings which led to the commissioning of a weekly series for the 1977–78 season, but it was cancelled after 13 episodes due to a declining audience and high production costs. The series stars Patrick Duffy as an amnesiac man given the name of Mark Harris, believed to be the only surviving citizen of the lost civilization of Atlantis. He possesses exceptional abilities, including the ability to breathe underwater and withstand extreme depth pressures, and superhuman strength. His hands and feet are webbed, his eyes are unusually sensitive to light, and he swims using his arms and legs in a fashion suggestive of an underwater butterfly stroke or dolphin kick. Following his discovery, he is recruited by the Foundation for Oceanic Research, a governmental agency that conducts top secret research and explores the depths of the ocean in a sophisticated submarine, the Cetacean. The supporting cast includes Belinda J. Montgomery as Dr. Elizabeth Merrill (who had nursed Mark Harris back to health) and Alan Fudge as C. W. Crawford, Jr., both of the Foundation for Oceanic Research. Victor Buono played the villainous Mr. Schubert in the pilot and several episodes of the series. Kenneth Tigar appeared in the second, third, and fourth movies as Dr Miller Simon, also of the Foundation for Oceanic Research, and Fred Beir appeared in the third and fourth films as Captain Bracy, commanding officer of the Cetacean. Tigar and Beir did not appear in the weekly series, and the Cetacean now inexplicably seemed to be under the command of Mark himself despite the fact he was not a naval officer. The series added an ensemble cast as \"The Crew of the Cetacean \", variably consisting of Richard Laurance Williams, J. Victor Lopez, Jean Marie Hon, Anson Downes, Penelope Willis and Brandyn Artise. The tone of the weekly series shifted away from the relatively serious science fiction tone of the TV movies and further into escapist fantasy, not too dissimilar to Star Trek with Mark as the adventurer captain of the Cetacean like Captain Kirk was of the USS Enterprise ( Man from Atlantis producer and co-creator Herbert Solow was one of the people responsible for bringing Star Trek to the screen in the 1960s). In several episodes, Mark would swim through portals in the ocean that led to other places and even other times. In one episode, he crossed into a world set in the 19th century wild west, in another he entered a world inhabited by aliens, and he even travelled into 16th century Italy where he meets the fictional characters of Romeo and Juliet. No explanation was given to how these worlds existed via the ocean. As the scripts became increasingly \"sillier\" (Duffy himself later likened the series to the campy 60's TV series Batman ), Montgomery's scientist character became more sidelined and the actress managed to get out of her contract with the help of lawyers after 11 episodes. In the 12th episode, a new female lead character, Dr. Jenny Reynolds (played by Lisa Blake Richards) briefly replaced Elizabeth Merrill. However, the last episode did not feature any female lead character. Producer Herbert Solow also cast his then-wife Pamela Peters Solow, who was twenty years his junior, in the show twice. She first appeared in the fourth TV movie \"The Disappearances\", and then again (as a different character) in the ninth episode of the series, \"C.W. Hyde\". On both occasions she was given the prestigious screen billing of \"and Pamela Peters Solow as....\" despite being a relative unknown.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/man-from-atlantis-complete-series-1977.226d813f.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Sci-Fi",
+    "Action",
+    "Fantasy"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 0,
+      "episodes": [
+        {
+          "archiveID": "man-from-atlantis-complete-series-1977@s0e01",
+          "sourceID": "man-from-atlantis-complete-series-1977",
+          "seasonNumber": 0,
+          "episodeNumber": 1,
+          "title": "Man from Atlantis",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/man-from-atlantis-complete-series-1977.thumbs/Man%20from%20Atlantis%20S00E01%20-%20Man%20from%20Atlantis_002347.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 5775,
+          "videoFile": {
+            "name": "Man from Atlantis S00E01 - Man from Atlantis.mp4",
+            "format": "h.264",
+            "sizeBytes": 543968101,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/Man%20from%20Atlantis%20S00E01%20-%20Man%20from%20Atlantis.mp4"
+        },
+        {
+          "archiveID": "man-from-atlantis-complete-series-1977@s0e02",
+          "sourceID": "man-from-atlantis-complete-series-1977",
+          "seasonNumber": 0,
+          "episodeNumber": 2,
+          "title": "The Death Scouts",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/man-from-atlantis-complete-series-1977.thumbs/Man%20from%20Atlantis%20S00E02%20-%20The%20Death%20Scouts_002194.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 5402,
+          "videoFile": {
+            "name": "Man from Atlantis S00E02 - The Death Scouts.mp4",
+            "format": "h.264",
+            "sizeBytes": 517634171,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/Man%20from%20Atlantis%20S00E02%20-%20The%20Death%20Scouts.mp4"
+        },
+        {
+          "archiveID": "man-from-atlantis-complete-series-1977@s0e03",
+          "sourceID": "man-from-atlantis-complete-series-1977",
+          "seasonNumber": 0,
+          "episodeNumber": 3,
+          "title": "Killer Spores",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/man-from-atlantis-complete-series-1977.thumbs/Man%20from%20Atlantis%20S00E03%20-%20Killer%20Spores_002300.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 5659,
+          "videoFile": {
+            "name": "Man from Atlantis S00E03 - Killer Spores.mp4",
+            "format": "h.264",
+            "sizeBytes": 535449634,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/Man%20from%20Atlantis%20S00E03%20-%20Killer%20Spores.mp4"
+        },
+        {
+          "archiveID": "man-from-atlantis-complete-series-1977@s0e04",
+          "sourceID": "man-from-atlantis-complete-series-1977",
+          "seasonNumber": 0,
+          "episodeNumber": 4,
+          "title": "The Disappearances",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/man-from-atlantis-complete-series-1977.thumbs/Man%20from%20Atlantis%20S00E04%20-%20The%20Disappearances_001682.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 4136,
+          "videoFile": {
+            "name": "Man from Atlantis S00E04 - The Disappearances.mp4",
+            "format": "h.264",
+            "sizeBytes": 391093194,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/Man%20from%20Atlantis%20S00E04%20-%20The%20Disappearances.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "man-from-atlantis-complete-series-1977@s1e01",
+          "sourceID": "man-from-atlantis-complete-series-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Melt Down",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/man-from-atlantis-complete-series-1977.thumbs/Man%20from%20Atlantis%20S01E01%20-%20Melt%20Down_001204.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2965,
+          "videoFile": {
+            "name": "Man from Atlantis S01E01 - Melt Down.mp4",
+            "format": "h.264",
+            "sizeBytes": 279614322,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/Man%20from%20Atlantis%20S01E01%20-%20Melt%20Down.mp4"
+        },
+        {
+          "archiveID": "man-from-atlantis-complete-series-1977@s1e02",
+          "sourceID": "man-from-atlantis-complete-series-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Mudworm",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/man-from-atlantis-complete-series-1977.thumbs/Man%20from%20Atlantis%20S01E02%20-%20The%20Mudworm_001205.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2966,
+          "videoFile": {
+            "name": "Man from Atlantis S01E02 - The Mudworm.mp4",
+            "format": "h.264",
+            "sizeBytes": 280313425,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/Man%20from%20Atlantis%20S01E02%20-%20The%20Mudworm.mp4"
+        },
+        {
+          "archiveID": "man-from-atlantis-complete-series-1977@s1e03",
+          "sourceID": "man-from-atlantis-complete-series-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Hawk Of Mu",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/man-from-atlantis-complete-series-1977.thumbs/Man%20from%20Atlantis%20S01E03%20-%20Hawk%20Of%20Mu_001183.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2904,
+          "videoFile": {
+            "name": "Man from Atlantis S01E03 - Hawk Of Mu.mp4",
+            "format": "h.264",
+            "sizeBytes": 274751014,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/Man%20from%20Atlantis%20S01E03%20-%20Hawk%20Of%20Mu.mp4"
+        },
+        {
+          "archiveID": "man-from-atlantis-complete-series-1977@s1e04",
+          "sourceID": "man-from-atlantis-complete-series-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Giant",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/man-from-atlantis-complete-series-1977.thumbs/Man%20from%20Atlantis%20S01E04%20-%20Giant_001177.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2893,
+          "videoFile": {
+            "name": "Man from Atlantis S01E04 - Giant.mp4",
+            "format": "h.264",
+            "sizeBytes": 273774401,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/Man%20from%20Atlantis%20S01E04%20-%20Giant.mp4"
+        },
+        {
+          "archiveID": "man-from-atlantis-complete-series-1977@s1e05",
+          "sourceID": "man-from-atlantis-complete-series-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Man O'War",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/man-from-atlantis-complete-series-1977.thumbs/Man%20from%20Atlantis%20S01E05%20-%20Man%20O%27War_001177.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2896,
+          "videoFile": {
+            "name": "Man from Atlantis S01E05 - Man O'War.mp4",
+            "format": "h.264",
+            "sizeBytes": 273122708,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/Man%20from%20Atlantis%20S01E05%20-%20Man%20O%27War.mp4"
+        },
+        {
+          "archiveID": "man-from-atlantis-complete-series-1977@s1e06",
+          "sourceID": "man-from-atlantis-complete-series-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Shoot Out At Lands End",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/man-from-atlantis-complete-series-1977.thumbs/Man%20from%20Atlantis%20S01E06%20-%20Shoot%20Out%20At%20Lands%20End_001176.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2894,
+          "videoFile": {
+            "name": "Man from Atlantis S01E06 - Shoot Out At Lands End.mp4",
+            "format": "h.264",
+            "sizeBytes": 273688820,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/Man%20from%20Atlantis%20S01E06%20-%20Shoot%20Out%20At%20Lands%20End.mp4"
+        },
+        {
+          "archiveID": "man-from-atlantis-complete-series-1977@s1e07",
+          "sourceID": "man-from-atlantis-complete-series-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Crystal Water Sudden Death",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/man-from-atlantis-complete-series-1977.thumbs/Man%20from%20Atlantis%20S01E07%20-%20Crystal%20Water%20Sudden%20Death_001176.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2899,
+          "videoFile": {
+            "name": "Man from Atlantis S01E07 - Crystal Water Sudden Death.mp4",
+            "format": "h.264",
+            "sizeBytes": 273518477,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/Man%20from%20Atlantis%20S01E07%20-%20Crystal%20Water%20Sudden%20Death.mp4"
+        },
+        {
+          "archiveID": "man-from-atlantis-complete-series-1977@s1e08",
+          "sourceID": "man-from-atlantis-complete-series-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Naked Montague",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/man-from-atlantis-complete-series-1977.thumbs/Man%20from%20Atlantis%20S01E08%20-%20The%20Naked%20Montague_001166.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2866,
+          "videoFile": {
+            "name": "Man from Atlantis S01E08 - The Naked Montague.mp4",
+            "format": "h.264",
+            "sizeBytes": 270950196,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/Man%20from%20Atlantis%20S01E08%20-%20The%20Naked%20Montague.mp4"
+        },
+        {
+          "archiveID": "man-from-atlantis-complete-series-1977@s1e09",
+          "sourceID": "man-from-atlantis-complete-series-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "CW Hyde",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/man-from-atlantis-complete-series-1977.thumbs/Man%20from%20Atlantis%20S01E09%20-%20CW%20Hyde_001180.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2900,
+          "videoFile": {
+            "name": "Man from Atlantis S01E09 - CW Hyde.mp4",
+            "format": "h.264",
+            "sizeBytes": 274642705,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/Man%20from%20Atlantis%20S01E09%20-%20CW%20Hyde.mp4"
+        },
+        {
+          "archiveID": "man-from-atlantis-complete-series-1977@s1e10",
+          "sourceID": "man-from-atlantis-complete-series-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Scavenger Hunt",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/man-from-atlantis-complete-series-1977.thumbs/Man%20from%20Atlantis%20S01E10%20-%20Scavenger%20Hunt_001176.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2895,
+          "videoFile": {
+            "name": "Man from Atlantis S01E10 - Scavenger Hunt.mp4",
+            "format": "h.264",
+            "sizeBytes": 272978925,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/Man%20from%20Atlantis%20S01E10%20-%20Scavenger%20Hunt.mp4"
+        },
+        {
+          "archiveID": "man-from-atlantis-complete-series-1977@s1e11",
+          "sourceID": "man-from-atlantis-complete-series-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Imp",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/man-from-atlantis-complete-series-1977.thumbs/Man%20from%20Atlantis%20S01E11%20-%20Imp_001181.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2892,
+          "videoFile": {
+            "name": "Man from Atlantis S01E11 - Imp.mp4",
+            "format": "h.264",
+            "sizeBytes": 273361059,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/Man%20from%20Atlantis%20S01E11%20-%20Imp.mp4"
+        },
+        {
+          "archiveID": "man-from-atlantis-complete-series-1977@s1e12",
+          "sourceID": "man-from-atlantis-complete-series-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Siren",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/man-from-atlantis-complete-series-1977.thumbs/Man%20from%20Atlantis%20S01E12%20-%20Siren_001176.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2894,
+          "videoFile": {
+            "name": "Man from Atlantis S01E12 - Siren.mp4",
+            "format": "h.264",
+            "sizeBytes": 274632518,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/Man%20from%20Atlantis%20S01E12%20-%20Siren.mp4"
+        },
+        {
+          "archiveID": "man-from-atlantis-complete-series-1977@s1e13",
+          "sourceID": "man-from-atlantis-complete-series-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Deadly Carnival",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/man-from-atlantis-complete-series-1977.thumbs/Man%20from%20Atlantis%20S01E13%20-%20Deadly%20Carnival_001183.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2894,
+          "videoFile": {
+            "name": "Man from Atlantis S01E13 - Deadly Carnival.mp4",
+            "format": "h.264",
+            "sizeBytes": 273651482,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-from-atlantis-complete-series-1977/Man%20from%20Atlantis%20S01E13%20-%20Deadly%20Carnival.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 17,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

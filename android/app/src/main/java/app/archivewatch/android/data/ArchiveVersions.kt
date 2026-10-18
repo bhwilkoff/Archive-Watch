@@ -6,6 +6,7 @@ import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.withContext
 import okhttp3.OkHttpClient
 import okhttp3.Request
+import org.json.JSONArray
 import org.json.JSONObject
 import java.net.URLEncoder
 
@@ -75,17 +76,20 @@ object ArchiveVersions {
     /** Playable video copies on the title's item and on any upload merged
      *  into it, best quality first (resolution, then size as the tiebreak —
      *  bytes measure the encoder, not the transfer: a 240p MPEG-4 can
-     *  outweigh a 480p H.264). */
-    suspend fun list(itemID: String): List<Version> {
-        val own = files(itemID)
+     *  outweigh a 480p H.264). [ownURL] is the title's own play url; for a
+     *  bundle episode (Decision 166) it names the one file whose copies count. */
+    suspend fun list(itemID: String, ownURL: String? = null): List<Version> {
+        val own = if (itemID.isBundleFile) {
+            archiveFileOf(ownURL)?.let { files(archiveItemOf(itemID), it) } ?: emptyList()
+        } else files(itemID, null)
         val others = (mergedIDs?.invoke(itemID) ?: emptyList())
-            .filter { it != itemID }
+            .filter { it != itemID && !it.isBundleFile }
             .distinct()
-            .flatMap { other -> files(other).map { it.copy(isOtherUpload = true) } }
+            .flatMap { other -> files(other, null).map { it.copy(isOtherUpload = true) } }
         return ordered(own + others)
     }
 
-    private suspend fun files(itemID: String): List<Version> = withContext(Dispatchers.IO) {
+    private suspend fun files(itemID: String, episodeFile: String?): List<Version> = withContext(Dispatchers.IO) {
         runCatching {
             val req = Request.Builder()
                 .url("https://archive.org/metadata/$itemID")
@@ -94,28 +98,42 @@ object ArchiveVersions {
                 if (!resp.isSuccessful) return@withContext emptyList()
                 val files = JSONObject(resp.body.string())
                     .optJSONArray("files") ?: return@withContext emptyList()
-                val out = mutableListOf<Version>()
-                for (i in 0 until files.length()) {
-                    val f = files.optJSONObject(i) ?: continue
-                    val name = f.optString("name")
-                    if (CONTAINERS.none { name.lowercase().endsWith(it) }) continue
-                    val size = f.optString("size").toLongOrNull() ?: continue
-                    if (size <= 5_000_000) continue     // a stub, a sample, or a thumbnail
-                    out.add(
-                        Version(
-                            name = name,
-                            url = downloadURL(itemID, name),
-                            sizeBytes = size,
-                            format = f.optString("format"),
-                            heightPixels = f.optString("height").toIntOrNull(),
-                            isDerivative = f.optString("source") == "derivative",
-                            sourceItemID = itemID,
-                        ),
-                    )
-                }
-                out.toList()
+                parse(itemID, files, episodeFile)
             }
         }.getOrDefault(emptyList())
+    }
+
+    /** [episodeFile] set: only that file and the derivatives of its original —
+     *  a bundle item's other files are the series' OTHER episodes, and offering
+     *  one as "a copy" would play the wrong episode. */
+    internal fun parse(itemID: String, files: JSONArray, episodeFile: String?): List<Version> {
+        val all = (0 until files.length()).mapNotNull { files.optJSONObject(it) }
+        val keep: (JSONObject) -> Boolean = if (episodeFile == null) { _ -> true } else {
+            val ep = all.firstOrNull { it.optString("name") == episodeFile }
+            val root = ep?.takeIf { it.optString("source") == "derivative" }
+                ?.optString("original")?.takeIf { it.isNotEmpty() } ?: episodeFile
+            { f -> f.optString("name").let { it == episodeFile || it == root } || f.optString("original") == root }
+        }
+        val out = mutableListOf<Version>()
+        for (f in all) {
+            if (!keep(f)) continue
+            val name = f.optString("name")
+            if (CONTAINERS.none { name.lowercase().endsWith(it) }) continue
+            val size = f.optString("size").toLongOrNull() ?: continue
+            if (size <= 5_000_000) continue     // a stub, a sample, or a thumbnail
+            out.add(
+                Version(
+                    name = name,
+                    url = downloadURL(itemID, name),
+                    sizeBytes = size,
+                    format = f.optString("format"),
+                    heightPixels = f.optString("height").toIntOrNull(),
+                    isDerivative = f.optString("source") == "derivative",
+                    sourceItemID = itemID,
+                ),
+            )
+        }
+        return out
     }
 
     /** One row per [Version.choiceKey], which the TV pickers key their rows
@@ -151,7 +169,7 @@ object ArchiveVersions {
         val item = path.substringBefore('/')
         val name = java.net.URLDecoder.decode(path.substringAfter('/', "").replace("+", "%2B"), "UTF-8")
         if (name.isEmpty()) return null
-        return if (item == archiveID) name else "@$item:$name"
+        return if (item == archiveItemOf(archiveID)) name else "@$item:$name"
     }
 
     fun choose(context: Context, archiveID: String, version: Version?) {
@@ -173,9 +191,10 @@ object ArchiveVersions {
 
     /** `@item:name` is a merged upload's file; anything else is on the title's item. */
     fun location(key: String, archiveID: String): Pair<String, String> {
-        if (!key.startsWith("@")) return archiveID to key
+        val item = archiveItemOf(archiveID)
+        if (!key.startsWith("@")) return item to key
         val colon = key.indexOf(':')
-        if (colon < 2 || colon == key.length - 1) return archiveID to key
+        if (colon < 2 || colon == key.length - 1) return item to key
         return key.substring(1, colon) to key.substring(colon + 1)
     }
 

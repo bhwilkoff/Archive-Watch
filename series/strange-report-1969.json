@@ -1,0 +1,335 @@
+{
+  "version": 2,
+  "seriesID": "strange-report-1969",
+  "sourceID": "strange-report-complete-series-1969",
+  "tvmazeID": null,
+  "title": "Strange Report",
+  "yearStart": 1969,
+  "yearEnd": null,
+  "overview": "Strange Report is a British television crime drama series starring Anthony Quayle as Adam Strange. It was produced by ITC Entertainment and first broadcast in 1969 on ITV In the United States, NBC broadcast Strange Report between 8 January and 10 September 1971. It aired on Fridays from 10:00 to 11:00 p.m. Eastern Time throughout its American run. Adam Strange, a retired Home Office criminologist, solves bizarre cases with the help of Hamlyn Gynt ( Kaz Garas ), Evelyn McClean ( Anneke Wills ) and sometimes Professor Marks ( Charles Lloyd-Pack ). He employs the latest techniques in forensic investigation, which he undertakes in his own laboratory in his flat in Warwick Crescent in the Maida Vale / Little Venice area of London.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/strange-report-complete-series-1969.83045a90.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Mystery",
+    "Crime",
+    "Action"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "strange-report-complete-series-1969@e01",
+          "sourceID": "strange-report-complete-series-1969",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Cult",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-report-complete-series-1969/strange-report-complete-series-1969.thumbs/Strange%20Report%20%281969%20TV%20Series%29%20-%2001%20Cult_001294.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2941,
+          "videoFile": {
+            "name": "Strange Report (1969 TV Series) - 01 Cult.mp4",
+            "format": "h.264",
+            "sizeBytes": 278842172,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-report-complete-series-1969/Strange%20Report%20%281969%20TV%20Series%29%20-%2001%20Cult.mp4"
+        },
+        {
+          "archiveID": "strange-report-complete-series-1969@e02",
+          "sourceID": "strange-report-complete-series-1969",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Skeleton",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-report-complete-series-1969/strange-report-complete-series-1969.thumbs/Strange%20Report%20%281969%20TV%20Series%29%20-%2002%20Skeleton_001294.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2945,
+          "videoFile": {
+            "name": "Strange Report (1969 TV Series) - 02 Skeleton.mp4",
+            "format": "h.264",
+            "sizeBytes": 279522938,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-report-complete-series-1969/Strange%20Report%20%281969%20TV%20Series%29%20-%2002%20Skeleton.mp4"
+        },
+        {
+          "archiveID": "strange-report-complete-series-1969@e03",
+          "sourceID": "strange-report-complete-series-1969",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Hostage",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-report-complete-series-1969/strange-report-complete-series-1969.thumbs/Strange%20Report%20%281969%20TV%20Series%29%20-%2003%20Hostage_001292.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2940,
+          "videoFile": {
+            "name": "Strange Report (1969 TV Series) - 03 Hostage.mp4",
+            "format": "h.264",
+            "sizeBytes": 279559007,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-report-complete-series-1969/Strange%20Report%20%281969%20TV%20Series%29%20-%2003%20Hostage.mp4"
+        },
+        {
+          "archiveID": "strange-report-complete-series-1969@e04",
+          "sourceID": "strange-report-complete-series-1969",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Lonelyhearts",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-report-complete-series-1969/strange-report-complete-series-1969.thumbs/Strange%20Report%20%281969%20TV%20Series%29%20-%2004%20Lonelyhearts_001297.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2942,
+          "videoFile": {
+            "name": "Strange Report (1969 TV Series) - 04 Lonelyhearts.mp4",
+            "format": "h.264",
+            "sizeBytes": 280421863,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-report-complete-series-1969/Strange%20Report%20%281969%20TV%20Series%29%20-%2004%20Lonelyhearts.mp4"
+        },
+        {
+          "archiveID": "strange-report-complete-series-1969@e05",
+          "sourceID": "strange-report-complete-series-1969",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Grenade",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-report-complete-series-1969/strange-report-complete-series-1969.thumbs/Strange%20Report%20%281969%20TV%20Series%29%20-%2005%20Grenade_001294.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2941,
+          "videoFile": {
+            "name": "Strange Report (1969 TV Series) - 05 Grenade.mp4",
+            "format": "h.264",
+            "sizeBytes": 277888322,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-report-complete-series-1969/Strange%20Report%20%281969%20TV%20Series%29%20-%2005%20Grenade.mp4"
+        },
+        {
+          "archiveID": "strange-report-complete-series-1969@e06",
+          "sourceID": "strange-report-complete-series-1969",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "CoverGirls",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-report-complete-series-1969/strange-report-complete-series-1969.thumbs/Strange%20Report%20%281969%20TV%20Series%29%20-%2006%20CoverGirls_001296.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2946,
+          "videoFile": {
+            "name": "Strange Report (1969 TV Series) - 06 CoverGirls.mp4",
+            "format": "h.264",
+            "sizeBytes": 279182689,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-report-complete-series-1969/Strange%20Report%20%281969%20TV%20Series%29%20-%2006%20CoverGirls.mp4"
+        },
+        {
+          "archiveID": "strange-report-complete-series-1969@e07",
+          "sourceID": "strange-report-complete-series-1969",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Epidemic",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-report-complete-series-1969/strange-report-complete-series-1969.thumbs/Strange%20Report%20%281969%20TV%20Series%29%20-%2007%20Epidemic_001298.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2944,
+          "videoFile": {
+            "name": "Strange Report (1969 TV Series) - 07 Epidemic.mp4",
+            "format": "h.264",
+            "sizeBytes": 279322870,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-report-complete-series-1969/Strange%20Report%20%281969%20TV%20Series%29%20-%2007%20Epidemic.mp4"
+        },
+        {
+          "archiveID": "strange-report-complete-series-1969@e08",
+          "sourceID": "strange-report-complete-series-1969",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Revenge",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-report-complete-series-1969/strange-report-complete-series-1969.thumbs/Strange%20Report%20%281969%20TV%20Series%29%20-%2008%20Revenge_001299.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2945,
+          "videoFile": {
+            "name": "Strange Report (1969 TV Series) - 08 Revenge.mp4",
+            "format": "h.264",
+            "sizeBytes": 279985960,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-report-complete-series-1969/Strange%20Report%20%281969%20TV%20Series%29%20-%2008%20Revenge.mp4"
+        },
+        {
+          "archiveID": "strange-report-complete-series-1969@e09",
+          "sourceID": "strange-report-complete-series-1969",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Shrapnel",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-report-complete-series-1969/strange-report-complete-series-1969.thumbs/Strange%20Report%20%281969%20TV%20Series%29%20-%2009%20Shrapnel_001293.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2942,
+          "videoFile": {
+            "name": "Strange Report (1969 TV Series) - 09 Shrapnel.mp4",
+            "format": "h.264",
+            "sizeBytes": 280659806,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-report-complete-series-1969/Strange%20Report%20%281969%20TV%20Series%29%20-%2009%20Shrapnel.mp4"
+        },
+        {
+          "archiveID": "strange-report-complete-series-1969@e10",
+          "sourceID": "strange-report-complete-series-1969",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Hand",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-report-complete-series-1969/strange-report-complete-series-1969.thumbs/Strange%20Report%20%281969%20TV%20Series%29%20-%2010%20Hand_001296.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2948,
+          "videoFile": {
+            "name": "Strange Report (1969 TV Series) - 10 Hand.mp4",
+            "format": "h.264",
+            "sizeBytes": 279787223,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-report-complete-series-1969/Strange%20Report%20%281969%20TV%20Series%29%20-%2010%20Hand.mp4"
+        },
+        {
+          "archiveID": "strange-report-complete-series-1969@e11",
+          "sourceID": "strange-report-complete-series-1969",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Racist",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-report-complete-series-1969/strange-report-complete-series-1969.thumbs/Strange%20Report%20%281969%20TV%20Series%29%20-%2011%20Racist_001295.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2945,
+          "videoFile": {
+            "name": "Strange Report (1969 TV Series) - 11 Racist.mp4",
+            "format": "h.264",
+            "sizeBytes": 280254597,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-report-complete-series-1969/Strange%20Report%20%281969%20TV%20Series%29%20-%2011%20Racist.mp4"
+        },
+        {
+          "archiveID": "strange-report-complete-series-1969@e12",
+          "sourceID": "strange-report-complete-series-1969",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Sniper",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-report-complete-series-1969/strange-report-complete-series-1969.thumbs/Strange%20Report%20%281969%20TV%20Series%29%20-%2012%20Sniper_001295.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2944,
+          "videoFile": {
+            "name": "Strange Report (1969 TV Series) - 12 Sniper.mp4",
+            "format": "h.264",
+            "sizeBytes": 278731309,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-report-complete-series-1969/Strange%20Report%20%281969%20TV%20Series%29%20-%2012%20Sniper.mp4"
+        },
+        {
+          "archiveID": "strange-report-complete-series-1969@e13",
+          "sourceID": "strange-report-complete-series-1969",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "X-Ray",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-report-complete-series-1969/strange-report-complete-series-1969.thumbs/Strange%20Report%20%281969%20TV%20Series%29%20-%2013%20X-Ray_001292.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2941,
+          "videoFile": {
+            "name": "Strange Report (1969 TV Series) - 13 X-Ray.mp4",
+            "format": "h.264",
+            "sizeBytes": 280602590,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-report-complete-series-1969/Strange%20Report%20%281969%20TV%20Series%29%20-%2013%20X-Ray.mp4"
+        },
+        {
+          "archiveID": "strange-report-complete-series-1969@e14",
+          "sourceID": "strange-report-complete-series-1969",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Kidnap",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-report-complete-series-1969/strange-report-complete-series-1969.thumbs/Strange%20Report%20%281969%20TV%20Series%29%20-%2014%20Kidnap_001294.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2942,
+          "videoFile": {
+            "name": "Strange Report (1969 TV Series) - 14 Kidnap.mp4",
+            "format": "h.264",
+            "sizeBytes": 278952866,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-report-complete-series-1969/Strange%20Report%20%281969%20TV%20Series%29%20-%2014%20Kidnap.mp4"
+        },
+        {
+          "archiveID": "strange-report-complete-series-1969@e15",
+          "sourceID": "strange-report-complete-series-1969",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Heart",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-report-complete-series-1969/strange-report-complete-series-1969.thumbs/Strange%20Report%20%281969%20TV%20Series%29%20-%2015%20Heart_001295.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2942,
+          "videoFile": {
+            "name": "Strange Report (1969 TV Series) - 15 Heart.mp4",
+            "format": "h.264",
+            "sizeBytes": 279178292,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-report-complete-series-1969/Strange%20Report%20%281969%20TV%20Series%29%20-%2015%20Heart.mp4"
+        },
+        {
+          "archiveID": "strange-report-complete-series-1969@e16",
+          "sourceID": "strange-report-complete-series-1969",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Swindle",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-report-complete-series-1969/strange-report-complete-series-1969.thumbs/Strange%20Report%20%281969%20TV%20Series%29%20-%2016%20Swindle_001296.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2942,
+          "videoFile": {
+            "name": "Strange Report (1969 TV Series) - 16 Swindle.mp4",
+            "format": "h.264",
+            "sizeBytes": 280330255,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-report-complete-series-1969/Strange%20Report%20%281969%20TV%20Series%29%20-%2016%20Swindle.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 16,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

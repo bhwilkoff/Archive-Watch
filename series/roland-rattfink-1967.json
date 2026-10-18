@@ -1,0 +1,350 @@
+{
+  "version": 2,
+  "seriesID": "roland-rattfink-1967",
+  "sourceID": "roland-and-rattfink",
+  "tvmazeID": null,
+  "title": "Roland & Rattfink",
+  "yearStart": 1967,
+  "yearEnd": null,
+  "overview": "Roland and Rattfink is a series of animated shorts produced and released from 1967 to 1972. The main characters also made several guest appearances on The Pink Panther animated series. The series was produced by David H. DePatie and Friz Freleng. The cartoons concerned blond, good-looking, pacifist Roland and the many attempts by the evil, mustachioed Rattfink to ruin his good time. Roland and Rattfink were both voiced by Lennie Weinrib (except in \"The Deadwood Thunderball\" where they were voiced by John Byner and Dave Barry). \"Hurts and Flowers\" (one long, running joke about Rattfink destroying Roland's desires) concluded with Rattfink getting killed and Roland leaving daises on his grave. When Roland walked away, Rattfink's ghost rose from the grave to throw the flowers at him. Seventeen cartoons were produced.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/roland-and-rattfink.4077ca76.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "roland-and-rattfink@e01",
+          "sourceID": "roland-and-rattfink",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Hawks and Doves",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roland-and-rattfink/roland-and-rattfink.thumbs/Roland%20%26%20Rattfink%2001%20-%20Hawks%20and%20Doves_000117.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 353,
+          "videoFile": {
+            "name": "Roland & Rattfink 01 - Hawks and Doves.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 200628753,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roland-and-rattfink/Roland%20%26%20Rattfink%2001%20-%20Hawks%20and%20Doves.ia.mp4"
+        },
+        {
+          "archiveID": "roland-and-rattfink@e02",
+          "sourceID": "roland-and-rattfink",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Hurts and Flowers",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roland-and-rattfink/roland-and-rattfink.thumbs/Roland%20%26%20Rattfink%2002%20-%20Hurts%20and%20Flowers_000117.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 373,
+          "videoFile": {
+            "name": "Roland & Rattfink 02 - Hurts and Flowers.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 187817389,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roland-and-rattfink/Roland%20%26%20Rattfink%2002%20-%20Hurts%20and%20Flowers.ia.mp4"
+        },
+        {
+          "archiveID": "roland-and-rattfink@e03",
+          "sourceID": "roland-and-rattfink",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Flying Feet",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roland-and-rattfink/roland-and-rattfink.thumbs/Roland%20%26%20Rattfink%2003%20-%20Flying%20Feet_000117.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 363,
+          "videoFile": {
+            "name": "Roland & Rattfink 03 - Flying Feet.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 155513331,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roland-and-rattfink/Roland%20%26%20Rattfink%2003%20-%20Flying%20Feet.ia.mp4"
+        },
+        {
+          "archiveID": "roland-and-rattfink@e04",
+          "sourceID": "roland-and-rattfink",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Deadwood Thunderball",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roland-and-rattfink/roland-and-rattfink.thumbs/Roland%20%26%20Rattfink%2004%20-%20The%20Deadwood%20Thunderball_000117.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 374,
+          "videoFile": {
+            "name": "Roland & Rattfink 04 - The Deadwood Thunderball.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 207787105,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roland-and-rattfink/Roland%20%26%20Rattfink%2004%20-%20The%20Deadwood%20Thunderball.ia.mp4"
+        },
+        {
+          "archiveID": "roland-and-rattfink@e05",
+          "sourceID": "roland-and-rattfink",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Sweet and Sourdough",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roland-and-rattfink/roland-and-rattfink.thumbs/Roland%20%26%20Rattfink%2005%20-%20Sweet%20and%20Sourdough_000117.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 373,
+          "videoFile": {
+            "name": "Roland & Rattfink 05 - Sweet and Sourdough.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 233791759,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roland-and-rattfink/Roland%20%26%20Rattfink%2005%20-%20Sweet%20and%20Sourdough.ia.mp4"
+        },
+        {
+          "archiveID": "roland-and-rattfink@e06",
+          "sourceID": "roland-and-rattfink",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "A Pair of Sneakers",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roland-and-rattfink/roland-and-rattfink.thumbs/Roland%20%26%20Rattfink%2006%20-%20A%20Pair%20of%20Sneakers_000117.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 372,
+          "videoFile": {
+            "name": "Roland & Rattfink 06 - A Pair of Sneakers.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 147667299,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roland-and-rattfink/Roland%20%26%20Rattfink%2006%20-%20A%20Pair%20of%20Sneakers.ia.mp4"
+        },
+        {
+          "archiveID": "roland-and-rattfink@e07",
+          "sourceID": "roland-and-rattfink",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Say Cheese Please",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roland-and-rattfink/roland-and-rattfink.thumbs/Roland%20%26%20Rattfink%2007%20-%20Say%20Cheese%20Please_000117.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 379,
+          "videoFile": {
+            "name": "Roland & Rattfink 07 - Say Cheese Please.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 184404023,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roland-and-rattfink/Roland%20%26%20Rattfink%2007%20-%20Say%20Cheese%20Please.ia.mp4"
+        },
+        {
+          "archiveID": "roland-and-rattfink@e08",
+          "sourceID": "roland-and-rattfink",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "A Taste of Money",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roland-and-rattfink/roland-and-rattfink.thumbs/Roland%20%26%20Rattfink%2008%20-%20A%20Taste%20of%20Money_000117.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 385,
+          "videoFile": {
+            "name": "Roland & Rattfink 08 - A Taste of Money.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 236875732,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roland-and-rattfink/Roland%20%26%20Rattfink%2008%20-%20A%20Taste%20of%20Money.ia.mp4"
+        },
+        {
+          "archiveID": "roland-and-rattfink@e09",
+          "sourceID": "roland-and-rattfink",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Foul Kin",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roland-and-rattfink/roland-and-rattfink.thumbs/Roland%20%26%20Rattfink%2009%20-%20The%20Foul%20Kin_000117.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 385,
+          "videoFile": {
+            "name": "Roland & Rattfink 09 - The Foul Kin.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 206814431,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roland-and-rattfink/Roland%20%26%20Rattfink%2009%20-%20The%20Foul%20Kin.ia.mp4"
+        },
+        {
+          "archiveID": "roland-and-rattfink@e10",
+          "sourceID": "roland-and-rattfink",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Bridgework",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roland-and-rattfink/roland-and-rattfink.thumbs/Roland%20%26%20Rattfink%2010%20-%20Bridgework_000117.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 383,
+          "videoFile": {
+            "name": "Roland & Rattfink 10 - Bridgework.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 193977039,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roland-and-rattfink/Roland%20%26%20Rattfink%2010%20-%20Bridgework.ia.mp4"
+        },
+        {
+          "archiveID": "roland-and-rattfink@e11",
+          "sourceID": "roland-and-rattfink",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Robin Goodhood",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roland-and-rattfink/roland-and-rattfink.thumbs/Roland%20%26%20Rattfink%2011%20-%20Robin%20Goodhood_000117.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 374,
+          "videoFile": {
+            "name": "Roland & Rattfink 11 - Robin Goodhood.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 177097854,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roland-and-rattfink/Roland%20%26%20Rattfink%2011%20-%20Robin%20Goodhood.ia.mp4"
+        },
+        {
+          "archiveID": "roland-and-rattfink@e12",
+          "sourceID": "roland-and-rattfink",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "War and Pieces",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roland-and-rattfink/roland-and-rattfink.thumbs/Roland%20%26%20Rattfink%2012%20-%20War%20and%20Pieces_000117.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 377,
+          "videoFile": {
+            "name": "Roland & Rattfink 12 - War and Pieces.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 162242419,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roland-and-rattfink/Roland%20%26%20Rattfink%2012%20-%20War%20and%20Pieces.ia.mp4"
+        },
+        {
+          "archiveID": "roland-and-rattfink@e13",
+          "sourceID": "roland-and-rattfink",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Gems Dandy",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roland-and-rattfink/roland-and-rattfink.thumbs/Roland%20%26%20Rattfink%2013%20-%20Gems%20Dandy_000117.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 380,
+          "videoFile": {
+            "name": "Roland & Rattfink 13 - Gems Dandy.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 206612659,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roland-and-rattfink/Roland%20%26%20Rattfink%2013%20-%20Gems%20Dandy.ia.mp4"
+        },
+        {
+          "archiveID": "roland-and-rattfink@e14",
+          "sourceID": "roland-and-rattfink",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Trick or Retreat",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roland-and-rattfink/roland-and-rattfink.thumbs/Roland%20%26%20Rattfink%2014%20-%20Trick%20or%20Retreat_000117.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 375,
+          "videoFile": {
+            "name": "Roland & Rattfink 14 - Trick or Retreat.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 223251823,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roland-and-rattfink/Roland%20%26%20Rattfink%2014%20-%20Trick%20or%20Retreat.ia.mp4"
+        },
+        {
+          "archiveID": "roland-and-rattfink@e15",
+          "sourceID": "roland-and-rattfink",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "The Great Continental Overland Cross-Country Race",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roland-and-rattfink/roland-and-rattfink.thumbs/Roland%20%26%20Rattfink%2015%20-%20The%20Great%20Continental%20Overland%20Cross-Country%20Race_000117.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 370,
+          "videoFile": {
+            "name": "Roland & Rattfink 15 - The Great Continental Overland Cross-Country Race.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 37139702,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roland-and-rattfink/Roland%20%26%20Rattfink%2015%20-%20The%20Great%20Continental%20Overland%20Cross-Country%20Race.ia.mp4"
+        },
+        {
+          "archiveID": "roland-and-rattfink@e16",
+          "sourceID": "roland-and-rattfink",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "A Fink in the Rink",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roland-and-rattfink/roland-and-rattfink.thumbs/Roland%20%26%20Rattfink%2016%20-%20A%20Fink%20in%20the%20Rink_000117.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 372,
+          "videoFile": {
+            "name": "Roland & Rattfink 16 - A Fink in the Rink.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 195003450,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roland-and-rattfink/Roland%20%26%20Rattfink%2016%20-%20A%20Fink%20in%20the%20Rink.ia.mp4"
+        },
+        {
+          "archiveID": "roland-and-rattfink@e17",
+          "sourceID": "roland-and-rattfink",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Cattle Battle",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roland-and-rattfink/roland-and-rattfink.thumbs/Roland%20%26%20Rattfink%2017%20-%20Cattle%20Battle_000117.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 385,
+          "videoFile": {
+            "name": "Roland & Rattfink 17 - Cattle Battle.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 171008747,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roland-and-rattfink/Roland%20%26%20Rattfink%2017%20-%20Cattle%20Battle.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 17,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

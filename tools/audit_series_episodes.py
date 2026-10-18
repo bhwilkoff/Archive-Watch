@@ -94,9 +94,12 @@ def load_spines():
     spines = {}
     for p in sorted(SERIES_DIR.glob("*.json")):
         try:
-            spines[p] = json.loads(p.read_text(encoding="utf-8"))
+            d = json.loads(p.read_text(encoding="utf-8"))
         except ValueError:
             print(f"  ! unreadable spine {p.name}", file=sys.stderr)
+            continue
+        if not d.get("sourceID"):   # a bundle's episodes are its own files (Decision 166)
+            spines[p] = d
     return spines
 
 

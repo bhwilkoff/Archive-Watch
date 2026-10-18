@@ -210,7 +210,7 @@ enum StudioGoLive {
         lines.append("")
         lines.append("Streamed from the Internet Archive with Archive Watch — a free, "
                      + "ad-free cinematheque for public-domain film. archivewatch.org")
-        lines.append("https://archive.org/details/\(item.archiveID)")
+        lines.append(item.sourceDetailsURL)
         return lines.joined(separator: "\n")
     }
 }

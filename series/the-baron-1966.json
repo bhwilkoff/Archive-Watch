@@ -1,0 +1,597 @@
+{
+  "version": 2,
+  "seriesID": "the-baron-1966",
+  "sourceID": "The_Baron_1966_Series",
+  "tvmazeID": null,
+  "title": "The Baron",
+  "yearStart": 1966,
+  "yearEnd": null,
+  "overview": "An American antiques dealer in London works undercover for British intelligence; all 30 episodes of the 1966–67 ITC series The Baron with Steve Forrest.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/5tIrG3Cs83BcYqnGu6ptlRDxGBI.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "The_Baron_1966_Series@s1e01",
+          "sourceID": "The_Baron_1966_Series",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Diplomatic Immunity (720p)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2993,
+          "videoFile": {
+            "name": "The Baron (30 of 30)/S01E01 - Diplomatic Immunity (720p).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 292433266,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The_Baron_1966_Series/The%20Baron%20%2830%20of%2030%29/S01E01%20-%20Diplomatic%20Immunity%20%28720p%29.ia.mp4"
+        },
+        {
+          "archiveID": "The_Baron_1966_Series@s1e02",
+          "sourceID": "The_Baron_1966_Series",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Epitaph for a Hero",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2970,
+          "videoFile": {
+            "name": "The Baron (30 of 30)/S01E02 - Epitaph for a Hero.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 286653877,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The_Baron_1966_Series/The%20Baron%20%2830%20of%2030%29/S01E02%20-%20Epitaph%20for%20a%20Hero.ia.mp4"
+        },
+        {
+          "archiveID": "The_Baron_1966_Series@s1e03",
+          "sourceID": "The_Baron_1966_Series",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Something For A Rainy Day (720p)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2999,
+          "videoFile": {
+            "name": "The Baron (30 of 30)/S01E03 - Something For A Rainy Day (720p).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 293084582,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The_Baron_1966_Series/The%20Baron%20%2830%20of%2030%29/S01E03%20-%20Something%20For%20A%20Rainy%20Day%20%28720p%29.ia.mp4"
+        },
+        {
+          "archiveID": "The_Baron_1966_Series@s1e04",
+          "sourceID": "The_Baron_1966_Series",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Red Horse Red Rider",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2951,
+          "videoFile": {
+            "name": "The Baron (30 of 30)/S01E04 - Red Horse Red Rider.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 284715309,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The_Baron_1966_Series/The%20Baron%20%2830%20of%2030%29/S01E04%20-%20Red%20Horse%20Red%20Rider.ia.mp4"
+        },
+        {
+          "archiveID": "The_Baron_1966_Series@s1e05",
+          "sourceID": "The_Baron_1966_Series",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Enemy of the State",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2934,
+          "videoFile": {
+            "name": "The Baron (30 of 30)/S01E05 - Enemy of the State.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 190583711,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The_Baron_1966_Series/The%20Baron%20%2830%20of%2030%29/S01E05%20-%20Enemy%20of%20the%20State.ia.mp4"
+        },
+        {
+          "archiveID": "The_Baron_1966_Series@s1e06",
+          "sourceID": "The_Baron_1966_Series",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Masquerade",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2945,
+          "videoFile": {
+            "name": "The Baron (30 of 30)/S01E06 - Masquerade.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 150974514,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The_Baron_1966_Series/The%20Baron%20%2830%20of%2030%29/S01E06%20-%20Masquerade.ia.mp4"
+        },
+        {
+          "archiveID": "The_Baron_1966_Series@s1e07",
+          "sourceID": "The_Baron_1966_Series",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Killing",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2948,
+          "videoFile": {
+            "name": "The Baron (30 of 30)/S01E07 - The Killing.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 287211909,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The_Baron_1966_Series/The%20Baron%20%2830%20of%2030%29/S01E07%20-%20The%20Killing.ia.mp4"
+        },
+        {
+          "archiveID": "The_Baron_1966_Series@s1e08",
+          "sourceID": "The_Baron_1966_Series",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Persuaders",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2960,
+          "videoFile": {
+            "name": "The Baron (30 of 30)/S01E08 - The Persuaders.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 188585415,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The_Baron_1966_Series/The%20Baron%20%2830%20of%2030%29/S01E08%20-%20The%20Persuaders.ia.mp4"
+        },
+        {
+          "archiveID": "The_Baron_1966_Series@s1e09",
+          "sourceID": "The_Baron_1966_Series",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "And Suddenly You're Dead",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2951,
+          "videoFile": {
+            "name": "The Baron (30 of 30)/S01E09 - And Suddenly You're Dead.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 285477830,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The_Baron_1966_Series/The%20Baron%20%2830%20of%2030%29/S01E09%20-%20And%20Suddenly%20You%27re%20Dead.ia.mp4"
+        },
+        {
+          "archiveID": "The_Baron_1966_Series@s1e10",
+          "sourceID": "The_Baron_1966_Series",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Legions of Ammak",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2956,
+          "videoFile": {
+            "name": "The Baron (30 of 30)/S01E10 - The Legions of Ammak.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 288657711,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The_Baron_1966_Series/The%20Baron%20%2830%20of%2030%29/S01E10%20-%20The%20Legions%20of%20Ammak.ia.mp4"
+        },
+        {
+          "archiveID": "The_Baron_1966_Series@s1e11",
+          "sourceID": "The_Baron_1966_Series",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Samurai West",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2960,
+          "videoFile": {
+            "name": "The Baron (30 of 30)/S01E11 - Samurai West.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 287488483,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The_Baron_1966_Series/The%20Baron%20%2830%20of%2030%29/S01E11%20-%20Samurai%20West.ia.mp4"
+        },
+        {
+          "archiveID": "The_Baron_1966_Series@s1e12",
+          "sourceID": "The_Baron_1966_Series",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Maze",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2953,
+          "videoFile": {
+            "name": "The Baron (30 of 30)/S01E12 - The Maze.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 286987365,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The_Baron_1966_Series/The%20Baron%20%2830%20of%2030%29/S01E12%20-%20The%20Maze.ia.mp4"
+        },
+        {
+          "archiveID": "The_Baron_1966_Series@s1e13",
+          "sourceID": "The_Baron_1966_Series",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Portait of Louisa (720p)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 3002,
+          "videoFile": {
+            "name": "The Baron (30 of 30)/S01E13 - Portait of Louisa (720p).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 294851379,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The_Baron_1966_Series/The%20Baron%20%2830%20of%2030%29/S01E13%20-%20Portait%20of%20Louisa%20%28720p%29.ia.mp4"
+        },
+        {
+          "archiveID": "The_Baron_1966_Series@s1e14",
+          "sourceID": "The_Baron_1966_Series",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "There's Someone Close Behind You",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2947,
+          "videoFile": {
+            "name": "The Baron (30 of 30)/S01E14 - There's Someone Close Behind You.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 285342668,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The_Baron_1966_Series/The%20Baron%20%2830%20of%2030%29/S01E14%20-%20There%27s%20Someone%20Close%20Behind%20You.ia.mp4"
+        },
+        {
+          "archiveID": "The_Baron_1966_Series@s1e15",
+          "sourceID": "The_Baron_1966_Series",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Storm Warning",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2954,
+          "videoFile": {
+            "name": "The Baron (30 of 30)/S01E15 - Storm Warning.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 285678255,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The_Baron_1966_Series/The%20Baron%20%2830%20of%2030%29/S01E15%20-%20Storm%20Warning.ia.mp4"
+        },
+        {
+          "archiveID": "The_Baron_1966_Series@s1e16",
+          "sourceID": "The_Baron_1966_Series",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "The Island",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2968,
+          "videoFile": {
+            "name": "The Baron (30 of 30)/S01E16 - The Island.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 287998599,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The_Baron_1966_Series/The%20Baron%20%2830%20of%2030%29/S01E16%20-%20The%20Island.ia.mp4"
+        },
+        {
+          "archiveID": "The_Baron_1966_Series@s1e17",
+          "sourceID": "The_Baron_1966_Series",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Time to Destroy",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2943,
+          "videoFile": {
+            "name": "The Baron (30 of 30)/S01E17 - Time to Destroy.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 284911862,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The_Baron_1966_Series/The%20Baron%20%2830%20of%2030%29/S01E17%20-%20Time%20to%20Destroy.ia.mp4"
+        },
+        {
+          "archiveID": "The_Baron_1966_Series@s1e18",
+          "sourceID": "The_Baron_1966_Series",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "A Memory Of Evil",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2965,
+          "videoFile": {
+            "name": "The Baron (30 of 30)/S01E18 - A Memory Of Evil.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 286977173,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The_Baron_1966_Series/The%20Baron%20%2830%20of%2030%29/S01E18%20-%20A%20Memory%20Of%20Evil.ia.mp4"
+        },
+        {
+          "archiveID": "The_Baron_1966_Series@s1e19",
+          "sourceID": "The_Baron_1966_Series",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "You Can't Win Them All",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2954,
+          "videoFile": {
+            "name": "The Baron (30 of 30)/S01E19 - You Can't Win Them All.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 288122186,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The_Baron_1966_Series/The%20Baron%20%2830%20of%2030%29/S01E19%20-%20You%20Can%27t%20Win%20Them%20All.ia.mp4"
+        },
+        {
+          "archiveID": "The_Baron_1966_Series@s1e20",
+          "sourceID": "The_Baron_1966_Series",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "The High Terrace",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2949,
+          "videoFile": {
+            "name": "The Baron (30 of 30)/S01E20 - The High Terrace.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 287398640,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The_Baron_1966_Series/The%20Baron%20%2830%20of%2030%29/S01E20%20-%20The%20High%20Terrace.ia.mp4"
+        },
+        {
+          "archiveID": "The_Baron_1966_Series@s1e21",
+          "sourceID": "The_Baron_1966_Series",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "The Seven Eyes of Night",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2952,
+          "videoFile": {
+            "name": "The Baron (30 of 30)/S01E21 - The Seven Eyes of Night.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 284938768,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The_Baron_1966_Series/The%20Baron%20%2830%20of%2030%29/S01E21%20-%20The%20Seven%20Eyes%20of%20Night.ia.mp4"
+        },
+        {
+          "archiveID": "The_Baron_1966_Series@s1e22",
+          "sourceID": "The_Baron_1966_Series",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Evening of Hunter",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 5919,
+          "videoFile": {
+            "name": "The Baron (30 of 30)/S01E22 - Evening of Hunter.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 308195001,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The_Baron_1966_Series/The%20Baron%20%2830%20of%2030%29/S01E22%20-%20Evening%20of%20Hunter.ia.mp4"
+        },
+        {
+          "archiveID": "The_Baron_1966_Series@s1e23",
+          "sourceID": "The_Baron_1966_Series",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "The Edge Of Fear",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2962,
+          "videoFile": {
+            "name": "The Baron (30 of 30)/S01E23 - The Edge Of Fear.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 288286943,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The_Baron_1966_Series/The%20Baron%20%2830%20of%2030%29/S01E23%20-%20The%20Edge%20Of%20Fear.ia.mp4"
+        },
+        {
+          "archiveID": "The_Baron_1966_Series@s1e24",
+          "sourceID": "The_Baron_1966_Series",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Long Ago And Far Away",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2949,
+          "videoFile": {
+            "name": "The Baron (30 of 30)/S01E24 - Long Ago And Far Away.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 286862476,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The_Baron_1966_Series/The%20Baron%20%2830%20of%2030%29/S01E24%20-%20Long%20Ago%20And%20Far%20Away.ia.mp4"
+        },
+        {
+          "archiveID": "The_Baron_1966_Series@s1e25",
+          "sourceID": "The_Baron_1966_Series",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "So Dark The Night (720p)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2970,
+          "videoFile": {
+            "name": "The Baron (30 of 30)/S01E25 - So Dark The Night (720p).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 289176416,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The_Baron_1966_Series/The%20Baron%20%2830%20of%2030%29/S01E25%20-%20So%20Dark%20The%20Night%20%28720p%29.ia.mp4"
+        },
+        {
+          "archiveID": "The_Baron_1966_Series@s1e26",
+          "sourceID": "The_Baron_1966_Series",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "The Long, Long Day (720p)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2957,
+          "videoFile": {
+            "name": "The Baron (30 of 30)/S01E26 - The Long, Long Day (720p).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 290821780,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The_Baron_1966_Series/The%20Baron%20%2830%20of%2030%29/S01E26%20-%20The%20Long%2C%20Long%20Day%20%28720p%29.ia.mp4"
+        },
+        {
+          "archiveID": "The_Baron_1966_Series@s1e27",
+          "sourceID": "The_Baron_1966_Series",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Roundabout (720p)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2915,
+          "videoFile": {
+            "name": "The Baron (30 of 30)/S01E27 - Roundabout (720p).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 283763439,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The_Baron_1966_Series/The%20Baron%20%2830%20of%2030%29/S01E27%20-%20Roundabout%20%28720p%29.ia.mp4"
+        },
+        {
+          "archiveID": "The_Baron_1966_Series@s1e28",
+          "sourceID": "The_Baron_1966_Series",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "The Man Outside (720p)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2942,
+          "videoFile": {
+            "name": "The Baron (30 of 30)/S01E28 - The Man Outside (720p).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 290091011,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The_Baron_1966_Series/The%20Baron%20%2830%20of%2030%29/S01E28%20-%20The%20Man%20Outside%20%28720p%29.ia.mp4"
+        },
+        {
+          "archiveID": "The_Baron_1966_Series@s1e29",
+          "sourceID": "The_Baron_1966_Series",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "Countdown (720p)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2903,
+          "videoFile": {
+            "name": "The Baron (30 of 30)/S01E29 - Countdown (720p).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 283272010,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The_Baron_1966_Series/The%20Baron%20%2830%20of%2030%29/S01E29%20-%20Countdown%20%28720p%29.ia.mp4"
+        },
+        {
+          "archiveID": "The_Baron_1966_Series@s1e30",
+          "sourceID": "The_Baron_1966_Series",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "Farewell To Yesterday (720p)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2947,
+          "videoFile": {
+            "name": "The Baron (30 of 30)/S01E30 - Farewell To Yesterday (720p).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 285126888,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The_Baron_1966_Series/The%20Baron%20%2830%20of%2030%29/S01E30%20-%20Farewell%20To%20Yesterday%20%28720p%29.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 30,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": []
+}

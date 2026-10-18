@@ -28,12 +28,15 @@ const API = (() => {
     // Full URL → grab the segment after /details/
     const detailsMatch = s.match(/archive\.org\/details\/([^/?#]+)/i);
     if (detailsMatch) return detailsMatch[1];
-    // Already a bare identifier
-    return s;
+    // A bundle episode's id is "<item>@<token>" (Decision 166); archive.org
+    // identifiers never contain "@", so the item is what precedes it.
+    return sourceItem(s);
   }
 
-  function detailsURL(id) { return DETAILS_URL + encodeURIComponent(id); }
-  function thumbnailURL(id) { return THUMB_URL + encodeURIComponent(id); }
+  function sourceItem(id) { return String(id || '').split('@')[0]; }
+
+  function detailsURL(id) { return DETAILS_URL + encodeURIComponent(sourceItem(id)); }
+  function thumbnailURL(id) { return THUMB_URL + encodeURIComponent(sourceItem(id)); }
 
   /* ----------------------------------------------------------------
      Metadata API
@@ -186,6 +189,7 @@ const API = (() => {
 
   return {
     normalizeIdentifier,
+    sourceItem,
     detailsURL,
     thumbnailURL,
     fetchMetadata,

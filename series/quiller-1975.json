@@ -1,0 +1,278 @@
+{
+  "version": 2,
+  "seriesID": "quiller-1975",
+  "sourceID": "quiller-1975",
+  "tvmazeID": null,
+  "title": "Quiller",
+  "yearStart": 1975,
+  "yearEnd": null,
+  "overview": "British spy drama series based on the novels by Adam Hall, about the eponymous spy (Michael Jayston) whose work for \"The Bureau\" takes him across the globe to retrieve missing documentation, prevent secrets from falling into the hands of the enemy, rescue \"sleepers\", safely repatriate defecting agents, and eliminate his country's enemies. His controller at \"The Bureau\" is Angus Kinloch (Moray Watson). It aired on BBC1 in 1975, and was long unavailable despite all episodes surviving, before it mysteriously reappeared online in the past few years and is now available in full on the Internet Archive.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/quiller-1975.dd073ff6.jpg",
+  "backdropURL": null,
+  "genres": [
+    "War",
+    "Drama",
+    "Action"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "quiller-1975@s1e01",
+          "sourceID": "quiller-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Price of Violence",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3881,
+          "videoFile": {
+            "name": "Quiller (1975)/S01E01 The Price of Violence.mp4",
+            "format": "h.264",
+            "sizeBytes": 373526683,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/quiller-1975/Quiller%20%281975%29/S01E01%20The%20Price%20of%20Violence.mp4"
+        },
+        {
+          "archiveID": "quiller-1975@s1e02",
+          "sourceID": "quiller-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Tango Briefing",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3118,
+          "videoFile": {
+            "name": "Quiller (1975)/S01E02 Tango Briefing.mp4",
+            "format": "h.264",
+            "sizeBytes": 300653739,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/quiller-1975/Quiller%20%281975%29/S01E02%20Tango%20Briefing.mp4"
+        },
+        {
+          "archiveID": "quiller-1975@s1e03",
+          "sourceID": "quiller-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Any Last Request",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3120,
+          "videoFile": {
+            "name": "Quiller (1975)/S01E03 Any Last Request.mp4",
+            "format": "h.264",
+            "sizeBytes": 300534325,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/quiller-1975/Quiller%20%281975%29/S01E03%20Any%20Last%20Request.mp4"
+        },
+        {
+          "archiveID": "quiller-1975@s1e04",
+          "sourceID": "quiller-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Sacrifice to Survival",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3114,
+          "videoFile": {
+            "name": "Quiller (1975)/S01E04 Sacrifice to Survival.mp4",
+            "format": "h.264",
+            "sizeBytes": 300301412,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/quiller-1975/Quiller%20%281975%29/S01E04%20Sacrifice%20to%20Survival.mp4"
+        },
+        {
+          "archiveID": "quiller-1975@s1e05",
+          "sourceID": "quiller-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Assault on the Ritz",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3116,
+          "videoFile": {
+            "name": "Quiller (1975)/S01E05 Assault on the Ritz.mp4",
+            "format": "h.264",
+            "sizeBytes": 300659691,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/quiller-1975/Quiller%20%281975%29/S01E05%20Assault%20on%20the%20Ritz.mp4"
+        },
+        {
+          "archiveID": "quiller-1975@s1e06",
+          "sourceID": "quiller-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Objective Caribbean",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3103,
+          "videoFile": {
+            "name": "Quiller (1975)/S01E06 Objective Caribbean.mp4",
+            "format": "h.264",
+            "sizeBytes": 298571566,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/quiller-1975/Quiller%20%281975%29/S01E06%20Objective%20Caribbean.mp4"
+        },
+        {
+          "archiveID": "quiller-1975@s1e07",
+          "sourceID": "quiller-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Target North",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3129,
+          "videoFile": {
+            "name": "Quiller (1975)/S01E07 Target North.mp4",
+            "format": "h.264",
+            "sizeBytes": 301994047,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/quiller-1975/Quiller%20%281975%29/S01E07%20Target%20North.mp4"
+        },
+        {
+          "archiveID": "quiller-1975@s1e08",
+          "sourceID": "quiller-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Thin Red Line",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3108,
+          "videoFile": {
+            "name": "Quiller (1975)/S01E08 The Thin Red Line.mp4",
+            "format": "h.264",
+            "sizeBytes": 300085035,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/quiller-1975/Quiller%20%281975%29/S01E08%20The%20Thin%20Red%20Line.mp4"
+        },
+        {
+          "archiveID": "quiller-1975@s1e09",
+          "sourceID": "quiller-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Political Jungle",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3158,
+          "videoFile": {
+            "name": "Quiller (1975)/S01E09 Political Jungle.mp4",
+            "format": "h.264",
+            "sizeBytes": 304399180,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/quiller-1975/Quiller%20%281975%29/S01E09%20Political%20Jungle.mp4"
+        },
+        {
+          "archiveID": "quiller-1975@s1e10",
+          "sourceID": "quiller-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Mark the File Expendable",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3133,
+          "videoFile": {
+            "name": "Quiller (1975)/S01E10 Mark the File Expendable.mp4",
+            "format": "h.264",
+            "sizeBytes": 302343551,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/quiller-1975/Quiller%20%281975%29/S01E10%20Mark%20the%20File%20Expendable.mp4"
+        },
+        {
+          "archiveID": "quiller-1975@s1e11",
+          "sourceID": "quiller-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Safe Conduct",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3086,
+          "videoFile": {
+            "name": "Quiller (1975)/S01E11 Safe Conduct.mp4",
+            "format": "h.264",
+            "sizeBytes": 298154627,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/quiller-1975/Quiller%20%281975%29/S01E11%20Safe%20Conduct.mp4"
+        },
+        {
+          "archiveID": "quiller-1975@s1e12",
+          "sourceID": "quiller-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Thundersky",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3122,
+          "videoFile": {
+            "name": "Quiller (1975)/S01E12 Thundersky.mp4",
+            "format": "h.264",
+            "sizeBytes": 301179123,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/quiller-1975/Quiller%20%281975%29/S01E12%20Thundersky.mp4"
+        },
+        {
+          "archiveID": "quiller-1975@s1e13",
+          "sourceID": "quiller-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Night of the Father",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3938,
+          "videoFile": {
+            "name": "Quiller (1975)/S01E13 Night of the Father.mp4",
+            "format": "h.264",
+            "sizeBytes": 378384227,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/quiller-1975/Quiller%20%281975%29/S01E13%20Night%20of%20the%20Father.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 13,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

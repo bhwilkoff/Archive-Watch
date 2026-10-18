@@ -119,7 +119,7 @@ enum ProxySource {
     static func proxyURL(archiveID: String, fallback: URL) async -> URL {
         if let u = resolved[archiveID] { return u }
         if let t = inFlight[archiveID] { return await t.value }
-        let t = Task { () -> URL in (await resolve(archiveID)) ?? fallback }
+        let t = Task { () -> URL in (await resolve(archiveID, source: fallback)) ?? fallback }
         inFlight[archiveID] = t
         let url = await t.value
         inFlight[archiveID] = nil
@@ -127,15 +127,25 @@ enum ProxySource {
         return url
     }
 
-    private static func resolve(_ id: String) async -> URL? {
-        guard let enc = id.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed),
+    private static func resolve(_ id: String, source: URL) async -> URL? {
+        let item = Catalog.archiveItemID(id)
+        guard let enc = item.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed),
               let metaURL = URL(string: "https://archive.org/metadata/\(enc)"),   // full meta: server+dir+files
               let data = await StudioNet.data(from: metaURL),
               let json = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
               let files = json["files"] as? [[String: Any]] else { return nil }
+        // Decision 166: a whole-series item's other files are other episodes, so
+        // only a derivative of this episode's own file is a proxy for it.
+        var episodeRoot: String?
+        if Catalog.isBundleFile(id) {
+            guard let file = Catalog.archiveFileName(in: source) else { return nil }
+            episodeRoot = files.first { ($0["name"] as? String) == file }
+                .flatMap { $0["original"] as? String } ?? file
+        }
         var best: (name: String, size: Int)?
         for f in files {
             guard let name = f["name"] as? String else { continue }
+            if let episodeRoot, name != episodeRoot, (f["original"] as? String) != episodeRoot { continue }
             let lower = name.lowercased()
             guard lower.hasSuffix(".mp4") else { continue }
             let fmt = (f["format"] as? String ?? "").lowercased()

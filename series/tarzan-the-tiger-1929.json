@@ -1,0 +1,331 @@
+{
+  "version": 2,
+  "seriesID": "tarzan-the-tiger-1929",
+  "sourceID": "tarzan-the-tiger_1929",
+  "tvmazeID": null,
+  "title": "Tarzan the Tiger",
+  "yearStart": 1929,
+  "yearEnd": null,
+  "overview": "After Tarzan's estate is destroyed by Arabs Jane is sold into slavery by a man posing as a friendly scientist. Tarzan develops amnesia after a blow to the head. When he recovers his memory (from a later blow) he defeats the villain, recovers the fabulous jewels of Opar, and rescues Jane.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/upRONjouAvihYMR6wUREA98zApl.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Adventure"
+  ],
+  "networks": [],
+  "creator": "Henry MacRae",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "tarzan-the-tiger_1929@e01",
+          "sourceID": "tarzan-the-tiger_1929",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Episode 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/tarzan-the-tiger_1929/tarzan-the-tiger_1929.thumbs/tarzan-the-tiger_1929_01_000417.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 1097,
+          "videoFile": {
+            "name": "tarzan-the-tiger_1929_01.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 514606711,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/tarzan-the-tiger_1929/tarzan-the-tiger_1929_01.ia.mp4"
+        },
+        {
+          "archiveID": "tarzan-the-tiger_1929@e02",
+          "sourceID": "tarzan-the-tiger_1929",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Episode 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/tarzan-the-tiger_1929/tarzan-the-tiger_1929.thumbs/tarzan-the-tiger_1929_02_000417.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 1110,
+          "videoFile": {
+            "name": "tarzan-the-tiger_1929_02.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 455314670,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/tarzan-the-tiger_1929/tarzan-the-tiger_1929_02.ia.mp4"
+        },
+        {
+          "archiveID": "tarzan-the-tiger_1929@e03",
+          "sourceID": "tarzan-the-tiger_1929",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Episode 3",
+          "overview": null,
+          "stillURL": "https://archive.org/download/tarzan-the-tiger_1929/tarzan-the-tiger_1929.thumbs/tarzan-the-tiger_1929_03_000417.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 1133,
+          "videoFile": {
+            "name": "tarzan-the-tiger_1929_03.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 502125756,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/tarzan-the-tiger_1929/tarzan-the-tiger_1929_03.ia.mp4"
+        },
+        {
+          "archiveID": "tarzan-the-tiger_1929@e04",
+          "sourceID": "tarzan-the-tiger_1929",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Episode 4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/tarzan-the-tiger_1929/tarzan-the-tiger_1929.thumbs/tarzan-the-tiger_1929_04_000417.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 1101,
+          "videoFile": {
+            "name": "tarzan-the-tiger_1929_04.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 441921496,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/tarzan-the-tiger_1929/tarzan-the-tiger_1929_04.ia.mp4"
+        },
+        {
+          "archiveID": "tarzan-the-tiger_1929@e05",
+          "sourceID": "tarzan-the-tiger_1929",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Episode 5",
+          "overview": null,
+          "stillURL": "https://archive.org/download/tarzan-the-tiger_1929/tarzan-the-tiger_1929.thumbs/tarzan-the-tiger_1929_05_001309.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 3382,
+          "videoFile": {
+            "name": "tarzan-the-tiger_1929_05.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1400590247,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/tarzan-the-tiger_1929/tarzan-the-tiger_1929_05.ia.mp4"
+        },
+        {
+          "archiveID": "tarzan-the-tiger_1929@e06",
+          "sourceID": "tarzan-the-tiger_1929",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Episode 6",
+          "overview": null,
+          "stillURL": "https://archive.org/download/tarzan-the-tiger_1929/tarzan-the-tiger_1929.thumbs/tarzan-the-tiger_1929_06_000417.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 1150,
+          "videoFile": {
+            "name": "tarzan-the-tiger_1929_06.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 497793415,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/tarzan-the-tiger_1929/tarzan-the-tiger_1929_06.ia.mp4"
+        },
+        {
+          "archiveID": "tarzan-the-tiger_1929@e07",
+          "sourceID": "tarzan-the-tiger_1929",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Episode 7",
+          "overview": null,
+          "stillURL": "https://archive.org/download/tarzan-the-tiger_1929/tarzan-the-tiger_1929.thumbs/tarzan-the-tiger_1929_07_000417.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 1107,
+          "videoFile": {
+            "name": "tarzan-the-tiger_1929_07.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 421317435,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/tarzan-the-tiger_1929/tarzan-the-tiger_1929_07.ia.mp4"
+        },
+        {
+          "archiveID": "tarzan-the-tiger_1929@e08",
+          "sourceID": "tarzan-the-tiger_1929",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Episode 8",
+          "overview": null,
+          "stillURL": "https://archive.org/download/tarzan-the-tiger_1929/tarzan-the-tiger_1929.thumbs/tarzan-the-tiger_1929_08_000417.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 1045,
+          "videoFile": {
+            "name": "tarzan-the-tiger_1929_08.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 445348733,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/tarzan-the-tiger_1929/tarzan-the-tiger_1929_08.ia.mp4"
+        },
+        {
+          "archiveID": "tarzan-the-tiger_1929@e09",
+          "sourceID": "tarzan-the-tiger_1929",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Episode 9",
+          "overview": null,
+          "stillURL": "https://archive.org/download/tarzan-the-tiger_1929/tarzan-the-tiger_1929.thumbs/tarzan-the-tiger_1929_09_000358.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 915,
+          "videoFile": {
+            "name": "tarzan-the-tiger_1929_09.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 413158172,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/tarzan-the-tiger_1929/tarzan-the-tiger_1929_09.ia.mp4"
+        },
+        {
+          "archiveID": "tarzan-the-tiger_1929@e10",
+          "sourceID": "tarzan-the-tiger_1929",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Episode 10",
+          "overview": null,
+          "stillURL": "https://archive.org/download/tarzan-the-tiger_1929/tarzan-the-tiger_1929.thumbs/tarzan-the-tiger_1929_10_000417.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 1149,
+          "videoFile": {
+            "name": "tarzan-the-tiger_1929_10.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 399549211,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/tarzan-the-tiger_1929/tarzan-the-tiger_1929_10.ia.mp4"
+        },
+        {
+          "archiveID": "tarzan-the-tiger_1929@e11",
+          "sourceID": "tarzan-the-tiger_1929",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Episode 11",
+          "overview": null,
+          "stillURL": "https://archive.org/download/tarzan-the-tiger_1929/tarzan-the-tiger_1929.thumbs/tarzan-the-tiger_1929_11_000358.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 904,
+          "videoFile": {
+            "name": "tarzan-the-tiger_1929_11.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 268084035,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/tarzan-the-tiger_1929/tarzan-the-tiger_1929_11.ia.mp4"
+        },
+        {
+          "archiveID": "tarzan-the-tiger_1929@e12",
+          "sourceID": "tarzan-the-tiger_1929",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Episode 12",
+          "overview": null,
+          "stillURL": "https://archive.org/download/tarzan-the-tiger_1929/tarzan-the-tiger_1929.thumbs/tarzan-the-tiger_1929_12_000417.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 1051,
+          "videoFile": {
+            "name": "tarzan-the-tiger_1929_12.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 336892287,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/tarzan-the-tiger_1929/tarzan-the-tiger_1929_12.ia.mp4"
+        },
+        {
+          "archiveID": "tarzan-the-tiger_1929@e13",
+          "sourceID": "tarzan-the-tiger_1929",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Episode 13",
+          "overview": null,
+          "stillURL": "https://archive.org/download/tarzan-the-tiger_1929/tarzan-the-tiger_1929.thumbs/tarzan-the-tiger_1929_13_000358.jpg",
+          "airDate": null,
+          "year": 1929,
+          "runtimeSeconds": 961,
+          "videoFile": {
+            "name": "tarzan-the-tiger_1929_13.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 305062300,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/tarzan-the-tiger_1929/tarzan-the-tiger_1929_13.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 13,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": [
+    {
+      "name": "Frank Merrill",
+      "character": "Tarzan / Lord Greystoke",
+      "order": 0,
+      "profilePath": "/7bZi5WyTF1DvQbXe9JecXsZRyah.jpg"
+    },
+    {
+      "name": "Natalie Kingston",
+      "character": "Jane / Lady Jane",
+      "order": 1,
+      "profilePath": "/6ORGOI9KVA7xPIL5zp9n1H4S54K.jpg"
+    },
+    {
+      "name": "Al Ferguson",
+      "character": "Albert Werper",
+      "order": 2,
+      "profilePath": "/pqsu8OuPrGPMwuvvPsL1cVMzEMr.jpg"
+    },
+    {
+      "name": "Lillian Worth",
+      "character": "Queen La of Opar",
+      "order": 3,
+      "profilePath": "/bcTRfwF4Yj4ahtgLRLZ1jlWH4ld.jpg"
+    },
+    {
+      "name": "Sheldon Lewis",
+      "character": "Achmet Zek",
+      "order": 4,
+      "profilePath": "/zsgNwtpLXyYSFJU0XeNECvVDlh9.jpg"
+    },
+    {
+      "name": "Paul Panzer",
+      "character": "Mohammed Bey",
+      "order": 5,
+      "profilePath": "/6NhO8FSFg6azBGaga5IaSNaUNEs.jpg"
+    },
+    {
+      "name": "Clive Morgan",
+      "character": "Philip Annersley",
+      "order": 6,
+      "profilePath": null
+    },
+    {
+      "name": "Charles Gemora",
+      "character": "Taglat the Gorilla / Chulk the Gorilla",
+      "order": 7,
+      "profilePath": "/s86qzXDRtubzWhCrENFEAmCDnfm.jpg"
+    },
+    {
+      "name": "Frank Lanning",
+      "character": "Witch Doctor",
+      "order": 8,
+      "profilePath": "/tMsezDnDRNaYNs3yYBNk3e2WfJ2.jpg"
+    }
+  ]
+}

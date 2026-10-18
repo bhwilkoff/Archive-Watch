@@ -1,0 +1,524 @@
+{
+  "version": 2,
+  "seriesID": "ufo-1969",
+  "sourceID": "UFO.complete",
+  "tvmazeID": null,
+  "title": "UFO",
+  "yearStart": 1969,
+  "yearEnd": null,
+  "overview": "UFO is a 1970 British television science fiction series about an alien invasion of Earth, created by Gerry Anderson and Sylvia Anderson with Reg Hill, and produced by the Andersons Century 21 Productions for ITC Entertainment company. UFO was the Andersons' first totally live-action TV series. Despite the assumption of many TV station executives, the series was not aimed at children but was intended for an older audience; many episodes featured adult themes such as adultery, divorce, and drug use. The year is 1980. Earth is being visited and attacked by aliens from a dying planet and humans are being covertly harvested for their organs by the aliens. The show's characters are members of a secret, high-technology international agency called SHADO (an acronym for S upreme H eadquarters, A lien D efence O rganisation) established to defend Earth and humanity against the mysterious aliens and learn more about them, while at the same time keeping the threat of an alien invasion hidden from the public. SHADO's main headquarters is hidden beneath a film studio near London England. SHADO also has a base on the moon ( Moonbase ) and a fleet of submarines. Incoming UFO's are initially detected by an Earth orbiting satellite named SID ( S pace I ntruder D etector). An initial interception attempt is made in space with three Interceptor craft launched from Moonbase. A second attempt is made in the Earth's atmosphere with a fighter plane ( Sky One ) launched from Skydiver. Landed UFO's are tracked down with ground Mobiles. Space1999. Series1 Space1999.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/yJMF2BlJ3M7rXRQQpv91WInBtXO.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Sci-Fi",
+    "Thriller"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "UFO.complete@e01",
+          "sourceID": "UFO.complete",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Identified",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UFO.complete/UFO.complete.thumbs/UFO.01.Identified_001090.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 3075,
+          "videoFile": {
+            "name": "UFO.01.Identified.mp4",
+            "format": "h.264",
+            "sizeBytes": 319766771,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UFO.complete/UFO.01.Identified.mp4"
+        },
+        {
+          "archiveID": "UFO.complete@e02",
+          "sourceID": "UFO.complete",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Exposed",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UFO.complete/UFO.complete.thumbs/UFO.02.Exposed_001051.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2966,
+          "videoFile": {
+            "name": "UFO.02.Exposed.mp4",
+            "format": "h.264",
+            "sizeBytes": 308348475,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UFO.complete/UFO.02.Exposed.mp4"
+        },
+        {
+          "archiveID": "UFO.complete@e03",
+          "sourceID": "UFO.complete",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Cat With Ten Lives",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UFO.complete/UFO.complete.thumbs/UFO.03.The%20Cat%20With%20Ten%20Lives_001050.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2963,
+          "videoFile": {
+            "name": "UFO.03.The Cat With Ten Lives.mp4",
+            "format": "h.264",
+            "sizeBytes": 309012946,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UFO.complete/UFO.03.The%20Cat%20With%20Ten%20Lives.mp4"
+        },
+        {
+          "archiveID": "UFO.complete@e04",
+          "sourceID": "UFO.complete",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Conflict",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UFO.complete/UFO.complete.thumbs/UFO.04.Conflict_001053.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2970,
+          "videoFile": {
+            "name": "UFO.04.Conflict.mp4",
+            "format": "h.264",
+            "sizeBytes": 309080500,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UFO.complete/UFO.04.Conflict.mp4"
+        },
+        {
+          "archiveID": "UFO.complete@e05",
+          "sourceID": "UFO.complete",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "A Question of Priorities",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UFO.complete/UFO.complete.thumbs/UFO.05.A%20Question%20of%20Priorities_001059.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2988,
+          "videoFile": {
+            "name": "UFO.05.A Question of Priorities.mp4",
+            "format": "h.264",
+            "sizeBytes": 310213763,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UFO.complete/UFO.05.A%20Question%20of%20Priorities.mp4"
+        },
+        {
+          "archiveID": "UFO.complete@e06",
+          "sourceID": "UFO.complete",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "ESP",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UFO.complete/UFO.complete.thumbs/UFO.06.ESP_001059.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2987,
+          "videoFile": {
+            "name": "UFO.06.ESP.mp4",
+            "format": "h.264",
+            "sizeBytes": 311818329,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UFO.complete/UFO.06.ESP.mp4"
+        },
+        {
+          "archiveID": "UFO.complete@e07",
+          "sourceID": "UFO.complete",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Kill Straker",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UFO.complete/UFO.complete.thumbs/UFO.07.Kill%20Straker_001054.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2975,
+          "videoFile": {
+            "name": "UFO.07.Kill Straker.mp4",
+            "format": "h.264",
+            "sizeBytes": 310408816,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UFO.complete/UFO.07.Kill%20Straker.mp4"
+        },
+        {
+          "archiveID": "UFO.complete@e08",
+          "sourceID": "UFO.complete",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Sub Smash",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UFO.complete/UFO.complete.thumbs/UFO.08.Sub%20Smash_001054.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2974,
+          "videoFile": {
+            "name": "UFO.08.Sub Smash.mp4",
+            "format": "h.264",
+            "sizeBytes": 309807326,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UFO.complete/UFO.08.Sub%20Smash.mp4"
+        },
+        {
+          "archiveID": "UFO.complete@e09",
+          "sourceID": "UFO.complete",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Destruction",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UFO.complete/UFO.complete.thumbs/UFO.09.Destruction_001053.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2972,
+          "videoFile": {
+            "name": "UFO.09.Destruction.mp4",
+            "format": "h.264",
+            "sizeBytes": 309702556,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UFO.complete/UFO.09.Destruction.mp4"
+        },
+        {
+          "archiveID": "UFO.complete@e10",
+          "sourceID": "UFO.complete",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Square Triangle",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UFO.complete/UFO.complete.thumbs/UFO.10.The%20Square%20Triangle_001055.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2976,
+          "videoFile": {
+            "name": "UFO.10.The Square Triangle.mp4",
+            "format": "h.264",
+            "sizeBytes": 309381040,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UFO.complete/UFO.10.The%20Square%20Triangle.mp4"
+        },
+        {
+          "archiveID": "UFO.complete@e11",
+          "sourceID": "UFO.complete",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Close Up",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UFO.complete/UFO.complete.thumbs/UFO.11.Close%20Up_001042.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2941,
+          "videoFile": {
+            "name": "UFO.11.Close Up.mp4",
+            "format": "h.264",
+            "sizeBytes": 305851813,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UFO.complete/UFO.11.Close%20Up.mp4"
+        },
+        {
+          "archiveID": "UFO.complete@e12",
+          "sourceID": "UFO.complete",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Psychobombs",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UFO.complete/UFO.complete.thumbs/UFO.12.The%20Psychobombs_001051.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2965,
+          "videoFile": {
+            "name": "UFO.12.The Psychobombs.mp4",
+            "format": "h.264",
+            "sizeBytes": 309163441,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UFO.complete/UFO.12.The%20Psychobombs.mp4"
+        },
+        {
+          "archiveID": "UFO.complete@e13",
+          "sourceID": "UFO.complete",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Survival",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UFO.complete/UFO.complete.thumbs/UFO.13.Survival_001031.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2910,
+          "videoFile": {
+            "name": "UFO.13.Survival.mp4",
+            "format": "h.264",
+            "sizeBytes": 302361731,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UFO.complete/UFO.13.Survival.mp4"
+        },
+        {
+          "archiveID": "UFO.complete@e14",
+          "sourceID": "UFO.complete",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Mindbender",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UFO.complete/UFO.complete.thumbs/UFO.14.Mindbender_001006.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2840,
+          "videoFile": {
+            "name": "UFO.14.Mindbender.mp4",
+            "format": "h.264",
+            "sizeBytes": 294900061,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UFO.complete/UFO.14.Mindbender.mp4"
+        },
+        {
+          "archiveID": "UFO.complete@e15",
+          "sourceID": "UFO.complete",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Flight Path",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UFO.complete/UFO.complete.thumbs/UFO.15.Flight%20Path_001053.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2972,
+          "videoFile": {
+            "name": "UFO.15.Flight Path.mp4",
+            "format": "h.264",
+            "sizeBytes": 309427853,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UFO.complete/UFO.15.Flight%20Path.mp4"
+        },
+        {
+          "archiveID": "UFO.complete@e16",
+          "sourceID": "UFO.complete",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "The Man Who Came Back",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UFO.complete/UFO.complete.thumbs/UFO.16.The%20Man%20Who%20Came%20Back_001050.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2962,
+          "videoFile": {
+            "name": "UFO.16.The Man Who Came Back.mp4",
+            "format": "h.264",
+            "sizeBytes": 308491221,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UFO.complete/UFO.16.The%20Man%20Who%20Came%20Back.mp4"
+        },
+        {
+          "archiveID": "UFO.complete@e17",
+          "sourceID": "UFO.complete",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "The Dalotek Affair",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UFO.complete/UFO.complete.thumbs/UFO.17.The%20Dalotek%20Affair_001053.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2971,
+          "videoFile": {
+            "name": "UFO.17.The Dalotek Affair.mp4",
+            "format": "h.264",
+            "sizeBytes": 309370628,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UFO.complete/UFO.17.The%20Dalotek%20Affair.mp4"
+        },
+        {
+          "archiveID": "UFO.complete@e18",
+          "sourceID": "UFO.complete",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Timelash",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UFO.complete/UFO.complete.thumbs/UFO.18.Timelash_001014.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2860,
+          "videoFile": {
+            "name": "UFO.18.Timelash.mp4",
+            "format": "h.264",
+            "sizeBytes": 298183259,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UFO.complete/UFO.18.Timelash.mp4"
+        },
+        {
+          "archiveID": "UFO.complete@e19",
+          "sourceID": "UFO.complete",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Ordeal",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UFO.complete/UFO.complete.thumbs/UFO.19.Ordeal_001052.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2968,
+          "videoFile": {
+            "name": "UFO.19.Ordeal.mp4",
+            "format": "h.264",
+            "sizeBytes": 309509147,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UFO.complete/UFO.19.Ordeal.mp4"
+        },
+        {
+          "archiveID": "UFO.complete@e20",
+          "sourceID": "UFO.complete",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Court Martial",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UFO.complete/UFO.complete.thumbs/UFO.20.Court%20Martial_001055.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2976,
+          "videoFile": {
+            "name": "UFO.20.Court Martial.mp4",
+            "format": "h.264",
+            "sizeBytes": 310212347,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UFO.complete/UFO.20.Court%20Martial.mp4"
+        },
+        {
+          "archiveID": "UFO.complete@e21",
+          "sourceID": "UFO.complete",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Computer Affair",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UFO.complete/UFO.complete.thumbs/UFO.21.Computer%20Affair_001046.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2952,
+          "videoFile": {
+            "name": "UFO.21.Computer Affair.mp4",
+            "format": "h.264",
+            "sizeBytes": 306928757,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UFO.complete/UFO.21.Computer%20Affair.mp4"
+        },
+        {
+          "archiveID": "UFO.complete@e22",
+          "sourceID": "UFO.complete",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Confetti Check A OK",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UFO.complete/UFO.complete.thumbs/UFO.22.Confetti%20Check%20A%20OK_001052.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2968,
+          "videoFile": {
+            "name": "UFO.22.Confetti Check A OK.mp4",
+            "format": "h.264",
+            "sizeBytes": 308727281,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UFO.complete/UFO.22.Confetti%20Check%20A%20OK.mp4"
+        },
+        {
+          "archiveID": "UFO.complete@e23",
+          "sourceID": "UFO.complete",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "The Sound of Silence",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UFO.complete/UFO.complete.thumbs/UFO.23.The%20Sound%20of%20Silence_001054.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2973,
+          "videoFile": {
+            "name": "UFO.23.The Sound of Silence.mp4",
+            "format": "h.264",
+            "sizeBytes": 310013768,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UFO.complete/UFO.23.The%20Sound%20of%20Silence.mp4"
+        },
+        {
+          "archiveID": "UFO.complete@e24",
+          "sourceID": "UFO.complete",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Reflections In The Water",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UFO.complete/UFO.complete.thumbs/UFO.24.Reflections%20In%20The%20Water_001010.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2849,
+          "videoFile": {
+            "name": "UFO.24.Reflections In The Water.mp4",
+            "format": "h.264",
+            "sizeBytes": 295811189,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UFO.complete/UFO.24.Reflections%20In%20The%20Water.mp4"
+        },
+        {
+          "archiveID": "UFO.complete@e25",
+          "sourceID": "UFO.complete",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "The Responsibility Seat",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UFO.complete/UFO.complete.thumbs/UFO.25.The%20Responsibility%20Seat_001053.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2970,
+          "videoFile": {
+            "name": "UFO.25.The Responsibility Seat.mp4",
+            "format": "h.264",
+            "sizeBytes": 310500525,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UFO.complete/UFO.25.The%20Responsibility%20Seat.mp4"
+        },
+        {
+          "archiveID": "UFO.complete@e26",
+          "sourceID": "UFO.complete",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "The Long Sleep",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UFO.complete/UFO.complete.thumbs/UFO.26.The%20Long%20Sleep_001010.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2849,
+          "videoFile": {
+            "name": "UFO.26.The Long Sleep.mp4",
+            "format": "h.264",
+            "sizeBytes": 296060568,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UFO.complete/UFO.26.The%20Long%20Sleep.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 26,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": []
+}

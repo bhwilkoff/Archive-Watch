@@ -1,0 +1,559 @@
+{
+  "version": 2,
+  "seriesID": "the-beary-family-album-1962",
+  "sourceID": "the-beary-family-album",
+  "tvmazeID": null,
+  "title": "The Beary Family Album",
+  "yearStart": 1962,
+  "yearEnd": null,
+  "overview": "A short from The Beary Family, Walter Lantz Studio's theatrical cartoon series (1962-1972) about bumbling father Charlie Beary, his nagging wife Bessie, their teenage son Junior and young daughter Suzy.",
+  "posterURL": "https://archive.org/services/img/the-beary-family-album",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-beary-family-album@e01",
+          "sourceID": "the-beary-family-album",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Fowled-Up Birthday",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-beary-family-album/the-beary-family-album.thumbs/The%20Beary%20Family%2001%20-%20Fowled-Up%20Birthday_000149.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 374,
+          "videoFile": {
+            "name": "The Beary Family 01 - Fowled-Up Birthday.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 35731303,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-beary-family-album/The%20Beary%20Family%2001%20-%20Fowled-Up%20Birthday.ia.mp4"
+        },
+        {
+          "archiveID": "the-beary-family-album@e02",
+          "sourceID": "the-beary-family-album",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Mother's Little Helper",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-beary-family-album/the-beary-family-album.thumbs/The%20Beary%20Family%2002%20-%20Mother%27s%20Little%20Helper_000149.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 382,
+          "videoFile": {
+            "name": "The Beary Family 02 - Mother's Little Helper.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 32444999,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-beary-family-album/The%20Beary%20Family%2002%20-%20Mother%27s%20Little%20Helper.ia.mp4"
+        },
+        {
+          "archiveID": "the-beary-family-album@e03",
+          "sourceID": "the-beary-family-album",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Charlie's Mother-In-Law",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-beary-family-album/the-beary-family-album.thumbs/The%20Beary%20Family%2003%20-%20Charlie%27s%20Mother-In-Law_000192.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 382,
+          "videoFile": {
+            "name": "The Beary Family 03 - Charlie's Mother-In-Law.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 34701558,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-beary-family-album/The%20Beary%20Family%2003%20-%20Charlie%27s%20Mother-In-Law.ia.mp4"
+        },
+        {
+          "archiveID": "the-beary-family-album@e04",
+          "sourceID": "the-beary-family-album",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Goose in the Rough",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-beary-family-album/the-beary-family-album.thumbs/The%20Beary%20Family%2004%20-%20Goose%20in%20the%20Rough_000145.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 362,
+          "videoFile": {
+            "name": "The Beary Family 04 - Goose in the Rough.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 35061853,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-beary-family-album/The%20Beary%20Family%2004%20-%20Goose%20in%20the%20Rough.ia.mp4"
+        },
+        {
+          "archiveID": "the-beary-family-album@e05",
+          "sourceID": "the-beary-family-album",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Goose is Wild",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-beary-family-album/the-beary-family-album.thumbs/The%20Beary%20Family%2005%20-%20Goose%20is%20Wild_000170.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 343,
+          "videoFile": {
+            "name": "The Beary Family 05 - Goose is Wild.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 34157165,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-beary-family-album/The%20Beary%20Family%2005%20-%20Goose%20is%20Wild.ia.mp4"
+        },
+        {
+          "archiveID": "the-beary-family-album@e06",
+          "sourceID": "the-beary-family-album",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Rah Rah Ruckus",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-beary-family-album/the-beary-family-album.thumbs/The%20Beary%20Family%2006%20-%20Rah%20Rah%20Ruckus_000144.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 362,
+          "videoFile": {
+            "name": "The Beary Family 06 - Rah Rah Ruckus.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 87423053,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-beary-family-album/The%20Beary%20Family%2006%20-%20Rah%20Rah%20Ruckus.ia.mp4"
+        },
+        {
+          "archiveID": "the-beary-family-album@e07",
+          "sourceID": "the-beary-family-album",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Roof Top Razzle Dazzle",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-beary-family-album/the-beary-family-album.thumbs/The%20Beary%20Family%2007%20-%20Roof%20Top%20Razzle%20Dazzle_000144.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 366,
+          "videoFile": {
+            "name": "The Beary Family 07 - Roof Top Razzle Dazzle.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 35168420,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-beary-family-album/The%20Beary%20Family%2007%20-%20Roof%20Top%20Razzle%20Dazzle.ia.mp4"
+        },
+        {
+          "archiveID": "the-beary-family-album@e08",
+          "sourceID": "the-beary-family-album",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Guess Who",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-beary-family-album/the-beary-family-album.thumbs/The%20Beary%20Family%2008%20-%20Guess%20Who_000145.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 368,
+          "videoFile": {
+            "name": "The Beary Family 08 - Guess Who.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 34210385,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-beary-family-album/The%20Beary%20Family%2008%20-%20Guess%20Who.ia.mp4"
+        },
+        {
+          "archiveID": "the-beary-family-album@e09",
+          "sourceID": "the-beary-family-album",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Davey Cricket",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-beary-family-album/the-beary-family-album.thumbs/The%20Beary%20Family%2009%20-%20Davey%20Cricket_000181.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 360,
+          "videoFile": {
+            "name": "The Beary Family 09 - Davey Cricket.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 23593766,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-beary-family-album/The%20Beary%20Family%2009%20-%20Davey%20Cricket.ia.mp4"
+        },
+        {
+          "archiveID": "the-beary-family-album@e10",
+          "sourceID": "the-beary-family-album",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Foot Brawl",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-beary-family-album/the-beary-family-album.thumbs/The%20Beary%20Family%2010%20-%20Foot%20Brawl_000150.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 385,
+          "videoFile": {
+            "name": "The Beary Family 10 - Foot Brawl.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 40106156,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-beary-family-album/The%20Beary%20Family%2010%20-%20Foot%20Brawl.mp4"
+        },
+        {
+          "archiveID": "the-beary-family-album@e11",
+          "sourceID": "the-beary-family-album",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Window Pains",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-beary-family-album/the-beary-family-album.thumbs/The%20Beary%20Family%2011%20-%20Window%20Pains_000138.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 347,
+          "videoFile": {
+            "name": "The Beary Family 11 - Window Pains.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 35836277,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-beary-family-album/The%20Beary%20Family%2011%20-%20Window%20Pains.ia.mp4"
+        },
+        {
+          "archiveID": "the-beary-family-album@e12",
+          "sourceID": "the-beary-family-album",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Mouse in the House",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-beary-family-album/the-beary-family-album.thumbs/The%20Beary%20Family%2012%20-%20Mouse%20in%20the%20House_000142.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 363,
+          "videoFile": {
+            "name": "The Beary Family 12 - Mouse in the House.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 76878987,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-beary-family-album/The%20Beary%20Family%2012%20-%20Mouse%20in%20the%20House.ia.mp4"
+        },
+        {
+          "archiveID": "the-beary-family-album@e13",
+          "sourceID": "the-beary-family-album",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Jerky Turkey",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-beary-family-album/the-beary-family-album.thumbs/The%20Beary%20Family%2013%20-%20Jerky%20Turkey_000144.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 365,
+          "videoFile": {
+            "name": "The Beary Family 13 - Jerky Turkey.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 89266661,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-beary-family-album/The%20Beary%20Family%2013%20-%20Jerky%20Turkey.ia.mp4"
+        },
+        {
+          "archiveID": "the-beary-family-album@e14",
+          "sourceID": "the-beary-family-album",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Paste Makes Waste",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-beary-family-album/the-beary-family-album.thumbs/The%20Beary%20Family%2014%20-%20Paste%20Makes%20Waste_000165.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 332,
+          "videoFile": {
+            "name": "The Beary Family 14 - Paste Makes Waste.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 77896181,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-beary-family-album/The%20Beary%20Family%2014%20-%20Paste%20Makes%20Waste.mp4"
+        },
+        {
+          "archiveID": "the-beary-family-album@e15",
+          "sourceID": "the-beary-family-album",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Bugged in the Rug",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-beary-family-album/the-beary-family-album.thumbs/The%20Beary%20Family%2015%20-%20Bugged%20in%20the%20Rug_000172.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 348,
+          "videoFile": {
+            "name": "The Beary Family 15 - Bugged in the Rug.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 34116055,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-beary-family-album/The%20Beary%20Family%2015%20-%20Bugged%20in%20the%20Rug.ia.mp4"
+        },
+        {
+          "archiveID": "the-beary-family-album@e16",
+          "sourceID": "the-beary-family-album",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Gopher Broke",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-beary-family-album/the-beary-family-album.thumbs/The%20Beary%20Family%2016%20-%20Gopher%20Broke_000164.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 333,
+          "videoFile": {
+            "name": "The Beary Family 16 - Gopher Broke.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 97192908,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-beary-family-album/The%20Beary%20Family%2016%20-%20Gopher%20Broke.mp4"
+        },
+        {
+          "archiveID": "the-beary-family-album@e17",
+          "sourceID": "the-beary-family-album",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Charlie's Campout",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-beary-family-album/the-beary-family-album.thumbs/The%20Beary%20Family%2017%20-%20Charlie%27s%20Campout_000134.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 344,
+          "videoFile": {
+            "name": "The Beary Family 17 - Charlie's Campout.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 34286805,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-beary-family-album/The%20Beary%20Family%2017%20-%20Charlie%27s%20Campout.ia.mp4"
+        },
+        {
+          "archiveID": "the-beary-family-album@e18",
+          "sourceID": "the-beary-family-album",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Cool It Charlie",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-beary-family-album/the-beary-family-album.thumbs/The%20Beary%20Family%2018%20-%20Cool%20It%20Charlie_000139.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 347,
+          "videoFile": {
+            "name": "The Beary Family 18 - Cool It Charlie.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 33923022,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-beary-family-album/The%20Beary%20Family%2018%20-%20Cool%20It%20Charlie.ia.mp4"
+        },
+        {
+          "archiveID": "the-beary-family-album@e19",
+          "sourceID": "the-beary-family-album",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Charlie in Hot Water",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-beary-family-album/the-beary-family-album.thumbs/The%20Beary%20Family%2019%20-%20Charlie%20in%20Hot%20Water_000172.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 349,
+          "videoFile": {
+            "name": "The Beary Family 19 - Charlie in Hot Water.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 83164196,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-beary-family-album/The%20Beary%20Family%2019%20-%20Charlie%20in%20Hot%20Water.ia.mp4"
+        },
+        {
+          "archiveID": "the-beary-family-album@e20",
+          "sourceID": "the-beary-family-album",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Charlie's Golf Classic",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-beary-family-album/the-beary-family-album.thumbs/The%20Beary%20Family%2020%20-%20Charlie%27s%20Golf%20Classic_000137.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 347,
+          "videoFile": {
+            "name": "The Beary Family 20 - Charlie's Golf Classic.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 75215922,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-beary-family-album/The%20Beary%20Family%2020%20-%20Charlie%27s%20Golf%20Classic.ia.mp4"
+        },
+        {
+          "archiveID": "the-beary-family-album@e21",
+          "sourceID": "the-beary-family-album",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "The Unhandy Man",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-beary-family-album/the-beary-family-album.thumbs/The%20Beary%20Family%2021%20-%20The%20Unhandy%20Man_000147.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 299,
+          "videoFile": {
+            "name": "The Beary Family 21 - The Unhandy Man.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 73249822,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-beary-family-album/The%20Beary%20Family%2021%20-%20The%20Unhandy%20Man.mp4"
+        },
+        {
+          "archiveID": "the-beary-family-album@e22",
+          "sourceID": "the-beary-family-album",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Charlier the Rainmaker",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-beary-family-album/the-beary-family-album.thumbs/The%20Beary%20Family%2022%20-%20Charlier%20the%20Rainmaker_000135.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 341,
+          "videoFile": {
+            "name": "The Beary Family 22 - Charlier the Rainmaker.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 32856852,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-beary-family-album/The%20Beary%20Family%2022%20-%20Charlier%20the%20Rainmaker.ia.mp4"
+        },
+        {
+          "archiveID": "the-beary-family-album@e23",
+          "sourceID": "the-beary-family-album",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "The Bungling Builder",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-beary-family-album/the-beary-family-album.thumbs/The%20Beary%20Family%2023%20-%20The%20Bungling%20Builder_000164.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 335,
+          "videoFile": {
+            "name": "The Beary Family 23 - The Bungling Builder.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 95747804,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-beary-family-album/The%20Beary%20Family%2023%20-%20The%20Bungling%20Builder.ia.mp4"
+        },
+        {
+          "archiveID": "the-beary-family-album@e24",
+          "sourceID": "the-beary-family-album",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Moochin' Pooch",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-beary-family-album/the-beary-family-album.thumbs/The%20Beary%20Family%2024%20-%20Moochin%27%20Pooch_000132.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 335,
+          "videoFile": {
+            "name": "The Beary Family 24 - Moochin' Pooch.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 32520082,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-beary-family-album/The%20Beary%20Family%2024%20-%20Moochin%27%20Pooch.ia.mp4"
+        },
+        {
+          "archiveID": "the-beary-family-album@e25",
+          "sourceID": "the-beary-family-album",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Let Charlie Do It",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-beary-family-album/the-beary-family-album.thumbs/The%20Beary%20Family%2025%20-%20Let%20Charlie%20Do%20It_000128.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 327,
+          "videoFile": {
+            "name": "The Beary Family 25 - Let Charlie Do It.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 25282690,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-beary-family-album/The%20Beary%20Family%2025%20-%20Let%20Charlie%20Do%20It.ia.mp4"
+        },
+        {
+          "archiveID": "the-beary-family-album@e26",
+          "sourceID": "the-beary-family-album",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "A Fish Story",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-beary-family-album/the-beary-family-album.thumbs/The%20Beary%20Family%2026%20-%20A%20Fish%20Story_000133.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 337,
+          "videoFile": {
+            "name": "The Beary Family 26 - A Fish Story.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 32529230,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-beary-family-album/The%20Beary%20Family%2026%20-%20A%20Fish%20Story.ia.mp4"
+        },
+        {
+          "archiveID": "the-beary-family-album@e27",
+          "sourceID": "the-beary-family-album",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Rain, Rain, Go Away",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-beary-family-album/the-beary-family-album.thumbs/The%20Beary%20Family%2027%20-%20Rain%2C%20Rain%2C%20Go%20Away_000128.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 321,
+          "videoFile": {
+            "name": "The Beary Family 27 - Rain, Rain, Go Away.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 19793654,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-beary-family-album/The%20Beary%20Family%2027%20-%20Rain%2C%20Rain%2C%20Go%20Away.ia.mp4"
+        },
+        {
+          "archiveID": "the-beary-family-album@e28",
+          "sourceID": "the-beary-family-album",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "The Unlucky Potluck",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-beary-family-album/the-beary-family-album.thumbs/The%20Beary%20Family%2028%20-%20The%20Unlucky%20Potluck_000121.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 305,
+          "videoFile": {
+            "name": "The Beary Family 28 - The Unlucky Potluck.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 160338930,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-beary-family-album/The%20Beary%20Family%2028%20-%20The%20Unlucky%20Potluck.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 28,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

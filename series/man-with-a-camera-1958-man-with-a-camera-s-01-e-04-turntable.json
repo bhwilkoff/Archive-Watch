@@ -1,0 +1,586 @@
+{
+  "version": 2,
+  "seriesID": "man-with-a-camera-1958-man-with-a-camera-s-01-e-04-turntable",
+  "sourceID": "man-with-a-camera-s-01-e-04-turntable",
+  "tvmazeID": null,
+  "title": "Man With A Camera 𝕊𝕦𝕓𝕥𝕚𝕥𝕝𝕖𝕕",
+  "yearStart": 1958,
+  "yearEnd": null,
+  "overview": "Man with a Camera is an American television crime drama starring Charles Bronson as a war veteran turned photographer and investigator. It was broadcast on ABC from October 10, 1958, to February 29, 1960.",
+  "posterURL": "https://archive.org/services/img/man-with-a-camera-s-01-e-04-turntable",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Crime"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "man-with-a-camera-s-01-e-04-turntable@s1e01",
+          "sourceID": "man-with-a-camera-s-01-e-04-turntable",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Second Avenue Assassin",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/man-with-a-camera-s-01-e-04-turntable.thumbs/Man%20with%20a%20Camera_S01E01_Second%20Avenue%20Assassin_000763.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1557,
+          "videoFile": {
+            "name": "Man with a Camera_S01E01_Second Avenue Assassin.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 647882290,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/Man%20with%20a%20Camera_S01E01_Second%20Avenue%20Assassin.ia.mp4"
+        },
+        {
+          "archiveID": "man-with-a-camera-s-01-e-04-turntable@s1e02",
+          "sourceID": "man-with-a-camera-s-01-e-04-turntable",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Warning",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/man-with-a-camera-s-01-e-04-turntable.thumbs/Man%20with%20a%20Camera_S01E02_The%20Warning_000763.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1557,
+          "videoFile": {
+            "name": "Man with a Camera_S01E02_The Warning.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 647822769,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/Man%20with%20a%20Camera_S01E02_The%20Warning.ia.mp4"
+        },
+        {
+          "archiveID": "man-with-a-camera-s-01-e-04-turntable@s1e03",
+          "sourceID": "man-with-a-camera-s-01-e-04-turntable",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Profile of a Killer",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/man-with-a-camera-s-01-e-04-turntable.thumbs/Man%20with%20a%20Camera_S01E03_Profile%20of%20a%20Killer_000763.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1558,
+          "videoFile": {
+            "name": "Man with a Camera_S01E03_Profile of a Killer.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 648613468,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/Man%20with%20a%20Camera_S01E03_Profile%20of%20a%20Killer.ia.mp4"
+        },
+        {
+          "archiveID": "man-with-a-camera-s-01-e-04-turntable@s1e04",
+          "sourceID": "man-with-a-camera-s-01-e-04-turntable",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Turntable",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/man-with-a-camera-s-01-e-04-turntable.thumbs/Man%20with%20a%20Camera_S01E04_Turntable_000781.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1594,
+          "videoFile": {
+            "name": "Man with a Camera_S01E04_Turntable.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 663545585,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/Man%20with%20a%20Camera_S01E04_Turntable.ia.mp4"
+        },
+        {
+          "archiveID": "man-with-a-camera-s-01-e-04-turntable@s1e05",
+          "sourceID": "man-with-a-camera-s-01-e-04-turntable",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Close-up On Violence",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/man-with-a-camera-s-01-e-04-turntable.thumbs/Man%20with%20a%20Camera_S01E05_Close-up%20On%20Violence_000761.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1553,
+          "videoFile": {
+            "name": "Man with a Camera_S01E05_Close-up On Violence.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 646293050,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/Man%20with%20a%20Camera_S01E05_Close-up%20On%20Violence.ia.mp4"
+        },
+        {
+          "archiveID": "man-with-a-camera-s-01-e-04-turntable@s1e06",
+          "sourceID": "man-with-a-camera-s-01-e-04-turntable",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Double Negative",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/man-with-a-camera-s-01-e-04-turntable.thumbs/Man%20with%20a%20Camera_S01E06_Double%20Negative_000765.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1562,
+          "videoFile": {
+            "name": "Man with a Camera_S01E06_Double Negative.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 650054697,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/Man%20with%20a%20Camera_S01E06_Double%20Negative.ia.mp4"
+        },
+        {
+          "archiveID": "man-with-a-camera-s-01-e-04-turntable@s1e07",
+          "sourceID": "man-with-a-camera-s-01-e-04-turntable",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Another Barrier",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/man-with-a-camera-s-01-e-04-turntable.thumbs/Man%20with%20a%20Camera_S01E07_Another%20Barrier_000760.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1551,
+          "videoFile": {
+            "name": "Man with a Camera_S01E07_Another Barrier.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 645340422,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/Man%20with%20a%20Camera_S01E07_Another%20Barrier.ia.mp4"
+        },
+        {
+          "archiveID": "man-with-a-camera-s-01-e-04-turntable@s1e08",
+          "sourceID": "man-with-a-camera-s-01-e-04-turntable",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Blind Spot",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/man-with-a-camera-s-01-e-04-turntable.thumbs/Man%20with%20a%20Camera_S01E08_Blind%20Spot_000758.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1548,
+          "videoFile": {
+            "name": "Man with a Camera_S01E08_Blind Spot.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 644247342,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/Man%20with%20a%20Camera_S01E08_Blind%20Spot.ia.mp4"
+        },
+        {
+          "archiveID": "man-with-a-camera-s-01-e-04-turntable@s1e09",
+          "sourceID": "man-with-a-camera-s-01-e-04-turntable",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Two Strings of Pearls",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/man-with-a-camera-s-01-e-04-turntable.thumbs/Man%20with%20a%20Camera_S01E09_Two%20Strings%20of%20Pearls_000759.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1550,
+          "videoFile": {
+            "name": "Man with a Camera_S01E09_Two Strings of Pearls.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 645074951,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/Man%20with%20a%20Camera_S01E09_Two%20Strings%20of%20Pearls.ia.mp4"
+        },
+        {
+          "archiveID": "man-with-a-camera-s-01-e-04-turntable@s1e10",
+          "sourceID": "man-with-a-camera-s-01-e-04-turntable",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Six Faces of Satan",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/man-with-a-camera-s-01-e-04-turntable.thumbs/Man%20with%20a%20Camera_S01E10_Six%20Faces%20of%20Satan_000759.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1549,
+          "videoFile": {
+            "name": "Man with a Camera_S01E10_Six Faces of Satan.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 644800610,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/Man%20with%20a%20Camera_S01E10_Six%20Faces%20of%20Satan.ia.mp4"
+        },
+        {
+          "archiveID": "man-with-a-camera-s-01-e-04-turntable@s1e11",
+          "sourceID": "man-with-a-camera-s-01-e-04-turntable",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Lady on the Loose",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/man-with-a-camera-s-01-e-04-turntable.thumbs/Man%20with%20a%20Camera_S01E11_Lady%20on%20the%20Loose_000778.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1587,
+          "videoFile": {
+            "name": "Man with a Camera_S01E11_Lady on the Loose.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 660231563,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/Man%20with%20a%20Camera_S01E11_Lady%20on%20the%20Loose.ia.mp4"
+        },
+        {
+          "archiveID": "man-with-a-camera-s-01-e-04-turntable@s1e12",
+          "sourceID": "man-with-a-camera-s-01-e-04-turntable",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Last Portrait",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/man-with-a-camera-s-01-e-04-turntable.thumbs/Man%20with%20a%20Camera_S01E12_The%20Last%20Portrait_000757.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1545,
+          "videoFile": {
+            "name": "Man with a Camera_S01E12_The Last Portrait.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 642945594,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/Man%20with%20a%20Camera_S01E12_The%20Last%20Portrait.ia.mp4"
+        },
+        {
+          "archiveID": "man-with-a-camera-s-01-e-04-turntable@s1e13",
+          "sourceID": "man-with-a-camera-s-01-e-04-turntable",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "The Face of Murder",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/man-with-a-camera-s-01-e-04-turntable.thumbs/Man%20with%20a%20Camera_S01E13_The%20Face%20of%20Murder_000778.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1589,
+          "videoFile": {
+            "name": "Man with a Camera_S01E13_The Face of Murder.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 661268226,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/Man%20with%20a%20Camera_S01E13_The%20Face%20of%20Murder.ia.mp4"
+        },
+        {
+          "archiveID": "man-with-a-camera-s-01-e-04-turntable@s1e14",
+          "sourceID": "man-with-a-camera-s-01-e-04-turntable",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Mute Evidence",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/man-with-a-camera-s-01-e-04-turntable.thumbs/Man%20with%20a%20Camera_S01E14_Mute%20Evidence_000758.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1547,
+          "videoFile": {
+            "name": "Man with a Camera_S01E14_Mute Evidence.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 643939144,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/Man%20with%20a%20Camera_S01E14_Mute%20Evidence.ia.mp4"
+        },
+        {
+          "archiveID": "man-with-a-camera-s-01-e-04-turntable@s1e15",
+          "sourceID": "man-with-a-camera-s-01-e-04-turntable",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "The Big Squeeze",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/man-with-a-camera-s-01-e-04-turntable.thumbs/Man%20with%20a%20Camera_S01E15_The%20Big%20Squeeze_000759.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1549,
+          "videoFile": {
+            "name": "Man with a Camera_S01E15_The Big Squeeze.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 644465660,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/Man%20with%20a%20Camera_S01E15_The%20Big%20Squeeze.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "man-with-a-camera-s-01-e-04-turntable@s2e01",
+          "sourceID": "man-with-a-camera-s-01-e-04-turntable",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "The Killer",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/man-with-a-camera-s-01-e-04-turntable.thumbs/Man%20with%20a%20Camera_S02E01_The%20Killer_000760.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1551,
+          "videoFile": {
+            "name": "Man with a Camera_S02E01_The Killer.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 316737963,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/Man%20with%20a%20Camera_S02E01_The%20Killer.ia.mp4"
+        },
+        {
+          "archiveID": "man-with-a-camera-s-01-e-04-turntable@s2e02",
+          "sourceID": "man-with-a-camera-s-01-e-04-turntable",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "Eyewitness",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/man-with-a-camera-s-01-e-04-turntable.thumbs/Man%20with%20a%20Camera_S02E02_Eyewitness_000759.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1550,
+          "videoFile": {
+            "name": "Man with a Camera_S02E02_Eyewitness.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 316297150,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/Man%20with%20a%20Camera_S02E02_Eyewitness.ia.mp4"
+        },
+        {
+          "archiveID": "man-with-a-camera-s-01-e-04-turntable@s2e03",
+          "sourceID": "man-with-a-camera-s-01-e-04-turntable",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "The Man Below",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/man-with-a-camera-s-01-e-04-turntable.thumbs/Man%20with%20a%20Camera_S02E03_The%20Man%20Below_000761.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1554,
+          "videoFile": {
+            "name": "Man with a Camera_S02E03_The Man Below.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 317255495,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/Man%20with%20a%20Camera_S02E03_The%20Man%20Below.ia.mp4"
+        },
+        {
+          "archiveID": "man-with-a-camera-s-01-e-04-turntable@s2e04",
+          "sourceID": "man-with-a-camera-s-01-e-04-turntable",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "Black Light",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/man-with-a-camera-s-01-e-04-turntable.thumbs/Man%20with%20a%20Camera_S02E04_Black%20Light_000760.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1551,
+          "videoFile": {
+            "name": "Man with a Camera_S02E04_Black Light.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 316479988,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/Man%20with%20a%20Camera_S02E04_Black%20Light.ia.mp4"
+        },
+        {
+          "archiveID": "man-with-a-camera-s-01-e-04-turntable@s2e05",
+          "sourceID": "man-with-a-camera-s-01-e-04-turntable",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "The Positive Negative",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/man-with-a-camera-s-01-e-04-turntable.thumbs/Man%20with%20a%20Camera_S02E05_The%20Positive%20Negative_000758.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1548,
+          "videoFile": {
+            "name": "Man with a Camera_S02E05_The Positive Negative.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 315957035,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/Man%20with%20a%20Camera_S02E05_The%20Positive%20Negative.ia.mp4"
+        },
+        {
+          "archiveID": "man-with-a-camera-s-01-e-04-turntable@s2e06",
+          "sourceID": "man-with-a-camera-s-01-e-04-turntable",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Missing",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/man-with-a-camera-s-01-e-04-turntable.thumbs/Man%20with%20a%20Camera_S02E06_Missing_000761.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1554,
+          "videoFile": {
+            "name": "Man with a Camera_S02E06_Missing.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 317139332,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/Man%20with%20a%20Camera_S02E06_Missing.ia.mp4"
+        },
+        {
+          "archiveID": "man-with-a-camera-s-01-e-04-turntable@s2e07",
+          "sourceID": "man-with-a-camera-s-01-e-04-turntable",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "Live Target",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/man-with-a-camera-s-01-e-04-turntable.thumbs/Man%20with%20a%20Camera_S02E07_Live%20Target_000706.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1442,
+          "videoFile": {
+            "name": "Man with a Camera_S02E07_Live Target.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 294402568,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/Man%20with%20a%20Camera_S02E07_Live%20Target.ia.mp4"
+        },
+        {
+          "archiveID": "man-with-a-camera-s-01-e-04-turntable@s2e08",
+          "sourceID": "man-with-a-camera-s-01-e-04-turntable",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "Girl in the Dark",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/man-with-a-camera-s-01-e-04-turntable.thumbs/Man%20with%20a%20Camera_S02E08_Girl%20in%20the%20Dark_000760.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1550,
+          "videoFile": {
+            "name": "Man with a Camera_S02E08_Girl in the Dark.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 316435048,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/Man%20with%20a%20Camera_S02E08_Girl%20in%20the%20Dark.ia.mp4"
+        },
+        {
+          "archiveID": "man-with-a-camera-s-01-e-04-turntable@s2e09",
+          "sourceID": "man-with-a-camera-s-01-e-04-turntable",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "The Bride",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/man-with-a-camera-s-01-e-04-turntable.thumbs/Man%20with%20a%20Camera_S02E09_The%20Bride_000761.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1553,
+          "videoFile": {
+            "name": "Man with a Camera_S02E09_The Bride.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 317072147,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/Man%20with%20a%20Camera_S02E09_The%20Bride.ia.mp4"
+        },
+        {
+          "archiveID": "man-with-a-camera-s-01-e-04-turntable@s2e10",
+          "sourceID": "man-with-a-camera-s-01-e-04-turntable",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "The Picture War",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/man-with-a-camera-s-01-e-04-turntable.thumbs/Man%20with%20a%20Camera_S02E10_The%20Picture%20War_000761.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1552,
+          "videoFile": {
+            "name": "Man with a Camera_S02E10_The Picture War.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 316952222,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/Man%20with%20a%20Camera_S02E10_The%20Picture%20War.ia.mp4"
+        },
+        {
+          "archiveID": "man-with-a-camera-s-01-e-04-turntable@s2e11",
+          "sourceID": "man-with-a-camera-s-01-e-04-turntable",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "Touch Off",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/man-with-a-camera-s-01-e-04-turntable.thumbs/Man%20with%20a%20Camera_S02E11_Touch%20Off_000759.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1548,
+          "videoFile": {
+            "name": "Man with a Camera_S02E11_Touch Off.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 316148303,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/Man%20with%20a%20Camera_S02E11_Touch%20Off.ia.mp4"
+        },
+        {
+          "archiveID": "man-with-a-camera-s-01-e-04-turntable@s2e12",
+          "sourceID": "man-with-a-camera-s-01-e-04-turntable",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "Hot Ice Cream",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/man-with-a-camera-s-01-e-04-turntable.thumbs/Man%20with%20a%20Camera_S02E12_Hot%20Ice%20Cream_000758.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1547,
+          "videoFile": {
+            "name": "Man with a Camera_S02E12_Hot Ice Cream.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 315864321,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/Man%20with%20a%20Camera_S02E12_Hot%20Ice%20Cream.ia.mp4"
+        },
+        {
+          "archiveID": "man-with-a-camera-s-01-e-04-turntable@s2e13",
+          "sourceID": "man-with-a-camera-s-01-e-04-turntable",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "Fragment of a Murder",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/man-with-a-camera-s-01-e-04-turntable.thumbs/Man%20with%20a%20Camera_S02E13_Fragment%20of%20a%20Murder_000759.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1550,
+          "videoFile": {
+            "name": "Man with a Camera_S02E13_Fragment of a Murder.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 316230799,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/Man%20with%20a%20Camera_S02E13_Fragment%20of%20a%20Murder.ia.mp4"
+        },
+        {
+          "archiveID": "man-with-a-camera-s-01-e-04-turntable@s2e14",
+          "sourceID": "man-with-a-camera-s-01-e-04-turntable",
+          "seasonNumber": 2,
+          "episodeNumber": 14,
+          "title": "Kangaroo Court",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/man-with-a-camera-s-01-e-04-turntable.thumbs/Man%20with%20a%20Camera_S02E14_Kangaroo%20Court_000758.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1547,
+          "videoFile": {
+            "name": "Man with a Camera_S02E14_Kangaroo Court.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 315965640,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-with-a-camera-s-01-e-04-turntable/Man%20with%20a%20Camera_S02E14_Kangaroo%20Court.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 29,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

@@ -1,0 +1,314 @@
+{
+  "version": 2,
+  "seriesID": "popeye-1933",
+  "sourceID": "popeye-1933-disctwo",
+  "tvmazeID": null,
+  "title": "Popeye",
+  "yearStart": 1933,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/download/archivewatch-covers/popeye-1933-disctwo.5b4ac99a.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Animation"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "popeye-1933-disctwo@e16",
+          "sourceID": "popeye-1933-disctwo",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "The Two-Alarm Fire",
+          "overview": null,
+          "stillURL": "https://archive.org/download/popeye-1933-disctwo/popeye-1933-disctwo.thumbs/Episode%2016%20-%20The%20Two-Alarm%20Fire_000147.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 403,
+          "videoFile": {
+            "name": "Episode 16 - The Two-Alarm Fire.mp4",
+            "format": "h.264",
+            "sizeBytes": 38202723,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/popeye-1933-disctwo/Episode%2016%20-%20The%20Two-Alarm%20Fire.mp4"
+        },
+        {
+          "archiveID": "popeye-1933-disctwo@e17",
+          "sourceID": "popeye-1933-disctwo",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "The Dance Contest",
+          "overview": null,
+          "stillURL": "https://archive.org/download/popeye-1933-disctwo/popeye-1933-disctwo.thumbs/Episode%2017%20-%20The%20Dance%20Contest_000147.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 413,
+          "videoFile": {
+            "name": "Episode 17 - The Dance Contest.mp4",
+            "format": "h.264",
+            "sizeBytes": 39661357,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/popeye-1933-disctwo/Episode%2017%20-%20The%20Dance%20Contest.mp4"
+        },
+        {
+          "archiveID": "popeye-1933-disctwo@e18",
+          "sourceID": "popeye-1933-disctwo",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "We Aim To Please",
+          "overview": null,
+          "stillURL": "https://archive.org/download/popeye-1933-disctwo/popeye-1933-disctwo.thumbs/Episode%2018%20-%20We%20Aim%20To%20Please_000147.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 403,
+          "videoFile": {
+            "name": "Episode 18 - We Aim To Please.mp4",
+            "format": "h.264",
+            "sizeBytes": 38760066,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/popeye-1933-disctwo/Episode%2018%20-%20We%20Aim%20To%20Please.mp4"
+        },
+        {
+          "archiveID": "popeye-1933-disctwo@e19",
+          "sourceID": "popeye-1933-disctwo",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Beware Of Barnacle Bill",
+          "overview": null,
+          "stillURL": "https://archive.org/download/popeye-1933-disctwo/popeye-1933-disctwo.thumbs/Episode%2019%20-%20Beware%20Of%20Barnacle%20Bill_000147.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 393,
+          "videoFile": {
+            "name": "Episode 19 - Beware Of Barnacle Bill.mp4",
+            "format": "h.264",
+            "sizeBytes": 37602626,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/popeye-1933-disctwo/Episode%2019%20-%20Beware%20Of%20Barnacle%20Bill.mp4"
+        },
+        {
+          "archiveID": "popeye-1933-disctwo@e20",
+          "sourceID": "popeye-1933-disctwo",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Be Kind To 'Aminals'",
+          "overview": null,
+          "stillURL": "https://archive.org/download/popeye-1933-disctwo/popeye-1933-disctwo.thumbs/Episode%2020%20-%20Be%20Kind%20To%20%27Aminals%27_000117.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 337,
+          "videoFile": {
+            "name": "Episode 20 - Be Kind To 'Aminals'.mp4",
+            "format": "h.264",
+            "sizeBytes": 32324731,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/popeye-1933-disctwo/Episode%2020%20-%20Be%20Kind%20To%20%27Aminals%27.mp4"
+        },
+        {
+          "archiveID": "popeye-1933-disctwo@e21",
+          "sourceID": "popeye-1933-disctwo",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Pleased To Meet Cha!",
+          "overview": null,
+          "stillURL": "https://archive.org/download/popeye-1933-disctwo/popeye-1933-disctwo.thumbs/Episode%2021%20-%20Pleased%20To%20Meet%20Cha%21_000147.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 400,
+          "videoFile": {
+            "name": "Episode 21 - Pleased To Meet Cha!.mp4",
+            "format": "h.264",
+            "sizeBytes": 38614329,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/popeye-1933-disctwo/Episode%2021%20-%20Pleased%20To%20Meet%20Cha%21.mp4"
+        },
+        {
+          "archiveID": "popeye-1933-disctwo@e22",
+          "sourceID": "popeye-1933-disctwo",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "The Hyp-Nut-Tist",
+          "overview": null,
+          "stillURL": "https://archive.org/download/popeye-1933-disctwo/popeye-1933-disctwo.thumbs/Episode%2022%20-The%20Hyp-Nut-Tist_000147.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 402,
+          "videoFile": {
+            "name": "Episode 22 -The Hyp-Nut-Tist.mp4",
+            "format": "h.264",
+            "sizeBytes": 38444161,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/popeye-1933-disctwo/Episode%2022%20-The%20Hyp-Nut-Tist.mp4"
+        },
+        {
+          "archiveID": "popeye-1933-disctwo@e23",
+          "sourceID": "popeye-1933-disctwo",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Choose Yer Weppins",
+          "overview": null,
+          "stillURL": "https://archive.org/download/popeye-1933-disctwo/popeye-1933-disctwo.thumbs/Episode%2023%20-%20Choose%20Yer%20Weppins_000147.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 370,
+          "videoFile": {
+            "name": "Episode 23 - Choose Yer Weppins.mp4",
+            "format": "h.264",
+            "sizeBytes": 35444677,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/popeye-1933-disctwo/Episode%2023%20-%20Choose%20Yer%20Weppins.mp4"
+        },
+        {
+          "archiveID": "popeye-1933-disctwo@e24",
+          "sourceID": "popeye-1933-disctwo",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "For Better Or Worse",
+          "overview": null,
+          "stillURL": "https://archive.org/download/popeye-1933-disctwo/popeye-1933-disctwo.thumbs/Episode%2024%20-%20For%20Better%20Or%20Worse_000177.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 468,
+          "videoFile": {
+            "name": "Episode 24 - For Better Or Worse.mp4",
+            "format": "h.264",
+            "sizeBytes": 44748885,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/popeye-1933-disctwo/Episode%2024%20-%20For%20Better%20Or%20Worse.mp4"
+        },
+        {
+          "archiveID": "popeye-1933-disctwo@e25",
+          "sourceID": "popeye-1933-disctwo",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Dizzy Divers",
+          "overview": null,
+          "stillURL": "https://archive.org/download/popeye-1933-disctwo/popeye-1933-disctwo.thumbs/Episode%2025%20-%20Dizzy%20Divers_000177.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 462,
+          "videoFile": {
+            "name": "Episode 25 - Dizzy Divers.mp4",
+            "format": "h.264",
+            "sizeBytes": 44530240,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/popeye-1933-disctwo/Episode%2025%20-%20Dizzy%20Divers.mp4"
+        },
+        {
+          "archiveID": "popeye-1933-disctwo@e26",
+          "sourceID": "popeye-1933-disctwo",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "You Gotta Be A Football Hero",
+          "overview": null,
+          "stillURL": "https://archive.org/download/popeye-1933-disctwo/popeye-1933-disctwo.thumbs/Episode%2026%20-%20You%20Gotta%20Be%20A%20Football%20Hero_000147.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 367,
+          "videoFile": {
+            "name": "Episode 26 - You Gotta Be A Football Hero.mp4",
+            "format": "h.264",
+            "sizeBytes": 34773340,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/popeye-1933-disctwo/Episode%2026%20-%20You%20Gotta%20Be%20A%20Football%20Hero.mp4"
+        },
+        {
+          "archiveID": "popeye-1933-disctwo@e27",
+          "sourceID": "popeye-1933-disctwo",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "King Of The Mardi Gras",
+          "overview": null,
+          "stillURL": "https://archive.org/download/popeye-1933-disctwo/popeye-1933-disctwo.thumbs/Episode%2027%20-%20King%20Of%20The%20Mardi%20Gras_000177.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 497,
+          "videoFile": {
+            "name": "Episode 27 - King Of The Mardi Gras.mp4",
+            "format": "h.264",
+            "sizeBytes": 47700273,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/popeye-1933-disctwo/Episode%2027%20-%20King%20Of%20The%20Mardi%20Gras.mp4"
+        },
+        {
+          "archiveID": "popeye-1933-disctwo@e28",
+          "sourceID": "popeye-1933-disctwo",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "Adventures Of Popeye",
+          "overview": null,
+          "stillURL": "https://archive.org/download/popeye-1933-disctwo/popeye-1933-disctwo.thumbs/Episode%2028%20-%20Adventures%20Of%20Popeye_000177.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 475,
+          "videoFile": {
+            "name": "Episode 28 - Adventures Of Popeye.mp4",
+            "format": "h.264",
+            "sizeBytes": 45648296,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/popeye-1933-disctwo/Episode%2028%20-%20Adventures%20Of%20Popeye.mp4"
+        },
+        {
+          "archiveID": "popeye-1933-disctwo@e29",
+          "sourceID": "popeye-1933-disctwo",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "The Spinach Overture",
+          "overview": null,
+          "stillURL": "https://archive.org/download/popeye-1933-disctwo/popeye-1933-disctwo.thumbs/Episode%2029%20-%20The%20Spinach%20Overture_000177.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 484,
+          "videoFile": {
+            "name": "Episode 29 - The Spinach Overture.mp4",
+            "format": "h.264",
+            "sizeBytes": 46639009,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/popeye-1933-disctwo/Episode%2029%20-%20The%20Spinach%20Overture.mp4"
+        },
+        {
+          "archiveID": "popeye-1933-disctwo@e30",
+          "sourceID": "popeye-1933-disctwo",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "Vim, Vigor and Vitaliky",
+          "overview": null,
+          "stillURL": "https://archive.org/download/popeye-1933-disctwo/popeye-1933-disctwo.thumbs/Episode%2030%20-%20Vim%2C%20Vigor%20and%20Vitaliky_000147.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 397,
+          "videoFile": {
+            "name": "Episode 30 - Vim, Vigor and Vitaliky.mp4",
+            "format": "h.264",
+            "sizeBytes": 38213555,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/popeye-1933-disctwo/Episode%2030%20-%20Vim%2C%20Vigor%20and%20Vitaliky.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 15,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

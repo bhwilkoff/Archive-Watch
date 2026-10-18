@@ -26,7 +26,8 @@ struct StockShot: Identifiable, Hashable, Sendable {
     /// The archive.org item thumbnail — always present, one cached request per film, fast. Used as
     /// the stock card image (the per-frame strip fetch was slow + frequently failed → gray cards).
     var thumbURL: URL? {
-        let id = archiveID.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? archiveID
+        let item = Catalog.archiveItemID(archiveID)
+        let id = item.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? item
         return URL(string: "https://archive.org/services/img/\(id)")
     }
 

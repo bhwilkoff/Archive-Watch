@@ -671,14 +671,20 @@ def gather_raw_targets(titles_filter):
     series + misclassified singles + episode-marked orphans — before canonical
     resolution."""
     targets = []
+    bundled = set()
     for f in sorted(SERIES_DIR.glob("*.json")):
         d = json.loads(f.read_text())
+        if d.get("sourceID"):
+            bundled.add(d["sourceID"])
+            continue   # a bundle spine is built from its item's files (Decision 166)
         # ref = the existing on-disk slug, so the reconcile step can delete
         # superseded files once their content is folded into a canonical one.
         targets.append((d.get("title"), d.get("yearStart"),
                         collect_our_episodes_from_series(d), "series", f.stem))
     cat = json.loads(FULL_CATALOG.read_text())
     for it in cat["items"]:
+        if it.get("archiveID") in bundled:
+            continue
         # A catalog item the rights audit HID must not be re-served through a
         # spine. Only the orphan branch below carried this check, so an
         # excluded tv-series single walked straight back in — "the gate said

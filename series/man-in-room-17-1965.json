@@ -1,0 +1,554 @@
+{
+  "version": 2,
+  "seriesID": "man-in-room-17-1965",
+  "sourceID": "man-in-room-17-complete-series-1965",
+  "tvmazeID": null,
+  "title": "Man In Room 17",
+  "yearStart": 1965,
+  "yearEnd": null,
+  "overview": "The Man in Room 17 is a British television series which ran for two series in the mid-1960s, then a follow up series The Fellows (Late of Room 17), produced by Granada Television. Key to the series' success was the involvement of writer/producer Robin Chapman. The main characters were \"high-IQ\" sleuths investigating espionage cases and similarly complex cases. The show was set in Room 17 of the Department of Social Research, where former wartime agent-turned-criminologist Edwin Oldenshaw ( Richard Vernon ) solved difficult police cases through theory and discussions with his assistant (originally Ian Dimmock ( Michael Aldridge ), later succeeded by Imlac Defraits ( Denholm Elliott ), owing to Aldridge becoming ill). (The characters of Dimmock and Defraits may have been given the same initials to continue a play on words. Oldenshaw was sometimes identified as Edwin G. Oldenshaw. In the last episode, Oldenshaw and Defraits are in a park, feeding waterfowl, and the camera zooms in on their briefcases, bearing their initials: E.G.O. and I.D.). The novelty of the series was that Oldenshaw and his colleagues never needed to leave their office in order to resolve cases, preferring to spend their time playing the board game of Go. They simply provided their prognosis and left the police to do the cleaning up. Different directors were often appointed to film the Room 17 and outside-world scenes independently, to maintain a sense of distance between the two worlds. The rarefied nature of Oldenshaw's work was amplified in 1967 when he returned, re-united with Dimmock, in a new series, The Fellows (Late of Room 17) . This series saw the pair relocated to All Saints College, Cambridge University, where they were appointed to the Peel Research Fellowship. Their research was (as it is stated in the series) \"to investigate the general proposition that, in a period of rapid social change, the nature of crime (and therefore criminals) would change\". Their research led them into encounters (though never physical) with gangland boss Alec Spindoe ( Ray McAnally ), who eventually ended up behind bars thanks, unknown to Spindoe, to psychological pressure from Oldenshaw. The Spindoe character was to return in his own series, Spindoe in 1968, which charted his attempts to regain his criminal empire after release from prison. An episode of The Man in Room 17 - the series 2 opener 'How to Rob a Bank - And Get Away with it' was released on DVD in 2007 as a bonus feature for the complete series box set of Randall and Hopkirk (Deceased) . The episode featured a guest role for R&H(D) star Mike Pratt. A solitary episode of The Fellows was released on DVD in 2007 as part of a set from Network DVD dedicated to the work of Robin Chapman and featuring Spindoe and his later gangster series Big Breadwinner Hog. The first series of The Man in Room 17 was released on DVD in the United Kingdom on 17 June 2013. The second series was released on 3 March 2014. The Fellows (late of Room 17) was released on 1 July 2013.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/man-in-room-17-complete-series-1965.64e3a841.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Mystery",
+    "Drama",
+    "Crime"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "man-in-room-17-complete-series-1965@s1e01",
+          "sourceID": "man-in-room-17-complete-series-1965",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Tell the Truth",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-in-room-17-complete-series-1965/man-in-room-17-complete-series-1965.thumbs/Man%20in%20Room%2017%20S01E01%20Tell%20the%20Truth_001273.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 2842,
+          "videoFile": {
+            "name": "Man in Room 17 S01E01 Tell the Truth.mp4",
+            "format": "h.264",
+            "sizeBytes": 270190468,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-in-room-17-complete-series-1965/Man%20in%20Room%2017%20S01E01%20Tell%20the%20Truth.mp4"
+        },
+        {
+          "archiveID": "man-in-room-17-complete-series-1965@s1e02",
+          "sourceID": "man-in-room-17-complete-series-1965",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Hello Lazarus",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-in-room-17-complete-series-1965/man-in-room-17-complete-series-1965.thumbs/Man%20in%20Room%2017%20S01E02%20Hello%20Lazarus_001274.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 2857,
+          "videoFile": {
+            "name": "Man in Room 17 S01E02 Hello Lazarus.mp4",
+            "format": "h.264",
+            "sizeBytes": 271870835,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-in-room-17-complete-series-1965/Man%20in%20Room%2017%20S01E02%20Hello%20Lazarus.mp4"
+        },
+        {
+          "archiveID": "man-in-room-17-complete-series-1965@s1e03",
+          "sourceID": "man-in-room-17-complete-series-1965",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Years of Glory",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-in-room-17-complete-series-1965/man-in-room-17-complete-series-1965.thumbs/Man%20in%20Room%2017%20S01E03%20The%20Years%20of%20Glory_001229.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 2741,
+          "videoFile": {
+            "name": "Man in Room 17 S01E03 The Years of Glory.mp4",
+            "format": "h.264",
+            "sizeBytes": 260840640,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-in-room-17-complete-series-1965/Man%20in%20Room%2017%20S01E03%20The%20Years%20of%20Glory.mp4"
+        },
+        {
+          "archiveID": "man-in-room-17-complete-series-1965@s1e04",
+          "sourceID": "man-in-room-17-complete-series-1965",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Confidential Report",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-in-room-17-complete-series-1965/man-in-room-17-complete-series-1965.thumbs/Man%20in%20Room%2017%20S01E04%20Confidential%20Report_001238.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 2767,
+          "videoFile": {
+            "name": "Man in Room 17 S01E04 Confidential Report.mp4",
+            "format": "h.264",
+            "sizeBytes": 263153358,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-in-room-17-complete-series-1965/Man%20in%20Room%2017%20S01E04%20Confidential%20Report.mp4"
+        },
+        {
+          "archiveID": "man-in-room-17-complete-series-1965@s1e05",
+          "sourceID": "man-in-room-17-complete-series-1965",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Millions of Mazafariyah",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-in-room-17-complete-series-1965/man-in-room-17-complete-series-1965.thumbs/Man%20in%20Room%2017%20S01E05%20The%20Millions%20of%20Mazafariyah_001221.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 2741,
+          "videoFile": {
+            "name": "Man in Room 17 S01E05 The Millions of Mazafariyah.mp4",
+            "format": "h.264",
+            "sizeBytes": 260199708,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-in-room-17-complete-series-1965/Man%20in%20Room%2017%20S01E05%20The%20Millions%20of%20Mazafariyah.mp4"
+        },
+        {
+          "archiveID": "man-in-room-17-complete-series-1965@s1e06",
+          "sourceID": "man-in-room-17-complete-series-1965",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Seat of Power",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-in-room-17-complete-series-1965/man-in-room-17-complete-series-1965.thumbs/Man%20in%20Room%2017%20S01E06%20The%20Seat%20of%20Power_001223.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 2738,
+          "videoFile": {
+            "name": "Man in Room 17 S01E06 The Seat of Power.mp4",
+            "format": "h.264",
+            "sizeBytes": 260520013,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-in-room-17-complete-series-1965/Man%20in%20Room%2017%20S01E06%20The%20Seat%20of%20Power.mp4"
+        },
+        {
+          "archiveID": "man-in-room-17-complete-series-1965@s1e07",
+          "sourceID": "man-in-room-17-complete-series-1965",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Safe Conduct",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-in-room-17-complete-series-1965/man-in-room-17-complete-series-1965.thumbs/Man%20in%20Room%2017%20S01E07%20Safe%20Conduct_001197.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 2682,
+          "videoFile": {
+            "name": "Man in Room 17 S01E07 Safe Conduct.mp4",
+            "format": "h.264",
+            "sizeBytes": 254741068,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-in-room-17-complete-series-1965/Man%20in%20Room%2017%20S01E07%20Safe%20Conduct.mp4"
+        },
+        {
+          "archiveID": "man-in-room-17-complete-series-1965@s1e08",
+          "sourceID": "man-in-room-17-complete-series-1965",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "A Minor Operation",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-in-room-17-complete-series-1965/man-in-room-17-complete-series-1965.thumbs/Man%20in%20Room%2017%20S01E08%20A%20Minor%20Operation_001242.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 2782,
+          "videoFile": {
+            "name": "Man in Room 17 S01E08 A Minor Operation.mp4",
+            "format": "h.264",
+            "sizeBytes": 263980490,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-in-room-17-complete-series-1965/Man%20in%20Room%2017%20S01E08%20A%20Minor%20Operation.mp4"
+        },
+        {
+          "archiveID": "man-in-room-17-complete-series-1965@s1e09",
+          "sourceID": "man-in-room-17-complete-series-1965",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Find the Lady",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-in-room-17-complete-series-1965/man-in-room-17-complete-series-1965.thumbs/Man%20in%20Room%2017%20S01E09%20Find%20the%20Lady_001217.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 2724,
+          "videoFile": {
+            "name": "Man in Room 17 S01E09 Find the Lady.mp4",
+            "format": "h.264",
+            "sizeBytes": 258314787,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-in-room-17-complete-series-1965/Man%20in%20Room%2017%20S01E09%20Find%20the%20Lady.mp4"
+        },
+        {
+          "archiveID": "man-in-room-17-complete-series-1965@s1e10",
+          "sourceID": "man-in-room-17-complete-series-1965",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Bequest",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-in-room-17-complete-series-1965/man-in-room-17-complete-series-1965.thumbs/Man%20in%20Room%2017%20S01E10%20The%20Bequest_001265.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 2832,
+          "videoFile": {
+            "name": "Man in Room 17 S01E10 The Bequest.mp4",
+            "format": "h.264",
+            "sizeBytes": 268772847,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-in-room-17-complete-series-1965/Man%20in%20Room%2017%20S01E10%20The%20Bequest.mp4"
+        },
+        {
+          "archiveID": "man-in-room-17-complete-series-1965@s1e11",
+          "sourceID": "man-in-room-17-complete-series-1965",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Up Against A Brick Wall",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-in-room-17-complete-series-1965/man-in-room-17-complete-series-1965.thumbs/Man%20in%20Room%2017%20S01E11%20Up%20Against%20A%20Brick%20Wall_001214.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 2725,
+          "videoFile": {
+            "name": "Man in Room 17 S01E11 Up Against A Brick Wall.mp4",
+            "format": "h.264",
+            "sizeBytes": 258718473,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-in-room-17-complete-series-1965/Man%20in%20Room%2017%20S01E11%20Up%20Against%20A%20Brick%20Wall.mp4"
+        },
+        {
+          "archiveID": "man-in-room-17-complete-series-1965@s1e12",
+          "sourceID": "man-in-room-17-complete-series-1965",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Out for a Duck",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-in-room-17-complete-series-1965/man-in-room-17-complete-series-1965.thumbs/Man%20in%20Room%2017%20S01E12%20Out%20for%20a%20Duck_001234.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 2758,
+          "videoFile": {
+            "name": "Man in Room 17 S01E12 Out for a Duck.mp4",
+            "format": "h.264",
+            "sizeBytes": 262085443,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-in-room-17-complete-series-1965/Man%20in%20Room%2017%20S01E12%20Out%20for%20a%20Duck.mp4"
+        },
+        {
+          "archiveID": "man-in-room-17-complete-series-1965@s1e13",
+          "sourceID": "man-in-room-17-complete-series-1965",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Black Anniversary",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-in-room-17-complete-series-1965/man-in-room-17-complete-series-1965.thumbs/Man%20in%20Room%2017%20S01E13%20Black%20Anniversary_001277.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 2850,
+          "videoFile": {
+            "name": "Man in Room 17 S01E13 Black Anniversary.mp4",
+            "format": "h.264",
+            "sizeBytes": 270806513,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-in-room-17-complete-series-1965/Man%20in%20Room%2017%20S01E13%20Black%20Anniversary.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "man-in-room-17-complete-series-1965@s2e01",
+          "sourceID": "man-in-room-17-complete-series-1965",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "How to Rob a Bank - and Get Away with It",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-in-room-17-complete-series-1965/man-in-room-17-complete-series-1965.thumbs/Man%20in%20Room%2017%20S02E01%20-%20How%20to%20Rob%20a%20Bank%20-%20and%20Get%20Away%20with%20It_001276.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 2857,
+          "videoFile": {
+            "name": "Man in Room 17 S02E01 - How to Rob a Bank - and Get Away with It.mp4",
+            "format": "h.264",
+            "sizeBytes": 270642614,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-in-room-17-complete-series-1965/Man%20in%20Room%2017%20S02E01%20-%20How%20to%20Rob%20a%20Bank%20-%20and%20Get%20Away%20with%20It.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "man-in-room-17-complete-series-1965@s3e01",
+          "sourceID": "man-in-room-17-complete-series-1965",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "Episode 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-in-room-17-complete-series-1965/man-in-room-17-complete-series-1965.thumbs/Man%20in%20Room%2017%20S03E01_001236.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 2763,
+          "videoFile": {
+            "name": "Man in Room 17 S03E01.mp4",
+            "format": "h.264",
+            "sizeBytes": 259909062,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-in-room-17-complete-series-1965/Man%20in%20Room%2017%20S03E01.mp4"
+        },
+        {
+          "archiveID": "man-in-room-17-complete-series-1965@s3e02",
+          "sourceID": "man-in-room-17-complete-series-1965",
+          "seasonNumber": 3,
+          "episodeNumber": 2,
+          "title": "Episode 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-in-room-17-complete-series-1965/man-in-room-17-complete-series-1965.thumbs/Man%20in%20Room%2017%20S03E02_001159.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 2602,
+          "videoFile": {
+            "name": "Man in Room 17 S03E02.mp4",
+            "format": "h.264",
+            "sizeBytes": 245085121,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-in-room-17-complete-series-1965/Man%20in%20Room%2017%20S03E02.mp4"
+        },
+        {
+          "archiveID": "man-in-room-17-complete-series-1965@s3e03",
+          "sourceID": "man-in-room-17-complete-series-1965",
+          "seasonNumber": 3,
+          "episodeNumber": 3,
+          "title": "Episode 3",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-in-room-17-complete-series-1965/man-in-room-17-complete-series-1965.thumbs/Man%20in%20Room%2017%20S03E03_001191.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 2669,
+          "videoFile": {
+            "name": "Man in Room 17 S03E03.mp4",
+            "format": "h.264",
+            "sizeBytes": 251022313,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-in-room-17-complete-series-1965/Man%20in%20Room%2017%20S03E03.mp4"
+        },
+        {
+          "archiveID": "man-in-room-17-complete-series-1965@s3e04",
+          "sourceID": "man-in-room-17-complete-series-1965",
+          "seasonNumber": 3,
+          "episodeNumber": 4,
+          "title": "Episode 4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-in-room-17-complete-series-1965/man-in-room-17-complete-series-1965.thumbs/Man%20in%20Room%2017%20S03E04_001197.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 2676,
+          "videoFile": {
+            "name": "Man in Room 17 S03E04.mp4",
+            "format": "h.264",
+            "sizeBytes": 252458978,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-in-room-17-complete-series-1965/Man%20in%20Room%2017%20S03E04.mp4"
+        },
+        {
+          "archiveID": "man-in-room-17-complete-series-1965@s3e05",
+          "sourceID": "man-in-room-17-complete-series-1965",
+          "seasonNumber": 3,
+          "episodeNumber": 5,
+          "title": "Episode 5",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-in-room-17-complete-series-1965/man-in-room-17-complete-series-1965.thumbs/Man%20in%20Room%2017%20S03E05_001246.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 2790,
+          "videoFile": {
+            "name": "Man in Room 17 S03E05.mp4",
+            "format": "h.264",
+            "sizeBytes": 262895385,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-in-room-17-complete-series-1965/Man%20in%20Room%2017%20S03E05.mp4"
+        },
+        {
+          "archiveID": "man-in-room-17-complete-series-1965@s3e06",
+          "sourceID": "man-in-room-17-complete-series-1965",
+          "seasonNumber": 3,
+          "episodeNumber": 6,
+          "title": "Episode 6",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-in-room-17-complete-series-1965/man-in-room-17-complete-series-1965.thumbs/Man%20in%20Room%2017%20S03E06_001205.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 2696,
+          "videoFile": {
+            "name": "Man in Room 17 S03E06.mp4",
+            "format": "h.264",
+            "sizeBytes": 254075283,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-in-room-17-complete-series-1965/Man%20in%20Room%2017%20S03E06.mp4"
+        },
+        {
+          "archiveID": "man-in-room-17-complete-series-1965@s3e07",
+          "sourceID": "man-in-room-17-complete-series-1965",
+          "seasonNumber": 3,
+          "episodeNumber": 7,
+          "title": "Episode 7",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-in-room-17-complete-series-1965/man-in-room-17-complete-series-1965.thumbs/Man%20in%20Room%2017%20S03E07_001175.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 2639,
+          "videoFile": {
+            "name": "Man in Room 17 S03E07.mp4",
+            "format": "h.264",
+            "sizeBytes": 248681913,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-in-room-17-complete-series-1965/Man%20in%20Room%2017%20S03E07.mp4"
+        },
+        {
+          "archiveID": "man-in-room-17-complete-series-1965@s3e08",
+          "sourceID": "man-in-room-17-complete-series-1965",
+          "seasonNumber": 3,
+          "episodeNumber": 8,
+          "title": "Episode 8",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-in-room-17-complete-series-1965/man-in-room-17-complete-series-1965.thumbs/Man%20in%20Room%2017%20S03E08_001202.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 2681,
+          "videoFile": {
+            "name": "Man in Room 17 S03E08.mp4",
+            "format": "h.264",
+            "sizeBytes": 252869946,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-in-room-17-complete-series-1965/Man%20in%20Room%2017%20S03E08.mp4"
+        },
+        {
+          "archiveID": "man-in-room-17-complete-series-1965@s3e09",
+          "sourceID": "man-in-room-17-complete-series-1965",
+          "seasonNumber": 3,
+          "episodeNumber": 9,
+          "title": "Episode 9",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-in-room-17-complete-series-1965/man-in-room-17-complete-series-1965.thumbs/Man%20in%20Room%2017%20S03E09_001255.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 2812,
+          "videoFile": {
+            "name": "Man in Room 17 S03E09.mp4",
+            "format": "h.264",
+            "sizeBytes": 266085189,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-in-room-17-complete-series-1965/Man%20in%20Room%2017%20S03E09.mp4"
+        },
+        {
+          "archiveID": "man-in-room-17-complete-series-1965@s3e10",
+          "sourceID": "man-in-room-17-complete-series-1965",
+          "seasonNumber": 3,
+          "episodeNumber": 10,
+          "title": "Episode 10",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-in-room-17-complete-series-1965/man-in-room-17-complete-series-1965.thumbs/Man%20in%20Room%2017%20S03E10_001277.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 2855,
+          "videoFile": {
+            "name": "Man in Room 17 S03E10.mp4",
+            "format": "h.264",
+            "sizeBytes": 269548238,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-in-room-17-complete-series-1965/Man%20in%20Room%2017%20S03E10.mp4"
+        },
+        {
+          "archiveID": "man-in-room-17-complete-series-1965@s3e11",
+          "sourceID": "man-in-room-17-complete-series-1965",
+          "seasonNumber": 3,
+          "episodeNumber": 11,
+          "title": "Episode 11",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-in-room-17-complete-series-1965/man-in-room-17-complete-series-1965.thumbs/Man%20in%20Room%2017%20S03E11_001343.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 3004,
+          "videoFile": {
+            "name": "Man in Room 17 S03E11.mp4",
+            "format": "h.264",
+            "sizeBytes": 284115766,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-in-room-17-complete-series-1965/Man%20in%20Room%2017%20S03E11.mp4"
+        },
+        {
+          "archiveID": "man-in-room-17-complete-series-1965@s3e12",
+          "sourceID": "man-in-room-17-complete-series-1965",
+          "seasonNumber": 3,
+          "episodeNumber": 12,
+          "title": "Episode 12",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-in-room-17-complete-series-1965/man-in-room-17-complete-series-1965.thumbs/Man%20in%20Room%2017%20S03E12_001209.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 2696,
+          "videoFile": {
+            "name": "Man in Room 17 S03E12.mp4",
+            "format": "h.264",
+            "sizeBytes": 254272378,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-in-room-17-complete-series-1965/Man%20in%20Room%2017%20S03E12.mp4"
+        },
+        {
+          "archiveID": "man-in-room-17-complete-series-1965@s3e13",
+          "sourceID": "man-in-room-17-complete-series-1965",
+          "seasonNumber": 3,
+          "episodeNumber": 13,
+          "title": "Episode 13",
+          "overview": null,
+          "stillURL": "https://archive.org/download/man-in-room-17-complete-series-1965/man-in-room-17-complete-series-1965.thumbs/Man%20in%20Room%2017%20S03E13_001401.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 3140,
+          "videoFile": {
+            "name": "Man in Room 17 S03E13.mp4",
+            "format": "h.264",
+            "sizeBytes": 295719457,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/man-in-room-17-complete-series-1965/Man%20in%20Room%2017%20S03E13.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 27,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

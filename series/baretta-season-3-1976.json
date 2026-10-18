@@ -1,0 +1,105 @@
+{
+  "version": 2,
+  "seriesID": "baretta-season-3-1976",
+  "sourceID": "BarettaS3",
+  "tvmazeID": null,
+  "title": "Baretta Season 3;",
+  "yearStart": 1976,
+  "yearEnd": null,
+  "overview": "Episodes 5 to 8 of the third season of Baretta, the 1975–78 ABC detective series with Robert Blake as an undercover cop with a pet cockatoo.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/BarettaS3.35cccfdf.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Crime"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "BarettaS3@s3e05",
+          "sourceID": "BarettaS3",
+          "seasonNumber": 3,
+          "episodeNumber": 5,
+          "title": "Episode 5",
+          "overview": null,
+          "stillURL": "https://archive.org/download/BarettaS3/BarettaS3.thumbs/S3E5_000956.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 2725,
+          "videoFile": {
+            "name": "S3E5.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 232667579,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/BarettaS3/S3E5.mp4"
+        },
+        {
+          "archiveID": "BarettaS3@s3e06",
+          "sourceID": "BarettaS3",
+          "seasonNumber": 3,
+          "episodeNumber": 6,
+          "title": "Episode 6",
+          "overview": null,
+          "stillURL": "https://archive.org/download/BarettaS3/BarettaS3.thumbs/S3E6_000956.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 2722,
+          "videoFile": {
+            "name": "S3E6.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 211479557,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/BarettaS3/S3E6.mp4"
+        },
+        {
+          "archiveID": "BarettaS3@s3e07",
+          "sourceID": "BarettaS3",
+          "seasonNumber": 3,
+          "episodeNumber": 7,
+          "title": "Episode 7",
+          "overview": null,
+          "stillURL": "https://archive.org/download/BarettaS3/BarettaS3.thumbs/S3E7_000954.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 2729,
+          "videoFile": {
+            "name": "S3E7.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 221894791,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/BarettaS3/S3E7.mp4"
+        },
+        {
+          "archiveID": "BarettaS3@s3e08",
+          "sourceID": "BarettaS3",
+          "seasonNumber": 3,
+          "episodeNumber": 8,
+          "title": "Episode 8",
+          "overview": null,
+          "stillURL": "https://archive.org/download/BarettaS3/BarettaS3.thumbs/S3E8_000957.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 2726,
+          "videoFile": {
+            "name": "S3E8.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 189209844,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/BarettaS3/S3E8.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

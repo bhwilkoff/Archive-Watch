@@ -1,0 +1,206 @@
+{
+  "version": 2,
+  "seriesID": "roots-1977",
+  "sourceID": "roots-1977-complete-original",
+  "tvmazeID": null,
+  "title": "Roots",
+  "yearStart": 1977,
+  "yearEnd": null,
+  "overview": "'Roots Rock Reggae' depicts an unforgettable moment in Jamaica's history when music defined the island's struggles and immortalised its heroes. Director Jeremy Marre films Bob Marley and the Wailers, and Lee 'Scratch' Perry record in his legendary Black Ark studio with The Upsetters. Jimmy Cliff rehearses with Sly and Robbie, while Inner Circle's historic live gig is recorded on the violent Kingston streets. The legendary Abyssinians harmonise their haunting Rastafarian songs; Joe Higgs (formerly Bob Marley's teacher) plays and talks; majestic toaster U Roy raps alongside The Mighty Diamonds, and Third World record in a Kingston studio. There is also early archive footage of Toots and the Maytals, and Haile Selessie's royal visit to Jamaica while police and thieves battle it out on the streets, and the ghettos erupt in violence. 1977: An extraordinary year for Reggae music, captured live in this award-winning film. Roots Rock Reggae was the first in-depth documentary about Reggae music in Jamaica and looks at the social and political importance of this 'cry of the people'.",
+  "posterURL": "https://m.media-amazon.com/images/M/MV5BMTQ5Nzk5NDU2Ml5BMl5BanBnXkFtZTcwMTg3MTcwMg@@._V1_SX300.jpg",
+  "backdropURL": null,
+  "genres": [
+    "War"
+  ],
+  "networks": [],
+  "creator": "Jeremy Marre",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "roots-1977-complete-original@e01",
+          "sourceID": "roots-1977-complete-original",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Episode 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roots-1977-complete-original/roots-1977-complete-original.thumbs/Roots%20%281977%29%201080p%20H.264%20EP%201%20%28moviesbyrizzo%20upload%29_002212.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 5877,
+          "videoFile": {
+            "name": "Roots (1977) 1080p H.264 EP 1 (moviesbyrizzo upload).mp4",
+            "format": "h.264",
+            "sizeBytes": 565882197,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roots-1977-complete-original/Roots%20%281977%29%201080p%20H.264%20EP%201%20%28moviesbyrizzo%20upload%29.mp4"
+        },
+        {
+          "archiveID": "roots-1977-complete-original@e02",
+          "sourceID": "roots-1977-complete-original",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Episode 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roots-1977-complete-original/roots-1977-complete-original.thumbs/Roots%20%281977%29%201080p%20H.264%20EP%202%20%28moviesbyrizzo%20upload%29_002161.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 5748,
+          "videoFile": {
+            "name": "Roots (1977) 1080p H.264 EP 2 (moviesbyrizzo upload).mp4",
+            "format": "h.264",
+            "sizeBytes": 552925598,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roots-1977-complete-original/Roots%20%281977%29%201080p%20H.264%20EP%202%20%28moviesbyrizzo%20upload%29.mp4"
+        },
+        {
+          "archiveID": "roots-1977-complete-original@e03",
+          "sourceID": "roots-1977-complete-original",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Episode 3",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roots-1977-complete-original/roots-1977-complete-original.thumbs/Roots%20%281977%29%201080p%20H.264%20EP%203%20%28moviesbyrizzo%20upload%29_001123.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2989,
+          "videoFile": {
+            "name": "Roots (1977) 1080p H.264 EP 3 (moviesbyrizzo upload).mp4",
+            "format": "h.264",
+            "sizeBytes": 286136018,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roots-1977-complete-original/Roots%20%281977%29%201080p%20H.264%20EP%203%20%28moviesbyrizzo%20upload%29.mp4"
+        },
+        {
+          "archiveID": "roots-1977-complete-original@e04",
+          "sourceID": "roots-1977-complete-original",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Episode 4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roots-1977-complete-original/roots-1977-complete-original.thumbs/Roots%20%281977%29%201080p%20H.264%20EP%204%20%28moviesbyrizzo%20upload%29_001126.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2991,
+          "videoFile": {
+            "name": "Roots (1977) 1080p H.264 EP 4 (moviesbyrizzo upload).mp4",
+            "format": "h.264",
+            "sizeBytes": 286465986,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roots-1977-complete-original/Roots%20%281977%29%201080p%20H.264%20EP%204%20%28moviesbyrizzo%20upload%29.mp4"
+        },
+        {
+          "archiveID": "roots-1977-complete-original@e05",
+          "sourceID": "roots-1977-complete-original",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Episode 5",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roots-1977-complete-original/roots-1977-complete-original.thumbs/Roots%20%281977%29%201080p%20H.264%20EP%205%20%28moviesbyrizzo%20upload%29_001133.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3013,
+          "videoFile": {
+            "name": "Roots (1977) 1080p H.264 EP 5 (moviesbyrizzo upload).mp4",
+            "format": "h.264",
+            "sizeBytes": 290082954,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roots-1977-complete-original/Roots%20%281977%29%201080p%20H.264%20EP%205%20%28moviesbyrizzo%20upload%29.mp4"
+        },
+        {
+          "archiveID": "roots-1977-complete-original@e06",
+          "sourceID": "roots-1977-complete-original",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Episode 6",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roots-1977-complete-original/roots-1977-complete-original.thumbs/Roots%20%281977%29%201080p%20H.264%20EP%206%20%28moviesbyrizzo%20upload%29_002222.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 5914,
+          "videoFile": {
+            "name": "Roots (1977) 1080p H.264 EP 6 (moviesbyrizzo upload).mp4",
+            "format": "h.264",
+            "sizeBytes": 567057749,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roots-1977-complete-original/Roots%20%281977%29%201080p%20H.264%20EP%206%20%28moviesbyrizzo%20upload%29.mp4"
+        },
+        {
+          "archiveID": "roots-1977-complete-original@e07",
+          "sourceID": "roots-1977-complete-original",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Episode 7",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roots-1977-complete-original/roots-1977-complete-original.thumbs/Roots%20%281977%29%201080p%20H.264%20EP%207%20%28moviesbyrizzo%20upload%29_001125.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2993,
+          "videoFile": {
+            "name": "Roots (1977) 1080p H.264 EP 7 (moviesbyrizzo upload).mp4",
+            "format": "h.264",
+            "sizeBytes": 285971885,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roots-1977-complete-original/Roots%20%281977%29%201080p%20H.264%20EP%207%20%28moviesbyrizzo%20upload%29.mp4"
+        },
+        {
+          "archiveID": "roots-1977-complete-original@e08",
+          "sourceID": "roots-1977-complete-original",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Episode 8",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roots-1977-complete-original/roots-1977-complete-original.thumbs/Roots%20%281977%29%201080p%20H.264%20EP%208%20%28moviesbyrizzo%20upload%29_002148.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 5716,
+          "videoFile": {
+            "name": "Roots (1977) 1080p H.264 EP 8 (moviesbyrizzo upload).mp4",
+            "format": "h.264",
+            "sizeBytes": 548612346,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roots-1977-complete-original/Roots%20%281977%29%201080p%20H.264%20EP%208%20%28moviesbyrizzo%20upload%29.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 8,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "omdb",
+  "cast": [
+    {
+      "name": "The Abyssinians",
+      "character": null,
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Jimmy Cliff",
+      "character": null,
+      "order": 1,
+      "profilePath": "/vpoQCF8X7D3JSNyTBYGqaoxRNIe.jpg"
+    },
+    {
+      "name": "Joe Higgs",
+      "character": null,
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Inner Circle",
+      "character": null,
+      "order": 3,
+      "profilePath": "/3J12WIOiZ4TetDDeeLQuIrzK7TE.jpg"
+    }
+  ]
+}

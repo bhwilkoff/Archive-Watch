@@ -1,0 +1,485 @@
+{
+  "version": 2,
+  "seriesID": "theatre-macabre-1971",
+  "sourceID": "theatre-macabre-s-1e-4-mateo-falcone-1971",
+  "tvmazeID": null,
+  "title": "Theatre Macabre",
+  "yearStart": 1971,
+  "yearEnd": null,
+  "overview": "An anthology series hosted by Christopher Lee based on stories by various horror authors.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/theatre-macabre-s-1e-4-mateo-falcone-1971.68c5020c.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Horror"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "theatre-macabre-s-1e-4-mateo-falcone-1971@s1e01",
+          "sourceID": "theatre-macabre-s-1e-4-mateo-falcone-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "First Love (1971",
+          "overview": null,
+          "stillURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/theatre-macabre-s-1e-4-mateo-falcone-1971.thumbs/Theatre%20Macabre%20s1e1%20-%20First%20Love%20%281971%29_000766.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1546,
+          "videoFile": {
+            "name": "Theatre Macabre s1e1 - First Love (1971).mp4",
+            "format": "h.264",
+            "sizeBytes": 152346975,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/Theatre%20Macabre%20s1e1%20-%20First%20Love%20%281971%29.mp4"
+        },
+        {
+          "archiveID": "theatre-macabre-s-1e-4-mateo-falcone-1971@s1e02",
+          "sourceID": "theatre-macabre-s-1e-4-mateo-falcone-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Man Who Demoralized Hadleyburg (1971",
+          "overview": null,
+          "stillURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/theatre-macabre-s-1e-4-mateo-falcone-1971.thumbs/Theatre%20Macabre%20s1e2%20-%20The%20Man%20Who%20Demoralized%20Hadleyburg%20%281971%29_000758.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1538,
+          "videoFile": {
+            "name": "Theatre Macabre s1e2 - The Man Who Demoralized Hadleyburg (1971).mp4",
+            "format": "h.264",
+            "sizeBytes": 147491477,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/Theatre%20Macabre%20s1e2%20-%20The%20Man%20Who%20Demoralized%20Hadleyburg%20%281971%29.mp4"
+        },
+        {
+          "archiveID": "theatre-macabre-s-1e-4-mateo-falcone-1971@s1e03",
+          "sourceID": "theatre-macabre-s-1e-4-mateo-falcone-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Tortures of Hope (1971",
+          "overview": null,
+          "stillURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/theatre-macabre-s-1e-4-mateo-falcone-1971.thumbs/Theatre%20Macabre%20s1e3%20-%20The%20Tortures%20of%20Hope%20%281971%29_000762.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1536,
+          "videoFile": {
+            "name": "Theatre Macabre s1e3 - The Tortures of Hope (1971).mp4",
+            "format": "h.264",
+            "sizeBytes": 151915019,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/Theatre%20Macabre%20s1e3%20-%20The%20Tortures%20of%20Hope%20%281971%29.mp4"
+        },
+        {
+          "archiveID": "theatre-macabre-s-1e-4-mateo-falcone-1971@s1e04",
+          "sourceID": "theatre-macabre-s-1e-4-mateo-falcone-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Mateo Falcone (1971",
+          "overview": null,
+          "stillURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/theatre-macabre-s-1e-4-mateo-falcone-1971.thumbs/Theatre%20Macabre%20s1e4%20-%20Mateo%20Falcone%20%281971%29_000762.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1543,
+          "videoFile": {
+            "name": "Theatre Macabre s1e4 - Mateo Falcone (1971).mp4",
+            "format": "h.264",
+            "sizeBytes": 152484180,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/Theatre%20Macabre%20s1e4%20-%20Mateo%20Falcone%20%281971%29.mp4"
+        },
+        {
+          "archiveID": "theatre-macabre-s-1e-4-mateo-falcone-1971@s1e05",
+          "sourceID": "theatre-macabre-s-1e-4-mateo-falcone-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Vampire (1971",
+          "overview": null,
+          "stillURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/theatre-macabre-s-1e-4-mateo-falcone-1971.thumbs/Theatre%20Macabre%20s1e5%20-%20The%20Vampire%20%281971%29_000759.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1542,
+          "videoFile": {
+            "name": "Theatre Macabre s1e5 - The Vampire (1971).mp4",
+            "format": "h.264",
+            "sizeBytes": 153292851,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/Theatre%20Macabre%20s1e5%20-%20The%20Vampire%20%281971%29.mp4"
+        },
+        {
+          "archiveID": "theatre-macabre-s-1e-4-mateo-falcone-1971@s1e06",
+          "sourceID": "theatre-macabre-s-1e-4-mateo-falcone-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Swashbuckler (1971",
+          "overview": null,
+          "stillURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/theatre-macabre-s-1e-4-mateo-falcone-1971.thumbs/Theatre%20Macabre%20s1e6%20-%20The%20Swashbuckler%20%281971%29_000762.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1546,
+          "videoFile": {
+            "name": "Theatre Macabre s1e6 - The Swashbuckler (1971).mp4",
+            "format": "h.264",
+            "sizeBytes": 151246482,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/Theatre%20Macabre%20s1e6%20-%20The%20Swashbuckler%20%281971%29.mp4"
+        },
+        {
+          "archiveID": "theatre-macabre-s-1e-4-mateo-falcone-1971@s1e07",
+          "sourceID": "theatre-macabre-s-1e-4-mateo-falcone-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Actress (1971",
+          "overview": null,
+          "stillURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/theatre-macabre-s-1e-4-mateo-falcone-1971.thumbs/Theatre%20Macabre%20s1e7%20-%20The%20Actress%20%281971%29_000766.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1539,
+          "videoFile": {
+            "name": "Theatre Macabre s1e7 - The Actress (1971).mp4",
+            "format": "h.264",
+            "sizeBytes": 152470891,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/Theatre%20Macabre%20s1e7%20-%20The%20Actress%20%281971%29.mp4"
+        },
+        {
+          "archiveID": "theatre-macabre-s-1e-4-mateo-falcone-1971@s1e08",
+          "sourceID": "theatre-macabre-s-1e-4-mateo-falcone-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The System of Dr Tarr and Professor Fether (1971",
+          "overview": null,
+          "stillURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/theatre-macabre-s-1e-4-mateo-falcone-1971.thumbs/Theatre%20Macabre%20s1e8%20-%20The%20System%20of%20Dr%20Tarr%20and%20Professor%20Fether%20%281971%29_000766.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1541,
+          "videoFile": {
+            "name": "Theatre Macabre s1e8 - The System of Dr Tarr and Professor Fether (1971).mp4",
+            "format": "h.264",
+            "sizeBytes": 153417609,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/Theatre%20Macabre%20s1e8%20-%20The%20System%20of%20Dr%20Tarr%20and%20Professor%20Fether%20%281971%29.mp4"
+        },
+        {
+          "archiveID": "theatre-macabre-s-1e-4-mateo-falcone-1971@s1e09",
+          "sourceID": "theatre-macabre-s-1e-4-mateo-falcone-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Rajahs Diamond (1971",
+          "overview": null,
+          "stillURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/theatre-macabre-s-1e-4-mateo-falcone-1971.thumbs/Theatre%20Macabre%20s1e9%20-%20The%20Rajahs%20Diamond%20%281971%29_000768.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1542,
+          "videoFile": {
+            "name": "Theatre Macabre s1e9 - The Rajahs Diamond (1971).mp4",
+            "format": "h.264",
+            "sizeBytes": 152740731,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/Theatre%20Macabre%20s1e9%20-%20The%20Rajahs%20Diamond%20%281971%29.mp4"
+        },
+        {
+          "archiveID": "theatre-macabre-s-1e-4-mateo-falcone-1971@s1e10",
+          "sourceID": "theatre-macabre-s-1e-4-mateo-falcone-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Nose (1971",
+          "overview": null,
+          "stillURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/theatre-macabre-s-1e-4-mateo-falcone-1971.thumbs/Theatre%20Macabre%20s1e10%20-%20The%20Nose%20%281971%29_000761.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1548,
+          "videoFile": {
+            "name": "Theatre Macabre s1e10 - The Nose (1971).mp4",
+            "format": "h.264",
+            "sizeBytes": 152712881,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/Theatre%20Macabre%20s1e10%20-%20The%20Nose%20%281971%29.mp4"
+        },
+        {
+          "archiveID": "theatre-macabre-s-1e-4-mateo-falcone-1971@s1e11",
+          "sourceID": "theatre-macabre-s-1e-4-mateo-falcone-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Tell Tale Hearts (1971",
+          "overview": null,
+          "stillURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/theatre-macabre-s-1e-4-mateo-falcone-1971.thumbs/Theatre%20Macabre%20s1e11%20-%20Tell%20Tale%20Hearts%20%281971%29_000760.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1540,
+          "videoFile": {
+            "name": "Theatre Macabre s1e11 - Tell Tale Hearts (1971).mp4",
+            "format": "h.264",
+            "sizeBytes": 153765229,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/Theatre%20Macabre%20s1e11%20-%20Tell%20Tale%20Hearts%20%281971%29.mp4"
+        },
+        {
+          "archiveID": "theatre-macabre-s-1e-4-mateo-falcone-1971@s1e12",
+          "sourceID": "theatre-macabre-s-1e-4-mateo-falcone-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Markheim (1971",
+          "overview": null,
+          "stillURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/theatre-macabre-s-1e-4-mateo-falcone-1971.thumbs/Theatre%20Macabre%20s1e12%20-%20Markheim%20%281971%29_000758.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1541,
+          "videoFile": {
+            "name": "Theatre Macabre s1e12 - Markheim (1971).mp4",
+            "format": "h.264",
+            "sizeBytes": 152298208,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/Theatre%20Macabre%20s1e12%20-%20Markheim%20%281971%29.mp4"
+        },
+        {
+          "archiveID": "theatre-macabre-s-1e-4-mateo-falcone-1971@s1e13",
+          "sourceID": "theatre-macabre-s-1e-4-mateo-falcone-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "The Barrel Organ (1971",
+          "overview": null,
+          "stillURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/theatre-macabre-s-1e-4-mateo-falcone-1971.thumbs/Theatre%20Macabre%20s1e13%20-%20The%20Barrel%20Organ%20%281971%29_000764.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1544,
+          "videoFile": {
+            "name": "Theatre Macabre s1e13 - The Barrel Organ (1971).mp4",
+            "format": "h.264",
+            "sizeBytes": 153051311,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/Theatre%20Macabre%20s1e13%20-%20The%20Barrel%20Organ%20%281971%29.mp4"
+        },
+        {
+          "archiveID": "theatre-macabre-s-1e-4-mateo-falcone-1971@s1e14",
+          "sourceID": "theatre-macabre-s-1e-4-mateo-falcone-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Canterville Ghost (1971",
+          "overview": null,
+          "stillURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/theatre-macabre-s-1e-4-mateo-falcone-1971.thumbs/Theatre%20Macabre%20s1e14%20-%20The%20Canterville%20Ghost%20%281971%29_000764.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1544,
+          "videoFile": {
+            "name": "Theatre Macabre s1e14 - The Canterville Ghost (1971).mp4",
+            "format": "h.264",
+            "sizeBytes": 153214239,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/Theatre%20Macabre%20s1e14%20-%20The%20Canterville%20Ghost%20%281971%29.mp4"
+        },
+        {
+          "archiveID": "theatre-macabre-s-1e-4-mateo-falcone-1971@s1e15",
+          "sourceID": "theatre-macabre-s-1e-4-mateo-falcone-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Decameron (1972",
+          "overview": null,
+          "stillURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/theatre-macabre-s-1e-4-mateo-falcone-1971.thumbs/Theatre%20Macabre%20s1e15%20-%20Decameron%20%281972%29_000767.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1542,
+          "videoFile": {
+            "name": "Theatre Macabre s1e15 - Decameron (1972).mp4",
+            "format": "h.264",
+            "sizeBytes": 152945665,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/Theatre%20Macabre%20s1e15%20-%20Decameron%20%281972%29.mp4"
+        },
+        {
+          "archiveID": "theatre-macabre-s-1e-4-mateo-falcone-1971@s1e16",
+          "sourceID": "theatre-macabre-s-1e-4-mateo-falcone-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "A Matter of Conscience (1972",
+          "overview": null,
+          "stillURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/theatre-macabre-s-1e-4-mateo-falcone-1971.thumbs/Theatre%20Macabre%20s1e16%20-%20A%20Matter%20of%20Conscience%20%281972%29_000761.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1541,
+          "videoFile": {
+            "name": "Theatre Macabre s1e16 - A Matter of Conscience (1972).mp4",
+            "format": "h.264",
+            "sizeBytes": 150757008,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/Theatre%20Macabre%20s1e16%20-%20A%20Matter%20of%20Conscience%20%281972%29.mp4"
+        },
+        {
+          "archiveID": "theatre-macabre-s-1e-4-mateo-falcone-1971@s1e17",
+          "sourceID": "theatre-macabre-s-1e-4-mateo-falcone-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "The Husband Under the Bed (1972",
+          "overview": null,
+          "stillURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/theatre-macabre-s-1e-4-mateo-falcone-1971.thumbs/Theatre%20Macabre%20s1e17%20-%20The%20Husband%20Under%20the%20Bed%20%281972%29_000769.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1550,
+          "videoFile": {
+            "name": "Theatre Macabre s1e17 - The Husband Under the Bed (1972).mp4",
+            "format": "h.264",
+            "sizeBytes": 152654893,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/Theatre%20Macabre%20s1e17%20-%20The%20Husband%20Under%20the%20Bed%20%281972%29.mp4"
+        },
+        {
+          "archiveID": "theatre-macabre-s-1e-4-mateo-falcone-1971@s1e18",
+          "sourceID": "theatre-macabre-s-1e-4-mateo-falcone-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Pavoncello (1972",
+          "overview": null,
+          "stillURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/theatre-macabre-s-1e-4-mateo-falcone-1971.thumbs/Theatre%20Macabre%20s1e18%20-%20Pavoncello%20%281972%29_000765.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1540,
+          "videoFile": {
+            "name": "Theatre Macabre s1e18 - Pavoncello (1972).mp4",
+            "format": "h.264",
+            "sizeBytes": 150691501,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/Theatre%20Macabre%20s1e18%20-%20Pavoncello%20%281972%29.mp4"
+        },
+        {
+          "archiveID": "theatre-macabre-s-1e-4-mateo-falcone-1971@s1e19",
+          "sourceID": "theatre-macabre-s-1e-4-mateo-falcone-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "The Song of Triumphant Love (1972",
+          "overview": null,
+          "stillURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/theatre-macabre-s-1e-4-mateo-falcone-1971.thumbs/Theatre%20Macabre%20s1e19%20-%20The%20Song%20of%20Triumphant%20Love%20%281972%29_000761.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1546,
+          "videoFile": {
+            "name": "Theatre Macabre s1e19 - The Song of Triumphant Love (1972).mp4",
+            "format": "h.264",
+            "sizeBytes": 152682818,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/Theatre%20Macabre%20s1e19%20-%20The%20Song%20of%20Triumphant%20Love%20%281972%29.mp4"
+        },
+        {
+          "archiveID": "theatre-macabre-s-1e-4-mateo-falcone-1971@s1e20",
+          "sourceID": "theatre-macabre-s-1e-4-mateo-falcone-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "The Postmaster (1972",
+          "overview": null,
+          "stillURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/theatre-macabre-s-1e-4-mateo-falcone-1971.thumbs/Theatre%20Macabre%20s1e20%20-%20The%20Postmaster%20%281972%29_000759.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1544,
+          "videoFile": {
+            "name": "Theatre Macabre s1e20 - The Postmaster (1972).mp4",
+            "format": "h.264",
+            "sizeBytes": 153134255,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/Theatre%20Macabre%20s1e20%20-%20The%20Postmaster%20%281972%29.mp4"
+        },
+        {
+          "archiveID": "theatre-macabre-s-1e-4-mateo-falcone-1971@s1e21",
+          "sourceID": "theatre-macabre-s-1e-4-mateo-falcone-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "A Terribly Strange Bed (1972",
+          "overview": null,
+          "stillURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/theatre-macabre-s-1e-4-mateo-falcone-1971.thumbs/Theatre%20Macabre%20s1e21%20-%20A%20Terribly%20Strange%20Bed%20%281972%29_000758.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1540,
+          "videoFile": {
+            "name": "Theatre Macabre s1e21 - A Terribly Strange Bed (1972).mp4",
+            "format": "h.264",
+            "sizeBytes": 152782876,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/Theatre%20Macabre%20s1e21%20-%20A%20Terribly%20Strange%20Bed%20%281972%29.mp4"
+        },
+        {
+          "archiveID": "theatre-macabre-s-1e-4-mateo-falcone-1971@s1e22",
+          "sourceID": "theatre-macabre-s-1e-4-mateo-falcone-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "The Fatalist (1972",
+          "overview": null,
+          "stillURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/theatre-macabre-s-1e-4-mateo-falcone-1971.thumbs/Theatre%20Macabre%20s1e22%20-%20The%20Fatalist%20%281972%29_000766.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1539,
+          "videoFile": {
+            "name": "Theatre Macabre s1e22 - The Fatalist (1972).mp4",
+            "format": "h.264",
+            "sizeBytes": 152011104,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/Theatre%20Macabre%20s1e22%20-%20The%20Fatalist%20%281972%29.mp4"
+        },
+        {
+          "archiveID": "theatre-macabre-s-1e-4-mateo-falcone-1971@s1e23",
+          "sourceID": "theatre-macabre-s-1e-4-mateo-falcone-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Resurrection of the Offland (1972",
+          "overview": null,
+          "stillURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/theatre-macabre-s-1e-4-mateo-falcone-1971.thumbs/Theatre%20Macabre%20s1e23%20-%20Resurrection%20of%20the%20Offland%20%281972%29_000765.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1541,
+          "videoFile": {
+            "name": "Theatre Macabre s1e23 - Resurrection of the Offland (1972).mp4",
+            "format": "h.264",
+            "sizeBytes": 153193883,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/Theatre%20Macabre%20s1e23%20-%20Resurrection%20of%20the%20Offland%20%281972%29.mp4"
+        },
+        {
+          "archiveID": "theatre-macabre-s-1e-4-mateo-falcone-1971@s1e24",
+          "sourceID": "theatre-macabre-s-1e-4-mateo-falcone-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Boarded Window (1972",
+          "overview": null,
+          "stillURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/theatre-macabre-s-1e-4-mateo-falcone-1971.thumbs/Theatre%20Macabre%20s1e24%20-%20Boarded%20Window%20%281972%29_000763.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 1538,
+          "videoFile": {
+            "name": "Theatre Macabre s1e24 - Boarded Window (1972).mp4",
+            "format": "h.264",
+            "sizeBytes": 152028850,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theatre-macabre-s-1e-4-mateo-falcone-1971/Theatre%20Macabre%20s1e24%20-%20Boarded%20Window%20%281972%29.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 24,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

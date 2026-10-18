@@ -1,0 +1,263 @@
+{
+  "version": 2,
+  "seriesID": "the-amazing-spider-man-1977-the-amazing-spider-man-complete-series-1977",
+  "sourceID": "the-amazing-spider-man-complete-series-1977",
+  "tvmazeID": null,
+  "title": "The Amazing Spider-Man",
+  "yearStart": 1977,
+  "yearEnd": null,
+  "overview": "CBS series (1977–79) based on the Marvel Comics character, starring Nicholas Hammond as Peter Parker. Set in New York City but filmed mostly in Los Angeles, it ran 13 episodes including a pilot film.",
+  "posterURL": "https://archive.org/services/img/the-amazing-spider-man-complete-series-1977",
+  "backdropURL": null,
+  "genres": [
+    "Crime",
+    "Action"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-amazing-spider-man-complete-series-1977@s1e00",
+          "sourceID": "the-amazing-spider-man-complete-series-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 0,
+          "title": "Spider-Man",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-amazing-spider-man-complete-series-1977/the-amazing-spider-man-complete-series-1977.thumbs/The%20Amazing%20Spider-Man%20S01E00%20-%20Spider-Man_002120.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 5330,
+          "videoFile": {
+            "name": "The Amazing Spider-Man S01E00 - Spider-Man.mp4",
+            "format": "h.264",
+            "sizeBytes": 511898750,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-amazing-spider-man-complete-series-1977/The%20Amazing%20Spider-Man%20S01E00%20-%20Spider-Man.mp4"
+        },
+        {
+          "archiveID": "the-amazing-spider-man-complete-series-1977@s1e01",
+          "sourceID": "the-amazing-spider-man-complete-series-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Deadly dust",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-amazing-spider-man-complete-series-1977/the-amazing-spider-man-complete-series-1977.thumbs/The%20Amazing%20Spider-Man%20S01E01-E02%20-%20%20The%20Deadly%20dust_002171.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 5482,
+          "videoFile": {
+            "name": "The Amazing Spider-Man S01E01-E02 -  The Deadly dust.mp4",
+            "format": "h.264",
+            "sizeBytes": 533213020,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-amazing-spider-man-complete-series-1977/The%20Amazing%20Spider-Man%20S01E01-E02%20-%20%20The%20Deadly%20dust.mp4"
+        },
+        {
+          "archiveID": "the-amazing-spider-man-complete-series-1977@s1e03",
+          "sourceID": "the-amazing-spider-man-complete-series-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Curse of Rava",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-amazing-spider-man-complete-series-1977/the-amazing-spider-man-complete-series-1977.thumbs/The%20Amazing%20Spider-Man%20S01E03%20-%20The%20Curse%20of%20Rava_001029.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2887,
+          "videoFile": {
+            "name": "The Amazing Spider-Man S01E03 - The Curse of Rava.mp4",
+            "format": "h.264",
+            "sizeBytes": 275515955,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-amazing-spider-man-complete-series-1977/The%20Amazing%20Spider-Man%20S01E03%20-%20The%20Curse%20of%20Rava.mp4"
+        },
+        {
+          "archiveID": "the-amazing-spider-man-complete-series-1977@s1e04",
+          "sourceID": "the-amazing-spider-man-complete-series-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Night Of The Clones",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-amazing-spider-man-complete-series-1977/the-amazing-spider-man-complete-series-1977.thumbs/The%20Amazing%20Spider-Man%20S01E04%20-%20Night%20Of%20The%20Clones_001139.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2869,
+          "videoFile": {
+            "name": "The Amazing Spider-Man S01E04 - Night Of The Clones.mp4",
+            "format": "h.264",
+            "sizeBytes": 274774529,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-amazing-spider-man-complete-series-1977/The%20Amazing%20Spider-Man%20S01E04%20-%20Night%20Of%20The%20Clones.mp4"
+        },
+        {
+          "archiveID": "the-amazing-spider-man-complete-series-1977@s1e05",
+          "sourceID": "the-amazing-spider-man-complete-series-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Escort To Danger",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-amazing-spider-man-complete-series-1977/the-amazing-spider-man-complete-series-1977.thumbs/The%20Amazing%20Spider-Man%20S01E05%20-%20Escort%20To%20Danger_001103.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2782,
+          "videoFile": {
+            "name": "The Amazing Spider-Man S01E05 - Escort To Danger.mp4",
+            "format": "h.264",
+            "sizeBytes": 266671335,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-amazing-spider-man-complete-series-1977/The%20Amazing%20Spider-Man%20S01E05%20-%20Escort%20To%20Danger.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "the-amazing-spider-man-complete-series-1977@s2e01",
+          "sourceID": "the-amazing-spider-man-complete-series-1977",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "The Captive Tower",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-amazing-spider-man-complete-series-1977/the-amazing-spider-man-complete-series-1977.thumbs/The%20Amazing%20Spider-Man%20S02E01%20-%20The%20Captive%20Tower_001090.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2743,
+          "videoFile": {
+            "name": "The Amazing Spider-Man S02E01 - The Captive Tower.mp4",
+            "format": "h.264",
+            "sizeBytes": 258885170,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-amazing-spider-man-complete-series-1977/The%20Amazing%20Spider-Man%20S02E01%20-%20The%20Captive%20Tower.mp4"
+        },
+        {
+          "archiveID": "the-amazing-spider-man-complete-series-1977@s2e02",
+          "sourceID": "the-amazing-spider-man-complete-series-1977",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "A Matter Of State",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-amazing-spider-man-complete-series-1977/the-amazing-spider-man-complete-series-1977.thumbs/The%20Amazing%20Spider-Man%20S02E02%20-%20A%20Matter%20Of%20State_001150.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2903,
+          "videoFile": {
+            "name": "The Amazing Spider-Man S02E02 - A Matter Of State.mp4",
+            "format": "h.264",
+            "sizeBytes": 278490266,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-amazing-spider-man-complete-series-1977/The%20Amazing%20Spider-Man%20S02E02%20-%20A%20Matter%20Of%20State.mp4"
+        },
+        {
+          "archiveID": "the-amazing-spider-man-complete-series-1977@s2e03",
+          "sourceID": "the-amazing-spider-man-complete-series-1977",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "The Con Caper",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-amazing-spider-man-complete-series-1977/the-amazing-spider-man-complete-series-1977.thumbs/The%20Amazing%20Spider-Man%20S02E03%20-%20The%20Con%20Caper_001128.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2844,
+          "videoFile": {
+            "name": "The Amazing Spider-Man S02E03 - The Con Caper.mp4",
+            "format": "h.264",
+            "sizeBytes": 272323331,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-amazing-spider-man-complete-series-1977/The%20Amazing%20Spider-Man%20S02E03%20-%20The%20Con%20Caper.mp4"
+        },
+        {
+          "archiveID": "the-amazing-spider-man-complete-series-1977@s2e04",
+          "sourceID": "the-amazing-spider-man-complete-series-1977",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "The Kirkwood Haunting",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-amazing-spider-man-complete-series-1977/the-amazing-spider-man-complete-series-1977.thumbs/The%20Amazing%20Spider-Man%20S02E04%20-%20The%20Kirkwood%20Haunting_001089.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2746,
+          "videoFile": {
+            "name": "The Amazing Spider-Man S02E04 - The Kirkwood Haunting.mp4",
+            "format": "h.264",
+            "sizeBytes": 263864024,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-amazing-spider-man-complete-series-1977/The%20Amazing%20Spider-Man%20S02E04%20-%20The%20Kirkwood%20Haunting.mp4"
+        },
+        {
+          "archiveID": "the-amazing-spider-man-complete-series-1977@s2e05",
+          "sourceID": "the-amazing-spider-man-complete-series-1977",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Photo Finish",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-amazing-spider-man-complete-series-1977/the-amazing-spider-man-complete-series-1977.thumbs/The%20Amazing%20Spider-Man%20S02E05%20-%20Photo%20Finish_001118.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2820,
+          "videoFile": {
+            "name": "The Amazing Spider-Man S02E05 - Photo Finish.mp4",
+            "format": "h.264",
+            "sizeBytes": 270956886,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-amazing-spider-man-complete-series-1977/The%20Amazing%20Spider-Man%20S02E05%20-%20Photo%20Finish.mp4"
+        },
+        {
+          "archiveID": "the-amazing-spider-man-complete-series-1977@s2e06",
+          "sourceID": "the-amazing-spider-man-complete-series-1977",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Wolfpack",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-amazing-spider-man-complete-series-1977/the-amazing-spider-man-complete-series-1977.thumbs/The%20Amazing%20Spider-Man%20S02E06%20-%20Wolfpack_001113.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2811,
+          "videoFile": {
+            "name": "The Amazing Spider-Man S02E06 - Wolfpack.mp4",
+            "format": "h.264",
+            "sizeBytes": 268491175,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-amazing-spider-man-complete-series-1977/The%20Amazing%20Spider-Man%20S02E06%20-%20Wolfpack.mp4"
+        },
+        {
+          "archiveID": "the-amazing-spider-man-complete-series-1977@s2e07",
+          "sourceID": "the-amazing-spider-man-complete-series-1977",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "The Chinese Web",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-amazing-spider-man-complete-series-1977/the-amazing-spider-man-complete-series-1977.thumbs/The%20Amazing%20Spider-Man%20S02E07-E08%20-%20The%20Chinese%20Web_002290.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 5775,
+          "videoFile": {
+            "name": "The Amazing Spider-Man S02E07-E08 - The Chinese Web.mp4",
+            "format": "h.264",
+            "sizeBytes": 555405483,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-amazing-spider-man-complete-series-1977/The%20Amazing%20Spider-Man%20S02E07-E08%20-%20The%20Chinese%20Web.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 12,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

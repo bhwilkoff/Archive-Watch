@@ -1,0 +1,143 @@
+{
+  "version": 2,
+  "seriesID": "andromeda-breakthrough-1962",
+  "sourceID": "andromeda-breakthrough-bbc-sci-fi-episode-1-720p-hd",
+  "tvmazeID": null,
+  "title": "Andromeda Breakthrough",
+  "yearStart": 1962,
+  "yearEnd": null,
+  "overview": "The Andromeda Breakthrough was a 1962 sequel to the popular BBC TV science fiction serial A for Andromeda, again written by Fred Hoyle and John Elliot.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/andromeda-breakthrough-bbc-sci-fi-episode-1-720p-hd.64fbd878.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Sci-Fi"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "andromeda-breakthrough-bbc-sci-fi-episode-1-720p-hd@e01",
+          "sourceID": "andromeda-breakthrough-bbc-sci-fi-episode-1-720p-hd",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "720p-h",
+          "overview": null,
+          "stillURL": "https://archive.org/download/andromeda-breakthrough-bbc-sci-fi-episode-1-720p-hd/andromeda-breakthrough-bbc-sci-fi-episode-1-720p-hd.thumbs/andromeda%20breakthrough-BBC%20sci-fi-episode%201-720p-hd_000955.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 2711,
+          "videoFile": {
+            "name": "andromeda breakthrough-BBC sci-fi-episode 1-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 261815647,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/andromeda-breakthrough-bbc-sci-fi-episode-1-720p-hd/andromeda%20breakthrough-BBC%20sci-fi-episode%201-720p-hd.mp4"
+        },
+        {
+          "archiveID": "andromeda-breakthrough-bbc-sci-fi-episode-1-720p-hd@e02",
+          "sourceID": "andromeda-breakthrough-bbc-sci-fi-episode-1-720p-hd",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "576p-s",
+          "overview": null,
+          "stillURL": "https://archive.org/download/andromeda-breakthrough-bbc-sci-fi-episode-1-720p-hd/andromeda-breakthrough-bbc-sci-fi-episode-1-720p-hd.thumbs/andromeda%20breakthrough-BBC%20sci-fi-episode%202-576p-sd_000894.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 2561,
+          "videoFile": {
+            "name": "andromeda breakthrough-BBC sci-fi-episode 2-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 246806176,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/andromeda-breakthrough-bbc-sci-fi-episode-1-720p-hd/andromeda%20breakthrough-BBC%20sci-fi-episode%202-576p-sd.mp4"
+        },
+        {
+          "archiveID": "andromeda-breakthrough-bbc-sci-fi-episode-1-720p-hd@e03",
+          "sourceID": "andromeda-breakthrough-bbc-sci-fi-episode-1-720p-hd",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "576p-s",
+          "overview": null,
+          "stillURL": "https://archive.org/download/andromeda-breakthrough-bbc-sci-fi-episode-1-720p-hd/andromeda-breakthrough-bbc-sci-fi-episode-1-720p-hd.thumbs/andromeda%20breakthrough-BBC%20sci-fi-episode%203-576p-sd_000954.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 2753,
+          "videoFile": {
+            "name": "andromeda breakthrough-BBC sci-fi-episode 3-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 265874416,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/andromeda-breakthrough-bbc-sci-fi-episode-1-720p-hd/andromeda%20breakthrough-BBC%20sci-fi-episode%203-576p-sd.mp4"
+        },
+        {
+          "archiveID": "andromeda-breakthrough-bbc-sci-fi-episode-1-720p-hd@e04",
+          "sourceID": "andromeda-breakthrough-bbc-sci-fi-episode-1-720p-hd",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "576p-s",
+          "overview": null,
+          "stillURL": "https://archive.org/download/andromeda-breakthrough-bbc-sci-fi-episode-1-720p-hd/andromeda-breakthrough-bbc-sci-fi-episode-1-720p-hd.thumbs/andromeda%20breakthrough-BBC%20sci-fi-episode%204-576p-sd_000894.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 2616,
+          "videoFile": {
+            "name": "andromeda breakthrough-BBC sci-fi-episode 4-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 252869865,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/andromeda-breakthrough-bbc-sci-fi-episode-1-720p-hd/andromeda%20breakthrough-BBC%20sci-fi-episode%204-576p-sd.mp4"
+        },
+        {
+          "archiveID": "andromeda-breakthrough-bbc-sci-fi-episode-1-720p-hd@e05",
+          "sourceID": "andromeda-breakthrough-bbc-sci-fi-episode-1-720p-hd",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "576p-s",
+          "overview": null,
+          "stillURL": "https://archive.org/download/andromeda-breakthrough-bbc-sci-fi-episode-1-720p-hd/andromeda-breakthrough-bbc-sci-fi-episode-1-720p-hd.thumbs/andromeda%20breakthrough-BBC%20sci-fi-episode%205-576p-sd_000894.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 2551,
+          "videoFile": {
+            "name": "andromeda breakthrough-BBC sci-fi-episode 5-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 245996713,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/andromeda-breakthrough-bbc-sci-fi-episode-1-720p-hd/andromeda%20breakthrough-BBC%20sci-fi-episode%205-576p-sd.mp4"
+        },
+        {
+          "archiveID": "andromeda-breakthrough-bbc-sci-fi-episode-1-720p-hd@e06",
+          "sourceID": "andromeda-breakthrough-bbc-sci-fi-episode-1-720p-hd",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "576p-s",
+          "overview": null,
+          "stillURL": "https://archive.org/download/andromeda-breakthrough-bbc-sci-fi-episode-1-720p-hd/andromeda-breakthrough-bbc-sci-fi-episode-1-720p-hd.thumbs/andromeda%20breakthrough-BBC%20sci-fi-episode%206-576p-sd_001014.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 2910,
+          "videoFile": {
+            "name": "andromeda breakthrough-BBC sci-fi-episode 6-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 281839001,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/andromeda-breakthrough-bbc-sci-fi-episode-1-720p-hd/andromeda%20breakthrough-BBC%20sci-fi-episode%206-576p-sd.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

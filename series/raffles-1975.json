@@ -1,0 +1,297 @@
+{
+  "version": 2,
+  "seriesID": "raffles-1975",
+  "sourceID": "raffles-complete-series-1975",
+  "tvmazeID": null,
+  "title": "Raffles",
+  "yearStart": 1975,
+  "yearEnd": null,
+  "overview": "Raffles is a 1977 television series adapted from the A. J. Raffles stories by E. W. Hornung. The stories were adapted by Philip Mackie. Set in Victorian era London, the series features the criminal adventures of gentleman thief A. J. Raffles, a renowned cricketer, and his friend, the eager but naive Bunny Manders, as they test their skills in relieving the wealthy of their valuables whilst avoiding detection, especially from Inspector Mackenzie. The episodes were largely faithful adaptations of the stories in the books, though occasionally two stories would be merged to create one episode, such as \"The Gold Cup\", which featured elements from two short stories, \"A Jubilee Present\" and \"The Criminologist's Club\". The series has been released on DVD.",
+  "posterURL": "https://archive.org/services/img/raffles-complete-series-1975",
+  "backdropURL": null,
+  "genres": [
+    "Mystery",
+    "Drama",
+    "Crime"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "raffles-complete-series-1975@s1e00",
+          "sourceID": "raffles-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 0,
+          "title": "The Amateur Cracksman",
+          "overview": null,
+          "stillURL": "https://archive.org/download/raffles-complete-series-1975/raffles-complete-series-1975.thumbs/Raffles%20S01E00%20-%20The%20Amateur%20Cracksman_001192.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3161,
+          "videoFile": {
+            "name": "Raffles S01E00 - The Amateur Cracksman.mp4",
+            "format": "h.264",
+            "sizeBytes": 303787010,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/raffles-complete-series-1975/Raffles%20S01E00%20-%20The%20Amateur%20Cracksman.mp4"
+        },
+        {
+          "archiveID": "raffles-complete-series-1975@s1e01",
+          "sourceID": "raffles-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The First Step",
+          "overview": null,
+          "stillURL": "https://archive.org/download/raffles-complete-series-1975/raffles-complete-series-1975.thumbs/Raffles%20S01E01%20-%20The%20First%20Step_001360.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3206,
+          "videoFile": {
+            "name": "Raffles S01E01 - The First Step.mp4",
+            "format": "h.264",
+            "sizeBytes": 307838114,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/raffles-complete-series-1975/Raffles%20S01E01%20-%20The%20First%20Step.mp4"
+        },
+        {
+          "archiveID": "raffles-complete-series-1975@s1e02",
+          "sourceID": "raffles-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "A Costume Piece",
+          "overview": null,
+          "stillURL": "https://archive.org/download/raffles-complete-series-1975/raffles-complete-series-1975.thumbs/Raffles%20S01E02%20-%20A%20Costume%20Piece_001309.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3079,
+          "videoFile": {
+            "name": "Raffles S01E02 - A Costume Piece.mp4",
+            "format": "h.264",
+            "sizeBytes": 295856577,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/raffles-complete-series-1975/Raffles%20S01E02%20-%20A%20Costume%20Piece.mp4"
+        },
+        {
+          "archiveID": "raffles-complete-series-1975@s1e03",
+          "sourceID": "raffles-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Spoils of Sacrilege",
+          "overview": null,
+          "stillURL": "https://archive.org/download/raffles-complete-series-1975/raffles-complete-series-1975.thumbs/Raffles%20S01E03%20-%20The%20Spoils%20of%20Sacrilege_001309.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3087,
+          "videoFile": {
+            "name": "Raffles S01E03 - The Spoils of Sacrilege.mp4",
+            "format": "h.264",
+            "sizeBytes": 296469674,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/raffles-complete-series-1975/Raffles%20S01E03%20-%20The%20Spoils%20of%20Sacrilege.mp4"
+        },
+        {
+          "archiveID": "raffles-complete-series-1975@s1e04",
+          "sourceID": "raffles-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Gold Cup",
+          "overview": null,
+          "stillURL": "https://archive.org/download/raffles-complete-series-1975/raffles-complete-series-1975.thumbs/Raffles%20S01E04%20-%20The%20Gold%20Cup_001301.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3064,
+          "videoFile": {
+            "name": "Raffles S01E04 - The Gold Cup.mp4",
+            "format": "h.264",
+            "sizeBytes": 294889530,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/raffles-complete-series-1975/Raffles%20S01E04%20-%20The%20Gold%20Cup.mp4"
+        },
+        {
+          "archiveID": "raffles-complete-series-1975@s1e05",
+          "sourceID": "raffles-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Chest of Silver",
+          "overview": null,
+          "stillURL": "https://archive.org/download/raffles-complete-series-1975/raffles-complete-series-1975.thumbs/Raffles%20S01E05%20-%20The%20Chest%20of%20Silver_001259.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2965,
+          "videoFile": {
+            "name": "Raffles S01E05 - The Chest of Silver.mp4",
+            "format": "h.264",
+            "sizeBytes": 284291762,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/raffles-complete-series-1975/Raffles%20S01E05%20-%20The%20Chest%20of%20Silver.mp4"
+        },
+        {
+          "archiveID": "raffles-complete-series-1975@s1e06",
+          "sourceID": "raffles-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Last Laugh",
+          "overview": null,
+          "stillURL": "https://archive.org/download/raffles-complete-series-1975/raffles-complete-series-1975.thumbs/Raffles%20S01E06%20-The%20Last%20Laugh_001159.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3076,
+          "videoFile": {
+            "name": "Raffles S01E06 -The Last Laugh.mp4",
+            "format": "h.264",
+            "sizeBytes": 293451948,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/raffles-complete-series-1975/Raffles%20S01E06%20-The%20Last%20Laugh.mp4"
+        },
+        {
+          "archiveID": "raffles-complete-series-1975@s1e07",
+          "sourceID": "raffles-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Set a Trap to Catch a Cracksman",
+          "overview": null,
+          "stillURL": "https://archive.org/download/raffles-complete-series-1975/raffles-complete-series-1975.thumbs/Raffles%20S01E07%20-%20Set%20a%20Trap%20to%20Catch%20a%20Cracksman_001293.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3042,
+          "videoFile": {
+            "name": "Raffles S01E07 - Set a Trap to Catch a Cracksman.mp4",
+            "format": "h.264",
+            "sizeBytes": 294322271,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/raffles-complete-series-1975/Raffles%20S01E07%20-%20Set%20a%20Trap%20to%20Catch%20a%20Cracksman.mp4"
+        },
+        {
+          "archiveID": "raffles-complete-series-1975@s1e08",
+          "sourceID": "raffles-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "To Catch a Thief",
+          "overview": null,
+          "stillURL": "https://archive.org/download/raffles-complete-series-1975/raffles-complete-series-1975.thumbs/Raffles%20S01E08%20-%20To%20Catch%20a%20Thief_001309.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3078,
+          "videoFile": {
+            "name": "Raffles S01E08 - To Catch a Thief.mp4",
+            "format": "h.264",
+            "sizeBytes": 295524790,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/raffles-complete-series-1975/Raffles%20S01E08%20-%20To%20Catch%20a%20Thief.mp4"
+        },
+        {
+          "archiveID": "raffles-complete-series-1975@s1e09",
+          "sourceID": "raffles-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "A Bad Night",
+          "overview": null,
+          "stillURL": "https://archive.org/download/raffles-complete-series-1975/raffles-complete-series-1975.thumbs/Raffles%20S01E09%20-%20A%20Bad%20Night_001335.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3133,
+          "videoFile": {
+            "name": "Raffles S01E09 - A Bad Night.mp4",
+            "format": "h.264",
+            "sizeBytes": 303229713,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/raffles-complete-series-1975/Raffles%20S01E09%20-%20A%20Bad%20Night.mp4"
+        },
+        {
+          "archiveID": "raffles-complete-series-1975@s1e10",
+          "sourceID": "raffles-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Mr Justice Raffles",
+          "overview": null,
+          "stillURL": "https://archive.org/download/raffles-complete-series-1975/raffles-complete-series-1975.thumbs/Raffles%20S01E10%20-%20Mr.Justice%20Raffles_001326.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3120,
+          "videoFile": {
+            "name": "Raffles S01E10 - Mr.Justice Raffles.mp4",
+            "format": "h.264",
+            "sizeBytes": 300147891,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/raffles-complete-series-1975/Raffles%20S01E10%20-%20Mr.Justice%20Raffles.mp4"
+        },
+        {
+          "archiveID": "raffles-complete-series-1975@s1e11",
+          "sourceID": "raffles-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Home Affairs",
+          "overview": null,
+          "stillURL": "https://archive.org/download/raffles-complete-series-1975/raffles-complete-series-1975.thumbs/Raffles%20S01E11%20-%20Home%20Affairs_001260.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2971,
+          "videoFile": {
+            "name": "Raffles S01E11 - Home Affairs.mp4",
+            "format": "h.264",
+            "sizeBytes": 285411499,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/raffles-complete-series-1975/Raffles%20S01E11%20-%20Home%20Affairs.mp4"
+        },
+        {
+          "archiveID": "raffles-complete-series-1975@s1e12",
+          "sourceID": "raffles-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Gift of the Emperor",
+          "overview": null,
+          "stillURL": "https://archive.org/download/raffles-complete-series-1975/raffles-complete-series-1975.thumbs/Raffles%20S01E12%20-%20The%20Gift%20of%20the%20Emperor_001310.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3079,
+          "videoFile": {
+            "name": "Raffles S01E12 - The Gift of the Emperor.mp4",
+            "format": "h.264",
+            "sizeBytes": 295506392,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/raffles-complete-series-1975/Raffles%20S01E12%20-%20The%20Gift%20of%20the%20Emperor.mp4"
+        },
+        {
+          "archiveID": "raffles-complete-series-1975@s1e13",
+          "sourceID": "raffles-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "An Old Flame",
+          "overview": null,
+          "stillURL": "https://archive.org/download/raffles-complete-series-1975/raffles-complete-series-1975.thumbs/Raffles%20S01E13%20-%20An%20Old%20Flame_001327.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3117,
+          "videoFile": {
+            "name": "Raffles S01E13 - An Old Flame.mp4",
+            "format": "h.264",
+            "sizeBytes": 299992906,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/raffles-complete-series-1975/Raffles%20S01E13%20-%20An%20Old%20Flame.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 14,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

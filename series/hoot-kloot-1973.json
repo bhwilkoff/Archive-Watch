@@ -1,0 +1,350 @@
+{
+  "version": 2,
+  "seriesID": "hoot-kloot-1973",
+  "sourceID": "hoot-kloot",
+  "tvmazeID": null,
+  "title": "Hoot Kloot",
+  "yearStart": 1973,
+  "yearEnd": null,
+  "overview": "Sheriff Hoot Kloot, a diminutive, short-tempered lawman, keeps order in a remote western town with his horse Fester; the DePatie-Freleng theatrical cartoon series of 1973–74.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/hoot-kloot.ce7f3ab5.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "hoot-kloot@e01",
+          "sourceID": "hoot-kloot",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Kloot's Kounty",
+          "overview": null,
+          "stillURL": "https://archive.org/download/hoot-kloot/hoot-kloot.thumbs/Hoot%20Kloot%2001%20-%20Kloot%27s%20Kounty_000117.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 397,
+          "videoFile": {
+            "name": "Hoot Kloot 01 - Kloot's Kounty.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 248960490,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/hoot-kloot/Hoot%20Kloot%2001%20-%20Kloot%27s%20Kounty.ia.mp4"
+        },
+        {
+          "archiveID": "hoot-kloot@e02",
+          "sourceID": "hoot-kloot",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Apache on the County Seat",
+          "overview": null,
+          "stillURL": "https://archive.org/download/hoot-kloot/hoot-kloot.thumbs/Hoot%20Kloot%2002%20-%20Apache%20on%20the%20County%20Seat_000117.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 385,
+          "videoFile": {
+            "name": "Hoot Kloot 02 - Apache on the County Seat.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 231149811,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/hoot-kloot/Hoot%20Kloot%2002%20-%20Apache%20on%20the%20County%20Seat.ia.mp4"
+        },
+        {
+          "archiveID": "hoot-kloot@e03",
+          "sourceID": "hoot-kloot",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Shoe Must Go On",
+          "overview": null,
+          "stillURL": "https://archive.org/download/hoot-kloot/hoot-kloot.thumbs/Hoot%20Kloot%2003%20-%20The%20Shoe%20Must%20Go%20On_000117.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 381,
+          "videoFile": {
+            "name": "Hoot Kloot 03 - The Shoe Must Go On.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 228962816,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/hoot-kloot/Hoot%20Kloot%2003%20-%20The%20Shoe%20Must%20Go%20On.ia.mp4"
+        },
+        {
+          "archiveID": "hoot-kloot@e04",
+          "sourceID": "hoot-kloot",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "A Self-Winding Sidewinder",
+          "overview": null,
+          "stillURL": "https://archive.org/download/hoot-kloot/hoot-kloot.thumbs/Hoot%20Kloot%2004%20-%20A%20Self-Winding%20Sidewinder_000117.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 389,
+          "videoFile": {
+            "name": "Hoot Kloot 04 - A Self-Winding Sidewinder.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 271716136,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/hoot-kloot/Hoot%20Kloot%2004%20-%20A%20Self-Winding%20Sidewinder.ia.mp4"
+        },
+        {
+          "archiveID": "hoot-kloot@e05",
+          "sourceID": "hoot-kloot",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Pay Your Buffalo Bill",
+          "overview": null,
+          "stillURL": "https://archive.org/download/hoot-kloot/hoot-kloot.thumbs/Hoot%20Kloot%2005%20-%20Pay%20Your%20Buffalo%20Bill_000117.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 381,
+          "videoFile": {
+            "name": "Hoot Kloot 05 - Pay Your Buffalo Bill.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 215181511,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/hoot-kloot/Hoot%20Kloot%2005%20-%20Pay%20Your%20Buffalo%20Bill.ia.mp4"
+        },
+        {
+          "archiveID": "hoot-kloot@e06",
+          "sourceID": "hoot-kloot",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Stirrups and Hiccups",
+          "overview": null,
+          "stillURL": "https://archive.org/download/hoot-kloot/hoot-kloot.thumbs/Hoot%20Kloot%2006%20-%20Stirrups%20and%20Hiccups_000117.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 388,
+          "videoFile": {
+            "name": "Hoot Kloot 06 - Stirrups and Hiccups.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 240656122,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/hoot-kloot/Hoot%20Kloot%2006%20-%20Stirrups%20and%20Hiccups.ia.mp4"
+        },
+        {
+          "archiveID": "hoot-kloot@e07",
+          "sourceID": "hoot-kloot",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Ten Miles to the Gallop",
+          "overview": null,
+          "stillURL": "https://archive.org/download/hoot-kloot/hoot-kloot.thumbs/Hoot%20Kloot%2007%20-%20Ten%20Miles%20to%20the%20Gallop_000117.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 399,
+          "videoFile": {
+            "name": "Hoot Kloot 07 - Ten Miles to the Gallop.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 273959722,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/hoot-kloot/Hoot%20Kloot%2007%20-%20Ten%20Miles%20to%20the%20Gallop.ia.mp4"
+        },
+        {
+          "archiveID": "hoot-kloot@e08",
+          "sourceID": "hoot-kloot",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Phony Express",
+          "overview": null,
+          "stillURL": "https://archive.org/download/hoot-kloot/hoot-kloot.thumbs/Hoot%20Kloot%2008%20-%20Phony%20Express_000117.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 390,
+          "videoFile": {
+            "name": "Hoot Kloot 08 - Phony Express.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 268603793,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/hoot-kloot/Hoot%20Kloot%2008%20-%20Phony%20Express.ia.mp4"
+        },
+        {
+          "archiveID": "hoot-kloot@e09",
+          "sourceID": "hoot-kloot",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Giddy Up Woe",
+          "overview": null,
+          "stillURL": "https://archive.org/download/hoot-kloot/hoot-kloot.thumbs/Hoot%20Kloot%2009%20-%20Giddy%20Up%20Woe_000117.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 388,
+          "videoFile": {
+            "name": "Hoot Kloot 09 - Giddy Up Woe.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 257997536,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/hoot-kloot/Hoot%20Kloot%2009%20-%20Giddy%20Up%20Woe.ia.mp4"
+        },
+        {
+          "archiveID": "hoot-kloot@e10",
+          "sourceID": "hoot-kloot",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Gold Struck",
+          "overview": null,
+          "stillURL": "https://archive.org/download/hoot-kloot/hoot-kloot.thumbs/Hoot%20Kloot%2010%20-%20Gold%20Struck_000117.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 387,
+          "videoFile": {
+            "name": "Hoot Kloot 10 - Gold Struck.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 257736465,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/hoot-kloot/Hoot%20Kloot%2010%20-%20Gold%20Struck.ia.mp4"
+        },
+        {
+          "archiveID": "hoot-kloot@e11",
+          "sourceID": "hoot-kloot",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "As the Tumbleweed Turns",
+          "overview": null,
+          "stillURL": "https://archive.org/download/hoot-kloot/hoot-kloot.thumbs/Hoot%20Kloot%2011%20-%20As%20the%20Tumbleweed%20Turns_000117.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 389,
+          "videoFile": {
+            "name": "Hoot Kloot 11 - As the Tumbleweed Turns.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 230828403,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/hoot-kloot/Hoot%20Kloot%2011%20-%20As%20the%20Tumbleweed%20Turns.ia.mp4"
+        },
+        {
+          "archiveID": "hoot-kloot@e12",
+          "sourceID": "hoot-kloot",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Badge and the Beautfiul",
+          "overview": null,
+          "stillURL": "https://archive.org/download/hoot-kloot/hoot-kloot.thumbs/Hoot%20Kloot%2012%20-%20The%20Badge%20and%20the%20Beautfiul_000117.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 399,
+          "videoFile": {
+            "name": "Hoot Kloot 12 - The Badge and the Beautfiul.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 273959722,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/hoot-kloot/Hoot%20Kloot%2012%20-%20The%20Badge%20and%20the%20Beautfiul.ia.mp4"
+        },
+        {
+          "archiveID": "hoot-kloot@e13",
+          "sourceID": "hoot-kloot",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Big Beef at the O K. Corral",
+          "overview": null,
+          "stillURL": "https://archive.org/download/hoot-kloot/hoot-kloot.thumbs/Hoot%20Kloot%2013%20-%20Big%20Beef%20at%20the%20O.K.%20Corral_000117.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 380,
+          "videoFile": {
+            "name": "Hoot Kloot 13 - Big Beef at the O.K. Corral.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 291171375,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/hoot-kloot/Hoot%20Kloot%2013%20-%20Big%20Beef%20at%20the%20O.K.%20Corral.ia.mp4"
+        },
+        {
+          "archiveID": "hoot-kloot@e14",
+          "sourceID": "hoot-kloot",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "By Hoot or by Crook",
+          "overview": null,
+          "stillURL": "https://archive.org/download/hoot-kloot/hoot-kloot.thumbs/Hoot%20Kloot%2014%20-%20By%20Hoot%20or%20by%20Crook_000117.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 393,
+          "videoFile": {
+            "name": "Hoot Kloot 14 - By Hoot or by Crook.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 272119521,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/hoot-kloot/Hoot%20Kloot%2014%20-%20By%20Hoot%20or%20by%20Crook.ia.mp4"
+        },
+        {
+          "archiveID": "hoot-kloot@e15",
+          "sourceID": "hoot-kloot",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Strange on the Range",
+          "overview": null,
+          "stillURL": "https://archive.org/download/hoot-kloot/hoot-kloot.thumbs/Hoot%20Kloot%2015%20-%20Strange%20on%20the%20Range_000117.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 379,
+          "videoFile": {
+            "name": "Hoot Kloot 15 - Strange on the Range.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 259093389,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/hoot-kloot/Hoot%20Kloot%2015%20-%20Strange%20on%20the%20Range.ia.mp4"
+        },
+        {
+          "archiveID": "hoot-kloot@e16",
+          "sourceID": "hoot-kloot",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Mesa Trouble",
+          "overview": null,
+          "stillURL": "https://archive.org/download/hoot-kloot/hoot-kloot.thumbs/Hoot%20Kloot%2016%20-%20Mesa%20Trouble_000117.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 391,
+          "videoFile": {
+            "name": "Hoot Kloot 16 - Mesa Trouble.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 259480088,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/hoot-kloot/Hoot%20Kloot%2016%20-%20Mesa%20Trouble.ia.mp4"
+        },
+        {
+          "archiveID": "hoot-kloot@e17",
+          "sourceID": "hoot-kloot",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Saddle Soap Opera",
+          "overview": null,
+          "stillURL": "https://archive.org/download/hoot-kloot/hoot-kloot.thumbs/Hoot%20Kloot%2017%20-%20Saddle%20Soap%20Opera_000117.jpg",
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 378,
+          "videoFile": {
+            "name": "Hoot Kloot 17 - Saddle Soap Opera.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 230672255,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/hoot-kloot/Hoot%20Kloot%2017%20-%20Saddle%20Soap%20Opera.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 17,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

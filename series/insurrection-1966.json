@@ -1,0 +1,179 @@
+{
+  "version": 2,
+  "seriesID": "insurrection-1966",
+  "sourceID": "insurrection-1966_202404",
+  "tvmazeID": null,
+  "title": "Insurrection",
+  "yearStart": 1966,
+  "yearEnd": null,
+  "overview": "Insurrection is an Irish docudrama written by Hugh Leonard and directed by Michael Garvey and Louis Lentin. It was first broadcast on Telefís Éireann in Ireland on 10 April 1966 and later on the BBC in the United Kingdom, ABC in Australia and several other European countries. Only one series of eight episodes was made, with each episode broadcast on consecutive nights. The series was repeated only once when, on 1 May 1966, it was shown in its entirety. The series portrays the 1916 Easter Rising which was mounted by Irish republicans to end British rule in Ireland and establish an independent Irish Republic. The events were reconstructed as it might have been seen by an Irish television service at the time. Ray McAnally acted as the studio anchor of a news programme that presented daily coverage of the Rising as it unfolded, with Telefís Éireann reporters broadcasting on the spot updates of the events and conducting interviews with key participants. Along with the key figures of the insurrection, the series also looked at the action in the General Post Office, Liberty Hall and events like the Battle of Mount Street Bridge. Incidents outside Dublin such as the arrest of Roger Casement, the sinking of the Aud and the battle of Ashbourne were introduced into the programs as filmed news items of the day. McAnally interviewed guests in studio and also used models and street maps to clarify details for the viewers. Insurrection has received critical acclaim from television critics. Described in the RTV Guide as \"undoubtedly the most difficult and ambitious project ever attempted by Irish television\", the series formed the centerpiece of Telefís Éireann's 1916 golden jubilee commemoration. It was regarded as pioneering in its use of the outside broadcast unit to record drama on location and its presentation of an historical event in the style of modern TV war reporting. This technique was borrowed from the 1964 BBC TV film Culloden. On 8 March 2016, RTÉ announced that Insurrection would be rebroadcast as part of their 1916 centenary commemoration.",
+  "posterURL": "https://archive.org/services/img/insurrection-1966_202404",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "insurrection-1966_202404@e01",
+          "sourceID": "insurrection-1966_202404",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "April 23rd, 1916 There Will Be No Rising",
+          "overview": null,
+          "stillURL": "https://archive.org/download/insurrection-1966_202404/insurrection-1966_202404.thumbs/Insurrection%20Part%201%20April%2023rd%2C%201916%20There%20Will%20Be%20No%20Rising_000534.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1389,
+          "videoFile": {
+            "name": "Insurrection Part 1 April 23rd, 1916 There Will Be No Rising.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 264680789,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/insurrection-1966_202404/Insurrection%20Part%201%20April%2023rd%2C%201916%20There%20Will%20Be%20No%20Rising.mp4"
+        },
+        {
+          "archiveID": "insurrection-1966_202404@e02",
+          "sourceID": "insurrection-1966_202404",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "April 24th, 1916 We've Put Emmet In The Shade",
+          "overview": null,
+          "stillURL": "https://archive.org/download/insurrection-1966_202404/insurrection-1966_202404.thumbs/Insurrection%20Part%202%20April%2024th%2C%201916%20We%27ve%20Put%20Emmet%20In%20The%20Shade_000534.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1389,
+          "videoFile": {
+            "name": "Insurrection Part 2 April 24th, 1916 We've Put Emmet In The Shade.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 265053804,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/insurrection-1966_202404/Insurrection%20Part%202%20April%2024th%2C%201916%20We%27ve%20Put%20Emmet%20In%20The%20Shade.mp4"
+        },
+        {
+          "archiveID": "insurrection-1966_202404@e03",
+          "sourceID": "insurrection-1966_202404",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "April 25th, 1916 Law and Self-Restraint",
+          "overview": null,
+          "stillURL": "https://archive.org/download/insurrection-1966_202404/insurrection-1966_202404.thumbs/Insurrection%20Part%203%20April%2025th%2C%201916%20Law%20and%20Self-Restraint_000474.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1357,
+          "videoFile": {
+            "name": "Insurrection Part 3 April 25th, 1916 Law and Self-Restraint.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 258843160,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/insurrection-1966_202404/Insurrection%20Part%203%20April%2025th%2C%201916%20Law%20and%20Self-Restraint.mp4"
+        },
+        {
+          "archiveID": "insurrection-1966_202404@e04",
+          "sourceID": "insurrection-1966_202404",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "April 26th, 1916 Two Thousand Sherwood Foresters",
+          "overview": null,
+          "stillURL": "https://archive.org/download/insurrection-1966_202404/insurrection-1966_202404.thumbs/Insurrection%20Part%204%20April%2026th%2C%201916%20Two%20Thousand%20Sherwood%20Foresters_000474.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1243,
+          "videoFile": {
+            "name": "Insurrection Part 4 April 26th, 1916 Two Thousand Sherwood Foresters.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 236267444,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/insurrection-1966_202404/Insurrection%20Part%204%20April%2026th%2C%201916%20Two%20Thousand%20Sherwood%20Foresters.mp4"
+        },
+        {
+          "archiveID": "insurrection-1966_202404@e05",
+          "sourceID": "insurrection-1966_202404",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "April 27th, 1916 When We Are All Wiped Out",
+          "overview": null,
+          "stillURL": "https://archive.org/download/insurrection-1966_202404/insurrection-1966_202404.thumbs/Insurrection%20Part%205%20April%2027th%2C%201916%20When%20We%20Are%20All%20Wiped%20Out_000414.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1119,
+          "videoFile": {
+            "name": "Insurrection Part 5 April 27th, 1916 When We Are All Wiped Out.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 291404922,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/insurrection-1966_202404/Insurrection%20Part%205%20April%2027th%2C%201916%20When%20We%20Are%20All%20Wiped%20Out.mp4"
+        },
+        {
+          "archiveID": "insurrection-1966_202404@e06",
+          "sourceID": "insurrection-1966_202404",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "April 28th, 1916 Do You Think We'll Win",
+          "overview": null,
+          "stillURL": "https://archive.org/download/insurrection-1966_202404/insurrection-1966_202404.thumbs/Insurrection%20Part%206%20April%2028th%2C%201916%20Do%20You%20Think%20We%27ll%20Win_000594.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1627,
+          "videoFile": {
+            "name": "Insurrection Part 6 April 28th, 1916 Do You Think We'll Win.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 309408491,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/insurrection-1966_202404/Insurrection%20Part%206%20April%2028th%2C%201916%20Do%20You%20Think%20We%27ll%20Win.mp4"
+        },
+        {
+          "archiveID": "insurrection-1966_202404@e07",
+          "sourceID": "insurrection-1966_202404",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "April 29th, 1916 Was There No Other Way",
+          "overview": null,
+          "stillURL": "https://archive.org/download/insurrection-1966_202404/insurrection-1966_202404.thumbs/Insurrection%20Part%207%20April%2029th%2C%201916%20Was%20There%20No%20Other%20Way_000534.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1548,
+          "videoFile": {
+            "name": "Insurrection Part 7 April 29th, 1916 Was There No Other Way.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 295283567,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/insurrection-1966_202404/Insurrection%20Part%207%20April%2029th%2C%201916%20Was%20There%20No%20Other%20Way.mp4"
+        },
+        {
+          "archiveID": "insurrection-1966_202404@e08",
+          "sourceID": "insurrection-1966_202404",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "May 12th, 1916 Nothing In Heaven Or Earth",
+          "overview": null,
+          "stillURL": "https://archive.org/download/insurrection-1966_202404/insurrection-1966_202404.thumbs/Insurrection%20Part%208%20May%2012th%2C%201916%20Nothing%20In%20Heaven%20Or%20Earth_000534.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1442,
+          "videoFile": {
+            "name": "Insurrection Part 8 May 12th, 1916 Nothing In Heaven Or Earth.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 273681645,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/insurrection-1966_202404/Insurrection%20Part%208%20May%2012th%2C%201916%20Nothing%20In%20Heaven%20Or%20Earth.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 8,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

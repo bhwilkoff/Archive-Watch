@@ -1,0 +1,293 @@
+{
+  "version": 2,
+  "seriesID": "matt-helm-1975",
+  "sourceID": "Matt-Helm-1975-Series",
+  "tvmazeID": null,
+  "title": "Matt Helm",
+  "yearStart": 1975,
+  "yearEnd": null,
+  "overview": "A former government agent turned private investigator; all 14 episodes of the 1975 ABC series Matt Helm with Anthony Franciosa.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/kOaZA1jZbejG3tIV9M82ojw8Esw.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Matt-Helm-1975-Series@s1e00",
+          "sourceID": "Matt-Helm-1975-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 0,
+          "title": "Pilot",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 4173,
+          "videoFile": {
+            "name": "Matt Helm (14 of 14)/S01E00 - Pilot.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 401592815,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Matt-Helm-1975-Series/Matt%20Helm%20%2814%20of%2014%29/S01E00%20-%20Pilot.ia.mp4"
+        },
+        {
+          "archiveID": "Matt-Helm-1975-Series@s1e01",
+          "sourceID": "Matt-Helm-1975-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Dead Men Talk",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2830,
+          "videoFile": {
+            "name": "Matt Helm (14 of 14)/S01E01 - Dead Men Talk.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 271659360,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Matt-Helm-1975-Series/Matt%20Helm%20%2814%20of%2014%29/S01E01%20-%20Dead%20Men%20Talk.ia.mp4"
+        },
+        {
+          "archiveID": "Matt-Helm-1975-Series@s1e02",
+          "sourceID": "Matt-Helm-1975-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Now I Lay Me Down to Die",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2860,
+          "videoFile": {
+            "name": "Matt Helm (14 of 14)/S01E02 - Now I Lay Me Down to Die.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 275851517,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Matt-Helm-1975-Series/Matt%20Helm%20%2814%20of%2014%29/S01E02%20-%20Now%20I%20Lay%20Me%20Down%20to%20Die.ia.mp4"
+        },
+        {
+          "archiveID": "Matt-Helm-1975-Series@s1e03",
+          "sourceID": "Matt-Helm-1975-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Scavenger's Paradise",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2882,
+          "videoFile": {
+            "name": "Matt Helm (14 of 14)/S01E03 - Scavenger's Paradise.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 278717698,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Matt-Helm-1975-Series/Matt%20Helm%20%2814%20of%2014%29/S01E03%20-%20Scavenger%27s%20Paradise.ia.mp4"
+        },
+        {
+          "archiveID": "Matt-Helm-1975-Series@s1e04",
+          "sourceID": "Matt-Helm-1975-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Game of the Century",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2888,
+          "videoFile": {
+            "name": "Matt Helm (14 of 14)/S01E04 - The Game of the Century.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 277901182,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Matt-Helm-1975-Series/Matt%20Helm%20%2814%20of%2014%29/S01E04%20-%20The%20Game%20of%20the%20Century.ia.mp4"
+        },
+        {
+          "archiveID": "Matt-Helm-1975-Series@s1e05",
+          "sourceID": "Matt-Helm-1975-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Murder on Ice",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2886,
+          "videoFile": {
+            "name": "Matt Helm (14 of 14)/S01E05 - Murder on Ice.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 278647666,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Matt-Helm-1975-Series/Matt%20Helm%20%2814%20of%2014%29/S01E05%20-%20Murder%20on%20Ice.ia.mp4"
+        },
+        {
+          "archiveID": "Matt-Helm-1975-Series@s1e06",
+          "sourceID": "Matt-Helm-1975-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Squeeze Play",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2854,
+          "videoFile": {
+            "name": "Matt Helm (14 of 14)/S01E06 - Squeeze Play.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 275027995,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Matt-Helm-1975-Series/Matt%20Helm%20%2814%20of%2014%29/S01E06%20-%20Squeeze%20Play.ia.mp4"
+        },
+        {
+          "archiveID": "Matt-Helm-1975-Series@s1e07",
+          "sourceID": "Matt-Helm-1975-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Deadly Breed",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2888,
+          "videoFile": {
+            "name": "Matt Helm (14 of 14)/S01E07 - Deadly Breed.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 278104594,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Matt-Helm-1975-Series/Matt%20Helm%20%2814%20of%2014%29/S01E07%20-%20Deadly%20Breed.ia.mp4"
+        },
+        {
+          "archiveID": "Matt-Helm-1975-Series@s1e08",
+          "sourceID": "Matt-Helm-1975-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Death Rods",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2888,
+          "videoFile": {
+            "name": "Matt Helm (14 of 14)/S01E08 - Death Rods.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 278227428,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Matt-Helm-1975-Series/Matt%20Helm%20%2814%20of%2014%29/S01E08%20-%20Death%20Rods.ia.mp4"
+        },
+        {
+          "archiveID": "Matt-Helm-1975-Series@s1e09",
+          "sourceID": "Matt-Helm-1975-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Double Jeopardy",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2883,
+          "videoFile": {
+            "name": "Matt Helm (14 of 14)/S01E09 - Double Jeopardy.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 277519738,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Matt-Helm-1975-Series/Matt%20Helm%20%2814%20of%2014%29/S01E09%20-%20Double%20Jeopardy.ia.mp4"
+        },
+        {
+          "archiveID": "Matt-Helm-1975-Series@s1e10",
+          "sourceID": "Matt-Helm-1975-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Think Murder",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2886,
+          "videoFile": {
+            "name": "Matt Helm (14 of 14)/S01E10 - Think Murder.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 276887339,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Matt-Helm-1975-Series/Matt%20Helm%20%2814%20of%2014%29/S01E10%20-%20Think%20Murder.ia.mp4"
+        },
+        {
+          "archiveID": "Matt-Helm-1975-Series@s1e11",
+          "sourceID": "Matt-Helm-1975-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Murder on the Run",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2825,
+          "videoFile": {
+            "name": "Matt Helm (14 of 14)/S01E11 - Murder on the Run.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 272532315,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Matt-Helm-1975-Series/Matt%20Helm%20%2814%20of%2014%29/S01E11%20-%20Murder%20on%20the%20Run.ia.mp4"
+        },
+        {
+          "archiveID": "Matt-Helm-1975-Series@s1e12",
+          "sourceID": "Matt-Helm-1975-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Prognosis Murder (a k a Panic)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2885,
+          "videoFile": {
+            "name": "Matt Helm (14 of 14)/S01E12 - Prognosis Murder (a.k.a Panic).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 278154379,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Matt-Helm-1975-Series/Matt%20Helm%20%2814%20of%2014%29/S01E12%20-%20Prognosis%20Murder%20%28a.k.a%20Panic%29.ia.mp4"
+        },
+        {
+          "archiveID": "Matt-Helm-1975-Series@s1e13",
+          "sourceID": "Matt-Helm-1975-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Die Once, Die Twice",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2802,
+          "videoFile": {
+            "name": "Matt Helm (14 of 14)/S01E13 - Die Once, Die Twice.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 269398596,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Matt-Helm-1975-Series/Matt%20Helm%20%2814%20of%2014%29/S01E13%20-%20Die%20Once%2C%20Die%20Twice.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 14,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": []
+}

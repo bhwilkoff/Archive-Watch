@@ -55,6 +55,7 @@ import app.archivewatch.android.data.PlaySpec
 import app.archivewatch.android.data.QueueEntry
 import app.archivewatch.android.data.SeriesDetail
 import app.archivewatch.android.data.SeriesEpisode
+import app.archivewatch.android.data.isBundleFile
 import app.archivewatch.android.ui.BackdropImage
 import app.archivewatch.android.ui.EmptyState
 import app.archivewatch.android.ui.LoadingBox
@@ -285,7 +286,8 @@ internal fun episodeLabel(episode: SeriesEpisode, seriesTitle: String?): String 
 internal fun episodeName(episode: SeriesEpisode, seriesTitle: String?): String? {
     val t = episode.title?.trim().orEmpty()
     val aid = episode.archiveID.orEmpty()
-    if (aid.isEmpty()) return episode.title
+    // A bundle episode's id (Decision 166) is the series item plus a token.
+    if (aid.isEmpty() || aid.isBundleFile) return episode.title
     val st = seriesTitle?.trim()?.lowercase().orEmpty()
     if (t.isNotEmpty() && t.lowercase() != st) return t
     val seriesWords = st.split(Regex("[ \\-:]+")).filter { it.isNotEmpty() }.toSet()

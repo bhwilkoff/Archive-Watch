@@ -1,0 +1,521 @@
+{
+  "version": 2,
+  "seriesID": "the-invisible-man-1958",
+  "sourceID": "the-invisible-man-shadow-bomb",
+  "tvmazeID": null,
+  "title": "The Invisible Man",
+  "yearStart": 1958,
+  "yearEnd": null,
+  "overview": "An episode of the British ITC series The Invisible Man (1958-59). Scientist Peter Brady is turned invisible by a radiation accident and, while searching for a cure, works as an agent for British intelligence. The actor playing Brady went uncredited.",
+  "posterURL": "https://archive.org/services/img/the-invisible-man-shadow-bomb",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-invisible-man-shadow-bomb@e01",
+          "sourceID": "the-invisible-man-shadow-bomb",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Secret Experiment",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-invisible-man-shadow-bomb/the-invisible-man-shadow-bomb.thumbs/The%20Invisible%20Man%2001%20Secret%20Experiment_000621.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1386,
+          "videoFile": {
+            "name": "The Invisible Man 01 Secret Experiment.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 161470779,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-shadow-bomb/The%20Invisible%20Man%2001%20Secret%20Experiment.ia.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-shadow-bomb@e02",
+          "sourceID": "the-invisible-man-shadow-bomb",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Crisis in the Desert",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-invisible-man-shadow-bomb/the-invisible-man-shadow-bomb.thumbs/The%20Invisible%20Man%2002%20Crisis%20in%20the%20Desert_000626.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1390,
+          "videoFile": {
+            "name": "The Invisible Man 02 Crisis in the Desert.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 142803194,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-shadow-bomb/The%20Invisible%20Man%2002%20Crisis%20in%20the%20Desert.ia.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-shadow-bomb@e03",
+          "sourceID": "the-invisible-man-shadow-bomb",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Behind the Mask",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-invisible-man-shadow-bomb/the-invisible-man-shadow-bomb.thumbs/The%20Invisible%20Man%2003%20Behind%20the%20Mask_000628.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1389,
+          "videoFile": {
+            "name": "The Invisible Man 03 Behind the Mask.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 150357897,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-shadow-bomb/The%20Invisible%20Man%2003%20Behind%20the%20Mask.ia.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-shadow-bomb@e04",
+          "sourceID": "the-invisible-man-shadow-bomb",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Locked Room",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-invisible-man-shadow-bomb/the-invisible-man-shadow-bomb.thumbs/The%20Invisible%20Man%2004%20The%20Locked%20Room_000537.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "The Invisible Man 04 The Locked Room.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 162005637,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-shadow-bomb/The%20Invisible%20Man%2004%20The%20Locked%20Room.ia.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-shadow-bomb@e05",
+          "sourceID": "the-invisible-man-shadow-bomb",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Picnic with Death",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-invisible-man-shadow-bomb/the-invisible-man-shadow-bomb.thumbs/The%20Invisible%20Man%2005%20Picnic%20with%20Death_000623.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1395,
+          "videoFile": {
+            "name": "The Invisible Man 05 Picnic with Death.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 121880669,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-shadow-bomb/The%20Invisible%20Man%2005%20Picnic%20with%20Death.ia.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-shadow-bomb@e06",
+          "sourceID": "the-invisible-man-shadow-bomb",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Play to Kill",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-invisible-man-shadow-bomb/the-invisible-man-shadow-bomb.thumbs/The%20Invisible%20Man%2006%20Play%20to%20Kill_000616.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1382,
+          "videoFile": {
+            "name": "The Invisible Man 06 Play to Kill.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 150926054,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-shadow-bomb/The%20Invisible%20Man%2006%20Play%20to%20Kill.ia.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-shadow-bomb@e07",
+          "sourceID": "the-invisible-man-shadow-bomb",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Shadow on the Screen",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-invisible-man-shadow-bomb/the-invisible-man-shadow-bomb.thumbs/The%20Invisible%20Man%2007%20Shadow%20on%20the%20Screen_000618.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1385,
+          "videoFile": {
+            "name": "The Invisible Man 07 Shadow on the Screen.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 163696372,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-shadow-bomb/The%20Invisible%20Man%2007%20Shadow%20on%20the%20Screen.ia.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-shadow-bomb@e08",
+          "sourceID": "the-invisible-man-shadow-bomb",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Mink Coat",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-invisible-man-shadow-bomb/the-invisible-man-shadow-bomb.thumbs/The%20Invisible%20Man%2008%20The%20Mink%20Coat_000497.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1398,
+          "videoFile": {
+            "name": "The Invisible Man 08 The Mink Coat.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 135807252,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-shadow-bomb/The%20Invisible%20Man%2008%20The%20Mink%20Coat.ia.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-shadow-bomb@e09",
+          "sourceID": "the-invisible-man-shadow-bomb",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Blind Justice",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-invisible-man-shadow-bomb/the-invisible-man-shadow-bomb.thumbs/The%20Invisible%20Man%2009%20Blind%20Justice_000619.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1374,
+          "videoFile": {
+            "name": "The Invisible Man 09 Blind Justice.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 140558045,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-shadow-bomb/The%20Invisible%20Man%2009%20Blind%20Justice.ia.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-shadow-bomb@e10",
+          "sourceID": "the-invisible-man-shadow-bomb",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Jailbreak",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-invisible-man-shadow-bomb/the-invisible-man-shadow-bomb.thumbs/The%20Invisible%20Man%2010%20Jailbreak_000619.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1374,
+          "videoFile": {
+            "name": "The Invisible Man 10 Jailbreak.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 158755541,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-shadow-bomb/The%20Invisible%20Man%2010%20Jailbreak.ia.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-shadow-bomb@e11",
+          "sourceID": "the-invisible-man-shadow-bomb",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Bank Raid",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-invisible-man-shadow-bomb/the-invisible-man-shadow-bomb.thumbs/The%20Invisible%20Man%2011%20Bank%20Raid_000490.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1376,
+          "videoFile": {
+            "name": "The Invisible Man 11 Bank Raid.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 142224183,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-shadow-bomb/The%20Invisible%20Man%2011%20Bank%20Raid.ia.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-shadow-bomb@e12",
+          "sourceID": "the-invisible-man-shadow-bomb",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Odds Against Death",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-invisible-man-shadow-bomb/the-invisible-man-shadow-bomb.thumbs/The%20Invisible%20Man%2012%20Odds%20Against%20Death_000624.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1400,
+          "videoFile": {
+            "name": "The Invisible Man 12 Odds Against Death.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 155785716,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-shadow-bomb/The%20Invisible%20Man%2012%20Odds%20Against%20Death.ia.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-shadow-bomb@e13",
+          "sourceID": "the-invisible-man-shadow-bomb",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Strange Partners",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-invisible-man-shadow-bomb/the-invisible-man-shadow-bomb.thumbs/The%20Invisible%20Man%2013%20Strange%20Partners_000617.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1381,
+          "videoFile": {
+            "name": "The Invisible Man 13 Strange Partners.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 121340313,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-shadow-bomb/The%20Invisible%20Man%2013%20Strange%20Partners.ia.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-shadow-bomb@e14",
+          "sourceID": "the-invisible-man-shadow-bomb",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Point of Destruction",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-invisible-man-shadow-bomb/the-invisible-man-shadow-bomb.thumbs/The%20Invisible%20Man%2014%20Point%20of%20Destruction_000627.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1401,
+          "videoFile": {
+            "name": "The Invisible Man 14 Point of Destruction.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 140084836,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-shadow-bomb/The%20Invisible%20Man%2014%20Point%20of%20Destruction.ia.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-shadow-bomb@e15",
+          "sourceID": "the-invisible-man-shadow-bomb",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Death Cell",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-invisible-man-shadow-bomb/the-invisible-man-shadow-bomb.thumbs/The%20Invisible%20Man%2015%20Death%20Cell_000620.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1387,
+          "videoFile": {
+            "name": "The Invisible Man 15 Death Cell.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 143237564,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-shadow-bomb/The%20Invisible%20Man%2015%20Death%20Cell.ia.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-shadow-bomb@e16",
+          "sourceID": "the-invisible-man-shadow-bomb",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "The Vanishing Evidence",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-invisible-man-shadow-bomb/the-invisible-man-shadow-bomb.thumbs/The%20Invisible%20Man%2016%20The%20Vanishing%20Evidence_000529.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1489,
+          "videoFile": {
+            "name": "The Invisible Man 16 The Vanishing Evidence.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 143075560,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-shadow-bomb/The%20Invisible%20Man%2016%20The%20Vanishing%20Evidence.ia.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-shadow-bomb@e17",
+          "sourceID": "the-invisible-man-shadow-bomb",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "The Prize",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-invisible-man-shadow-bomb/the-invisible-man-shadow-bomb.thumbs/The%20Invisible%20Man%2017%20The%20Prize_000529.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1490,
+          "videoFile": {
+            "name": "The Invisible Man 17 The Prize.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 146132043,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-shadow-bomb/The%20Invisible%20Man%2017%20The%20Prize.ia.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-shadow-bomb@e18",
+          "sourceID": "the-invisible-man-shadow-bomb",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Flight Into Darkness",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-invisible-man-shadow-bomb/the-invisible-man-shadow-bomb.thumbs/The%20Invisible%20Man%2018%20Flight%20Into%20Darkness_000672.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1508,
+          "videoFile": {
+            "name": "The Invisible Man 18 Flight Into Darkness.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 188555867,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-shadow-bomb/The%20Invisible%20Man%2018%20Flight%20Into%20Darkness.ia.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-shadow-bomb@e19",
+          "sourceID": "the-invisible-man-shadow-bomb",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "The Decoy",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-invisible-man-shadow-bomb/the-invisible-man-shadow-bomb.thumbs/The%20Invisible%20Man%2019%20The%20Decoy_000619.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1390,
+          "videoFile": {
+            "name": "The Invisible Man 19 The Decoy.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 182437340,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-shadow-bomb/The%20Invisible%20Man%2019%20The%20Decoy.ia.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-shadow-bomb@e20",
+          "sourceID": "the-invisible-man-shadow-bomb",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "The Gun Runners",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-invisible-man-shadow-bomb/the-invisible-man-shadow-bomb.thumbs/The%20Invisible%20Man%2020%20The%20Gun%20Runners_000678.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1523,
+          "videoFile": {
+            "name": "The Invisible Man 20 The Gun Runners.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 155199898,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-shadow-bomb/The%20Invisible%20Man%2020%20The%20Gun%20Runners.ia.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-shadow-bomb@e21",
+          "sourceID": "the-invisible-man-shadow-bomb",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "The White Rabbit",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-invisible-man-shadow-bomb/the-invisible-man-shadow-bomb.thumbs/The%20Invisible%20Man%2021%20The%20White%20Rabbit_000618.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1370,
+          "videoFile": {
+            "name": "The Invisible Man 21 The White Rabbit.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 151398422,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-shadow-bomb/The%20Invisible%20Man%2021%20The%20White%20Rabbit.ia.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-shadow-bomb@e22",
+          "sourceID": "the-invisible-man-shadow-bomb",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Man in Disguise",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-invisible-man-shadow-bomb/the-invisible-man-shadow-bomb.thumbs/The%20Invisible%20Man%2022%20Man%20in%20Disguise_000616.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1371,
+          "videoFile": {
+            "name": "The Invisible Man 22 Man in Disguise.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 159504819,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-shadow-bomb/The%20Invisible%20Man%2022%20Man%20in%20Disguise.ia.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-shadow-bomb@e23",
+          "sourceID": "the-invisible-man-shadow-bomb",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Man in Power",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-invisible-man-shadow-bomb/the-invisible-man-shadow-bomb.thumbs/The%20Invisible%20Man%2023%20Man%20in%20Power_000617.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1382,
+          "videoFile": {
+            "name": "The Invisible Man 23 Man in Power.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 146002152,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-shadow-bomb/The%20Invisible%20Man%2023%20Man%20in%20Power.ia.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-shadow-bomb@e24",
+          "sourceID": "the-invisible-man-shadow-bomb",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "The Rocket",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-invisible-man-shadow-bomb/the-invisible-man-shadow-bomb.thumbs/The%20Invisible%20Man%2024%20The%20Rocket_000544.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1532,
+          "videoFile": {
+            "name": "The Invisible Man 24 The Rocket.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 153442442,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-shadow-bomb/The%20Invisible%20Man%2024%20The%20Rocket.ia.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-shadow-bomb@e25",
+          "sourceID": "the-invisible-man-shadow-bomb",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Shadow Bomb",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-invisible-man-shadow-bomb/the-invisible-man-shadow-bomb.thumbs/The%20Invisible%20Man%2025%20Shadow%20Bomb_000488.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1372,
+          "videoFile": {
+            "name": "The Invisible Man 25 Shadow Bomb.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 187609505,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-shadow-bomb/The%20Invisible%20Man%2025%20Shadow%20Bomb.ia.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-shadow-bomb@e26",
+          "sourceID": "the-invisible-man-shadow-bomb",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "The Big Plot",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-invisible-man-shadow-bomb/the-invisible-man-shadow-bomb.thumbs/The%20Invisible%20Man%2026%20The%20Big%20Plot_000495.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1391,
+          "videoFile": {
+            "name": "The Invisible Man 26 The Big Plot.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 148580852,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-shadow-bomb/The%20Invisible%20Man%2026%20The%20Big%20Plot.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 26,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

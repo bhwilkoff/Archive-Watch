@@ -1,0 +1,276 @@
+{
+  "version": 2,
+  "seriesID": "flash-gordon-1936",
+  "sourceID": "flash-gordon-episode-1-1936-colorized-serial-720p-hd",
+  "tvmazeID": null,
+  "title": "Flash Gordon",
+  "yearStart": 1936,
+  "yearEnd": null,
+  "overview": "Flash Gordon, Dale Arden and Dr Zarkov rocket to the planet Mongo to stop its emperor Ming the Merciless from destroying the Earth; all thirteen chapters of the 1936 serial, with Buster Crabbe.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/flash-gordon-episode-1-1936-colorized-serial-720p-hd.b9da10a8.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Sci-Fi"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "flash-gordon-episode-1-1936-colorized-serial-720p-hd@e01",
+          "sourceID": "flash-gordon-episode-1-1936-colorized-serial-720p-hd",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Episode 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/flash-gordon-episode-1-1936-colorized-serial-720p-hd/flash-gordon-episode-1-1936-colorized-serial-720p-hd.thumbs/flash%20gordon-episode1-1936-colorized%20serial-720p-hd_000474.jpg",
+          "airDate": null,
+          "year": 1936,
+          "runtimeSeconds": 1270,
+          "videoFile": {
+            "name": "flash gordon-episode1-1936-colorized serial-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 121535124,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flash-gordon-episode-1-1936-colorized-serial-720p-hd/flash%20gordon-episode1-1936-colorized%20serial-720p-hd.mp4"
+        },
+        {
+          "archiveID": "flash-gordon-episode-1-1936-colorized-serial-720p-hd@e02",
+          "sourceID": "flash-gordon-episode-1-1936-colorized-serial-720p-hd",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Episode 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/flash-gordon-episode-1-1936-colorized-serial-720p-hd/flash-gordon-episode-1-1936-colorized-serial-720p-hd.thumbs/flash%20gordon-episode2-1936-colorized%20serial-720p-hd_000474.jpg",
+          "airDate": null,
+          "year": 1936,
+          "runtimeSeconds": 1238,
+          "videoFile": {
+            "name": "flash gordon-episode2-1936-colorized serial-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 118780192,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flash-gordon-episode-1-1936-colorized-serial-720p-hd/flash%20gordon-episode2-1936-colorized%20serial-720p-hd.mp4"
+        },
+        {
+          "archiveID": "flash-gordon-episode-1-1936-colorized-serial-720p-hd@e03",
+          "sourceID": "flash-gordon-episode-1-1936-colorized-serial-720p-hd",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Episode 3",
+          "overview": null,
+          "stillURL": "https://archive.org/download/flash-gordon-episode-1-1936-colorized-serial-720p-hd/flash-gordon-episode-1-1936-colorized-serial-720p-hd.thumbs/flash%20gordon-episode3-1936-colorized%20serial-720p-hd_000474.jpg",
+          "airDate": null,
+          "year": 1936,
+          "runtimeSeconds": 1293,
+          "videoFile": {
+            "name": "flash gordon-episode3-1936-colorized serial-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 122020658,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flash-gordon-episode-1-1936-colorized-serial-720p-hd/flash%20gordon-episode3-1936-colorized%20serial-720p-hd.mp4"
+        },
+        {
+          "archiveID": "flash-gordon-episode-1-1936-colorized-serial-720p-hd@e04",
+          "sourceID": "flash-gordon-episode-1-1936-colorized-serial-720p-hd",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Episode 4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/flash-gordon-episode-1-1936-colorized-serial-720p-hd/flash-gordon-episode-1-1936-colorized-serial-720p-hd.thumbs/flash%20gordon-episode4-1936-colorized%20serial-720p-hd_000414.jpg",
+          "airDate": null,
+          "year": 1936,
+          "runtimeSeconds": 1118,
+          "videoFile": {
+            "name": "flash gordon-episode4-1936-colorized serial-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 107356521,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flash-gordon-episode-1-1936-colorized-serial-720p-hd/flash%20gordon-episode4-1936-colorized%20serial-720p-hd.mp4"
+        },
+        {
+          "archiveID": "flash-gordon-episode-1-1936-colorized-serial-720p-hd@e05",
+          "sourceID": "flash-gordon-episode-1-1936-colorized-serial-720p-hd",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Episode 5",
+          "overview": null,
+          "stillURL": "https://archive.org/download/flash-gordon-episode-1-1936-colorized-serial-720p-hd/flash-gordon-episode-1-1936-colorized-serial-720p-hd.thumbs/flash%20gordon-episode5-1936-colorized%20serial-720p-hd_000414.jpg",
+          "airDate": null,
+          "year": 1936,
+          "runtimeSeconds": 1106,
+          "videoFile": {
+            "name": "flash gordon-episode5-1936-colorized serial-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 105899682,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flash-gordon-episode-1-1936-colorized-serial-720p-hd/flash%20gordon-episode5-1936-colorized%20serial-720p-hd.mp4"
+        },
+        {
+          "archiveID": "flash-gordon-episode-1-1936-colorized-serial-720p-hd@e06",
+          "sourceID": "flash-gordon-episode-1-1936-colorized-serial-720p-hd",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Episode 6",
+          "overview": null,
+          "stillURL": "https://archive.org/download/flash-gordon-episode-1-1936-colorized-serial-720p-hd/flash-gordon-episode-1-1936-colorized-serial-720p-hd.thumbs/flash%20gordon-episode6-1936-colorized%20serial-720p-hd_000414.jpg",
+          "airDate": null,
+          "year": 1936,
+          "runtimeSeconds": 1107,
+          "videoFile": {
+            "name": "flash gordon-episode6-1936-colorized serial-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 104824808,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flash-gordon-episode-1-1936-colorized-serial-720p-hd/flash%20gordon-episode6-1936-colorized%20serial-720p-hd.mp4"
+        },
+        {
+          "archiveID": "flash-gordon-episode-1-1936-colorized-serial-720p-hd@e07",
+          "sourceID": "flash-gordon-episode-1-1936-colorized-serial-720p-hd",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Episode 7",
+          "overview": null,
+          "stillURL": "https://archive.org/download/flash-gordon-episode-1-1936-colorized-serial-720p-hd/flash-gordon-episode-1-1936-colorized-serial-720p-hd.thumbs/flash%20gordon-episode7-1936-colorized%20serial-720p-hd_000414.jpg",
+          "airDate": null,
+          "year": 1936,
+          "runtimeSeconds": 1120,
+          "videoFile": {
+            "name": "flash gordon-episode7-1936-colorized serial-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 107371479,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flash-gordon-episode-1-1936-colorized-serial-720p-hd/flash%20gordon-episode7-1936-colorized%20serial-720p-hd.mp4"
+        },
+        {
+          "archiveID": "flash-gordon-episode-1-1936-colorized-serial-720p-hd@e08",
+          "sourceID": "flash-gordon-episode-1-1936-colorized-serial-720p-hd",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Episode 8",
+          "overview": null,
+          "stillURL": "https://archive.org/download/flash-gordon-episode-1-1936-colorized-serial-720p-hd/flash-gordon-episode-1-1936-colorized-serial-720p-hd.thumbs/flash%20gordon-episode8-1936-colorized%20serial-720p-hd_000414.jpg",
+          "airDate": null,
+          "year": 1936,
+          "runtimeSeconds": 1045,
+          "videoFile": {
+            "name": "flash gordon-episode8-1936-colorized serial-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 99255330,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flash-gordon-episode-1-1936-colorized-serial-720p-hd/flash%20gordon-episode8-1936-colorized%20serial-720p-hd.mp4"
+        },
+        {
+          "archiveID": "flash-gordon-episode-1-1936-colorized-serial-720p-hd@e09",
+          "sourceID": "flash-gordon-episode-1-1936-colorized-serial-720p-hd",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Episode 9",
+          "overview": null,
+          "stillURL": "https://archive.org/download/flash-gordon-episode-1-1936-colorized-serial-720p-hd/flash-gordon-episode-1-1936-colorized-serial-720p-hd.thumbs/flash%20gordon-episode9-1936-colorized%20serial-720p-hd_000414.jpg",
+          "airDate": null,
+          "year": 1936,
+          "runtimeSeconds": 1188,
+          "videoFile": {
+            "name": "flash gordon-episode9-1936-colorized serial-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 114082509,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flash-gordon-episode-1-1936-colorized-serial-720p-hd/flash%20gordon-episode9-1936-colorized%20serial-720p-hd.mp4"
+        },
+        {
+          "archiveID": "flash-gordon-episode-1-1936-colorized-serial-720p-hd@e10",
+          "sourceID": "flash-gordon-episode-1-1936-colorized-serial-720p-hd",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Episode 10",
+          "overview": null,
+          "stillURL": "https://archive.org/download/flash-gordon-episode-1-1936-colorized-serial-720p-hd/flash-gordon-episode-1-1936-colorized-serial-720p-hd.thumbs/flash%20gordon-episode10-1936-colorized%20serial-720p-hd_000414.jpg",
+          "airDate": null,
+          "year": 1936,
+          "runtimeSeconds": 1159,
+          "videoFile": {
+            "name": "flash gordon-episode10-1936-colorized serial-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 110313452,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flash-gordon-episode-1-1936-colorized-serial-720p-hd/flash%20gordon-episode10-1936-colorized%20serial-720p-hd.mp4"
+        },
+        {
+          "archiveID": "flash-gordon-episode-1-1936-colorized-serial-720p-hd@e11",
+          "sourceID": "flash-gordon-episode-1-1936-colorized-serial-720p-hd",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Episode 11",
+          "overview": null,
+          "stillURL": "https://archive.org/download/flash-gordon-episode-1-1936-colorized-serial-720p-hd/flash-gordon-episode-1-1936-colorized-serial-720p-hd.thumbs/flash%20gordon-episode11-1936-colorized%20serial-720p-hd_000414.jpg",
+          "airDate": null,
+          "year": 1936,
+          "runtimeSeconds": 1119,
+          "videoFile": {
+            "name": "flash gordon-episode11-1936-colorized serial-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 105917411,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flash-gordon-episode-1-1936-colorized-serial-720p-hd/flash%20gordon-episode11-1936-colorized%20serial-720p-hd.mp4"
+        },
+        {
+          "archiveID": "flash-gordon-episode-1-1936-colorized-serial-720p-hd@e12",
+          "sourceID": "flash-gordon-episode-1-1936-colorized-serial-720p-hd",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Episode 12",
+          "overview": null,
+          "stillURL": "https://archive.org/download/flash-gordon-episode-1-1936-colorized-serial-720p-hd/flash-gordon-episode-1-1936-colorized-serial-720p-hd.thumbs/flash%20gordon-episode12-1936-colorized%20serial-720p-hd_000474.jpg",
+          "airDate": null,
+          "year": 1936,
+          "runtimeSeconds": 1103,
+          "videoFile": {
+            "name": "flash gordon-episode12-1936-colorized serial-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 104841782,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flash-gordon-episode-1-1936-colorized-serial-720p-hd/flash%20gordon-episode12-1936-colorized%20serial-720p-hd.mp4"
+        },
+        {
+          "archiveID": "flash-gordon-episode-1-1936-colorized-serial-720p-hd@e13",
+          "sourceID": "flash-gordon-episode-1-1936-colorized-serial-720p-hd",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Episode 13",
+          "overview": null,
+          "stillURL": "https://archive.org/download/flash-gordon-episode-1-1936-colorized-serial-720p-hd/flash-gordon-episode-1-1936-colorized-serial-720p-hd.thumbs/flash%20gordon-episode13-1936-colorized%20serial-720p-hd_000474.jpg",
+          "airDate": null,
+          "year": 1936,
+          "runtimeSeconds": 1240,
+          "videoFile": {
+            "name": "flash gordon-episode13-1936-colorized serial-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 117260214,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flash-gordon-episode-1-1936-colorized-serial-720p-hd/flash%20gordon-episode13-1936-colorized%20serial-720p-hd.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 13,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

@@ -93,13 +93,13 @@ enum DownloadAudit {
         var versions: [ArchiveVersions.Version] = []
         if let override, let item = store.item(override) {
             target = item
-            versions = await ArchiveVersions.list(itemID: item.archiveID)
+            versions = await ArchiveVersions.list(itemID: item.archiveID, defaultURL: item.videoURLParsed)
         } else {
             // Vintage commercials are a few MB each — a real archive.org
             // transfer that finishes inside an audit rather than a coffee break.
             for candidate in store.randomCommercials(limit: 8)
                 where candidate.videoURLParsed != nil {
-                let list = await ArchiveVersions.list(itemID: candidate.archiveID)
+                let list = await ArchiveVersions.list(itemID: candidate.archiveID, defaultURL: candidate.videoURLParsed)
                 // 40 MB, not 120: a 101.6 MB "commercial" (Randall Parker's
                 // additional footage) was still transferring when the budget
                 // ran out and reported as a FAILURE of the feature, which it

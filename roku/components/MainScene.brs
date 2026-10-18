@@ -3047,11 +3047,10 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             nxt = q.index + delta
             if nxt >= 0 and nxt < q.queue.Count()
                 print "AWSER queue move "; q.index; " -> "; nxt
-                m.pendingEpisode = { id: q.queue[nxt], title: q.queueTitles[nxt],
-                                     meta: q.meta, queue: q.queue,
-                                     queueTitles: q.queueTitles, index: nxt }
-                m.dtask.archiveID = q.queue[nxt]
-                m.dtask.control = "RUN"
+                startEpisode({ id: q.queue[nxt], title: q.queueTitles[nxt],
+                               url: queueURLAt(q, nxt), meta: q.meta,
+                               queue: q.queue, queueTitles: q.queueTitles,
+                               queueUrls: q.queueUrls, index: nxt })
                 return true
             end if
             print "AWSER queue move refused at edge "; q.index

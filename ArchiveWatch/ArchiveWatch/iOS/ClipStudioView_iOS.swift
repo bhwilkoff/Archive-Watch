@@ -35,7 +35,7 @@ extension Episode {
     var isClippable: Bool { videoURLParsed != nil }
     var clipSource: ClipSource {
         ClipSource(sourceURL: videoURLParsed, archiveID: archiveID, title: title,
-                   sourceDetailsURL: "https://archive.org/details/\(archiveID)",
+                   sourceDetailsURL: Catalog.detailsURL(archiveID: archiveID, video: videoURLParsed),
                    creditLine: "archivewatch.org · Fair use")
     }
 }

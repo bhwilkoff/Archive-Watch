@@ -1,0 +1,298 @@
+{
+  "version": 2,
+  "seriesID": "spy-trap-1972",
+  "sourceID": "spy-trap",
+  "tvmazeID": null,
+  "title": "Spy Trap",
+  "yearStart": 1972,
+  "yearEnd": null,
+  "overview": "Check Point, a four-part serial from the first series of Spy Trap, the BBC's 1972–75 Cold War espionage drama; the only surviving first-series episodes, as black-and-white telerecordings of colour originals.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/spy-trap.1c71452f.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "spy-trap@s1e01",
+          "sourceID": "spy-trap",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "1972",
+          "overview": null,
+          "stillURL": "https://archive.org/download/spy-trap/spy-trap.thumbs/Spy%20Trap%20-%201972%20-%20S01E01_000474.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 1327,
+          "videoFile": {
+            "name": "Spy Trap - 1972 - S01E01.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 216852037,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/spy-trap/Spy%20Trap%20-%201972%20-%20S01E01.ia.mp4"
+        },
+        {
+          "archiveID": "spy-trap@s1e02",
+          "sourceID": "spy-trap",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "1972",
+          "overview": null,
+          "stillURL": "https://archive.org/download/spy-trap/spy-trap.thumbs/Spy%20Trap%20-%201972%20-%20S01E02_000534.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 1415,
+          "videoFile": {
+            "name": "Spy Trap - 1972 - S01E02.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 228648706,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/spy-trap/Spy%20Trap%20-%201972%20-%20S01E02.ia.mp4"
+        },
+        {
+          "archiveID": "spy-trap@s1e03",
+          "sourceID": "spy-trap",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "1972",
+          "overview": null,
+          "stillURL": "https://archive.org/download/spy-trap/spy-trap.thumbs/Spy%20Trap%20-%201972%20-%20S01E03_000474.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 1357,
+          "videoFile": {
+            "name": "Spy Trap - 1972 - S01E03.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 219218661,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/spy-trap/Spy%20Trap%20-%201972%20-%20S01E03.ia.mp4"
+        },
+        {
+          "archiveID": "spy-trap@s1e04",
+          "sourceID": "spy-trap",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "1972",
+          "overview": null,
+          "stillURL": "https://archive.org/download/spy-trap/spy-trap.thumbs/Spy%20Trap%20-%201972%20-%20S01E04_000534.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 1439,
+          "videoFile": {
+            "name": "Spy Trap - 1972 - S01E04.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 232808753,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/spy-trap/Spy%20Trap%20-%201972%20-%20S01E04.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "spy-trap@s3e01",
+          "sourceID": "spy-trap",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "1975",
+          "overview": null,
+          "stillURL": "https://archive.org/download/spy-trap/spy-trap.thumbs/Spy%20Trap%20-%201975%20-%20S03E01_000960.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 2961,
+          "videoFile": {
+            "name": "Spy Trap - 1975 - S03E01.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 428251610,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/spy-trap/Spy%20Trap%20-%201975%20-%20S03E01.mp4"
+        },
+        {
+          "archiveID": "spy-trap@s3e02",
+          "sourceID": "spy-trap",
+          "seasonNumber": 3,
+          "episodeNumber": 2,
+          "title": "1975",
+          "overview": null,
+          "stillURL": "https://archive.org/download/spy-trap/spy-trap.thumbs/Spy%20Trap%20-%201975%20-%20S03E02_000960.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 2923,
+          "videoFile": {
+            "name": "Spy Trap - 1975 - S03E02.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 423739999,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/spy-trap/Spy%20Trap%20-%201975%20-%20S03E02.mp4"
+        },
+        {
+          "archiveID": "spy-trap@s3e03",
+          "sourceID": "spy-trap",
+          "seasonNumber": 3,
+          "episodeNumber": 3,
+          "title": "1975",
+          "overview": null,
+          "stillURL": "https://archive.org/download/spy-trap/spy-trap.thumbs/Spy%20Trap%20-%201975%20-%20S03E03_000980.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 2966,
+          "videoFile": {
+            "name": "Spy Trap - 1975 - S03E03.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 431411061,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/spy-trap/Spy%20Trap%20-%201975%20-%20S03E03.mp4"
+        },
+        {
+          "archiveID": "spy-trap@s3e04",
+          "sourceID": "spy-trap",
+          "seasonNumber": 3,
+          "episodeNumber": 4,
+          "title": "1975",
+          "overview": null,
+          "stillURL": "https://archive.org/download/spy-trap/spy-trap.thumbs/Spy%20Trap%20-%201975%20-%20S03E04_000960.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 2983,
+          "videoFile": {
+            "name": "Spy Trap - 1975 - S03E04.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 432994017,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/spy-trap/Spy%20Trap%20-%201975%20-%20S03E04.mp4"
+        },
+        {
+          "archiveID": "spy-trap@s3e05",
+          "sourceID": "spy-trap",
+          "seasonNumber": 3,
+          "episodeNumber": 5,
+          "title": "1975",
+          "overview": null,
+          "stillURL": "https://archive.org/download/spy-trap/spy-trap.thumbs/Spy%20Trap%20-%201975%20-%20S03E05_000990.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 2982,
+          "videoFile": {
+            "name": "Spy Trap - 1975 - S03E05.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 431901638,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/spy-trap/Spy%20Trap%20-%201975%20-%20S03E05.mp4"
+        },
+        {
+          "archiveID": "spy-trap@s3e06",
+          "sourceID": "spy-trap",
+          "seasonNumber": 3,
+          "episodeNumber": 6,
+          "title": "1975",
+          "overview": null,
+          "stillURL": "https://archive.org/download/spy-trap/spy-trap.thumbs/Spy%20Trap%20-%201975%20-%20S03E06_000960.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 2905,
+          "videoFile": {
+            "name": "Spy Trap - 1975 - S03E06.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 426682435,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/spy-trap/Spy%20Trap%20-%201975%20-%20S03E06.mp4"
+        },
+        {
+          "archiveID": "spy-trap@s3e07",
+          "sourceID": "spy-trap",
+          "seasonNumber": 3,
+          "episodeNumber": 7,
+          "title": "1975",
+          "overview": null,
+          "stillURL": "https://archive.org/download/spy-trap/spy-trap.thumbs/Spy%20Trap%20-%201975%20-%20S03E07_000990.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 2986,
+          "videoFile": {
+            "name": "Spy Trap - 1975 - S03E07.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 432571730,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/spy-trap/Spy%20Trap%20-%201975%20-%20S03E07.mp4"
+        },
+        {
+          "archiveID": "spy-trap@s3e08",
+          "sourceID": "spy-trap",
+          "seasonNumber": 3,
+          "episodeNumber": 8,
+          "title": "1975",
+          "overview": null,
+          "stillURL": "https://archive.org/download/spy-trap/spy-trap.thumbs/Spy%20Trap%20-%201975%20-%20S03E08_000952.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 2987,
+          "videoFile": {
+            "name": "Spy Trap - 1975 - S03E08.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 432019746,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/spy-trap/Spy%20Trap%20-%201975%20-%20S03E08.mp4"
+        },
+        {
+          "archiveID": "spy-trap@s3e09",
+          "sourceID": "spy-trap",
+          "seasonNumber": 3,
+          "episodeNumber": 9,
+          "title": "1975",
+          "overview": null,
+          "stillURL": "https://archive.org/download/spy-trap/spy-trap.thumbs/Spy%20Trap%20-%201975%20-%20S03E09_001032.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 2987,
+          "videoFile": {
+            "name": "Spy Trap - 1975 - S03E09.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 438557022,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/spy-trap/Spy%20Trap%20-%201975%20-%20S03E09.mp4"
+        },
+        {
+          "archiveID": "spy-trap@s3e10",
+          "sourceID": "spy-trap",
+          "seasonNumber": 3,
+          "episodeNumber": 10,
+          "title": "1975",
+          "overview": null,
+          "stillURL": "https://archive.org/download/spy-trap/spy-trap.thumbs/Spy%20Trap%20-%201975%20-%20S03E10_000987.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 2979,
+          "videoFile": {
+            "name": "Spy Trap - 1975 - S03E10.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 432660803,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/spy-trap/Spy%20Trap%20-%201975%20-%20S03E10.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 14,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

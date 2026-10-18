@@ -1,0 +1,255 @@
+{
+  "version": 2,
+  "seriesID": "spy-smasher-1942",
+  "sourceID": "spy-smasher-episode-1-1942-colorized-serial-720p-hd",
+  "tvmazeID": null,
+  "title": "Spy Smasher",
+  "yearStart": 1942,
+  "yearEnd": null,
+  "overview": "Spy Smasher is a 12-episode 1942 Republic serial film based on the Fawcett Comics character Spy Smasher which is now a part of DC Comics. It was the 25th of the 66 serials produced by Republic. The serial was directed by William Witney with Kane Richmond and Marguerite Chapman as the leads. The serial was Chapman's big break into a career in film and television. Spy Smasher is a very highly regarded serial. In 1966, a television film was made from the serial footage under the title Spy Smasher Returns.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/spy-smasher-episode-1-1942-colorized-serial-720p-hd.0214ec48.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "spy-smasher-episode-1-1942-colorized-serial-720p-hd@e01",
+          "sourceID": "spy-smasher-episode-1-1942-colorized-serial-720p-hd",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Episode 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/spy-smasher-episode-1-1942-colorized-serial-720p-hd/spy-smasher-episode-1-1942-colorized-serial-720p-hd.thumbs/spy%20smasher-episode1-1942-colorized%20serial-720p-hd_000354.jpg",
+          "airDate": null,
+          "year": 1942,
+          "runtimeSeconds": 908,
+          "videoFile": {
+            "name": "spy smasher-episode1-1942-colorized serial-720p-hd.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 144583675,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/spy-smasher-episode-1-1942-colorized-serial-720p-hd/spy%20smasher-episode1-1942-colorized%20serial-720p-hd.mp4"
+        },
+        {
+          "archiveID": "spy-smasher-episode-1-1942-colorized-serial-720p-hd@e02",
+          "sourceID": "spy-smasher-episode-1-1942-colorized-serial-720p-hd",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Episode 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/spy-smasher-episode-1-1942-colorized-serial-720p-hd/spy-smasher-episode-1-1942-colorized-serial-720p-hd.thumbs/spy%20smasher-episode2-1942-colorized%20serial-720p-hd_000359.jpg",
+          "airDate": null,
+          "year": 1942,
+          "runtimeSeconds": 1017,
+          "videoFile": {
+            "name": "spy smasher-episode2-1942-colorized serial-720p-hd.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 176084358,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/spy-smasher-episode-1-1942-colorized-serial-720p-hd/spy%20smasher-episode2-1942-colorized%20serial-720p-hd.mp4"
+        },
+        {
+          "archiveID": "spy-smasher-episode-1-1942-colorized-serial-720p-hd@e03",
+          "sourceID": "spy-smasher-episode-1-1942-colorized-serial-720p-hd",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Episode 3",
+          "overview": null,
+          "stillURL": "https://archive.org/download/spy-smasher-episode-1-1942-colorized-serial-720p-hd/spy-smasher-episode-1-1942-colorized-serial-720p-hd.thumbs/spy%20smasher-episode3-1942-colorized%20serial-720p-hd_000354.jpg",
+          "airDate": null,
+          "year": 1942,
+          "runtimeSeconds": 936,
+          "videoFile": {
+            "name": "spy smasher-episode3-1942-colorized serial-720p-hd.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 170281854,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/spy-smasher-episode-1-1942-colorized-serial-720p-hd/spy%20smasher-episode3-1942-colorized%20serial-720p-hd.mp4"
+        },
+        {
+          "archiveID": "spy-smasher-episode-1-1942-colorized-serial-720p-hd@e04",
+          "sourceID": "spy-smasher-episode-1-1942-colorized-serial-720p-hd",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Episode 4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/spy-smasher-episode-1-1942-colorized-serial-720p-hd/spy-smasher-episode-1-1942-colorized-serial-720p-hd.thumbs/spy%20smasher-episode4-1942-colorized%20serial-720p-hd_000354.jpg",
+          "airDate": null,
+          "year": 1942,
+          "runtimeSeconds": 997,
+          "videoFile": {
+            "name": "spy smasher-episode4-1942-colorized serial-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 95586157,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/spy-smasher-episode-1-1942-colorized-serial-720p-hd/spy%20smasher-episode4-1942-colorized%20serial-720p-hd.mp4"
+        },
+        {
+          "archiveID": "spy-smasher-episode-1-1942-colorized-serial-720p-hd@e05",
+          "sourceID": "spy-smasher-episode-1-1942-colorized-serial-720p-hd",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Episode 5",
+          "overview": null,
+          "stillURL": "https://archive.org/download/spy-smasher-episode-1-1942-colorized-serial-720p-hd/spy-smasher-episode-1-1942-colorized-serial-720p-hd.thumbs/spy%20smasher-episode5-1942-colorized%20serial-720p-hd_000354.jpg",
+          "airDate": null,
+          "year": 1942,
+          "runtimeSeconds": 974,
+          "videoFile": {
+            "name": "spy smasher-episode5-1942-colorized serial-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 93464295,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/spy-smasher-episode-1-1942-colorized-serial-720p-hd/spy%20smasher-episode5-1942-colorized%20serial-720p-hd.mp4"
+        },
+        {
+          "archiveID": "spy-smasher-episode-1-1942-colorized-serial-720p-hd@e06",
+          "sourceID": "spy-smasher-episode-1-1942-colorized-serial-720p-hd",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Episode 6",
+          "overview": null,
+          "stillURL": "https://archive.org/download/spy-smasher-episode-1-1942-colorized-serial-720p-hd/spy-smasher-episode-1-1942-colorized-serial-720p-hd.thumbs/spy%20smasher-episode6-1942-colorized%20serial-720p-hd_000354.jpg",
+          "airDate": null,
+          "year": 1942,
+          "runtimeSeconds": 972,
+          "videoFile": {
+            "name": "spy smasher-episode6-1942-colorized serial-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 93053192,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/spy-smasher-episode-1-1942-colorized-serial-720p-hd/spy%20smasher-episode6-1942-colorized%20serial-720p-hd.mp4"
+        },
+        {
+          "archiveID": "spy-smasher-episode-1-1942-colorized-serial-720p-hd@e07",
+          "sourceID": "spy-smasher-episode-1-1942-colorized-serial-720p-hd",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Episode 7",
+          "overview": null,
+          "stillURL": "https://archive.org/download/spy-smasher-episode-1-1942-colorized-serial-720p-hd/spy-smasher-episode-1-1942-colorized-serial-720p-hd.thumbs/spy%20smasher-episode7-1942-colorized%20serial-720p-hd_000354.jpg",
+          "airDate": null,
+          "year": 1942,
+          "runtimeSeconds": 993,
+          "videoFile": {
+            "name": "spy smasher-episode7-1942-colorized serial-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 95365305,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/spy-smasher-episode-1-1942-colorized-serial-720p-hd/spy%20smasher-episode7-1942-colorized%20serial-720p-hd.mp4"
+        },
+        {
+          "archiveID": "spy-smasher-episode-1-1942-colorized-serial-720p-hd@e08",
+          "sourceID": "spy-smasher-episode-1-1942-colorized-serial-720p-hd",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Episode 8",
+          "overview": null,
+          "stillURL": "https://archive.org/download/spy-smasher-episode-1-1942-colorized-serial-720p-hd/spy-smasher-episode-1-1942-colorized-serial-720p-hd.thumbs/spy%20smasher-episode8-1942-colorized%20serial-720p-hd_000354.jpg",
+          "airDate": null,
+          "year": 1942,
+          "runtimeSeconds": 998,
+          "videoFile": {
+            "name": "spy smasher-episode8-1942-colorized serial-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 95113863,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/spy-smasher-episode-1-1942-colorized-serial-720p-hd/spy%20smasher-episode8-1942-colorized%20serial-720p-hd.mp4"
+        },
+        {
+          "archiveID": "spy-smasher-episode-1-1942-colorized-serial-720p-hd@e09",
+          "sourceID": "spy-smasher-episode-1-1942-colorized-serial-720p-hd",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Episode 9",
+          "overview": null,
+          "stillURL": "https://archive.org/download/spy-smasher-episode-1-1942-colorized-serial-720p-hd/spy-smasher-episode-1-1942-colorized-serial-720p-hd.thumbs/spy%20smasher-episode9-1942-colorized%20serial-720p-hd_000414.jpg",
+          "airDate": null,
+          "year": 1942,
+          "runtimeSeconds": 1026,
+          "videoFile": {
+            "name": "spy smasher-episode9-1942-colorized serial-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 98310444,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/spy-smasher-episode-1-1942-colorized-serial-720p-hd/spy%20smasher-episode9-1942-colorized%20serial-720p-hd.mp4"
+        },
+        {
+          "archiveID": "spy-smasher-episode-1-1942-colorized-serial-720p-hd@e10",
+          "sourceID": "spy-smasher-episode-1-1942-colorized-serial-720p-hd",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Episode 10",
+          "overview": null,
+          "stillURL": "https://archive.org/download/spy-smasher-episode-1-1942-colorized-serial-720p-hd/spy-smasher-episode-1-1942-colorized-serial-720p-hd.thumbs/spy%20smasher-episode10-1942-colorized%20serial-720p-hd_000354.jpg",
+          "airDate": null,
+          "year": 1942,
+          "runtimeSeconds": 980,
+          "videoFile": {
+            "name": "spy smasher-episode10-1942-colorized serial-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 93947995,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/spy-smasher-episode-1-1942-colorized-serial-720p-hd/spy%20smasher-episode10-1942-colorized%20serial-720p-hd.mp4"
+        },
+        {
+          "archiveID": "spy-smasher-episode-1-1942-colorized-serial-720p-hd@e11",
+          "sourceID": "spy-smasher-episode-1-1942-colorized-serial-720p-hd",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Episode 11",
+          "overview": null,
+          "stillURL": "https://archive.org/download/spy-smasher-episode-1-1942-colorized-serial-720p-hd/spy-smasher-episode-1-1942-colorized-serial-720p-hd.thumbs/spy%20smasher-episode11-1942-colorized%20serial-720p-hd_000238.jpg",
+          "airDate": null,
+          "year": 1942,
+          "runtimeSeconds": 662,
+          "videoFile": {
+            "name": "spy smasher-episode11-1942-colorized serial-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 63723931,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/spy-smasher-episode-1-1942-colorized-serial-720p-hd/spy%20smasher-episode11-1942-colorized%20serial-720p-hd.mp4"
+        },
+        {
+          "archiveID": "spy-smasher-episode-1-1942-colorized-serial-720p-hd@e12",
+          "sourceID": "spy-smasher-episode-1-1942-colorized-serial-720p-hd",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Episode 12",
+          "overview": null,
+          "stillURL": "https://archive.org/download/spy-smasher-episode-1-1942-colorized-serial-720p-hd/spy-smasher-episode-1-1942-colorized-serial-720p-hd.thumbs/spy%20smasher-episode12-1942-colorized%20serial-720p-hd_000268.jpg",
+          "airDate": null,
+          "year": 1942,
+          "runtimeSeconds": 716,
+          "videoFile": {
+            "name": "spy smasher-episode12-1942-colorized serial-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 68652336,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/spy-smasher-episode-1-1942-colorized-serial-720p-hd/spy%20smasher-episode12-1942-colorized%20serial-720p-hd.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 12,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

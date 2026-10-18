@@ -1,0 +1,276 @@
+{
+  "version": 2,
+  "seriesID": "the-tiger-woman-1917",
+  "sourceID": "chapter-01-the-temple-of-terror",
+  "tvmazeID": null,
+  "title": "The Tiger Woman",
+  "yearStart": 1917,
+  "yearEnd": null,
+  "overview": "The wicked princess ruins an ambassador, causes a son to kill his father, breaks up the boy's brother's marriage and is finally forced to stab herself by a valet whom she earlier had imprisoned. The ending title is \"The wages of sin is death.\"",
+  "posterURL": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Tiger_Woman-1917-newspaperad.jpg?width=600",
+  "backdropURL": null,
+  "genres": [
+    "Drama"
+  ],
+  "networks": [],
+  "creator": "George Bellamy, J. Gordon Edwards",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "chapter-01-the-temple-of-terror@e01",
+          "sourceID": "chapter-01-the-temple-of-terror",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Temple of Terror",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-the-temple-of-terror/chapter-01-the-temple-of-terror.thumbs/Chapter%2001%20-%20The%20Temple%20of%20Terror_000534.jpg",
+          "airDate": null,
+          "year": 1917,
+          "runtimeSeconds": 1492,
+          "videoFile": {
+            "name": "Chapter 01 - The Temple of Terror.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 142517079,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-the-temple-of-terror/Chapter%2001%20-%20The%20Temple%20of%20Terror.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-the-temple-of-terror@e02",
+          "sourceID": "chapter-01-the-temple-of-terror",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Doorway to Death",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-the-temple-of-terror/chapter-01-the-temple-of-terror.thumbs/Chapter%2002%20-%20Doorway%20to%20Death_000358.jpg",
+          "airDate": null,
+          "year": 1917,
+          "runtimeSeconds": 933,
+          "videoFile": {
+            "name": "Chapter 02 - Doorway to Death.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 83661535,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-the-temple-of-terror/Chapter%2002%20-%20Doorway%20to%20Death.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-the-temple-of-terror@e03",
+          "sourceID": "chapter-01-the-temple-of-terror",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Cathedral of Carnage",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-the-temple-of-terror/chapter-01-the-temple-of-terror.thumbs/Chapter%2003%20-%20Cathedral%20of%20Carnage_000360.jpg",
+          "airDate": null,
+          "year": 1917,
+          "runtimeSeconds": 933,
+          "videoFile": {
+            "name": "Chapter 03 - Cathedral of Carnage.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 71156825,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-the-temple-of-terror/Chapter%2003%20-%20Cathedral%20of%20Carnage.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-the-temple-of-terror@e04",
+          "sourceID": "chapter-01-the-temple-of-terror",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Echo of Eternity",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-the-temple-of-terror/chapter-01-the-temple-of-terror.thumbs/Chapter%2004%20-%20Echo%20of%20Eternity_000356.jpg",
+          "airDate": null,
+          "year": 1917,
+          "runtimeSeconds": 934,
+          "videoFile": {
+            "name": "Chapter 04 - Echo of Eternity.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 83054368,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-the-temple-of-terror/Chapter%2004%20-%20Echo%20of%20Eternity.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-the-temple-of-terror@e05",
+          "sourceID": "chapter-01-the-temple-of-terror",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Two Shall Die",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-the-temple-of-terror/chapter-01-the-temple-of-terror.thumbs/Chapter%2005%20-%20Two%20Shall%20Die_000356.jpg",
+          "airDate": null,
+          "year": 1917,
+          "runtimeSeconds": 935,
+          "videoFile": {
+            "name": "Chapter 05 - Two Shall Die.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 80702887,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-the-temple-of-terror/Chapter%2005%20-%20Two%20Shall%20Die.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-the-temple-of-terror@e06",
+          "sourceID": "chapter-01-the-temple-of-terror",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Dungeon of the Doomed",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-the-temple-of-terror/chapter-01-the-temple-of-terror.thumbs/Chapter%2006%20-%20Dungeon%20of%20the%20Doomed_000356.jpg",
+          "airDate": null,
+          "year": 1917,
+          "runtimeSeconds": 928,
+          "videoFile": {
+            "name": "Chapter 06 - Dungeon of the Doomed.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 82780351,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-the-temple-of-terror/Chapter%2006%20-%20Dungeon%20of%20the%20Doomed.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-the-temple-of-terror@e07",
+          "sourceID": "chapter-01-the-temple-of-terror",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Mile-a-Minute Murder",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-the-temple-of-terror/chapter-01-the-temple-of-terror.thumbs/Chapter%2007%20-%20Mile-a-Minute%20Murder_000358.jpg",
+          "airDate": null,
+          "year": 1917,
+          "runtimeSeconds": 930,
+          "videoFile": {
+            "name": "Chapter 07 - Mile-a-Minute Murder.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 102043153,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-the-temple-of-terror/Chapter%2007%20-%20Mile-a-Minute%20Murder.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-the-temple-of-terror@e08",
+          "sourceID": "chapter-01-the-temple-of-terror",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Passage to Peril",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-the-temple-of-terror/chapter-01-the-temple-of-terror.thumbs/Chapter%2008%20-%20Passage%20to%20Peril_000356.jpg",
+          "airDate": null,
+          "year": 1917,
+          "runtimeSeconds": 932,
+          "videoFile": {
+            "name": "Chapter 08 - Passage to Peril.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 98340970,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-the-temple-of-terror/Chapter%2008%20-%20Passage%20to%20Peril.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-the-temple-of-terror@e09",
+          "sourceID": "chapter-01-the-temple-of-terror",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Cruise to Cremation",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-the-temple-of-terror/chapter-01-the-temple-of-terror.thumbs/Chapter%2009%20-%20Cruise%20to%20Cremation_000359.jpg",
+          "airDate": null,
+          "year": 1917,
+          "runtimeSeconds": 935,
+          "videoFile": {
+            "name": "Chapter 09 - Cruise to Cremation.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 86203310,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-the-temple-of-terror/Chapter%2009%20-%20Cruise%20to%20Cremation.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-the-temple-of-terror@e10",
+          "sourceID": "chapter-01-the-temple-of-terror",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Target for Murder",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-the-temple-of-terror/chapter-01-the-temple-of-terror.thumbs/Chapter%2010%20-%20Target%20for%20Murder_000354.jpg",
+          "airDate": null,
+          "year": 1917,
+          "runtimeSeconds": 934,
+          "videoFile": {
+            "name": "Chapter 10 - Target for Murder.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 73141051,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-the-temple-of-terror/Chapter%2010%20-%20Target%20for%20Murder.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-the-temple-of-terror@e11",
+          "sourceID": "chapter-01-the-temple-of-terror",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The House of Horror",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-the-temple-of-terror/chapter-01-the-temple-of-terror.thumbs/Chapter%2011%20-%20The%20House%20of%20Horror_000354.jpg",
+          "airDate": null,
+          "year": 1917,
+          "runtimeSeconds": 935,
+          "videoFile": {
+            "name": "Chapter 11 - The House of Horror.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 84495453,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-the-temple-of-terror/Chapter%2011%20-%20The%20House%20of%20Horror.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-the-temple-of-terror@e12",
+          "sourceID": "chapter-01-the-temple-of-terror",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Triumph Over Treachery",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-the-temple-of-terror/chapter-01-the-temple-of-terror.thumbs/Chapter%2012%20-%20Triumph%20Over%20Treachery_000355.jpg",
+          "airDate": null,
+          "year": 1917,
+          "runtimeSeconds": 916,
+          "videoFile": {
+            "name": "Chapter 12 - Triumph Over Treachery.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 71282861,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-the-temple-of-terror/Chapter%2012%20-%20Triumph%20Over%20Treachery.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 12,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "commons",
+  "cast": [
+    {
+      "name": "Theda Bara",
+      "character": null,
+      "order": 0,
+      "profilePath": "/hSr3fS8MGyFLZEsHB2DFy0xMiLe.jpg"
+    },
+    {
+      "name": "Edward Roseman",
+      "character": null,
+      "order": 1,
+      "profilePath": "/68qKYMIJQrNl3dMwY3AwFbyvknO.jpg"
+    },
+    {
+      "name": "Louis Dean",
+      "character": null,
+      "order": 2,
+      "profilePath": "/obs2rP3VSKKZTNxgPbGyHmrlZFy.jpg"
+    }
+  ]
+}

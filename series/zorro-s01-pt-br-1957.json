@@ -1,0 +1,768 @@
+{
+  "version": 2,
+  "seriesID": "zorro-s01-pt-br-1957",
+  "sourceID": "1957-zorro-s-01",
+  "tvmazeID": null,
+  "title": "Zorro S01 - PT-BR",
+  "yearStart": 1957,
+  "yearEnd": null,
+  "overview": "Após upload dos arquivos",
+  "posterURL": "https://archive.org/services/img/1957-zorro-s-01",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "1957-zorro-s-01@s1e01",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Episode 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E01_000534.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1544,
+          "videoFile": {
+            "name": "[1957] Zorro S01E01.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 601775928,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E01.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e02",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Episode 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E02_000534.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1539,
+          "videoFile": {
+            "name": "[1957] Zorro S01E02.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 599958285,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E02.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e03",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Episode 3",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E03_000534.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1539,
+          "videoFile": {
+            "name": "[1957] Zorro S01E03.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 596799334,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E03.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e04",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Episode 4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E04_000534.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1540,
+          "videoFile": {
+            "name": "[1957] Zorro S01E04.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 600609699,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E04.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e05",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Episode 5",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E05_000534.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1529,
+          "videoFile": {
+            "name": "[1957] Zorro S01E05.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 594324447,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E05.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e06",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Episode 6",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E06_000534.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1529,
+          "videoFile": {
+            "name": "[1957] Zorro S01E06.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 594493991,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E06.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e07",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Episode 7",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E07_000534.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1539,
+          "videoFile": {
+            "name": "[1957] Zorro S01E07.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 599815538,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E07.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e08",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Episode 8",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E08_000534.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1529,
+          "videoFile": {
+            "name": "[1957] Zorro S01E08.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 593304733,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E08.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e09",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Episode 9",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E09_000648.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1529,
+          "videoFile": {
+            "name": "[1957] Zorro S01E09.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 594907104,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E09.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e10",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Episode 10",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E10_000604.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1529,
+          "videoFile": {
+            "name": "[1957] Zorro S01E10.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 590040020,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E10.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e11",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Episode 11",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E11_000534.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1530,
+          "videoFile": {
+            "name": "[1957] Zorro S01E11.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 593511847,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E11.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e12",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Episode 12",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E12_000534.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1530,
+          "videoFile": {
+            "name": "[1957] Zorro S01E12.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 593818780,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E12.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e13",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Episode 13",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E13_000534.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1514,
+          "videoFile": {
+            "name": "[1957] Zorro S01E13.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 587710487,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E13.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e14",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Episode 14",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E14_000649.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1529,
+          "videoFile": {
+            "name": "[1957] Zorro S01E14.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 594547629,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E14.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e15",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Episode 15",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E15_000653.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1540,
+          "videoFile": {
+            "name": "[1957] Zorro S01E15.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 596105944,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E15.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e16",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Episode 16",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E16_000742.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1514,
+          "videoFile": {
+            "name": "[1957] Zorro S01E16.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 585215397,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E16.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e17",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Episode 17",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E17_000748.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1527,
+          "videoFile": {
+            "name": "[1957] Zorro S01E17.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 594788854,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E17.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e18",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Episode 18",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E18_000749.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1529,
+          "videoFile": {
+            "name": "[1957] Zorro S01E18.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 595343206,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E18.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e19",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Episode 19",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E19_000749.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1529,
+          "videoFile": {
+            "name": "[1957] Zorro S01E19.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 595882658,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E19.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e20",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Episode 20",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E20_000749.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1528,
+          "videoFile": {
+            "name": "[1957] Zorro S01E20.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 594614074,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E20.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e21",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Episode 21",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E21_000749.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1529,
+          "videoFile": {
+            "name": "[1957] Zorro S01E21.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 591702739,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E21.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e22",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Episode 22",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E22_000749.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1528,
+          "videoFile": {
+            "name": "[1957] Zorro S01E22.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 596645041,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E22.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e23",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Episode 23",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E23_000749.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1529,
+          "videoFile": {
+            "name": "[1957] Zorro S01E23.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 592609026,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E23.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e24",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Episode 24",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E24_000754.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1540,
+          "videoFile": {
+            "name": "[1957] Zorro S01E24.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 596358267,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E24.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e25",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Episode 25",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E25_000749.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1529,
+          "videoFile": {
+            "name": "[1957] Zorro S01E25.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 591493332,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E25.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e26",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Episode 26",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E26_000731.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1491,
+          "videoFile": {
+            "name": "[1957] Zorro S01E26.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 580159608,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E26.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e27",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Episode 27",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E27_000748.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1527,
+          "videoFile": {
+            "name": "[1957] Zorro S01E27.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 594305848,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E27.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e28",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "Episode 28",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E28_000742.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1514,
+          "videoFile": {
+            "name": "[1957] Zorro S01E28.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 590775960,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E28.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e29",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "Episode 29",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E29_000741.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1512,
+          "videoFile": {
+            "name": "[1957] Zorro S01E29.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 584852972,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E29.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e30",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "Episode 30",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E30_000749.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1530,
+          "videoFile": {
+            "name": "[1957] Zorro S01E30.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 596269994,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E30.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e31",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "Episode 31",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E31_000738.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1515,
+          "videoFile": {
+            "name": "[1957] Zorro S01E31.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 589309908,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E31.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e32",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 32,
+          "title": "Episode 32",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E32_000745.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1529,
+          "videoFile": {
+            "name": "[1957] Zorro S01E32.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 590769037,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E32.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e33",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 33,
+          "title": "Episode 33",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E33_000733.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1502,
+          "videoFile": {
+            "name": "[1957] Zorro S01E33.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 582474072,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E33.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e34",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 34,
+          "title": "Episode 34",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E34_000838.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1503,
+          "videoFile": {
+            "name": "[1957] Zorro S01E34.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 584402345,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E34.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e35",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 35,
+          "title": "Episode 35",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E35_000853.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1530,
+          "videoFile": {
+            "name": "[1957] Zorro S01E35.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 594866773,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E35.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e36",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "Episode 36",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E36_000738.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1514,
+          "videoFile": {
+            "name": "[1957] Zorro S01E36.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 588954198,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E36.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e37",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 37,
+          "title": "Episode 37",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E37_000745.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1528,
+          "videoFile": {
+            "name": "[1957] Zorro S01E37.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 594684546,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E37.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e38",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 38,
+          "title": "Episode 38",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E38_000745.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1529,
+          "videoFile": {
+            "name": "[1957] Zorro S01E38.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 595423214,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E38.ia.mp4"
+        },
+        {
+          "archiveID": "1957-zorro-s-01@s1e39",
+          "sourceID": "1957-zorro-s-01",
+          "seasonNumber": 1,
+          "episodeNumber": 39,
+          "title": "Episode 39",
+          "overview": null,
+          "stillURL": "https://archive.org/download/1957-zorro-s-01/1957-zorro-s-01.thumbs/%5B1957%5D%20Zorro%20S01E39_000745.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1529,
+          "videoFile": {
+            "name": "[1957] Zorro S01E39.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 593171183,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/1957-zorro-s-01/%5B1957%5D%20Zorro%20S01E39.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 39,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

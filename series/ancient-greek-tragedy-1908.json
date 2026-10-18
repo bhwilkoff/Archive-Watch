@@ -1,0 +1,485 @@
+{
+  "version": 2,
+  "seriesID": "ancient-greek-tragedy-1908",
+  "sourceID": "greek-tragedy-lecture-2",
+  "tvmazeID": null,
+  "title": "Ancient Greek Tragedy",
+  "yearStart": 1908,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/greek-tragedy-lecture-2",
+  "backdropURL": null,
+  "genres": [
+    "Drama"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "greek-tragedy-lecture-2@e01",
+          "sourceID": "greek-tragedy-lecture-2",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Episode 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/greek-tragedy-lecture-2/greek-tragedy-lecture-2.thumbs/Greek%20Tragedy%20Lecture%201_000654.jpg",
+          "airDate": null,
+          "year": 1908,
+          "runtimeSeconds": 1854,
+          "videoFile": {
+            "name": "Greek Tragedy Lecture 1.mp4",
+            "format": "h.264",
+            "sizeBytes": 185005152,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/greek-tragedy-lecture-2/Greek%20Tragedy%20Lecture%201.mp4"
+        },
+        {
+          "archiveID": "greek-tragedy-lecture-2@e02",
+          "sourceID": "greek-tragedy-lecture-2",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Episode 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/greek-tragedy-lecture-2/greek-tragedy-lecture-2.thumbs/Greek%20Tragedy%20Lecture%202_000654.jpg",
+          "airDate": null,
+          "year": 1908,
+          "runtimeSeconds": 1855,
+          "videoFile": {
+            "name": "Greek Tragedy Lecture 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 185219115,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/greek-tragedy-lecture-2/Greek%20Tragedy%20Lecture%202.mp4"
+        },
+        {
+          "archiveID": "greek-tragedy-lecture-2@e03",
+          "sourceID": "greek-tragedy-lecture-2",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Episode 3",
+          "overview": null,
+          "stillURL": "https://archive.org/download/greek-tragedy-lecture-2/greek-tragedy-lecture-2.thumbs/Greek%20Tragedy%20Lecture%203_000654.jpg",
+          "airDate": null,
+          "year": 1908,
+          "runtimeSeconds": 1844,
+          "videoFile": {
+            "name": "Greek Tragedy Lecture 3.mp4",
+            "format": "h.264",
+            "sizeBytes": 183941042,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/greek-tragedy-lecture-2/Greek%20Tragedy%20Lecture%203.mp4"
+        },
+        {
+          "archiveID": "greek-tragedy-lecture-2@e04",
+          "sourceID": "greek-tragedy-lecture-2",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Episode 4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/greek-tragedy-lecture-2/greek-tragedy-lecture-2.thumbs/Greek%20Tragedy%20Lecture%204_000654.jpg",
+          "airDate": null,
+          "year": 1908,
+          "runtimeSeconds": 1860,
+          "videoFile": {
+            "name": "Greek Tragedy Lecture 4.mp4",
+            "format": "h.264",
+            "sizeBytes": 185569074,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/greek-tragedy-lecture-2/Greek%20Tragedy%20Lecture%204.mp4"
+        },
+        {
+          "archiveID": "greek-tragedy-lecture-2@e05",
+          "sourceID": "greek-tragedy-lecture-2",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Episode 5",
+          "overview": null,
+          "stillURL": "https://archive.org/download/greek-tragedy-lecture-2/greek-tragedy-lecture-2.thumbs/Greek%20Tragedy%20Lecture%205_000654.jpg",
+          "airDate": null,
+          "year": 1908,
+          "runtimeSeconds": 1874,
+          "videoFile": {
+            "name": "Greek Tragedy Lecture 5.mp4",
+            "format": "h.264",
+            "sizeBytes": 187313886,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/greek-tragedy-lecture-2/Greek%20Tragedy%20Lecture%205.mp4"
+        },
+        {
+          "archiveID": "greek-tragedy-lecture-2@e06",
+          "sourceID": "greek-tragedy-lecture-2",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Episode 6",
+          "overview": null,
+          "stillURL": "https://archive.org/download/greek-tragedy-lecture-2/greek-tragedy-lecture-2.thumbs/Greek%20Tragedy%20Lecture%206_000654.jpg",
+          "airDate": null,
+          "year": 1908,
+          "runtimeSeconds": 1821,
+          "videoFile": {
+            "name": "Greek Tragedy Lecture 6.mp4",
+            "format": "h.264",
+            "sizeBytes": 181921116,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/greek-tragedy-lecture-2/Greek%20Tragedy%20Lecture%206.mp4"
+        },
+        {
+          "archiveID": "greek-tragedy-lecture-2@e07",
+          "sourceID": "greek-tragedy-lecture-2",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Episode 7",
+          "overview": null,
+          "stillURL": "https://archive.org/download/greek-tragedy-lecture-2/greek-tragedy-lecture-2.thumbs/Greek%20Tragedy%20Lecture%207_000745.jpg",
+          "airDate": null,
+          "year": 1908,
+          "runtimeSeconds": 1882,
+          "videoFile": {
+            "name": "Greek Tragedy Lecture 7.mp4",
+            "format": "h.264",
+            "sizeBytes": 187368605,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/greek-tragedy-lecture-2/Greek%20Tragedy%20Lecture%207.mp4"
+        },
+        {
+          "archiveID": "greek-tragedy-lecture-2@e08",
+          "sourceID": "greek-tragedy-lecture-2",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Episode 8",
+          "overview": null,
+          "stillURL": "https://archive.org/download/greek-tragedy-lecture-2/greek-tragedy-lecture-2.thumbs/Greek%20Tragedy%20Lecture%208_000757.jpg",
+          "airDate": null,
+          "year": 1908,
+          "runtimeSeconds": 1912,
+          "videoFile": {
+            "name": "Greek Tragedy Lecture 8.mp4",
+            "format": "h.264",
+            "sizeBytes": 190223007,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/greek-tragedy-lecture-2/Greek%20Tragedy%20Lecture%208.mp4"
+        },
+        {
+          "archiveID": "greek-tragedy-lecture-2@e09",
+          "sourceID": "greek-tragedy-lecture-2",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Episode 9",
+          "overview": null,
+          "stillURL": "https://archive.org/download/greek-tragedy-lecture-2/greek-tragedy-lecture-2.thumbs/Greek%20Tragedy%20Lecture%209_000726.jpg",
+          "airDate": null,
+          "year": 1908,
+          "runtimeSeconds": 1833,
+          "videoFile": {
+            "name": "Greek Tragedy Lecture 9.mp4",
+            "format": "h.264",
+            "sizeBytes": 182899257,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/greek-tragedy-lecture-2/Greek%20Tragedy%20Lecture%209.mp4"
+        },
+        {
+          "archiveID": "greek-tragedy-lecture-2@e10",
+          "sourceID": "greek-tragedy-lecture-2",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Episode 10",
+          "overview": null,
+          "stillURL": "https://archive.org/download/greek-tragedy-lecture-2/greek-tragedy-lecture-2.thumbs/Greek%20Tragedy%20Lecture%2010_000739.jpg",
+          "airDate": null,
+          "year": 1908,
+          "runtimeSeconds": 1865,
+          "videoFile": {
+            "name": "Greek Tragedy Lecture 10.mp4",
+            "format": "h.264",
+            "sizeBytes": 186221071,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/greek-tragedy-lecture-2/Greek%20Tragedy%20Lecture%2010.mp4"
+        },
+        {
+          "archiveID": "greek-tragedy-lecture-2@e11",
+          "sourceID": "greek-tragedy-lecture-2",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Episode 11",
+          "overview": null,
+          "stillURL": "https://archive.org/download/greek-tragedy-lecture-2/greek-tragedy-lecture-2.thumbs/Greek%20Tragedy%20Lecture%2011_000733.jpg",
+          "airDate": null,
+          "year": 1908,
+          "runtimeSeconds": 1851,
+          "videoFile": {
+            "name": "Greek Tragedy Lecture 11.mp4",
+            "format": "h.264",
+            "sizeBytes": 184386753,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/greek-tragedy-lecture-2/Greek%20Tragedy%20Lecture%2011.mp4"
+        },
+        {
+          "archiveID": "greek-tragedy-lecture-2@e12",
+          "sourceID": "greek-tragedy-lecture-2",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Episode 12",
+          "overview": null,
+          "stillURL": "https://archive.org/download/greek-tragedy-lecture-2/greek-tragedy-lecture-2.thumbs/Greek%20Tragedy%20Lecture%2012_000727.jpg",
+          "airDate": null,
+          "year": 1908,
+          "runtimeSeconds": 1837,
+          "videoFile": {
+            "name": "Greek Tragedy Lecture 12.mp4",
+            "format": "h.264",
+            "sizeBytes": 183082286,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/greek-tragedy-lecture-2/Greek%20Tragedy%20Lecture%2012.mp4"
+        },
+        {
+          "archiveID": "greek-tragedy-lecture-2@e13",
+          "sourceID": "greek-tragedy-lecture-2",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Episode 13",
+          "overview": null,
+          "stillURL": "https://archive.org/download/greek-tragedy-lecture-2/greek-tragedy-lecture-2.thumbs/Greek%20Tragedy%20Lecture%2013_000800.jpg",
+          "airDate": null,
+          "year": 1908,
+          "runtimeSeconds": 1855,
+          "videoFile": {
+            "name": "Greek Tragedy Lecture 13.mp4",
+            "format": "h.264",
+            "sizeBytes": 184561807,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/greek-tragedy-lecture-2/Greek%20Tragedy%20Lecture%2013.mp4"
+        },
+        {
+          "archiveID": "greek-tragedy-lecture-2@e14",
+          "sourceID": "greek-tragedy-lecture-2",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Episode 14",
+          "overview": null,
+          "stillURL": "https://archive.org/download/greek-tragedy-lecture-2/greek-tragedy-lecture-2.thumbs/Greek%20Tragedy%20Lecture%2014_000805.jpg",
+          "airDate": null,
+          "year": 1908,
+          "runtimeSeconds": 1866,
+          "videoFile": {
+            "name": "Greek Tragedy Lecture 14.mp4",
+            "format": "h.264",
+            "sizeBytes": 185807278,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/greek-tragedy-lecture-2/Greek%20Tragedy%20Lecture%2014.mp4"
+        },
+        {
+          "archiveID": "greek-tragedy-lecture-2@e15",
+          "sourceID": "greek-tragedy-lecture-2",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Episode 15",
+          "overview": null,
+          "stillURL": "https://archive.org/download/greek-tragedy-lecture-2/greek-tragedy-lecture-2.thumbs/Greek%20Tragedy%20Lecture%2015_000804.jpg",
+          "airDate": null,
+          "year": 1908,
+          "runtimeSeconds": 1864,
+          "videoFile": {
+            "name": "Greek Tragedy Lecture 15.mp4",
+            "format": "h.264",
+            "sizeBytes": 185791807,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/greek-tragedy-lecture-2/Greek%20Tragedy%20Lecture%2015.mp4"
+        },
+        {
+          "archiveID": "greek-tragedy-lecture-2@e16",
+          "sourceID": "greek-tragedy-lecture-2",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Episode 16",
+          "overview": null,
+          "stillURL": "https://archive.org/download/greek-tragedy-lecture-2/greek-tragedy-lecture-2.thumbs/Greek%20Tragedy%20Lecture%2016_000798.jpg",
+          "airDate": null,
+          "year": 1908,
+          "runtimeSeconds": 1851,
+          "videoFile": {
+            "name": "Greek Tragedy Lecture 16.mp4",
+            "format": "h.264",
+            "sizeBytes": 184364949,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/greek-tragedy-lecture-2/Greek%20Tragedy%20Lecture%2016.mp4"
+        },
+        {
+          "archiveID": "greek-tragedy-lecture-2@e17",
+          "sourceID": "greek-tragedy-lecture-2",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Episode 17",
+          "overview": null,
+          "stillURL": "https://archive.org/download/greek-tragedy-lecture-2/greek-tragedy-lecture-2.thumbs/Greek%20Tragedy%20Lecture%2017_000803.jpg",
+          "airDate": null,
+          "year": 1908,
+          "runtimeSeconds": 1861,
+          "videoFile": {
+            "name": "Greek Tragedy Lecture 17.mp4",
+            "format": "h.264",
+            "sizeBytes": 185249901,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/greek-tragedy-lecture-2/Greek%20Tragedy%20Lecture%2017.mp4"
+        },
+        {
+          "archiveID": "greek-tragedy-lecture-2@e18",
+          "sourceID": "greek-tragedy-lecture-2",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Episode 18",
+          "overview": null,
+          "stillURL": "https://archive.org/download/greek-tragedy-lecture-2/greek-tragedy-lecture-2.thumbs/Greek%20Tragedy%20Lecture%2018_000794.jpg",
+          "airDate": null,
+          "year": 1908,
+          "runtimeSeconds": 1841,
+          "videoFile": {
+            "name": "Greek Tragedy Lecture 18.mp4",
+            "format": "h.264",
+            "sizeBytes": 183334465,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/greek-tragedy-lecture-2/Greek%20Tragedy%20Lecture%2018.mp4"
+        },
+        {
+          "archiveID": "greek-tragedy-lecture-2@e19",
+          "sourceID": "greek-tragedy-lecture-2",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Episode 19",
+          "overview": null,
+          "stillURL": "https://archive.org/download/greek-tragedy-lecture-2/greek-tragedy-lecture-2.thumbs/Greek%20Tragedy%20Lecture%2019_000893.jpg",
+          "airDate": null,
+          "year": 1908,
+          "runtimeSeconds": 1817,
+          "videoFile": {
+            "name": "Greek Tragedy Lecture 19.mp4",
+            "format": "h.264",
+            "sizeBytes": 180918689,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/greek-tragedy-lecture-2/Greek%20Tragedy%20Lecture%2019.mp4"
+        },
+        {
+          "archiveID": "greek-tragedy-lecture-2@e20",
+          "sourceID": "greek-tragedy-lecture-2",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Episode 20",
+          "overview": null,
+          "stillURL": "https://archive.org/download/greek-tragedy-lecture-2/greek-tragedy-lecture-2.thumbs/Greek%20Tragedy%20Lecture%2020_000906.jpg",
+          "airDate": null,
+          "year": 1908,
+          "runtimeSeconds": 1843,
+          "videoFile": {
+            "name": "Greek Tragedy Lecture 20.mp4",
+            "format": "h.264",
+            "sizeBytes": 183490771,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/greek-tragedy-lecture-2/Greek%20Tragedy%20Lecture%2020.mp4"
+        },
+        {
+          "archiveID": "greek-tragedy-lecture-2@e21",
+          "sourceID": "greek-tragedy-lecture-2",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Episode 21",
+          "overview": null,
+          "stillURL": "https://archive.org/download/greek-tragedy-lecture-2/greek-tragedy-lecture-2.thumbs/Greek%20Tragedy%20Lecture%2021_000864.jpg",
+          "airDate": null,
+          "year": 1908,
+          "runtimeSeconds": 1758,
+          "videoFile": {
+            "name": "Greek Tragedy Lecture 21.mp4",
+            "format": "h.264",
+            "sizeBytes": 174724064,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/greek-tragedy-lecture-2/Greek%20Tragedy%20Lecture%2021.mp4"
+        },
+        {
+          "archiveID": "greek-tragedy-lecture-2@e22",
+          "sourceID": "greek-tragedy-lecture-2",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Episode 22",
+          "overview": null,
+          "stillURL": "https://archive.org/download/greek-tragedy-lecture-2/greek-tragedy-lecture-2.thumbs/Greek%20Tragedy%20Lecture%2022_000898.jpg",
+          "airDate": null,
+          "year": 1908,
+          "runtimeSeconds": 1826,
+          "videoFile": {
+            "name": "Greek Tragedy Lecture 22.mp4",
+            "format": "h.264",
+            "sizeBytes": 181361914,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/greek-tragedy-lecture-2/Greek%20Tragedy%20Lecture%2022.mp4"
+        },
+        {
+          "archiveID": "greek-tragedy-lecture-2@e23",
+          "sourceID": "greek-tragedy-lecture-2",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Episode 23",
+          "overview": null,
+          "stillURL": "https://archive.org/download/greek-tragedy-lecture-2/greek-tragedy-lecture-2.thumbs/Greek%20Tragedy%20Lecture%2023_000887.jpg",
+          "airDate": null,
+          "year": 1908,
+          "runtimeSeconds": 1805,
+          "videoFile": {
+            "name": "Greek Tragedy Lecture 23.mp4",
+            "format": "h.264",
+            "sizeBytes": 179389758,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/greek-tragedy-lecture-2/Greek%20Tragedy%20Lecture%2023.mp4"
+        },
+        {
+          "archiveID": "greek-tragedy-lecture-2@e24",
+          "sourceID": "greek-tragedy-lecture-2",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Episode 24",
+          "overview": null,
+          "stillURL": "https://archive.org/download/greek-tragedy-lecture-2/greek-tragedy-lecture-2.thumbs/Greek%20Tragedy%20Lecture%2024_000852.jpg",
+          "airDate": null,
+          "year": 1908,
+          "runtimeSeconds": 1733,
+          "videoFile": {
+            "name": "Greek Tragedy Lecture 24.mp4",
+            "format": "h.264",
+            "sizeBytes": 172278651,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/greek-tragedy-lecture-2/Greek%20Tragedy%20Lecture%2024.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 24,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

@@ -1,0 +1,312 @@
+{
+  "version": 2,
+  "seriesID": "batman-the-1943-serials-1943",
+  "sourceID": "Batman1943Chapter01TheElectricalBrain",
+  "tvmazeID": null,
+  "title": "Batman the 1943 serials",
+  "yearStart": 1943,
+  "yearEnd": null,
+  "overview": "Batman (1943), the 15-chapter Columbia serial with Lewis Wilson and Douglas Croft: Batman and Robin battle the Japanese agent Dr. Daka.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/Batman1943Chapter01TheElectricalBrain.0cb0a384.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Batman1943Chapter01TheElectricalBrain@e01",
+          "sourceID": "Batman1943Chapter01TheElectricalBrain",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Electrical Brain",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Batman1943Chapter01TheElectricalBrain/Batman1943Chapter01TheElectricalBrain.thumbs/Batman%201943%20Chapter%2001%20The%20Electrical%20Brain_000512.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 1578,
+          "videoFile": {
+            "name": "Batman 1943 Chapter 01 The Electrical Brain.mp4",
+            "format": "h.264",
+            "sizeBytes": 164106206,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Batman1943Chapter01TheElectricalBrain/Batman%201943%20Chapter%2001%20The%20Electrical%20Brain.mp4"
+        },
+        {
+          "archiveID": "Batman1943Chapter01TheElectricalBrain@e02",
+          "sourceID": "Batman1943Chapter01TheElectricalBrain",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Bats Cave",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Batman1943Chapter01TheElectricalBrain/Batman1943Chapter01TheElectricalBrain.thumbs/Batman%201943%20Chapter%2002%20The%20Bats%20Cave_000330.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 1031,
+          "videoFile": {
+            "name": "Batman 1943 Chapter 02 The Bats Cave.mp4",
+            "format": "h.264",
+            "sizeBytes": 107291296,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Batman1943Chapter01TheElectricalBrain/Batman%201943%20Chapter%2002%20The%20Bats%20Cave.mp4"
+        },
+        {
+          "archiveID": "Batman1943Chapter01TheElectricalBrain@e03",
+          "sourceID": "Batman1943Chapter01TheElectricalBrain",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Mark of the Zombies",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Batman1943Chapter01TheElectricalBrain/Batman1943Chapter01TheElectricalBrain.thumbs/Batman%201943%20Chapter%2003%20The%20Mark%20of%20the%20Zombies_000390.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 1054,
+          "videoFile": {
+            "name": "Batman 1943 Chapter 03 The Mark of the Zombies.mp4",
+            "format": "h.264",
+            "sizeBytes": 109742236,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Batman1943Chapter01TheElectricalBrain/Batman%201943%20Chapter%2003%20The%20Mark%20of%20the%20Zombies.mp4"
+        },
+        {
+          "archiveID": "Batman1943Chapter01TheElectricalBrain@e04",
+          "sourceID": "Batman1943Chapter01TheElectricalBrain",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Slaves of the Rising Sun",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Batman1943Chapter01TheElectricalBrain/Batman1943Chapter01TheElectricalBrain.thumbs/Batman%201943%20Chapter%2004%20Slaves%20of%20the%20Rising%20Sun_000390.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 1089,
+          "videoFile": {
+            "name": "Batman 1943 Chapter 04 Slaves of the Rising Sun.mp4",
+            "format": "h.264",
+            "sizeBytes": 113459196,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Batman1943Chapter01TheElectricalBrain/Batman%201943%20Chapter%2004%20Slaves%20of%20the%20Rising%20Sun.mp4"
+        },
+        {
+          "archiveID": "Batman1943Chapter01TheElectricalBrain@e05",
+          "sourceID": "Batman1943Chapter01TheElectricalBrain",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Living Corpse",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Batman1943Chapter01TheElectricalBrain/Batman1943Chapter01TheElectricalBrain.thumbs/Batman%201943%20Chapter%2005%20The%20Living%20Corpse_000330.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 1022,
+          "videoFile": {
+            "name": "Batman 1943 Chapter 05 The Living Corpse.mp4",
+            "format": "h.264",
+            "sizeBytes": 106289180,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Batman1943Chapter01TheElectricalBrain/Batman%201943%20Chapter%2005%20The%20Living%20Corpse.mp4"
+        },
+        {
+          "archiveID": "Batman1943Chapter01TheElectricalBrain@e06",
+          "sourceID": "Batman1943Chapter01TheElectricalBrain",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Poison Peril",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Batman1943Chapter01TheElectricalBrain/Batman1943Chapter01TheElectricalBrain.thumbs/Batman%201943%20Chapter%2006%20Poison%20Peril_000330.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 1005,
+          "videoFile": {
+            "name": "Batman 1943 Chapter 06 Poison Peril.mp4",
+            "format": "h.264",
+            "sizeBytes": 104430316,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Batman1943Chapter01TheElectricalBrain/Batman%201943%20Chapter%2006%20Poison%20Peril.mp4"
+        },
+        {
+          "archiveID": "Batman1943Chapter01TheElectricalBrain@e07",
+          "sourceID": "Batman1943Chapter01TheElectricalBrain",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Phoney Doctor",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Batman1943Chapter01TheElectricalBrain/Batman1943Chapter01TheElectricalBrain.thumbs/Batman%201943%20Chapter%2007%20The%20Phoney%20Doctor_000330.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 957,
+          "videoFile": {
+            "name": "Batman 1943 Chapter 07 The Phoney Doctor.mp4",
+            "format": "h.264",
+            "sizeBytes": 99789200,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Batman1943Chapter01TheElectricalBrain/Batman%201943%20Chapter%2007%20The%20Phoney%20Doctor.mp4"
+        },
+        {
+          "archiveID": "Batman1943Chapter01TheElectricalBrain@e08",
+          "sourceID": "Batman1943Chapter01TheElectricalBrain",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Lured by Radium",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Batman1943Chapter01TheElectricalBrain/Batman1943Chapter01TheElectricalBrain.thumbs/Batman%201943%20Chapter%2008%20Lured%20by%20Radium_000330.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 996,
+          "videoFile": {
+            "name": "Batman 1943 Chapter 08 Lured by Radium.mp4",
+            "format": "h.264",
+            "sizeBytes": 103781962,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Batman1943Chapter01TheElectricalBrain/Batman%201943%20Chapter%2008%20Lured%20by%20Radium.mp4"
+        },
+        {
+          "archiveID": "Batman1943Chapter01TheElectricalBrain@e09",
+          "sourceID": "Batman1943Chapter01TheElectricalBrain",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Sign of the Spinx",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Batman1943Chapter01TheElectricalBrain/Batman1943Chapter01TheElectricalBrain.thumbs/Batman%201943%20Chapter%2009%20The%20Sign%20of%20the%20Spinx_000330.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 980,
+          "videoFile": {
+            "name": "Batman 1943 Chapter 09 The Sign of the Spinx.mp4",
+            "format": "h.264",
+            "sizeBytes": 102136355,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Batman1943Chapter01TheElectricalBrain/Batman%201943%20Chapter%2009%20The%20Sign%20of%20the%20Spinx.mp4"
+        },
+        {
+          "archiveID": "Batman1943Chapter01TheElectricalBrain@e10",
+          "sourceID": "Batman1943Chapter01TheElectricalBrain",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Flying Spies",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Batman1943Chapter01TheElectricalBrain/Batman1943Chapter01TheElectricalBrain.thumbs/Batman%201943%20Chapter%2010%20Flying%20Spies_000390.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 1059,
+          "videoFile": {
+            "name": "Batman 1943 Chapter 10 Flying Spies.mp4",
+            "format": "h.264",
+            "sizeBytes": 110304965,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Batman1943Chapter01TheElectricalBrain/Batman%201943%20Chapter%2010%20Flying%20Spies.mp4"
+        },
+        {
+          "archiveID": "Batman1943Chapter01TheElectricalBrain@e11",
+          "sourceID": "Batman1943Chapter01TheElectricalBrain",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "A Nipponese Trap",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Batman1943Chapter01TheElectricalBrain/Batman1943Chapter01TheElectricalBrain.thumbs/Batman%201943%20Chapter%2011%20A%20Nipponese%20Trap_000330.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 944,
+          "videoFile": {
+            "name": "Batman 1943 Chapter 11 A Nipponese Trap.mp4",
+            "format": "h.264",
+            "sizeBytes": 98319486,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Batman1943Chapter01TheElectricalBrain/Batman%201943%20Chapter%2011%20A%20Nipponese%20Trap.mp4"
+        },
+        {
+          "archiveID": "Batman1943Chapter01TheElectricalBrain@e12",
+          "sourceID": "Batman1943Chapter01TheElectricalBrain",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Embers of Evil",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Batman1943Chapter01TheElectricalBrain/Batman1943Chapter01TheElectricalBrain.thumbs/Batman%201943%20Chapter%2012%20Embers%20of%20Evil_000281.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 865,
+          "videoFile": {
+            "name": "Batman 1943 Chapter 12 Embers of Evil.mp4",
+            "format": "h.264",
+            "sizeBytes": 90084604,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Batman1943Chapter01TheElectricalBrain/Batman%201943%20Chapter%2012%20Embers%20of%20Evil.mp4"
+        },
+        {
+          "archiveID": "Batman1943Chapter01TheElectricalBrain@e13",
+          "sourceID": "Batman1943Chapter01TheElectricalBrain",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Eight Steps Down",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Batman1943Chapter01TheElectricalBrain/Batman1943Chapter01TheElectricalBrain.thumbs/Batman%201943%20Chapter%2013%20Eight%20Steps%20Down_000279.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 859,
+          "videoFile": {
+            "name": "Batman 1943 Chapter 13 Eight Steps Down.mp4",
+            "format": "h.264",
+            "sizeBytes": 89570525,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Batman1943Chapter01TheElectricalBrain/Batman%201943%20Chapter%2013%20Eight%20Steps%20Down.mp4"
+        },
+        {
+          "archiveID": "Batman1943Chapter01TheElectricalBrain@e14",
+          "sourceID": "Batman1943Chapter01TheElectricalBrain",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Executioner Strikes",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Batman1943Chapter01TheElectricalBrain/Batman1943Chapter01TheElectricalBrain.thumbs/Batman%201943%20Chapter%2014%20The%20Executioner%20Strikes_000330.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 940,
+          "videoFile": {
+            "name": "Batman 1943 Chapter 14 The Executioner Strikes.mp4",
+            "format": "h.264",
+            "sizeBytes": 97876661,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Batman1943Chapter01TheElectricalBrain/Batman%201943%20Chapter%2014%20The%20Executioner%20Strikes.mp4"
+        },
+        {
+          "archiveID": "Batman1943Chapter01TheElectricalBrain@e15",
+          "sourceID": "Batman1943Chapter01TheElectricalBrain",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "The Doom of the Rising Sun",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Batman1943Chapter01TheElectricalBrain/Batman1943Chapter01TheElectricalBrain.thumbs/Batman%201943%20Chapter%2015%20The%20Doom%20of%20the%20Rising%20Sun_000391.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 1205,
+          "videoFile": {
+            "name": "Batman 1943 Chapter 15 The Doom of the Rising Sun.mp4",
+            "format": "h.264",
+            "sizeBytes": 125645888,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Batman1943Chapter01TheElectricalBrain/Batman%201943%20Chapter%2015%20The%20Doom%20of%20the%20Rising%20Sun.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 15,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

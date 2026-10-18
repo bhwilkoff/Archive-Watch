@@ -1,0 +1,277 @@
+{
+  "version": 2,
+  "seriesID": "father-brown-1974",
+  "sourceID": "father-brown-complete-series-1974",
+  "tvmazeID": null,
+  "title": "Father Brown",
+  "yearStart": 1974,
+  "yearEnd": null,
+  "overview": "Father Brown is a British television series, which originally aired on ITV in 1974. It featured Kenneth More as Father Brown, a Roman Catholic priest who solved crime mysteries. The episodes were closely based on the stories by G. K. Chesterton.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/4lIESBYiG3dF0qWAuVBMPlNFYSZ.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Mystery",
+    "Crime"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "father-brown-complete-series-1974@s1e01",
+          "sourceID": "father-brown-complete-series-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Hammer of God",
+          "overview": null,
+          "stillURL": "https://archive.org/download/father-brown-complete-series-1974/father-brown-complete-series-1974.thumbs/Father%20Brown%20S01E01%20-%20The%20Hammer%20of%20God_001201.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 3085,
+          "videoFile": {
+            "name": "Father Brown S01E01 - The Hammer of God.mp4",
+            "format": "h.264",
+            "sizeBytes": 292315728,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/father-brown-complete-series-1974/Father%20Brown%20S01E01%20-%20The%20Hammer%20of%20God.mp4"
+        },
+        {
+          "archiveID": "father-brown-complete-series-1974@s1e02",
+          "sourceID": "father-brown-complete-series-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Oracle of the Dog",
+          "overview": null,
+          "stillURL": "https://archive.org/download/father-brown-complete-series-1974/father-brown-complete-series-1974.thumbs/Father%20Brown%20S01E02%20-%20The%20Oracle%20of%20the%20Dog_001218.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 3132,
+          "videoFile": {
+            "name": "2.Father Brown - The Oracle of the Dog.mp4",
+            "format": "h.264",
+            "sizeBytes": 298465643,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/father-brown-complete-series-1974/2.Father%20Brown%20-%20The%20Oracle%20of%20the%20Dog.mp4"
+        },
+        {
+          "archiveID": "father-brown-complete-series-1974@s1e03",
+          "sourceID": "father-brown-complete-series-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Curse of the Golden Cross",
+          "overview": null,
+          "stillURL": "https://archive.org/download/father-brown-complete-series-1974/father-brown-complete-series-1974.thumbs/Father%20Brown%20S01E03%20-%20The%20Curse%20of%20the%20Golden%20Cross_001169.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 3008,
+          "videoFile": {
+            "name": "3.Father Brown - The Curse of the Golden Cross.mp4",
+            "format": "h.264",
+            "sizeBytes": 283146265,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/father-brown-complete-series-1974/3.Father%20Brown%20-%20The%20Curse%20of%20the%20Golden%20Cross.mp4"
+        },
+        {
+          "archiveID": "father-brown-complete-series-1974@s1e04",
+          "sourceID": "father-brown-complete-series-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Eye of Apollo",
+          "overview": null,
+          "stillURL": "https://archive.org/download/father-brown-complete-series-1974/father-brown-complete-series-1974.thumbs/Father%20Brown%20S01E04%20-%20The%20Eye%20of%20Apollo_001191.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 3069,
+          "videoFile": {
+            "name": "Father Brown S01E04 - The Eye of Apollo.mp4",
+            "format": "h.264",
+            "sizeBytes": 292279746,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/father-brown-complete-series-1974/Father%20Brown%20S01E04%20-%20The%20Eye%20of%20Apollo.mp4"
+        },
+        {
+          "archiveID": "father-brown-complete-series-1974@s1e05",
+          "sourceID": "father-brown-complete-series-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Three Tools of Death",
+          "overview": null,
+          "stillURL": "https://archive.org/download/father-brown-complete-series-1974/father-brown-complete-series-1974.thumbs/Father%20Brown%20S01E05%20-%20The%20Three%20Tools%20of%20Death_001201.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 3104,
+          "videoFile": {
+            "name": "5.Father Brown - The Three Tools of Death.mp4",
+            "format": "h.264",
+            "sizeBytes": 296294302,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/father-brown-complete-series-1974/5.Father%20Brown%20-%20The%20Three%20Tools%20of%20Death.mp4"
+        },
+        {
+          "archiveID": "father-brown-complete-series-1974@s1e06",
+          "sourceID": "father-brown-complete-series-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Mirror of the Magistrate",
+          "overview": null,
+          "stillURL": "https://archive.org/download/father-brown-complete-series-1974/father-brown-complete-series-1974.thumbs/Father%20Brown%20S01E06%20-%20The%20Mirror%20of%20the%20Magistrate_001200.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 3101,
+          "videoFile": {
+            "name": "Father Brown S01E06 - The Mirror of the Magistrate.mp4",
+            "format": "h.264",
+            "sizeBytes": 295573148,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/father-brown-complete-series-1974/Father%20Brown%20S01E06%20-%20The%20Mirror%20of%20the%20Magistrate.mp4"
+        },
+        {
+          "archiveID": "father-brown-complete-series-1974@s1e07",
+          "sourceID": "father-brown-complete-series-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Dagger with Wings",
+          "overview": null,
+          "stillURL": "https://archive.org/download/father-brown-complete-series-1974/father-brown-complete-series-1974.thumbs/Father%20Brown%20S01E07%20-%20The%20Dagger%20with%20Wings_001196.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 3070,
+          "videoFile": {
+            "name": "Father Brown S01E07 - The Dagger with Wings.mp4",
+            "format": "h.264",
+            "sizeBytes": 291610310,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/father-brown-complete-series-1974/Father%20Brown%20S01E07%20-%20The%20Dagger%20with%20Wings.mp4"
+        },
+        {
+          "archiveID": "father-brown-complete-series-1974@s1e08",
+          "sourceID": "father-brown-complete-series-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Actor and the Alibi",
+          "overview": null,
+          "stillURL": "https://archive.org/download/father-brown-complete-series-1974/father-brown-complete-series-1974.thumbs/Father%20Brown%20S01E08%20-%20The%20Actor%20and%20the%20Alibi_001186.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 3057,
+          "videoFile": {
+            "name": "Father Brown S01E08 - The Actor and the Alibi.mp4",
+            "format": "h.264",
+            "sizeBytes": 289817712,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/father-brown-complete-series-1974/Father%20Brown%20S01E08%20-%20The%20Actor%20and%20the%20Alibi.mp4"
+        },
+        {
+          "archiveID": "father-brown-complete-series-1974@s1e09",
+          "sourceID": "father-brown-complete-series-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Quick One",
+          "overview": null,
+          "stillURL": "https://archive.org/download/father-brown-complete-series-1974/father-brown-complete-series-1974.thumbs/Father%20Brown%20S01E09%20-%20The%20Quick%20One_001194.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 3081,
+          "videoFile": {
+            "name": "9.Father Brown - The Quick One.mp4",
+            "format": "h.264",
+            "sizeBytes": 293629179,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/father-brown-complete-series-1974/9.Father%20Brown%20-%20The%20Quick%20One.mp4"
+        },
+        {
+          "archiveID": "father-brown-complete-series-1974@s1e10",
+          "sourceID": "father-brown-complete-series-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Man with Two Beards",
+          "overview": null,
+          "stillURL": "https://archive.org/download/father-brown-complete-series-1974/father-brown-complete-series-1974.thumbs/Father%20Brown%20S01E10%20-%20The%20Man%20with%20Two%20Beards_001193.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 3077,
+          "videoFile": {
+            "name": "Father Brown S01E10 - The Man with Two Beards.mp4",
+            "format": "h.264",
+            "sizeBytes": 293388962,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/father-brown-complete-series-1974/Father%20Brown%20S01E10%20-%20The%20Man%20with%20Two%20Beards.mp4"
+        },
+        {
+          "archiveID": "father-brown-complete-series-1974@s1e11",
+          "sourceID": "father-brown-complete-series-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Head of Caesar",
+          "overview": null,
+          "stillURL": "https://archive.org/download/father-brown-complete-series-1974/father-brown-complete-series-1974.thumbs/Father%20Brown%20S01E11%20-%20The%20Head%20of%20Caesar_001176.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 3033,
+          "videoFile": {
+            "name": "Father Brown S01E11 - The Head of Caesar.mp4",
+            "format": "h.264",
+            "sizeBytes": 288968829,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/father-brown-complete-series-1974/Father%20Brown%20S01E11%20-%20The%20Head%20of%20Caesar.mp4"
+        },
+        {
+          "archiveID": "father-brown-complete-series-1974@s1e12",
+          "sourceID": "father-brown-complete-series-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Arrow of Heaven",
+          "overview": null,
+          "stillURL": "https://archive.org/download/father-brown-complete-series-1974/father-brown-complete-series-1974.thumbs/Father%20Brown%20S01E12%20-%20The%20Arrow%20of%20Heaven_001190.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 3054,
+          "videoFile": {
+            "name": "Father Brown S01E12 - The Arrow of Heaven.mp4",
+            "format": "h.264",
+            "sizeBytes": 290242780,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/father-brown-complete-series-1974/Father%20Brown%20S01E12%20-%20The%20Arrow%20of%20Heaven.mp4"
+        },
+        {
+          "archiveID": "father-brown-complete-series-1974@s1e13",
+          "sourceID": "father-brown-complete-series-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "The Secret Garden",
+          "overview": null,
+          "stillURL": "https://archive.org/download/father-brown-complete-series-1974/father-brown-complete-series-1974.thumbs/Father%20Brown%20S01E13%20-%20The%20Secret%20Garden_001187.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 3068,
+          "videoFile": {
+            "name": "Father Brown S01E13 - The Secret Garden.mp4",
+            "format": "h.264",
+            "sizeBytes": 292753607,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/father-brown-complete-series-1974/Father%20Brown%20S01E13%20-%20The%20Secret%20Garden.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 13,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": []
+}

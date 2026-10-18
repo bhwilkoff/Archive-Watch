@@ -2962,7 +2962,7 @@ struct StudioVersionMenu: View {
         .task(id: film.archiveID) {
             chosenName = ArchiveVersions.chosenName(for: film.archiveID)
             loading = true
-            versions = await ArchiveVersions.list(itemID: film.archiveID)
+            versions = await ArchiveVersions.list(itemID: film.archiveID, defaultURL: film.videoURLParsed)
             loading = false
         }
     }

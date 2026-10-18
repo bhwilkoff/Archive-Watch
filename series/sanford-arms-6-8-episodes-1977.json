@@ -1,0 +1,141 @@
+{
+  "version": 2,
+  "seriesID": "sanford-arms-6-8-episodes-1977",
+  "sourceID": "Sanford-Arms-1977",
+  "tvmazeID": null,
+  "title": "Sanford Arms - 6/8 episodes",
+  "yearStart": 1977,
+  "yearEnd": null,
+  "overview": "Fred's relatives turn the Sanford house into a rooming house; the six broadcast episodes of Sanford Arms (1977), the short-lived continuation of Sanford and Son.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/Sanford-Arms-1977.4a4035a8.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Sanford-Arms-1977@s1e01",
+          "sourceID": "Sanford-Arms-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Bye Fred Hi Phil",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sanford-Arms-1977/Sanford-Arms-1977.thumbs/Sanford.Arms.S01E01.Bye.Fred.Hi.Phil.WEB-DL.AAC2.0.H.264_000535.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1517,
+          "videoFile": {
+            "name": "Sanford.Arms.S01E01.Bye.Fred.Hi.Phil.WEB-DL.AAC2.0.H.264.mp4",
+            "format": "h.264",
+            "sizeBytes": 146381266,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sanford-Arms-1977/Sanford.Arms.S01E01.Bye.Fred.Hi.Phil.WEB-DL.AAC2.0.H.264.mp4"
+        },
+        {
+          "archiveID": "Sanford-Arms-1977@s1e02",
+          "sourceID": "Sanford-Arms-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Phil's Assertion School",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sanford-Arms-1977/Sanford-Arms-1977.thumbs/Sanford.Arms.S01E02.Phil%27s.Assertion.School.WEB-DL.AAC2.0.H.264_000535.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1511,
+          "videoFile": {
+            "name": "Sanford.Arms.S01E02.Phil's.Assertion.School.WEB-DL.AAC2.0.H.264.mp4",
+            "format": "h.264",
+            "sizeBytes": 145697162,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sanford-Arms-1977/Sanford.Arms.S01E02.Phil%27s.Assertion.School.WEB-DL.AAC2.0.H.264.mp4"
+        },
+        {
+          "archiveID": "Sanford-Arms-1977@s1e03",
+          "sourceID": "Sanford-Arms-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Grandparents",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sanford-Arms-1977/Sanford-Arms-1977.thumbs/Sanford.Arms.S01E03.The.Grandparents.WEB-DL.AAC2.0.H.264_000595.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1516,
+          "videoFile": {
+            "name": "Sanford.Arms.S01E03.The.Grandparents.WEB-DL.AAC2.0.H.264.mp4",
+            "format": "h.264",
+            "sizeBytes": 146164180,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sanford-Arms-1977/Sanford.Arms.S01E03.The.Grandparents.WEB-DL.AAC2.0.H.264.mp4"
+        },
+        {
+          "archiveID": "Sanford-Arms-1977@s1e04",
+          "sourceID": "Sanford-Arms-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Phil's Past",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sanford-Arms-1977/Sanford-Arms-1977.thumbs/Sanford.Arms.S01E04.Phil%27s.Past.WEB-DL.AAC2.0.H.264_000535.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1513,
+          "videoFile": {
+            "name": "Sanford.Arms.S01E04.Phil's.Past.WEB-DL.AAC2.0.H.264.mp4",
+            "format": "h.264",
+            "sizeBytes": 145806152,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sanford-Arms-1977/Sanford.Arms.S01E04.Phil%27s.Past.WEB-DL.AAC2.0.H.264.mp4"
+        },
+        {
+          "archiveID": "Sanford-Arms-1977@s1e05",
+          "sourceID": "Sanford-Arms-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The TV Show",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sanford-Arms-1977/Sanford-Arms-1977.thumbs/Sanford.Arms.S01E05.The.TV.Show.WEB-DL.AAC2.0.H.264_000535.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1512,
+          "videoFile": {
+            "name": "Sanford.Arms.S01E05.The.TV.Show.WEB-DL.AAC2.0.H.264.mp4",
+            "format": "h.264",
+            "sizeBytes": 146270202,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sanford-Arms-1977/Sanford.Arms.S01E05.The.TV.Show.WEB-DL.AAC2.0.H.264.mp4"
+        },
+        {
+          "archiveID": "Sanford-Arms-1977@s1e06",
+          "sourceID": "Sanford-Arms-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Young Love",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sanford-Arms-1977/Sanford-Arms-1977.thumbs/Sanford.Arms.S01E06.Young.Love.WEB-DL.AAC2.0.H.264_000535.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1514,
+          "videoFile": {
+            "name": "Sanford.Arms.S01E06.Young.Love.WEB-DL.AAC2.0.H.264.mp4",
+            "format": "h.264",
+            "sizeBytes": 146280460,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sanford-Arms-1977/Sanford.Arms.S01E06.Young.Love.WEB-DL.AAC2.0.H.264.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

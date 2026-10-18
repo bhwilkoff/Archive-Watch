@@ -1,0 +1,597 @@
+{
+  "version": 2,
+  "seriesID": "joe-90-most-special-agent-1968",
+  "sourceID": "Joe90Complete",
+  "tvmazeID": null,
+  "title": "Joe 90 Most Special Agent",
+  "yearStart": 1968,
+  "yearEnd": null,
+  "overview": "Joe 90 is a British science fiction television series created by Gerry and Sylvia Anderson and filmed by their production company, Century 21, for ITC Entertainment. It follows the exploits of nine-year-old schoolboy Joe McClaine, who becomes a spy after his adoptive father invents a device capable of recording expert knowledge and experience and transferring it to another human brain. Armed with the skills of the world's top academic and military minds, Joe is recruited by the World Intelligence Network (WIN) as its \"Most Special Agent\". First broadcast on the ITV regional franchises between 1968 and 1969, the 30-episode series was the sixth and last of the Andersons' productions to be made primarily using a form of marionette puppetry dubbed \"Supermarionation\". Their final puppet series, The Secret Service, would include extensive footage of live actors. As in the preceding series, Captain Scarlet and the Mysterons, the puppets of Joe 90 are of natural body proportions as opposed to the caricatured design used for Thunderbirds and earlier Supermarionation productions. Though not as successful as Century 21's earlier efforts, Joe 90 has been praised for the characterisation of its main puppet cast and the quality of its scale model sets and special effects. Commentators have interpreted the spy-fi theme and use of a boy protagonist as both a \"kids-play-Bond\" concept and an enshrinement of children's imagination. The series has drawn some criticism for its lack of female characters, especially when compared to earlier Supermarionation productions.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/Joe90Complete.d17ed7c5.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Joe90Complete@e01",
+          "sourceID": "Joe90Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Most Special Agent",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Joe90Complete/Joe90Complete.thumbs/Joe%2090%20-01-%20The%20Most%20Special%20Agent_000748.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 1525,
+          "videoFile": {
+            "name": "Joe 90 -01- The Most Special Agent.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 157775253,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Joe90Complete/Joe%2090%20-01-%20The%20Most%20Special%20Agent.mp4"
+        },
+        {
+          "archiveID": "Joe90Complete@e02",
+          "sourceID": "Joe90Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Hi-jacked",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Joe90Complete/Joe90Complete.thumbs/Joe%2090%20-02-%20Hi-jacked_000731.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 1492,
+          "videoFile": {
+            "name": "Joe 90 -02- Hi-jacked.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 154765546,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Joe90Complete/Joe%2090%20-02-%20Hi-jacked.mp4"
+        },
+        {
+          "archiveID": "Joe90Complete@e03",
+          "sourceID": "Joe90Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Splashdown",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Joe90Complete/Joe90Complete.thumbs/Joe%2090%20-03-%20Splashdown_000738.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 1499,
+          "videoFile": {
+            "name": "Joe 90 -03- Splashdown.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 154337000,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Joe90Complete/Joe%2090%20-03-%20Splashdown.mp4"
+        },
+        {
+          "archiveID": "Joe90Complete@e04",
+          "sourceID": "Joe90Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "International Concerto",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Joe90Complete/Joe90Complete.thumbs/Joe%2090%20-04-%20International%20Concerto_000737.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 1495,
+          "videoFile": {
+            "name": "Joe 90 -04- International Concerto.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 155515339,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Joe90Complete/Joe%2090%20-04-%20International%20Concerto.mp4"
+        },
+        {
+          "archiveID": "Joe90Complete@e05",
+          "sourceID": "Joe90Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Operation Mcclaine",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Joe90Complete/Joe90Complete.thumbs/Joe%2090%20-05-%20Operation%20Mcclaine_000652.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 1325,
+          "videoFile": {
+            "name": "Joe 90 -05- Operation Mcclaine.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 137735516,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Joe90Complete/Joe%2090%20-05-%20Operation%20Mcclaine.mp4"
+        },
+        {
+          "archiveID": "Joe90Complete@e06",
+          "sourceID": "Joe90Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Big Fish",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Joe90Complete/Joe90Complete.thumbs/Joe%2090%20-06-%20Big%20Fish_000729.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 1486,
+          "videoFile": {
+            "name": "Joe 90 -06- Big Fish.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 154290670,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Joe90Complete/Joe%2090%20-06-%20Big%20Fish.mp4"
+        },
+        {
+          "archiveID": "Joe90Complete@e07",
+          "sourceID": "Joe90Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Relative Danger",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Joe90Complete/Joe90Complete.thumbs/Joe%2090%20-07-%20Relative%20Danger_000734.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 1496,
+          "videoFile": {
+            "name": "Joe 90 -07- Relative Danger.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 154820667,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Joe90Complete/Joe%2090%20-07-%20Relative%20Danger.mp4"
+        },
+        {
+          "archiveID": "Joe90Complete@e08",
+          "sourceID": "Joe90Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Unorthodox Shepherd",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Joe90Complete/Joe90Complete.thumbs/Joe%2090%20-08-%20The%20Unorthodox%20Shepherd_000735.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 1496,
+          "videoFile": {
+            "name": "Joe 90 -08- The Unorthodox Shepherd.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 155377088,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Joe90Complete/Joe%2090%20-08-%20The%20Unorthodox%20Shepherd.mp4"
+        },
+        {
+          "archiveID": "Joe90Complete@e09",
+          "sourceID": "Joe90Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "King For A Day",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Joe90Complete/Joe90Complete.thumbs/Joe%2090%20-09-%20King%20For%20A%20Day_000737.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 1496,
+          "videoFile": {
+            "name": "Joe 90 -09- King For A Day.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 155154772,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Joe90Complete/Joe%2090%20-09-%20King%20For%20A%20Day.mp4"
+        },
+        {
+          "archiveID": "Joe90Complete@e10",
+          "sourceID": "Joe90Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Business Holiday",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Joe90Complete/Joe90Complete.thumbs/Joe%2090%20-10-%20Business%20Holiday_000731.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 1489,
+          "videoFile": {
+            "name": "Joe 90 -10- Business Holiday.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 154146544,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Joe90Complete/Joe%2090%20-10-%20Business%20Holiday.mp4"
+        },
+        {
+          "archiveID": "Joe90Complete@e11",
+          "sourceID": "Joe90Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Most Special Astronaut",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Joe90Complete/Joe90Complete.thumbs/Joe%2090%20-11-%20Most%20Special%20Astronaut_000739.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 1501,
+          "videoFile": {
+            "name": "Joe 90 -11- Most Special Astronaut.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 155541158,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Joe90Complete/Joe%2090%20-11-%20Most%20Special%20Astronaut.mp4"
+        },
+        {
+          "archiveID": "Joe90Complete@e12",
+          "sourceID": "Joe90Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Threes A Crowd",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Joe90Complete/Joe90Complete.thumbs/Joe%2090%20-12-%20Threes%20A%20Crowd_000736.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 1495,
+          "videoFile": {
+            "name": "Joe 90 -12- Threes A Crowd.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 155159052,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Joe90Complete/Joe%2090%20-12-%20Threes%20A%20Crowd.mp4"
+        },
+        {
+          "archiveID": "Joe90Complete@e13",
+          "sourceID": "Joe90Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Double Agent",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Joe90Complete/Joe90Complete.thumbs/Joe%2090%20-13-%20Double%20Agent_000734.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 1495,
+          "videoFile": {
+            "name": "Joe 90 -13- Double Agent.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 154867105,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Joe90Complete/Joe%2090%20-13-%20Double%20Agent.mp4"
+        },
+        {
+          "archiveID": "Joe90Complete@e14",
+          "sourceID": "Joe90Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Arctic Adventure",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Joe90Complete/Joe90Complete.thumbs/Joe%2090%20-14-%20Arctic%20Adventure_000703.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 1434,
+          "videoFile": {
+            "name": "Joe 90 -14- Arctic Adventure.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 148916881,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Joe90Complete/Joe%2090%20-14-%20Arctic%20Adventure.mp4"
+        },
+        {
+          "archiveID": "Joe90Complete@e15",
+          "sourceID": "Joe90Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "The Fortress",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Joe90Complete/Joe90Complete.thumbs/Joe%2090%20-15-%20The%20Fortress_000710.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 1448,
+          "videoFile": {
+            "name": "Joe 90 -15- The Fortress.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 150193723,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Joe90Complete/Joe%2090%20-15-%20The%20Fortress.mp4"
+        },
+        {
+          "archiveID": "Joe90Complete@e16",
+          "sourceID": "Joe90Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Project 90",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Joe90Complete/Joe90Complete.thumbs/Joe%2090%20-16-%20Project%2090_000744.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 1512,
+          "videoFile": {
+            "name": "Joe 90 -16- Project 90.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 156539871,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Joe90Complete/Joe%2090%20-16-%20Project%2090.mp4"
+        },
+        {
+          "archiveID": "Joe90Complete@e17",
+          "sourceID": "Joe90Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Colonel Mcclaine",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Joe90Complete/Joe90Complete.thumbs/Joe%2090%20-17-%20Colonel%20Mcclaine_000746.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 1511,
+          "videoFile": {
+            "name": "Joe 90 -17- Colonel Mcclaine.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 155852841,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Joe90Complete/Joe%2090%20-17-%20Colonel%20Mcclaine.mp4"
+        },
+        {
+          "archiveID": "Joe90Complete@e18",
+          "sourceID": "Joe90Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Lone-handed 90",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Joe90Complete/Joe90Complete.thumbs/Joe%2090%20-18-%20Lone-handed%2090_000748.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 1511,
+          "videoFile": {
+            "name": "Joe 90 -18- Lone-handed 90.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 156113893,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Joe90Complete/Joe%2090%20-18-%20Lone-handed%2090.mp4"
+        },
+        {
+          "archiveID": "Joe90Complete@e19",
+          "sourceID": "Joe90Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "The Race",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Joe90Complete/Joe90Complete.thumbs/Joe%2090%20-19-%20The%20Race_000741.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 1510,
+          "videoFile": {
+            "name": "Joe 90 -19- The Race.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 156117668,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Joe90Complete/Joe%2090%20-19-%20The%20Race.mp4"
+        },
+        {
+          "archiveID": "Joe90Complete@e20",
+          "sourceID": "Joe90Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "The Professional",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Joe90Complete/Joe90Complete.thumbs/Joe%2090%20-20-%20The%20Professional_000736.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Joe 90 -20- The Professional.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 155391278,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Joe90Complete/Joe%2090%20-20-%20The%20Professional.mp4"
+        },
+        {
+          "archiveID": "Joe90Complete@e21",
+          "sourceID": "Joe90Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Talkdown",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Joe90Complete/Joe90Complete.thumbs/Joe%2090%20-21-%20Talkdown_000742.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 1512,
+          "videoFile": {
+            "name": "Joe 90 -21- Talkdown.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 156574099,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Joe90Complete/Joe%2090%20-21-%20Talkdown.mp4"
+        },
+        {
+          "archiveID": "Joe90Complete@e22",
+          "sourceID": "Joe90Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Breakout",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Joe90Complete/Joe90Complete.thumbs/Joe%2090%20-22-%20Breakout_000736.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 1494,
+          "videoFile": {
+            "name": "Joe 90 -22- Breakout.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 154389463,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Joe90Complete/Joe%2090%20-22-%20Breakout.mp4"
+        },
+        {
+          "archiveID": "Joe90Complete@e23",
+          "sourceID": "Joe90Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Child Of The Sun God",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Joe90Complete/Joe90Complete.thumbs/Joe%2090%20-23-%20Child%20Of%20The%20Sun%20God_000742.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 1512,
+          "videoFile": {
+            "name": "Joe 90 -23- Child Of The Sun God.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 156522725,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Joe90Complete/Joe%2090%20-23-%20Child%20Of%20The%20Sun%20God.mp4"
+        },
+        {
+          "archiveID": "Joe90Complete@e24",
+          "sourceID": "Joe90Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Trial At Sea",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Joe90Complete/Joe90Complete.thumbs/Joe%2090%20-24-%20Trial%20At%20Sea_000735.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 1499,
+          "videoFile": {
+            "name": "Joe 90 -24- Trial At Sea.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 155339797,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Joe90Complete/Joe%2090%20-24-%20Trial%20At%20Sea.mp4"
+        },
+        {
+          "archiveID": "Joe90Complete@e25",
+          "sourceID": "Joe90Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Viva Cordova",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Joe90Complete/Joe90Complete.thumbs/Joe%2090%20-25-%20Viva%20Cordova_000739.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 1508,
+          "videoFile": {
+            "name": "Joe 90 -25- Viva Cordova.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 156114994,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Joe90Complete/Joe%2090%20-25-%20Viva%20Cordova.mp4"
+        },
+        {
+          "archiveID": "Joe90Complete@e26",
+          "sourceID": "Joe90Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Attack Of The Tiger",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Joe90Complete/Joe90Complete.thumbs/Joe%2090%20-26-%20Attack%20Of%20The%20Tiger_000743.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 1512,
+          "videoFile": {
+            "name": "Joe 90 -26- Attack Of The Tiger.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 156260581,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Joe90Complete/Joe%2090%20-26-%20Attack%20Of%20The%20Tiger.mp4"
+        },
+        {
+          "archiveID": "Joe90Complete@e27",
+          "sourceID": "Joe90Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Mission X-41",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Joe90Complete/Joe90Complete.thumbs/Joe%2090%20-27-%20Mission%20X-41_000737.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 1499,
+          "videoFile": {
+            "name": "Joe 90 -27- Mission X-41.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 155247061,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Joe90Complete/Joe%2090%20-27-%20Mission%20X-41.mp4"
+        },
+        {
+          "archiveID": "Joe90Complete@e28",
+          "sourceID": "Joe90Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "Test Flight",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Joe90Complete/Joe90Complete.thumbs/Joe%2090%20-28-%20Test%20Flight_000741.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 1512,
+          "videoFile": {
+            "name": "Joe 90 -28- Test Flight.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 156105183,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Joe90Complete/Joe%2090%20-28-%20Test%20Flight.mp4"
+        },
+        {
+          "archiveID": "Joe90Complete@e29",
+          "sourceID": "Joe90Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "See You Down There",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Joe90Complete/Joe90Complete.thumbs/Joe%2090%20-29-%20See%20You%20Down%20There_000744.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 1511,
+          "videoFile": {
+            "name": "Joe 90 -29- See You Down There.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 156373709,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Joe90Complete/Joe%2090%20-29-%20See%20You%20Down%20There.mp4"
+        },
+        {
+          "archiveID": "Joe90Complete@e30",
+          "sourceID": "Joe90Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "The Birthday",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Joe90Complete/Joe90Complete.thumbs/Joe%2090%20-30-%20The%20Birthday_000741.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 1511,
+          "videoFile": {
+            "name": "Joe 90 -30- The Birthday.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 155741035,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Joe90Complete/Joe%2090%20-30-%20The%20Birthday.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 30,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

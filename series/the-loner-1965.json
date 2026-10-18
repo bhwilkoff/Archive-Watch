@@ -1,0 +1,521 @@
+{
+  "version": 2,
+  "seriesID": "the-loner-1965",
+  "sourceID": "The-Loner-1965-Series",
+  "tvmazeID": null,
+  "title": "The Loner",
+  "yearStart": 1965,
+  "yearEnd": null,
+  "overview": "An ex-Union cavalry officer drifts west after the Civil War; all 26 episodes of Rod Serling's 1965 western The Loner, with Lloyd Bridges.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/The-Loner-1965-Series.68a0674a.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "The-Loner-1965-Series@s1e01",
+          "sourceID": "The-Loner-1965-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "An Echo of Bugles",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1538,
+          "videoFile": {
+            "name": "The Loner (26 of 26)/S01E01 - An Echo of Bugles.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 147884397,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Loner-1965-Series/The%20Loner%20%2826%20of%2026%29/S01E01%20-%20An%20Echo%20of%20Bugles.ia.mp4"
+        },
+        {
+          "archiveID": "The-Loner-1965-Series@s1e02",
+          "sourceID": "The-Loner-1965-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Vespers",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1538,
+          "videoFile": {
+            "name": "The Loner (26 of 26)/S01E02 - The Vespers.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 147846268,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Loner-1965-Series/The%20Loner%20%2826%20of%2026%29/S01E02%20-%20The%20Vespers.ia.mp4"
+        },
+        {
+          "archiveID": "The-Loner-1965-Series@s1e03",
+          "sourceID": "The-Loner-1965-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Lonely Galico Queen",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1538,
+          "videoFile": {
+            "name": "The Loner (26 of 26)/S01E03 - The Lonely Galico Queen.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 147968412,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Loner-1965-Series/The%20Loner%20%2826%20of%2026%29/S01E03%20-%20The%20Lonely%20Galico%20Queen.ia.mp4"
+        },
+        {
+          "archiveID": "The-Loner-1965-Series@s1e04",
+          "sourceID": "The-Loner-1965-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Kingdom of McComb",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1664,
+          "videoFile": {
+            "name": "The Loner (26 of 26)/S01E04 - The Kingdom of McComb.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 232758930,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Loner-1965-Series/The%20Loner%20%2826%20of%2026%29/S01E04%20-%20The%20Kingdom%20of%20McComb.ia.mp4"
+        },
+        {
+          "archiveID": "The-Loner-1965-Series@s1e05",
+          "sourceID": "The-Loner-1965-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "One of the Wounded",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1542,
+          "videoFile": {
+            "name": "The Loner (26 of 26)/S01E05 - One of the Wounded.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 148273164,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Loner-1965-Series/The%20Loner%20%2826%20of%2026%29/S01E05%20-%20One%20of%20the%20Wounded.ia.mp4"
+        },
+        {
+          "archiveID": "The-Loner-1965-Series@s1e06",
+          "sourceID": "The-Loner-1965-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Flight of the Arctic Tern",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1538,
+          "videoFile": {
+            "name": "The Loner (26 of 26)/S01E06 - The Flight of the Arctic Tern.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 148254727,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Loner-1965-Series/The%20Loner%20%2826%20of%2026%29/S01E06%20-%20The%20Flight%20of%20the%20Arctic%20Tern.ia.mp4"
+        },
+        {
+          "archiveID": "The-Loner-1965-Series@s1e07",
+          "sourceID": "The-Loner-1965-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Widow on the Evening Stage",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1536,
+          "videoFile": {
+            "name": "The Loner (26 of 26)/S01E07 - Widow on the Evening Stage.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 148247704,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Loner-1965-Series/The%20Loner%20%2826%20of%2026%29/S01E07%20-%20Widow%20on%20the%20Evening%20Stage.ia.mp4"
+        },
+        {
+          "archiveID": "The-Loner-1965-Series@s1e08",
+          "sourceID": "The-Loner-1965-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The House Rules at Mrs. Waynes",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1536,
+          "videoFile": {
+            "name": "The Loner (26 of 26)/S01E08 - The House Rules at Mrs. Waynes.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 148179962,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Loner-1965-Series/The%20Loner%20%2826%20of%2026%29/S01E08%20-%20The%20House%20Rules%20at%20Mrs.%20Waynes.ia.mp4"
+        },
+        {
+          "archiveID": "The-Loner-1965-Series@s1e09",
+          "sourceID": "The-Loner-1965-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Sheriff of Fetterman's Crossing",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1537,
+          "videoFile": {
+            "name": "The Loner (26 of 26)/S01E09 - The Sheriff of Fetterman's Crossing.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 359470383,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Loner-1965-Series/The%20Loner%20%2826%20of%2026%29/S01E09%20-%20The%20Sheriff%20of%20Fetterman%27s%20Crossing.ia.mp4"
+        },
+        {
+          "archiveID": "The-Loner-1965-Series@s1e10",
+          "sourceID": "The-Loner-1965-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Homecoming of Lemuel Stove",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1536,
+          "videoFile": {
+            "name": "The Loner (26 of 26)/S01E10 - The Homecoming of Lemuel Stove.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 147962372,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Loner-1965-Series/The%20Loner%20%2826%20of%2026%29/S01E10%20-%20The%20Homecoming%20of%20Lemuel%20Stove.ia.mp4"
+        },
+        {
+          "archiveID": "The-Loner-1965-Series@s1e11",
+          "sourceID": "The-Loner-1965-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Westward the Shoemaker",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1507,
+          "videoFile": {
+            "name": "The Loner (26 of 26)/S01E11 - Westward the Shoemaker.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 146723433,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Loner-1965-Series/The%20Loner%20%2826%20of%2026%29/S01E11%20-%20Westward%20the%20Shoemaker.ia.mp4"
+        },
+        {
+          "archiveID": "The-Loner-1965-Series@s1e12",
+          "sourceID": "The-Loner-1965-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Oath (With TVLand Commercials)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1643,
+          "videoFile": {
+            "name": "The Loner (26 of 26)/S01E12 - The Oath (With TVLand Commercials).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 167727607,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Loner-1965-Series/The%20Loner%20%2826%20of%2026%29/S01E12%20-%20The%20Oath%20%28With%20TVLand%20Commercials%29.ia.mp4"
+        },
+        {
+          "archiveID": "The-Loner-1965-Series@s1e13",
+          "sourceID": "The-Loner-1965-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Hunt the Man Down",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1529,
+          "videoFile": {
+            "name": "The Loner (26 of 26)/S01E13 - Hunt the Man Down.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 146950446,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Loner-1965-Series/The%20Loner%20%2826%20of%2026%29/S01E13%20-%20Hunt%20the%20Man%20Down.ia.mp4"
+        },
+        {
+          "archiveID": "The-Loner-1965-Series@s1e14",
+          "sourceID": "The-Loner-1965-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Escort for a Dead Man",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1535,
+          "videoFile": {
+            "name": "The Loner (26 of 26)/S01E14 - Escort for a Dead Man.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 148278089,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Loner-1965-Series/The%20Loner%20%2826%20of%2026%29/S01E14%20-%20Escort%20for%20a%20Dead%20Man.ia.mp4"
+        },
+        {
+          "archiveID": "The-Loner-1965-Series@s1e15",
+          "sourceID": "The-Loner-1965-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "The Ordeal of Bud Windom",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1533,
+          "videoFile": {
+            "name": "The Loner (26 of 26)/S01E15 - The Ordeal of Bud Windom.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 93508923,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Loner-1965-Series/The%20Loner%20%2826%20of%2026%29/S01E15%20-%20The%20Ordeal%20of%20Bud%20Windom.ia.mp4"
+        },
+        {
+          "archiveID": "The-Loner-1965-Series@s1e16",
+          "sourceID": "The-Loner-1965-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "To the West of Eden",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1536,
+          "videoFile": {
+            "name": "The Loner (26 of 26)/S01E16 - To the West of Eden.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 148237009,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Loner-1965-Series/The%20Loner%20%2826%20of%2026%29/S01E16%20-%20To%20the%20West%20of%20Eden.ia.mp4"
+        },
+        {
+          "archiveID": "The-Loner-1965-Series@s1e17",
+          "sourceID": "The-Loner-1965-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Mantrap",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1534,
+          "videoFile": {
+            "name": "The Loner (26 of 26)/S01E17 - Mantrap.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 148224251,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Loner-1965-Series/The%20Loner%20%2826%20of%2026%29/S01E17%20-%20Mantrap.ia.mp4"
+        },
+        {
+          "archiveID": "The-Loner-1965-Series@s1e18",
+          "sourceID": "The-Loner-1965-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "A Little Stroll to the End of the Line",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1534,
+          "videoFile": {
+            "name": "The Loner (26 of 26)/S01E18 - A Little Stroll to the End of the Line.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 148040600,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Loner-1965-Series/The%20Loner%20%2826%20of%2026%29/S01E18%20-%20A%20Little%20Stroll%20to%20the%20End%20of%20the%20Line.ia.mp4"
+        },
+        {
+          "archiveID": "The-Loner-1965-Series@s1e19",
+          "sourceID": "The-Loner-1965-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Trial in Paradise",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1537,
+          "videoFile": {
+            "name": "The Loner (26 of 26)/S01E19 - Trial in Paradise.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 147978027,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Loner-1965-Series/The%20Loner%20%2826%20of%2026%29/S01E19%20-%20Trial%20in%20Paradise.ia.mp4"
+        },
+        {
+          "archiveID": "The-Loner-1965-Series@s1e20",
+          "sourceID": "The-Loner-1965-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "A Question of Guilt",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1537,
+          "videoFile": {
+            "name": "The Loner (26 of 26)/S01E20 - A Question of Guilt.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 86342089,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Loner-1965-Series/The%20Loner%20%2826%20of%2026%29/S01E20%20-%20A%20Question%20of%20Guilt.ia.mp4"
+        },
+        {
+          "archiveID": "The-Loner-1965-Series@s1e21",
+          "sourceID": "The-Loner-1965-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "The Mourners for Johnny Sharp (Part 1)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1538,
+          "videoFile": {
+            "name": "The Loner (26 of 26)/S01E21 - The Mourners for Johnny Sharp (Part 1).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 70722357,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Loner-1965-Series/The%20Loner%20%2826%20of%2026%29/S01E21%20-%20The%20Mourners%20for%20Johnny%20Sharp%20%28Part%201%29.ia.mp4"
+        },
+        {
+          "archiveID": "The-Loner-1965-Series@s1e22",
+          "sourceID": "The-Loner-1965-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "The Mourners for Johnny Sharp (Part 2)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1536,
+          "videoFile": {
+            "name": "The Loner (26 of 26)/S01E22 - The Mourners for Johnny Sharp (Part 2).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 63101112,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Loner-1965-Series/The%20Loner%20%2826%20of%2026%29/S01E22%20-%20The%20Mourners%20for%20Johnny%20Sharp%20%28Part%202%29.ia.mp4"
+        },
+        {
+          "archiveID": "The-Loner-1965-Series@s1e23",
+          "sourceID": "The-Loner-1965-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Incident in the Middle of Nowhere",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1535,
+          "videoFile": {
+            "name": "The Loner (26 of 26)/S01E23 - Incident in the Middle of Nowhere.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 147960645,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Loner-1965-Series/The%20Loner%20%2826%20of%2026%29/S01E23%20-%20Incident%20in%20the%20Middle%20of%20Nowhere.ia.mp4"
+        },
+        {
+          "archiveID": "The-Loner-1965-Series@s1e24",
+          "sourceID": "The-Loner-1965-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Pick Me Another Time to Die",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1535,
+          "videoFile": {
+            "name": "The Loner (26 of 26)/S01E24 - Pick Me Another Time to Die.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 75698303,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Loner-1965-Series/The%20Loner%20%2826%20of%2026%29/S01E24%20-%20Pick%20Me%20Another%20Time%20to%20Die.ia.mp4"
+        },
+        {
+          "archiveID": "The-Loner-1965-Series@s1e25",
+          "sourceID": "The-Loner-1965-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "The Burden of the Badge",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1535,
+          "videoFile": {
+            "name": "The Loner (26 of 26)/S01E25 - The Burden of the Badge.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 148151723,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Loner-1965-Series/The%20Loner%20%2826%20of%2026%29/S01E25%20-%20The%20Burden%20of%20the%20Badge.ia.mp4"
+        },
+        {
+          "archiveID": "The-Loner-1965-Series@s1e26",
+          "sourceID": "The-Loner-1965-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "To Hang a Dead Man",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1535,
+          "videoFile": {
+            "name": "The Loner (26 of 26)/S01E26 - To Hang a Dead Man.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 359338784,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Loner-1965-Series/The%20Loner%20%2826%20of%2026%29/S01E26%20-%20To%20Hang%20a%20Dead%20Man.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 26,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

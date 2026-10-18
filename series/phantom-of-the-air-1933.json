@@ -1,0 +1,255 @@
+{
+  "version": 2,
+  "seriesID": "phantom-of-the-air-1933",
+  "sourceID": "PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial",
+  "tvmazeID": null,
+  "title": "Phantom of the Air",
+  "yearStart": 1933,
+  "yearEnd": null,
+  "overview": "(1933) - Tom Tyler - 12 Chapter Movie Serial from Universal Pictures Inventor John Edmunds (William Desmond) is working on a device called the Contragrav, a machine that defies gravity and can enable a plane to fly without a pilot. He and his daughter Mary (Gloria Dea) enlist the help of airborne Border Patrol captain Bob Raymond (Tom Tyler) as a test pilot to help them complete Edmunds' work on the Contragrav. However, airborne importer (and secret smuggler) Mort Crome (LeRoy Mason) has got wind of the Contragrav, and will stop at nothing to get it. For the rest of the serial, Captain Raymond defends Edmunds and his daughter from Crome's henchmen while trying to curtail their smuggling activities. There are lots of dogfights - some involving Edmunds' marvelous remote-controlled plane, the Phantom of the Air - before Crome and his gang are finally brought to justice.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial.ef69b99d.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial@e01",
+          "sourceID": "PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Phantom of the Air - Chapter 01 of 12 - Tom Tyler",
+          "overview": null,
+          "stillURL": "https://archive.org/download/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial.thumbs/PhantomOfTheAir-Chapter01Of12-TomTyler_000414.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 1234,
+          "videoFile": {
+            "name": "PhantomOfTheAir-Chapter01Of12-TomTyler.mp4",
+            "format": "h.264",
+            "sizeBytes": 127948814,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial/PhantomOfTheAir-Chapter01Of12-TomTyler.mp4"
+        },
+        {
+          "archiveID": "PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial@e02",
+          "sourceID": "PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Phantom of the Air - Chapter 02 of 12",
+          "overview": null,
+          "stillURL": "https://archive.org/download/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial.thumbs/PhantomOfTheAir-Chapter02Of12_000414.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 1252,
+          "videoFile": {
+            "name": "PhantomOfTheAir-Chapter02Of12.mp4",
+            "format": "h.264",
+            "sizeBytes": 130249290,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial/PhantomOfTheAir-Chapter02Of12.mp4"
+        },
+        {
+          "archiveID": "PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial@e03",
+          "sourceID": "PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Phantom of the Air - Chapter 03 of 12",
+          "overview": null,
+          "stillURL": "https://archive.org/download/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial.thumbs/PhantomOfTheAir-Chapter03Of12_000354.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 1078,
+          "videoFile": {
+            "name": "PhantomOfTheAir-Chapter03Of12.mp4",
+            "format": "h.264",
+            "sizeBytes": 112045742,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial/PhantomOfTheAir-Chapter03Of12.mp4"
+        },
+        {
+          "archiveID": "PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial@e04",
+          "sourceID": "PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Phantom of the Air - Chapter 04 of 12",
+          "overview": null,
+          "stillURL": "https://archive.org/download/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial.thumbs/PhantomOfTheAir-Chapter04Of12_000354.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 1069,
+          "videoFile": {
+            "name": "PhantomOfTheAir-Chapter04Of12.mp4",
+            "format": "h.264",
+            "sizeBytes": 111248449,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial/PhantomOfTheAir-Chapter04Of12.mp4"
+        },
+        {
+          "archiveID": "PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial@e05",
+          "sourceID": "PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Phantom of the Air - Chapter 05 of 12",
+          "overview": null,
+          "stillURL": "https://archive.org/download/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial.thumbs/PhantomOfTheAir-Chapter05Of12_000354.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 1033,
+          "videoFile": {
+            "name": "PhantomOfTheAir-Chapter05Of12.mp4",
+            "format": "h.264",
+            "sizeBytes": 107432800,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial/PhantomOfTheAir-Chapter05Of12.mp4"
+        },
+        {
+          "archiveID": "PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial@e06",
+          "sourceID": "PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Phantom of the Air - Chapter 06 of 12",
+          "overview": null,
+          "stillURL": "https://archive.org/download/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial.thumbs/PhantomOfTheAir-Chapter06Of12_000354.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 1037,
+          "videoFile": {
+            "name": "PhantomOfTheAir-Chapter06Of12.mp4",
+            "format": "h.264",
+            "sizeBytes": 107902043,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial/PhantomOfTheAir-Chapter06Of12.mp4"
+        },
+        {
+          "archiveID": "PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial@e07",
+          "sourceID": "PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Phantom of the Air - Chapter 07 of 12",
+          "overview": null,
+          "stillURL": "https://archive.org/download/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial.thumbs/PhantomOfTheAir-Chapter07Of12_000354.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 1049,
+          "videoFile": {
+            "name": "PhantomOfTheAir-Chapter07Of12.mp4",
+            "format": "h.264",
+            "sizeBytes": 108807985,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial/PhantomOfTheAir-Chapter07Of12.mp4"
+        },
+        {
+          "archiveID": "PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial@e08",
+          "sourceID": "PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Phantom of the Air - Chapter 08 of 12",
+          "overview": null,
+          "stillURL": "https://archive.org/download/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial.thumbs/PhantomOfTheAir-Chapter08Of12_000294.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 1009,
+          "videoFile": {
+            "name": "PhantomOfTheAir-Chapter08Of12.mp4",
+            "format": "h.264",
+            "sizeBytes": 104856743,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial/PhantomOfTheAir-Chapter08Of12.mp4"
+        },
+        {
+          "archiveID": "PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial@e09",
+          "sourceID": "PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Phantom of the Air - Chapter 09 of 12",
+          "overview": null,
+          "stillURL": "https://archive.org/download/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial.thumbs/PhantomOfTheAir-Chapter09Of12_000354.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 1137,
+          "videoFile": {
+            "name": "PhantomOfTheAir-Chapter09Of12.mp4",
+            "format": "h.264",
+            "sizeBytes": 117913894,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial/PhantomOfTheAir-Chapter09Of12.mp4"
+        },
+        {
+          "archiveID": "PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial@e10",
+          "sourceID": "PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Phantom of the Air - Chapter 10 of 12",
+          "overview": null,
+          "stillURL": "https://archive.org/download/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial.thumbs/PhantomOfTheAir-Chapter10Of12_000294.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 925,
+          "videoFile": {
+            "name": "PhantomOfTheAir-Chapter10Of12.mp4",
+            "format": "h.264",
+            "sizeBytes": 96010149,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial/PhantomOfTheAir-Chapter10Of12.mp4"
+        },
+        {
+          "archiveID": "PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial@e11",
+          "sourceID": "PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Phantom of the Air - Chapter 11 of 12",
+          "overview": null,
+          "stillURL": "https://archive.org/download/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial.thumbs/PhantomOfTheAir-Chapter11Of12_000414.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 1219,
+          "videoFile": {
+            "name": "PhantomOfTheAir-Chapter11Of12.mp4",
+            "format": "h.264",
+            "sizeBytes": 126605949,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial/PhantomOfTheAir-Chapter11Of12.mp4"
+        },
+        {
+          "archiveID": "PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial@e12",
+          "sourceID": "PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Phantom of the Air - Chapter 12 of 12",
+          "overview": null,
+          "stillURL": "https://archive.org/download/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial.thumbs/PhantomOfTheAir-Chapter12Of12_000354.jpg",
+          "airDate": null,
+          "year": 1933,
+          "runtimeSeconds": 1045,
+          "videoFile": {
+            "name": "PhantomOfTheAir-Chapter12Of12.mp4",
+            "format": "h.264",
+            "sizeBytes": 108433683,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/PhantomOfTheAir1933-TomTyler-12ChapterMovieSerial/PhantomOfTheAir-Chapter12Of12.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 12,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

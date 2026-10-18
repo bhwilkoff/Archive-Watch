@@ -1,0 +1,335 @@
+{
+  "version": 2,
+  "seriesID": "the-immortal-1970",
+  "sourceID": "the-immortal-complete-series-1970",
+  "tvmazeID": null,
+  "title": "The Immortal",
+  "yearStart": 1970,
+  "yearEnd": null,
+  "overview": "The Immortal is an American television series, starring Christopher George as a man whose blood chemistry and resistance to almost all diseases (including old age) makes him both almost immortal and a target of several wealthy men who would use him as a personal blood bank, aired on ABC from September 24, 1970, to January 14, 1971. The series is based on a pilot film of the same name, which aired on September 30, 1969, as an ABC Movie of the Week. The plot is based on the 1964 science fiction novel The Immortals, by James Gunn. The series music was composed by Dominic Frontiere, who is primarily known for scoring the sci-fi anthology series The Outer Limits. Although The Immortal was canceled at midseason, episodes were rerun by ABC in the summer of 1971. It was later rerun on the American Forces Network in Europe in the 1980s and on the Sci Fi Channel in the 1990s Ben Richards is a test car driver for a large corporation owned by billionaire Jordan Braddock. He is 43 years old, but looks young enough to pass for 30—and he has never been sick a day in his life. Ben's life changes when he donates a pint of blood. When Braddock, who is dying, is given a blood transfusion of his donated blood, and is brought back from the brink of death, Ben's physician, Dr. Matthew Pearce, determines that his O-negative blood contains all known antibodies and immunities. This gives Ben immunity to every known disease and an estimated lifespan five to ten times that of other humans, making him, in the doctor's words, \"virtually immortal\". The billionaire decides that he has to control Richards' life so he can access his life-saving blood. When Richards rejects all of Braddock's offers to remain with him, the billionaire has him imprisoned, but he ultimately escapes. Richards tells his fiancée Sylvia Cartwright that they can never marry because she would also be imprisoned by Braddock (in the episode \"Sylvia\" Richards puts himself in danger to visit Cartwright at her wedding to another man). Richards is now on the run because when Braddock dies (shown in the flashback episode \"To The Gods Alone\" which resolved plot points between the pilot and the series), one of his former employees, Fletcher (who did not appear in the pilot), is hired by another billionaire, Arthur Maitland, who also wants access to Richards' blood. The series' dramatic tension is based on the idea that Richards would probably never lose his life if he were to live quietly, since he would never succumb to any known diseases. But his flight from Fletcher puts his life at great risk, constantly engaging in dangerous efforts to avoid capture, and his \"immortal\" blood did not make him immune to losing his life from injury. The series primarily focuses on Richards' journeys and the people he meets while trying to avoid Fletcher. A secondary plot involved Richards' search for a brother he has never known, with the implication that that brother may share his gift and thus be at risk from unscrupulous billionaires as well. Ben Richards is imprisoned by a young billionaire, Simon Brent, in an episode titled \"The Queen's Gambit.\" In the episode \"Man On A Punched Card\" Maitland hires computer programmer Terry Kerwin to track and predict Richards' movements using a mainframe computer. Kerwin was played by Christopher George's real-life wife Lynda Day George, who would co-star on another Paramount TV series Mission: Impossible from 1971 to 1973. The plotline of The Immortal is quite different from that of the book on which it is based (the protagonist of the book was a vagrant, not a test driver, who discovers his immortality when he sells his blood). Instead, The Immortal bears more than a superficial resemblance to the then-recent, very popular TV series, The Fugitive, which still aired in syndicated reruns. That series had ended its four-season run three years before The Immortal began. It is also the mirror of the series Run for Your Life about a man suffering from a terminal disease who wants to experience everything because he is going to die soon, while Richards has to run because he will live virtually forever. The Immortal was cancelled before a proper finale episode could be filmed.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/the-immortal-complete-series-1970.83d6a076.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Sci-Fi",
+    "Mystery",
+    "Thriller"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-immortal-complete-series-1970@s1e00",
+          "sourceID": "the-immortal-complete-series-1970",
+          "seasonNumber": 1,
+          "episodeNumber": 0,
+          "title": "Piolt",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-immortal-complete-series-1970/the-immortal-complete-series-1970.thumbs/The%20Immortal%20S01E00%20-%20Piolt_001954.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 4447,
+          "videoFile": {
+            "name": "The Immortal S01E00 - Piolt.mp4",
+            "format": "h.264",
+            "sizeBytes": 420987729,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-immortal-complete-series-1970/The%20Immortal%20S01E00%20-%20Piolt.mp4"
+        },
+        {
+          "archiveID": "the-immortal-complete-series-1970@s1e01",
+          "sourceID": "the-immortal-complete-series-1970",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Sylvia",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-immortal-complete-series-1970/the-immortal-complete-series-1970.thumbs/The%20Immortal%20S01E01%20-%20Sylvia_001336.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 3042,
+          "videoFile": {
+            "name": "The Immortal S01E01 - Sylvia.mp4",
+            "format": "h.264",
+            "sizeBytes": 286880475,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-immortal-complete-series-1970/The%20Immortal%20S01E01%20-%20Sylvia.mp4"
+        },
+        {
+          "archiveID": "the-immortal-complete-series-1970@s1e02",
+          "sourceID": "the-immortal-complete-series-1970",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "White Elephants Dont Grow On Trees",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-immortal-complete-series-1970/the-immortal-complete-series-1970.thumbs/The%20Immortal%20S01E02%20-%20White%20Elephants%20Dont%20Grow%20On%20Trees_001350.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 3077,
+          "videoFile": {
+            "name": "The Immortal S01E02 - White Elephants Dont Grow On Trees.mp4",
+            "format": "h.264",
+            "sizeBytes": 289821118,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-immortal-complete-series-1970/The%20Immortal%20S01E02%20-%20White%20Elephants%20Dont%20Grow%20On%20Trees.mp4"
+        },
+        {
+          "archiveID": "the-immortal-complete-series-1970@s1e03",
+          "sourceID": "the-immortal-complete-series-1970",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Reflections on a Lost Tomorrow",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-immortal-complete-series-1970/the-immortal-complete-series-1970.thumbs/The%20Immortal%20S01E03%20-%20Reflections%20on%20a%20Lost%20Tomorrow_001356.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 3078,
+          "videoFile": {
+            "name": "The Immortal S01E03 - Reflections on a Lost Tomorrow.mp4",
+            "format": "h.264",
+            "sizeBytes": 292143579,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-immortal-complete-series-1970/The%20Immortal%20S01E03%20-%20Reflections%20on%20a%20Lost%20Tomorrow.mp4"
+        },
+        {
+          "archiveID": "the-immortal-complete-series-1970@s1e04",
+          "sourceID": "the-immortal-complete-series-1970",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Legacy",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-immortal-complete-series-1970/the-immortal-complete-series-1970.thumbs/The%20Immortal%20S01E04%20-%20The%20Legacy_001355.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 3079,
+          "videoFile": {
+            "name": "The Immortal S01E04 - The Legacy.mp4",
+            "format": "h.264",
+            "sizeBytes": 290882308,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-immortal-complete-series-1970/The%20Immortal%20S01E04%20-%20The%20Legacy.mp4"
+        },
+        {
+          "archiveID": "the-immortal-complete-series-1970@s1e05",
+          "sourceID": "the-immortal-complete-series-1970",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Rainbow Butcher",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-immortal-complete-series-1970/the-immortal-complete-series-1970.thumbs/The%20Immortal%20S01E05%20-%20The%20Rainbow%20Butcher_001357.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 3077,
+          "videoFile": {
+            "name": "The Immortal S01E05 - The Rainbow Butcher.mp4",
+            "format": "h.264",
+            "sizeBytes": 290739818,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-immortal-complete-series-1970/The%20Immortal%20S01E05%20-%20The%20Rainbow%20Butcher.mp4"
+        },
+        {
+          "archiveID": "the-immortal-complete-series-1970@s1e06",
+          "sourceID": "the-immortal-complete-series-1970",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Man on a Punched Card",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-immortal-complete-series-1970/the-immortal-complete-series-1970.thumbs/The%20Immortal%20S01E06%20-%20Man%20on%20a%20Punched%20Card_001353.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 3081,
+          "videoFile": {
+            "name": "The Immortal S01E06 - Man on a Punched Card.mp4",
+            "format": "h.264",
+            "sizeBytes": 291991011,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-immortal-complete-series-1970/The%20Immortal%20S01E06%20-%20Man%20on%20a%20Punched%20Card.mp4"
+        },
+        {
+          "archiveID": "the-immortal-complete-series-1970@s1e07",
+          "sourceID": "the-immortal-complete-series-1970",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "White Horse Steel Horse",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-immortal-complete-series-1970/the-immortal-complete-series-1970.thumbs/The%20Immortal%20S01E07%20-%20White%20Horse_%20Steel%20Horse_001356.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 3079,
+          "videoFile": {
+            "name": "The Immortal S01E07 - White Horse_ Steel Horse.mp4",
+            "format": "h.264",
+            "sizeBytes": 291049772,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-immortal-complete-series-1970/The%20Immortal%20S01E07%20-%20White%20Horse_%20Steel%20Horse.mp4"
+        },
+        {
+          "archiveID": "the-immortal-complete-series-1970@s1e08",
+          "sourceID": "the-immortal-complete-series-1970",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Queens Gambit",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-immortal-complete-series-1970/the-immortal-complete-series-1970.thumbs/The%20Immortal%20S01E08%20-%20The%20Queens%20Gambit_001370.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 3106,
+          "videoFile": {
+            "name": "The Immortal S01E08 - The Queens Gambit.mp4",
+            "format": "h.264",
+            "sizeBytes": 294326217,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-immortal-complete-series-1970/The%20Immortal%20S01E08%20-%20The%20Queens%20Gambit.mp4"
+        },
+        {
+          "archiveID": "the-immortal-complete-series-1970@s1e09",
+          "sourceID": "the-immortal-complete-series-1970",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "By Gift of Chance",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-immortal-complete-series-1970/the-immortal-complete-series-1970.thumbs/The%20Immortal%20S01E09%20-%20By%20Gift%20of%20Chance_001362.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 3100,
+          "videoFile": {
+            "name": "The Immortal S01E09 - By Gift of Chance.mp4",
+            "format": "h.264",
+            "sizeBytes": 294498370,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-immortal-complete-series-1970/The%20Immortal%20S01E09%20-%20By%20Gift%20of%20Chance.mp4"
+        },
+        {
+          "archiveID": "the-immortal-complete-series-1970@s1e10",
+          "sourceID": "the-immortal-complete-series-1970",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Dead Man Dead Man",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-immortal-complete-series-1970/the-immortal-complete-series-1970.thumbs/The%20Immortal%20S01E10%20-%20Dead%20Man_%20Dead%20Man_001365.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 3097,
+          "videoFile": {
+            "name": "The Immortal S01E10 - Dead Man_ Dead Man.mp4",
+            "format": "h.264",
+            "sizeBytes": 294736376,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-immortal-complete-series-1970/The%20Immortal%20S01E10%20-%20Dead%20Man_%20Dead%20Man.mp4"
+        },
+        {
+          "archiveID": "the-immortal-complete-series-1970@s1e11",
+          "sourceID": "the-immortal-complete-series-1970",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Paradise Bay",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-immortal-complete-series-1970/the-immortal-complete-series-1970.thumbs/The%20Immortal%20S01E11%20-%20Paradise%20Bay_001358.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 3081,
+          "videoFile": {
+            "name": "The Immortal S01E11 - Paradise Bay.mp4",
+            "format": "h.264",
+            "sizeBytes": 291467328,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-immortal-complete-series-1970/The%20Immortal%20S01E11%20-%20Paradise%20Bay.mp4"
+        },
+        {
+          "archiveID": "the-immortal-complete-series-1970@s1e12",
+          "sourceID": "the-immortal-complete-series-1970",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Return",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-immortal-complete-series-1970/the-immortal-complete-series-1970.thumbs/The%20Immortal%20S01E12%20-%20The%20Return_001358.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 3078,
+          "videoFile": {
+            "name": "The Immortal S01E12 - The Return.mp4",
+            "format": "h.264",
+            "sizeBytes": 291095827,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-immortal-complete-series-1970/The%20Immortal%20S01E12%20-%20The%20Return.mp4"
+        },
+        {
+          "archiveID": "the-immortal-complete-series-1970@s1e13",
+          "sourceID": "the-immortal-complete-series-1970",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "To the Gods Alone",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-immortal-complete-series-1970/the-immortal-complete-series-1970.thumbs/The%20Immortal%20S01E13%20-%20To%20the%20Gods%20Alone_001365.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 3099,
+          "videoFile": {
+            "name": "The Immortal S01E13 - To the Gods Alone.mp4",
+            "format": "h.264",
+            "sizeBytes": 293943628,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-immortal-complete-series-1970/The%20Immortal%20S01E13%20-%20To%20the%20Gods%20Alone.mp4"
+        },
+        {
+          "archiveID": "the-immortal-complete-series-1970@s1e14",
+          "sourceID": "the-immortal-complete-series-1970",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Sanctuary",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-immortal-complete-series-1970/the-immortal-complete-series-1970.thumbs/The%20Immortal%20S01E14%20-%20Sanctuary_001361.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 3100,
+          "videoFile": {
+            "name": "The Immortal S01E14 - Sanctuary.mp4",
+            "format": "h.264",
+            "sizeBytes": 293214223,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-immortal-complete-series-1970/The%20Immortal%20S01E14%20-%20Sanctuary.mp4"
+        },
+        {
+          "archiveID": "the-immortal-complete-series-1970@s1e15",
+          "sourceID": "the-immortal-complete-series-1970",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "My Brother's Keeper",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-immortal-complete-series-1970/the-immortal-complete-series-1970.thumbs/The%20Immortal%20S01E15%20-%20My%20Brother%27s%20Keeper_001362.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 3098,
+          "videoFile": {
+            "name": "The Immortal S01E15 - My Brother's Keeper.mp4",
+            "format": "h.264",
+            "sizeBytes": 293043874,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-immortal-complete-series-1970/The%20Immortal%20S01E15%20-%20My%20Brother%27s%20Keeper.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 16,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

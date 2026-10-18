@@ -1,0 +1,946 @@
+{
+  "version": 2,
+  "seriesID": "branded-1965",
+  "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+  "tvmazeID": null,
+  "title": "Branded",
+  "yearStart": 1965,
+  "yearEnd": null,
+  "overview": "Branded is an American Western television series that aired on NBC from 1965 through 1966. It was sponsored by Procter & Gamble in its Sunday night, 8:30 p.m. Eastern time period. The series is set in the Old West, following the end of the American Civil War. The show starred Chuck Connors as Jason McCord, a United States Army cavalry captain who had been court-martialed and drummed out of the service following an unjust accusation of cowardice. The opening title credits of each episode in the series feature a depiction of McCord's court-martial with the stripping of rank shoulder patches and his Light Cavalry Saber broken in two. He experienced cashiering and drumming out of the military. McCord retained the handle of his broken saber with attached pommel. He had the remaining blade sharpened into a long knife, which he used in many episodes. McCord is sent out of the fort where this ceremony occurred, and the gates are closed behind him. Although the exact date of McCord's cashiering is never given, events and people depicted in episodes place the events of the series itself as sometime during the first administration of President Ulysses S. Grant (1869–72) and after William Seward negotiated the Alaska purchase. The name and location of the fort are also not given. In the pilot episode, \"The Vindicator\", McCord is confronted by a newspaper reporter ( Claude Akins ) who wants a follow-up story on the Bitter Creek massacre. McCord refuses to cooperate. He knows that General James Reed, McCord's mentor, was on a peace mission to meet representatives of the Cheyenne nation at Bitter Creek. His unit of 31 men was attacked by a group of renegade Indians known as Dog Soldiers. During the attack, McCord realized that the old general had taken leave of his senses. McCord assumed command, but it was too late. McCord was wounded in the battle and left for dead, the only survivor. He remained in a coma for 10 days after the attack. McCord was later charged with desertion, convicted at court-martial and cashiered out of the Army. The reporter tracks down a widow of the Bitter Creek massacre ( June Lockhart ). Her husband was third in command and had written several letters questioning Reed's mental state. Those letters would have been enough to grant McCord a new trial and possibly exonerate him, but McCord convinced the widow to burn the letters to protect Reed's reputation. McCord feared that if Reed's reputation were damaged, certain people in Washington, DC, would try to start a new war with the Apaches. McCord chose never to speak about what really happened at Bitter Creek. He traveled throughout the Old West, continually confronted by people who refused to believe his innocence, requiring him to prove them wrong.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/branded-s-02-e-22-barbed-wire_202405.ff8ec023.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Western"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s1e01",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Survival",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S01E01%20Survival_000861.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1324,
+          "videoFile": {
+            "name": "Branded S01E01 Survival.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 200506910,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S01E01%20Survival.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s1e02",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Vindicator",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S01E02%20The%20Vindicator_000873.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1333,
+          "videoFile": {
+            "name": "Branded S01E02 The Vindicator.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 150634599,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S01E02%20The%20Vindicator.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s1e03",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Test",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S01E03%20The%20Test_000865.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1331,
+          "videoFile": {
+            "name": "Branded S01E03 The Test.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 179207925,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S01E03%20The%20Test.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s1e04",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Rules of the Game",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S01E04%20The%20Rules%20of%20the%20Game_000871.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1329,
+          "videoFile": {
+            "name": "Branded S01E04 The Rules of the Game.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 157220769,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S01E04%20The%20Rules%20of%20the%20Game.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s1e05",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Bounty",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S01E05%20The%20Bounty_000869.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1334,
+          "videoFile": {
+            "name": "Branded S01E05 The Bounty.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 240559758,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S01E05%20The%20Bounty.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s1e06",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Leap Upon Mountains",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S01E06%20Leap%20Upon%20Mountains..._000876.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1338,
+          "videoFile": {
+            "name": "Branded S01E06 Leap Upon Mountains....mp4",
+            "format": "MPEG4",
+            "sizeBytes": 161805927,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S01E06%20Leap%20Upon%20Mountains....mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s1e07",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Coward Step Aside",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S01E07%20Coward%20Step%20Aside_000866.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1332,
+          "videoFile": {
+            "name": "Branded S01E07 Coward Step Aside.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 183910784,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S01E07%20Coward%20Step%20Aside.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s1e08",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Mission (1)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S01E08%20The%20Mission%20%281%29_000864.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1323,
+          "videoFile": {
+            "name": "Branded S01E08 The Mission (1).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 166763469,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S01E08%20The%20Mission%20%281%29.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s1e09",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Mission (2)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S01E09%20The%20Mission%20%282%29_000870.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1329,
+          "videoFile": {
+            "name": "Branded S01E09 The Mission (2).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 155813221,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S01E09%20The%20Mission%20%282%29.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s1e10",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Mission (3)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S01E10%20The%20Mission%20%283%29_000869.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1323,
+          "videoFile": {
+            "name": "Branded S01E10 The Mission (3).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 138800164,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S01E10%20The%20Mission%20%283%29.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s1e11",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The First Kill",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S01E11%20The%20First%20Kill_000873.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1337,
+          "videoFile": {
+            "name": "Branded S01E11 The First Kill.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 165172371,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S01E11%20The%20First%20Kill.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s1e12",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Very Few Heroes",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S01E12%20Very%20Few%20Heroes_000870.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1333,
+          "videoFile": {
+            "name": "Branded S01E12 Very Few Heroes.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 170852202,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S01E12%20Very%20Few%20Heroes.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s1e13",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "One Way Out",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S01E13%20One%20Way%20Out_000869.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1331,
+          "videoFile": {
+            "name": "Branded S01E13 One Way Out.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 141471908,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S01E13%20One%20Way%20Out.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s1e14",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "That The Brave Endure",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S01E14%20That%20The%20Brave%20Endure_000871.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1335,
+          "videoFile": {
+            "name": "Branded S01E14 That The Brave Endure.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 170997060,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S01E14%20That%20The%20Brave%20Endure.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s1e15",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Taste of Poison",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S01E15%20Taste%20of%20Poison_000860.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1323,
+          "videoFile": {
+            "name": "Branded S01E15 Taste of Poison.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 165950347,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S01E15%20Taste%20of%20Poison.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s1e16",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Price of a Name",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S01E16%20Price%20of%20a%20Name_000870.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1336,
+          "videoFile": {
+            "name": "Branded S01E16 Price of a Name.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 154567234,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S01E16%20Price%20of%20a%20Name.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s2e01",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Judge Not",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S02E01%20Judge%20Not_000870.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1336,
+          "videoFile": {
+            "name": "Branded S02E01 Judge Not.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 182928909,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S02E01%20Judge%20Not.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s2e02",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "Now Join the Human Race",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S02E02%20Now%20Join%20the%20Human%20Race_000869.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1336,
+          "videoFile": {
+            "name": "Branded S02E02 Now Join the Human Race.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 156659100,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S02E02%20Now%20Join%20the%20Human%20Race.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s2e03",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Mightier than the Sword",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S02E03%20Mightier%20than%20the%20Sword_000869.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1333,
+          "videoFile": {
+            "name": "Branded S02E03 Mightier than the Sword.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 168199845,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S02E03%20Mightier%20than%20the%20Sword.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s2e04",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "I Killed Jason McCord",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S02E04%20I%20Killed%20Jason%20McCord_000872.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1337,
+          "videoFile": {
+            "name": "Branded S02E04 I Killed Jason McCord.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 167676520,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S02E04%20I%20Killed%20Jason%20McCord.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s2e05",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "The Bar Sinister",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S02E05%20The%20Bar%20Sinister_000866.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1326,
+          "videoFile": {
+            "name": "Branded S02E05 The Bar Sinister.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 195020170,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S02E05%20The%20Bar%20Sinister.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s2e06",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Seward's Folly",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S02E06%20Seward%27s%20Folly_000869.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1335,
+          "videoFile": {
+            "name": "Branded S02E06 Seward's Folly.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 275103093,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S02E06%20Seward%27s%20Folly.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s2e07",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "Salute the Soldier Briefly",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S02E07%20Salute%20the%20Soldier%20Briefly_000866.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1321,
+          "videoFile": {
+            "name": "Branded S02E07 Salute the Soldier Briefly.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 206461221,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S02E07%20Salute%20the%20Soldier%20Briefly.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s2e08",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "The Richest Man in Boot Hill",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S02E08%20The%20Richest%20Man%20in%20Boot%20Hill_000864.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1328,
+          "videoFile": {
+            "name": "Branded S02E08 The Richest Man in Boot Hill.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 197086308,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S02E08%20The%20Richest%20Man%20in%20Boot%20Hill.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s2e09",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Fill No Glass for Me (1)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S02E09%20Fill%20No%20Glass%20for%20Me%20%281%29_000871.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1334,
+          "videoFile": {
+            "name": "Branded S02E09 Fill No Glass for Me (1).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 260152548,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S02E09%20Fill%20No%20Glass%20for%20Me%20%281%29.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s2e10",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "Fill No Glass for Me (2)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S02E10%20Fill%20No%20Glass%20for%20Me%20%282%29_000867.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1333,
+          "videoFile": {
+            "name": "Branded S02E10 Fill No Glass for Me (2).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 247210983,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S02E10%20Fill%20No%20Glass%20for%20Me%20%282%29.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s2e11",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "The Greastest Coward on Earth",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S02E11%20The%20Greastest%20Coward%20on%20Earth_000896.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1366,
+          "videoFile": {
+            "name": "Branded S02E11 The Greastest Coward on Earth.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 225394098,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S02E11%20The%20Greastest%20Coward%20on%20Earth.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s2e12",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "$10,000 for Durango",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S02E12%20%2410%2C000%20for%20Durango_000869.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1335,
+          "videoFile": {
+            "name": "Branded S02E12 $10,000 for Durango.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 268647009,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S02E12%20%2410%2C000%20for%20Durango.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s2e13",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "Romany Roundup (1)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S02E13%20Romany%20Roundup%20%281%29_000878.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1339,
+          "videoFile": {
+            "name": "Branded S02E13 Romany Roundup (1).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 243398371,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S02E13%20Romany%20Roundup%20%281%29.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s2e14",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 2,
+          "episodeNumber": 14,
+          "title": "Romany Roundup (2)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S02E14%20Romany%20Roundup%20%282%29_000868.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1331,
+          "videoFile": {
+            "name": "Branded S02E14 Romany Roundup (2).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 202396929,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S02E14%20Romany%20Roundup%20%282%29.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s2e15",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 2,
+          "episodeNumber": 15,
+          "title": "A Proud Town",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S02E15%20A%20Proud%20Town_000869.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1327,
+          "videoFile": {
+            "name": "Branded S02E15 A Proud Town.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 183597499,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S02E15%20A%20Proud%20Town.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s2e16",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 2,
+          "episodeNumber": 16,
+          "title": "The Golden Fleece",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S02E16%20The%20Golden%20Fleece_000867.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1331,
+          "videoFile": {
+            "name": "Branded S02E16 The Golden Fleece.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 225494332,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S02E16%20The%20Golden%20Fleece.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s2e17",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 2,
+          "episodeNumber": 17,
+          "title": "The Wolfers",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S02E17%20The%20Wolfers_000870.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1333,
+          "videoFile": {
+            "name": "Branded S02E17 The Wolfers.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 211274023,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S02E17%20The%20Wolfers.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s2e18",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 2,
+          "episodeNumber": 18,
+          "title": "This Stage of Fools",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S02E18%20This%20Stage%20of%20Fools_000868.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1328,
+          "videoFile": {
+            "name": "Branded S02E18 This Stage of Fools.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 179108411,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S02E18%20This%20Stage%20of%20Fools.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s2e19",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 2,
+          "episodeNumber": 19,
+          "title": "A Destiny Which Made Us Brothers",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S02E19%20A%20Destiny%20Which%20Made%20Us%20Brothers_000865.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1331,
+          "videoFile": {
+            "name": "Branded S02E19 A Destiny Which Made Us Brothers.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 133556375,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S02E19%20A%20Destiny%20Which%20Made%20Us%20Brothers.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s2e20",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 2,
+          "episodeNumber": 20,
+          "title": "McCord's Way",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S02E20%20McCord%27s%20Way_000868.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1330,
+          "videoFile": {
+            "name": "Branded S02E20 McCord's Way.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 182142339,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S02E20%20McCord%27s%20Way.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s2e21",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 2,
+          "episodeNumber": 21,
+          "title": "Nice Day for a Hanging",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S02E21%20Nice%20Day%20for%20a%20Hanging_000870.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1335,
+          "videoFile": {
+            "name": "Branded S02E21 Nice Day for a Hanging.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 180960622,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S02E21%20Nice%20Day%20for%20a%20Hanging.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s2e22",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 2,
+          "episodeNumber": 22,
+          "title": "Barbed Wire",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S02E22%20Barbed%20Wire_000894.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1365,
+          "videoFile": {
+            "name": "Branded S02E22 Barbed Wire.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 290528675,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S02E22%20Barbed%20Wire.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s2e23",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 2,
+          "episodeNumber": 23,
+          "title": "Yellow for Courage",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S02E23%20Yellow%20for%20Courage_000863.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1323,
+          "videoFile": {
+            "name": "Branded S02E23 Yellow for Courage.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 169079662,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S02E23%20Yellow%20for%20Courage.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s2e24",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 2,
+          "episodeNumber": 24,
+          "title": "Call to Glory (1)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S02E24%20Call%20to%20Glory%20%281%29_000866.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1330,
+          "videoFile": {
+            "name": "Branded S02E24 Call to Glory (1).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 146413699,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S02E24%20Call%20to%20Glory%20%281%29.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s2e25",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 2,
+          "episodeNumber": 25,
+          "title": "Call to Glory (2)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S02E25%20Call%20to%20Glory%20%282%29_000864.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1329,
+          "videoFile": {
+            "name": "Branded S02E25 Call to Glory (2).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 156984858,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S02E25%20Call%20to%20Glory%20%282%29.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s2e26",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 2,
+          "episodeNumber": 26,
+          "title": "Call to Glory (3)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S02E26%20Call%20to%20Glory%20%283%29_000866.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1331,
+          "videoFile": {
+            "name": "Branded S02E26 Call to Glory (3).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 221482082,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S02E26%20Call%20to%20Glory%20%283%29.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s2e27",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 2,
+          "episodeNumber": 27,
+          "title": "The Ghost of Murietta",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S02E27%20The%20Ghost%20of%20Murietta_000869.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1333,
+          "videoFile": {
+            "name": "Branded S02E27 The Ghost of Murietta.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 215348271,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S02E27%20The%20Ghost%20of%20Murietta.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s2e28",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 2,
+          "episodeNumber": 28,
+          "title": "The Assassins (1)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S02E28%20The%20Assassins%20%281%29_000868.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1329,
+          "videoFile": {
+            "name": "Branded S02E28 The Assassins (1).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 178489450,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S02E28%20The%20Assassins%20%281%29.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s2e29",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 2,
+          "episodeNumber": 29,
+          "title": "The Assassins (2)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S02E29%20The%20Assassins%20%282%29_000875.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1335,
+          "videoFile": {
+            "name": "Branded S02E29 The Assassins (2).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 187222479,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S02E29%20The%20Assassins%20%282%29.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s2e30",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 2,
+          "episodeNumber": 30,
+          "title": "Headed for Doomsday",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S02E30%20Headed%20for%20Doomsday_000870.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1336,
+          "videoFile": {
+            "name": "Branded S02E30 Headed for Doomsday.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 253486915,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S02E30%20Headed%20for%20Doomsday.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s2e31",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 2,
+          "episodeNumber": 31,
+          "title": "Cowards Die Many Times",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S02E31%20Cowards%20Die%20Many%20Times_000868.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1331,
+          "videoFile": {
+            "name": "Branded S02E31 Cowards Die Many Times.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 208807960,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S02E31%20Cowards%20Die%20Many%20Times.mp4"
+        },
+        {
+          "archiveID": "branded-s-02-e-22-barbed-wire_202405@s2e32",
+          "sourceID": "branded-s-02-e-22-barbed-wire_202405",
+          "seasonNumber": 2,
+          "episodeNumber": 32,
+          "title": "Kellie",
+          "overview": null,
+          "stillURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/branded-s-02-e-22-barbed-wire_202405.thumbs/Branded%20S02E32%20Kellie_000893.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1369,
+          "videoFile": {
+            "name": "Branded S02E32 Kellie.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 193139318,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/branded-s-02-e-22-barbed-wire_202405/Branded%20S02E32%20Kellie.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 48,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

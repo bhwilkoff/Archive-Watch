@@ -1,0 +1,321 @@
+{
+  "version": 2,
+  "seriesID": "g-men-vs-the-black-dragon-1943",
+  "sourceID": "g-men-vs-the-black-dragon",
+  "tvmazeID": null,
+  "title": "G-men vs. the Black Dragon",
+  "yearStart": 1943,
+  "yearEnd": null,
+  "overview": "G-Men vs. The Black Dragon (1943) is a Republic Pictures movie serial. It is noteworthy among adventure serials as containing an unusually high number of fistfights, all staged by director William Witney and a team of stuntmen.",
+  "posterURL": "https://commons.wikimedia.org/wiki/Special:FilePath/G-menvsblackdragon.JPG?width=600",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/oG6Kysr5AGAXF2VIV7uDqRgNV2c.jpg",
+  "genres": [
+    "spy film"
+  ],
+  "networks": [],
+  "creator": "Spencer Gordon Bennet",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "g-men-vs-the-black-dragon@e01",
+          "sourceID": "g-men-vs-the-black-dragon",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Yellow Peril",
+          "overview": null,
+          "stillURL": "https://archive.org/download/g-men-vs-the-black-dragon/g-men-vs-the-black-dragon.thumbs/G-Men%20Chapter%2001%20The%20Yellow%20Peril_000523.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 1505,
+          "videoFile": {
+            "name": "G-Men Chapter 01 The Yellow Peril.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 86061986,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/g-men-vs-the-black-dragon/G-Men%20Chapter%2001%20The%20Yellow%20Peril.mp4"
+        },
+        {
+          "archiveID": "g-men-vs-the-black-dragon@e02",
+          "sourceID": "g-men-vs-the-black-dragon",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Japanese Inquisition",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 874,
+          "videoFile": {
+            "name": "G-Men Chapter 02 Japanese Inquisition.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 52755910,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/g-men-vs-the-black-dragon/G-Men%20Chapter%2002%20Japanese%20Inquisition.mp4"
+        },
+        {
+          "archiveID": "g-men-vs-the-black-dragon@e03",
+          "sourceID": "g-men-vs-the-black-dragon",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Arsenal of Doom",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 871,
+          "videoFile": {
+            "name": "G-Men Chapter 03 Arsenal of Doom.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 54272101,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/g-men-vs-the-black-dragon/G-Men%20Chapter%2003%20Arsenal%20of%20Doom.mp4"
+        },
+        {
+          "archiveID": "g-men-vs-the-black-dragon@e04",
+          "sourceID": "g-men-vs-the-black-dragon",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Deadly Sorcery",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 871,
+          "videoFile": {
+            "name": "G-Men Chapter 04 Deadly Sorcery.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 51799464,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/g-men-vs-the-black-dragon/G-Men%20Chapter%2004%20Deadly%20Sorcery.mp4"
+        },
+        {
+          "archiveID": "g-men-vs-the-black-dragon@e05",
+          "sourceID": "g-men-vs-the-black-dragon",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Celestial Murder",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 874,
+          "videoFile": {
+            "name": "G-Men Chapter 05 Celestial Murder.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 57778009,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/g-men-vs-the-black-dragon/G-Men%20Chapter%2005%20Celestial%20Murder.mp4"
+        },
+        {
+          "archiveID": "g-men-vs-the-black-dragon@e06",
+          "sourceID": "g-men-vs-the-black-dragon",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Death and Destruction",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 873,
+          "videoFile": {
+            "name": "G-Men Chapter 06 Death and Destruction.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 59594498,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/g-men-vs-the-black-dragon/G-Men%20Chapter%2006%20Death%20and%20Destruction.mp4"
+        },
+        {
+          "archiveID": "g-men-vs-the-black-dragon@e07",
+          "sourceID": "g-men-vs-the-black-dragon",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Iron Monster",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 873,
+          "videoFile": {
+            "name": "G-Men Chapter 07 The Iron Monster.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 50010474,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/g-men-vs-the-black-dragon/G-Men%20Chapter%2007%20The%20Iron%20Monster.mp4"
+        },
+        {
+          "archiveID": "g-men-vs-the-black-dragon@e08",
+          "sourceID": "g-men-vs-the-black-dragon",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Beast of Tokyo",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 876,
+          "videoFile": {
+            "name": "G-Men Chapter 08 Beast of Tokyo.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 49449740,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/g-men-vs-the-black-dragon/G-Men%20Chapter%2008%20Beast%20of%20Tokyo.mp4"
+        },
+        {
+          "archiveID": "g-men-vs-the-black-dragon@e09",
+          "sourceID": "g-men-vs-the-black-dragon",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Watery Grave",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 868,
+          "videoFile": {
+            "name": "G-Men Chapter 09 Watery Grave.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 58723359,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/g-men-vs-the-black-dragon/G-Men%20Chapter%2009%20Watery%20Grave.mp4"
+        },
+        {
+          "archiveID": "g-men-vs-the-black-dragon@e10",
+          "sourceID": "g-men-vs-the-black-dragon",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Dragon Strikes",
+          "overview": null,
+          "stillURL": "https://archive.org/download/g-men-vs-the-black-dragon/g-men-vs-the-black-dragon.thumbs/G-Men%20Chapter%2010%20The%20Dragon%20Strikes_000303.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 873,
+          "videoFile": {
+            "name": "G-Men Chapter 10 The Dragon Strikes.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 54004711,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/g-men-vs-the-black-dragon/G-Men%20Chapter%2010%20The%20Dragon%20Strikes.mp4"
+        },
+        {
+          "archiveID": "g-men-vs-the-black-dragon@e11",
+          "sourceID": "g-men-vs-the-black-dragon",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Suicide Mission",
+          "overview": null,
+          "stillURL": "https://archive.org/download/g-men-vs-the-black-dragon/g-men-vs-the-black-dragon.thumbs/G-Men%20Chapter%2011%20Suicide%20Mission_000262.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 872,
+          "videoFile": {
+            "name": "G-Men Chapter 11 Suicide Mission.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 57616096,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/g-men-vs-the-black-dragon/G-Men%20Chapter%2011%20Suicide%20Mission.mp4"
+        },
+        {
+          "archiveID": "g-men-vs-the-black-dragon@e12",
+          "sourceID": "g-men-vs-the-black-dragon",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Dead on Arrival",
+          "overview": null,
+          "stillURL": "https://archive.org/download/g-men-vs-the-black-dragon/g-men-vs-the-black-dragon.thumbs/G-Men%20Chapter%2012%20Dead%20on%20Arrival_000258.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 869,
+          "videoFile": {
+            "name": "G-Men Chapter 12 Dead on Arrival.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 53253037,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/g-men-vs-the-black-dragon/G-Men%20Chapter%2012%20Dead%20on%20Arrival.mp4"
+        },
+        {
+          "archiveID": "g-men-vs-the-black-dragon@e13",
+          "sourceID": "g-men-vs-the-black-dragon",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Condemned Cargo",
+          "overview": null,
+          "stillURL": "https://archive.org/download/g-men-vs-the-black-dragon/g-men-vs-the-black-dragon.thumbs/G-Men%20Chapter%2013%20Condemned%20Cargo_000301.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 871,
+          "videoFile": {
+            "name": "G-Men Chapter 13 Condemned Cargo.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 54399272,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/g-men-vs-the-black-dragon/G-Men%20Chapter%2013%20Condemned%20Cargo.mp4"
+        },
+        {
+          "archiveID": "g-men-vs-the-black-dragon@e14",
+          "sourceID": "g-men-vs-the-black-dragon",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Flaming Coffin",
+          "overview": null,
+          "stillURL": "https://archive.org/download/g-men-vs-the-black-dragon/g-men-vs-the-black-dragon.thumbs/G-Men%20Chapter%2014%20Flaming%20Coffin_000262.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 870,
+          "videoFile": {
+            "name": "G-Men Chapter 14 Flaming Coffin.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 61728621,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/g-men-vs-the-black-dragon/G-Men%20Chapter%2014%20Flaming%20Coffin.mp4"
+        },
+        {
+          "archiveID": "g-men-vs-the-black-dragon@e15",
+          "sourceID": "g-men-vs-the-black-dragon",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Democracy in Action",
+          "overview": null,
+          "stillURL": "https://archive.org/download/g-men-vs-the-black-dragon/g-men-vs-the-black-dragon.thumbs/G-Men%20Chapter%2015%20Democracy%20in%20Action_000308.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 894,
+          "videoFile": {
+            "name": "G-Men Chapter 15 Democracy in Action.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 61117062,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/g-men-vs-the-black-dragon/G-Men%20Chapter%2015%20Democracy%20in%20Action.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 15,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "commons",
+  "cast": [
+    {
+      "name": "Rod Cameron",
+      "character": "Rex Bennett",
+      "order": 0,
+      "profilePath": "/aX3wWg3WIXIA5NBloBJ2TTNStC3.jpg"
+    }
+  ]
+}

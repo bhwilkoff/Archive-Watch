@@ -1,0 +1,377 @@
+{
+  "version": 2,
+  "seriesID": "batman-1943",
+  "sourceID": "batman.-1943.",
+  "tvmazeID": null,
+  "title": "Batman",
+  "yearStart": 1943,
+  "yearEnd": null,
+  "overview": "Batman is a 1943 American 15-chapter theatrical serial from Columbia Pictures, produced by Rudolph C. Flothow, directed by Lambert Hillyer, that stars Lewis Wilson as Batman and Douglas Croft as his sidekick Robin. The serial is based on the DC Comics character Batman, who first appeared in Detective Comics #27 in May 1939. The villain is an original character named Dr. Daka, a secret agent of the Japanese Imperial government, played by J. Carrol Naish. Rounding out the cast are Shirley Patterson as Linda Page, Bruce Wayne's love interest, and William Austin as Alfred, the Wayne Manor butler.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/AvzD3mrtokIzZOiV6zAG7geIo6F.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/bHxJA9rllKF2jhb11ARAwZJYSp6.jpg",
+  "genres": [
+    "Action",
+    "Adventure",
+    "Crime"
+  ],
+  "networks": [],
+  "creator": "Lambert Hillyer",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "batman.-1943.@e01",
+          "sourceID": "batman.-1943.",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Electrical Brain",
+          "overview": null,
+          "stillURL": "https://archive.org/download/batman.-1943./batman.-1943..thumbs/Batman.1943.Ep.01.The.Electrical.Brain_000551.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 1578,
+          "videoFile": {
+            "name": "Batman.1943.Ep.01.The.Electrical.Brain.mp4",
+            "format": "h.264",
+            "sizeBytes": 151537675,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/batman.-1943./Batman.1943.Ep.01.The.Electrical.Brain.mp4"
+        },
+        {
+          "archiveID": "batman.-1943.@e02",
+          "sourceID": "batman.-1943.",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Bats Cave",
+          "overview": null,
+          "stillURL": "https://archive.org/download/batman.-1943./batman.-1943..thumbs/Batman.1943.Ep.02.The.Bats.Cave_000356.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 1031,
+          "videoFile": {
+            "name": "Batman.1943.Ep.02.The.Bats.Cave.mp4",
+            "format": "h.264",
+            "sizeBytes": 99900009,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/batman.-1943./Batman.1943.Ep.02.The.Bats.Cave.mp4"
+        },
+        {
+          "archiveID": "batman.-1943.@e03",
+          "sourceID": "batman.-1943.",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Mark of the Zombies",
+          "overview": null,
+          "stillURL": "https://archive.org/download/batman.-1943./batman.-1943..thumbs/Batman.1943.Ep.03.The.Mark.of.the.Zombies_000355.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 1054,
+          "videoFile": {
+            "name": "Batman.1943.Ep.03.The.Mark.of.the.Zombies.mp4",
+            "format": "h.264",
+            "sizeBytes": 101440258,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/batman.-1943./Batman.1943.Ep.03.The.Mark.of.the.Zombies.mp4"
+        },
+        {
+          "archiveID": "batman.-1943.@e04",
+          "sourceID": "batman.-1943.",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Slaves of the Rising Sun",
+          "overview": null,
+          "stillURL": "https://archive.org/download/batman.-1943./batman.-1943..thumbs/Batman.1943.Ep.04.Slaves.of.the.Rising.Sun_000355.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 1089,
+          "videoFile": {
+            "name": "Batman.1943.Ep.04.Slaves.of.the.Rising.Sun.mp4",
+            "format": "h.264",
+            "sizeBytes": 105901980,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/batman.-1943./Batman.1943.Ep.04.Slaves.of.the.Rising.Sun.mp4"
+        },
+        {
+          "archiveID": "batman.-1943.@e05",
+          "sourceID": "batman.-1943.",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Living Corpse",
+          "overview": null,
+          "stillURL": "https://archive.org/download/batman.-1943./batman.-1943..thumbs/Batman.1943.Ep.05.The.Living.Corpse_000355.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 1022,
+          "videoFile": {
+            "name": "Batman.1943.Ep.05.The.Living.Corpse.mp4",
+            "format": "h.264",
+            "sizeBytes": 98963007,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/batman.-1943./Batman.1943.Ep.05.The.Living.Corpse.mp4"
+        },
+        {
+          "archiveID": "batman.-1943.@e06",
+          "sourceID": "batman.-1943.",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Poison Peril",
+          "overview": null,
+          "stillURL": "https://archive.org/download/batman.-1943./batman.-1943..thumbs/Batman.1943.Ep.06.Poison.Peril_000297.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 1005,
+          "videoFile": {
+            "name": "Batman.1943.Ep.06.Poison.Peril.mp4",
+            "format": "h.264",
+            "sizeBytes": 96994817,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/batman.-1943./Batman.1943.Ep.06.Poison.Peril.mp4"
+        },
+        {
+          "archiveID": "batman.-1943.@e07",
+          "sourceID": "batman.-1943.",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Phoney Doctor",
+          "overview": null,
+          "stillURL": "https://archive.org/download/batman.-1943./batman.-1943..thumbs/Batman.1943.Ep.07.The.Phoney.Doctor_000298.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 957,
+          "videoFile": {
+            "name": "Batman.1943.Ep.07.The.Phoney.Doctor.mp4",
+            "format": "h.264",
+            "sizeBytes": 92696978,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/batman.-1943./Batman.1943.Ep.07.The.Phoney.Doctor.mp4"
+        },
+        {
+          "archiveID": "batman.-1943.@e08",
+          "sourceID": "batman.-1943.",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Lured by Radium",
+          "overview": null,
+          "stillURL": "https://archive.org/download/batman.-1943./batman.-1943..thumbs/Batman.1943.Ep.08.Lured.by.Radium_000355.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 996,
+          "videoFile": {
+            "name": "Batman.1943.Ep.08.Lured.by.Radium.mp4",
+            "format": "h.264",
+            "sizeBytes": 96615075,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/batman.-1943./Batman.1943.Ep.08.Lured.by.Radium.mp4"
+        },
+        {
+          "archiveID": "batman.-1943.@e09",
+          "sourceID": "batman.-1943.",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Sign of the Spinx",
+          "overview": null,
+          "stillURL": "https://archive.org/download/batman.-1943./batman.-1943..thumbs/Batman.1943.Ep.09.The.Sign.of.the.Spinx_000358.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 980,
+          "videoFile": {
+            "name": "Batman.1943.Ep.09.The.Sign.of.the.Spinx.mp4",
+            "format": "h.264",
+            "sizeBytes": 94642331,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/batman.-1943./Batman.1943.Ep.09.The.Sign.of.the.Spinx.mp4"
+        },
+        {
+          "archiveID": "batman.-1943.@e10",
+          "sourceID": "batman.-1943.",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Flying Spies",
+          "overview": null,
+          "stillURL": "https://archive.org/download/batman.-1943./batman.-1943..thumbs/Batman.1943.Ep.10.Flying.Spies_000362.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 1059,
+          "videoFile": {
+            "name": "Batman.1943.Ep.10.Flying.Spies.mp4",
+            "format": "h.264",
+            "sizeBytes": 102521127,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/batman.-1943./Batman.1943.Ep.10.Flying.Spies.mp4"
+        },
+        {
+          "archiveID": "batman.-1943.@e11",
+          "sourceID": "batman.-1943.",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "A Nipponese Trap",
+          "overview": null,
+          "stillURL": "https://archive.org/download/batman.-1943./batman.-1943..thumbs/Batman.1943.Ep.11.A.Nipponese.Trap_000294.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 944,
+          "videoFile": {
+            "name": "Batman.1943.Ep.11.A.Nipponese.Trap.mp4",
+            "format": "h.264",
+            "sizeBytes": 91896279,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/batman.-1943./Batman.1943.Ep.11.A.Nipponese.Trap.mp4"
+        },
+        {
+          "archiveID": "batman.-1943.@e12",
+          "sourceID": "batman.-1943.",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Embers of Evil",
+          "overview": null,
+          "stillURL": "https://archive.org/download/batman.-1943./batman.-1943..thumbs/Batman.1943.Ep.12.Embers.of.Evil_000304.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 865,
+          "videoFile": {
+            "name": "Batman.1943.Ep.12.Embers.of.Evil.mp4",
+            "format": "h.264",
+            "sizeBytes": 83564259,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/batman.-1943./Batman.1943.Ep.12.Embers.of.Evil.mp4"
+        },
+        {
+          "archiveID": "batman.-1943.@e13",
+          "sourceID": "batman.-1943.",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Eight Steps Down",
+          "overview": null,
+          "stillURL": "https://archive.org/download/batman.-1943./batman.-1943..thumbs/Batman.1943.Ep.13.Eight.Steps.Down_000261.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 860,
+          "videoFile": {
+            "name": "Batman.1943.Ep.13.Eight.Steps.Down.mp4",
+            "format": "h.264",
+            "sizeBytes": 82578048,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/batman.-1943./Batman.1943.Ep.13.Eight.Steps.Down.mp4"
+        },
+        {
+          "archiveID": "batman.-1943.@e14",
+          "sourceID": "batman.-1943.",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Executioner Strikes",
+          "overview": null,
+          "stillURL": "https://archive.org/download/batman.-1943./batman.-1943..thumbs/Batman.1943.Ep.14.The.Executioner.Strikes_000295.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 940,
+          "videoFile": {
+            "name": "Batman.1943.Ep.14.The.Executioner.Strikes.mp4",
+            "format": "h.264",
+            "sizeBytes": 89928807,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/batman.-1943./Batman.1943.Ep.14.The.Executioner.Strikes.mp4"
+        },
+        {
+          "archiveID": "batman.-1943.@e15",
+          "sourceID": "batman.-1943.",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "The Doom of the Rising Sun",
+          "overview": null,
+          "stillURL": "https://archive.org/download/batman.-1943./batman.-1943..thumbs/Batman.1943.Ep.15.The.Doom.of.the.Rising.Sun_000416.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 1205,
+          "videoFile": {
+            "name": "Batman.1943.Ep.15.The.Doom.of.the.Rising.Sun.mp4",
+            "format": "h.264",
+            "sizeBytes": 115014899,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/batman.-1943./Batman.1943.Ep.15.The.Doom.of.the.Rising.Sun.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 15,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": [
+    {
+      "name": "Lewis Wilson",
+      "character": "Bruce Wayne",
+      "order": 0,
+      "profilePath": "/mbOG1fBFlyrj1Otz3zTxerTfgLu.jpg"
+    },
+    {
+      "name": "Douglas Croft",
+      "character": "Dick Grayson",
+      "order": 1,
+      "profilePath": "/A3ypkPfzUvODD0T0xZ0Dv45PybM.jpg"
+    },
+    {
+      "name": "J. Carrol Naish",
+      "character": "Tito Daka",
+      "order": 2,
+      "profilePath": "/eTQ39RkhwYnLDKQyqjXkliov537.jpg"
+    },
+    {
+      "name": "Shirley Patterson",
+      "character": "Linda Page",
+      "order": 3,
+      "profilePath": "/1AD46T38t8vaOjo6TqiQ552s8tU.jpg"
+    },
+    {
+      "name": "William Austin",
+      "character": "Alfred",
+      "order": 4,
+      "profilePath": "/1lGOOMIx5Wd0JFwYCiV9o8GlPru.jpg"
+    },
+    {
+      "name": "Knox Manning",
+      "character": "Narrator",
+      "order": 5,
+      "profilePath": "/ev4Flue91PiTGNeXZL8YsJrECkY.jpg"
+    },
+    {
+      "name": "Frank Austin",
+      "character": "Hotel Clerk",
+      "order": 6,
+      "profilePath": "/9sE9RjzoQwKCVWGpAH3PrtRmjwl.jpg"
+    },
+    {
+      "name": "Lynton Brent",
+      "character": "Intended Lockwood Pilot",
+      "order": 7,
+      "profilePath": "/4MIUkKMGNa8bDAMdfjbImJkmT8e.jpg"
+    },
+    {
+      "name": "Roy Bucko",
+      "character": "Barfly",
+      "order": 8,
+      "profilePath": null
+    },
+    {
+      "name": "George Chesebro",
+      "character": "Brennan",
+      "order": 9,
+      "profilePath": "/s8A5WerpnAjIom4ezjiTEcDEOc4.jpg"
+    }
+  ]
+}

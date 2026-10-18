@@ -310,7 +310,7 @@ final class StudioMacSetups: StudioSetupTarget {
         StudioOutputSettings.bitrateKbps = StudioOutputSettings.bitrateKbps == 3000 ? 4000 : 3000
         if let film = StudioMacShow.shared.film {
             let current = ArchiveVersions.copyPath(for: film.archiveID, default: film.videoURLParsed)
-            let versions = await ArchiveVersions.list(itemID: film.archiveID)
+            let versions = await ArchiveVersions.list(itemID: film.archiveID, defaultURL: film.videoURLParsed)
             if let v = versions.first(where: {
                 StudioSetup.copyPath(choiceKey: $0.choiceKey, archiveID: film.archiveID) != current }) {
                 ArchiveVersions.choose(v, for: film.archiveID)

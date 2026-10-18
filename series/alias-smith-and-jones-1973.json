@@ -1,0 +1,987 @@
+{
+  "version": 2,
+  "seriesID": "alias-smith-and-jones-1973",
+  "sourceID": "Alias-Smith-And-Jones-1973",
+  "tvmazeID": null,
+  "title": "Alias Smith And Jones",
+  "yearStart": 1973,
+  "yearEnd": null,
+  "overview": "Two outlaws trying to earn amnesty by going straight for a year; all fifty episodes of the ABC western Alias Smith and Jones, 1971–73.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/Alias-Smith-And-Jones-1973.2bdcf414.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s1e01",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Alias Smith and Jones - - Pilot",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 4267,
+          "videoFile": {
+            "name": "Alias Smith/Season 1/Alias Smith and Jones - 1x01 - Pilot.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 977996289,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%201/Alias%20Smith%20and%20Jones%20-%201x01%20-%20Pilot.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s1e02",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Alias Smith and Jones - - The McCreedy Bust",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2904,
+          "videoFile": {
+            "name": "Alias Smith/Season 1/Alias Smith and Jones - 1x02 - The McCreedy Bust.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 664145415,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%201/Alias%20Smith%20and%20Jones%20-%201x02%20-%20The%20McCreedy%20Bust.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s1e03",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Alias Smith and Jones - - Exit from Wickenburg",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2905,
+          "videoFile": {
+            "name": "Alias Smith/Season 1/Alias Smith and Jones - 1x03 - Exit from Wickenburg.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 666285397,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%201/Alias%20Smith%20and%20Jones%20-%201x03%20-%20Exit%20from%20Wickenburg.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s1e04",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Alias Smith and Jones - - Wrong Train to Brimstone",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2903,
+          "videoFile": {
+            "name": "Alias Smith/Season 1/Alias Smith and Jones - 1x04 - Wrong Train to Brimstone.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 665762483,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%201/Alias%20Smith%20and%20Jones%20-%201x04%20-%20Wrong%20Train%20to%20Brimstone.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s1e05",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Alias Smith and Jones - - The Girl in Boxcar 3",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2905,
+          "videoFile": {
+            "name": "Alias Smith/Season 1/Alias Smith and Jones - 1x05 - The Girl in Boxcar 3.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 666995349,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%201/Alias%20Smith%20and%20Jones%20-%201x05%20-%20The%20Girl%20in%20Boxcar%203.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s1e06",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Alias Smith and Jones - - The Great Shell Game",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2904,
+          "videoFile": {
+            "name": "Alias Smith/Season 1/Alias Smith and Jones - 1x06 - The Great Shell Game.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 666984541,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%201/Alias%20Smith%20and%20Jones%20-%201x06%20-%20The%20Great%20Shell%20Game.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s1e07",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Alias Smith and Jones - - Return to Devil's Hole",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2905,
+          "videoFile": {
+            "name": "Alias Smith/Season 1/Alias Smith and Jones - 1x07 - Return to Devil's Hole.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 667530357,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%201/Alias%20Smith%20and%20Jones%20-%201x07%20-%20Return%20to%20Devil%27s%20Hole.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s1e08",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Alias Smith and Jones - - A Fistful of Diamonds",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2906,
+          "videoFile": {
+            "name": "Alias Smith/Season 1/Alias Smith and Jones - 1x08 - A Fistful of Diamonds.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 665621097,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%201/Alias%20Smith%20and%20Jones%20-%201x08%20-%20A%20Fistful%20of%20Diamonds.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s1e09",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Alias Smith and Jones - - Stagecoach Seven",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2905,
+          "videoFile": {
+            "name": "Alias Smith/Season 1/Alias Smith and Jones - 1x09 - Stagecoach Seven.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 665922518,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%201/Alias%20Smith%20and%20Jones%20-%201x09%20-%20Stagecoach%20Seven.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s1e10",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Alias Smith and Jones - - The Man Who Murdered Himself",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2962,
+          "videoFile": {
+            "name": "Alias Smith/Season 1/Alias Smith and Jones - 1x10 - The Man Who Murdered Himself.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 666416059,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%201/Alias%20Smith%20and%20Jones%20-%201x10%20-%20The%20Man%20Who%20Murdered%20Himself.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s1e11",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Alias Smith and Jones - - The Root of It All",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2904,
+          "videoFile": {
+            "name": "Alias Smith/Season 1/Alias Smith and Jones - 1x11 - The Root of It All.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 666718689,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%201/Alias%20Smith%20and%20Jones%20-%201x11%20-%20The%20Root%20of%20It%20All.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s1e12",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Alias Smith and Jones - - The 5th Victim",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2908,
+          "videoFile": {
+            "name": "Alias Smith/Season 1/Alias Smith and Jones - 1x12 - The 5th Victim.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 667015032,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%201/Alias%20Smith%20and%20Jones%20-%201x12%20-%20The%205th%20Victim.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s1e13",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Alias Smith and Jones - - Journey from San Juan",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2904,
+          "videoFile": {
+            "name": "Alias Smith/Season 1/Alias Smith and Jones - 1x13 - Journey from San Juan.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 666697907,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%201/Alias%20Smith%20and%20Jones%20-%201x13%20-%20Journey%20from%20San%20Juan.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s1e14",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Alias Smith and Jones - - Never Trust an Honest Man",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2905,
+          "videoFile": {
+            "name": "Alias Smith/Season 1/Alias Smith and Jones - 1x14 - Never Trust an Honest Man.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 666024476,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%201/Alias%20Smith%20and%20Jones%20-%201x14%20-%20Never%20Trust%20an%20Honest%20Man.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s1e15",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Alias Smith and Jones - - The Legacy of Charlie O'Rourke",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2962,
+          "videoFile": {
+            "name": "Alias Smith/Season 1/Alias Smith and Jones - 1x15 - The Legacy of Charlie O'Rourke.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 665548582,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%201/Alias%20Smith%20and%20Jones%20-%201x15%20-%20The%20Legacy%20of%20Charlie%20O%27Rourke.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s2e01",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Alias Smith and Jones - - The Day They Hanged Kid Curry",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 4489,
+          "videoFile": {
+            "name": "Alias Smith/Season 2/Alias Smith and Jones - 2x01 - The Day They Hanged Kid Curry.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 431522111,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%202/Alias%20Smith%20and%20Jones%20-%202x01%20-%20The%20Day%20They%20Hanged%20Kid%20Curry.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s2e02",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "Alias Smith and Jones - - How to Rob a Bank in One Hard Lesson",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2905,
+          "videoFile": {
+            "name": "Alias Smith/Season 2/Alias Smith and Jones - 2x02 - How to Rob a Bank in One Hard Lesson.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 667951632,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%202/Alias%20Smith%20and%20Jones%20-%202x02%20-%20How%20to%20Rob%20a%20Bank%20in%20One%20Hard%20Lesson.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s2e03",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Alias Smith and Jones - - Jailbreak at Junction City",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2901,
+          "videoFile": {
+            "name": "Alias Smith/Season 2/Alias Smith and Jones - 2x03 - Jailbreak at Junction City.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 665806945,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%202/Alias%20Smith%20and%20Jones%20-%202x03%20-%20Jailbreak%20at%20Junction%20City.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s2e04",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "Alias Smith and Jones - - Smiler with a Gun",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2903,
+          "videoFile": {
+            "name": "Alias Smith/Season 2/Alias Smith and Jones - 2x04 - Smiler with a Gun.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 665900314,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%202/Alias%20Smith%20and%20Jones%20-%202x04%20-%20Smiler%20with%20a%20Gun.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s2e05",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Alias Smith and Jones - - The Posse That Wouldn't Quit",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2903,
+          "videoFile": {
+            "name": "Alias Smith/Season 2/Alias Smith and Jones - 2x05 - The Posse That Wouldn't Quit.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 666075574,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%202/Alias%20Smith%20and%20Jones%20-%202x05%20-%20The%20Posse%20That%20Wouldn%27t%20Quit.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s2e06",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Alias Smith and Jones - - Something to Get Hung About",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2904,
+          "videoFile": {
+            "name": "Alias Smith/Season 2/Alias Smith and Jones - 2x06 - Something to Get Hung About.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 667572565,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%202/Alias%20Smith%20and%20Jones%20-%202x06%20-%20Something%20to%20Get%20Hung%20About.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s2e07",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "Alias Smith and Jones - - Six Strangers at Apache Springs",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2891,
+          "videoFile": {
+            "name": "Alias Smith/Season 2/Alias Smith and Jones - 2x07 - Six Strangers at Apache Springs.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 666453597,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%202/Alias%20Smith%20and%20Jones%20-%202x07%20-%20Six%20Strangers%20at%20Apache%20Springs.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s2e08",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "Alias Smith and Jones - - Night of the Red Dog",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2966,
+          "videoFile": {
+            "name": "Alias Smith/Season 2/Alias Smith and Jones - 2x08 - Night of the Red Dog.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 667139924,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%202/Alias%20Smith%20and%20Jones%20-%202x08%20-%20Night%20of%20the%20Red%20Dog.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s2e09",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Alias Smith and Jones - - The Reformation of Harry Briscoe",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2903,
+          "videoFile": {
+            "name": "Alias Smith/Season 2/Alias Smith and Jones - 2x09 - The Reformation of Harry Briscoe.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 666361692,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%202/Alias%20Smith%20and%20Jones%20-%202x09%20-%20The%20Reformation%20of%20Harry%20Briscoe.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s2e10",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "Alias Smith and Jones - - Dreadful Sorry, Clementine",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2964,
+          "videoFile": {
+            "name": "Alias Smith/Season 2/Alias Smith and Jones - 2x10 - Dreadful Sorry, Clementine.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 665988009,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%202/Alias%20Smith%20and%20Jones%20-%202x10%20-%20Dreadful%20Sorry%2C%20Clementine.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s2e11",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "Alias Smith and Jones - - Shootout at Diablo Station",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2898,
+          "videoFile": {
+            "name": "Alias Smith/Season 2/Alias Smith and Jones - 2x11 - Shootout at Diablo Station.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 667546031,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%202/Alias%20Smith%20and%20Jones%20-%202x11%20-%20Shootout%20at%20Diablo%20Station.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s2e12",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "Alias Smith and Jones - - The Bounty Hunter",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2963,
+          "videoFile": {
+            "name": "Alias Smith/Season 2/Alias Smith and Jones - 2x12 - The Bounty Hunter.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 665357482,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%202/Alias%20Smith%20and%20Jones%20-%202x12%20-%20The%20Bounty%20Hunter.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s2e13",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "Alias Smith and Jones - - Everything Else You Can Steal",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2962,
+          "videoFile": {
+            "name": "Alias Smith/Season 2/Alias Smith and Jones - 2x13 - Everything Else You Can Steal.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 664965509,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%202/Alias%20Smith%20and%20Jones%20-%202x13%20-%20Everything%20Else%20You%20Can%20Steal.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s2e14",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 2,
+          "episodeNumber": 14,
+          "title": "Alias Smith and Jones - - Miracle at Santa Marta",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2962,
+          "videoFile": {
+            "name": "Alias Smith/Season 2/Alias Smith and Jones - 2x14 - Miracle at Santa Marta.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 664273950,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%202/Alias%20Smith%20and%20Jones%20-%202x14%20-%20Miracle%20at%20Santa%20Marta.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s2e15",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 2,
+          "episodeNumber": 15,
+          "title": "Alias Smith and Jones - - 21 Days to Tenstrike",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2905,
+          "videoFile": {
+            "name": "Alias Smith/Season 2/Alias Smith and Jones - 2x15 - 21 Days to Tenstrike.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 664779179,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%202/Alias%20Smith%20and%20Jones%20-%202x15%20-%2021%20Days%20to%20Tenstrike.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s2e16",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 2,
+          "episodeNumber": 16,
+          "title": "Alias Smith and Jones - - The McCreedy Bust Going, Going, Gone",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2963,
+          "videoFile": {
+            "name": "Alias Smith/Season 2/Alias Smith and Jones - 2x16 - The McCreedy Bust Going, Going, Gone.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 664790562,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%202/Alias%20Smith%20and%20Jones%20-%202x16%20-%20The%20McCreedy%20Bust%20Going%2C%20Going%2C%20Gone.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s2e17",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 2,
+          "episodeNumber": 17,
+          "title": "Alias Smith and Jones - - The Man Who Broke the Bank at Red Gap",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2959,
+          "videoFile": {
+            "name": "Alias Smith/Season 2/Alias Smith and Jones - 2x17 - The Man Who Broke the Bank at Red Gap.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 666054952,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%202/Alias%20Smith%20and%20Jones%20-%202x17%20-%20The%20Man%20Who%20Broke%20the%20Bank%20at%20Red%20Gap.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s2e18",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 2,
+          "episodeNumber": 18,
+          "title": "Alias Smith and Jones - - The Men That Corrupted Hadleyburg",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2966,
+          "videoFile": {
+            "name": "Alias Smith/Season 2/Alias Smith and Jones - 2x18 - The Men That Corrupted Hadleyburg.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 665068035,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%202/Alias%20Smith%20and%20Jones%20-%202x18%20-%20The%20Men%20That%20Corrupted%20Hadleyburg.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s2e19",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 2,
+          "episodeNumber": 19,
+          "title": "Alias Smith and Jones - - The Biggest Game in the West",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2959,
+          "videoFile": {
+            "name": "Alias Smith/Season 2/Alias Smith and Jones - 2x19 - The Biggest Game in the West.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 665519863,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%202/Alias%20Smith%20and%20Jones%20-%202x19%20-%20The%20Biggest%20Game%20in%20the%20West.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s2e20",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 2,
+          "episodeNumber": 20,
+          "title": "Alias Smith and Jones - - Which Way to the O K. Corral",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2967,
+          "videoFile": {
+            "name": "Alias Smith/Season 2/Alias Smith and Jones - 2x20 - Which Way to the O.K. Corral.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 665252942,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%202/Alias%20Smith%20and%20Jones%20-%202x20%20-%20Which%20Way%20to%20the%20O.K.%20Corral.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s2e21",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 2,
+          "episodeNumber": 21,
+          "title": "Alias Smith and Jones - - Don't Get Mad, Get Even",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2894,
+          "videoFile": {
+            "name": "Alias Smith/Season 2/Alias Smith and Jones - 2x21 - Don't Get Mad, Get Even.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 665922799,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%202/Alias%20Smith%20and%20Jones%20-%202x21%20-%20Don%27t%20Get%20Mad%2C%20Get%20Even.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s2e22",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 2,
+          "episodeNumber": 22,
+          "title": "Alias Smith and Jones - - What's in It for Mia",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2902,
+          "videoFile": {
+            "name": "Alias Smith/Season 2/Alias Smith and Jones - 2x22 - What's in It for Mia.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 665146809,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%202/Alias%20Smith%20and%20Jones%20-%202x22%20-%20What%27s%20in%20It%20for%20Mia.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s2e23",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 2,
+          "episodeNumber": 23,
+          "title": "Alias Smith and Jones - - Bad Night in Big Butte",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 2967,
+          "videoFile": {
+            "name": "Alias Smith/Season 2/Alias Smith and Jones - 2x23 - Bad Night in Big Butte.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 664747625,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%202/Alias%20Smith%20and%20Jones%20-%202x23%20-%20Bad%20Night%20in%20Big%20Butte.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s3e01",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "The long chase",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3106,
+          "videoFile": {
+            "name": "Alias Smith/Season 3/S03E01 - The long chase.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 302626974,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%203/S03E01%20-%20The%20long%20chase.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s3e02",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 3,
+          "episodeNumber": 2,
+          "title": "High Lonesome Country",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3103,
+          "videoFile": {
+            "name": "Alias Smith/Season 3/S03E02 - High Lonesome Country.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 302411572,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%203/S03E02%20-%20High%20Lonesome%20Country.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s3e03",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 3,
+          "episodeNumber": 3,
+          "title": "The McCreedy Feud",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3113,
+          "videoFile": {
+            "name": "Alias Smith/Season 3/S03E03 - The McCreedy Feud.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 304398469,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%203/S03E03%20-%20The%20McCreedy%20Feud.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s3e04",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 3,
+          "episodeNumber": 4,
+          "title": "The Clementine Ingredient",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3104,
+          "videoFile": {
+            "name": "Alias Smith/Season 3/S03E04 - The Clementine Ingredient.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 304066027,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%203/S03E04%20-%20The%20Clementine%20Ingredient.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s3e05",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 3,
+          "episodeNumber": 5,
+          "title": "Bushwhack",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3091,
+          "videoFile": {
+            "name": "Alias Smith/Season 3/S03E05 - Bushwhack.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 302478516,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%203/S03E05%20-%20Bushwhack.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s3e06",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 3,
+          "episodeNumber": 6,
+          "title": "What happened at the XST",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3087,
+          "videoFile": {
+            "name": "Alias Smith/Season 3/S03E06 - What happened at the XST.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 304125570,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%203/S03E06%20-%20What%20happened%20at%20the%20XST.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s3e07",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 3,
+          "episodeNumber": 7,
+          "title": "The Ten days that shook Kid Curry",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3086,
+          "videoFile": {
+            "name": "Alias Smith/Season 3/S03E07 - The Ten days that shook Kid Curry.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 303790485,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%203/S03E07%20-%20The%20Ten%20days%20that%20shook%20Kid%20Curry.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s3e08",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 3,
+          "episodeNumber": 8,
+          "title": "The day the amnesty came through",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3089,
+          "videoFile": {
+            "name": "Alias Smith/Season 3/S03E08 - The day the amnesty came through.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 303906936,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%203/S03E08%20-%20The%20day%20the%20amnesty%20came%20through.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s3e09",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 3,
+          "episodeNumber": 9,
+          "title": "The Strange fate of Conrad Meyer Zulick",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3104,
+          "videoFile": {
+            "name": "Alias Smith/Season 3/S03E09 - The Strange fate of Conrad Meyer Zulick.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 303576463,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%203/S03E09%20-%20The%20Strange%20fate%20of%20Conrad%20Meyer%20Zulick.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s3e10",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 3,
+          "episodeNumber": 10,
+          "title": "McGuffin",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3104,
+          "videoFile": {
+            "name": "Alias Smith/Season 3/S03E10 - McGuffin.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 302934372,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%203/S03E10%20-%20McGuffin.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s3e11",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 3,
+          "episodeNumber": 11,
+          "title": "Witness to a Lynching",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3099,
+          "videoFile": {
+            "name": "Alias Smith/Season 3/S03E11 - Witness to a Lynching.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 303774710,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%203/S03E11%20-%20Witness%20to%20a%20Lynching.ia.mp4"
+        },
+        {
+          "archiveID": "Alias-Smith-And-Jones-1973@s3e12",
+          "sourceID": "Alias-Smith-And-Jones-1973",
+          "seasonNumber": 3,
+          "episodeNumber": 12,
+          "title": "Only Three to a Bed",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1973,
+          "runtimeSeconds": 3102,
+          "videoFile": {
+            "name": "Alias Smith/Season 3/S03E12 - Only Three to a Bed.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 305947419,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Alias-Smith-And-Jones-1973/Alias%20Smith/Season%203/S03E12%20-%20Only%20Three%20to%20a%20Bed.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 50,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

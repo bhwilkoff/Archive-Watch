@@ -1,0 +1,568 @@
+{
+  "version": 2,
+  "seriesID": "department-s-1970",
+  "sourceID": "department-s-complete-series-1970",
+  "tvmazeID": null,
+  "title": "Department S",
+  "yearStart": 1970,
+  "yearEnd": null,
+  "overview": "Department S is a British spy-fi adventure series, produced by ITC Entertainment. It consists of 28 episodes which originally aired in 1969 and 1970. It stars Peter Wyngarde as author Jason King (later featured in spin-off series Jason King ), Joel Fabiani as field investigator Stewart Sullivan, and Rosemary Nicols as computer expert Annabelle Hurst. These three are agents for a fictional special department (the \"S\" of the title) of Interpol. The head of Department S is Sir Curtis Seretse ( Dennis Alaba Peters ). \"When a case proves too baffling for the minds of Interpol, they turn to the talents of Department S.\"; from the ITC trailer for the series. The series was created by Dennis Spooner and Monty Berman, although neither wrote any of the episodes, which were instead scripted by ITC regulars such as Terry Nation and Philip Broadley. Many of the directors on the show had also worked on other ITC shows such as The Saint, Danger Man and Randall and Hopkirk (Deceased) . The series was shot on 35mm film and designed, like all ITC's film productions, to fit the United States commercial format. Although episodes begin with a cold open (after the 'S' logo is shown), unusually, the episode title, writer and director credits appear on screen before the opening title sequence, though after the theme tune has started. With a few exceptions, the principal cast is always studio-bound. Some exteriors are represented by studio buildings, while the rest are mainly shown in second-unit footage using doubles where necessary. Outside locations were, in common with similar series, largely restricted to the Hertfordshire countryside in the vicinity of Borehamwood. At least one foreign location was used, featuring Peter Wyngarde on the streets of Vienna. Otherwise, foreign locations are usually established by the use of stock footage. Department S is a division of Interpol headed by international bureaucrat Sir Curtis Seretse ( Dennis Alaba Peters ). Its headquarters is in Paris and its members investigate international cases that other crime agencies cannot solve. The team itself is led by American and former FBI agent Stewart Sullivan ( Joel Fabiani ), who takes direction from Seretse. Outside of his FBI experience, little is known about Stewart except that he is pragmatic and hands-on, and does much of the leg-work, confronting the criminals. Jason King ( Peter Wyngarde ) is the ideas man, but also helps in the field. He is an adventure novelist who uses details from their cases to write his novels. The living he makes writing novels affords him a hedonistic lifestyle, and he is often seen with \"beautiful\" women though he has no permanent love interest in the series; in one episode he mentions he is a widower whose wife was killed in a plane crash. Jason King also serves as comic relief in the series, especially in scenes of hand-to-hand combat where he winds up being subdued as often as he prevails. Annabelle Hurst ( Rosemary Nicols ) is a computer expert and analyst as well as a field investigator. She sometimes appears in seductive, glamorous disguises, and is shown in her underwear in the first episode. There are ongoing hints of romantic interest between Stewart and Annabelle during the series.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/department-s-complete-series-1970.a94862cd.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Sci-Fi",
+    "Mystery",
+    "Action"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "department-s-complete-series-1970@s1e01",
+          "sourceID": "department-s-complete-series-1970",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Six Days",
+          "overview": null,
+          "stillURL": "https://archive.org/download/department-s-complete-series-1970/department-s-complete-series-1970.thumbs/Department%20S%20S01E01%20Six%20Days_001435.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 2917,
+          "videoFile": {
+            "name": "Department S S01E01 Six Days.mp4",
+            "format": "h.264",
+            "sizeBytes": 276850664,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/department-s-complete-series-1970/Department%20S%20S01E01%20Six%20Days.mp4"
+        },
+        {
+          "archiveID": "department-s-complete-series-1970@s1e02",
+          "sourceID": "department-s-complete-series-1970",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Trojan Tanker",
+          "overview": null,
+          "stillURL": "https://archive.org/download/department-s-complete-series-1970/department-s-complete-series-1970.thumbs/Department%20S%20S01E02%20The%20Trojan%20Tanker_001428.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 2896,
+          "videoFile": {
+            "name": "Department S S01E02 The Trojan Tanker.mp4",
+            "format": "h.264",
+            "sizeBytes": 273795529,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/department-s-complete-series-1970/Department%20S%20S01E02%20The%20Trojan%20Tanker.mp4"
+        },
+        {
+          "archiveID": "department-s-complete-series-1970@s1e03",
+          "sourceID": "department-s-complete-series-1970",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "A Cellar Full Of Silence",
+          "overview": null,
+          "stillURL": "https://archive.org/download/department-s-complete-series-1970/department-s-complete-series-1970.thumbs/Department%20S%20S01E03%20A%20Cellar%20Full%20Of%20Silence_001429.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 2903,
+          "videoFile": {
+            "name": "Department S S01E03 A Cellar Full Of Silence.mp4",
+            "format": "h.264",
+            "sizeBytes": 276577883,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/department-s-complete-series-1970/Department%20S%20S01E03%20A%20Cellar%20Full%20Of%20Silence.mp4"
+        },
+        {
+          "archiveID": "department-s-complete-series-1970@s1e04",
+          "sourceID": "department-s-complete-series-1970",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Pied Piper Of Hambledown",
+          "overview": null,
+          "stillURL": "https://archive.org/download/department-s-complete-series-1970/department-s-complete-series-1970.thumbs/Department%20S%20S01E04%20The%20Pied%20Piper%20Of%20Hambledown_001429.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 2903,
+          "videoFile": {
+            "name": "Department S S01E04 The Pied Piper Of Hambledown.mp4",
+            "format": "h.264",
+            "sizeBytes": 275289548,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/department-s-complete-series-1970/Department%20S%20S01E04%20The%20Pied%20Piper%20Of%20Hambledown.mp4"
+        },
+        {
+          "archiveID": "department-s-complete-series-1970@s1e05",
+          "sourceID": "department-s-complete-series-1970",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "One Of Our Aircraft Is Empty",
+          "overview": null,
+          "stillURL": "https://archive.org/download/department-s-complete-series-1970/department-s-complete-series-1970.thumbs/Department%20S%20S01E05%20One%20Of%20Our%20Aircraft%20Is%20Empty_001432.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 2903,
+          "videoFile": {
+            "name": "Department S S01E05 One Of Our Aircraft Is Empty.mp4",
+            "format": "h.264",
+            "sizeBytes": 274869551,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/department-s-complete-series-1970/Department%20S%20S01E05%20One%20Of%20Our%20Aircraft%20Is%20Empty.mp4"
+        },
+        {
+          "archiveID": "department-s-complete-series-1970@s1e06",
+          "sourceID": "department-s-complete-series-1970",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Man In The Elegent Room",
+          "overview": null,
+          "stillURL": "https://archive.org/download/department-s-complete-series-1970/department-s-complete-series-1970.thumbs/Department%20S%20S01E06%20The%20Man%20In%20The%20Elegent%20Room_001436.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 2921,
+          "videoFile": {
+            "name": "Department S S01E06 The Man In The Elegent Room.mp4",
+            "format": "h.264",
+            "sizeBytes": 277337498,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/department-s-complete-series-1970/Department%20S%20S01E06%20The%20Man%20In%20The%20Elegent%20Room.mp4"
+        },
+        {
+          "archiveID": "department-s-complete-series-1970@s1e07",
+          "sourceID": "department-s-complete-series-1970",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Handicap Dead",
+          "overview": null,
+          "stillURL": "https://archive.org/download/department-s-complete-series-1970/department-s-complete-series-1970.thumbs/Department%20S%20S01E07%20Handicap%20Dead_001426.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 2906,
+          "videoFile": {
+            "name": "Department S S01E07 Handicap Dead.mp4",
+            "format": "h.264",
+            "sizeBytes": 275209866,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/department-s-complete-series-1970/Department%20S%20S01E07%20Handicap%20Dead.mp4"
+        },
+        {
+          "archiveID": "department-s-complete-series-1970@s1e08",
+          "sourceID": "department-s-complete-series-1970",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Black Out",
+          "overview": null,
+          "stillURL": "https://archive.org/download/department-s-complete-series-1970/department-s-complete-series-1970.thumbs/Department%20S%20S01E08%20Black%20Out_001436.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 2920,
+          "videoFile": {
+            "name": "Department S S01E08 Black Out.mp4",
+            "format": "h.264",
+            "sizeBytes": 276598730,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/department-s-complete-series-1970/Department%20S%20S01E08%20Black%20Out.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "department-s-complete-series-1970@s2e01",
+          "sourceID": "department-s-complete-series-1970",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Who Plays The Dummy",
+          "overview": null,
+          "stillURL": "https://archive.org/download/department-s-complete-series-1970/department-s-complete-series-1970.thumbs/Department%20S%20S02E01%20Who%20Plays%20The%20Dummy_001382.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 2819,
+          "videoFile": {
+            "name": "Department S S02E01 Who Plays The Dummy.mp4",
+            "format": "h.264",
+            "sizeBytes": 265980155,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/department-s-complete-series-1970/Department%20S%20S02E01%20Who%20Plays%20The%20Dummy.mp4"
+        },
+        {
+          "archiveID": "department-s-complete-series-1970@s2e02",
+          "sourceID": "department-s-complete-series-1970",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "The Treasure Of The Costa Del Sol",
+          "overview": null,
+          "stillURL": "https://archive.org/download/department-s-complete-series-1970/department-s-complete-series-1970.thumbs/Department%20S%20S02E02%20The%20Treasure%20Of%20The%20Costa%20Del%20Sol_001433.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 2907,
+          "videoFile": {
+            "name": "Department S S02E02 The Treasure Of The Costa Del Sol.mp4",
+            "format": "h.264",
+            "sizeBytes": 274711634,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/department-s-complete-series-1970/Department%20S%20S02E02%20The%20Treasure%20Of%20The%20Costa%20Del%20Sol.mp4"
+        },
+        {
+          "archiveID": "department-s-complete-series-1970@s2e03",
+          "sourceID": "department-s-complete-series-1970",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "The Man Who Got A New Face",
+          "overview": null,
+          "stillURL": "https://archive.org/download/department-s-complete-series-1970/department-s-complete-series-1970.thumbs/Department%20S%20S02E03%20The%20Man%20Who%20Got%20A%20New%20Face_001421.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 2898,
+          "videoFile": {
+            "name": "Department S S02E03 The Man Who Got A New Face.mp4",
+            "format": "h.264",
+            "sizeBytes": 274668174,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/department-s-complete-series-1970/Department%20S%20S02E03%20The%20Man%20Who%20Got%20A%20New%20Face.mp4"
+        },
+        {
+          "archiveID": "department-s-complete-series-1970@s2e04",
+          "sourceID": "department-s-complete-series-1970",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "Les Fleurs Du Mal",
+          "overview": null,
+          "stillURL": "https://archive.org/download/department-s-complete-series-1970/department-s-complete-series-1970.thumbs/Department%20S%20S02E04%20Les%20Fleurs%20Du%20Mal_001429.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 2911,
+          "videoFile": {
+            "name": "Department S S02E04 Les Fleurs Du Mal.mp4",
+            "format": "h.264",
+            "sizeBytes": 276080026,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/department-s-complete-series-1970/Department%20S%20S02E04%20Les%20Fleurs%20Du%20Mal.mp4"
+        },
+        {
+          "archiveID": "department-s-complete-series-1970@s2e05",
+          "sourceID": "department-s-complete-series-1970",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "The Shift That Never Was",
+          "overview": null,
+          "stillURL": "https://archive.org/download/department-s-complete-series-1970/department-s-complete-series-1970.thumbs/Department%20S%20S02E05%20The%20Shift%20That%20Never%20Was_001423.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 2899,
+          "videoFile": {
+            "name": "Department S S02E05 The Shift That Never Was.mp4",
+            "format": "h.264",
+            "sizeBytes": 273029196,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/department-s-complete-series-1970/Department%20S%20S02E05%20The%20Shift%20That%20Never%20Was.mp4"
+        },
+        {
+          "archiveID": "department-s-complete-series-1970@s2e06",
+          "sourceID": "department-s-complete-series-1970",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "The Man From X",
+          "overview": null,
+          "stillURL": "https://archive.org/download/department-s-complete-series-1970/department-s-complete-series-1970.thumbs/Department%20S%20S02E06%20The%20Man%20From%20X_001425.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 2896,
+          "videoFile": {
+            "name": "Department S S02E06 The Man From X.mp4",
+            "format": "h.264",
+            "sizeBytes": 274318476,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/department-s-complete-series-1970/Department%20S%20S02E06%20The%20Man%20From%20X.mp4"
+        },
+        {
+          "archiveID": "department-s-complete-series-1970@s2e07",
+          "sourceID": "department-s-complete-series-1970",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "Dead Men Die Twice",
+          "overview": null,
+          "stillURL": "https://archive.org/download/department-s-complete-series-1970/department-s-complete-series-1970.thumbs/Department%20S%20S02E07%20Dead%20Men%20Die%20Twice_001429.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 2916,
+          "videoFile": {
+            "name": "Department S S02E07 Dead Men Die Twice.mp4",
+            "format": "h.264",
+            "sizeBytes": 275757658,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/department-s-complete-series-1970/Department%20S%20S02E07%20Dead%20Men%20Die%20Twice.mp4"
+        },
+        {
+          "archiveID": "department-s-complete-series-1970@s2e08",
+          "sourceID": "department-s-complete-series-1970",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "The Perfect Operation",
+          "overview": null,
+          "stillURL": "https://archive.org/download/department-s-complete-series-1970/department-s-complete-series-1970.thumbs/Department%20S%20S02E08%20The%20Perfect%20Operation_001429.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 2913,
+          "videoFile": {
+            "name": "Department S S02E08 The Perfect Operation.mp4",
+            "format": "h.264",
+            "sizeBytes": 276679342,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/department-s-complete-series-1970/Department%20S%20S02E08%20The%20Perfect%20Operation.mp4"
+        },
+        {
+          "archiveID": "department-s-complete-series-1970@s2e09",
+          "sourceID": "department-s-complete-series-1970",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "The Duplicated Man",
+          "overview": null,
+          "stillURL": "https://archive.org/download/department-s-complete-series-1970/department-s-complete-series-1970.thumbs/Department%20S%20S02E09%20The%20Duplicated%20Man_001434.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 2918,
+          "videoFile": {
+            "name": "Department S S02E09 The Duplicated Man.mp4",
+            "format": "h.264",
+            "sizeBytes": 276987721,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/department-s-complete-series-1970/Department%20S%20S02E09%20The%20Duplicated%20Man.mp4"
+        },
+        {
+          "archiveID": "department-s-complete-series-1970@s2e10",
+          "sourceID": "department-s-complete-series-1970",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "The Mysterious Man In The Flying Machine",
+          "overview": null,
+          "stillURL": "https://archive.org/download/department-s-complete-series-1970/department-s-complete-series-1970.thumbs/Department%20S%20S02E10%20The%20Mysterious%20Man%20In%20The%20Flying%20Machine_001424.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 2901,
+          "videoFile": {
+            "name": "Department S S02E10 The Mysterious Man In The Flying Machine.mp4",
+            "format": "h.264",
+            "sizeBytes": 275055260,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/department-s-complete-series-1970/Department%20S%20S02E10%20The%20Mysterious%20Man%20In%20The%20Flying%20Machine.mp4"
+        },
+        {
+          "archiveID": "department-s-complete-series-1970@s2e11",
+          "sourceID": "department-s-complete-series-1970",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "Death On Reflection",
+          "overview": null,
+          "stillURL": "https://archive.org/download/department-s-complete-series-1970/department-s-complete-series-1970.thumbs/Department%20S%20S02E11%20Death%20On%20Reflection_001433.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 2924,
+          "videoFile": {
+            "name": "Department S S02E11 Death On Reflection.mp4",
+            "format": "h.264",
+            "sizeBytes": 277676018,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/department-s-complete-series-1970/Department%20S%20S02E11%20Death%20On%20Reflection.mp4"
+        },
+        {
+          "archiveID": "department-s-complete-series-1970@s2e12",
+          "sourceID": "department-s-complete-series-1970",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "The Last Train To Redbridge",
+          "overview": null,
+          "stillURL": "https://archive.org/download/department-s-complete-series-1970/department-s-complete-series-1970.thumbs/Department%20S%20S02E12%20The%20Last%20Train%20To%20Redbridge_001440.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 2937,
+          "videoFile": {
+            "name": "Department S S02E12 The Last Train To Redbridge.mp4",
+            "format": "h.264",
+            "sizeBytes": 279117684,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/department-s-complete-series-1970/Department%20S%20S02E12%20The%20Last%20Train%20To%20Redbridge.mp4"
+        },
+        {
+          "archiveID": "department-s-complete-series-1970@s2e13",
+          "sourceID": "department-s-complete-series-1970",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "A Small War Of Nerves",
+          "overview": null,
+          "stillURL": "https://archive.org/download/department-s-complete-series-1970/department-s-complete-series-1970.thumbs/Department%20S%20S02E13%20A%20Small%20War%20Of%20Nerves_001425.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 2909,
+          "videoFile": {
+            "name": "Department S S02E13 A Small War Of Nerves.mp4",
+            "format": "h.264",
+            "sizeBytes": 275729269,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/department-s-complete-series-1970/Department%20S%20S02E13%20A%20Small%20War%20Of%20Nerves.mp4"
+        },
+        {
+          "archiveID": "department-s-complete-series-1970@s2e14",
+          "sourceID": "department-s-complete-series-1970",
+          "seasonNumber": 2,
+          "episodeNumber": 14,
+          "title": "The Bones Of Byrom Blain",
+          "overview": null,
+          "stillURL": "https://archive.org/download/department-s-complete-series-1970/department-s-complete-series-1970.thumbs/Department%20S%20S02E14%20The%20Bones%20Of%20Byrom%20Blain_001430.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 2912,
+          "videoFile": {
+            "name": "Department S S02E14 The Bones Of Byrom Blain.mp4",
+            "format": "h.264",
+            "sizeBytes": 274919542,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/department-s-complete-series-1970/Department%20S%20S02E14%20The%20Bones%20Of%20Byrom%20Blain.mp4"
+        },
+        {
+          "archiveID": "department-s-complete-series-1970@s2e15",
+          "sourceID": "department-s-complete-series-1970",
+          "seasonNumber": 2,
+          "episodeNumber": 15,
+          "title": "Spencer Bodily Is Sixty Years Old",
+          "overview": null,
+          "stillURL": "https://archive.org/download/department-s-complete-series-1970/department-s-complete-series-1970.thumbs/Department%20S%20S02E15%20Spencer%20Bodily%20Is%20Sixty%20Years%20Old_001434.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 2910,
+          "videoFile": {
+            "name": "Department S S02E15 Spencer Bodily Is Sixty Years Old.mp4",
+            "format": "h.264",
+            "sizeBytes": 275539383,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/department-s-complete-series-1970/Department%20S%20S02E15%20Spencer%20Bodily%20Is%20Sixty%20Years%20Old.mp4"
+        },
+        {
+          "archiveID": "department-s-complete-series-1970@s2e16",
+          "sourceID": "department-s-complete-series-1970",
+          "seasonNumber": 2,
+          "episodeNumber": 16,
+          "title": "The Ghost Of Mary Burnham",
+          "overview": null,
+          "stillURL": "https://archive.org/download/department-s-complete-series-1970/department-s-complete-series-1970.thumbs/Department%20S%20S02E16%20The%20Ghost%20Of%20Mary%20Burnham_001428.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 2913,
+          "videoFile": {
+            "name": "Department S S02E16 The Ghost Of Mary Burnham.mp4",
+            "format": "h.264",
+            "sizeBytes": 275347501,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/department-s-complete-series-1970/Department%20S%20S02E16%20The%20Ghost%20Of%20Mary%20Burnham.mp4"
+        },
+        {
+          "archiveID": "department-s-complete-series-1970@s2e17",
+          "sourceID": "department-s-complete-series-1970",
+          "seasonNumber": 2,
+          "episodeNumber": 17,
+          "title": "A Fish Out Of Water",
+          "overview": null,
+          "stillURL": "https://archive.org/download/department-s-complete-series-1970/department-s-complete-series-1970.thumbs/Department%20S%20S02E17%20A%20Fish%20Out%20Of%20Water_001433.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 2911,
+          "videoFile": {
+            "name": "Department S S02E17 A Fish Out Of Water.mp4",
+            "format": "h.264",
+            "sizeBytes": 275407098,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/department-s-complete-series-1970/Department%20S%20S02E17%20A%20Fish%20Out%20Of%20Water.mp4"
+        },
+        {
+          "archiveID": "department-s-complete-series-1970@s2e18",
+          "sourceID": "department-s-complete-series-1970",
+          "seasonNumber": 2,
+          "episodeNumber": 18,
+          "title": "The Soup Of The Day",
+          "overview": null,
+          "stillURL": "https://archive.org/download/department-s-complete-series-1970/department-s-complete-series-1970.thumbs/Department%20S%20S02E18%20The%20Soup%20Of%20The%20Day_001435.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 2922,
+          "videoFile": {
+            "name": "Department S S02E18 The Soup Of The Day.mp4",
+            "format": "h.264",
+            "sizeBytes": 277671449,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/department-s-complete-series-1970/Department%20S%20S02E18%20The%20Soup%20Of%20The%20Day.mp4"
+        },
+        {
+          "archiveID": "department-s-complete-series-1970@s2e19",
+          "sourceID": "department-s-complete-series-1970",
+          "seasonNumber": 2,
+          "episodeNumber": 19,
+          "title": "A Ticket To Nowhere",
+          "overview": null,
+          "stillURL": "https://archive.org/download/department-s-complete-series-1970/department-s-complete-series-1970.thumbs/Department%20S%20S02E19%20A%20Ticket%20To%20Nowhere_001427.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 2909,
+          "videoFile": {
+            "name": "Department S S02E19 A Ticket To Nowhere.mp4",
+            "format": "h.264",
+            "sizeBytes": 275060214,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/department-s-complete-series-1970/Department%20S%20S02E19%20A%20Ticket%20To%20Nowhere.mp4"
+        },
+        {
+          "archiveID": "department-s-complete-series-1970@s2e20",
+          "sourceID": "department-s-complete-series-1970",
+          "seasonNumber": 2,
+          "episodeNumber": 20,
+          "title": "The Double Death Of Charlie Crippen",
+          "overview": null,
+          "stillURL": "https://archive.org/download/department-s-complete-series-1970/department-s-complete-series-1970.thumbs/Department%20S%20S02E20%20The%20Double%20Death%20Of%20Charlie%20Crippen_001436.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 2912,
+          "videoFile": {
+            "name": "Department S S02E20 The Double Death Of Charlie Crippen.mp4",
+            "format": "h.264",
+            "sizeBytes": 277577336,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/department-s-complete-series-1970/Department%20S%20S02E20%20The%20Double%20Death%20Of%20Charlie%20Crippen.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 28,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

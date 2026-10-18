@@ -1,0 +1,295 @@
+{
+  "version": 2,
+  "seriesID": "winners-of-the-west-1921",
+  "sourceID": "chapter-01-redskins-ride-again",
+  "tvmazeID": null,
+  "title": "Winners of the West",
+  "yearStart": 1921,
+  "yearEnd": null,
+  "overview": "Picturization of the trail breaking expedition of Capt. John C. Fremont in 1849 to the California gold fields.",
+  "posterURL": "https://commons.wikimedia.org/wiki/Special:FilePath/Winners_of_the_West_FilmPoster.jpeg?width=600",
+  "backdropURL": null,
+  "genres": [
+    "Western"
+  ],
+  "networks": [],
+  "creator": "Edward Laemmle",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "chapter-01-redskins-ride-again@e01",
+          "sourceID": "chapter-01-redskins-ride-again",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Redskins Ride Again",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-redskins-ride-again/chapter-01-redskins-ride-again.thumbs/Chapter%2001%20-%20Redskins%20Ride%20Again_000565.jpg",
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 1447,
+          "videoFile": {
+            "name": "Chapter 01 - Redskins Ride Again.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 318346959,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-redskins-ride-again/Chapter%2001%20-%20Redskins%20Ride%20Again.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-redskins-ride-again@e02",
+          "sourceID": "chapter-01-redskins-ride-again",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Wreck at Red River Gorge",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-redskins-ride-again/chapter-01-redskins-ride-again.thumbs/Chapter%2002%20-%20The%20Wreck%20at%20Red%20River%20Gorge_000477.jpg",
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 1252,
+          "videoFile": {
+            "name": "Chapter 02 - The Wreck at Red River Gorge.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 181218541,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-redskins-ride-again/Chapter%2002%20-%20The%20Wreck%20at%20Red%20River%20Gorge.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-redskins-ride-again@e03",
+          "sourceID": "chapter-01-redskins-ride-again",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Bridge of Disaster",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-redskins-ride-again/chapter-01-redskins-ride-again.thumbs/Chapter%2003%20-%20The%20Bridge%20of%20Disaster_000534.jpg",
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 1286,
+          "videoFile": {
+            "name": "Chapter 03 - The Bridge of Disaster.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 227252118,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-redskins-ride-again/Chapter%2003%20-%20The%20Bridge%20of%20Disaster.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-redskins-ride-again@e04",
+          "sourceID": "chapter-01-redskins-ride-again",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Trapped by Redskins",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-redskins-ride-again/chapter-01-redskins-ride-again.thumbs/Chapter%2004%20-%20Trapped%20by%20Redskins_000414.jpg",
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 1077,
+          "videoFile": {
+            "name": "Chapter 04 - Trapped by Redskins.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 203315864,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-redskins-ride-again/Chapter%2004%20-%20Trapped%20by%20Redskins.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-redskins-ride-again@e05",
+          "sourceID": "chapter-01-redskins-ride-again",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Death Strikes the Trail",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-redskins-ride-again/chapter-01-redskins-ride-again.thumbs/Chapter%2005%20-%20Death%20Strikes%20the%20Trail_000359.jpg",
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 1016,
+          "videoFile": {
+            "name": "Chapter 05 - Death Strikes the Trail.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 207634748,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-redskins-ride-again/Chapter%2005%20-%20Death%20Strikes%20the%20Trail.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-redskins-ride-again@e06",
+          "sourceID": "chapter-01-redskins-ride-again",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "A Leap for Life",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-redskins-ride-again/chapter-01-redskins-ride-again.thumbs/Chapter%2006%20-%20A%20Leap%20for%20Life_000475.jpg",
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 1222,
+          "videoFile": {
+            "name": "Chapter 06 - A Leap for Life.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 206767839,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-redskins-ride-again/Chapter%2006%20-%20A%20Leap%20for%20Life.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-redskins-ride-again@e07",
+          "sourceID": "chapter-01-redskins-ride-again",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Thundering Terror",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-redskins-ride-again/chapter-01-redskins-ride-again.thumbs/Chapter%2007%20-%20Thundering%20Terror_000479.jpg",
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 1125,
+          "videoFile": {
+            "name": "Chapter 07 - Thundering Terror.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 220922542,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-redskins-ride-again/Chapter%2007%20-%20Thundering%20Terror.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-redskins-ride-again@e08",
+          "sourceID": "chapter-01-redskins-ride-again",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Flaming Arsenal",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-redskins-ride-again/chapter-01-redskins-ride-again.thumbs/Chapter%2008%20-%20The%20Flaming%20Arsenal_000415.jpg",
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 1047,
+          "videoFile": {
+            "name": "Chapter 08 - The Flaming Arsenal.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 198173946,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-redskins-ride-again/Chapter%2008%20-%20The%20Flaming%20Arsenal.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-redskins-ride-again@e09",
+          "sourceID": "chapter-01-redskins-ride-again",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Sacrificed by Savages",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-redskins-ride-again/chapter-01-redskins-ride-again.thumbs/Chapter%2009%20-%20Sacrificed%20by%20Savages_000479.jpg",
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 1204,
+          "videoFile": {
+            "name": "Chapter 09 - Sacrificed by Savages.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 280450649,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-redskins-ride-again/Chapter%2009%20-%20Sacrificed%20by%20Savages.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-redskins-ride-again@e10",
+          "sourceID": "chapter-01-redskins-ride-again",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Under Crashing Timbers",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-redskins-ride-again/chapter-01-redskins-ride-again.thumbs/Chapter%2010%20-%20Under%20Crashing%20Timbers_000416.jpg",
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 1053,
+          "videoFile": {
+            "name": "Chapter 10 - Under Crashing Timbers.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 195998584,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-redskins-ride-again/Chapter%2010%20-%20Under%20Crashing%20Timbers.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-redskins-ride-again@e11",
+          "sourceID": "chapter-01-redskins-ride-again",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Bullets in the Dark",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-redskins-ride-again/chapter-01-redskins-ride-again.thumbs/Chapter%2011%20-%20Bullets%20in%20the%20Dark_000482.jpg",
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 1199,
+          "videoFile": {
+            "name": "Chapter 11 - Bullets in the Dark.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 220809605,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-redskins-ride-again/Chapter%2011%20-%20Bullets%20in%20the%20Dark.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-redskins-ride-again@e12",
+          "sourceID": "chapter-01-redskins-ride-again",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Battle of Blackhawk",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-redskins-ride-again/chapter-01-redskins-ride-again.thumbs/Chapter%2012%20-%20The%20Battle%20of%20Blackhawk_000415.jpg",
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 1051,
+          "videoFile": {
+            "name": "Chapter 12 - The Battle of Blackhawk.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 159365242,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-redskins-ride-again/Chapter%2012%20-%20The%20Battle%20of%20Blackhawk.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-redskins-ride-again@e13",
+          "sourceID": "chapter-01-redskins-ride-again",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Barricade Blasted",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-redskins-ride-again/chapter-01-redskins-ride-again.thumbs/Chapter%2013%20-%20Barricade%20Blasted_000420.jpg",
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 1074,
+          "videoFile": {
+            "name": "Chapter 13 - Barricade Blasted.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 177471446,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-redskins-ride-again/Chapter%2013%20-%20Barricade%20Blasted.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 13,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "commons",
+  "cast": [
+    {
+      "name": "Art Acord",
+      "character": null,
+      "order": 0,
+      "profilePath": "/oQkLrz7mdwkawVQE9KtMTM7ydDL.jpg"
+    },
+    {
+      "name": "Myrtle Lind",
+      "character": null,
+      "order": 1,
+      "profilePath": "/cFW9BXmTAuXjkoLOE4Jo0cncLSA.jpg"
+    },
+    {
+      "name": "Burton Law",
+      "character": null,
+      "order": 2,
+      "profilePath": "/1Bn1if7PS8BhVp7UNckOqtMZFoQ.jpg"
+    }
+  ]
+}

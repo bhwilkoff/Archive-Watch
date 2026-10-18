@@ -1,0 +1,277 @@
+{
+  "version": 2,
+  "seriesID": "pathfinders-1972",
+  "sourceID": "pathfinders-1972-s-01-e-03",
+  "tvmazeID": null,
+  "title": "Pathfinders",
+  "yearStart": 1972,
+  "yearEnd": null,
+  "overview": "World War II Royal Air Force squadron behind enemy lines.",
+  "posterURL": "https://archive.org/services/img/pathfinders-1972-s-01-e-03",
+  "backdropURL": null,
+  "genres": [
+    "War",
+    "Drama"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "pathfinders-1972-s-01-e-03@s1e01",
+          "sourceID": "pathfinders-1972-s-01-e-03",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "1972",
+          "overview": null,
+          "stillURL": "https://archive.org/download/pathfinders-1972-s-01-e-03/pathfinders-1972-s-01-e-03.thumbs/Pathfinders%201972%20S01E01_001161.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 2996,
+          "videoFile": {
+            "name": "Pathfinders 1972 S01E01.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 311705603,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/pathfinders-1972-s-01-e-03/Pathfinders%201972%20S01E01.mp4"
+        },
+        {
+          "archiveID": "pathfinders-1972-s-01-e-03@s1e02",
+          "sourceID": "pathfinders-1972-s-01-e-03",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "1972",
+          "overview": null,
+          "stillURL": "https://archive.org/download/pathfinders-1972-s-01-e-03/pathfinders-1972-s-01-e-03.thumbs/Pathfinders%201972%20S01E02_001152.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 2975,
+          "videoFile": {
+            "name": "Pathfinders 1972 S01E02.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 340338629,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/pathfinders-1972-s-01-e-03/Pathfinders%201972%20S01E02.mp4"
+        },
+        {
+          "archiveID": "pathfinders-1972-s-01-e-03@s1e03",
+          "sourceID": "pathfinders-1972-s-01-e-03",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "1972",
+          "overview": null,
+          "stillURL": "https://archive.org/download/pathfinders-1972-s-01-e-03/pathfinders-1972-s-01-e-03.thumbs/Pathfinders%201972%20S01E03_001164.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 3004,
+          "videoFile": {
+            "name": "Pathfinders 1972 S01E03.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 425845693,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/pathfinders-1972-s-01-e-03/Pathfinders%201972%20S01E03.mp4"
+        },
+        {
+          "archiveID": "pathfinders-1972-s-01-e-03@s1e04",
+          "sourceID": "pathfinders-1972-s-01-e-03",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "1972",
+          "overview": null,
+          "stillURL": "https://archive.org/download/pathfinders-1972-s-01-e-03/pathfinders-1972-s-01-e-03.thumbs/Pathfinders%201972%20S01E04_001161.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 2997,
+          "videoFile": {
+            "name": "Pathfinders 1972 S01E04.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 313899205,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/pathfinders-1972-s-01-e-03/Pathfinders%201972%20S01E04.mp4"
+        },
+        {
+          "archiveID": "pathfinders-1972-s-01-e-03@s1e05",
+          "sourceID": "pathfinders-1972-s-01-e-03",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "1972",
+          "overview": null,
+          "stillURL": "https://archive.org/download/pathfinders-1972-s-01-e-03/pathfinders-1972-s-01-e-03.thumbs/Pathfinders%201972%20S01E05_001164.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 3006,
+          "videoFile": {
+            "name": "Pathfinders 1972 S01E05.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 333908224,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/pathfinders-1972-s-01-e-03/Pathfinders%201972%20S01E05.mp4"
+        },
+        {
+          "archiveID": "pathfinders-1972-s-01-e-03@s1e06",
+          "sourceID": "pathfinders-1972-s-01-e-03",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "1972",
+          "overview": null,
+          "stillURL": "https://archive.org/download/pathfinders-1972-s-01-e-03/pathfinders-1972-s-01-e-03.thumbs/Pathfinders%201972%20S01E06_001161.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 2993,
+          "videoFile": {
+            "name": "Pathfinders 1972 S01E06.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 295294820,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/pathfinders-1972-s-01-e-03/Pathfinders%201972%20S01E06.mp4"
+        },
+        {
+          "archiveID": "pathfinders-1972-s-01-e-03@s1e07",
+          "sourceID": "pathfinders-1972-s-01-e-03",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "1972",
+          "overview": null,
+          "stillURL": "https://archive.org/download/pathfinders-1972-s-01-e-03/pathfinders-1972-s-01-e-03.thumbs/Pathfinders%201972%20S01E07_001143.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 2953,
+          "videoFile": {
+            "name": "Pathfinders 1972 S01E07.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 278372452,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/pathfinders-1972-s-01-e-03/Pathfinders%201972%20S01E07.mp4"
+        },
+        {
+          "archiveID": "pathfinders-1972-s-01-e-03@s1e08",
+          "sourceID": "pathfinders-1972-s-01-e-03",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "1972",
+          "overview": null,
+          "stillURL": "https://archive.org/download/pathfinders-1972-s-01-e-03/pathfinders-1972-s-01-e-03.thumbs/Pathfinders%201972%20S01E08_001206.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 3110,
+          "videoFile": {
+            "name": "Pathfinders 1972 S01E08.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 379466762,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/pathfinders-1972-s-01-e-03/Pathfinders%201972%20S01E08.mp4"
+        },
+        {
+          "archiveID": "pathfinders-1972-s-01-e-03@s1e09",
+          "sourceID": "pathfinders-1972-s-01-e-03",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "1972",
+          "overview": null,
+          "stillURL": "https://archive.org/download/pathfinders-1972-s-01-e-03/pathfinders-1972-s-01-e-03.thumbs/Pathfinders%201972%20S01E09_001161.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 2996,
+          "videoFile": {
+            "name": "Pathfinders 1972 S01E09.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 252840282,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/pathfinders-1972-s-01-e-03/Pathfinders%201972%20S01E09.mp4"
+        },
+        {
+          "archiveID": "pathfinders-1972-s-01-e-03@s1e10",
+          "sourceID": "pathfinders-1972-s-01-e-03",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "1973",
+          "overview": null,
+          "stillURL": "https://archive.org/download/pathfinders-1972-s-01-e-03/pathfinders-1972-s-01-e-03.thumbs/Pathfinders%201973%20S01E10_001161.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 2996,
+          "videoFile": {
+            "name": "Pathfinders 1973 S01E10.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 266590269,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/pathfinders-1972-s-01-e-03/Pathfinders%201973%20S01E10.mp4"
+        },
+        {
+          "archiveID": "pathfinders-1972-s-01-e-03@s1e11",
+          "sourceID": "pathfinders-1972-s-01-e-03",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "1973",
+          "overview": null,
+          "stillURL": "https://archive.org/download/pathfinders-1972-s-01-e-03/pathfinders-1972-s-01-e-03.thumbs/Pathfinders%201973%20S01E11_001161.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 2995,
+          "videoFile": {
+            "name": "Pathfinders 1973 S01E11.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 277477748,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/pathfinders-1972-s-01-e-03/Pathfinders%201973%20S01E11.mp4"
+        },
+        {
+          "archiveID": "pathfinders-1972-s-01-e-03@s1e12",
+          "sourceID": "pathfinders-1972-s-01-e-03",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "1973",
+          "overview": null,
+          "stillURL": "https://archive.org/download/pathfinders-1972-s-01-e-03/pathfinders-1972-s-01-e-03.thumbs/Pathfinders%201973%20S01E12_001158.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 2987,
+          "videoFile": {
+            "name": "Pathfinders 1973 S01E12.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 291298998,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/pathfinders-1972-s-01-e-03/Pathfinders%201973%20S01E12.mp4"
+        },
+        {
+          "archiveID": "pathfinders-1972-s-01-e-03@s1e13",
+          "sourceID": "pathfinders-1972-s-01-e-03",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "1973",
+          "overview": null,
+          "stillURL": "https://archive.org/download/pathfinders-1972-s-01-e-03/pathfinders-1972-s-01-e-03.thumbs/Pathfinders%201973%20S01E13_001161.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 2996,
+          "videoFile": {
+            "name": "Pathfinders 1973 S01E13.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 333157250,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/pathfinders-1972-s-01-e-03/Pathfinders%201973%20S01E13.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 13,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

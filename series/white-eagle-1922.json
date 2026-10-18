@@ -1,0 +1,334 @@
+{
+  "version": 2,
+  "seriesID": "white-eagle-1922",
+  "sourceID": "chapter-14-the-fake-army-general",
+  "tvmazeID": null,
+  "title": "White Eagle",
+  "yearStart": 1922,
+  "yearEnd": null,
+  "overview": "White Eagle is a 1922 American silent Western film serial directed by Fred Jackman and W. S. Van Dyke. The film is considered to be lost. White Eagle is almost a remake of the earlier Ruth Roland serial Hands Up The serial features a famous scene of Ruth Roland climbing a rope ladder from a moving train to a plane flying overhead.",
+  "posterURL": "https://commons.wikimedia.org/wiki/Special:FilePath/White_Eagle_lobby_card_1922.jpg?width=600",
+  "backdropURL": null,
+  "genres": [
+    "Action",
+    "Western"
+  ],
+  "networks": [],
+  "creator": "Fred Jackman, W.S. Van Dyke",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "chapter-14-the-fake-army-general@e01",
+          "sourceID": "chapter-14-the-fake-army-general",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Flaming Teepees",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-14-the-fake-army-general/chapter-14-the-fake-army-general.thumbs/Chapter%2001%20-%20Flaming%20Teepees_000765.jpg",
+          "airDate": null,
+          "year": 1922,
+          "runtimeSeconds": 1921,
+          "videoFile": {
+            "name": "Chapter 01 - Flaming Teepees.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 184011470,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-14-the-fake-army-general/Chapter%2001%20-%20Flaming%20Teepees.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-14-the-fake-army-general@e02",
+          "sourceID": "chapter-14-the-fake-army-general",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Jail Delivery",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-14-the-fake-army-general/chapter-14-the-fake-army-general.thumbs/Chapter%2002%20-%20The%20Jail%20Delivery_000422.jpg",
+          "airDate": null,
+          "year": 1922,
+          "runtimeSeconds": 1195,
+          "videoFile": {
+            "name": "Chapter 02 - The Jail Delivery.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 111155124,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-14-the-fake-army-general/Chapter%2002%20-%20The%20Jail%20Delivery.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-14-the-fake-army-general@e03",
+          "sourceID": "chapter-14-the-fake-army-general",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Dive into Quicksands",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-14-the-fake-army-general/chapter-14-the-fake-army-general.thumbs/Chapter%2003%20-%20The%20Dive%20into%20Quicksands_000414.jpg",
+          "airDate": null,
+          "year": 1922,
+          "runtimeSeconds": 1165,
+          "videoFile": {
+            "name": "Chapter 03 - The Dive into Quicksands.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 98491462,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-14-the-fake-army-general/Chapter%2003%20-%20The%20Dive%20into%20Quicksands.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-14-the-fake-army-general@e04",
+          "sourceID": "chapter-14-the-fake-army-general",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Warning Death Knife",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-14-the-fake-army-general/chapter-14-the-fake-army-general.thumbs/Chapter%2004%20-%20The%20Warning%20Death%20Knife_000414.jpg",
+          "airDate": null,
+          "year": 1922,
+          "runtimeSeconds": 1148,
+          "videoFile": {
+            "name": "Chapter 04 - The Warning Death Knife.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 105072831,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-14-the-fake-army-general/Chapter%2004%20-%20The%20Warning%20Death%20Knife.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-14-the-fake-army-general@e05",
+          "sourceID": "chapter-14-the-fake-army-general",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Treachery at the Stockade",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-14-the-fake-army-general/chapter-14-the-fake-army-general.thumbs/Chapter%2005%20-%20Treachery%20at%20the%20Stockade_000424.jpg",
+          "airDate": null,
+          "year": 1922,
+          "runtimeSeconds": 1189,
+          "videoFile": {
+            "name": "Chapter 05 - Treachery at the Stockade.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 107774127,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-14-the-fake-army-general/Chapter%2005%20-%20Treachery%20at%20the%20Stockade.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-14-the-fake-army-general@e06",
+          "sourceID": "chapter-14-the-fake-army-general",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Gun-Cane Murder",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-14-the-fake-army-general/chapter-14-the-fake-army-general.thumbs/Chapter%2006%20-%20The%20Gun-Cane%20Murder_000416.jpg",
+          "airDate": null,
+          "year": 1922,
+          "runtimeSeconds": 1080,
+          "videoFile": {
+            "name": "Chapter 06 - The Gun-Cane Murder.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 84451930,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-14-the-fake-army-general/Chapter%2006%20-%20The%20Gun-Cane%20Murder.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-14-the-fake-army-general@e07",
+          "sourceID": "chapter-14-the-fake-army-general",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Revealing Blotter",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-14-the-fake-army-general/chapter-14-the-fake-army-general.thumbs/Chapter%2007%20-%20The%20Revealing%20Blotter_000418.jpg",
+          "airDate": null,
+          "year": 1922,
+          "runtimeSeconds": 1020,
+          "videoFile": {
+            "name": "Chapter 07 - The Revealing Blotter.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 94422198,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-14-the-fake-army-general/Chapter%2007%20-%20The%20Revealing%20Blotter.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-14-the-fake-army-general@e08",
+          "sourceID": "chapter-14-the-fake-army-general",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Bird-calls of Deliverance",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-14-the-fake-army-general/chapter-14-the-fake-army-general.thumbs/Chapter%2008%20-%20Bird-calls%20of%20Deliverance_000419.jpg",
+          "airDate": null,
+          "year": 1922,
+          "runtimeSeconds": 1096,
+          "videoFile": {
+            "name": "Chapter 08 - Bird-calls of Deliverance.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 95518381,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-14-the-fake-army-general/Chapter%2008%20-%20Bird-calls%20of%20Deliverance.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-14-the-fake-army-general@e09",
+          "sourceID": "chapter-14-the-fake-army-general",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Fake Telegram",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-14-the-fake-army-general/chapter-14-the-fake-army-general.thumbs/Chapter%2009%20-%20The%20Fake%20Telegram_000415.jpg",
+          "airDate": null,
+          "year": 1922,
+          "runtimeSeconds": 1066,
+          "videoFile": {
+            "name": "Chapter 09 - The Fake Telegram.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 85342998,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-14-the-fake-army-general/Chapter%2009%20-%20The%20Fake%20Telegram.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-14-the-fake-army-general@e10",
+          "sourceID": "chapter-14-the-fake-army-general",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Mystic Dots and Dashes",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-14-the-fake-army-general/chapter-14-the-fake-army-general.thumbs/Chapter%2010%20-%20Mystic%20Dots%20and%20Dashes_000421.jpg",
+          "airDate": null,
+          "year": 1922,
+          "runtimeSeconds": 1080,
+          "videoFile": {
+            "name": "Chapter 10 - Mystic Dots and Dashes.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 101533524,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-14-the-fake-army-general/Chapter%2010%20-%20Mystic%20Dots%20and%20Dashes.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-14-the-fake-army-general@e11",
+          "sourceID": "chapter-14-the-fake-army-general",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Ear at the Window",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-14-the-fake-army-general/chapter-14-the-fake-army-general.thumbs/Chapter%2011%20-%20The%20Ear%20at%20the%20Window_000414.jpg",
+          "airDate": null,
+          "year": 1922,
+          "runtimeSeconds": 1038,
+          "videoFile": {
+            "name": "Chapter 11 - The Ear at the Window.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 93434688,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-14-the-fake-army-general/Chapter%2011%20-%20The%20Ear%20at%20the%20Window.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-14-the-fake-army-general@e12",
+          "sourceID": "chapter-14-the-fake-army-general",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Massacre Invitation",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-14-the-fake-army-general/chapter-14-the-fake-army-general.thumbs/Chapter%2012%20-%20The%20Massacre%20Invitation_000416.jpg",
+          "airDate": null,
+          "year": 1922,
+          "runtimeSeconds": 1056,
+          "videoFile": {
+            "name": "Chapter 12 - The Massacre Invitation.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 95822838,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-14-the-fake-army-general/Chapter%2012%20-%20The%20Massacre%20Invitation.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-14-the-fake-army-general@e13",
+          "sourceID": "chapter-14-the-fake-army-general",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "The Framed-up Showdown",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-14-the-fake-army-general/chapter-14-the-fake-army-general.thumbs/Chapter%2013%20-%20The%20Framed-up%20Showdown_000416.jpg",
+          "airDate": null,
+          "year": 1922,
+          "runtimeSeconds": 1040,
+          "videoFile": {
+            "name": "Chapter 13 - The Framed-up Showdown.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 81610501,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-14-the-fake-army-general/Chapter%2013%20-%20The%20Framed-up%20Showdown.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-14-the-fake-army-general@e14",
+          "sourceID": "chapter-14-the-fake-army-general",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Fake Army General",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-14-the-fake-army-general/chapter-14-the-fake-army-general.thumbs/Chapter%2014%20-%20The%20Fake%20Army%20General_000503.jpg",
+          "airDate": null,
+          "year": 1922,
+          "runtimeSeconds": 1257,
+          "videoFile": {
+            "name": "Chapter 14 - The Fake Army General.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 201850066,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-14-the-fake-army-general/Chapter%2014%20-%20The%20Fake%20Army%20General.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-14-the-fake-army-general@e15",
+          "sourceID": "chapter-14-the-fake-army-general",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Treachery Downed",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-14-the-fake-army-general/chapter-14-the-fake-army-general.thumbs/Chapter%2015%20-%20Treachery%20Downed_000419.jpg",
+          "airDate": null,
+          "year": 1922,
+          "runtimeSeconds": 1038,
+          "videoFile": {
+            "name": "Chapter 15 - Treachery Downed.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 177442535,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-14-the-fake-army-general/Chapter%2015%20-%20Treachery%20Downed.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 15,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "commons",
+  "cast": [
+    {
+      "name": "Ruth Roland",
+      "character": null,
+      "order": 0,
+      "profilePath": "/jANjK6xntsIsuAeG2UE44kc7W6k.jpg"
+    },
+    {
+      "name": "Earl Metcalfe",
+      "character": null,
+      "order": 1,
+      "profilePath": "/tzPQMeoSedRxH7BUFy1zCHjZJ3S.jpg"
+    },
+    {
+      "name": "Harry Girard",
+      "character": null,
+      "order": 2,
+      "profilePath": null
+    }
+  ]
+}

@@ -1,0 +1,372 @@
+{
+  "version": 2,
+  "seriesID": "terry-and-the-pirates-1940",
+  "sourceID": "TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403",
+  "tvmazeID": null,
+  "title": "Terry and the Pirates",
+  "yearStart": 1940,
+  "yearEnd": null,
+  "overview": "Dr. Herbert Lee, an archaeologist seeking to decipher ancient Mara inscriptions, is aided by his son Terry, Terry's pal Pat Ryan, and Normandie Drake. Jungle pirate and warlord Fang (Dick Curtis) plots to kill The Dragon Lady, Queen of the Temple of Mara, and seize the treasures of her ancestors. Both Fang and The Dragon Lady have sworn death for any foreign intruders.",
+  "posterURL": "https://image.tmdb.org/t/p/w780/lfRUoAkpZ5nbMgb6gnRmbg3ScSg.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/a05qJpLHjWDRATrgXOHigP3hY1p.jpg",
+  "genres": [
+    "Action",
+    "Adventure",
+    "Drama",
+    "Thriller"
+  ],
+  "networks": [],
+  "creator": "James W. Horne",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403@e01",
+          "sourceID": "TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Into The Great Unknown",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 1774,
+          "videoFile": {
+            "name": "Terry And The Pirates - 1940 Serial (15 Chapters)/Terry And The Pirates 1940 Chapter 01 Into The Great Unknown.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 293197591,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403/Terry%20And%20The%20Pirates%20-%201940%20Serial%20%2815%20Chapters%29/Terry%20And%20The%20Pirates%201940%20Chapter%2001%20Into%20The%20Great%20Unknown.mp4"
+        },
+        {
+          "archiveID": "TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403@e02",
+          "sourceID": "TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Fang Strikes",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 1286,
+          "videoFile": {
+            "name": "Terry And The Pirates - 1940 Serial (15 Chapters)/Terry And The Pirates 1940 Chapter 02 The Fang Strikes.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 211558165,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403/Terry%20And%20The%20Pirates%20-%201940%20Serial%20%2815%20Chapters%29/Terry%20And%20The%20Pirates%201940%20Chapter%2002%20The%20Fang%20Strikes.mp4"
+        },
+        {
+          "archiveID": "TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403@e03",
+          "sourceID": "TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Mountain Of Death",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 1086,
+          "videoFile": {
+            "name": "Terry And The Pirates - 1940 Serial (15 Chapters)/Terry And The Pirates 1940 Chapter 03 The Mountain Of Death.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 178874338,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403/Terry%20And%20The%20Pirates%20-%201940%20Serial%20%2815%20Chapters%29/Terry%20And%20The%20Pirates%201940%20Chapter%2003%20The%20Mountain%20Of%20Death.mp4"
+        },
+        {
+          "archiveID": "TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403@e04",
+          "sourceID": "TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Dragon Queen Threatens",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 1011,
+          "videoFile": {
+            "name": "Terry And The Pirates - 1940 Serial (15 Chapters)/Terry And The Pirates 1940 Chapter 04 The Dragon Queen Threatens.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 167149730,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403/Terry%20And%20The%20Pirates%20-%201940%20Serial%20%2815%20Chapters%29/Terry%20And%20The%20Pirates%201940%20Chapter%2004%20The%20Dragon%20Queen%20Threatens.mp4"
+        },
+        {
+          "archiveID": "TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403@e05",
+          "sourceID": "TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "At The Mercy Of The Mob",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 1059,
+          "videoFile": {
+            "name": "Terry And The Pirates - 1940 Serial (15 Chapters)/Terry And The Pirates 1940 Chapter 05 At The Mercy Of The Mob.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 173231782,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403/Terry%20And%20The%20Pirates%20-%201940%20Serial%20%2815%20Chapters%29/Terry%20And%20The%20Pirates%201940%20Chapter%2005%20At%20The%20Mercy%20Of%20The%20Mob.mp4"
+        },
+        {
+          "archiveID": "TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403@e06",
+          "sourceID": "TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Scroll Of Wealth",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 1134,
+          "videoFile": {
+            "name": "Terry And The Pirates - 1940 Serial (15 Chapters)/Terry And The Pirates 1940 Chapter 06 The Scroll Of Wealth.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 185906132,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403/Terry%20And%20The%20Pirates%20-%201940%20Serial%20%2815%20Chapters%29/Terry%20And%20The%20Pirates%201940%20Chapter%2006%20The%20Scroll%20Of%20Wealth.mp4"
+        },
+        {
+          "archiveID": "TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403@e07",
+          "sourceID": "TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Angry Waters",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 1035,
+          "videoFile": {
+            "name": "Terry And The Pirates - 1940 Serial (15 Chapters)/Terry And The Pirates 1940 Chapter 07 Angry Waters.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 170947292,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403/Terry%20And%20The%20Pirates%20-%201940%20Serial%20%2815%20Chapters%29/Terry%20And%20The%20Pirates%201940%20Chapter%2007%20Angry%20Waters.mp4"
+        },
+        {
+          "archiveID": "TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403@e08",
+          "sourceID": "TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Tomb Of Peril",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 1084,
+          "videoFile": {
+            "name": "Terry And The Pirates - 1940 Serial (15 Chapters)/Terry And The Pirates 1940 Chapter 08 The Tomb Of Peril.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 177313296,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403/Terry%20And%20The%20Pirates%20-%201940%20Serial%20%2815%20Chapters%29/Terry%20And%20The%20Pirates%201940%20Chapter%2008%20The%20Tomb%20Of%20Peril.mp4"
+        },
+        {
+          "archiveID": "TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403@e09",
+          "sourceID": "TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Jungle Hurricane",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 1002,
+          "videoFile": {
+            "name": "Terry And The Pirates - 1940 Serial (15 Chapters)/Terry And The Pirates 1940 Chapter 09 Jungle Hurricane.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 166835157,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403/Terry%20And%20The%20Pirates%20-%201940%20Serial%20%2815%20Chapters%29/Terry%20And%20The%20Pirates%201940%20Chapter%2009%20Jungle%20Hurricane.mp4"
+        },
+        {
+          "archiveID": "TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403@e10",
+          "sourceID": "TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Too Many Enemies",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 1039,
+          "videoFile": {
+            "name": "Terry And The Pirates - 1940 Serial (15 Chapters)/Terry And The Pirates 1940 Chapter 10 Too Many Enemies.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 170513557,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403/Terry%20And%20The%20Pirates%20-%201940%20Serial%20%2815%20Chapters%29/Terry%20And%20The%20Pirates%201940%20Chapter%2010%20Too%20Many%20Enemies.mp4"
+        },
+        {
+          "archiveID": "TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403@e11",
+          "sourceID": "TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Walls Of Doom",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 1022,
+          "videoFile": {
+            "name": "Terry And The Pirates - 1940 Serial (15 Chapters)/Terry And The Pirates 1940 Chapter 11 Walls Of Doom.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 168338399,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403/Terry%20And%20The%20Pirates%20-%201940%20Serial%20%2815%20Chapters%29/Terry%20And%20The%20Pirates%201940%20Chapter%2011%20Walls%20Of%20Doom.mp4"
+        },
+        {
+          "archiveID": "TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403@e12",
+          "sourceID": "TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "No Escape",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 1098,
+          "videoFile": {
+            "name": "Terry And The Pirates - 1940 Serial (15 Chapters)/Terry And The Pirates 1940 Chapter 12 No Escape.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 180396542,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403/Terry%20And%20The%20Pirates%20-%201940%20Serial%20%2815%20Chapters%29/Terry%20And%20The%20Pirates%201940%20Chapter%2012%20No%20Escape.mp4"
+        },
+        {
+          "archiveID": "TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403@e13",
+          "sourceID": "TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "The Fatal Mistake",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 1033,
+          "videoFile": {
+            "name": "Terry And The Pirates - 1940 Serial (15 Chapters)/Terry And The Pirates 1940 Chapter 13 The Fatal Mistake.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 169458241,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403/Terry%20And%20The%20Pirates%20-%201940%20Serial%20%2815%20Chapters%29/Terry%20And%20The%20Pirates%201940%20Chapter%2013%20The%20Fatal%20Mistake.mp4"
+        },
+        {
+          "archiveID": "TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403@e14",
+          "sourceID": "TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Pyre Of Death",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 1001,
+          "videoFile": {
+            "name": "Terry And The Pirates - 1940 Serial (15 Chapters)/Terry And The Pirates 1940 Chapter 14 Pyre Of Death.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 164934269,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403/Terry%20And%20The%20Pirates%20-%201940%20Serial%20%2815%20Chapters%29/Terry%20And%20The%20Pirates%201940%20Chapter%2014%20Pyre%20Of%20Death.mp4"
+        },
+        {
+          "archiveID": "TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403@e15",
+          "sourceID": "TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "The Secret Of The Temple",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 1033,
+          "videoFile": {
+            "name": "Terry And The Pirates - 1940 Serial (15 Chapters)/Terry And The Pirates 1940 Chapter 15 The Secret Of The Temple.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 170520058,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TerryAndThePirates1940Chapter01IntoTheGreatUnknown_201403/Terry%20And%20The%20Pirates%20-%201940%20Serial%20%2815%20Chapters%29/Terry%20And%20The%20Pirates%201940%20Chapter%2015%20The%20Secret%20Of%20The%20Temple.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 15,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": [
+    {
+      "name": "William Tracy",
+      "character": null,
+      "order": 0,
+      "profilePath": "/c5Q4IeL2ust018z5Lbet04bDhI9.jpg"
+    },
+    {
+      "name": "Jeff York",
+      "character": null,
+      "order": 1,
+      "profilePath": "/oAhxdTKc3QbKLNvwAxztcOe00Bd.jpg"
+    },
+    {
+      "name": "Joyce Bryant",
+      "character": null,
+      "order": 2,
+      "profilePath": "/s4uvol3h6cOUmJN8L3x6P81SYDT.jpg"
+    },
+    {
+      "name": "Victor DeCamp",
+      "character": null,
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Sheila Darcy",
+      "character": null,
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Dick Curtis",
+      "character": null,
+      "order": 5,
+      "profilePath": "/yLb6fRcbl1T58a0H7htYBQWlJI3.jpg"
+    },
+    {
+      "name": "John Paul Jones",
+      "character": null,
+      "order": 6,
+      "profilePath": "/i4AwTlN8MVJPvsvDzdSiBxMbXxO.jpg"
+    },
+    {
+      "name": "Forrest Taylor",
+      "character": null,
+      "order": 7,
+      "profilePath": "/11tiZFYeWNfefJccEhNU4G3cYzp.jpg"
+    },
+    {
+      "name": "Jack Ingram",
+      "character": null,
+      "order": 8,
+      "profilePath": "/kspyAwF8bw1FFEzYaERCtfkBHSZ.jpg"
+    }
+  ]
+}

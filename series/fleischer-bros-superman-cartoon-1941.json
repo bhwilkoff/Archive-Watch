@@ -1,0 +1,352 @@
+{
+  "version": 2,
+  "seriesID": "fleischer-bros-superman-cartoon-1941",
+  "sourceID": "superman-fleischer-brothers-animated-series-1941-1943",
+  "tvmazeID": null,
+  "title": "Fleischer Bros Superman Cartoon",
+  "yearStart": 1941,
+  "yearEnd": null,
+  "overview": "Complete 1940s Fleischer Supeman series ",
+  "posterURL": "https://archive.org/services/img/superman-fleischer-brothers-animated-series-1941-1943",
+  "backdropURL": null,
+  "genres": [
+    "Animation"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "superman-fleischer-brothers-animated-series-1941-1943@e01",
+          "sourceID": "superman-fleischer-brothers-animated-series-1941-1943",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Mad Scientist (1941",
+          "overview": null,
+          "stillURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/superman-fleischer-brothers-animated-series-1941-1943.thumbs/Superman%20E01%20-%20The%20Mad%20Scientist%20%281941%29_000220.jpg",
+          "airDate": null,
+          "year": 1941,
+          "runtimeSeconds": 620,
+          "videoFile": {
+            "name": "Superman E01 - The Mad Scientist (1941).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 55835228,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/Superman%20E01%20-%20The%20Mad%20Scientist%20%281941%29.ia.mp4"
+        },
+        {
+          "archiveID": "superman-fleischer-brothers-animated-series-1941-1943@e02",
+          "sourceID": "superman-fleischer-brothers-animated-series-1941-1943",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Mechanical Monsters (1941",
+          "overview": null,
+          "stillURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/superman-fleischer-brothers-animated-series-1941-1943.thumbs/Superman%20E02%20-%20The%20Mechanical%20Monsters%20%281941%29_000217.jpg",
+          "airDate": null,
+          "year": 1941,
+          "runtimeSeconds": 611,
+          "videoFile": {
+            "name": "Superman E02 - The Mechanical Monsters (1941).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 60569546,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/Superman%20E02%20-%20The%20Mechanical%20Monsters%20%281941%29.ia.mp4"
+        },
+        {
+          "archiveID": "superman-fleischer-brothers-animated-series-1941-1943@e03",
+          "sourceID": "superman-fleischer-brothers-animated-series-1941-1943",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Billion Dollar Limited (1942",
+          "overview": null,
+          "stillURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/superman-fleischer-brothers-animated-series-1941-1943.thumbs/Superman%20E03%20-%20Billion%20Dollar%20Limited%20%281942%29_000179.jpg",
+          "airDate": null,
+          "year": 1941,
+          "runtimeSeconds": 512,
+          "videoFile": {
+            "name": "Superman E03 - Billion Dollar Limited (1942).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 48845437,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/Superman%20E03%20-%20Billion%20Dollar%20Limited%20%281942%29.ia.mp4"
+        },
+        {
+          "archiveID": "superman-fleischer-brothers-animated-series-1941-1943@e04",
+          "sourceID": "superman-fleischer-brothers-animated-series-1941-1943",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Arctic Giant (1942",
+          "overview": null,
+          "stillURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/superman-fleischer-brothers-animated-series-1941-1943.thumbs/Superman%20E04%20-%20The%20Arctic%20Giant%20%281942%29_000179.jpg",
+          "airDate": null,
+          "year": 1941,
+          "runtimeSeconds": 513,
+          "videoFile": {
+            "name": "Superman E04 - The Arctic Giant (1942).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 46640313,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/Superman%20E04%20-%20The%20Arctic%20Giant%20%281942%29.ia.mp4"
+        },
+        {
+          "archiveID": "superman-fleischer-brothers-animated-series-1941-1943@e05",
+          "sourceID": "superman-fleischer-brothers-animated-series-1941-1943",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Bulleteers (1942",
+          "overview": null,
+          "stillURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/superman-fleischer-brothers-animated-series-1941-1943.thumbs/Superman%20E05%20-%20The%20Bulleteers%20%281942%29_000179.jpg",
+          "airDate": null,
+          "year": 1941,
+          "runtimeSeconds": 480,
+          "videoFile": {
+            "name": "Superman E05 - The Bulleteers (1942).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 40349276,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/Superman%20E05%20-%20The%20Bulleteers%20%281942%29.ia.mp4"
+        },
+        {
+          "archiveID": "superman-fleischer-brothers-animated-series-1941-1943@e06",
+          "sourceID": "superman-fleischer-brothers-animated-series-1941-1943",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Magnetic Telescope (1942",
+          "overview": null,
+          "stillURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/superman-fleischer-brothers-animated-series-1941-1943.thumbs/Superman%20E06%20-%20The%20Magnetic%20Telescope%20%281942%29_000179.jpg",
+          "airDate": null,
+          "year": 1941,
+          "runtimeSeconds": 453,
+          "videoFile": {
+            "name": "Superman E06 - The Magnetic Telescope (1942).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 31499546,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/Superman%20E06%20-%20The%20Magnetic%20Telescope%20%281942%29.ia.mp4"
+        },
+        {
+          "archiveID": "superman-fleischer-brothers-animated-series-1941-1943@e07",
+          "sourceID": "superman-fleischer-brothers-animated-series-1941-1943",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Electric Earthquake (1942",
+          "overview": null,
+          "stillURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/superman-fleischer-brothers-animated-series-1941-1943.thumbs/Superman%20E07%20-%20Electric%20Earthquake%20%281942%29_000181.jpg",
+          "airDate": null,
+          "year": 1941,
+          "runtimeSeconds": 519,
+          "videoFile": {
+            "name": "Superman E07 - Electric Earthquake (1942).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 47260153,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/Superman%20E07%20-%20Electric%20Earthquake%20%281942%29.ia.mp4"
+        },
+        {
+          "archiveID": "superman-fleischer-brothers-animated-series-1941-1943@e08",
+          "sourceID": "superman-fleischer-brothers-animated-series-1941-1943",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Volcano (1942",
+          "overview": null,
+          "stillURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/superman-fleischer-brothers-animated-series-1941-1943.thumbs/Superman%20E08%20-%20Volcano%20%281942%29_000179.jpg",
+          "airDate": null,
+          "year": 1941,
+          "runtimeSeconds": 472,
+          "videoFile": {
+            "name": "Superman E08 - Volcano (1942).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 45069902,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/Superman%20E08%20-%20Volcano%20%281942%29.ia.mp4"
+        },
+        {
+          "archiveID": "superman-fleischer-brothers-animated-series-1941-1943@e09",
+          "sourceID": "superman-fleischer-brothers-animated-series-1941-1943",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Terror on the Midway (1942",
+          "overview": null,
+          "stillURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/superman-fleischer-brothers-animated-series-1941-1943.thumbs/Superman%20E09%20-%20Terror%20on%20the%20Midway%20%281942%29_000179.jpg",
+          "airDate": null,
+          "year": 1941,
+          "runtimeSeconds": 488,
+          "videoFile": {
+            "name": "Superman E09 - Terror on the Midway (1942).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 41122672,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/Superman%20E09%20-%20Terror%20on%20the%20Midway%20%281942%29.ia.mp4"
+        },
+        {
+          "archiveID": "superman-fleischer-brothers-animated-series-1941-1943@e10",
+          "sourceID": "superman-fleischer-brothers-animated-series-1941-1943",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Japoteurs (1942",
+          "overview": null,
+          "stillURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/superman-fleischer-brothers-animated-series-1941-1943.thumbs/Superman%20E10%20-%20Japoteurs%20%281942%29_000189.jpg",
+          "airDate": null,
+          "year": 1941,
+          "runtimeSeconds": 542,
+          "videoFile": {
+            "name": "Superman E10 - Japoteurs (1942).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 44134632,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/Superman%20E10%20-%20Japoteurs%20%281942%29.ia.mp4"
+        },
+        {
+          "archiveID": "superman-fleischer-brothers-animated-series-1941-1943@e11",
+          "sourceID": "superman-fleischer-brothers-animated-series-1941-1943",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Showdown (1942",
+          "overview": null,
+          "stillURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/superman-fleischer-brothers-animated-series-1941-1943.thumbs/Superman%20E11%20-%20Showdown%20%281942%29_000179.jpg",
+          "airDate": null,
+          "year": 1941,
+          "runtimeSeconds": 492,
+          "videoFile": {
+            "name": "Superman E11 - Showdown (1942).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 32840474,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/Superman%20E11%20-%20Showdown%20%281942%29.ia.mp4"
+        },
+        {
+          "archiveID": "superman-fleischer-brothers-animated-series-1941-1943@e12",
+          "sourceID": "superman-fleischer-brothers-animated-series-1941-1943",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Eleventh Hour (1942",
+          "overview": null,
+          "stillURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/superman-fleischer-brothers-animated-series-1941-1943.thumbs/Superman%20E12%20-%20Eleventh%20Hour%20%281942%29_000179.jpg",
+          "airDate": null,
+          "year": 1941,
+          "runtimeSeconds": 475,
+          "videoFile": {
+            "name": "Superman E12 - Eleventh Hour (1942).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 32795639,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/Superman%20E12%20-%20Eleventh%20Hour%20%281942%29.ia.mp4"
+        },
+        {
+          "archiveID": "superman-fleischer-brothers-animated-series-1941-1943@e13",
+          "sourceID": "superman-fleischer-brothers-animated-series-1941-1943",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Destruction Inc. (1943",
+          "overview": null,
+          "stillURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/superman-fleischer-brothers-animated-series-1941-1943.thumbs/Superman%20E13%20-%20Destruction%20Inc.%20%281943%29_000179.jpg",
+          "airDate": null,
+          "year": 1941,
+          "runtimeSeconds": 506,
+          "videoFile": {
+            "name": "Superman E13 - Destruction Inc. (1943).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 43444186,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/Superman%20E13%20-%20Destruction%20Inc.%20%281943%29.ia.mp4"
+        },
+        {
+          "archiveID": "superman-fleischer-brothers-animated-series-1941-1943@e14",
+          "sourceID": "superman-fleischer-brothers-animated-series-1941-1943",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Mummy Strikes (1943",
+          "overview": null,
+          "stillURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/superman-fleischer-brothers-animated-series-1941-1943.thumbs/Superman%20E14%20-%20The%20Mummy%20Strikes%20%281943%29_000177.jpg",
+          "airDate": null,
+          "year": 1941,
+          "runtimeSeconds": 459,
+          "videoFile": {
+            "name": "Superman E14 - The Mummy Strikes (1943).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 38369588,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/Superman%20E14%20-%20The%20Mummy%20Strikes%20%281943%29.ia.mp4"
+        },
+        {
+          "archiveID": "superman-fleischer-brothers-animated-series-1941-1943@e15",
+          "sourceID": "superman-fleischer-brothers-animated-series-1941-1943",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Jungle Drums (1943",
+          "overview": null,
+          "stillURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/superman-fleischer-brothers-animated-series-1941-1943.thumbs/Superman%20E15%20-%20Jungle%20Drums%20%281943%29_000179.jpg",
+          "airDate": null,
+          "year": 1941,
+          "runtimeSeconds": 473,
+          "videoFile": {
+            "name": "Superman E15 - Jungle Drums (1943).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 38924254,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/Superman%20E15%20-%20Jungle%20Drums%20%281943%29.ia.mp4"
+        },
+        {
+          "archiveID": "superman-fleischer-brothers-animated-series-1941-1943@e16",
+          "sourceID": "superman-fleischer-brothers-animated-series-1941-1943",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "The Underground World (1943",
+          "overview": null,
+          "stillURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/superman-fleischer-brothers-animated-series-1941-1943.thumbs/Superman%20E16%20-%20The%20Underground%20World%20%281943%29_000179.jpg",
+          "airDate": null,
+          "year": 1941,
+          "runtimeSeconds": 481,
+          "videoFile": {
+            "name": "Superman E16 - The Underground World (1943).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 40540147,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/Superman%20E16%20-%20The%20Underground%20World%20%281943%29.ia.mp4"
+        },
+        {
+          "archiveID": "superman-fleischer-brothers-animated-series-1941-1943@e17",
+          "sourceID": "superman-fleischer-brothers-animated-series-1941-1943",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Secret Agent (1943",
+          "overview": null,
+          "stillURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/superman-fleischer-brothers-animated-series-1941-1943.thumbs/Superman%20E17%20-%20Secret%20Agent%20%281943%29_000179.jpg",
+          "airDate": null,
+          "year": 1941,
+          "runtimeSeconds": 453,
+          "videoFile": {
+            "name": "Superman E17 - Secret Agent (1943).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 38550854,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/superman-fleischer-brothers-animated-series-1941-1943/Superman%20E17%20-%20Secret%20Agent%20%281943%29.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 17,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

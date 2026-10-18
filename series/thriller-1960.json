@@ -1,0 +1,1307 @@
+{
+  "version": 2,
+  "seriesID": "thriller-1960",
+  "sourceID": "s-01-e-26-papa-benjamin",
+  "tvmazeID": null,
+  "title": "Thriller",
+  "yearStart": 1960,
+  "yearEnd": null,
+  "overview": "Boris Karloff hosts tales of crime and the supernatural; all 67 episodes of the 1960–62 NBC anthology Thriller.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/s-01-e-26-papa-benjamin.6c676fd5.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Thriller"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e01",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "THE TWISTED IMAGE",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2976,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E01 - THE TWISTED IMAGE.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 287633331,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E01%20-%20THE%20TWISTED%20IMAGE.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e02",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "CHILD'S PLAY",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2997,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E02 - CHILD'S PLAY.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 290203603,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E02%20-%20CHILD%27S%20PLAY.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e03",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "WORSE THAN MURDER",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2993,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E03 - WORSE THAN MURDER.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 289927242,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E03%20-%20WORSE%20THAN%20MURDER.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e04",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "THE MARK OF THE HAND",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2942,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E04 - THE MARK OF THE HAND.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 284559522,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E04%20-%20THE%20MARK%20OF%20THE%20HAND.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e05",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "ROSE'S LAST SUMMER",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2978,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E05 - ROSE'S LAST SUMMER.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 288522286,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E05%20-%20ROSE%27S%20LAST%20SUMMER.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e06",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "THE GUILTY MEN",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3000,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E06 - THE GUILTY MEN.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 289953344,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E06%20-%20THE%20GUILTY%20MEN.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e07",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "THE PURPLE ROOM",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2979,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E07 - THE PURPLE ROOM.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 287449506,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E07%20-%20THE%20PURPLE%20ROOM.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e08",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "THE WATCHER",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2993,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E08 - THE WATCHER.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 289943305,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E08%20-%20THE%20WATCHER.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e09",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "GIRL WITH A SECRET",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2997,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E09 - GIRL WITH A SECRET.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 289295861,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E09%20-%20GIRL%20WITH%20A%20SECRET.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e10",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "THE PREDICTION",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2988,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E10 - THE PREDICTION.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 290112668,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E10%20-%20THE%20PREDICTION.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e11",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "THE FATAL IMPULSE",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2991,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E11 - THE FATAL IMPULSE.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 289103885,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E11%20-%20THE%20FATAL%20IMPULSE.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e12",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "THE BIG BLACKOUT",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2991,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E12 - THE BIG BLACKOUT.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 288820795,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E12%20-%20THE%20BIG%20BLACKOUT.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e13",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "KNOCK THREE-ONE-TWO",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2993,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E13 - KNOCK THREE-ONE-TWO.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 289055835,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E13%20-%20KNOCK%20THREE-ONE-TWO.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e14",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "MAN IN THE MIDDLE",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2990,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E14 - MAN IN THE MIDDLE.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 288967942,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E14%20-%20MAN%20IN%20THE%20MIDDLE.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e15",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "THE CHEATERS",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2985,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E15 - THE CHEATERS.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 289594679,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E15%20-%20THE%20CHEATERS.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e16",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "THE HUNGRY GLASS",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2989,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E16 - THE HUNGRY GLASS.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 290179441,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E16%20-%20THE%20HUNGRY%20GLASS.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e17",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "THE POISONER",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2994,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E17 - THE POISONER.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 290024989,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E17%20-%20THE%20POISONER.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e18",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "MAN IN THE CAGE",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2993,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E18 - MAN IN THE CAGE.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 289825110,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E18%20-%20MAN%20IN%20THE%20CAGE.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e19",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "CHOOSE A VICTIM",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2993,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E19 - CHOOSE A VICTIM.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 288938842,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E19%20-%20CHOOSE%20A%20VICTIM.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e20",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "HAY-FORK AND BILL-HOOK",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2989,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E20 - HAY-FORK AND BILL-HOOK.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 289423296,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E20%20-%20HAY-FORK%20AND%20BILL-HOOK.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e21",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "The Merriweather File",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2991,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E21 - The Merriweather File.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 297329717,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E21%20-%20The%20Merriweather%20File.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e22",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "The Fingers of Fear",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2989,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E22 - The Fingers of Fear.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 289061842,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E22%20-%20The%20Fingers%20of%20Fear.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e23",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Well Of Doom",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2994,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E23 - Well Of Doom.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 297906117,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E23%20-%20Well%20Of%20Doom.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e24",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "The Ordeal of Dr. Cordell",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2994,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E24 - The Ordeal of Dr. Cordell.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 297502635,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E24%20-%20The%20Ordeal%20of%20Dr.%20Cordell.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e25",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Trio for Terror",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2989,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E25 - Trio for Terror.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 297695779,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E25%20-%20Trio%20for%20Terror.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e26",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Papa Benjamin",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2993,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E26 - Papa Benjamin.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 289497709,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E26%20-%20Papa%20Benjamin.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e27",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Late Date",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2987,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E27 - Late Date.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 299512213,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E27%20-%20Late%20Date.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e28",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "Yours Truly, Jack the Ripper",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2993,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E28 - Yours Truly, Jack the Ripper.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 293559567,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E28%20-%20Yours%20Truly%2C%20Jack%20the%20Ripper.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e29",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "The Devil's Ticket",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2995,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E29 - The Devil's Ticket.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 298580900,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E29%20-%20The%20Devil%27s%20Ticket.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e30",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "Parasite Mansion",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2992,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E30 - Parasite Mansion.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 299106183,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E30%20-%20Parasite%20Mansion.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e31",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "A GOOD IMAGINATION",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2994,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E31 - A GOOD IMAGINATION.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 298906436,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E31%20-%20A%20GOOD%20IMAGINATION.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e32",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 32,
+          "title": "MR GEORGE",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2994,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E32 - MR  GEORGE.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 299699203,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E32%20-%20MR%20%20GEORGE.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e33",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 33,
+          "title": "The Terror in Teakwood",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2989,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E33 - The Terror in Teakwood.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 299718759,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E33%20-%20The%20Terror%20in%20Teakwood.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e34",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 34,
+          "title": "THE PRISONER IN THE MIRROR",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2994,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E34  - THE PRISONER IN THE MIRROR.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 299097253,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E34%20%20-%20THE%20PRISONER%20IN%20THE%20MIRROR.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e35",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 35,
+          "title": "Dark Legacy",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2995,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E35 - Dark Legacy.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 299206871,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E35%20-%20Dark%20Legacy.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e36",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "PIGEONS FROM HELL",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2991,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E36 - PIGEONS FROM HELL.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 299232983,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E36%20-%20PIGEONS%20FROM%20HELL.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s1e37",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 1,
+          "episodeNumber": 37,
+          "title": "THE GRIM REAPER",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2991,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S01E37 - THE GRIM REAPER.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 299809417,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S01E37%20-%20THE%20GRIM%20REAPER.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s2e01",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "WHAT BECKONING GHOST？",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3023,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S02E01 - WHAT BECKONING GHOST？.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 303474748,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S02E01%20-%20WHAT%20BECKONING%20GHOST%EF%BC%9F.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s2e02",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "Guillotine",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3035,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S02E02 - Guillotine.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 303040529,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S02E02%20-%20Guillotine.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s2e03",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "THE PREMATURE BURIAL",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3024,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S02E03 - THE PREMATURE BURIAL.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 302555930,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S02E03%20-%20THE%20PREMATURE%20BURIAL.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s2e04",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "THE WEIRD TAILOR",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3024,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S02E04 - THE WEIRD TAILOR.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 305193656,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S02E04%20-%20THE%20WEIRD%20TAILOR.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s2e05",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "God Grante that She Lye Stille",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3020,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S02E05 - God Grante that She Lye Stille.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 302137624,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S02E05%20-%20God%20Grante%20that%20She%20Lye%20Stille.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s2e06",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "MASQUERADE",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3021,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S02E06 - MASQUERADE.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 302415968,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S02E06%20-%20MASQUERADE.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s2e07",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "THE LAST OF THE SOMMERVILLES",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3020,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S02E07  - THE LAST OF THE SOMMERVILLES.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 303376161,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S02E07%20%20-%20THE%20LAST%20OF%20THE%20SOMMERVILLES.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s2e08",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "Letter to a Lover",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3019,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S02E08 - Letter to a Lover.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 295249432,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S02E08%20-%20Letter%20to%20a%20Lover.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s2e09",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "A THIRD FOR PINOCHLE",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3021,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S02E09 - A THIRD FOR PINOCHLE.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 304022096,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S02E09%20-%20A%20THIRD%20FOR%20PINOCHLE.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s2e10",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "The Closed Cabinet",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3021,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S02E10 - The Closed Cabinet.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 294697345,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S02E10%20-%20The%20Closed%20Cabinet.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s2e11",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "Dialogues with Death",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3016,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S02E11 - Dialogues with Death.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 301657892,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S02E11%20-%20Dialogues%20with%20Death.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s2e12",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "The Return of Andrew Bentley",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3017,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S02E12 - The Return of Andrew Bentley.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 295210511,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S02E12%20-%20The%20Return%20of%20Andrew%20Bentley.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s2e13",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "THE REMARKABLE MRS HAWK",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3017,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S02E13 - THE REMARKABLE MRS  HAWK.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 302984463,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S02E13%20-%20THE%20REMARKABLE%20MRS%20%20HAWK.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s2e14",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 2,
+          "episodeNumber": 14,
+          "title": "Portrait Without a Face",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 2994,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S02E14 - Portrait Without a Face.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 300759573,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S02E14%20-%20Portrait%20Without%20a%20Face.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s2e15",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 2,
+          "episodeNumber": 15,
+          "title": "AN ATTRACTIVE FAMILY",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3019,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S02E15 - AN ATTRACTIVE FAMILY.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 303394175,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S02E15%20-%20AN%20ATTRACTIVE%20FAMILY.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s2e16",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 2,
+          "episodeNumber": 16,
+          "title": "Waxworks",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3021,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S02E16 - Waxworks.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 303204421,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S02E16%20-%20Waxworks.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s2e17",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 2,
+          "episodeNumber": 17,
+          "title": "La Strega",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3024,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S02E17 - La Strega.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 303048335,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S02E17%20-%20La%20Strega.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s2e18",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 2,
+          "episodeNumber": 18,
+          "title": "The Storm",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3020,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S02E18 - The Storm.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 300273333,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S02E18%20-%20The%20Storm.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s2e19",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 2,
+          "episodeNumber": 19,
+          "title": "A Wig for Miss Devore",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3017,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S02E19 - A Wig for Miss Devore.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 302258844,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S02E19%20-%20A%20Wig%20for%20Miss%20Devore.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s2e20",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 2,
+          "episodeNumber": 20,
+          "title": "The Hollow Watcher",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3020,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S02E20 - The Hollow Watcher.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 301950455,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S02E20%20-%20The%20Hollow%20Watcher.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s2e21",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 2,
+          "episodeNumber": 21,
+          "title": "Cousin Tundifer",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3021,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S02E21 - Cousin Tundifer.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 301974382,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S02E21%20-%20Cousin%20Tundifer.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s2e22",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 2,
+          "episodeNumber": 22,
+          "title": "The Incredible Doktor Markesan",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3009,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S02E22 - The Incredible Doktor Markesan.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 302003642,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S02E22%20-%20The%20Incredible%20Doktor%20Markesan.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s2e23",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 2,
+          "episodeNumber": 23,
+          "title": "Flowers of Evil",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3022,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S02E23 - Flowers of Evil.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 303784639,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S02E23%20-%20Flowers%20of%20Evil.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s2e24",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 2,
+          "episodeNumber": 24,
+          "title": "'Til Death Do Us Part",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3024,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S02E24 - 'Til Death Do Us Part.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 303248507,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S02E24%20-%20%27Til%20Death%20Do%20Us%20Part.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s2e25",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 2,
+          "episodeNumber": 25,
+          "title": "The Bride Who Died Twice",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3020,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S02E25 - The Bride Who Died Twice.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 304940744,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S02E25%20-%20The%20Bride%20Who%20Died%20Twice.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s2e26",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 2,
+          "episodeNumber": 26,
+          "title": "Kill My Love",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3019,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S02E26 - Kill My Love.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 304580477,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S02E26%20-%20Kill%20My%20Love.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s2e27",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 2,
+          "episodeNumber": 27,
+          "title": "Man of Mystery",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3019,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S02E27 - Man of Mystery.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 301784672,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S02E27%20-%20Man%20of%20Mystery.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s2e28",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 2,
+          "episodeNumber": 28,
+          "title": "The Innocent Bystanders",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3022,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S02E28 - The Innocent Bystanders.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 304384884,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S02E28%20-%20The%20Innocent%20Bystanders.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s2e29",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 2,
+          "episodeNumber": 29,
+          "title": "The Lethal Ladies",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3022,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S02E29 - The Lethal Ladies.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 303637471,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S02E29%20-%20The%20Lethal%20Ladies.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-26-papa-benjamin@s2e30",
+          "sourceID": "s-01-e-26-papa-benjamin",
+          "seasonNumber": 2,
+          "episodeNumber": 30,
+          "title": "The Specialists",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3018,
+          "videoFile": {
+            "name": "Thriller (1960) - COMPLETE/S02E30 - The Specialists.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 301979535,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-26-papa-benjamin/Thriller%20%281960%29%20-%20COMPLETE/S02E30%20-%20The%20Specialists.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 67,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

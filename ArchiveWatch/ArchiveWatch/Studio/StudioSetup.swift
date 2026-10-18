@@ -133,7 +133,7 @@ public struct StudioSetup: Codable, Equatable, Sendable {
         let item = String(path[..<slash])
         let name = String(path[path.index(after: slash)...])
         guard !item.isEmpty, !name.isEmpty else { return nil }
-        return item == archiveID ? name : "@\(item):\(name)"
+        return item == Self.archiveItem(archiveID) ? name : "@\(item):\(name)"
     }
 
     /// The inverse, mirroring `ArchiveVersions.location(of:title:)`.
@@ -143,7 +143,14 @@ public struct StudioSetup: Codable, Equatable, Sendable {
             let name = String(key[key.index(after: colon)...])
             if !item.isEmpty, !name.isEmpty { return "\(item)/\(name)" }
         }
-        return "\(archiveID)/\(key)"
+        return "\(Self.archiveItem(archiveID))/\(key)"
+    }
+
+    /// `Catalog.archiveItemID` (Decision 166: a whole-series item's episode is
+    /// `<item>@<token>`), restated because tools/test_studio_all.sh compiles
+    /// this file without Catalog.swift.
+    static func archiveItem(_ archiveID: String) -> String {
+        archiveID.firstIndex(of: "@").map { String(archiveID[..<$0]) } ?? archiveID
     }
 
     // MARK: Capture and apply, through a target

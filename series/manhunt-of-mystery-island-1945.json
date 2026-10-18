@@ -1,0 +1,376 @@
+{
+  "version": 2,
+  "seriesID": "manhunt-of-mystery-island-1945",
+  "sourceID": "manhunt-of-mystery-island-1945-colorized-cliffhanger-serial",
+  "tvmazeID": null,
+  "title": "Manhunt of Mystery Island",
+  "yearStart": 1945,
+  "yearEnd": null,
+  "overview": "Claire Forrest seeks her kidnapped scientist father, hidden somewhere on Mystery Island. He is held and forced to work on diabolical inventions by Captain Mephisto, a costumed villain.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/jQJQ4jX1q2DnwVqIDrooDCmgmZN.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/kU7stSBGZeTRXJwoC54l9nxzUIc.jpg",
+  "genres": [
+    "Action",
+    "Science Fiction"
+  ],
+  "networks": [],
+  "creator": "Wallace Grissell",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "manhunt-of-mystery-island-1945-colorized-cliffhanger-serial@e01",
+          "sourceID": "manhunt-of-mystery-island-1945-colorized-cliffhanger-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Secret Weapon",
+          "overview": null,
+          "stillURL": "https://archive.org/download/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial.thumbs/Manhunt%20Chapter%2001%20Secret%20Weapon_000506.jpg",
+          "airDate": null,
+          "year": 1945,
+          "runtimeSeconds": 1460,
+          "videoFile": {
+            "name": "Manhunt Chapter 01 Secret Weapon.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 87973672,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial/Manhunt%20Chapter%2001%20Secret%20Weapon.mp4"
+        },
+        {
+          "archiveID": "manhunt-of-mystery-island-1945-colorized-cliffhanger-serial@e02",
+          "sourceID": "manhunt-of-mystery-island-1945-colorized-cliffhanger-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Satan's Web",
+          "overview": null,
+          "stillURL": "https://archive.org/download/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial.thumbs/Manhunt%20Chapter%2002%20Satan%27s%20Web_000283.jpg",
+          "airDate": null,
+          "year": 1945,
+          "runtimeSeconds": 800,
+          "videoFile": {
+            "name": "Manhunt Chapter 02 Satan's Web.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 53912020,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial/Manhunt%20Chapter%2002%20Satan%27s%20Web.mp4"
+        },
+        {
+          "archiveID": "manhunt-of-mystery-island-1945-colorized-cliffhanger-serial@e03",
+          "sourceID": "manhunt-of-mystery-island-1945-colorized-cliffhanger-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Murder Machine",
+          "overview": null,
+          "stillURL": "https://archive.org/download/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial.thumbs/Manhunt%20Chapter%2003%20The%20Murder%20Machine_000236.jpg",
+          "airDate": null,
+          "year": 1945,
+          "runtimeSeconds": 797,
+          "videoFile": {
+            "name": "Manhunt Chapter 03 The Murder Machine.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 50077968,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial/Manhunt%20Chapter%2003%20The%20Murder%20Machine.mp4"
+        },
+        {
+          "archiveID": "manhunt-of-mystery-island-1945-colorized-cliffhanger-serial@e04",
+          "sourceID": "manhunt-of-mystery-island-1945-colorized-cliffhanger-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Lethal Chamber",
+          "overview": null,
+          "stillURL": "https://archive.org/download/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial.thumbs/Manhunt%20Chapter%2004%20The%20Lethal%20Chamber_000240.jpg",
+          "airDate": null,
+          "year": 1945,
+          "runtimeSeconds": 804,
+          "videoFile": {
+            "name": "Manhunt Chapter 04 The Lethal Chamber.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 46406279,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial/Manhunt%20Chapter%2004%20The%20Lethal%20Chamber.mp4"
+        },
+        {
+          "archiveID": "manhunt-of-mystery-island-1945-colorized-cliffhanger-serial@e05",
+          "sourceID": "manhunt-of-mystery-island-1945-colorized-cliffhanger-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Mephisto's Mantrap",
+          "overview": null,
+          "stillURL": "https://archive.org/download/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial.thumbs/Manhunt%20Chapter%2005%20Mephisto%27s%20Mantrap_000242.jpg",
+          "airDate": null,
+          "year": 1945,
+          "runtimeSeconds": 800,
+          "videoFile": {
+            "name": "Manhunt Chapter 05 Mephisto's Mantrap.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 46947129,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial/Manhunt%20Chapter%2005%20Mephisto%27s%20Mantrap.mp4"
+        },
+        {
+          "archiveID": "manhunt-of-mystery-island-1945-colorized-cliffhanger-serial@e06",
+          "sourceID": "manhunt-of-mystery-island-1945-colorized-cliffhanger-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Ocean Tomb",
+          "overview": null,
+          "stillURL": "https://archive.org/download/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial.thumbs/Manhunt%20Chapter%2006%20Ocean%20Tomb_000240.jpg",
+          "airDate": null,
+          "year": 1945,
+          "runtimeSeconds": 800,
+          "videoFile": {
+            "name": "Manhunt Chapter 06 Ocean Tomb.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 46952227,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial/Manhunt%20Chapter%2006%20Ocean%20Tomb.mp4"
+        },
+        {
+          "archiveID": "manhunt-of-mystery-island-1945-colorized-cliffhanger-serial@e07",
+          "sourceID": "manhunt-of-mystery-island-1945-colorized-cliffhanger-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Death Drop",
+          "overview": null,
+          "stillURL": "https://archive.org/download/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial.thumbs/Manhunt%20Chapter%2007%20The%20Death%20Drop_000236.jpg",
+          "airDate": null,
+          "year": 1945,
+          "runtimeSeconds": 800,
+          "videoFile": {
+            "name": "Manhunt Chapter 07 The Death Drop.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 49308367,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial/Manhunt%20Chapter%2007%20The%20Death%20Drop.mp4"
+        },
+        {
+          "archiveID": "manhunt-of-mystery-island-1945-colorized-cliffhanger-serial@e08",
+          "sourceID": "manhunt-of-mystery-island-1945-colorized-cliffhanger-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Bombs Away",
+          "overview": null,
+          "stillURL": "https://archive.org/download/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial.thumbs/Manhunt%20Chapter%2008%20Bombs%20Away_000276.jpg",
+          "airDate": null,
+          "year": 1945,
+          "runtimeSeconds": 799,
+          "videoFile": {
+            "name": "Manhunt Chapter 08 Bombs Away.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 42749570,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial/Manhunt%20Chapter%2008%20Bombs%20Away.mp4"
+        },
+        {
+          "archiveID": "manhunt-of-mystery-island-1945-colorized-cliffhanger-serial@e09",
+          "sourceID": "manhunt-of-mystery-island-1945-colorized-cliffhanger-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Fatal Flood",
+          "overview": null,
+          "stillURL": "https://archive.org/download/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial.thumbs/Manhunt%20Chapter%2009%20The%20Fatal%20Flood_000223.jpg",
+          "airDate": null,
+          "year": 1945,
+          "runtimeSeconds": 732,
+          "videoFile": {
+            "name": "Manhunt Chapter 09 The Fatal Flood.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 47938965,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial/Manhunt%20Chapter%2009%20The%20Fatal%20Flood.mp4"
+        },
+        {
+          "archiveID": "manhunt-of-mystery-island-1945-colorized-cliffhanger-serial@e10",
+          "sourceID": "manhunt-of-mystery-island-1945-colorized-cliffhanger-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Sable Shroud",
+          "overview": null,
+          "stillURL": "https://archive.org/download/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial.thumbs/Manhunt%20Chapter%2010%20The%20Sable%20Shroud_000253.jpg",
+          "airDate": null,
+          "year": 1945,
+          "runtimeSeconds": 732,
+          "videoFile": {
+            "name": "Manhunt Chapter 10 The Sable Shroud.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 48545639,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial/Manhunt%20Chapter%2010%20The%20Sable%20Shroud.mp4"
+        },
+        {
+          "archiveID": "manhunt-of-mystery-island-1945-colorized-cliffhanger-serial@e11",
+          "sourceID": "manhunt-of-mystery-island-1945-colorized-cliffhanger-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Satan's Shadow",
+          "overview": null,
+          "stillURL": "https://archive.org/download/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial.thumbs/Manhunt%20Chapter%2011%20Satan%27s%20Shadow_000222.jpg",
+          "airDate": null,
+          "year": 1945,
+          "runtimeSeconds": 732,
+          "videoFile": {
+            "name": "Manhunt Chapter 11 Satan's Shadow.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 45701372,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial/Manhunt%20Chapter%2011%20Satan%27s%20Shadow.mp4"
+        },
+        {
+          "archiveID": "manhunt-of-mystery-island-1945-colorized-cliffhanger-serial@e12",
+          "sourceID": "manhunt-of-mystery-island-1945-colorized-cliffhanger-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Cauldron of Cremation",
+          "overview": null,
+          "stillURL": "https://archive.org/download/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial.thumbs/Manhunt%20Chapter%2012%20Cauldron%20of%20Cremation_000218.jpg",
+          "airDate": null,
+          "year": 1945,
+          "runtimeSeconds": 731,
+          "videoFile": {
+            "name": "Manhunt Chapter 12 Cauldron of Cremation.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 46494911,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial/Manhunt%20Chapter%2012%20Cauldron%20of%20Cremation.mp4"
+        },
+        {
+          "archiveID": "manhunt-of-mystery-island-1945-colorized-cliffhanger-serial@e13",
+          "sourceID": "manhunt-of-mystery-island-1945-colorized-cliffhanger-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Bridge to Eternity",
+          "overview": null,
+          "stillURL": "https://archive.org/download/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial.thumbs/Manhunt%20Chapter%2013%20Bridge%20to%20Eternity_000221.jpg",
+          "airDate": null,
+          "year": 1945,
+          "runtimeSeconds": 733,
+          "videoFile": {
+            "name": "Manhunt Chapter 13 Bridge to Eternity.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 43480944,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial/Manhunt%20Chapter%2013%20Bridge%20to%20Eternity.mp4"
+        },
+        {
+          "archiveID": "manhunt-of-mystery-island-1945-colorized-cliffhanger-serial@e14",
+          "sourceID": "manhunt-of-mystery-island-1945-colorized-cliffhanger-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Power Dive to Doom",
+          "overview": null,
+          "stillURL": "https://archive.org/download/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial.thumbs/Manhunt%20Chapter%2014%20Power%20Dive%20to%20Doom_000260.jpg",
+          "airDate": null,
+          "year": 1945,
+          "runtimeSeconds": 736,
+          "videoFile": {
+            "name": "Manhunt Chapter 14 Power Dive to Doom.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 45854980,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial/Manhunt%20Chapter%2014%20Power%20Dive%20to%20Doom.mp4"
+        },
+        {
+          "archiveID": "manhunt-of-mystery-island-1945-colorized-cliffhanger-serial@e15",
+          "sourceID": "manhunt-of-mystery-island-1945-colorized-cliffhanger-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Fatal Transformation",
+          "overview": null,
+          "stillURL": "https://archive.org/download/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial.thumbs/Manhunt%20Chapter%2015%20Fatal%20Transformation_000260.jpg",
+          "airDate": null,
+          "year": 1945,
+          "runtimeSeconds": 743,
+          "videoFile": {
+            "name": "Manhunt Chapter 15 Fatal Transformation.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 45307677,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/manhunt-of-mystery-island-1945-colorized-cliffhanger-serial/Manhunt%20Chapter%2015%20Fatal%20Transformation.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 15,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": [
+    {
+      "name": "Richard Bailey",
+      "character": "Lance Reardon",
+      "order": 0,
+      "profilePath": "/ueYJQ7Fu7EtksjkSOCPiwvWARyV.jpg"
+    },
+    {
+      "name": "Linda Stirling",
+      "character": "Claire Forrest",
+      "order": 1,
+      "profilePath": "/aeWmvxgNYUgoiQNP7SeEVS30e1M.jpg"
+    },
+    {
+      "name": "Roy Barcroft",
+      "character": "Capt. Mephisto",
+      "order": 2,
+      "profilePath": "/57EKCVAOfcNKNNcHBtkmp0cU9od.jpg"
+    },
+    {
+      "name": "Kenne Duncan",
+      "character": "Sidney Brand",
+      "order": 3,
+      "profilePath": "/cvyvn63XZtA00PTkyNdykdjZuSS.jpg"
+    },
+    {
+      "name": "Forrest Taylor",
+      "character": "Prof. William Forrest",
+      "order": 4,
+      "profilePath": "/11tiZFYeWNfefJccEhNU4G3cYzp.jpg"
+    },
+    {
+      "name": "Forbes Murray",
+      "character": "Prof. Harry Hargraves",
+      "order": 5,
+      "profilePath": "/twfHU2COpK8F40toerX502dywIb.jpg"
+    },
+    {
+      "name": "Jack Ingram",
+      "character": "Edward Armstrong",
+      "order": 6,
+      "profilePath": "/kspyAwF8bw1FFEzYaERCtfkBHSZ.jpg"
+    },
+    {
+      "name": "Harry Strang",
+      "character": "Frederick \"Fred\" Braley",
+      "order": 7,
+      "profilePath": "/a7lkLx0oHLFPMCqoB6iS4OtAFU6.jpg"
+    },
+    {
+      "name": "Ed Cassidy",
+      "character": "Paul Melton",
+      "order": 8,
+      "profilePath": "/lxg59gPbrG2C2DZ666WotYk4akm.jpg"
+    },
+    {
+      "name": "Frank Alten",
+      "character": "John Raymond",
+      "order": 9,
+      "profilePath": null
+    }
+  ]
+}

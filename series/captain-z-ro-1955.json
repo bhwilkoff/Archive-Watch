@@ -1,0 +1,505 @@
+{
+  "version": 2,
+  "seriesID": "captain-z-ro-1955",
+  "sourceID": "CaptainZ-Ro",
+  "tvmazeID": null,
+  "title": "Captain Z-ro",
+  "yearStart": 1955,
+  "yearEnd": null,
+  "overview": "From his secret laboratory, Captain Z-Ro and his associates use their time machine, the ZX-99, to learn from the past and plan for the future.",
+  "posterURL": "https://commons.wikimedia.org/wiki/Special:FilePath/%22Atlas_Television_Corporation%22_%22Producer-Distributor_of_%27CAPTAIN_Z-RO%27%22_ad_-_from%2C_The_Radio_Annual_and_Television_Yearbook%2C_1955_%28IA_radioannua00radi%29_%28page_1093_crop%29.jpg?width=600",
+  "backdropURL": null,
+  "genres": [
+    "science fiction television program",
+    "children's television series"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "CaptainZ-Ro@e01",
+          "sourceID": "CaptainZ-Ro",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "01 Christopher Columbus",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1592,
+          "videoFile": {
+            "name": "Ep01-551218 Christopher Columbus.mp4",
+            "format": "h.264",
+            "sizeBytes": 165916097,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/CaptainZ-Ro/Ep01-551218%20Christopher%20Columbus.mp4"
+        },
+        {
+          "archiveID": "CaptainZ-Ro@e02",
+          "sourceID": "CaptainZ-Ro",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "02 Daniel Boone",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1594,
+          "videoFile": {
+            "name": "Ep02-551225 Daniel Boone.mp4",
+            "format": "h.264",
+            "sizeBytes": 166097023,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/CaptainZ-Ro/Ep02-551225%20Daniel%20Boone.mp4"
+        },
+        {
+          "archiveID": "CaptainZ-Ro@e03",
+          "sourceID": "CaptainZ-Ro",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "03 Marco Polo",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1588,
+          "videoFile": {
+            "name": "Ep03-560101MarcoPolo.mp4",
+            "format": "h.264",
+            "sizeBytes": 165285980,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/CaptainZ-Ro/Ep03-560101MarcoPolo.mp4"
+        },
+        {
+          "archiveID": "CaptainZ-Ro@e04",
+          "sourceID": "CaptainZ-Ro",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "04 Benedict Arnold",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1601,
+          "videoFile": {
+            "name": "Ep04-560108BenedictArnold.mp4",
+            "format": "h.264",
+            "sizeBytes": 166475906,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/CaptainZ-Ro/Ep04-560108BenedictArnold.mp4"
+        },
+        {
+          "archiveID": "CaptainZ-Ro@e05",
+          "sourceID": "CaptainZ-Ro",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "05 King John",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1591,
+          "videoFile": {
+            "name": "Ep05-560115KingJohn.mp4",
+            "format": "h.264",
+            "sizeBytes": 165577738,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/CaptainZ-Ro/Ep05-560115KingJohn.mp4"
+        },
+        {
+          "archiveID": "CaptainZ-Ro@e06",
+          "sourceID": "CaptainZ-Ro",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "06 Magellan",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1606,
+          "videoFile": {
+            "name": "Ep06-560122Magellan.mp4",
+            "format": "h.264",
+            "sizeBytes": 167344431,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/CaptainZ-Ro/Ep06-560122Magellan.mp4"
+        },
+        {
+          "archiveID": "CaptainZ-Ro@e07",
+          "sourceID": "CaptainZ-Ro",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "07 Pony Express",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1592,
+          "videoFile": {
+            "name": "Ep07-560129PonyExpress.mp4",
+            "format": "h.264",
+            "sizeBytes": 165861351,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/CaptainZ-Ro/Ep07-560129PonyExpress.mp4"
+        },
+        {
+          "archiveID": "CaptainZ-Ro@e08",
+          "sourceID": "CaptainZ-Ro",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "08 William Tell",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1612,
+          "videoFile": {
+            "name": "Ep08-560205WilliamTell.mp4",
+            "format": "h.264",
+            "sizeBytes": 167704706,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/CaptainZ-Ro/Ep08-560205WilliamTell.mp4"
+        },
+        {
+          "archiveID": "CaptainZ-Ro@e09",
+          "sourceID": "CaptainZ-Ro",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "09 Roger the Robot",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1616,
+          "videoFile": {
+            "name": "Ep09-560212RogerTheRobot.mp4",
+            "format": "h.264",
+            "sizeBytes": 168157703,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/CaptainZ-Ro/Ep09-560212RogerTheRobot.mp4"
+        },
+        {
+          "archiveID": "CaptainZ-Ro@e10",
+          "sourceID": "CaptainZ-Ro",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "10 Blackbeard the Pirate",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1595,
+          "videoFile": {
+            "name": "Ep10-560219BlackbeardThePirate.mp4",
+            "format": "h.264",
+            "sizeBytes": 166193319,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/CaptainZ-Ro/Ep10-560219BlackbeardThePirate.mp4"
+        },
+        {
+          "archiveID": "CaptainZ-Ro@e11",
+          "sourceID": "CaptainZ-Ro",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "11 Atilla The Hun",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1640,
+          "videoFile": {
+            "name": "Ep11-560226AtillaTheHun.mp4",
+            "format": "h.264",
+            "sizeBytes": 170552771,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/CaptainZ-Ro/Ep11-560226AtillaTheHun.mp4"
+        },
+        {
+          "archiveID": "CaptainZ-Ro@e12",
+          "sourceID": "CaptainZ-Ro",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "12 Robin Hood",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1589,
+          "videoFile": {
+            "name": "Ep12-560304RobinHood.mp4",
+            "format": "h.264",
+            "sizeBytes": 164907239,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/CaptainZ-Ro/Ep12-560304RobinHood.mp4"
+        },
+        {
+          "archiveID": "CaptainZ-Ro@e13",
+          "sourceID": "CaptainZ-Ro",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "13 Washington and Howe",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1595,
+          "videoFile": {
+            "name": "Ep13-560311WashingtonAndHowe.mp4",
+            "format": "h.264",
+            "sizeBytes": 166154573,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/CaptainZ-Ro/Ep13-560311WashingtonAndHowe.mp4"
+        },
+        {
+          "archiveID": "CaptainZ-Ro@e15",
+          "sourceID": "CaptainZ-Ro",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "15 Hernando Cortez",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1591,
+          "videoFile": {
+            "name": "Ep15-560325HernandoCortez.mp4",
+            "format": "h.264",
+            "sizeBytes": 165606035,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/CaptainZ-Ro/Ep15-560325HernandoCortez.mp4"
+        },
+        {
+          "archiveID": "CaptainZ-Ro@e16",
+          "sourceID": "CaptainZ-Ro",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "16 Molly Pitcher",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1592,
+          "videoFile": {
+            "name": "Ep16-560401MollyPitcher.mp4",
+            "format": "h.264",
+            "sizeBytes": 165433615,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/CaptainZ-Ro/Ep16-560401MollyPitcher.mp4"
+        },
+        {
+          "archiveID": "CaptainZ-Ro@e17",
+          "sourceID": "CaptainZ-Ro",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "17 Discovery of Gold",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1602,
+          "videoFile": {
+            "name": "Ep17-560408DiscoveryOfGold.mp4",
+            "format": "h.264",
+            "sizeBytes": 166266787,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/CaptainZ-Ro/Ep17-560408DiscoveryOfGold.mp4"
+        },
+        {
+          "archiveID": "CaptainZ-Ro@e18",
+          "sourceID": "CaptainZ-Ro",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "18 Meteor",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1591,
+          "videoFile": {
+            "name": "Ep18-560415Meteor.mp4",
+            "format": "h.264",
+            "sizeBytes": 165568782,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/CaptainZ-Ro/Ep18-560415Meteor.mp4"
+        },
+        {
+          "archiveID": "CaptainZ-Ro@e20",
+          "sourceID": "CaptainZ-Ro",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "20 Aztec Papers",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1591,
+          "videoFile": {
+            "name": "Ep20-560429AztecPapers.mp4",
+            "format": "h.264",
+            "sizeBytes": 165586728,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/CaptainZ-Ro/Ep20-560429AztecPapers.mp4"
+        },
+        {
+          "archiveID": "CaptainZ-Ro@e21",
+          "sourceID": "CaptainZ-Ro",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "21 Genghis Kahn",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1592,
+          "videoFile": {
+            "name": "Ep21-560506GenghisKahn.mp4",
+            "format": "h.264",
+            "sizeBytes": 165616954,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/CaptainZ-Ro/Ep21-560506GenghisKahn.mp4"
+        },
+        {
+          "archiveID": "CaptainZ-Ro@e22",
+          "sourceID": "CaptainZ-Ro",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "22 The Great Pyramid",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1588,
+          "videoFile": {
+            "name": "Ep22-560513TheGreatPyramid.mp4",
+            "format": "h.264",
+            "sizeBytes": 165473443,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/CaptainZ-Ro/Ep22-560513TheGreatPyramid.mp4"
+        },
+        {
+          "archiveID": "CaptainZ-Ro@e23",
+          "sourceID": "CaptainZ-Ro",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "23 Leonardo Da Vinci",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1586,
+          "videoFile": {
+            "name": "Ep23-560520LeonardoDaVinci.mp4",
+            "format": "h.264",
+            "sizeBytes": 165067991,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/CaptainZ-Ro/Ep23-560520LeonardoDaVinci.mp4"
+        },
+        {
+          "archiveID": "CaptainZ-Ro@e24",
+          "sourceID": "CaptainZ-Ro",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "24 William The Conqueror",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1591,
+          "videoFile": {
+            "name": "Ep24-560527WilliamTheConqueror.mp4",
+            "format": "h.264",
+            "sizeBytes": 165487127,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/CaptainZ-Ro/Ep24-560527WilliamTheConqueror.mp4"
+        },
+        {
+          "archiveID": "CaptainZ-Ro@e25",
+          "sourceID": "CaptainZ-Ro",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "25 Adventure in Space",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1594,
+          "videoFile": {
+            "name": "Ep25-560603AdventureInSpace.mp4",
+            "format": "h.264",
+            "sizeBytes": 166205857,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/CaptainZ-Ro/Ep25-560603AdventureInSpace.mp4"
+        },
+        {
+          "archiveID": "CaptainZ-Ro@e26",
+          "sourceID": "CaptainZ-Ro",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "26 King Alfred",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 1586,
+          "videoFile": {
+            "name": "Ep26-560610KingAlfred.mp4",
+            "format": "h.264",
+            "sizeBytes": 164931769,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/CaptainZ-Ro/Ep26-560610KingAlfred.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 24,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "commons",
+  "cast": [
+    {
+      "name": "Roy Steffens",
+      "character": null,
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Bruce Haynes",
+      "character": null,
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Jack Cahill",
+      "character": null,
+      "order": 2,
+      "profilePath": "/7zTvBZJ5CxrlMOTrZcWNvceYsbY.jpg"
+    }
+  ]
+}

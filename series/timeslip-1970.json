@@ -1,0 +1,539 @@
+{
+  "version": 2,
+  "seriesID": "timeslip-1970",
+  "sourceID": "timeslip-complete-series-1970",
+  "tvmazeID": null,
+  "title": "Timeslip",
+  "yearStart": 1970,
+  "yearEnd": null,
+  "overview": "Timeslip is a British children's science fiction television series made by ATV for the ITV network, and broadcast in 1970 and 1971. It was first shown on Monday evenings at around 5:15-5:20pm, beginning on 28 September 1970, in all ITV regions, apart from Thames (London) and Southern which broadcast the series the following Friday. What is a Time Bubble? You can't see it, of course, but it might help you visualise it to think of a balloon... Supposing some little patch of information – some little patch of history – gets slowed down, and instead of flashing backwards and forwards it floats, gently, as if in a bubble... Supposing you could get into that bubble – that bubble of history – and travel with it. Then you could move forwards and backwards in time at will... — Introduction by Peter Fairley, Timeslip: \"The Time of the Ice Box\", episode 1 The series is centred on two children, Simon Randall ( Spencer Banks ) and Liz Skinner (Cheryl Burfield), who discover a strange anomaly, known as the Time Barrier, which enables them to travel in time, and visit the past as well as alternative futures. The time barrier, which operates in a field at a disused military base, moves the children not only through time but also through space: for example, they travel from St Oswald's in the UK in 1940 to the Antarctic in one projection of 1990. The children have contrasting personalities: Simon is studious, but Liz is something of a crybaby. This often leads to conflict, but as the series progresses, their antagonism matures into a deep bond of friendship. The main theme of the series is the way humankind uses and abuses science and technology, and tends to support the idea that the pursuit of scientific knowledge and advancement leads to the depersonalisation of individuals and the abandonment of moral principles. A secondary theme, explored in the instances where Liz and Simon encounter potential future versions of themselves, is the extent to which an individual can change, or be changed, depending on the situations he or she encounters.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/timeslip-complete-series-1970.5ed7f298.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Sci-Fi",
+    "Mystery"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "timeslip-complete-series-1970@s1e01",
+          "sourceID": "timeslip-complete-series-1970",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Wrong End Of Time Pt 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/timeslip-complete-series-1970/timeslip-complete-series-1970.thumbs/Timeslip%20S01E01%20-%20The%20Wrong%20End%20Of%20Time%20Pt%201_000529.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1475,
+          "videoFile": {
+            "name": "Timeslip S01E01 - The Wrong End Of Time Pt 1.mp4",
+            "format": "h.264",
+            "sizeBytes": 140253919,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/timeslip-complete-series-1970/Timeslip%20S01E01%20-%20The%20Wrong%20End%20Of%20Time%20Pt%201.mp4"
+        },
+        {
+          "archiveID": "timeslip-complete-series-1970@s1e02",
+          "sourceID": "timeslip-complete-series-1970",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Wrong End of Time Pt 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/timeslip-complete-series-1970/timeslip-complete-series-1970.thumbs/Timeslip%20S01E02%20-%20The%20Wrong%20End%20of%20Time%20Pt%202_000509.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1424,
+          "videoFile": {
+            "name": "Timeslip S01E02 - The Wrong End of Time Pt 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 135431821,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/timeslip-complete-series-1970/Timeslip%20S01E02%20-%20The%20Wrong%20End%20of%20Time%20Pt%202.mp4"
+        },
+        {
+          "archiveID": "timeslip-complete-series-1970@s1e03",
+          "sourceID": "timeslip-complete-series-1970",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Wrong End of Time Pt 3",
+          "overview": null,
+          "stillURL": "https://archive.org/download/timeslip-complete-series-1970/timeslip-complete-series-1970.thumbs/Timeslip%20S01E03%20-%20The%20Wrong%20End%20of%20Time%20Pt%203_000534.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1507,
+          "videoFile": {
+            "name": "Timeslip S01E03 - The Wrong End of Time Pt 3.mp4",
+            "format": "h.264",
+            "sizeBytes": 143701720,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/timeslip-complete-series-1970/Timeslip%20S01E03%20-%20The%20Wrong%20End%20of%20Time%20Pt%203.mp4"
+        },
+        {
+          "archiveID": "timeslip-complete-series-1970@s1e04",
+          "sourceID": "timeslip-complete-series-1970",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Wrong End of Time Pt 4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/timeslip-complete-series-1970/timeslip-complete-series-1970.thumbs/Timeslip%20S01E04%20-%20The%20Wrong%20End%20of%20Time%20Pt%204_000667.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1496,
+          "videoFile": {
+            "name": "Timeslip S01E04 - The Wrong End of Time Pt 4.mp4",
+            "format": "h.264",
+            "sizeBytes": 142388348,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/timeslip-complete-series-1970/Timeslip%20S01E04%20-%20The%20Wrong%20End%20of%20Time%20Pt%204.mp4"
+        },
+        {
+          "archiveID": "timeslip-complete-series-1970@s1e05",
+          "sourceID": "timeslip-complete-series-1970",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Wrong End of Time Pt 5",
+          "overview": null,
+          "stillURL": "https://archive.org/download/timeslip-complete-series-1970/timeslip-complete-series-1970.thumbs/Timeslip%20S01E05%20-%20The%20Wrong%20End%20of%20Time%20Pt%205_000668.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1492,
+          "videoFile": {
+            "name": "Timeslip S01E05 - The Wrong End of Time Pt 5.mp4",
+            "format": "h.264",
+            "sizeBytes": 141772324,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/timeslip-complete-series-1970/Timeslip%20S01E05%20-%20The%20Wrong%20End%20of%20Time%20Pt%205.mp4"
+        },
+        {
+          "archiveID": "timeslip-complete-series-1970@s1e06",
+          "sourceID": "timeslip-complete-series-1970",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Wrong End of Time Pt 6",
+          "overview": null,
+          "stillURL": "https://archive.org/download/timeslip-complete-series-1970/timeslip-complete-series-1970.thumbs/Timeslip%20S01E06%20-%20The%20Wrong%20End%20of%20Time%20Pt%206_000667.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1493,
+          "videoFile": {
+            "name": "Timeslip S01E06 - The Wrong End of Time Pt 6.mp4",
+            "format": "h.264",
+            "sizeBytes": 141680108,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/timeslip-complete-series-1970/Timeslip%20S01E06%20-%20The%20Wrong%20End%20of%20Time%20Pt%206.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "timeslip-complete-series-1970@s2e01",
+          "sourceID": "timeslip-complete-series-1970",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "The Time of the Ice Box Pt 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/timeslip-complete-series-1970/timeslip-complete-series-1970.thumbs/Timeslip%20S02E01%20-%20The%20Time%20of%20the%20Ice%20Box%20Pt%201_000672.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1504,
+          "videoFile": {
+            "name": "Timeslip S02E01 - The Time of the Ice Box Pt 1.mp4",
+            "format": "h.264",
+            "sizeBytes": 142328305,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/timeslip-complete-series-1970/Timeslip%20S02E01%20-%20The%20Time%20of%20the%20Ice%20Box%20Pt%201.mp4"
+        },
+        {
+          "archiveID": "timeslip-complete-series-1970@s2e02",
+          "sourceID": "timeslip-complete-series-1970",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "The Time of the Ice Box Pt 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/timeslip-complete-series-1970/timeslip-complete-series-1970.thumbs/Timeslip%20S02E02%20-%20The%20Time%20of%20the%20Ice%20Box%20Pt%202_000664.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1485,
+          "videoFile": {
+            "name": "Timeslip S02E02 - The Time of the Ice Box Pt 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 140733237,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/timeslip-complete-series-1970/Timeslip%20S02E02%20-%20The%20Time%20of%20the%20Ice%20Box%20Pt%202.mp4"
+        },
+        {
+          "archiveID": "timeslip-complete-series-1970@s2e03",
+          "sourceID": "timeslip-complete-series-1970",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "The Time of the Ice Box Pt 3",
+          "overview": null,
+          "stillURL": "https://archive.org/download/timeslip-complete-series-1970/timeslip-complete-series-1970.thumbs/Timeslip%20S02E03%20-%20The%20Time%20of%20the%20Ice%20Box%20Pt%203_000666.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1483,
+          "videoFile": {
+            "name": "Timeslip S02E03 - The Time of the Ice Box Pt 3.mp4",
+            "format": "h.264",
+            "sizeBytes": 140788006,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/timeslip-complete-series-1970/Timeslip%20S02E03%20-%20The%20Time%20of%20the%20Ice%20Box%20Pt%203.mp4"
+        },
+        {
+          "archiveID": "timeslip-complete-series-1970@s2e04",
+          "sourceID": "timeslip-complete-series-1970",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "The Time of the Ice Box Pt 4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/timeslip-complete-series-1970/timeslip-complete-series-1970.thumbs/Timeslip%20S02E04%20-%20The%20Time%20of%20the%20Ice%20Box%20Pt%204_000665.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1477,
+          "videoFile": {
+            "name": "Timeslip S02E04 - The Time of the Ice Box Pt 4.mp4",
+            "format": "h.264",
+            "sizeBytes": 140097945,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/timeslip-complete-series-1970/Timeslip%20S02E04%20-%20The%20Time%20of%20the%20Ice%20Box%20Pt%204.mp4"
+        },
+        {
+          "archiveID": "timeslip-complete-series-1970@s2e05",
+          "sourceID": "timeslip-complete-series-1970",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "The Time of the Ice Box Pt 5",
+          "overview": null,
+          "stillURL": "https://archive.org/download/timeslip-complete-series-1970/timeslip-complete-series-1970.thumbs/Timeslip%20S02E05%20-%20The%20Time%20of%20the%20Ice%20Box%20Pt%205_000652.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1451,
+          "videoFile": {
+            "name": "Timeslip S02E05 - The Time of the Ice Box Pt 5.mp4",
+            "format": "h.264",
+            "sizeBytes": 137283154,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/timeslip-complete-series-1970/Timeslip%20S02E05%20-%20The%20Time%20of%20the%20Ice%20Box%20Pt%205.mp4"
+        },
+        {
+          "archiveID": "timeslip-complete-series-1970@s2e06",
+          "sourceID": "timeslip-complete-series-1970",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "The Time of the Ice Box Pt 6",
+          "overview": null,
+          "stillURL": "https://archive.org/download/timeslip-complete-series-1970/timeslip-complete-series-1970.thumbs/Timeslip%20S02E06%20-%20The%20Time%20of%20the%20Ice%20Box%20Pt%206_000669.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1495,
+          "videoFile": {
+            "name": "Timeslip S02E06 - The Time of the Ice Box Pt 6.mp4",
+            "format": "h.264",
+            "sizeBytes": 141200594,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/timeslip-complete-series-1970/Timeslip%20S02E06%20-%20The%20Time%20of%20the%20Ice%20Box%20Pt%206.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "timeslip-complete-series-1970@s3e01",
+          "sourceID": "timeslip-complete-series-1970",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "The Year of the Burn Up (Pt 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/timeslip-complete-series-1970/timeslip-complete-series-1970.thumbs/Timeslip%20S03E01%20-%20The%20Year%20of%20the%20Burn%20Up%20%28Pt%201_000658.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1474,
+          "videoFile": {
+            "name": "Timeslip S03E01 - The Year of the Burn Up (Pt 1.mp4",
+            "format": "h.264",
+            "sizeBytes": 140761223,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/timeslip-complete-series-1970/Timeslip%20S03E01%20-%20The%20Year%20of%20the%20Burn%20Up%20%28Pt%201.mp4"
+        },
+        {
+          "archiveID": "timeslip-complete-series-1970@s3e02",
+          "sourceID": "timeslip-complete-series-1970",
+          "seasonNumber": 3,
+          "episodeNumber": 2,
+          "title": "The Year of the Burn Up Pt 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/timeslip-complete-series-1970/timeslip-complete-series-1970.thumbs/Timeslip%20S03E02%20-%20The%20Year%20of%20the%20Burn%20Up%20Pt%202_000662.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1468,
+          "videoFile": {
+            "name": "Timeslip S03E02 - The Year of the Burn Up Pt 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 139257451,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/timeslip-complete-series-1970/Timeslip%20S03E02%20-%20The%20Year%20of%20the%20Burn%20Up%20Pt%202.mp4"
+        },
+        {
+          "archiveID": "timeslip-complete-series-1970@s3e03",
+          "sourceID": "timeslip-complete-series-1970",
+          "seasonNumber": 3,
+          "episodeNumber": 3,
+          "title": "The Year of the Burn Up Pt 3",
+          "overview": null,
+          "stillURL": "https://archive.org/download/timeslip-complete-series-1970/timeslip-complete-series-1970.thumbs/Timeslip%20S03E03%20-%20The%20Year%20of%20the%20Burn%20Up%20Pt%203_000667.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1487,
+          "videoFile": {
+            "name": "Timeslip S03E03 - The Year of the Burn Up Pt 3.mp4",
+            "format": "h.264",
+            "sizeBytes": 140977190,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/timeslip-complete-series-1970/Timeslip%20S03E03%20-%20The%20Year%20of%20the%20Burn%20Up%20Pt%203.mp4"
+        },
+        {
+          "archiveID": "timeslip-complete-series-1970@s3e04",
+          "sourceID": "timeslip-complete-series-1970",
+          "seasonNumber": 3,
+          "episodeNumber": 4,
+          "title": "The Year of the Burn Up Pt 4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/timeslip-complete-series-1970/timeslip-complete-series-1970.thumbs/Timeslip%20S03E04%20-%20The%20Year%20of%20the%20Burn%20Up%20Pt%204_000674.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Timeslip S03E04 - The Year of the Burn Up Pt 4.mp4",
+            "format": "h.264",
+            "sizeBytes": 142034882,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/timeslip-complete-series-1970/Timeslip%20S03E04%20-%20The%20Year%20of%20the%20Burn%20Up%20Pt%204.mp4"
+        },
+        {
+          "archiveID": "timeslip-complete-series-1970@s3e05",
+          "sourceID": "timeslip-complete-series-1970",
+          "seasonNumber": 3,
+          "episodeNumber": 5,
+          "title": "The Year of the Burn Up Pt 5",
+          "overview": null,
+          "stillURL": "https://archive.org/download/timeslip-complete-series-1970/timeslip-complete-series-1970.thumbs/Timeslip%20S03E05%20-%20The%20Year%20of%20the%20Burn%20Up%20Pt%205_000652.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1465,
+          "videoFile": {
+            "name": "Timeslip S03E05 - The Year of the Burn Up Pt 5.mp4",
+            "format": "h.264",
+            "sizeBytes": 138338068,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/timeslip-complete-series-1970/Timeslip%20S03E05%20-%20The%20Year%20of%20the%20Burn%20Up%20Pt%205.mp4"
+        },
+        {
+          "archiveID": "timeslip-complete-series-1970@s3e06",
+          "sourceID": "timeslip-complete-series-1970",
+          "seasonNumber": 3,
+          "episodeNumber": 6,
+          "title": "The Year of the Burn Up Pt 6",
+          "overview": null,
+          "stillURL": "https://archive.org/download/timeslip-complete-series-1970/timeslip-complete-series-1970.thumbs/Timeslip%20S03E06%20-%20The%20Year%20of%20the%20Burn%20Up%20Pt%206_000666.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1481,
+          "videoFile": {
+            "name": "Timeslip S03E06 - The Year of the Burn Up Pt 6.mp4",
+            "format": "h.264",
+            "sizeBytes": 140340564,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/timeslip-complete-series-1970/Timeslip%20S03E06%20-%20The%20Year%20of%20the%20Burn%20Up%20Pt%206.mp4"
+        },
+        {
+          "archiveID": "timeslip-complete-series-1970@s3e07",
+          "sourceID": "timeslip-complete-series-1970",
+          "seasonNumber": 3,
+          "episodeNumber": 7,
+          "title": "The Year of the Burn Up Pt 7",
+          "overview": null,
+          "stillURL": "https://archive.org/download/timeslip-complete-series-1970/timeslip-complete-series-1970.thumbs/Timeslip%20S03E07%20-%20The%20Year%20of%20the%20Burn%20Up%20%20Pt%207_000662.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1485,
+          "videoFile": {
+            "name": "Timeslip S03E07 - The Year of the Burn Up  Pt 7.mp4",
+            "format": "h.264",
+            "sizeBytes": 140087758,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/timeslip-complete-series-1970/Timeslip%20S03E07%20-%20The%20Year%20of%20the%20Burn%20Up%20%20Pt%207.mp4"
+        },
+        {
+          "archiveID": "timeslip-complete-series-1970@s3e08",
+          "sourceID": "timeslip-complete-series-1970",
+          "seasonNumber": 3,
+          "episodeNumber": 8,
+          "title": "The Year of the Burn Up Pt 8",
+          "overview": null,
+          "stillURL": "https://archive.org/download/timeslip-complete-series-1970/timeslip-complete-series-1970.thumbs/Timeslip%20S03E08%20-%20The%20Year%20of%20the%20Burn%20Up%20Pt%208_000521.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1470,
+          "videoFile": {
+            "name": "Timeslip S03E08 - The Year of the Burn Up Pt 8.mp4",
+            "format": "h.264",
+            "sizeBytes": 139126024,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/timeslip-complete-series-1970/Timeslip%20S03E08%20-%20The%20Year%20of%20the%20Burn%20Up%20Pt%208.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "timeslip-complete-series-1970@s4e01",
+          "sourceID": "timeslip-complete-series-1970",
+          "seasonNumber": 4,
+          "episodeNumber": 1,
+          "title": "The Day of the Clone Pt 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/timeslip-complete-series-1970/timeslip-complete-series-1970.thumbs/Timeslip%20S04E01%20-%20The%20Day%20of%20the%20Clone%20Pt%201_000662.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1480,
+          "videoFile": {
+            "name": "Timeslip S04E01 - The Day of the Clone Pt 1.mp4",
+            "format": "h.264",
+            "sizeBytes": 139411115,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/timeslip-complete-series-1970/Timeslip%20S04E01%20-%20The%20Day%20of%20the%20Clone%20Pt%201.mp4"
+        },
+        {
+          "archiveID": "timeslip-complete-series-1970@s4e02",
+          "sourceID": "timeslip-complete-series-1970",
+          "seasonNumber": 4,
+          "episodeNumber": 2,
+          "title": "The Day of the Clone Pt 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/timeslip-complete-series-1970/timeslip-complete-series-1970.thumbs/Timeslip%20S04E02%20-%20The%20Day%20of%20the%20Clone%20Pt%202_000505.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1423,
+          "videoFile": {
+            "name": "Timeslip S04E02 - The Day of the Clone Pt 2.mp4",
+            "format": "h.264",
+            "sizeBytes": 134185165,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/timeslip-complete-series-1970/Timeslip%20S04E02%20-%20The%20Day%20of%20the%20Clone%20Pt%202.mp4"
+        },
+        {
+          "archiveID": "timeslip-complete-series-1970@s4e03",
+          "sourceID": "timeslip-complete-series-1970",
+          "seasonNumber": 4,
+          "episodeNumber": 3,
+          "title": "The Day of the Clone Pt 3",
+          "overview": null,
+          "stillURL": "https://archive.org/download/timeslip-complete-series-1970/timeslip-complete-series-1970.thumbs/Timeslip%20S04E03%20-%20The%20Day%20of%20the%20Clone%20Pt%203_000666.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1486,
+          "videoFile": {
+            "name": "Timeslip S04E03 - The Day of the Clone Pt 3.mp4",
+            "format": "h.264",
+            "sizeBytes": 140518138,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/timeslip-complete-series-1970/Timeslip%20S04E03%20-%20The%20Day%20of%20the%20Clone%20Pt%203.mp4"
+        },
+        {
+          "archiveID": "timeslip-complete-series-1970@s4e04",
+          "sourceID": "timeslip-complete-series-1970",
+          "seasonNumber": 4,
+          "episodeNumber": 4,
+          "title": "The Day of the Clone Pt 4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/timeslip-complete-series-1970/timeslip-complete-series-1970.thumbs/Timeslip%20S04E04%20-%20The%20Day%20of%20the%20Clone%20Pt%204_000647.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1447,
+          "videoFile": {
+            "name": "Timeslip S04E04 - The Day of the Clone Pt 4.mp4",
+            "format": "h.264",
+            "sizeBytes": 136722394,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/timeslip-complete-series-1970/Timeslip%20S04E04%20-%20The%20Day%20of%20the%20Clone%20Pt%204.mp4"
+        },
+        {
+          "archiveID": "timeslip-complete-series-1970@s4e05",
+          "sourceID": "timeslip-complete-series-1970",
+          "seasonNumber": 4,
+          "episodeNumber": 5,
+          "title": "The Day of the Clone Pt 5",
+          "overview": null,
+          "stillURL": "https://archive.org/download/timeslip-complete-series-1970/timeslip-complete-series-1970.thumbs/Timeslip%20S04E05%20-%20The%20Day%20of%20the%20Clone%20Pt%205_000639.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1429,
+          "videoFile": {
+            "name": "Timeslip S04E05 - The Day of the Clone Pt 5.mp4",
+            "format": "h.264",
+            "sizeBytes": 134535766,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/timeslip-complete-series-1970/Timeslip%20S04E05%20-%20The%20Day%20of%20the%20Clone%20Pt%205.mp4"
+        },
+        {
+          "archiveID": "timeslip-complete-series-1970@s4e06",
+          "sourceID": "timeslip-complete-series-1970",
+          "seasonNumber": 4,
+          "episodeNumber": 6,
+          "title": "The Day of the Clone Pt 6",
+          "overview": null,
+          "stillURL": "https://archive.org/download/timeslip-complete-series-1970/timeslip-complete-series-1970.thumbs/Timeslip%20S04E06%20-%20The%20Day%20of%20the%20Clone%20Pt%206_000600.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1331,
+          "videoFile": {
+            "name": "Timeslip S04E06 - The Day of the Clone Pt 6.mp4",
+            "format": "h.264",
+            "sizeBytes": 125847786,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/timeslip-complete-series-1970/Timeslip%20S04E06%20-%20The%20Day%20of%20the%20Clone%20Pt%206.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 26,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

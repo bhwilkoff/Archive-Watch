@@ -1,0 +1,963 @@
+{
+  "version": 2,
+  "seriesID": "n-y-p-d-1967",
+  "sourceID": "s-02-e-16-the-attacker_202309",
+  "tvmazeID": null,
+  "title": "N.Y.P.D",
+  "yearStart": 1967,
+  "yearEnd": null,
+  "overview": "A detective squad of the New York Police Department; all 49 episodes of the 1967–69 ABC series N.Y.P.D. with Jack Warden and Robert Hooks.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/s-02-e-16-the-attacker_202309.69931798.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s1e01",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Shakedown",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1484,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S01E01 - Shakedown.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 393997136,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S01E01%20-%20Shakedown.ia.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s1e02",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Fingerman",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1422,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S01E02 - Fingerman.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 108993267,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S01E02%20-%20Fingerman.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s1e03",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Screaming Woman",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1426,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S01E03 - The Screaming Woman.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 309558472,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S01E03%20-%20The%20Screaming%20Woman.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s1e04",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Fast Gun",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1752,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S01E04 - Fast Gun.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 91862213,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S01E04%20-%20Fast%20Gun.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s1e05",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Walking Target",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1409,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S01E05 - Walking Target.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 275270222,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S01E05%20-%20Walking%20Target.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s1e06",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Money Man",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1346,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S01E06 - Money Man.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 89199168,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S01E06%20-%20Money%20Man.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s1e07",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Old Gangsters Never Die",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1405,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S01E07 - Old Gangsters Never Die.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 212321661,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S01E07%20-%20Old%20Gangsters%20Never%20Die.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s1e08",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "To Catch a Hero",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1411,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S01E08 - To Catch a Hero.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 245991639,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S01E08%20-%20To%20Catch%20a%20Hero.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s1e09",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Murder for Infinity",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1406,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S01E09 - Murder for Infinity.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 222853226,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S01E09%20-%20Murder%20for%20Infinity.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s1e10",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Pink Gumdrop",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1491,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S01E10 - The Pink Gumdrop.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 284916873,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S01E10%20-%20The%20Pink%20Gumdrop.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s1e11",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Witness",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1579,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S01E11 - The Witness.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 85322832,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S01E11%20-%20The%20Witness.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s1e12",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Boy Witness",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1537,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S01E12 - The Boy Witness.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 83289939,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S01E12%20-%20The%20Boy%20Witness.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s1e13",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Joshua Fit the Battle of Fulton Street",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1618,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S01E13 - Joshua Fit the Battle of Fulton Street.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 91256837,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S01E13%20-%20Joshua%20Fit%20the%20Battle%20of%20Fulton%20Street.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s1e14",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Bombers",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1594,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S01E14 - The Bombers.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 354102595,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S01E14%20-%20The%20Bombers.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s1e15",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Wire Finish",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1434,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S01E15 - Wire Finish.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 214881963,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S01E15%20-%20Wire%20Finish.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s1e16",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Cruise to Oblivion",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1594,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S01E16 - Cruise to Oblivion.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 157460262,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S01E16%20-%20Cruise%20to%20Oblivion.ia.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s1e17",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "The Patriots",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1411,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S01E17 - The Patriots.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 313172003,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S01E17%20-%20The%20Patriots.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s1e18",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "The Red Headed Pigeon",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1746,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S01E18 - The Red Headed Pigeon.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 113749776,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S01E18%20-%20The%20Red%20Headed%20Pigeon.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s1e19",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Which Side Are You On",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1744,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S01E19 - Which Side Are You On.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 108257000,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S01E19%20-%20Which%20Side%20Are%20You%20On.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s1e20",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Cry Brute",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1498,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S01E20 - Cry Brute.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 275177340,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S01E20%20-%20Cry%20Brute.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s1e21",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Last Port of Call",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1474,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S01E21 - Last Port of Call.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 313260672,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S01E21%20-%20Last%20Port%20of%20Call.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s1e22",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Macho",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1650,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S01E22 - Macho.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 74061495,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S01E22%20-%20Macho.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s1e23",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Stones",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1407,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S01E23 - Stones.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 60180884,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S01E23%20-%20Stones.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s1e24",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "The Private Eye Puzzle",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1377,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S01E24 - The Private Eye Puzzle.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 269635619,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S01E24%20-%20The%20Private%20Eye%20Puzzle.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s1e25",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Nothing is Real But the Dead (Part 1)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1411,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S01E25 - Nothing is Real But the Dead (Part 1).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 53149420,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S01E25%20-%20Nothing%20is%20Real%20But%20the%20Dead%20%28Part%201%29.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s1e26",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Nothing is Real but the Dead (Part 2)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1411,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S01E26 - Nothing is Real but the Dead (Part 2).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 50629968,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S01E26%20-%20Nothing%20is%20Real%20but%20the%20Dead%20%28Part%202%29.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s2e01",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Naked in the Streets",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1888,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S02E01 - Naked in the Streets.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 90635718,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S02E01%20-%20Naked%20in%20the%20Streets.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s2e02",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "Encounter on a Rooftop",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1465,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S02E02 - Encounter on a Rooftop.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 48446946,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S02E02%20-%20Encounter%20on%20a%20Rooftop.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s2e03",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Day Tripper",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1696,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S02E03 - Day Tripper.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 276742520,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S02E03%20-%20Day%20Tripper.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s2e04",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "What's a Nice Girl Like You",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1508,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S02E04 - What's a Nice Girl Like You....mp4",
+            "format": "MPEG4",
+            "sizeBytes": 73279415,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S02E04%20-%20What%27s%20a%20Nice%20Girl%20Like%20You....mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s2e05",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Deadly Circle of Violence",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1435,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S02E05 - Deadly Circle of Violence.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 363816748,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S02E05%20-%20Deadly%20Circle%20of%20Violence.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s2e06",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Case of the Shady Lady",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1532,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S02E06 - Case of the Shady Lady.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 312058846,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S02E06%20-%20Case%20of%20the%20Shady%20Lady.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s2e07",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "The Golden Fleece",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1406,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S02E07 - The Golden Fleece.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 84512836,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S02E07%20-%20The%20Golden%20Fleece.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s2e08",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "The Peep Freak",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1459,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S02E08 - The Peep Freak.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 70172971,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S02E08%20-%20The%20Peep%20Freak.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s2e09",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Walk the Long Pier",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1436,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S02E09 - Walk the Long Pier.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 51932286,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S02E09%20-%20Walk%20the%20Long%20Pier.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s2e10",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "The Witch Of 116th Street",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1378,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S02E10 - The Witch Of 116th Street.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 238072252,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S02E10%20-%20The%20Witch%20Of%20116th%20Street.ia.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s2e11",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "L is for Love and Larceny",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1523,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S02E11 - L is for Love and Larceny.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 579463137,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S02E11%20-%20L%20is%20for%20Love%20and%20Larceny.ia.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s2e12",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "The Love Hustle",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1446,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S02E12 - The Love Hustle.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 497847399,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S02E12%20-%20The%20Love%20Hustle.ia.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s2e13",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "The Body in the Trunk",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1450,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S02E13 - The Body in the Trunk.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 137301959,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S02E13%20-%20The%20Body%20in%20the%20Trunk.ia.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s2e14",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 2,
+          "episodeNumber": 14,
+          "title": "Night Watch",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1496,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S02E14 - Night Watch.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 118541893,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S02E14%20-%20Night%20Watch.ia.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s2e15",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 2,
+          "episodeNumber": 15,
+          "title": "Three-Fifty-Two",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1477,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S02E15 - Three-Fifty-Two.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 83411818,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S02E15%20-%20Three-Fifty-Two.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s2e16",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 2,
+          "episodeNumber": 16,
+          "title": "The Attacker",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1421,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S02E16 - The Attacker.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 700671516,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S02E16%20-%20The%20Attacker.ia.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s2e17",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 2,
+          "episodeNumber": 17,
+          "title": "Candy Man (Part 1)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1741,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S02E17 - Candy Man (Part 1).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 85685768,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S02E17%20-%20Candy%20Man%20%28Part%201%29.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s2e18",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 2,
+          "episodeNumber": 18,
+          "title": "Candy Man (Part 2)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1742,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S02E18 - Candy Man (Part 2).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 94761108,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S02E18%20-%20Candy%20Man%20%28Part%202%29.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s2e19",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 2,
+          "episodeNumber": 19,
+          "title": "Who's Got the Bundle",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1686,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S02E19 - Who's Got the Bundle.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 327151718,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S02E19%20-%20Who%27s%20Got%20the%20Bundle.ia.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s2e20",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 2,
+          "episodeNumber": 20,
+          "title": "Face on the Dart Board",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1548,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S02E20 - Face on the Dart Board.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 73702031,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S02E20%20-%20Face%20on%20the%20Dart%20Board.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s2e21",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 2,
+          "episodeNumber": 21,
+          "title": "Boys Night Out",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1378,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S02E21 - Boys Night Out.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 249064433,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S02E21%20-%20Boys%20Night%20Out.ia.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s2e22",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 2,
+          "episodeNumber": 22,
+          "title": "Everybody Loved Him",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1338,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S02E22 - Everybody Loved Him.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 188979828,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S02E22%20-%20Everybody%20Loved%20Him.ia.mp4"
+        },
+        {
+          "archiveID": "s-02-e-16-the-attacker_202309@s2e23",
+          "sourceID": "s-02-e-16-the-attacker_202309",
+          "seasonNumber": 2,
+          "episodeNumber": 23,
+          "title": "No Day-Trippers Need Apply",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1565,
+          "videoFile": {
+            "name": "NYPD (49 of 49)/S02e23 - No Day-Trippers Need Apply.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 536122288,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-02-e-16-the-attacker_202309/NYPD%20%2849%20of%2049%29/S02e23%20-%20No%20Day-Trippers%20Need%20Apply.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 49,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

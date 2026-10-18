@@ -1,0 +1,274 @@
+{
+  "version": 2,
+  "seriesID": "the-shadow-of-the-tower-1972",
+  "sourceID": "the-shadow-of-the-tower-episode-08",
+  "tvmazeID": null,
+  "title": "The Shadow Of The Tower",
+  "yearStart": 1972,
+  "yearEnd": null,
+  "overview": "A series recording the key events in the reign of Henry Tudor and his founding of the Tudor Dynasty",
+  "posterURL": "https://archive.org/download/archivewatch-covers/the-shadow-of-the-tower-episode-08.a55429bc.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-shadow-of-the-tower-episode-08@e01",
+          "sourceID": "the-shadow-of-the-tower-episode-08",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Episode 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-shadow-of-the-tower-episode-08/the-shadow-of-the-tower-episode-08.thumbs/The%20Shadow%20of%20the%20Tower%20-%20Episode%2001_001104.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 2839,
+          "videoFile": {
+            "name": "The Shadow of the Tower - Episode 01.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 150549344,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-shadow-of-the-tower-episode-08/The%20Shadow%20of%20the%20Tower%20-%20Episode%2001.ia.mp4"
+        },
+        {
+          "archiveID": "the-shadow-of-the-tower-episode-08@e02",
+          "sourceID": "the-shadow-of-the-tower-episode-08",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Episode 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-shadow-of-the-tower-episode-08/the-shadow-of-the-tower-episode-08.thumbs/The%20Shadow%20of%20the%20Tower%20-%20Episode%2002_001183.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 3053,
+          "videoFile": {
+            "name": "The Shadow of the Tower - Episode 02.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 170896991,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-shadow-of-the-tower-episode-08/The%20Shadow%20of%20the%20Tower%20-%20Episode%2002.ia.mp4"
+        },
+        {
+          "archiveID": "the-shadow-of-the-tower-episode-08@e03",
+          "sourceID": "the-shadow-of-the-tower-episode-08",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Episode 3",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-shadow-of-the-tower-episode-08/the-shadow-of-the-tower-episode-08.thumbs/The%20Shadow%20of%20the%20Tower%20-%20Episode%2003_001132.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 2916,
+          "videoFile": {
+            "name": "The Shadow of the Tower - Episode 03.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 180559104,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-shadow-of-the-tower-episode-08/The%20Shadow%20of%20the%20Tower%20-%20Episode%2003.ia.mp4"
+        },
+        {
+          "archiveID": "the-shadow-of-the-tower-episode-08@e04",
+          "sourceID": "the-shadow-of-the-tower-episode-08",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Episode 4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-shadow-of-the-tower-episode-08/the-shadow-of-the-tower-episode-08.thumbs/The%20Shadow%20of%20the%20Tower%20-%20Episode%2004_001163.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 3003,
+          "videoFile": {
+            "name": "The Shadow of the Tower - Episode 04.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 198707919,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-shadow-of-the-tower-episode-08/The%20Shadow%20of%20the%20Tower%20-%20Episode%2004.ia.mp4"
+        },
+        {
+          "archiveID": "the-shadow-of-the-tower-episode-08@e05",
+          "sourceID": "the-shadow-of-the-tower-episode-08",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Episode 5",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-shadow-of-the-tower-episode-08/the-shadow-of-the-tower-episode-08.thumbs/The%20Shadow%20of%20the%20Tower%20-%20Episode%2005_001170.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 3012,
+          "videoFile": {
+            "name": "The Shadow of the Tower - Episode 05.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 164015659,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-shadow-of-the-tower-episode-08/The%20Shadow%20of%20the%20Tower%20-%20Episode%2005.ia.mp4"
+        },
+        {
+          "archiveID": "the-shadow-of-the-tower-episode-08@e06",
+          "sourceID": "the-shadow-of-the-tower-episode-08",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Episode 6",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-shadow-of-the-tower-episode-08/the-shadow-of-the-tower-episode-08.thumbs/The%20Shadow%20of%20the%20Tower%20-%20Episode%2006_001145.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 2946,
+          "videoFile": {
+            "name": "The Shadow of the Tower - Episode 06.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 155947583,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-shadow-of-the-tower-episode-08/The%20Shadow%20of%20the%20Tower%20-%20Episode%2006.ia.mp4"
+        },
+        {
+          "archiveID": "the-shadow-of-the-tower-episode-08@e07",
+          "sourceID": "the-shadow-of-the-tower-episode-08",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Episode 7",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-shadow-of-the-tower-episode-08/the-shadow-of-the-tower-episode-08.thumbs/The%20Shadow%20of%20the%20Tower%20-%20Episode%2007_001148.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 2960,
+          "videoFile": {
+            "name": "The Shadow of the Tower - Episode 07.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 184834883,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-shadow-of-the-tower-episode-08/The%20Shadow%20of%20the%20Tower%20-%20Episode%2007.ia.mp4"
+        },
+        {
+          "archiveID": "the-shadow-of-the-tower-episode-08@e08",
+          "sourceID": "the-shadow-of-the-tower-episode-08",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Episode 8",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-shadow-of-the-tower-episode-08/the-shadow-of-the-tower-episode-08.thumbs/The%20Shadow%20of%20the%20Tower%20-%20Episode%2008_001161.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 3000,
+          "videoFile": {
+            "name": "The Shadow of the Tower - Episode 08.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 247824330,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-shadow-of-the-tower-episode-08/The%20Shadow%20of%20the%20Tower%20-%20Episode%2008.ia.mp4"
+        },
+        {
+          "archiveID": "the-shadow-of-the-tower-episode-08@e09",
+          "sourceID": "the-shadow-of-the-tower-episode-08",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Episode 9",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-shadow-of-the-tower-episode-08/the-shadow-of-the-tower-episode-08.thumbs/The%20Shadow%20of%20the%20Tower%20-%20Episode%2009_001100.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 2838,
+          "videoFile": {
+            "name": "The Shadow of the Tower - Episode 09.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 245969621,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-shadow-of-the-tower-episode-08/The%20Shadow%20of%20the%20Tower%20-%20Episode%2009.ia.mp4"
+        },
+        {
+          "archiveID": "the-shadow-of-the-tower-episode-08@e10",
+          "sourceID": "the-shadow-of-the-tower-episode-08",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Episode 10",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-shadow-of-the-tower-episode-08/the-shadow-of-the-tower-episode-08.thumbs/The%20Shadow%20of%20the%20Tower%20-%20Episode%2010_001146.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 2959,
+          "videoFile": {
+            "name": "The Shadow of the Tower - Episode 10.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 182768477,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-shadow-of-the-tower-episode-08/The%20Shadow%20of%20the%20Tower%20-%20Episode%2010.ia.mp4"
+        },
+        {
+          "archiveID": "the-shadow-of-the-tower-episode-08@e11",
+          "sourceID": "the-shadow-of-the-tower-episode-08",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Episode 11",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-shadow-of-the-tower-episode-08/the-shadow-of-the-tower-episode-08.thumbs/The%20Shadow%20of%20the%20Tower%20-%20Episode%2011_001166.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 3008,
+          "videoFile": {
+            "name": "The Shadow of the Tower - Episode 11.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 220218784,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-shadow-of-the-tower-episode-08/The%20Shadow%20of%20the%20Tower%20-%20Episode%2011.ia.mp4"
+        },
+        {
+          "archiveID": "the-shadow-of-the-tower-episode-08@e12",
+          "sourceID": "the-shadow-of-the-tower-episode-08",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Episode 12",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-shadow-of-the-tower-episode-08/the-shadow-of-the-tower-episode-08.thumbs/The%20Shadow%20of%20the%20Tower%20-%20Episode%2012_001147.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 2959,
+          "videoFile": {
+            "name": "The Shadow of the Tower - Episode 12.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 141640057,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-shadow-of-the-tower-episode-08/The%20Shadow%20of%20the%20Tower%20-%20Episode%2012.ia.mp4"
+        },
+        {
+          "archiveID": "the-shadow-of-the-tower-episode-08@e13",
+          "sourceID": "the-shadow-of-the-tower-episode-08",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Episode 13",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-shadow-of-the-tower-episode-08/the-shadow-of-the-tower-episode-08.thumbs/The%20Shadow%20of%20the%20Tower%20-%20Episode%2013_001166.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 3008,
+          "videoFile": {
+            "name": "The Shadow of the Tower - Episode 13.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 193025929,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-shadow-of-the-tower-episode-08/The%20Shadow%20of%20the%20Tower%20-%20Episode%2013.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 13,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

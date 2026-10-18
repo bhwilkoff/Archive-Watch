@@ -194,6 +194,8 @@ def main():
             if stats["candidates"] >= budget:
                 break
             d = json.loads(Path(f).read_text(encoding="utf-8"))
+            if d.get("sourceID"):   # build_bundle_series owns a bundle's picks (Decision 166)
+                continue
             touched = False
             for s in d.get("seasons", []):
                 for ep in s.get("episodes", []):

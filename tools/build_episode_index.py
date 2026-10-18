@@ -44,7 +44,7 @@ def _mature_gate():
         card = by.get(f"series:{slug}") or by.get(slug)
         if card is not None and _is_adult(card):
             return True
-        row = by.get(aid)
+        row = by.get(aid.split("@", 1)[0])   # a bundle episode's row is its item's
         if row is not None and _is_adult(row):
             return True
         return bool(_is_adult({"title": ep_title or "", "collections": []})
@@ -76,9 +76,12 @@ def main() -> int:
                 eps.append([
                     aid, slug, series_title, ep.get("seasonNumber"), ep.get("episodeNumber"),
                     ep.get("title"), ep.get("stillURL"), ep.get("year"),
+                    # A bundle episode (Decision 166) is a FILE of its item, which
+                    # the item's metadata cannot pick: the viewer plays this url.
+                    ep.get("downloadURL") if ep.get("sourceID") else None,
                 ])
     out = {
-        "fields": ["archiveID", "slug", "series", "season", "episode", "title", "still", "year"],
+        "fields": ["archiveID", "slug", "series", "season", "episode", "title", "still", "year", "url"],
         "count": len(eps),
         "episodes": eps,
     }

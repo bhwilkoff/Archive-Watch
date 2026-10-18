@@ -171,7 +171,7 @@
     facets: { keywords: [], studios: [] },  // Decision 046 — Browse filter chips
     featured: null,
     episodes: [],        // episode-items (Decision 045) — see episodes-index.json
-    episodeMeta: new Map(),  // archiveID → {slug, series, season, episode}
+    episodeMeta: new Map(),  // archiveID → {slug, series, season, episode, url}
 
     loadedAt: 0,
 
@@ -199,10 +199,10 @@
       if (epR && epR.ok) {
         const eps = (await epR.json()).episodes || [];
         this.episodes = eps;
-        for (const [aid, slug, series, season, episode, title, still, year] of eps) {
+        for (const [aid, slug, series, season, episode, title, still, year, url] of eps) {
           // Catalog-index row shape [id, title, year, type, poster, pro].
           this.byID.set(aid, [aid, title, year, 'tv-episode', still, 1]);
-          this.episodeMeta.set(aid, { slug, series, season, episode });
+          this.episodeMeta.set(aid, { slug, series, season, episode, url: url || null });
         }
       }
       this.loadedAt = Date.now();
@@ -333,16 +333,31 @@
           .filter(f => this.PLAYABLE.some(x => String(f.name).toLowerCase().endsWith(x)))
           .filter(f => Number(f.size) > 5000000)            // stubs, samples, thumbnails
           .map(f => ({
-            item, name: f.name, other,
+            item, name: f.name, other, original: f.original || null,
             size: Number(f.size), height: Number(f.height) || 0,
             format: (f.format || '').replace(/h\.264/i, 'H.264'),
             derivative: f.source === 'derivative',
           }));
       } catch { return []; }
     },
+    /** {item, name} of an archive.org download URL, or null. */
+    parse(url) {
+      const m = /^https:\/\/archive\.org\/download\/([^/]+)\/(.+)$/.exec(url || '');
+      return m ? { item: decodeURIComponent(m[1]), name: m[2].split('/').map(decodeURIComponent).join('/') }
+        : null;
+    },
     async list(id) {
       if (!this.cache.has(id)) {
         this.cache.set(id, (async () => {
+          // A bundle episode (Decision 166) shares its item with every other
+          // episode: its copies are its own file and that file's derivatives.
+          if (id.includes('@')) {
+            const own = this.parse(Data.episodeMeta.get(id)?.url);
+            if (!own) return [];
+            return (await this.files(own.item, false))
+              .filter(v => v.name === own.name || v.original === own.name)
+              .sort((a, b) => (b.height - a.height) || (b.size - a.size));
+          }
           const map = await Aliases.all();
           const merged = Object.keys(map).filter(k => map[k] === id && k !== id);
           const all = (await Promise.all([this.files(id, false),
@@ -432,11 +447,13 @@
           .catch(() => ({})));
       }
       const data = await this.cache.get(shard);
-      const rec = data[id];
+      // A bundle episode has no shard record; its own file is in the index.
+      const epURL = Data.episodeMeta.get(id)?.url || null;
+      const rec = data[id] || (epURL ? [] : null);
       if (!rec) return null;
       const x = rec[9] || null;     // rich-metadata extras (Decision 046)
       return {
-        downloadURL: rec[0] || null,
+        downloadURL: rec[0] || epURL,
         synopsis: rec[1] || null,
         director: rec[2] || null,
         directorProfilePath: x?.dp || null,
@@ -2868,6 +2885,12 @@
           return;                              // playable — done
         }
       }
+      // A bundle episode's item holds the whole series: its metadata would
+      // play some other episode.
+      if (id.includes('@')) {
+        this.fail('No playable video file for this episode.');
+        return;
+      }
       // Fallback (item not in the shards yet, or no baked URL): resolve via
       // the metadata API, bounded so a hung response can't strand the page.
       try {
@@ -3494,7 +3517,7 @@
         const det = await Details.get(id).catch(() => null);
         if (det?.downloadURL) {
           url = det.downloadURL;
-        } else {
+        } else if (!id.includes('@')) {
           try {
             const s = API.summarize(await API.fetchMetadata(id, { timeoutMs: 12000 }));
             if (s?.videoFile) {

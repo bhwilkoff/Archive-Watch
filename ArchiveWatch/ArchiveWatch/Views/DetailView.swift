@@ -394,8 +394,8 @@ struct DetailView: View {
                 archiveID: item.archiveID,
                 versions: versions,
                 isLoading: loadingVersions,
-                pipelineChoiceName: item.videoURLParsed?
-                    .lastPathComponent.removingPercentEncoding
+                pipelineChoiceName: Catalog.archiveFileName(in: item.videoURLParsed)
+                    ?? item.videoURLParsed?.lastPathComponent.removingPercentEncoding
             ) { choice in
                 ArchiveVersions.choose(choice, for: item.archiveID)
                 chosenVersionName = choice?.choiceKey
@@ -407,7 +407,7 @@ struct DetailView: View {
     private func loadVersions() async {
         guard versions.isEmpty else { return }
         loadingVersions = true
-        versions = await ArchiveVersions.list(itemID: item.archiveID)
+        versions = await ArchiveVersions.list(itemID: item.archiveID, defaultURL: item.videoURLParsed)
         loadingVersions = false
     }
 
@@ -2792,8 +2792,9 @@ struct PlayerScreen: View {
                     // about it should delay the first frame.
                     if playerVersions.isEmpty {
                         let id = activeArchiveID
+                        let ownFile = (current ?? catalogItem)?.videoURLParsed
                         Task { @MainActor in
-                            let found = await ArchiveVersions.list(itemID: id)
+                            let found = await ArchiveVersions.list(itemID: id, defaultURL: ownFile)
                             if activeArchiveID == id { playerVersions = found }
                         }
                     }

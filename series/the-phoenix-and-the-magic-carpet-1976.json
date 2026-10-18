@@ -1,0 +1,183 @@
+{
+  "version": 2,
+  "seriesID": "the-phoenix-and-the-magic-carpet-1976",
+  "sourceID": "the-phoenix-and-the-magic-carpet-complete-series-1976",
+  "tvmazeID": null,
+  "title": "The Phoenix and the Magic Carpet",
+  "yearStart": 1976,
+  "yearEnd": null,
+  "overview": "Four children discover a strange egg hidden in an old carpet from which hatches a talking phoenix. Further adventures are had when the carpet turns out to be magic. The Phoenix and the Carpet is a 1976 BBC TV series based on Edith Nesbit's novel of the same name. The story follows four children who discover a magical phoenix and a magic carpet within a second-hand rug they purchased. The series features their adventures as the phoenix grants their wishes and the carpet transports them to various locations. It is part of a trilogy of novels that includes \"Five Children and It\" and \"The Story of the Amulet\".",
+  "posterURL": "https://archive.org/download/archivewatch-covers/the-phoenix-and-the-magic-carpet-complete-series-1976.8b888c66.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Mystery",
+    "Action",
+    "Fantasy"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-phoenix-and-the-magic-carpet-complete-series-1976@s1e01",
+          "sourceID": "the-phoenix-and-the-magic-carpet-complete-series-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Magic Fire",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-phoenix-and-the-magic-carpet-complete-series-1976/the-phoenix-and-the-magic-carpet-complete-series-1976.thumbs/Phoenix%20and%20the%20Magic%20Carpet%20S01E01%20-%20The%20Magic%20Fire_000534.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1563,
+          "videoFile": {
+            "name": "Phoenix and the Magic Carpet S01E01 - The Magic Fire.mp4",
+            "format": "h.264",
+            "sizeBytes": 147217624,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-phoenix-and-the-magic-carpet-complete-series-1976/Phoenix%20and%20the%20Magic%20Carpet%20S01E01%20-%20The%20Magic%20Fire.mp4"
+        },
+        {
+          "archiveID": "the-phoenix-and-the-magic-carpet-complete-series-1976@s1e02",
+          "sourceID": "the-phoenix-and-the-magic-carpet-complete-series-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Queen of the Island",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-phoenix-and-the-magic-carpet-complete-series-1976/the-phoenix-and-the-magic-carpet-complete-series-1976.thumbs/Phoenix%20and%20the%20Magic%20Carpet%20S01E02%20-%20Queen%20of%20the%20Island_000658.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1830,
+          "videoFile": {
+            "name": "Phoenix and the Magic Carpet S01E02 - Queen of the Island.mp4",
+            "format": "h.264",
+            "sizeBytes": 173025734,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-phoenix-and-the-magic-carpet-complete-series-1976/Phoenix%20and%20the%20Magic%20Carpet%20S01E02%20-%20Queen%20of%20the%20Island.mp4"
+        },
+        {
+          "archiveID": "the-phoenix-and-the-magic-carpet-complete-series-1976@s1e03",
+          "sourceID": "the-phoenix-and-the-magic-carpet-complete-series-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Some Indian Things",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-phoenix-and-the-magic-carpet-complete-series-1976/the-phoenix-and-the-magic-carpet-complete-series-1976.thumbs/Phoenix%20and%20the%20Magic%20Carpet%20S01E03%20-%20Some%20Indian%20Things_000594.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1645,
+          "videoFile": {
+            "name": "Phoenix and the Magic Carpet S01E03 - Some Indian Things.mp4",
+            "format": "h.264",
+            "sizeBytes": 155919013,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-phoenix-and-the-magic-carpet-complete-series-1976/Phoenix%20and%20the%20Magic%20Carpet%20S01E03%20-%20Some%20Indian%20Things.mp4"
+        },
+        {
+          "archiveID": "the-phoenix-and-the-magic-carpet-complete-series-1976@s1e04",
+          "sourceID": "the-phoenix-and-the-magic-carpet-complete-series-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Temple of the Phoenix",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-phoenix-and-the-magic-carpet-complete-series-1976/the-phoenix-and-the-magic-carpet-complete-series-1976.thumbs/Phoenix%20and%20the%20Magic%20Carpet%20S01E04%20-%20The%20Temple%20of%20the%20Phoenix_000657.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1825,
+          "videoFile": {
+            "name": "Phoenix and the Magic Carpet S01E04 - The Temple of the Phoenix.mp4",
+            "format": "h.264",
+            "sizeBytes": 172891653,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-phoenix-and-the-magic-carpet-complete-series-1976/Phoenix%20and%20the%20Magic%20Carpet%20S01E04%20-%20The%20Temple%20of%20the%20Phoenix.mp4"
+        },
+        {
+          "archiveID": "the-phoenix-and-the-magic-carpet-complete-series-1976@s1e05",
+          "sourceID": "the-phoenix-and-the-magic-carpet-complete-series-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Gifts from Persia",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-phoenix-and-the-magic-carpet-complete-series-1976/the-phoenix-and-the-magic-carpet-complete-series-1976.thumbs/Phoenix%20and%20the%20Magic%20Carpet%20S01E05%20-%20Gifts%20from%20Persia_000597.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1716,
+          "videoFile": {
+            "name": "Phoenix and the Magic Carpet S01E05 - Gifts from Persia.mp4",
+            "format": "h.264",
+            "sizeBytes": 161992807,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-phoenix-and-the-magic-carpet-complete-series-1976/Phoenix%20and%20the%20Magic%20Carpet%20S01E05%20-%20Gifts%20from%20Persia.mp4"
+        },
+        {
+          "archiveID": "the-phoenix-and-the-magic-carpet-complete-series-1976@s1e06",
+          "sourceID": "the-phoenix-and-the-magic-carpet-complete-series-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "What to Do with a Burglar",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-phoenix-and-the-magic-carpet-complete-series-1976/the-phoenix-and-the-magic-carpet-complete-series-1976.thumbs/Phoenix%20and%20the%20Magic%20Carpet%20S01E06%20-%20What%20to%20Do%20with%20a%20Burglar_000654.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1824,
+          "videoFile": {
+            "name": "Phoenix and the Magic Carpet S01E06 - What to Do with a Burglar.mp4",
+            "format": "h.264",
+            "sizeBytes": 172500844,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-phoenix-and-the-magic-carpet-complete-series-1976/Phoenix%20and%20the%20Magic%20Carpet%20S01E06%20-%20What%20to%20Do%20with%20a%20Burglar.mp4"
+        },
+        {
+          "archiveID": "the-phoenix-and-the-magic-carpet-complete-series-1976@s1e07",
+          "sourceID": "the-phoenix-and-the-magic-carpet-complete-series-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Hole in the Carpet",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-phoenix-and-the-magic-carpet-complete-series-1976/the-phoenix-and-the-magic-carpet-complete-series-1976.thumbs/Phoenix%20and%20the%20Magic%20Carpet%20S01E07%20-%20The%20Hole%20in%20the%20Carpet_000594.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1659,
+          "videoFile": {
+            "name": "Phoenix and the Magic Carpet S01E07 - The Hole in the Carpet.mp4",
+            "format": "h.264",
+            "sizeBytes": 157201454,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-phoenix-and-the-magic-carpet-complete-series-1976/Phoenix%20and%20the%20Magic%20Carpet%20S01E07%20-%20The%20Hole%20in%20the%20Carpet.mp4"
+        },
+        {
+          "archiveID": "the-phoenix-and-the-magic-carpet-complete-series-1976@s1e08",
+          "sourceID": "the-phoenix-and-the-magic-carpet-complete-series-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "A Night at the Theatre",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-phoenix-and-the-magic-carpet-complete-series-1976/the-phoenix-and-the-magic-carpet-complete-series-1976.thumbs/Phoenix%20and%20the%20Magic%20Carpet%20S01E08%20-%20A%20Night%20at%20the%20Theatre_000654.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1822,
+          "videoFile": {
+            "name": "Phoenix and the Magic Carpet S01E08 - A Night at the Theatre.mp4",
+            "format": "h.264",
+            "sizeBytes": 172078223,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-phoenix-and-the-magic-carpet-complete-series-1976/Phoenix%20and%20the%20Magic%20Carpet%20S01E08%20-%20A%20Night%20at%20the%20Theatre.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 8,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

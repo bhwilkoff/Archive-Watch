@@ -375,6 +375,22 @@ Shape (from `series/26-men-1957.json`):
 `canonicalEpisodesCount` (TVmaze full run) vs `episodesCount` (what we have)
 drives the "X of Y" affordance. `tvdbID`/`artworkSource`/`cast` are additive.
 
+**A series held in ONE archive.org item** (Decision 166,
+`tools/build_bundle_series.py`): the spine carries `"sourceID": "<item>"`,
+and so does each episode, whose `archiveID` is `"<item>@<token>"`, e.g.
+`UFO.complete@e01`, `X@s2e05`, `X@x-<slug>` for an unnumbered extra. The
+token is the episode's own number from its file name, never its position.
+archive.org identifiers never contain `@`, so **the archive.org item is the
+part before the first `@`**: any client building an archive.org URL (details,
+metadata, thumbnails, copies) from an id must split there, and the copies of
+a bundle episode are only its own file and derivatives of the same original.
+Everything that keys on the id (progress, favorites, queues, sync, rooms)
+uses the full id unchanged. The bundle item's own card is not published; its
+id forwards to `series:<slug>` through `item_aliases`.
+A serial uploaded in halves (chapters 1-5 in one item, 6-12 in another) is
+ONE spine whose episodes carry their own `sourceID`s; the spine then lists
+them all in `"sourceIDs"`, and every one of them forwards to the show.
+
 ### 6.4 `catalog-index.json` (Pages; web search fallback / editorial tool)
 
 Slim positional-tuple index because Release assets have no CORS. Excludes

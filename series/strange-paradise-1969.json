@@ -1,0 +1,3713 @@
+{
+  "version": 2,
+  "seriesID": "strange-paradise-1969",
+  "sourceID": "strange-paradise-episode-01",
+  "tvmazeID": null,
+  "title": "Strange Paradise",
+  "yearStart": 1969,
+  "yearEnd": null,
+  "overview": "1969 S01 Strange Paradise was a Canadian Soap Opera from 1969-70. There were 195 episodes, with three story arcs of 65 episodes, each originally running for thirteen weeks. The show attempted to capitalize on the success of ABC's long-running supernatural soap Dark Shadows.",
+  "posterURL": "https://archive.org/services/img/strange-paradise-episode-01",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "strange-paradise-episode-01@e01",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Episode 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2001_000474.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1357,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 01.mp4",
+            "format": "h.264",
+            "sizeBytes": 130819719,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2001.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e02",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Episode 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2002_000474.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1353,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 02.mp4",
+            "format": "h.264",
+            "sizeBytes": 130659655,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2002.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e03",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Episode 3",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2003_000474.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 03.mp4",
+            "format": "h.264",
+            "sizeBytes": 130940923,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2003.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e04",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Episode 4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2004_000474.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1351,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 04.mp4",
+            "format": "h.264",
+            "sizeBytes": 130130956,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2004.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e05",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Episode 5",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2005_000534.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1417,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 05.mp4",
+            "format": "h.264",
+            "sizeBytes": 137439624,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2005.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e06",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Episode 6",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2006_000474.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1353,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 06.mp4",
+            "format": "h.264",
+            "sizeBytes": 131387055,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2006.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e07",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Episode 7",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2007_000474.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1353,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 07.mp4",
+            "format": "h.264",
+            "sizeBytes": 131126769,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2007.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e08",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Episode 8",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2008_000534.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1502,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 08.mp4",
+            "format": "h.264",
+            "sizeBytes": 145372876,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2008.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e09",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Episode 9",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2009_000474.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1369,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 09.mp4",
+            "format": "h.264",
+            "sizeBytes": 132535293,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2009.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e10",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Episode 10",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2010_000474.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1358,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 10.mp4",
+            "format": "h.264",
+            "sizeBytes": 132305356,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2010.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e11",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Episode 11",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2011_000474.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1345,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 11.mp4",
+            "format": "h.264",
+            "sizeBytes": 130394533,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2011.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e12",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Episode 12",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2012_000474.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1356,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 12.mp4",
+            "format": "h.264",
+            "sizeBytes": 131515424,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2012.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e13",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Episode 13",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2013_000679.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1381,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 13.mp4",
+            "format": "h.264",
+            "sizeBytes": 133690842,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2013.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e14",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Episode 14",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2014_000669.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1360,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 14.mp4",
+            "format": "h.264",
+            "sizeBytes": 131903463,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2014.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e15",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Episode 15",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2015_000672.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1367,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 15.mp4",
+            "format": "h.264",
+            "sizeBytes": 132140096,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2015.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e16",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Episode 16",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2016_000663.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1348,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 16.mp4",
+            "format": "h.264",
+            "sizeBytes": 131285393,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2016.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e17",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Episode 17",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2017_000670.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1364,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 17.mp4",
+            "format": "h.264",
+            "sizeBytes": 132171043,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2017.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e18",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Episode 18",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2018_000665.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 18.mp4",
+            "format": "h.264",
+            "sizeBytes": 131502297,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2018.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e19",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Episode 19",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2019_000667.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1357,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 19.mp4",
+            "format": "h.264",
+            "sizeBytes": 131631739,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2019.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e20",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Episode 20",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2020_000666.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1355,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 20.mp4",
+            "format": "h.264",
+            "sizeBytes": 131904414,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2020.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e21",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Episode 21",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2021_000663.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1349,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 21.mp4",
+            "format": "h.264",
+            "sizeBytes": 131104650,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2021.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e22",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Episode 22",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2022_000666.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1354,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 22.mp4",
+            "format": "h.264",
+            "sizeBytes": 131822859,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2022.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e23",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Episode 23",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2023_000664.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1351,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 23.mp4",
+            "format": "h.264",
+            "sizeBytes": 131632468,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2023.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e24",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Episode 24",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2024_000664.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1351,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 24.mp4",
+            "format": "h.264",
+            "sizeBytes": 131102562,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2024.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e25",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Episode 25",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2025_000663.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1349,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 25.mp4",
+            "format": "h.264",
+            "sizeBytes": 131145586,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2025.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e26",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Episode 26",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2026_000663.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1353,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 26.mp4",
+            "format": "h.264",
+            "sizeBytes": 131408360,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2026.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e27",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Episode 27",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2027_000663.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 27.mp4",
+            "format": "h.264",
+            "sizeBytes": 131345326,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2027.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e28",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "Episode 28",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2028_000662.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 28.mp4",
+            "format": "h.264",
+            "sizeBytes": 131412853,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2028.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e29",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "Episode 29",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2029_000649.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1326,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 29.mp4",
+            "format": "h.264",
+            "sizeBytes": 129130007,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2029.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e30",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "Episode 30",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2030_000662.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 30.mp4",
+            "format": "h.264",
+            "sizeBytes": 131345868,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2030.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e31",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "Episode 31",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2031_000716.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1468,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 31.mp4",
+            "format": "h.264",
+            "sizeBytes": 142796641,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2031.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e32",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 32,
+          "title": "Episode 32",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2032_000659.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1351,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 32.mp4",
+            "format": "h.264",
+            "sizeBytes": 131708672,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2032.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e33",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 33,
+          "title": "Episode 33",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2033_000659.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1351,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 33.mp4",
+            "format": "h.264",
+            "sizeBytes": 131447675,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2033.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e34",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 34,
+          "title": "Episode 34",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2034_000659.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 34.mp4",
+            "format": "h.264",
+            "sizeBytes": 131925876,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2034.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e35",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 35,
+          "title": "Episode 35",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2035_000658.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1349,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 35.mp4",
+            "format": "h.264",
+            "sizeBytes": 131598921,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2035.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e36",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "Episode 36",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2036_000660.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1354,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 36.mp4",
+            "format": "h.264",
+            "sizeBytes": 131547428,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2036.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e37",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 37,
+          "title": "Episode 37",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2037_000660.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1354,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 37.mp4",
+            "format": "h.264",
+            "sizeBytes": 131498982,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2037.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e38",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 38,
+          "title": "Episode 38",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2038_000860.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1324,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 38.mp4",
+            "format": "h.264",
+            "sizeBytes": 128521000,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2038.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e39",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 39,
+          "title": "Episode 39",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2039_000878.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1351,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 39.mp4",
+            "format": "h.264",
+            "sizeBytes": 131263778,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2039.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e40",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 40,
+          "title": "Episode 40",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2040_000880.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1354,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 40.mp4",
+            "format": "h.264",
+            "sizeBytes": 131773132,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2040.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e41",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 41,
+          "title": "Episode 41",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2041_000879.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 41.mp4",
+            "format": "h.264",
+            "sizeBytes": 131541602,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2041.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e42",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 42,
+          "title": "Episode 42",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2042_000878.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1351,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 42.mp4",
+            "format": "h.264",
+            "sizeBytes": 131317394,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2042.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e43",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 43,
+          "title": "Episode 43",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2043_000879.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 43.mp4",
+            "format": "h.264",
+            "sizeBytes": 131597115,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2043.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e44",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 44,
+          "title": "Episode 44",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2044_000879.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 44.mp4",
+            "format": "h.264",
+            "sizeBytes": 131450231,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2044.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e45",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 45,
+          "title": "Episode 45",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2045_000879.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 45.mp4",
+            "format": "h.264",
+            "sizeBytes": 131475762,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2045.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e46",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 46,
+          "title": "Episode 46",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2046_000878.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1351,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 46.mp4",
+            "format": "h.264",
+            "sizeBytes": 131572392,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2046.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e47",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 47,
+          "title": "Episode 47",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2047_000892.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1372,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 47.mp4",
+            "format": "h.264",
+            "sizeBytes": 133450745,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2047.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e48",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 48,
+          "title": "Episode 48",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2048_000784.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 48.mp4",
+            "format": "h.264",
+            "sizeBytes": 131327678,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2048.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e49",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 49,
+          "title": "Episode 49",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2049_000787.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1356,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 49.mp4",
+            "format": "h.264",
+            "sizeBytes": 131504219,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2049.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e50",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 50,
+          "title": "Episode 50",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2050_000785.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1353,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 50.mp4",
+            "format": "h.264",
+            "sizeBytes": 131377158,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2050.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e51",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 51,
+          "title": "Episode 51",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2051_000772.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1330,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 51.mp4",
+            "format": "h.264",
+            "sizeBytes": 129249277,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2051.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e52",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 52,
+          "title": "Episode 52",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2052_000784.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1351,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 52.mp4",
+            "format": "h.264",
+            "sizeBytes": 131125856,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2052.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e53",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 53,
+          "title": "Episode 53",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2053_000785.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1353,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 53.mp4",
+            "format": "h.264",
+            "sizeBytes": 131342371,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2053.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e54",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 54,
+          "title": "Episode 54",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2054_000785.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1354,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 54.mp4",
+            "format": "h.264",
+            "sizeBytes": 131659140,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2054.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e55",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 55,
+          "title": "Episode 55",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2055_000784.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 55.mp4",
+            "format": "h.264",
+            "sizeBytes": 130923525,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2055.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e56",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 56,
+          "title": "Episode 56",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2056_000989.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1364,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 56.mp4",
+            "format": "h.264",
+            "sizeBytes": 132380861,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2056.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e57",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 57,
+          "title": "Episode 57",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2057_000980.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 57.mp4",
+            "format": "h.264",
+            "sizeBytes": 131003358,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2057.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e58",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 58,
+          "title": "Episode 58",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2058_000784.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 58.mp4",
+            "format": "h.264",
+            "sizeBytes": 131442469,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2058.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e59",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 59,
+          "title": "Episode 59",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2059_000982.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1354,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 59.mp4",
+            "format": "h.264",
+            "sizeBytes": 131381559,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2059.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e60",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 60,
+          "title": "Episode 60",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2060_000783.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1351,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 60.mp4",
+            "format": "h.264",
+            "sizeBytes": 130824858,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2060.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e61",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 61,
+          "title": "Episode 61",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2061_000978.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1349,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 61.mp4",
+            "format": "h.264",
+            "sizeBytes": 130787653,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2061.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e62",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 62,
+          "title": "Episode 62",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2062_000979.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1351,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 62.mp4",
+            "format": "h.264",
+            "sizeBytes": 131343550,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2062.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e63",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 63,
+          "title": "Episode 63",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2063_000981.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1353,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 63.mp4",
+            "format": "h.264",
+            "sizeBytes": 130983265,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2063.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e64",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 64,
+          "title": "Episode 64",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2064_000980.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 64.mp4",
+            "format": "h.264",
+            "sizeBytes": 130905492,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2064.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e65",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 65,
+          "title": "Episode 65",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2065_000982.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1354,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 65.mp4",
+            "format": "h.264",
+            "sizeBytes": 130127633,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2065.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e66",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 66,
+          "title": "Episode 66",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2066_000980.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1351,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 66.mp4",
+            "format": "h.264",
+            "sizeBytes": 131620159,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2066.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e67",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 67,
+          "title": "Episode 67",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2067_000978.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1349,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 67.mp4",
+            "format": "h.264",
+            "sizeBytes": 131460946,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2067.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e68",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 68,
+          "title": "Episode 68",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2068_000983.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1356,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 68.mp4",
+            "format": "h.264",
+            "sizeBytes": 131925881,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2068.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e69",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 69,
+          "title": "Episode 69",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2069_000981.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1353,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 69.mp4",
+            "format": "h.264",
+            "sizeBytes": 131470498,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2069.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e70",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 70,
+          "title": "Episode 70",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2070_000977.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1347,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 70.mp4",
+            "format": "h.264",
+            "sizeBytes": 130574258,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2070.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e71",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 71,
+          "title": "Episode 71",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2071_000979.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1351,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 71.mp4",
+            "format": "h.264",
+            "sizeBytes": 131275331,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2071.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e72",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 72,
+          "title": "Episode 72",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2072_000981.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1353,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 72.mp4",
+            "format": "h.264",
+            "sizeBytes": 131637611,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2072.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e73",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 73,
+          "title": "Episode 73",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2073_000978.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1349,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 73.mp4",
+            "format": "h.264",
+            "sizeBytes": 130762443,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2073.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e74",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 74,
+          "title": "Episode 74",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2074_000972.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1340,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 74.mp4",
+            "format": "h.264",
+            "sizeBytes": 130233290,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2074.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e75",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 75,
+          "title": "Episode 75",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2075_000977.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1347,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 75.mp4",
+            "format": "h.264",
+            "sizeBytes": 130585531,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2075.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e76",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 76,
+          "title": "Episode 76",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2076_001309.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1354,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 76.mp4",
+            "format": "h.264",
+            "sizeBytes": 131276691,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2076.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e77",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 77,
+          "title": "Episode 77",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2077_001306.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1351,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 77.mp4",
+            "format": "h.264",
+            "sizeBytes": 131152970,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2077.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e78",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 78,
+          "title": "Episode 78",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2078_001308.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1353,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 78.mp4",
+            "format": "h.264",
+            "sizeBytes": 131008107,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2078.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e79",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 79,
+          "title": "Episode 79",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2079_001306.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1351,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 79.mp4",
+            "format": "h.264",
+            "sizeBytes": 130816060,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2079.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e80",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 80,
+          "title": "Episode 80",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2080_001305.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1350,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 80.mp4",
+            "format": "h.264",
+            "sizeBytes": 130963632,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2080.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e81",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 81,
+          "title": "Episode 81",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2081_001307.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 81.mp4",
+            "format": "h.264",
+            "sizeBytes": 131909865,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2081.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e82",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 82,
+          "title": "Episode 82",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2082_001307.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 82.mp4",
+            "format": "h.264",
+            "sizeBytes": 131649343,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2082.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e83",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 83,
+          "title": "Episode 83",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2083_001309.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1354,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 83.mp4",
+            "format": "h.264",
+            "sizeBytes": 131936265,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2083.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e84",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 84,
+          "title": "Episode 84",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2084_001307.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 84.mp4",
+            "format": "h.264",
+            "sizeBytes": 131791742,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2084.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e85",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 85,
+          "title": "Episode 85",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2085_001301.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1346,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 85.mp4",
+            "format": "h.264",
+            "sizeBytes": 131012200,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2085.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e86",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 86,
+          "title": "Episode 86",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2086_001306.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1351,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 86.mp4",
+            "format": "h.264",
+            "sizeBytes": 131603272,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2086.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e87",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 87,
+          "title": "Episode 87",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2087_001308.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1353,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 87.mp4",
+            "format": "h.264",
+            "sizeBytes": 131922476,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2087.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e88",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 88,
+          "title": "Episode 88",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2088_001306.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1351,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 88.mp4",
+            "format": "h.264",
+            "sizeBytes": 131590677,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2088.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e89",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 89,
+          "title": "Episode 89",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2089_001306.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1351,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 89.mp4",
+            "format": "h.264",
+            "sizeBytes": 131180106,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2089.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e90",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 90,
+          "title": "Episode 90",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2090_001306.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1351,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 90.mp4",
+            "format": "h.264",
+            "sizeBytes": 131128483,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2090.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e91",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 91,
+          "title": "Episode 91",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2091_001306.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1351,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 91.mp4",
+            "format": "h.264",
+            "sizeBytes": 131428380,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2091.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e92",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 92,
+          "title": "Episode 92",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2092_001306.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1351,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 92.mp4",
+            "format": "h.264",
+            "sizeBytes": 131815120,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2092.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e93",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 93,
+          "title": "Episode 93",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2093_001306.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1351,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 93.mp4",
+            "format": "h.264",
+            "sizeBytes": 131427656,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2093.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e94",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 94,
+          "title": "Episode 94",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2094_001307.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 94.mp4",
+            "format": "h.264",
+            "sizeBytes": 131562483,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2094.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e95",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 95,
+          "title": "Episode 95",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2095_001307.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 95.mp4",
+            "format": "h.264",
+            "sizeBytes": 131385655,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2095.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e96",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 96,
+          "title": "Episode 96",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2096_001307.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 96.mp4",
+            "format": "h.264",
+            "sizeBytes": 138394141,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2096.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e97",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 97,
+          "title": "Episode 97",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2097_001309.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1354,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 97.mp4",
+            "format": "h.264",
+            "sizeBytes": 139357368,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2097.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e98",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 98,
+          "title": "Episode 98",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2098_001311.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1356,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 98.mp4",
+            "format": "h.264",
+            "sizeBytes": 140302060,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2098.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e99",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 99,
+          "title": "Episode 99",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%2099_001312.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1357,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 99.mp4",
+            "format": "h.264",
+            "sizeBytes": 140401902,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%2099.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e100",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 100,
+          "title": "Episode 100",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20100_001321.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1366,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 100.mp4",
+            "format": "h.264",
+            "sizeBytes": 140469238,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20100.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e101",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 101,
+          "title": "Episode 101",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20101_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 101.mp4",
+            "format": "h.264",
+            "sizeBytes": 131597395,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20101.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e102",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 102,
+          "title": "Episode 102",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20102_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1351,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 102.mp4",
+            "format": "h.264",
+            "sizeBytes": 131532708,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20102.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e103",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 103,
+          "title": "Episode 103",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20103_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1349,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 103.mp4",
+            "format": "h.264",
+            "sizeBytes": 131923485,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20103.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e104",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 104,
+          "title": "Episode 104",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20104_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1351,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 104.mp4",
+            "format": "h.264",
+            "sizeBytes": 131460205,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20104.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e105",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 105,
+          "title": "Episode 105",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20105_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 105.mp4",
+            "format": "h.264",
+            "sizeBytes": 131397501,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20105.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e106",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 106,
+          "title": "Episode 106",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20106_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1350,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 106.mp4",
+            "format": "h.264",
+            "sizeBytes": 131429813,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20106.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e107",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 107,
+          "title": "Episode 107",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20107_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 107.mp4",
+            "format": "h.264",
+            "sizeBytes": 131760129,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20107.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e108",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 108,
+          "title": "Episode 108",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20108_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 108.mp4",
+            "format": "h.264",
+            "sizeBytes": 131590549,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20108.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e109",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 109,
+          "title": "Episode 109",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20109_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1351,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 109.mp4",
+            "format": "h.264",
+            "sizeBytes": 131650579,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20109.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e110",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 110,
+          "title": "Episode 110",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20110_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1350,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 110.mp4",
+            "format": "h.264",
+            "sizeBytes": 131468708,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20110.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e111",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 111,
+          "title": "Episode 111",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20111_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1349,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 111.mp4",
+            "format": "h.264",
+            "sizeBytes": 131902377,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20111.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e112",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 112,
+          "title": "Episode 112",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20112_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1350,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 112.mp4",
+            "format": "h.264",
+            "sizeBytes": 131549104,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20112.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e113",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 113,
+          "title": "Episode 113",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20113_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1350,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 113.mp4",
+            "format": "h.264",
+            "sizeBytes": 131420611,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20113.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e114",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 114,
+          "title": "Episode 114",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20114_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 114.mp4",
+            "format": "h.264",
+            "sizeBytes": 131553170,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20114.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e115",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 115,
+          "title": "Episode 115",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20115_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1347,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 115.mp4",
+            "format": "h.264",
+            "sizeBytes": 131072038,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20115.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e116",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 116,
+          "title": "Episode 116",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20116_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1358,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 116.mp4",
+            "format": "h.264",
+            "sizeBytes": 140075132,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20116.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e117",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 117,
+          "title": "Episode 117",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20117_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 117.mp4",
+            "format": "h.264",
+            "sizeBytes": 131869233,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20117.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e118",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 118,
+          "title": "Episode 118",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20118_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 118.mp4",
+            "format": "h.264",
+            "sizeBytes": 131329459,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20118.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e119",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 119,
+          "title": "Episode 119",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20119_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1353,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 119.mp4",
+            "format": "h.264",
+            "sizeBytes": 132463323,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20119.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e120",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 120,
+          "title": "Episode 120",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20120_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1353,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 120.mp4",
+            "format": "h.264",
+            "sizeBytes": 131305838,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20120.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e121",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 121,
+          "title": "Episode 121",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20121_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1354,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 121.mp4",
+            "format": "h.264",
+            "sizeBytes": 131792448,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20121.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e122",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 122,
+          "title": "Episode 122",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20122_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1351,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 122.mp4",
+            "format": "h.264",
+            "sizeBytes": 131362333,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20122.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e123",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 123,
+          "title": "Episode 123",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20123_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1351,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 123.mp4",
+            "format": "h.264",
+            "sizeBytes": 131836423,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20123.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e124",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 124,
+          "title": "Episode 124",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20124_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1350,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 124.mp4",
+            "format": "h.264",
+            "sizeBytes": 131326611,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20124.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e125",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 125,
+          "title": "Episode 125",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20125_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1351,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 125.mp4",
+            "format": "h.264",
+            "sizeBytes": 131614192,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20125.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e126",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 126,
+          "title": "Episode 126",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20126_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1351,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 126.mp4",
+            "format": "h.264",
+            "sizeBytes": 131341841,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20126.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e127",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 127,
+          "title": "Episode 127",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20127_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1354,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 127.mp4",
+            "format": "h.264",
+            "sizeBytes": 131504749,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20127.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e128",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 128,
+          "title": "Episode 128",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20128_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1353,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 128.mp4",
+            "format": "h.264",
+            "sizeBytes": 131414837,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20128.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e129",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 129,
+          "title": "Episode 129",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20129_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 129.mp4",
+            "format": "h.264",
+            "sizeBytes": 131421001,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20129.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e130",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 130,
+          "title": "Episode 130",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20130_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1350,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 130.mp4",
+            "format": "h.264",
+            "sizeBytes": 131427811,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20130.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e131",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 131,
+          "title": "Episode 131",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20131_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 131.mp4",
+            "format": "h.264",
+            "sizeBytes": 140051060,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20131.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e132",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 132,
+          "title": "Episode 132",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20132_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1355,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 132.mp4",
+            "format": "h.264",
+            "sizeBytes": 140243909,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20132.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e133",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 133,
+          "title": "Episode 133",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20133_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 133.mp4",
+            "format": "h.264",
+            "sizeBytes": 139421160,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20133.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e134",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 134,
+          "title": "Episode 134",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20134_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1349,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 134.mp4",
+            "format": "h.264",
+            "sizeBytes": 138854213,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20134.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e135",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 135,
+          "title": "Episode 135",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20135_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1366,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 135.mp4",
+            "format": "h.264",
+            "sizeBytes": 140262063,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20135.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e136",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 136,
+          "title": "Episode 136",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20136_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1353,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 136.mp4",
+            "format": "h.264",
+            "sizeBytes": 139508868,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20136.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e137",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 137,
+          "title": "Episode 137",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20137_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1359,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 137.mp4",
+            "format": "h.264",
+            "sizeBytes": 140614963,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20137.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e138",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 138,
+          "title": "Episode 138",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20138_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1354,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 138.mp4",
+            "format": "h.264",
+            "sizeBytes": 139916664,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20138.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e139",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 139,
+          "title": "Episode 139",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20139_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1353,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 139.mp4",
+            "format": "h.264",
+            "sizeBytes": 140650017,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20139.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e140",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 140,
+          "title": "Episode 140",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20140_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1366,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 140.mp4",
+            "format": "h.264",
+            "sizeBytes": 139762973,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20140.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e141",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 141,
+          "title": "Episode 141",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20141_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1353,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 141.mp4",
+            "format": "h.264",
+            "sizeBytes": 139775160,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20141.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e142",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 142,
+          "title": "Episode 142",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20142_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1355,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 142.mp4",
+            "format": "h.264",
+            "sizeBytes": 138797818,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20142.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e143",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 143,
+          "title": "Episode 143",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20143_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 143.mp4",
+            "format": "h.264",
+            "sizeBytes": 139379277,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20143.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e144",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 144,
+          "title": "Episode 144",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20144_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1354,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 144.mp4",
+            "format": "h.264",
+            "sizeBytes": 138848396,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20144.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e145",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 145,
+          "title": "Episode 145",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20145_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 145.mp4",
+            "format": "h.264",
+            "sizeBytes": 137104535,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20145.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e146",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 146,
+          "title": "Episode 146",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20146_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1354,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 146.mp4",
+            "format": "h.264",
+            "sizeBytes": 139662863,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20146.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e147",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 147,
+          "title": "Episode 147",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20147_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1354,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 147.mp4",
+            "format": "h.264",
+            "sizeBytes": 139758466,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20147.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e148",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 148,
+          "title": "Episode 148",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20148_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1355,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 148.mp4",
+            "format": "h.264",
+            "sizeBytes": 139525072,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20148.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e149",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 149,
+          "title": "Episode 149",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20149_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1350,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 149.mp4",
+            "format": "h.264",
+            "sizeBytes": 138826757,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20149.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e150",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 150,
+          "title": "Episode 150",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20150_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1361,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 150.mp4",
+            "format": "h.264",
+            "sizeBytes": 139695404,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20150.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e151",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 151,
+          "title": "Episode 151",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20151_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1354,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 151.mp4",
+            "format": "h.264",
+            "sizeBytes": 140546739,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20151.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e152",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 152,
+          "title": "Episode 152",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20152_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1353,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 152.mp4",
+            "format": "h.264",
+            "sizeBytes": 138642599,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20152.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e153",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 153,
+          "title": "Episode 153",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20153_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1354,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 153.mp4",
+            "format": "h.264",
+            "sizeBytes": 140850719,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20153.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e154",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 154,
+          "title": "Episode 154",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20154_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1356,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 154.mp4",
+            "format": "h.264",
+            "sizeBytes": 140906425,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20154.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e155",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 155,
+          "title": "Episode 155",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20155_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1355,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 155.mp4",
+            "format": "h.264",
+            "sizeBytes": 142354235,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20155.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e156",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 156,
+          "title": "Episode 156",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20156_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1359,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 156.mp4",
+            "format": "h.264",
+            "sizeBytes": 140837356,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20156.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e157",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 157,
+          "title": "Episode 157",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20157_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1358,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 157.mp4",
+            "format": "h.264",
+            "sizeBytes": 140635056,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20157.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e158",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 158,
+          "title": "Episode 158",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20158_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1355,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 158.mp4",
+            "format": "h.264",
+            "sizeBytes": 139636711,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20158.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e159",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 159,
+          "title": "Episode 159",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20159_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1359,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 159.mp4",
+            "format": "h.264",
+            "sizeBytes": 140466100,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20159.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e160",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 160,
+          "title": "Episode 160",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20160_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 160.mp4",
+            "format": "h.264",
+            "sizeBytes": 139949747,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20160.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e161",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 161,
+          "title": "Episode 161",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20161_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1358,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 161.mp4",
+            "format": "h.264",
+            "sizeBytes": 140323345,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20161.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e162",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 162,
+          "title": "Episode 162",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20162_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1357,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 162.mp4",
+            "format": "h.264",
+            "sizeBytes": 139721626,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20162.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e163",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 163,
+          "title": "Episode 163",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20163_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1360,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 163.mp4",
+            "format": "h.264",
+            "sizeBytes": 139782522,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20163.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e164",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 164,
+          "title": "Episode 164",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20164_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1356,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 164.mp4",
+            "format": "h.264",
+            "sizeBytes": 139375690,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20164.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e165",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 165,
+          "title": "Episode 165",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20165_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1270,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 165.mp4",
+            "format": "h.264",
+            "sizeBytes": 122380421,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20165.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e166",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 166,
+          "title": "Episode 166",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20166_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1358,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 166.mp4",
+            "format": "h.264",
+            "sizeBytes": 138906450,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20166.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e167",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 167,
+          "title": "Episode 167",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20167_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1362,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 167.mp4",
+            "format": "h.264",
+            "sizeBytes": 139754162,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20167.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e168",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 168,
+          "title": "Episode 168",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20168_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1354,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 168.mp4",
+            "format": "h.264",
+            "sizeBytes": 140683863,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20168.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e169",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 169,
+          "title": "Episode 169",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20169_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1293,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 169.mp4",
+            "format": "h.264",
+            "sizeBytes": 134277431,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20169.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e170",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 170,
+          "title": "Episode 170",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20170_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1366,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 170.mp4",
+            "format": "h.264",
+            "sizeBytes": 138964900,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20170.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e171",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 171,
+          "title": "Episode 171",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20171_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1357,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 171.mp4",
+            "format": "h.264",
+            "sizeBytes": 139205312,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20171.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e172",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 172,
+          "title": "Episode 172",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20172_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1355,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 172.mp4",
+            "format": "h.264",
+            "sizeBytes": 139446079,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20172.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e173",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 173,
+          "title": "Episode 173",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20173_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1354,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 173.mp4",
+            "format": "h.264",
+            "sizeBytes": 138395394,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20173.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e174",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 174,
+          "title": "Episode 174",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20174_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1353,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 174.mp4",
+            "format": "h.264",
+            "sizeBytes": 139266099,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20174.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e175",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 175,
+          "title": "Episode 175",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20175_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1358,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 175.mp4",
+            "format": "h.264",
+            "sizeBytes": 139175204,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20175.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e176",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 176,
+          "title": "Episode 176",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20176_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1357,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 176.mp4",
+            "format": "h.264",
+            "sizeBytes": 139251723,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20176.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e177",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 177,
+          "title": "Episode 177",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20177_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1359,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 177.mp4",
+            "format": "h.264",
+            "sizeBytes": 139195736,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20177.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e178",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 178,
+          "title": "Episode 178",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20178_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1355,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 178.mp4",
+            "format": "h.264",
+            "sizeBytes": 139944310,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20178.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e179",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 179,
+          "title": "Episode 179",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20179_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1367,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 179.mp4",
+            "format": "h.264",
+            "sizeBytes": 139827170,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20179.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e180",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 180,
+          "title": "Episode 180",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20180_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1354,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 180.mp4",
+            "format": "h.264",
+            "sizeBytes": 139126059,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20180.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e181",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 181,
+          "title": "Episode 181",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20181_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1349,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 181.mp4",
+            "format": "h.264",
+            "sizeBytes": 137581715,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20181.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e182",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 182,
+          "title": "Episode 182",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20182_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1340,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 182.mp4",
+            "format": "h.264",
+            "sizeBytes": 137727178,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20182.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e183",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 183,
+          "title": "Episode 183",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20183_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1358,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 183.mp4",
+            "format": "h.264",
+            "sizeBytes": 139618318,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20183.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e184",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 184,
+          "title": "Episode 184",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20184_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1366,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 184.mp4",
+            "format": "h.264",
+            "sizeBytes": 139073111,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20184.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e185",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 185,
+          "title": "Episode 185",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20185_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1358,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 185.mp4",
+            "format": "h.264",
+            "sizeBytes": 138079688,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20185.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e186",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 186,
+          "title": "Episode 186",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20186_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1358,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 186.mp4",
+            "format": "h.264",
+            "sizeBytes": 138441717,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20186.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e187",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 187,
+          "title": "Episode 187",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20187_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1359,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 187.mp4",
+            "format": "h.264",
+            "sizeBytes": 138274469,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20187.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e188",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 188,
+          "title": "Episode 188",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20188_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1356,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 188.mp4",
+            "format": "h.264",
+            "sizeBytes": 139611767,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20188.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e189",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 189,
+          "title": "Episode 189",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20189_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 189.mp4",
+            "format": "h.264",
+            "sizeBytes": 138124936,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20189.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e190",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 190,
+          "title": "Episode 190",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20190_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1357,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 190.mp4",
+            "format": "h.264",
+            "sizeBytes": 138969884,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20190.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e191",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 191,
+          "title": "Episode 191",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20191_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1357,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 191.mp4",
+            "format": "h.264",
+            "sizeBytes": 138231230,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20191.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e192",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 192,
+          "title": "Episode 192",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20192_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1359,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 192.mp4",
+            "format": "h.264",
+            "sizeBytes": 139224703,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20192.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e193",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 193,
+          "title": "Episode 193",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20193_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1358,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 193.mp4",
+            "format": "h.264",
+            "sizeBytes": 138903918,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20193.mp4"
+        },
+        {
+          "archiveID": "strange-paradise-episode-01@e194",
+          "sourceID": "strange-paradise-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 194,
+          "title": "Episode 194",
+          "overview": null,
+          "stillURL": "https://archive.org/download/strange-paradise-episode-01/strange-paradise-episode-01.thumbs/Strange%20Paradise%20-%20Episode%20194_000001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1382,
+          "videoFile": {
+            "name": "Strange Paradise - Episode 194.mp4",
+            "format": "h.264",
+            "sizeBytes": 139458664,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/strange-paradise-episode-01/Strange%20Paradise%20-%20Episode%20194.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 194,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

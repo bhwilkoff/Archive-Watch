@@ -1,0 +1,293 @@
+{
+  "version": 2,
+  "seriesID": "planet-of-the-apes-tv-series-1974",
+  "sourceID": "planet-of-the-apes-1974-TV-HD",
+  "tvmazeID": null,
+  "title": "Planet Of The Apes TV Series",
+  "yearStart": 1974,
+  "yearEnd": null,
+  "overview": "Hurled 1,100 years into the future, astronauts Alan Virdon and Pete Burke land in a society where apes rule and humans serve, befriended by the chimpanzee Galen; the 1974 CBS series Planet of the Apes, with Roddy McDowall.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/planet-of-the-apes-1974-TV-HD.9a412999.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "planet-of-the-apes-1974-TV-HD@e01",
+          "sourceID": "planet-of-the-apes-1974-TV-HD",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Escape from Tomorrow",
+          "overview": null,
+          "stillURL": "https://archive.org/download/planet-of-the-apes-1974-TV-HD/planet-of-the-apes-1974-TV-HD.thumbs/Planet%20of%20the%20Apes%20%5B1974%5D%20E01%20-%20Escape%20from%20Tomorrow%20%28Ai%20Upscale%29-v2_001273.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 2983,
+          "videoFile": {
+            "name": "Planet of the Apes [1974] E01 - Escape from Tomorrow (Ai Upscale)-v2.mp4",
+            "format": "h.264",
+            "sizeBytes": 288526324,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/planet-of-the-apes-1974-TV-HD/Planet%20of%20the%20Apes%20%5B1974%5D%20E01%20-%20Escape%20from%20Tomorrow%20%28Ai%20Upscale%29-v2.mp4"
+        },
+        {
+          "archiveID": "planet-of-the-apes-1974-TV-HD@e02",
+          "sourceID": "planet-of-the-apes-1974-TV-HD",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Gladiators",
+          "overview": null,
+          "stillURL": "https://archive.org/download/planet-of-the-apes-1974-TV-HD/planet-of-the-apes-1974-TV-HD.thumbs/Planet%20of%20the%20Apes%20%5B1974%5D%20E02%20-%20The%20Gladiators%20%28Ai%20Upscale%29-v2_001268.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 2985,
+          "videoFile": {
+            "name": "Planet of the Apes [1974] E02 - The Gladiators (Ai Upscale)-v2.mp4",
+            "format": "h.264",
+            "sizeBytes": 287318326,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/planet-of-the-apes-1974-TV-HD/Planet%20of%20the%20Apes%20%5B1974%5D%20E02%20-%20The%20Gladiators%20%28Ai%20Upscale%29-v2.mp4"
+        },
+        {
+          "archiveID": "planet-of-the-apes-1974-TV-HD@e03",
+          "sourceID": "planet-of-the-apes-1974-TV-HD",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Trap",
+          "overview": null,
+          "stillURL": "https://archive.org/download/planet-of-the-apes-1974-TV-HD/planet-of-the-apes-1974-TV-HD.thumbs/Planet%20of%20the%20Apes%20%5B1974%5D%20E03%20-%20The%20Trap%20%28Ai%20Upscale%29-v2_001273.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 2988,
+          "videoFile": {
+            "name": "Planet of the Apes [1974] E03 - The Trap (Ai Upscale)-v2.mp4",
+            "format": "h.264",
+            "sizeBytes": 288337544,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/planet-of-the-apes-1974-TV-HD/Planet%20of%20the%20Apes%20%5B1974%5D%20E03%20-%20The%20Trap%20%28Ai%20Upscale%29-v2.mp4"
+        },
+        {
+          "archiveID": "planet-of-the-apes-1974-TV-HD@e04",
+          "sourceID": "planet-of-the-apes-1974-TV-HD",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Good Seeds",
+          "overview": null,
+          "stillURL": "https://archive.org/download/planet-of-the-apes-1974-TV-HD/planet-of-the-apes-1974-TV-HD.thumbs/Planet%20of%20the%20Apes%20%5B1974%5D%20E04%20-%20The%20Good%20Seeds%20%28Ai%20Upscale%29-v2_001267.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 2986,
+          "videoFile": {
+            "name": "Planet of the Apes [1974] E04 - The Good Seeds (Ai Upscale)-v2.mp4",
+            "format": "h.264",
+            "sizeBytes": 287868117,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/planet-of-the-apes-1974-TV-HD/Planet%20of%20the%20Apes%20%5B1974%5D%20E04%20-%20The%20Good%20Seeds%20%28Ai%20Upscale%29-v2.mp4"
+        },
+        {
+          "archiveID": "planet-of-the-apes-1974-TV-HD@e05",
+          "sourceID": "planet-of-the-apes-1974-TV-HD",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Legacy",
+          "overview": null,
+          "stillURL": "https://archive.org/download/planet-of-the-apes-1974-TV-HD/planet-of-the-apes-1974-TV-HD.thumbs/Planet%20of%20the%20Apes%20%5B1974%5D%20E05%20-%20The%20Legacy%20%28Ai%20Upscale%29-v2_001268.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 2987,
+          "videoFile": {
+            "name": "Planet of the Apes [1974] E05 - The Legacy (Ai Upscale)-v2.mp4",
+            "format": "h.264",
+            "sizeBytes": 287831112,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/planet-of-the-apes-1974-TV-HD/Planet%20of%20the%20Apes%20%5B1974%5D%20E05%20-%20The%20Legacy%20%28Ai%20Upscale%29-v2.mp4"
+        },
+        {
+          "archiveID": "planet-of-the-apes-1974-TV-HD@e06",
+          "sourceID": "planet-of-the-apes-1974-TV-HD",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Tomorrow's Tide",
+          "overview": null,
+          "stillURL": "https://archive.org/download/planet-of-the-apes-1974-TV-HD/planet-of-the-apes-1974-TV-HD.thumbs/Planet%20of%20the%20Apes%20%5B1974%5D%20E06%20-%20Tomorrow%27s%20Tide%20%28Ai%20Upscale%29-v2_001275.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 2985,
+          "videoFile": {
+            "name": "Planet of the Apes [1974] E06 - Tomorrow's Tide (Ai Upscale)-v2.mp4",
+            "format": "h.264",
+            "sizeBytes": 287241549,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/planet-of-the-apes-1974-TV-HD/Planet%20of%20the%20Apes%20%5B1974%5D%20E06%20-%20Tomorrow%27s%20Tide%20%28Ai%20Upscale%29-v2.mp4"
+        },
+        {
+          "archiveID": "planet-of-the-apes-1974-TV-HD@e07",
+          "sourceID": "planet-of-the-apes-1974-TV-HD",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Surgeon",
+          "overview": null,
+          "stillURL": "https://archive.org/download/planet-of-the-apes-1974-TV-HD/planet-of-the-apes-1974-TV-HD.thumbs/Planet%20of%20the%20Apes%20%5B1974%5D%20E07%20-%20The%20Surgeon%20%28Ai%20Upscale%29-v2_001266.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 2985,
+          "videoFile": {
+            "name": "Planet of the Apes [1974] E07 - The Surgeon (Ai Upscale)-v2.mp4",
+            "format": "h.264",
+            "sizeBytes": 287985507,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/planet-of-the-apes-1974-TV-HD/Planet%20of%20the%20Apes%20%5B1974%5D%20E07%20-%20The%20Surgeon%20%28Ai%20Upscale%29-v2.mp4"
+        },
+        {
+          "archiveID": "planet-of-the-apes-1974-TV-HD@e08",
+          "sourceID": "planet-of-the-apes-1974-TV-HD",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Deception",
+          "overview": null,
+          "stillURL": "https://archive.org/download/planet-of-the-apes-1974-TV-HD/planet-of-the-apes-1974-TV-HD.thumbs/Planet%20of%20the%20Apes%20%5B1974%5D%20E08%20-%20The%20Deception%20%28Ai%20Upscale%29-v2_001270.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 2985,
+          "videoFile": {
+            "name": "Planet of the Apes [1974] E08 - The Deception (Ai Upscale)-v2.mp4",
+            "format": "h.264",
+            "sizeBytes": 288860584,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/planet-of-the-apes-1974-TV-HD/Planet%20of%20the%20Apes%20%5B1974%5D%20E08%20-%20The%20Deception%20%28Ai%20Upscale%29-v2.mp4"
+        },
+        {
+          "archiveID": "planet-of-the-apes-1974-TV-HD@e09",
+          "sourceID": "planet-of-the-apes-1974-TV-HD",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Horse Race",
+          "overview": null,
+          "stillURL": "https://archive.org/download/planet-of-the-apes-1974-TV-HD/planet-of-the-apes-1974-TV-HD.thumbs/Planet%20of%20the%20Apes%20%5B1974%5D%20E09%20-%20The%20Horse%20Race%20%28Ai%20Upscale%29-v2_001252.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 2944,
+          "videoFile": {
+            "name": "Planet of the Apes [1974] E09 - The Horse Race (Ai Upscale)-v2.mp4",
+            "format": "h.264",
+            "sizeBytes": 282980522,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/planet-of-the-apes-1974-TV-HD/Planet%20of%20the%20Apes%20%5B1974%5D%20E09%20-%20The%20Horse%20Race%20%28Ai%20Upscale%29-v2.mp4"
+        },
+        {
+          "archiveID": "planet-of-the-apes-1974-TV-HD@e10",
+          "sourceID": "planet-of-the-apes-1974-TV-HD",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Interrogation",
+          "overview": null,
+          "stillURL": "https://archive.org/download/planet-of-the-apes-1974-TV-HD/planet-of-the-apes-1974-TV-HD.thumbs/Planet%20of%20the%20Apes%20%5B1974%5D%20E10%20-%20The%20Interrogation%20%28Ai%20Upscale%29-v2_001275.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 2986,
+          "videoFile": {
+            "name": "Planet of the Apes [1974] E10 - The Interrogation (Ai Upscale)-v2.mp4",
+            "format": "h.264",
+            "sizeBytes": 289638622,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/planet-of-the-apes-1974-TV-HD/Planet%20of%20the%20Apes%20%5B1974%5D%20E10%20-%20The%20Interrogation%20%28Ai%20Upscale%29-v2.mp4"
+        },
+        {
+          "archiveID": "planet-of-the-apes-1974-TV-HD@e11",
+          "sourceID": "planet-of-the-apes-1974-TV-HD",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Tyrant",
+          "overview": null,
+          "stillURL": "https://archive.org/download/planet-of-the-apes-1974-TV-HD/planet-of-the-apes-1974-TV-HD.thumbs/Planet%20of%20the%20Apes%20%5B1974%5D%20E11%20-%20The%20Tyrant%20%28Ai%20Upscale%29-v2_001271.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 2983,
+          "videoFile": {
+            "name": "Planet of the Apes [1974] E11 - The Tyrant (Ai Upscale)-v2.mp4",
+            "format": "h.264",
+            "sizeBytes": 287689993,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/planet-of-the-apes-1974-TV-HD/Planet%20of%20the%20Apes%20%5B1974%5D%20E11%20-%20The%20Tyrant%20%28Ai%20Upscale%29-v2.mp4"
+        },
+        {
+          "archiveID": "planet-of-the-apes-1974-TV-HD@e12",
+          "sourceID": "planet-of-the-apes-1974-TV-HD",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Cure",
+          "overview": null,
+          "stillURL": "https://archive.org/download/planet-of-the-apes-1974-TV-HD/planet-of-the-apes-1974-TV-HD.thumbs/Planet%20of%20the%20Apes%20%5B1974%5D%20E12%20-%20The%20Cure%20%28Ai%20Upscale%29-v2_001265.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 2981,
+          "videoFile": {
+            "name": "Planet of the Apes [1974] E12 - The Cure (Ai Upscale)-v2.mp4",
+            "format": "h.264",
+            "sizeBytes": 288295092,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/planet-of-the-apes-1974-TV-HD/Planet%20of%20the%20Apes%20%5B1974%5D%20E12%20-%20The%20Cure%20%28Ai%20Upscale%29-v2.mp4"
+        },
+        {
+          "archiveID": "planet-of-the-apes-1974-TV-HD@e13",
+          "sourceID": "planet-of-the-apes-1974-TV-HD",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "The Liberator",
+          "overview": null,
+          "stillURL": "https://archive.org/download/planet-of-the-apes-1974-TV-HD/planet-of-the-apes-1974-TV-HD.thumbs/Planet%20of%20the%20Apes%20%5B1974%5D%20E13%20-%20The%20Liberator%20%28Ai%20Upscale%29-v2_001265.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 2983,
+          "videoFile": {
+            "name": "Planet of the Apes [1974] E13 - The Liberator (Ai Upscale)-v2.mp4",
+            "format": "h.264",
+            "sizeBytes": 287839498,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/planet-of-the-apes-1974-TV-HD/Planet%20of%20the%20Apes%20%5B1974%5D%20E13%20-%20The%20Liberator%20%28Ai%20Upscale%29-v2.mp4"
+        },
+        {
+          "archiveID": "planet-of-the-apes-1974-TV-HD@e14",
+          "sourceID": "planet-of-the-apes-1974-TV-HD",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Up Above the World So High",
+          "overview": null,
+          "stillURL": "https://archive.org/download/planet-of-the-apes-1974-TV-HD/planet-of-the-apes-1974-TV-HD.thumbs/Planet%20of%20the%20Apes%20%5B1974%5D%20E14%20-%20Up%20Above%20the%20World%20So%20High%20%28Ai%20Upscale%29-v2_001131.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 2982,
+          "videoFile": {
+            "name": "Planet of the Apes [1974] E14 - Up Above the World So High (Ai Upscale)-v2.mp4",
+            "format": "h.264",
+            "sizeBytes": 288121874,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/planet-of-the-apes-1974-TV-HD/Planet%20of%20the%20Apes%20%5B1974%5D%20E14%20-%20Up%20Above%20the%20World%20So%20High%20%28Ai%20Upscale%29-v2.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 14,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

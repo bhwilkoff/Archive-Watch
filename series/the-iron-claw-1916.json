@@ -1,0 +1,334 @@
+{
+  "version": 2,
+  "seriesID": "the-iron-claw-1916",
+  "sourceID": "chapter-11-the-doctors-bargain",
+  "tvmazeID": null,
+  "title": "The Iron Claw",
+  "yearStart": 1916,
+  "yearEnd": null,
+  "overview": "The Iron Claw is a 1916 American silent adventure 20 episode film serial starring Pearl White, directed by George B. Seitz and Edward José, and released by Pathé Exchange. A print of the seventh episode exists in the UCLA Film and Television Archive.",
+  "posterURL": "https://commons.wikimedia.org/wiki/Special:FilePath/The_Iron_Claw.jpg?width=600",
+  "backdropURL": null,
+  "genres": [
+    "Action",
+    "Adventure"
+  ],
+  "networks": [],
+  "creator": "Edward José, George B. Seitz",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "chapter-11-the-doctors-bargain@e01",
+          "sourceID": "chapter-11-the-doctors-bargain",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Shaft of Doom",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-11-the-doctors-bargain/chapter-11-the-doctors-bargain.thumbs/Chapter%2001%20-%20The%20Shaft%20of%20Doom_000604.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1527,
+          "videoFile": {
+            "name": "Chapter 01 - The Shaft of Doom.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 214540185,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-11-the-doctors-bargain/Chapter%2001%20-%20The%20Shaft%20of%20Doom.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-11-the-doctors-bargain@e02",
+          "sourceID": "chapter-11-the-doctors-bargain",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Murderous Mirror",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-11-the-doctors-bargain/chapter-11-the-doctors-bargain.thumbs/Chapter%2002%20-%20The%20Murderous%20Mirror_000416.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1153,
+          "videoFile": {
+            "name": "Chapter 02 - The Murderous Mirror.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 156667494,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-11-the-doctors-bargain/Chapter%2002%20-%20The%20Murderous%20Mirror.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-11-the-doctors-bargain@e03",
+          "sourceID": "chapter-11-the-doctors-bargain",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Drop to Destiny",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-11-the-doctors-bargain/chapter-11-the-doctors-bargain.thumbs/Chapter%2003%20-%20The%20Drop%20to%20Destiny_000417.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1108,
+          "videoFile": {
+            "name": "Chapter 03 - The Drop to Destiny.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 172545603,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-11-the-doctors-bargain/Chapter%2003%20-%20The%20Drop%20to%20Destiny.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-11-the-doctors-bargain@e04",
+          "sourceID": "chapter-11-the-doctors-bargain",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Fatal Fuse",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-11-the-doctors-bargain/chapter-11-the-doctors-bargain.thumbs/Chapter%2004%20-%20The%20Fatal%20Fuse_000417.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1030,
+          "videoFile": {
+            "name": "Chapter 04 - The Fatal Fuse.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 154812670,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-11-the-doctors-bargain/Chapter%2004%20-%20The%20Fatal%20Fuse.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-11-the-doctors-bargain@e05",
+          "sourceID": "chapter-11-the-doctors-bargain",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Fiery Fall",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-11-the-doctors-bargain/chapter-11-the-doctors-bargain.thumbs/Chapter%2005%20-%20The%20Fiery%20Fall_000414.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1042,
+          "videoFile": {
+            "name": "Chapter 05 - The Fiery Fall.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 191113359,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-11-the-doctors-bargain/Chapter%2005%20-%20The%20Fiery%20Fall.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-11-the-doctors-bargain@e06",
+          "sourceID": "chapter-11-the-doctors-bargain",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Ship Log Talks",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-11-the-doctors-bargain/chapter-11-the-doctors-bargain.thumbs/Chapter%2006%20-%20The%20Ship%20Log%20Talks_000414.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1020,
+          "videoFile": {
+            "name": "Chapter 06 - The Ship Log Talks.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 193691393,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-11-the-doctors-bargain/Chapter%2006%20-%20The%20Ship%20Log%20Talks.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-11-the-doctors-bargain@e07",
+          "sourceID": "chapter-11-the-doctors-bargain",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Mystic Map",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-11-the-doctors-bargain/chapter-11-the-doctors-bargain.thumbs/Chapter%2007%20-%20The%20Mystic%20Map_000418.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1030,
+          "videoFile": {
+            "name": "Chapter 07 - The Mystic Map.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 167479427,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-11-the-doctors-bargain/Chapter%2007%20-%20The%20Mystic%20Map.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-11-the-doctors-bargain@e08",
+          "sourceID": "chapter-11-the-doctors-bargain",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Perilous Pit",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-11-the-doctors-bargain/chapter-11-the-doctors-bargain.thumbs/Chapter%2008%20-%20The%20Perilous%20Pit_000415.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1026,
+          "videoFile": {
+            "name": "Chapter 08 - The Perilous Pit.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 198518957,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-11-the-doctors-bargain/Chapter%2008%20-%20The%20Perilous%20Pit.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-11-the-doctors-bargain@e09",
+          "sourceID": "chapter-11-the-doctors-bargain",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Cul-de-Sac",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-11-the-doctors-bargain/chapter-11-the-doctors-bargain.thumbs/Chapter%2009%20-%20The%20Cul-de-Sac_000418.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1046,
+          "videoFile": {
+            "name": "Chapter 09 - The Cul-de-Sac.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 164774981,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-11-the-doctors-bargain/Chapter%2009%20-%20The%20Cul-de-Sac.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-11-the-doctors-bargain@e10",
+          "sourceID": "chapter-11-the-doctors-bargain",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Curse of the Cave",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-11-the-doctors-bargain/chapter-11-the-doctors-bargain.thumbs/Chapter%2010%20-%20The%20Curse%20of%20the%20Cave_000417.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1036,
+          "videoFile": {
+            "name": "Chapter 10 - The Curse of the Cave.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 195414369,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-11-the-doctors-bargain/Chapter%2010%20-%20The%20Curse%20of%20the%20Cave.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-11-the-doctors-bargain@e11",
+          "sourceID": "chapter-11-the-doctors-bargain",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Doctor's Bargain",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-11-the-doctors-bargain/chapter-11-the-doctors-bargain.thumbs/Chapter%2011%20-%20The%20Doctor%27s%20Bargain_000414.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1056,
+          "videoFile": {
+            "name": "Chapter 11 - The Doctor's Bargain.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 286995655,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-11-the-doctors-bargain/Chapter%2011%20-%20The%20Doctor%27s%20Bargain.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-11-the-doctors-bargain@e12",
+          "sourceID": "chapter-11-the-doctors-bargain",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Vapors of Evil",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-11-the-doctors-bargain/chapter-11-the-doctors-bargain.thumbs/Chapter%2012%20-%20Vapors%20of%20Evil_000361.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1011,
+          "videoFile": {
+            "name": "Chapter 12 - Vapors of Evil.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 213446467,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-11-the-doctors-bargain/Chapter%2012%20-%20Vapors%20of%20Evil.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-11-the-doctors-bargain@e13",
+          "sourceID": "chapter-11-the-doctors-bargain",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "The Secret Door",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-11-the-doctors-bargain/chapter-11-the-doctors-bargain.thumbs/Chapter%2013%20-%20The%20Secret%20Door_000415.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1036,
+          "videoFile": {
+            "name": "Chapter 13 - The Secret Door.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 171397355,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-11-the-doctors-bargain/Chapter%2013%20-%20The%20Secret%20Door.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-11-the-doctors-bargain@e14",
+          "sourceID": "chapter-11-the-doctors-bargain",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Evil Eye",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-11-the-doctors-bargain/chapter-11-the-doctors-bargain.thumbs/Chapter%2014%20-%20The%20Evil%20Eye_000415.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1025,
+          "videoFile": {
+            "name": "Chapter 14 - The Evil Eye.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 163754712,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-11-the-doctors-bargain/Chapter%2014%20-%20The%20Evil%20Eye.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-11-the-doctors-bargain@e15",
+          "sourceID": "chapter-11-the-doctors-bargain",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "The Claw's Collapse",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-11-the-doctors-bargain/chapter-11-the-doctors-bargain.thumbs/Chapter%2015%20-%20The%20Claw%27s%20Collapse_000354.jpg",
+          "airDate": null,
+          "year": 1916,
+          "runtimeSeconds": 1003,
+          "videoFile": {
+            "name": "Chapter 15 - The Claw's Collapse.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 159892430,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-11-the-doctors-bargain/Chapter%2015%20-%20The%20Claw%27s%20Collapse.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 15,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "commons",
+  "cast": [
+    {
+      "name": "Pearl White",
+      "character": null,
+      "order": 0,
+      "profilePath": "/sA7nNWkQbYsRWk3UiuU50lKAIB1.jpg"
+    },
+    {
+      "name": "Creighton Hale",
+      "character": null,
+      "order": 1,
+      "profilePath": "/7rTJcSkHJ77iU62HXcL8NZa6gth.jpg"
+    },
+    {
+      "name": "Sheldon Lewis",
+      "character": null,
+      "order": 2,
+      "profilePath": "/zsgNwtpLXyYSFJU0XeNECvVDlh9.jpg"
+    }
+  ]
+}

@@ -146,7 +146,17 @@ enum ArchiveVersions {
     /// catalog each time it opens one (`item_aliases`).
     @MainActor static var mergedIDs: ((String) -> [String])?
 
-    static func list(itemID: String) async -> [Version] {
+    /// `defaultURL` is the title's own file. For an episode held as one file
+    /// of a whole-series item (Decision 166) it is REQUIRED: the item's other
+    /// files are other episodes, so only that file and its derivatives are
+    /// copies of this title, and without it there is nothing safe to offer.
+    static func list(itemID: String, defaultURL: URL? = nil) async -> [Version] {
+        if isBundleFile(itemID) {
+            guard let path = StudioRoomCopy.path(from: defaultURL),
+                  let slash = path.firstIndex(of: "/") else { return [] }
+            return ordered(await files(on: String(path[..<slash]),
+                                       sameOriginalAs: String(path[path.index(after: slash)...])))
+        }
         let own = await files(on: itemID)
         let merged = await MainActor.run { mergedIDs?(itemID) ?? [] }
         var others: [Version] = []
@@ -159,7 +169,7 @@ enum ArchiveVersions {
         return ordered(own + others)
     }
 
-    private static func files(on itemID: String) async -> [Version] {
+    private static func files(on itemID: String, sameOriginalAs file: String? = nil) async -> [Version] {
         guard let metaURL = URL(string: "https://archive.org/metadata/\(itemID)") else { return [] }
         var req = URLRequest(url: metaURL)
         req.timeoutInterval = 15
@@ -167,8 +177,13 @@ enum ArchiveVersions {
               let obj = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
               let files = obj["files"] as? [[String: Any]] else { return [] }
 
+        let root = file.map { file in
+            files.first { ($0["name"] as? String) == file }
+                .flatMap { $0["original"] as? String } ?? file
+        }
         var out: [Version] = []
         for f in files {
+            if let root, (f["name"] as? String) != root, (f["original"] as? String) != root { continue }
             guard let name = f["name"] as? String,
                   appleContainers.contains(where: { name.lowercased().hasSuffix(".\($0)") }),
                   let sizeStr = f["size"] as? String, let size = Int64(sizeStr),
@@ -244,7 +259,8 @@ enum ArchiveVersions {
     /// menu that checked only an explicit choice showed every circle empty.
     static func isPlaying(_ v: Version, chosen: String?, defaultURL: URL?) -> Bool {
         if let chosen { return chosen == v.choiceKey }
-        return !v.isOtherUpload && defaultURL?.lastPathComponent.removingPercentEncoding == v.name
+        return !v.isOtherUpload && (defaultURL?.lastPathComponent.removingPercentEncoding == v.name
+            || StudioRoomCopy.path(from: defaultURL) == "\(v.sourceItemID)/\(v.name)")
     }
 
     static func chosenName(for archiveID: String) -> String? {
@@ -343,11 +359,16 @@ enum ArchiveVersions {
     /// `@item:name` is a merged upload's file; anything else is a file on the
     /// title's own item.
     static func location(of key: String, title archiveID: String) -> (item: String, name: String) {
-        guard key.hasPrefix("@"), let colon = key.firstIndex(of: ":") else { return (archiveID, key) }
+        let own = archiveItem(archiveID)
+        guard key.hasPrefix("@"), let colon = key.firstIndex(of: ":") else { return (own, key) }
         let item = String(key[key.index(after: key.startIndex)..<colon])
         let name = String(key[key.index(after: colon)...])
-        return item.isEmpty || name.isEmpty ? (archiveID, key) : (item, name)
+        return item.isEmpty || name.isEmpty ? (own, key) : (item, name)
     }
+
+    // Not `Catalog.archiveItemID`: tools/test_studio_all.sh compiles this file without Catalog.swift.
+    static func archiveItem(_ archiveID: String) -> String { StudioSetup.archiveItem(archiveID) }
+    static func isBundleFile(_ archiveID: String) -> Bool { archiveID.contains("@") }
 
     private static var defaults: UserDefaults { .standard }
     private static let key = "aw.versionChoice.byArchiveID"

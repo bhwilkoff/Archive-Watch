@@ -1,0 +1,179 @@
+{
+  "version": 2,
+  "seriesID": "virus-educational-films-from-the-1960-s-1960",
+  "sourceID": "virus-1960",
+  "tvmazeID": null,
+  "title": "Virus 🥅 Educational Films from the 1960's",
+  "yearStart": 1960,
+  "yearEnd": null,
+  "overview": "Virus ★🥅 Educational Films from the 1960's \"From KQED in San Francisco and the Virus Laboratory of the University of California, Berkeley, comes a distinguished series of eight half-hour programs on the nature of the virus. Prepared using a National Science Foundation grant, the series is designed to explain to the viewer some of the basic facts about viruses, those structures so essential to life and health, facts which for the most part have only been discovered in the past twenty-five years. Drawing on advanced scientific techniques such as microcinematography, electron microscopy and freeze drying, as well as on animation, large-scale models and drawings, the programs combine lectures with demonstrations to give the viewer an extremely vivid picture of this complicated topic. Particularly emphasized are facts about the virus' relation to bacterial disease, to polio, and to cancer, and new information about viruses which may not yet be generally known to students of biology or to the non-scientific public.\" 8 OLD Television Classroom FILMS, from 1960, produced by KQED (San Francisco) for Classroom Use ... Although we have learned considerably more about Viruses since 1960: that doesn't negate the foundations of understanding we built upon. ) NET 🥅 - National Educational Television - was the direct predecessor to the Public Broadcasting System (PBS) ... and to this very day: PBS is still known for producing the highest quality educational and news programming. NET was launched on May 16 1954 by some forward thinking people - who hoped television had a more noble purpose, and destiny, than just being a machine for separating money from slack jawed hypnotized consumers. This really ancient series was at the START of a continuing tradition of excellence in educational video ... Television was just beginning to be explored as an educational medium at the time ... ripe with potential! Remember, this was still 9 years before Sesame Street would be Born ... And so, I think this series might be more 'Moldy Oldie' than 'Golden Oldie' - I imagine bleary eyed cave men gathered around ... and staring at a tiny x-ray spewing box with a fuzzy little round picture in it - Oh, This ought to cure your insomnia! Enough people have Favorited this series: that I'm glad it has been revived after all. ___________________________________________________________________________________ Virus 1 Between The Living And Non-Living Virus 2 Giant Molecule Virus 3 The Stuff Of Life Virus 4 Viral Genes Virus 5 How Viruses Kill Virus 6 Threads Of Life Virus 7 Killers And Carcinogens Virus 8 Cancer Descriptions: Virus 1 Between The Living And Non-Living Shows how various viruses fit between the largest non-living molecule and the smallest unit of life. Uses models to explain the organization of various kinds of molecules and viruses. Reviews the first experiment in which a virus was isolated, purified, and crystallized. Concludes with a discussion on the importance of viruses in the understanding of all living matter. Virus 2 Giant Molecule Presents an analysis of the structure of viruses and how they are studied. Shows and explains how an electron microscope works. Uses film clips of experiments to demonstrate the cultivation, isolation, and purification of viruses. Concludes with a discussion of the differences between viruses. Virus 3 The Stuff Of Life Dr. C. Arthur Knight, featured on this program, introduces his topic with a brief description of properties which characterize living things, and then explains to what degree viruses do or do not have these properties. What is significant, he points out, is that viruses are like other living things to the extent that they are capable of reproducing themselves. Because viruses have a chemical content, similar to that of chromosomes — the cells which determine heredity — and because they can be more easily isolated and fragmented than chromosomes, they are a source of much information for scientists who study life's creation and formation. In addition to his general points, Dr. Knight shows, through a remarkable series of micro-motion pictures, how mutations within viruses can be formed and identified. Virus 4 Viral Genes Presents an analysis of bacteriophages and how they may change. Explains why bacterial viruses are useful to scientists studying different life forms. Uses diagrams and animation to show how bacteria reproduce within a cell and how mutations of these viruses can be identified. Describes the \"copy errors\" responsible for mutation, and the ways in which cross-breeding among viruses takes place. Virus 5 How Viruses Kill Explains how a virus destroys cells. Uses animated films and microcinematography to show how a virus enters a cell, stops its normal functions, and reproduces more viruses. Tells how the new viruses are made and describes their method of escape to infect other cells. Concludes with a discussion of possible methods of controlling viral diseases. Virus 6 Threads Of Life Presents an analysis of nucleic acid. Uses a large model of the tobacco mosaic virus to explain its structure. Demonstrates how a virus can be reconstituted from nucleic acid and protein molecules. Discusses the recent discovery of the alteration of nucleic acid to form mutations of the original virus. Concludes with a theory which may account for the way in which genetic information is stored in nucleic acid and then translated into a specific protein structure. Virus 7 Killers And Carcinogens Discuses virus diseases. Reviews the known viral diseases and the development of vaccination. Explains how a polio virus attacks a cell. Analyzes the activity of viruses, which cause cancer in animal cells. Demonstrates how virus cultures can be grown and used for inoculation. Concludes by discussing cures for viral diseases. Virus 8 Cancer Discusses the relationship between viruses and cancer. Explains how viruses can cause cancers in animals and why it is believed they may be responsible for cancer in humans. Concludes by summarizing the important known facts about viruses. Indicates directions which future research in virology might take. To the best of my knowledge: all N.E.T. productions passed into the public domain years ago.",
+  "posterURL": "https://archive.org/services/img/virus-1960",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "virus-1960@e01",
+          "sourceID": "virus-1960",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Between the living and nonliving",
+          "overview": null,
+          "stillURL": "https://archive.org/download/virus-1960/virus-1960.thumbs/Virus%201%20Between%20the%20living%20and%20nonliving_000654.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1727,
+          "videoFile": {
+            "name": "Virus 1 Between the living and nonliving.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 611506114,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/virus-1960/Virus%201%20Between%20the%20living%20and%20nonliving.mp4"
+        },
+        {
+          "archiveID": "virus-1960@e02",
+          "sourceID": "virus-1960",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Giant Molecules",
+          "overview": null,
+          "stillURL": "https://archive.org/download/virus-1960/virus-1960.thumbs/Virus%202%20Giant%20Molecules_000597.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1732,
+          "videoFile": {
+            "name": "Virus 2 Giant Molecules.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 628097781,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/virus-1960/Virus%202%20Giant%20Molecules.mp4"
+        },
+        {
+          "archiveID": "virus-1960@e03",
+          "sourceID": "virus-1960",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Stuff Of Life",
+          "overview": null,
+          "stillURL": "https://archive.org/download/virus-1960/virus-1960.thumbs/Virus%203%20The%20Stuff%20Of%20Life_000594.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1731,
+          "videoFile": {
+            "name": "Virus 3 The Stuff Of Life.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 500627352,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/virus-1960/Virus%203%20The%20Stuff%20Of%20Life.mp4"
+        },
+        {
+          "archiveID": "virus-1960@e04",
+          "sourceID": "virus-1960",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Viral Genes",
+          "overview": null,
+          "stillURL": "https://archive.org/download/virus-1960/virus-1960.thumbs/Virus%204%20Viral%20Genes_000594.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1743,
+          "videoFile": {
+            "name": "Virus 4 Viral Genes.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 606701133,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/virus-1960/Virus%204%20Viral%20Genes.mp4"
+        },
+        {
+          "archiveID": "virus-1960@e05",
+          "sourceID": "virus-1960",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "How Viruses Kill",
+          "overview": null,
+          "stillURL": "https://archive.org/download/virus-1960/virus-1960.thumbs/Virus%205%20How%20Viruses%20Kill_000603.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1731,
+          "videoFile": {
+            "name": "Virus 5 How Viruses Kill.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 673734679,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/virus-1960/Virus%205%20How%20Viruses%20Kill.mp4"
+        },
+        {
+          "archiveID": "virus-1960@e06",
+          "sourceID": "virus-1960",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Threads Of Life",
+          "overview": null,
+          "stillURL": "https://archive.org/download/virus-1960/virus-1960.thumbs/Virus%206%20Threads%20Of%20Life_000600.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1729,
+          "videoFile": {
+            "name": "Virus 6 Threads Of Life.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 628695813,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/virus-1960/Virus%206%20Threads%20Of%20Life.mp4"
+        },
+        {
+          "archiveID": "virus-1960@e07",
+          "sourceID": "virus-1960",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Killers And Carcinogens",
+          "overview": null,
+          "stillURL": "https://archive.org/download/virus-1960/virus-1960.thumbs/Virus%207%20Killers%20And%20Carcinogens_000595.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1737,
+          "videoFile": {
+            "name": "Virus 7 Killers And Carcinogens.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 609781621,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/virus-1960/Virus%207%20Killers%20And%20Carcinogens.mp4"
+        },
+        {
+          "archiveID": "virus-1960@e08",
+          "sourceID": "virus-1960",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Cancer",
+          "overview": null,
+          "stillURL": "https://archive.org/download/virus-1960/virus-1960.thumbs/Virus%208%20Cancer_000600.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1730,
+          "videoFile": {
+            "name": "Virus 8 Cancer.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 627166580,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/virus-1960/Virus%208%20Cancer.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 8,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

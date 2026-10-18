@@ -1,0 +1,368 @@
+{
+  "version": 2,
+  "seriesID": "the-black-widow-1947",
+  "sourceID": "the-black-widow-1947-colorized-serial",
+  "tvmazeID": null,
+  "title": "The Black Widow",
+  "yearStart": 1947,
+  "yearEnd": null,
+  "overview": "The Daily Clarion hires detective story writer Steve Colt to investigate the deaths of a group of scientists working on an atomic rocket development project. Behind the killings is fortune teller Sombra, a spy from an Asian country intent on world domination, who is determined to pilfer the atomic rocket by luring workers from the project to her parlor and killing them with black widow spider venom when they refuse to cooperate.",
+  "posterURL": "https://m.media-amazon.com/images/M/MV5BNzE2ZmEyNWYtMmRkNi00NzgzLWExNWQtM2M5NDAyYWY2ZWMwXkEyXkFqcGc@._V1_SX300.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/tdkkQLRWOM1qM4mT7wqjNx4775L.jpg",
+  "genres": [
+    "Crime",
+    "spy film"
+  ],
+  "networks": [],
+  "creator": "Fred C. Brannon",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-black-widow-1947-colorized-serial@e01",
+          "sourceID": "the-black-widow-1947-colorized-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Deadly Prophecy",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-black-widow-1947-colorized-serial/the-black-widow-1947-colorized-serial.thumbs/The%20Black%20Widow%20Chapter%2001%20Deadly%20Prophecy_000355.jpg",
+          "airDate": null,
+          "year": 1947,
+          "runtimeSeconds": 1187,
+          "videoFile": {
+            "name": "The Black Widow Chapter 01 Deadly Prophecy.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 70069599,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-black-widow-1947-colorized-serial/The%20Black%20Widow%20Chapter%2001%20Deadly%20Prophecy.mp4"
+        },
+        {
+          "archiveID": "the-black-widow-1947-colorized-serial@e02",
+          "sourceID": "the-black-widow-1947-colorized-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Stolen Formula",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-black-widow-1947-colorized-serial/the-black-widow-1947-colorized-serial.thumbs/The%20Black%20Widow%20Chapter%2002%20The%20Stolen%20Formula_000253.jpg",
+          "airDate": null,
+          "year": 1947,
+          "runtimeSeconds": 738,
+          "videoFile": {
+            "name": "The Black Widow Chapter 02 The Stolen Formula.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 45507509,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-black-widow-1947-colorized-serial/The%20Black%20Widow%20Chapter%2002%20The%20Stolen%20Formula.mp4"
+        },
+        {
+          "archiveID": "the-black-widow-1947-colorized-serial@e03",
+          "sourceID": "the-black-widow-1947-colorized-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Hidden Death",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-black-widow-1947-colorized-serial/the-black-widow-1947-colorized-serial.thumbs/The%20Black%20Widow%20Chapter%2003%20Hidden%20Death_000255.jpg",
+          "airDate": null,
+          "year": 1947,
+          "runtimeSeconds": 736,
+          "videoFile": {
+            "name": "The Black Widow Chapter 03 Hidden Death.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 40754405,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-black-widow-1947-colorized-serial/The%20Black%20Widow%20Chapter%2003%20Hidden%20Death.mp4"
+        },
+        {
+          "archiveID": "the-black-widow-1947-colorized-serial@e04",
+          "sourceID": "the-black-widow-1947-colorized-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Peril in the Sky",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-black-widow-1947-colorized-serial/the-black-widow-1947-colorized-serial.thumbs/The%20Black%20Widow%20Chapter%2004%20Peril%20in%20the%20Sky_000225.jpg",
+          "airDate": null,
+          "year": 1947,
+          "runtimeSeconds": 739,
+          "videoFile": {
+            "name": "The Black Widow Chapter 04 Peril in the Sky.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 44529460,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-black-widow-1947-colorized-serial/The%20Black%20Widow%20Chapter%2004%20Peril%20in%20the%20Sky.mp4"
+        },
+        {
+          "archiveID": "the-black-widow-1947-colorized-serial@e05",
+          "sourceID": "the-black-widow-1947-colorized-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Spider's Lair",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-black-widow-1947-colorized-serial/the-black-widow-1947-colorized-serial.thumbs/The%20Black%20Widow%20Chapter%2005%20The%20Spider%27s%20Lair_000261.jpg",
+          "airDate": null,
+          "year": 1947,
+          "runtimeSeconds": 738,
+          "videoFile": {
+            "name": "The Black Widow Chapter 05 The Spider's Lair.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 44853050,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-black-widow-1947-colorized-serial/The%20Black%20Widow%20Chapter%2005%20The%20Spider%27s%20Lair.mp4"
+        },
+        {
+          "archiveID": "the-black-widow-1947-colorized-serial@e06",
+          "sourceID": "the-black-widow-1947-colorized-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Glass Guillotine",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-black-widow-1947-colorized-serial/the-black-widow-1947-colorized-serial.thumbs/The%20Black%20Widow%20Chapter%2006%20%20Glass%20Guillotine_000226.jpg",
+          "airDate": null,
+          "year": 1947,
+          "runtimeSeconds": 738,
+          "videoFile": {
+            "name": "The Black Widow Chapter 06  Glass Guillotine.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 43341346,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-black-widow-1947-colorized-serial/The%20Black%20Widow%20Chapter%2006%20%20Glass%20Guillotine.mp4"
+        },
+        {
+          "archiveID": "the-black-widow-1947-colorized-serial@e07",
+          "sourceID": "the-black-widow-1947-colorized-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Wheels of Death",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-black-widow-1947-colorized-serial/the-black-widow-1947-colorized-serial.thumbs/The%20Black%20Widow%20Chapter%2007%20Wheels%20of%20Death_000256.jpg",
+          "airDate": null,
+          "year": 1947,
+          "runtimeSeconds": 738,
+          "videoFile": {
+            "name": "The Black Widow Chapter 07 Wheels of Death.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 42150266,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-black-widow-1947-colorized-serial/The%20Black%20Widow%20Chapter%2007%20Wheels%20of%20Death.mp4"
+        },
+        {
+          "archiveID": "the-black-widow-1947-colorized-serial@e08",
+          "sourceID": "the-black-widow-1947-colorized-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "False Information",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-black-widow-1947-colorized-serial/the-black-widow-1947-colorized-serial.thumbs/The%20Black%20Widow%20Chapter%2008%20False%20Information_000257.jpg",
+          "airDate": null,
+          "year": 1947,
+          "runtimeSeconds": 743,
+          "videoFile": {
+            "name": "The Black Widow Chapter 08 False Information.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 45438664,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-black-widow-1947-colorized-serial/The%20Black%20Widow%20Chapter%2008%20False%20Information.mp4"
+        },
+        {
+          "archiveID": "the-black-widow-1947-colorized-serial@e09",
+          "sourceID": "the-black-widow-1947-colorized-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Spider’s Venom",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-black-widow-1947-colorized-serial/the-black-widow-1947-colorized-serial.thumbs/The%20Black%20Widow%20Chapter%2009%20The%20Spider%E2%80%99s%20Venom_000260.jpg",
+          "airDate": null,
+          "year": 1947,
+          "runtimeSeconds": 738,
+          "videoFile": {
+            "name": "The Black Widow Chapter 09 The Spider’s Venom.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 45342968,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-black-widow-1947-colorized-serial/The%20Black%20Widow%20Chapter%2009%20The%20Spider%E2%80%99s%20Venom.mp4"
+        },
+        {
+          "archiveID": "the-black-widow-1947-colorized-serial@e10",
+          "sourceID": "the-black-widow-1947-colorized-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Stolen Corpse",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-black-widow-1947-colorized-serial/the-black-widow-1947-colorized-serial.thumbs/The%20Black%20Widow%20Chapter%2010%20The%20Stolen%20Corpse_000254.jpg",
+          "airDate": null,
+          "year": 1947,
+          "runtimeSeconds": 732,
+          "videoFile": {
+            "name": "The Black Widow Chapter 10 The Stolen Corpse.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 43828039,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-black-widow-1947-colorized-serial/The%20Black%20Widow%20Chapter%2010%20The%20Stolen%20Corpse.mp4"
+        },
+        {
+          "archiveID": "the-black-widow-1947-colorized-serial@e11",
+          "sourceID": "the-black-widow-1947-colorized-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Death Dials a Number",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-black-widow-1947-colorized-serial/the-black-widow-1947-colorized-serial.thumbs/The%20Black%20Widow%20Chapter%2011%20Death%20Dials%20a%20Number_000255.jpg",
+          "airDate": null,
+          "year": 1947,
+          "runtimeSeconds": 738,
+          "videoFile": {
+            "name": "The Black Widow Chapter 11 Death Dials a Number.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 44624235,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-black-widow-1947-colorized-serial/The%20Black%20Widow%20Chapter%2011%20Death%20Dials%20a%20Number.mp4"
+        },
+        {
+          "archiveID": "the-black-widow-1947-colorized-serial@e12",
+          "sourceID": "the-black-widow-1947-colorized-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Talking Mirror",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-black-widow-1947-colorized-serial/the-black-widow-1947-colorized-serial.thumbs/The%20Black%20Widow%20Chapter%2012%20The%20Talking%20Mirror_000215.jpg",
+          "airDate": null,
+          "year": 1947,
+          "runtimeSeconds": 714,
+          "videoFile": {
+            "name": "The Black Widow Chapter 12 The Talking Mirror.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 40155959,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-black-widow-1947-colorized-serial/The%20Black%20Widow%20Chapter%2012%20The%20Talking%20Mirror.mp4"
+        },
+        {
+          "archiveID": "the-black-widow-1947-colorized-serial@e13",
+          "sourceID": "the-black-widow-1947-colorized-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "A Life for a Life",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-black-widow-1947-colorized-serial/the-black-widow-1947-colorized-serial.thumbs/The%20Black%20Widow%20Chapter%2013%20A%20Life%20for%20a%20Life_000247.jpg",
+          "airDate": null,
+          "year": 1947,
+          "runtimeSeconds": 717,
+          "videoFile": {
+            "name": "The Black Widow Chapter 13 A Life for a Life.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 42903058,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-black-widow-1947-colorized-serial/The%20Black%20Widow%20Chapter%2013%20A%20Life%20for%20a%20Life.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 13,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "omdb",
+  "cast": [
+    {
+      "name": "Bruce Edwards",
+      "character": "Steve Colt",
+      "order": 0,
+      "profilePath": "/dftKmUZ2iAJt2BbedDhWuVYX8cV.jpg"
+    },
+    {
+      "name": "Virginia Lee",
+      "character": "Joyce Winters (as Virginia Lindley)",
+      "order": 1,
+      "profilePath": "/uVcRbrap2yNu5dUZqOlJsexkUnZ.jpg"
+    },
+    {
+      "name": "Carol Forman",
+      "character": "Sombra, The Black Widow",
+      "order": 2,
+      "profilePath": "/uINQcR2lDPpaEn0LnEKQSR7ClOw.jpg"
+    },
+    {
+      "name": "Anthony Warde",
+      "character": "Nick Ward",
+      "order": 3,
+      "profilePath": "/vwJd5IbKcEnDXr88E7XTRPs9gZ7.jpg"
+    },
+    {
+      "name": "Ramsay Ames",
+      "character": "Ruth Dayton",
+      "order": 4,
+      "profilePath": "/7ZIFeZuoclbNwKsKST4rn9COUrr.jpg"
+    },
+    {
+      "name": "I. Stanford Jolley",
+      "character": "Dr. Z.V. Jaffa",
+      "order": 5,
+      "profilePath": "/aJQgLRwLuGXlWuTmIYWpqPeYXvI.jpg"
+    },
+    {
+      "name": "Dave Anderson",
+      "character": "Porter-Spy",
+      "order": 6,
+      "profilePath": "/cPcPuZMGNwk5nrGC8geYrClaOHt.jpg"
+    },
+    {
+      "name": "Theodore Gottlieb",
+      "character": "Hitomu",
+      "order": 7,
+      "profilePath": "/ptFZedDF5Xt7N61tJeg5wAtZYOP.jpg"
+    },
+    {
+      "name": "Virginia Carroll",
+      "character": "Dr. Ann Curry",
+      "order": 8,
+      "profilePath": "/aKuGzBB327Af7ACAlnqiAqkuNDC.jpg"
+    },
+    {
+      "name": "Gene Roth",
+      "character": "John M. Walker",
+      "order": 9,
+      "profilePath": "/mx7J3DIue4s5ShNaxmdq8TNFxPY.jpg"
+    },
+    {
+      "name": "Sam Flint",
+      "character": "Prof. Henry Weston",
+      "order": 10,
+      "profilePath": "/iZXn3Myb6SVQifYpWt1aixEyqWJ.jpg"
+    },
+    {
+      "name": "LeRoy Mason",
+      "character": "Dr. Godfrey",
+      "order": 11,
+      "profilePath": "/xMeRfIeWppJTsNXsXahVIGMDenL.jpg"
+    },
+    {
+      "name": "Forrest Taylor",
+      "character": "Bradley",
+      "order": 12,
+      "profilePath": "/11tiZFYeWNfefJccEhNU4G3cYzp.jpg"
+    },
+    {
+      "name": "Ernie Adams",
+      "character": "Blinky",
+      "order": 13,
+      "profilePath": "/zpKSSdsuDVofN1GAAbKnkn2GjrL.jpg"
+    },
+    {
+      "name": "Keith Richards",
+      "character": "Michael Burns",
+      "order": 14,
+      "profilePath": "/psQnCcsLXFIOvTJD9pgBpER8B7R.jpg"
+    }
+  ]
+}

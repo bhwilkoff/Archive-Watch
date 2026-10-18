@@ -1,0 +1,359 @@
+{
+  "version": 2,
+  "seriesID": "banacek-1972",
+  "sourceID": "banacek-complete-series-1972",
+  "tvmazeID": null,
+  "title": "Banacek",
+  "yearStart": 1972,
+  "yearEnd": null,
+  "overview": "Banacek is an American detective television series starring George Peppard that aired on NBC from 1972 to 1974. The series was part of the rotating NBC Wednesday Mystery Movie anthology. It alternated in its time slot with several other shows, but was the only one of them to last beyond its first season. Peppard played Thomas Banacek, a Polish-American freelance, Boston-based, private investigator who solves seemingly impossible thefts. He collects from the insurance companies 10% of the insured value of the recovered property. One of Banacek's verbal signatures is the quotation of strangely worded yet curiously cogent \" Polish proverbs \" such as: \"A wolf that takes a peasant to supper probably won't need any breakfast.\" \"If you're not sure that it's potato borscht, there could be orphans working in the mines.\" \"When an owl comes to a mouse picnic, it's not there for the sack races.\" \"Though the hippopotamus has no sting in its tail, the wise man would prefer to be sat upon by the bee.\" \"A truly wise man never plays leapfrog with a unicorn.\" \"When a wolf is chasing your sleigh, throw him a raisin cookie, but don't stop to bake a cake.\" \"Just because the cat has her kittens in the oven doesn't make them biscuits.\" \"You can read all the books in the library my son, but the cheese will still smell after four days.\" \"No matter how warm the smile on the face of the Sun, the cat still has her kittens under the porch.\" \"Even a one thousand zloty note cannot tap dance.\" \"Only the centipede can hear all the hundred footsteps of his uncle.\" Part of the joke is that Ralph Manza, as Banacek's chauffeur Jay Drury, will often ask \"What does it mean, Boss?\" Banacek also has a running agreement with his chauffeur for a 10% share of Banacek's 10% if he solved the crime. Mr. Drury is never at a loss for a potential solution that Banacek always manages to shoot down with his very next line. Another recurring gag is for other characters—particularly his rivals—to mispronounce his name deliberately. The name \"Banaczek\" (as pronounced in the show) is actually quite rare in Poland. Murray Matheson plays seller of rare books and information source Felix Mulholland, a character always ready with a droll remark and who exhibits a passion for chess and jigsaw puzzles. He is also the series' only character to ever call Banacek by his first name. Recurring characters include insurance company executive Cavanaugh ( George Murdock ), Banacek's rival and some-time love interest Carlie Kirkland ( Christine Belford ), and another insurance investigator/rival Fennyman/Henry DeWitt ( Linden Chiles ). Banacek lives on historic Beacon Hill in Boston. While he has a limousine and driver, he also owns and sometimes drives an antique 1941 Packard convertible. Both vehicles are equipped with mobile radio telephones at a time when such devices are uncommon and expensive. Banacek is intelligent, well-educated, cultured, and suave. An unapologetic ladies' man who enjoys the company of beautiful women, he is also street-smart and can engage in hand-to-hand combat when the need arises; in one episode he mentions having learned combat judo in the Marine Corps, which is probably a reference to George Peppard's two-year enlistment in the Marine Corps, being discharged at the rank of corporal. He grew up in Scollay Square and a childhood acquaintance described him as the neighborhood jock who excelled in all sports. For recreation he jogs, plays squash, engages in weekend touch football, and sculling on the Charles River.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/5Z98mt03uftItoIS91mu0ITxevF.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Mystery",
+    "Drama",
+    "Crime"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "banacek-complete-series-1972@s1e00",
+          "sourceID": "banacek-complete-series-1972",
+          "seasonNumber": 1,
+          "episodeNumber": 0,
+          "title": "Detour to Nowhere",
+          "overview": null,
+          "stillURL": "https://archive.org/download/banacek-complete-series-1972/banacek-complete-series-1972.thumbs/Banacek%20S01E00%20-%20Detour%20to%20Nowhere_002275.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 5807,
+          "videoFile": {
+            "name": "Banacek S01E00 - Detour to Nowhere.mp4",
+            "format": "h.264",
+            "sizeBytes": 550754347,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/banacek-complete-series-1972/Banacek%20S01E00%20-%20Detour%20to%20Nowhere.mp4"
+        },
+        {
+          "archiveID": "banacek-complete-series-1972@s1e01",
+          "sourceID": "banacek-complete-series-1972",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Lets Hear it for a Living Legend",
+          "overview": null,
+          "stillURL": "https://archive.org/download/banacek-complete-series-1972/banacek-complete-series-1972.thumbs/Banacek%20S01E01%20-%20Lets%20Hear%20it%20for%20a%20Living%20Legend_001702.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 4335,
+          "videoFile": {
+            "name": "Banacek S01E01 - Lets Hear it for a Living Legend.mp4",
+            "format": "h.264",
+            "sizeBytes": 411189898,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/banacek-complete-series-1972/Banacek%20S01E01%20-%20Lets%20Hear%20it%20for%20a%20Living%20Legend.mp4"
+        },
+        {
+          "archiveID": "banacek-complete-series-1972@s1e02",
+          "sourceID": "banacek-complete-series-1972",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Project Phoenix",
+          "overview": null,
+          "stillURL": "https://archive.org/download/banacek-complete-series-1972/banacek-complete-series-1972.thumbs/Banacek%20S01E02%20-%20Project%20Phoenix_001702.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 4339,
+          "videoFile": {
+            "name": "Banacek S01E02 - Project Phoenix.mp4",
+            "format": "h.264",
+            "sizeBytes": 411621354,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/banacek-complete-series-1972/Banacek%20S01E02%20-%20Project%20Phoenix.mp4"
+        },
+        {
+          "archiveID": "banacek-complete-series-1972@s1e03",
+          "sourceID": "banacek-complete-series-1972",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "No Sign of the Cross",
+          "overview": null,
+          "stillURL": "https://archive.org/download/banacek-complete-series-1972/banacek-complete-series-1972.thumbs/Banacek%20S01E03%20-%20No%20Sign%20of%20the%20Cross_001694.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 4332,
+          "videoFile": {
+            "name": "Banacek S01E03 - No Sign of the Cross.mp4",
+            "format": "h.264",
+            "sizeBytes": 411772554,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/banacek-complete-series-1972/Banacek%20S01E03%20-%20No%20Sign%20of%20the%20Cross.mp4"
+        },
+        {
+          "archiveID": "banacek-complete-series-1972@s1e04",
+          "sourceID": "banacek-complete-series-1972",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "A Million the Hard Way",
+          "overview": null,
+          "stillURL": "https://archive.org/download/banacek-complete-series-1972/banacek-complete-series-1972.thumbs/Banacek%20S01E04%20-%20A%20Million%20the%20Hard%20Way_001694.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 4332,
+          "videoFile": {
+            "name": "Banacek S01E04 - A Million the Hard Way.mp4",
+            "format": "h.264",
+            "sizeBytes": 410705586,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/banacek-complete-series-1972/Banacek%20S01E04%20-%20A%20Million%20the%20Hard%20Way.mp4"
+        },
+        {
+          "archiveID": "banacek-complete-series-1972@s1e05",
+          "sourceID": "banacek-complete-series-1972",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "To Steal a King",
+          "overview": null,
+          "stillURL": "https://archive.org/download/banacek-complete-series-1972/banacek-complete-series-1972.thumbs/Banacek%20S01E05%20-%20To%20Steal%20a%20King_001569.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 4348,
+          "videoFile": {
+            "name": "Banacek S01E05 - To Steal a King.mp4",
+            "format": "h.264",
+            "sizeBytes": 413586336,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/banacek-complete-series-1972/Banacek%20S01E05%20-%20To%20Steal%20a%20King.mp4"
+        },
+        {
+          "archiveID": "banacek-complete-series-1972@s1e06",
+          "sourceID": "banacek-complete-series-1972",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Ten Thousand Dollars a Page",
+          "overview": null,
+          "stillURL": "https://archive.org/download/banacek-complete-series-1972/banacek-complete-series-1972.thumbs/Banacek%20S01E06%20-%20Ten%20Thousand%20Dollars%20a%20Page_001560.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 4322,
+          "videoFile": {
+            "name": "Banacek S01E06 - Ten Thousand Dollars a Page.mp4",
+            "format": "h.264",
+            "sizeBytes": 411074084,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/banacek-complete-series-1972/Banacek%20S01E06%20-%20Ten%20Thousand%20Dollars%20a%20Page.mp4"
+        },
+        {
+          "archiveID": "banacek-complete-series-1972@s1e07",
+          "sourceID": "banacek-complete-series-1972",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Greatest Collection of Them All",
+          "overview": null,
+          "stillURL": "https://archive.org/download/banacek-complete-series-1972/banacek-complete-series-1972.thumbs/Banacek%20S01E07%20-%20The%20Greatest%20Collection%20of%20Them%20All_001703.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 4336,
+          "videoFile": {
+            "name": "Banacek S01E07 - The Greatest Collection of Them All.mp4",
+            "format": "h.264",
+            "sizeBytes": 411660995,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/banacek-complete-series-1972/Banacek%20S01E07%20-%20The%20Greatest%20Collection%20of%20Them%20All.mp4"
+        },
+        {
+          "archiveID": "banacek-complete-series-1972@s1e08",
+          "sourceID": "banacek-complete-series-1972",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Two Million Clams of Capn Jack",
+          "overview": null,
+          "stillURL": "https://archive.org/download/banacek-complete-series-1972/banacek-complete-series-1972.thumbs/Banacek%20S01E08%20-%20The%20Two%20Million%20Clams%20of%20Capn%20Jack_001753.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 4326,
+          "videoFile": {
+            "name": "Banacek S01E08 - The Two Million Clams of Capn Jack.mp4",
+            "format": "h.264",
+            "sizeBytes": 410991237,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/banacek-complete-series-1972/Banacek%20S01E08%20-%20The%20Two%20Million%20Clams%20of%20Capn%20Jack.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "banacek-complete-series-1972@s2e01",
+          "sourceID": "banacek-complete-series-1972",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "No Stone Unturned",
+          "overview": null,
+          "stillURL": "https://archive.org/download/banacek-complete-series-1972/banacek-complete-series-1972.thumbs/Banacek%20S02E01%20-%20No%20Stone%20Unturned_001596.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 4347,
+          "videoFile": {
+            "name": "Banacek S02E01 - No Stone Unturned.mp4",
+            "format": "h.264",
+            "sizeBytes": 412628843,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/banacek-complete-series-1972/Banacek%20S02E01%20-%20No%20Stone%20Unturned.mp4"
+        },
+        {
+          "archiveID": "banacek-complete-series-1972@s2e02",
+          "sourceID": "banacek-complete-series-1972",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "If Max Is So Smart, Why Doesnt He Tell Us Where He Is",
+          "overview": null,
+          "stillURL": "https://archive.org/download/banacek-complete-series-1972/banacek-complete-series-1972.thumbs/Banacek%20S02E02%20-%20If%20Max%20Is%20So%20Smart%2C%20Why%20Doesnt%20He%20Tell%20Us%20Where%20He%20Is_001596.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 4339,
+          "videoFile": {
+            "name": "Banacek S02E02 - If Max Is So Smart, Why Doesnt He Tell Us Where He Is.mp4",
+            "format": "h.264",
+            "sizeBytes": 411730237,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/banacek-complete-series-1972/Banacek%20S02E02%20-%20If%20Max%20Is%20So%20Smart%2C%20Why%20Doesnt%20He%20Tell%20Us%20Where%20He%20Is.mp4"
+        },
+        {
+          "archiveID": "banacek-complete-series-1972@s2e03",
+          "sourceID": "banacek-complete-series-1972",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "The Three Million Dollar Piracy",
+          "overview": null,
+          "stillURL": "https://archive.org/download/banacek-complete-series-1972/banacek-complete-series-1972.thumbs/Banacek%20S02E03%20-%20The%20Three%20Million%20Dollar%20Piracy_001773.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 4363,
+          "videoFile": {
+            "name": "Banacek S02E03 - The Three Million Dollar Piracy.mp4",
+            "format": "h.264",
+            "sizeBytes": 414850071,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/banacek-complete-series-1972/Banacek%20S02E03%20-%20The%20Three%20Million%20Dollar%20Piracy.mp4"
+        },
+        {
+          "archiveID": "banacek-complete-series-1972@s2e04",
+          "sourceID": "banacek-complete-series-1972",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "The Vanishing Chalice",
+          "overview": null,
+          "stillURL": "https://archive.org/download/banacek-complete-series-1972/banacek-complete-series-1972.thumbs/Banacek%20S02E04%20-%20The%20Vanishing%20Chalice_001773.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 4349,
+          "videoFile": {
+            "name": "Banacek S02E04 - The Vanishing Chalice.mp4",
+            "format": "h.264",
+            "sizeBytes": 413778957,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/banacek-complete-series-1972/Banacek%20S02E04%20-%20The%20Vanishing%20Chalice.mp4"
+        },
+        {
+          "archiveID": "banacek-complete-series-1972@s2e05",
+          "sourceID": "banacek-complete-series-1972",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Horse of a Slightly Different Color",
+          "overview": null,
+          "stillURL": "https://archive.org/download/banacek-complete-series-1972/banacek-complete-series-1972.thumbs/Banacek%20S02E05%20-%20Horse%20of%20a%20Slightly%20Different%20Color_001764.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 4342,
+          "videoFile": {
+            "name": "Banacek S02E05 - Horse of a Slightly Different Color.mp4",
+            "format": "h.264",
+            "sizeBytes": 414075808,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/banacek-complete-series-1972/Banacek%20S02E05%20-%20Horse%20of%20a%20Slightly%20Different%20Color.mp4"
+        },
+        {
+          "archiveID": "banacek-complete-series-1972@s2e06",
+          "sourceID": "banacek-complete-series-1972",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Rocket to Oblivion",
+          "overview": null,
+          "stillURL": "https://archive.org/download/banacek-complete-series-1972/banacek-complete-series-1972.thumbs/Banacek%20S02E06%20-%20Rocket%20to%20Oblivion_001763.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 4335,
+          "videoFile": {
+            "name": "Banacek S02E06 - Rocket to Oblivion.mp4",
+            "format": "h.264",
+            "sizeBytes": 412066536,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/banacek-complete-series-1972/Banacek%20S02E06%20-%20Rocket%20to%20Oblivion.mp4"
+        },
+        {
+          "archiveID": "banacek-complete-series-1972@s2e07",
+          "sourceID": "banacek-complete-series-1972",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "Fly Me - If You Can Find Me",
+          "overview": null,
+          "stillURL": "https://archive.org/download/banacek-complete-series-1972/banacek-complete-series-1972.thumbs/Banacek%20S02E07%20-%20Fly%20Me%20-%20If%20You%20Can%20Find%20Me_001773.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 4353,
+          "videoFile": {
+            "name": "Banacek S02E07 - Fly Me - If You Can Find Me.mp4",
+            "format": "h.264",
+            "sizeBytes": 412702179,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/banacek-complete-series-1972/Banacek%20S02E07%20-%20Fly%20Me%20-%20If%20You%20Can%20Find%20Me.mp4"
+        },
+        {
+          "archiveID": "banacek-complete-series-1972@s2e08",
+          "sourceID": "banacek-complete-series-1972",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "Now You See Me, Now You Dont",
+          "overview": null,
+          "stillURL": "https://archive.org/download/banacek-complete-series-1972/banacek-complete-series-1972.thumbs/Banacek%20S02E08%20-%20Now%20You%20See%20Me%2C%20Now%20You%20Dont_001773.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 4350,
+          "videoFile": {
+            "name": "Banacek S02E08 - Now You See Me, Now You Dont.mp4",
+            "format": "h.264",
+            "sizeBytes": 413463260,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/banacek-complete-series-1972/Banacek%20S02E08%20-%20Now%20You%20See%20Me%2C%20Now%20You%20Dont.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 17,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": []
+}

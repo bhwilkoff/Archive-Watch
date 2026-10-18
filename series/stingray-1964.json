@@ -1,0 +1,795 @@
+{
+  "version": 2,
+  "seriesID": "stingray-1964",
+  "sourceID": "Stingray.Complete",
+  "tvmazeID": null,
+  "title": "Stingray",
+  "yearStart": 1964,
+  "yearEnd": null,
+  "overview": "Stingray is a British children's Supermarionation television series, created by Gerry and Sylvia Anderson and produced by AP Films for ATV and ITC Entertainment between 1964 and 1965. Its 39 half-hour episodes were originally screened on ITV in the United Kingdom and in syndication in Canada and the United States. The scriptwriters included the Andersons, Alan Fennell, and Dennis Spooner. Barry Gray composed the music, and Derek Meddings served as special effects director. Stingray was the first Supermarionation production in which the marionette characters had interchangeable heads featuring a variety of expressions. It was also the first British television series to be filmed entirely in colour over its production run. Stingray, a highly sophisticated combat submarine built for speed and manoeuvrability, is the flag vessel of the W orld A quanaut S ecurity P atrol ( WASP ), a security organisation based at Marineville in the year 2065. It is capable of speeds of up to 600 knots (1,100 km/h), while advanced pressure compensators allow it to submerge to depths of over 36,000 feet (11,000 m), enabling cruising to the bottom of any part of any of the Earth's oceans. Marineville is located somewhere in California, on the West Coast of the United States. In the case of it being under attack, battle stations is sounded and all the buildings and vehicles are sent down on hydraulic jacks into the safety of underground bunkers, protected by enormous steel and concrete shutters. The base lies 10 miles (16 km) inland, and Stingray is launched from \" Pen 3 \" through a tunnel leading to the Pacific Ocean. The alerts \" action stations \", \" launch stations \", and \" battle stations \" are sounded by a rapid drum-beat that is played over Marineville's public address system.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/9JYXvIo0Cr1HAATz8hl8kyNQ76O.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Sci-Fi",
+    "Action"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Stingray.Complete@e01",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "STINGRAY",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.01.%20STINGRAY_000636.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1536,
+          "videoFile": {
+            "name": "Stingray.01. STINGRAY.mp4",
+            "format": "h.264",
+            "sizeBytes": 160064860,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.01.%20STINGRAY.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e02",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Plant of Doom",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.02.%20Plant%20of%20Doom_000622.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1503,
+          "videoFile": {
+            "name": "Stingray.02. Plant of Doom.mp4",
+            "format": "h.264",
+            "sizeBytes": 156702906,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.02.%20Plant%20of%20Doom.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e03",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Sea of Oil",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.03.%20Sea%20of%20Oil_000625.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1510,
+          "videoFile": {
+            "name": "Stingray.03. Sea of Oil.mp4",
+            "format": "h.264",
+            "sizeBytes": 157432523,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.03.%20Sea%20of%20Oil.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e04",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Hostage of the Deep",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.04.%20Hostage%20of%20the%20Deep_000621.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Stingray.04. Hostage of the Deep.mp4",
+            "format": "h.264",
+            "sizeBytes": 156919974,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.04.%20Hostage%20of%20the%20Deep.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e05",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Treasure Down Below",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.05.%20Treasure%20Down%20Below_000622.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1501,
+          "videoFile": {
+            "name": "Stingray.05. Treasure Down Below.mp4",
+            "format": "h.264",
+            "sizeBytes": 156052257,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.05.%20Treasure%20Down%20Below.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e06",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Big Gun",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.06.%20The%20Big%20Gun_000624.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1507,
+          "videoFile": {
+            "name": "Stingray.06. The Big Gun.mp4",
+            "format": "h.264",
+            "sizeBytes": 156511376,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.06.%20The%20Big%20Gun.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e07",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Golden Sea",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.07.%20The%20Golden%20Sea_000622.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1503,
+          "videoFile": {
+            "name": "Stingray.07. The Golden Sea.mp4",
+            "format": "h.264",
+            "sizeBytes": 156826160,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.07.%20The%20Golden%20Sea.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e08",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Ghost Ship",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.08.%20The%20Ghost%20Ship_000619.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1496,
+          "videoFile": {
+            "name": "Stingray.08. The Ghost Ship.mp4",
+            "format": "h.264",
+            "sizeBytes": 156040521,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.08.%20The%20Ghost%20Ship.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e09",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Countdown",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.09.%20Countdown_000623.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1504,
+          "videoFile": {
+            "name": "Stingray.09. Countdown.mp4",
+            "format": "h.264",
+            "sizeBytes": 157337578,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.09.%20Countdown.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e10",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Ghost of the Sea",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.10.%20The%20Ghost%20of%20the%20Sea_000626.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1512,
+          "videoFile": {
+            "name": "Stingray.10. The Ghost of the Sea.mp4",
+            "format": "h.264",
+            "sizeBytes": 157860086,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.10.%20The%20Ghost%20of%20the%20Sea.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e11",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Emergency Marineville",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.11.%20Emergency%20Marineville_000623.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1506,
+          "videoFile": {
+            "name": "Stingray.11. Emergency Marineville.mp4",
+            "format": "h.264",
+            "sizeBytes": 157183389,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.11.%20Emergency%20Marineville.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e12",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Subterranean Sea",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.12.%20Subterranean%20Sea_000625.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1510,
+          "videoFile": {
+            "name": "Stingray.12. Subterranean Sea.mp4",
+            "format": "h.264",
+            "sizeBytes": 157588744,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.12.%20Subterranean%20Sea.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e13",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "The Loch Ness Monster",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.13.%20The%20Loch%20Ness%20Monster_000621.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1501,
+          "videoFile": {
+            "name": "Stingray.13. The Loch Ness Monster.mp4",
+            "format": "h.264",
+            "sizeBytes": 156613879,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.13.%20The%20Loch%20Ness%20Monster.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e14",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Invaders",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.14.%20The%20Invaders_000619.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1496,
+          "videoFile": {
+            "name": "Stingray.14. The Invaders.mp4",
+            "format": "h.264",
+            "sizeBytes": 155994023,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.14.%20The%20Invaders.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e15",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Secret of the Giant Oyster",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.15.%20Secret%20of%20the%20Giant%20Oyster_000628.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1517,
+          "videoFile": {
+            "name": "Stingray.15. Secret of the Giant Oyster.mp4",
+            "format": "h.264",
+            "sizeBytes": 158329833,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.15.%20Secret%20of%20the%20Giant%20Oyster.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e16",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Raptures of the Deep",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.16.%20Raptures%20of%20the%20Deep_000615.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1486,
+          "videoFile": {
+            "name": "Stingray.16. Raptures of the Deep.mp4",
+            "format": "h.264",
+            "sizeBytes": 155152083,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.16.%20Raptures%20of%20the%20Deep.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e17",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Stand by for Action",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.17.%20Stand%20by%20for%20Action_000620.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1496,
+          "videoFile": {
+            "name": "Stingray.17. Stand by for Action.mp4",
+            "format": "h.264",
+            "sizeBytes": 156312982,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.17.%20Stand%20by%20for%20Action.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e18",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "The Disappearing Ships",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.18.%20The%20Disappearing%20Ships_000616.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1488,
+          "videoFile": {
+            "name": "Stingray.18. The Disappearing Ships.mp4",
+            "format": "h.264",
+            "sizeBytes": 155043625,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.18.%20The%20Disappearing%20Ships.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e19",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Man from the Navy",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.19.%20Man%20from%20the%20Navy_000623.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1505,
+          "videoFile": {
+            "name": "Stingray.19. Man from the Navy.mp4",
+            "format": "h.264",
+            "sizeBytes": 157767442,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.19.%20Man%20from%20the%20Navy.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e20",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Marineville Traitor",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.20.%20Marineville%20Traitor_000623.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1504,
+          "videoFile": {
+            "name": "Stingray.20. Marineville Traitor.mp4",
+            "format": "h.264",
+            "sizeBytes": 157525015,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.20.%20Marineville%20Traitor.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e21",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Tom Thumb Tempest",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.21.%20Tom%20Thumb%20Tempest_000615.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1485,
+          "videoFile": {
+            "name": "Stingray.21. Tom Thumb Tempest.mp4",
+            "format": "h.264",
+            "sizeBytes": 155471167,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.21.%20Tom%20Thumb%20Tempest.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e22",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Pink Ice",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.22.%20Pink%20Ice_000622.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1503,
+          "videoFile": {
+            "name": "Stingray.22. Pink Ice.mp4",
+            "format": "h.264",
+            "sizeBytes": 156598936,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.22.%20Pink%20Ice.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e23",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "The Master Plan",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.23.%20The%20Master%20Plan_000617.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1490,
+          "videoFile": {
+            "name": "Stingray.23. The Master Plan.mp4",
+            "format": "h.264",
+            "sizeBytes": 155206999,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.23.%20The%20Master%20Plan.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e24",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Star of the East",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.24.%20Star%20of%20the%20East_000623.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1504,
+          "videoFile": {
+            "name": "Stingray.24. Star of the East.mp4",
+            "format": "h.264",
+            "sizeBytes": 157118360,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.24.%20Star%20of%20the%20East.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e25",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "An Echo of Danger",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.25.%20An%20Echo%20of%20Danger_000622.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1502,
+          "videoFile": {
+            "name": "Stingray.25. An Echo of Danger.mp4",
+            "format": "h.264",
+            "sizeBytes": 157251818,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.25.%20An%20Echo%20of%20Danger.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e26",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Invisable Enemy",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.26.%20Invisable%20Enemy_000622.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1501,
+          "videoFile": {
+            "name": "Stingray.26. Invisable Enemy.mp4",
+            "format": "h.264",
+            "sizeBytes": 156859161,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.26.%20Invisable%20Enemy.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e27",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Deep Heat",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.27.%20Deep%20Heat_000623.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1506,
+          "videoFile": {
+            "name": "Stingray.27. Deep Heat.mp4",
+            "format": "h.264",
+            "sizeBytes": 156919032,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.27.%20Deep%20Heat.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e28",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "In Search of the Tajmanon",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.28.%20In%20Search%20of%20the%20Tajmanon_000623.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1505,
+          "videoFile": {
+            "name": "Stingray.28. In Search of the Tajmanon.mp4",
+            "format": "h.264",
+            "sizeBytes": 157290900,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.28.%20In%20Search%20of%20the%20Tajmanon.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e29",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "Titan Goes Pop",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.29.%20Titan%20Goes%20Pop_000622.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1502,
+          "videoFile": {
+            "name": "Stingray.29. Titan Goes Pop.mp4",
+            "format": "h.264",
+            "sizeBytes": 157000927,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.29.%20Titan%20Goes%20Pop.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e30",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "Set Sail for Advenure",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.30.%20Set%20Sail%20for%20Advenure_000620.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1496,
+          "videoFile": {
+            "name": "Stingray.30. Set Sail for Advenure.mp4",
+            "format": "h.264",
+            "sizeBytes": 156172954,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.30.%20Set%20Sail%20for%20Advenure.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e31",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "Tune of Danger",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.31.%20Tune%20of%20Danger_000624.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1506,
+          "videoFile": {
+            "name": "Stingray.31. Tune of Danger.mp4",
+            "format": "h.264",
+            "sizeBytes": 157403510,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.31.%20Tune%20of%20Danger.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e32",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 32,
+          "title": "Rescue from the Skies",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.32.%20Rescue%20from%20the%20Skies_000621.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1499,
+          "videoFile": {
+            "name": "Stingray.32. Rescue from the Skies.mp4",
+            "format": "h.264",
+            "sizeBytes": 156562721,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.32.%20Rescue%20from%20the%20Skies.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e33",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 33,
+          "title": "The Cool Caveman",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.33.%20The%20Cool%20Caveman_000619.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1496,
+          "videoFile": {
+            "name": "Stingray.33. The Cool Caveman.mp4",
+            "format": "h.264",
+            "sizeBytes": 155926247,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.33.%20The%20Cool%20Caveman.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e34",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 34,
+          "title": "A Nut for Marineville",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.34.%20A%20Nut%20for%20Marineville_000622.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1502,
+          "videoFile": {
+            "name": "Stingray.34. A Nut for Marineville.mp4",
+            "format": "h.264",
+            "sizeBytes": 156670446,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.34.%20A%20Nut%20for%20Marineville.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e35",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 35,
+          "title": "Trapped in the Depths",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.35.%20Trapped%20in%20the%20Depths_000625.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1509,
+          "videoFile": {
+            "name": "Stingray.35. Trapped in the Depths.mp4",
+            "format": "h.264",
+            "sizeBytes": 157827750,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.35.%20Trapped%20in%20the%20Depths.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e36",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "Eastern Eclipse",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.36.%20Eastern%20Eclipse_000624.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1506,
+          "videoFile": {
+            "name": "Stingray.36. Eastern Eclipse.mp4",
+            "format": "h.264",
+            "sizeBytes": 157554413,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.36.%20Eastern%20Eclipse.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e37",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 37,
+          "title": "A Christmas to Remember",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.37.%20A%20Christmas%20to%20Remember_000624.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1507,
+          "videoFile": {
+            "name": "Stingray.37. A Christmas to Remember.mp4",
+            "format": "h.264",
+            "sizeBytes": 157763719,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.37.%20A%20Christmas%20to%20Remember.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e38",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 38,
+          "title": "The Lighthouse Dwellers",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.38.%20The%20Lighthouse%20Dwellers_000624.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1506,
+          "videoFile": {
+            "name": "Stingray.38. The Lighthouse Dwellers.mp4",
+            "format": "h.264",
+            "sizeBytes": 157265565,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.38.%20The%20Lighthouse%20Dwellers.mp4"
+        },
+        {
+          "archiveID": "Stingray.Complete@e39",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": 1,
+          "episodeNumber": 39,
+          "title": "Aquanaut of the Year",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.39.%20Aquanaut%20of%20the%20Year_000624.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 1506,
+          "videoFile": {
+            "name": "Stingray.39. Aquanaut of the Year.mp4",
+            "format": "h.264",
+            "sizeBytes": 157370763,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.39.%20Aquanaut%20of%20the%20Year.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "Stingray.Complete@x-stingray-des-o-conner-sketch",
+          "sourceID": "Stingray.Complete",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Des O'Conner sketch",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Stingray.Complete/Stingray.Complete.thumbs/Stingray.Des%20O%27Conner%20sketch_000044.jpg",
+          "airDate": null,
+          "year": 1964,
+          "runtimeSeconds": 107,
+          "videoFile": {
+            "name": "Stingray.Des O'Conner sketch.mp4",
+            "format": "h.264",
+            "sizeBytes": 11012604,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Stingray.Complete/Stingray.Des%20O%27Conner%20sketch.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 40,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": []
+}

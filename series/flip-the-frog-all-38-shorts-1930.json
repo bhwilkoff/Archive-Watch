@@ -1,0 +1,766 @@
+{
+  "version": 2,
+  "seriesID": "flip-the-frog-all-38-shorts-1930",
+  "sourceID": "flip-the-frog-4x-04-bulloney",
+  "tvmazeID": null,
+  "title": "Flip The Frog (All 38 Shorts)",
+  "yearStart": 1930,
+  "yearEnd": null,
+  "overview": "All 38 Flip the Frog cartoons, Ub Iwerks's series produced by Celebrity Pictures and released by MGM from 1930 to 1933.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/flip-the-frog-4x-04-bulloney.51731b89.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Animation"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s1e01",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Fiddlesticks",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 374,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 1x01 - Fiddlesticks.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 152328440,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%201x01%20-%20Fiddlesticks.ia.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s1e02",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Flying Fists",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 392,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 1x02 - Flying Fists.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 145844642,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%201x02%20-%20Flying%20Fists.ia.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s1e03",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Village Barber",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 439,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 1x03 - The Village Barber.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 86908184,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%201x03%20-%20The%20Village%20Barber.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s1e04",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Little Orphan Willie",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 358,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 1x04 - Little Orphan Willie.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 122289103,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%201x04%20-%20Little%20Orphan%20Willie.ia.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s1e05",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Cuckoo Murder Case",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 470,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 1x05 - The Cuckoo Murder Case.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 27117013,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%201x05%20-%20The%20Cuckoo%20Murder%20Case.ia.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s1e06",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Puddle Pranks",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 369,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 1x06 - Puddle Pranks.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 156111633,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%201x06%20-%20Puddle%20Pranks.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s2e01",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "The Village Smitty",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 425,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 2x01 - The Village Smitty.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 44331962,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%202x01%20-%20The%20Village%20Smitty.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s2e02",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "The Soup Song",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 424,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 2x02 - The Soup Song.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 44126014,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%202x02%20-%20The%20Soup%20Song.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s2e03",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Laughing Gas",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 410,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 2x03 - Laughing Gas.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 165630066,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%202x03%20-%20Laughing%20Gas.ia.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s2e04",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "Ragtime Romeo",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 466,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 2x04 - Ragtime Romeo.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 186620596,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%202x04%20-%20Ragtime%20Romeo.ia.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s2e05",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "The New Car",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 450,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 2x05 - The New Car.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 46700983,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%202x05%20-%20The%20New%20Car.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s2e06",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Movie Mad",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 442,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 2x06 - Movie Mad.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 173592151,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%202x06%20-%20Movie%20Mad.ia.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s2e07",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "TheVillageSpecialist",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 411,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 2x07 - TheVillageSpecialist.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 42749380,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%202x07%20-%20TheVillageSpecialist.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s2e08",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "Jail Birds",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 468,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 2x08 - Jail Birds.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 179567290,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%202x08%20-%20Jail%20Birds.ia.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s2e09",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Africa Squeaks",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 454,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 2x09 - Africa Squeaks.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 184723579,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%202x09%20-%20Africa%20Squeaks.ia.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s2e10",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "Spooks",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 496,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 2x10 - Spooks.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 51476874,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%202x10%20-%20Spooks.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s3e01",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "The Milkman",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 478,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 3x01 - The Milkman.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 70433745,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%203x01%20-%20The%20Milkman.ia.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s3e02",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 3,
+          "episodeNumber": 2,
+          "title": "Fire-Fire",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 396,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 3x02 - Fire-Fire.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 119787971,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%203x02%20-%20Fire-Fire.ia.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s3e03",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 3,
+          "episodeNumber": 3,
+          "title": "What a Life",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 399,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 3x03 - What a Life.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 27965440,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%203x03%20-%20What%20a%20Life.ia.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s3e04",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 3,
+          "episodeNumber": 4,
+          "title": "Puppy Love",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 337,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 3x04 - Puppy Love.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 111873029,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%203x04%20-%20Puppy%20Love.ia.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s3e05",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 3,
+          "episodeNumber": 5,
+          "title": "School Days",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 378,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 3x05 - School Days.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 39304859,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%203x05%20-%20School%20Days.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s3e06",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 3,
+          "episodeNumber": 6,
+          "title": "The Bully",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 415,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 3x06 - The Bully.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 43182456,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%203x06%20-%20The%20Bully.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s3e07",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 3,
+          "episodeNumber": 7,
+          "title": "The Office Boy",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 403,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 3x07 - The Office Boy.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 41904834,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%203x07%20-%20The%20Office%20Boy.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s3e08",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 3,
+          "episodeNumber": 8,
+          "title": "Room Runners",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 430,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 3x08 - Room Runners.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 173770274,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%203x08%20-%20Room%20Runners.ia.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s3e09",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 3,
+          "episodeNumber": 9,
+          "title": "Stormy Seas",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 502,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 3x09 - Stormy Seas.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 33201299,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%203x09%20-%20Stormy%20Seas.ia.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s3e10",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 3,
+          "episodeNumber": 10,
+          "title": "Circus",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 376,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 3x10 - Circus.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 137223396,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%203x10%20-%20Circus.ia.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s3e11",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 3,
+          "episodeNumber": 11,
+          "title": "The Goal Rush",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 391,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 3x11 - The Goal Rush.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 47250150,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%203x11%20-%20The%20Goal%20Rush.ia.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s3e12",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 3,
+          "episodeNumber": 12,
+          "title": "Phoney Express",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 391,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 3x12 - Phoney Express.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 52456517,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%203x12%20-%20Phoney%20Express.ia.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s3e13",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 3,
+          "episodeNumber": 13,
+          "title": "The Music Lesson",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 411,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 3x13 - The Music Lesson.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 50484957,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%203x13%20-%20The%20Music%20Lesson.ia.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s3e14",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 3,
+          "episodeNumber": 14,
+          "title": "Nurse Maid",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 384,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 3x14 - Nurse Maid.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 136121893,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%203x14%20-%20Nurse%20Maid.ia.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s3e15",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 3,
+          "episodeNumber": 15,
+          "title": "Funny Face",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 471,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 3x15 - Funny Face.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 168471059,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%203x15%20-%20Funny%20Face.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s4e01",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 4,
+          "episodeNumber": 1,
+          "title": "Coo Coo the Magician",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 442,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 4x01 - Coo Coo the Magician.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 188079435,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%204x01%20-%20Coo%20Coo%20the%20Magician.ia.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s4e02",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 4,
+          "episodeNumber": 2,
+          "title": "Flip's Lunch Room",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 434,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 4x02 - Flip's Lunch Room.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 119065021,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%204x02%20-%20Flip%27s%20Lunch%20Room.ia.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s4e03",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 4,
+          "episodeNumber": 3,
+          "title": "Techno-cracked",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 452,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 4x03 - Techno-cracked.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 66938793,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%204x03%20-%20Techno-cracked.ia.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s4e04",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 4,
+          "episodeNumber": 4,
+          "title": "Bulloney",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 475,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 4x04 - Bulloney.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 197774353,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%204x04%20-%20Bulloney.ia.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s4e05",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 4,
+          "episodeNumber": 5,
+          "title": "Chinaman's Chance",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 476,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 4x05 - Chinaman's Chance.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 172067089,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%204x05%20-%20Chinaman%27s%20Chance.ia.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s4e06",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 4,
+          "episodeNumber": 6,
+          "title": "Pale-Face",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 413,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 4x06 - Pale-Face.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 121982419,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%204x06%20-%20Pale-Face.ia.mp4"
+        },
+        {
+          "archiveID": "flip-the-frog-4x-04-bulloney@s4e07",
+          "sourceID": "flip-the-frog-4x-04-bulloney",
+          "seasonNumber": 4,
+          "episodeNumber": 7,
+          "title": "Soda Squirt",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 383,
+          "videoFile": {
+            "name": "Flip the Frog/Flip the Frog - 4x07 - Soda Squirt.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 52370737,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/flip-the-frog-4x-04-bulloney/Flip%20the%20Frog/Flip%20the%20Frog%20-%204x07%20-%20Soda%20Squirt.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 38,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

@@ -1,0 +1,749 @@
+{
+  "version": 2,
+  "seriesID": "men-into-space",
+  "sourceID": "men.into.-space.-",
+  "tvmazeID": null,
+  "title": "Men into Space",
+  "yearStart": null,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/download/archivewatch-covers/men.into.-space.-.a02a6fae.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "men.into.-space.-@s1e01",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Moon Probe",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x01.Moon.Probe_000630.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1514,
+          "videoFile": {
+            "name": "Men.into.Space.1x01.Moon.Probe.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 153591196,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x01.Moon.Probe.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e02",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Moon Landing",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x02.Moon.Landing_000629.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1518,
+          "videoFile": {
+            "name": "Men.into.Space.1x02.Moon.Landing.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 154611321,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x02.Moon.Landing.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e03",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Building a Space Station",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x03.Building.a.Space.Station_000628.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1512,
+          "videoFile": {
+            "name": "Men.into.Space.1x03.Building.a.Space.Station.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 154939631,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x03.Building.a.Space.Station.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e04",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Water Tank Rescue",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x04.Water.Tank.Rescue_000625.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1506,
+          "videoFile": {
+            "name": "Men.into.Space.1x04.Water.Tank.Rescue.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 219261867,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x04.Water.Tank.Rescue.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e05",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Lost Missile",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x05.Lost.Missile_000630.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1522,
+          "videoFile": {
+            "name": "Men.into.Space.1x05.Lost.Missile.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 221037465,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x05.Lost.Missile.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e06",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Moonquake",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x06.Moonquake_000628.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1513,
+          "videoFile": {
+            "name": "Men.into.Space.1x06.Moonquake.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 231630343,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x06.Moonquake.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e07",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Space Trap",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x07.Space.Trap_000625.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1507,
+          "videoFile": {
+            "name": "Men.into.Space.1x07.Space.Trap.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 209892979,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x07.Space.Trap.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e08",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Asteroid",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x08.Asteroid_000630.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1513,
+          "videoFile": {
+            "name": "Men.into.Space.1x08.Asteroid.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 171005350,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x08.Asteroid.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e09",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Edge of Eternity",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x09.Edge.of.Eternity_000625.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1508,
+          "videoFile": {
+            "name": "Men.into.Space.1x09.Edge.of.Eternity.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 176525176,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x09.Edge.of.Eternity.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e10",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Burnout",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x10.Burnout_000627.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1512,
+          "videoFile": {
+            "name": "Men.into.Space.1x10.Burnout.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 167119221,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x10.Burnout.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e11",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "First Woman on the Moon",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x11.First.Woman.on.the.Moon_000630.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1515,
+          "videoFile": {
+            "name": "Men.into.Space.1x11.First.Woman.on.the.Moon.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 179718416,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x11.First.Woman.on.the.Moon.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e12",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Christmas on the Moon",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x12.Christmas.on.the.Moon_000630.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1515,
+          "videoFile": {
+            "name": "Men.into.Space.1x12.Christmas.on.the.Moon.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 192966808,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x12.Christmas.on.the.Moon.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e13",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Quarantine",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x13.Quarantine_000625.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1507,
+          "videoFile": {
+            "name": "Men.into.Space.1x13.Quarantine.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 233048804,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x13.Quarantine.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e14",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Tankers in Space",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x14.Tankers.in.Space_000630.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1520,
+          "videoFile": {
+            "name": "Men.into.Space.1x14.Tankers.in.Space.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 195759950,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x14.Tankers.in.Space.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e15",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Sea of Stars",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x15.Sea.of.Stars_000627.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1515,
+          "videoFile": {
+            "name": "Men.into.Space.1x15.Sea.of.Stars.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 157103967,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x15.Sea.of.Stars.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e16",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "A Handful of Hours",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x16.A.Handful.of.Hours_000639.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1540,
+          "videoFile": {
+            "name": "Men.into.Space.1x16.A.Handful.of.Hours.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 226461853,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x16.A.Handful.of.Hours.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e17",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Earthbound",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x17.Earthbound_000630.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1515,
+          "videoFile": {
+            "name": "Men.into.Space.1x17.Earthbound.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 197573624,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x17.Earthbound.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e18",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Caves of the Moon",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x18.Caves.of.the.Moon_000735.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1764,
+          "videoFile": {
+            "name": "Men.into.Space.1x18.Caves.of.the.Moon.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 270060150,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x18.Caves.of.the.Moon.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e19",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Dateline Moon",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x19.Dateline.Moon_000630.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1519,
+          "videoFile": {
+            "name": "Men.into.Space.1x19.Dateline.Moon.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 205723980,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x19.Dateline.Moon.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e20",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Moon Cloud",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x20.Moon.Cloud_000730.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1758,
+          "videoFile": {
+            "name": "Men.into.Space.1x20.Moon.Cloud.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 257033223,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x20.Moon.Cloud.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e21",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Contraband",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x21.Contraband_000625.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1506,
+          "videoFile": {
+            "name": "Men.into.Space.1x21.Contraband.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 210494806,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x21.Contraband.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e22",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Dark of the Sun",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x22.Dark.of.the.Sun_000630.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1521,
+          "videoFile": {
+            "name": "Men.into.Space.1x22.Dark.of.the.Sun.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 185228191,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x22.Dark.of.the.Sun.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e23",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Verdict in Orbit",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x23.Verdict.in.Orbit_000615.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1478,
+          "videoFile": {
+            "name": "Men.into.Space.1x23.Verdict.in.Orbit.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 164426216,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x23.Verdict.in.Orbit.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e24",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Is There Another Civilization",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x24.Is.There.Another.Civilization_000702.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1694,
+          "videoFile": {
+            "name": "Men.into.Space.1x24.Is.There.Another.Civilization.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 169101790,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x24.Is.There.Another.Civilization.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e25",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Shadows on the Moon",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x25.Shadows.on.the.Moon_000630.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1521,
+          "videoFile": {
+            "name": "Men.into.Space.1x25.Shadows.on.the.Moon.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 201140157,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x25.Shadows.on.the.Moon.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e26",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Flash in the Sky",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x26.Flash.in.the.Sky_000630.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1517,
+          "videoFile": {
+            "name": "Men.into.Space.1x26.Flash.in.the.Sky.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 159391153,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x26.Flash.in.the.Sky.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e27",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Lunar Secret",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x27.Lunar.Secret_000625.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1507,
+          "videoFile": {
+            "name": "Men.into.Space.1x27.Lunar.Secret.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 190231926,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x27.Lunar.Secret.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e28",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "Voice of Infinity",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x28.Voice.of.Infinity_000630.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1517,
+          "videoFile": {
+            "name": "Men.into.Space.1x28.Voice.of.Infinity.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 160744498,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x28.Voice.of.Infinity.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e29",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "From Another World",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x29.From.Another.World_000630.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1513,
+          "videoFile": {
+            "name": "Men.into.Space.1x29.From.Another.World.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 167934812,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x29.From.Another.World.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e30",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "Emergency Mission",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x30.Emergency.Mission_000627.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1515,
+          "videoFile": {
+            "name": "Men.into.Space.1x30.Emergency.Mission.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 152543288,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x30.Emergency.Mission.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e31",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "Beyond the Stars",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x31.Beyond.the.Stars_000625.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1503,
+          "videoFile": {
+            "name": "Men.into.Space.1x31.Beyond.the.Stars.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 166792052,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x31.Beyond.the.Stars.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e32",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 32,
+          "title": "Mission to Mars",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x32.Mission.to.Mars_000629.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1518,
+          "videoFile": {
+            "name": "Men.into.Space.1x32.Mission.to.Mars.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 167897177,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x32.Mission.to.Mars.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e33",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 33,
+          "title": "Moon Trap",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x33.Moon.Trap_000630.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1516,
+          "videoFile": {
+            "name": "Men.into.Space.1x33.Moon.Trap.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 182759809,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x33.Moon.Trap.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e34",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 34,
+          "title": "Flare Up",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x34.Flare.Up_000630.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1518,
+          "videoFile": {
+            "name": "Men.into.Space.1x34.Flare.Up.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 161271639,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x34.Flare.Up.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e35",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 35,
+          "title": "Into the Sun",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x35.Into.the.Sun_000630.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1518,
+          "videoFile": {
+            "name": "Men.into.Space.1x35.Into.the.Sun.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 151768082,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x35.Into.the.Sun.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e36",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "The Sun Never Sets",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x36.The.Sun.Never.Sets_000625.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1503,
+          "videoFile": {
+            "name": "Men.into.Space.1x36.The.Sun.Never.Sets.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 151415142,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x36.The.Sun.Never.Sets.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e37",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 37,
+          "title": "Mystery Satellite",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x37.Mystery.Satellite_000630.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1516,
+          "videoFile": {
+            "name": "Men.into.Space.1x37.Mystery.Satellite.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 165742532,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x37.Mystery.Satellite.ia.mp4"
+        },
+        {
+          "archiveID": "men.into.-space.-@s1e38",
+          "sourceID": "men.into.-space.-",
+          "seasonNumber": 1,
+          "episodeNumber": 38,
+          "title": "Flight to the Red Planet",
+          "overview": null,
+          "stillURL": "https://archive.org/download/men.into.-space.-/men.into.-space.-.thumbs/Men.into.Space.1x38.Flight.to.the.Red.Planet_000635.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1524,
+          "videoFile": {
+            "name": "Men.into.Space.1x38.Flight.to.the.Red.Planet.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 178592169,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/men.into.-space.-/Men.into.Space.1x38.Flight.to.the.Red.Planet.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 38,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

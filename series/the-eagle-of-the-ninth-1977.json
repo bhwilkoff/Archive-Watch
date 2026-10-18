@@ -1,0 +1,143 @@
+{
+  "version": 2,
+  "seriesID": "the-eagle-of-the-ninth-1977",
+  "sourceID": "the-eagle-of-the-ninth-1977-4-the-lost-legion",
+  "tvmazeID": null,
+  "title": "The Eagle Of The Ninth",
+  "yearStart": 1977,
+  "yearEnd": null,
+  "overview": "In Britannia in 130, a young Roman officer named Marcus Flavius Aquila and his freed slave Esca search for the Ninth Legion's gold eagle standard, which vanished with the legion 13 years earlier.",
+  "posterURL": "https://archive.org/services/img/the-eagle-of-the-ninth-1977-4-the-lost-legion",
+  "backdropURL": null,
+  "genres": [
+    "Drama"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-eagle-of-the-ninth-1977-4-the-lost-legion@e01",
+          "sourceID": "the-eagle-of-the-ninth-1977-4-the-lost-legion",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Frontier Fort",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-eagle-of-the-ninth-1977-4-the-lost-legion/the-eagle-of-the-ninth-1977-4-the-lost-legion.thumbs/The%20Eagle%20of%20the%20Ninth%20%281977%20%29%201%20Frontier%20Fort_000595.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1741,
+          "videoFile": {
+            "name": "The Eagle of the Ninth (1977 ) 1 Frontier Fort.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 96213515,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-eagle-of-the-ninth-1977-4-the-lost-legion/The%20Eagle%20of%20the%20Ninth%20%281977%20%29%201%20Frontier%20Fort.ia.mp4"
+        },
+        {
+          "archiveID": "the-eagle-of-the-ninth-1977-4-the-lost-legion@e02",
+          "sourceID": "the-eagle-of-the-ninth-1977-4-the-lost-legion",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Esca",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-eagle-of-the-ninth-1977-4-the-lost-legion/the-eagle-of-the-ninth-1977-4-the-lost-legion.thumbs/The%20Eagle%20of%20the%20Ninth%20%281977%20%29%202%20Esca_000596.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1773,
+          "videoFile": {
+            "name": "The Eagle of the Ninth (1977 ) 2 Esca.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 117142305,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-eagle-of-the-ninth-1977-4-the-lost-legion/The%20Eagle%20of%20the%20Ninth%20%281977%20%29%202%20Esca.ia.mp4"
+        },
+        {
+          "archiveID": "the-eagle-of-the-ninth-1977-4-the-lost-legion@e03",
+          "sourceID": "the-eagle-of-the-ninth-1977-4-the-lost-legion",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Across The Frontier",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-eagle-of-the-ninth-1977-4-the-lost-legion/the-eagle-of-the-ninth-1977-4-the-lost-legion.thumbs/The%20Eagle%20of%20the%20Ninth%20%281977%20%29%203%20Across%20The%20Frontier_000536.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1660,
+          "videoFile": {
+            "name": "The Eagle of the Ninth (1977 ) 3 Across The Frontier.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 148427955,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-eagle-of-the-ninth-1977-4-the-lost-legion/The%20Eagle%20of%20the%20Ninth%20%281977%20%29%203%20Across%20The%20Frontier.ia.mp4"
+        },
+        {
+          "archiveID": "the-eagle-of-the-ninth-1977-4-the-lost-legion@e04",
+          "sourceID": "the-eagle-of-the-ninth-1977-4-the-lost-legion",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Lost Legion",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-eagle-of-the-ninth-1977-4-the-lost-legion/the-eagle-of-the-ninth-1977-4-the-lost-legion.thumbs/The%20Eagle%20of%20the%20Ninth%20%281977%20%29%204%20The%20Lost%20Legion_000599.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1789,
+          "videoFile": {
+            "name": "The Eagle of the Ninth (1977 ) 4 The Lost Legion.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 185189529,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-eagle-of-the-ninth-1977-4-the-lost-legion/The%20Eagle%20of%20the%20Ninth%20%281977%20%29%204%20The%20Lost%20Legion.ia.mp4"
+        },
+        {
+          "archiveID": "the-eagle-of-the-ninth-1977-4-the-lost-legion@e05",
+          "sourceID": "the-eagle-of-the-ninth-1977-4-the-lost-legion",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Wild Hunt",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-eagle-of-the-ninth-1977-4-the-lost-legion/the-eagle-of-the-ninth-1977-4-the-lost-legion.thumbs/The%20Eagle%20of%20the%20Ninth%20%281977%20%29%205%20The%20Wild%20Hunt_000595.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1774,
+          "videoFile": {
+            "name": "The Eagle of the Ninth (1977 ) 5 The Wild Hunt.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 179151956,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-eagle-of-the-ninth-1977-4-the-lost-legion/The%20Eagle%20of%20the%20Ninth%20%281977%20%29%205%20The%20Wild%20Hunt.ia.mp4"
+        },
+        {
+          "archiveID": "the-eagle-of-the-ninth-1977-4-the-lost-legion@e06",
+          "sourceID": "the-eagle-of-the-ninth-1977-4-the-lost-legion",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Valedictory",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-eagle-of-the-ninth-1977-4-the-lost-legion/the-eagle-of-the-ninth-1977-4-the-lost-legion.thumbs/The%20Eagle%20of%20the%20Ninth%20%281977%20%29%206%20Valedictory_000598.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1802,
+          "videoFile": {
+            "name": "The Eagle of the Ninth (1977 ) 6 Valedictory.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 157743679,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-eagle-of-the-ninth-1977-4-the-lost-legion/The%20Eagle%20of%20the%20Ninth%20%281977%20%29%206%20Valedictory.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

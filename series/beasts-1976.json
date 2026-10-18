@@ -1,0 +1,143 @@
+{
+  "version": 2,
+  "seriesID": "beasts-1976",
+  "sourceID": "beasts-1976",
+  "tvmazeID": null,
+  "title": "Beasts",
+  "yearStart": 1976,
+  "yearEnd": null,
+  "overview": "Six tales of horror in which animals turn on humanity; Nigel Kneale's 1976 ITV anthology Beasts, complete.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/beasts-1976.20176da3.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Horror"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "beasts-1976@e01",
+          "sourceID": "beasts-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Special Offer",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 3186,
+          "videoFile": {
+            "name": "Beasts (1976)/Ep01 Special Offer.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 276900816,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/beasts-1976/Beasts%20%281976%29/Ep01%20Special%20Offer.ia.mp4"
+        },
+        {
+          "archiveID": "beasts-1976@e02",
+          "sourceID": "beasts-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "During Barty's Party",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 2950,
+          "videoFile": {
+            "name": "Beasts (1976)/Ep02 During Barty's Party.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 237446111,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/beasts-1976/Beasts%20%281976%29/Ep02%20During%20Barty%27s%20Party.ia.mp4"
+        },
+        {
+          "archiveID": "beasts-1976@e03",
+          "sourceID": "beasts-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Buddyboy",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 3143,
+          "videoFile": {
+            "name": "Beasts (1976)/Ep03 Buddyboy.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 350598127,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/beasts-1976/Beasts%20%281976%29/Ep03%20Buddyboy.ia.mp4"
+        },
+        {
+          "archiveID": "beasts-1976@e04",
+          "sourceID": "beasts-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Baby",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 3070,
+          "videoFile": {
+            "name": "Beasts (1976)/Ep04 Baby.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 337549099,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/beasts-1976/Beasts%20%281976%29/Ep04%20Baby.ia.mp4"
+        },
+        {
+          "archiveID": "beasts-1976@e05",
+          "sourceID": "beasts-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "What Big Eyes",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 3157,
+          "videoFile": {
+            "name": "Beasts (1976)/Ep05 What Big Eyes.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 263579287,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/beasts-1976/Beasts%20%281976%29/Ep05%20What%20Big%20Eyes.ia.mp4"
+        },
+        {
+          "archiveID": "beasts-1976@e06",
+          "sourceID": "beasts-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Dummy",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 2961,
+          "videoFile": {
+            "name": "Beasts (1976)/Ep06 The Dummy.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 322155519,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/beasts-1976/Beasts%20%281976%29/Ep06%20The%20Dummy.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

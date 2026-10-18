@@ -1,0 +1,312 @@
+{
+  "version": 2,
+  "seriesID": "radar-men-from-the-moon-1952",
+  "sourceID": "RadarMenFromTheMoon",
+  "tvmazeID": null,
+  "title": "Radar Men from the Moon",
+  "yearStart": 1952,
+  "yearEnd": null,
+  "overview": "Commando Cody, 'Sky Marshal of the Universe', works with American scientists Joan Gilbert and Ted Richards in the development of a flying suit and a rocket to the Moon. When the nation's defences are being sabotaged and destroyed, Cody learns that an atomic-gun is being used and that the men on the moon are the culprits.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/7pYrj4h2w5wkgTbbff4KS1MYP60.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/4fFgjG6wAk3vvxTHijttZ0qVSf0.jpg",
+  "genres": [
+    "Action",
+    "Science Fiction"
+  ],
+  "networks": [],
+  "creator": "Fred C. Brannon",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "RadarMenFromTheMoon@e02",
+          "sourceID": "RadarMenFromTheMoon",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Episode 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RadarMenFromTheMoon/RadarMenFromTheMoon.thumbs/Radar_Men_From_The_Moon2_000255.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 737,
+          "videoFile": {
+            "name": "Radar_Men_From_The_Moon2.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 76532748,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RadarMenFromTheMoon/Radar_Men_From_The_Moon2.mp4"
+        },
+        {
+          "archiveID": "RadarMenFromTheMoon@e03",
+          "sourceID": "RadarMenFromTheMoon",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Episode 3",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RadarMenFromTheMoon/RadarMenFromTheMoon.thumbs/Radar_Men_From_The_Moon3_000255.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 737,
+          "videoFile": {
+            "name": "Radar_Men_From_The_Moon3.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 76687469,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RadarMenFromTheMoon/Radar_Men_From_The_Moon3.mp4"
+        },
+        {
+          "archiveID": "RadarMenFromTheMoon@e04",
+          "sourceID": "RadarMenFromTheMoon",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Episode 4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RadarMenFromTheMoon/RadarMenFromTheMoon.thumbs/Radar_Men_From_The_Moon4_000255.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 736,
+          "videoFile": {
+            "name": "Radar_Men_From_The_Moon4.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 76474556,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RadarMenFromTheMoon/Radar_Men_From_The_Moon4.mp4"
+        },
+        {
+          "archiveID": "RadarMenFromTheMoon@e05",
+          "sourceID": "RadarMenFromTheMoon",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Episode 5",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RadarMenFromTheMoon/RadarMenFromTheMoon.thumbs/Radar_Men_From_The_Moon5_000255.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 737,
+          "videoFile": {
+            "name": "Radar_Men_From_The_Moon5.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 76562614,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RadarMenFromTheMoon/Radar_Men_From_The_Moon5.mp4"
+        },
+        {
+          "archiveID": "RadarMenFromTheMoon@e06",
+          "sourceID": "RadarMenFromTheMoon",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Episode 6",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RadarMenFromTheMoon/RadarMenFromTheMoon.thumbs/Radar_Men_From_The_Moon6_000255.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 738,
+          "videoFile": {
+            "name": "Radar_Men_From_The_Moon6.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 76588648,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RadarMenFromTheMoon/Radar_Men_From_The_Moon6.mp4"
+        },
+        {
+          "archiveID": "RadarMenFromTheMoon@e07",
+          "sourceID": "RadarMenFromTheMoon",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Episode 7",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RadarMenFromTheMoon/RadarMenFromTheMoon.thumbs/Radar_Men_From_The_Moon7_000255.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 737,
+          "videoFile": {
+            "name": "Radar_Men_From_The_Moon7.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 76667399,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RadarMenFromTheMoon/Radar_Men_From_The_Moon7.mp4"
+        },
+        {
+          "archiveID": "RadarMenFromTheMoon@e08",
+          "sourceID": "RadarMenFromTheMoon",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Episode 8",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RadarMenFromTheMoon/RadarMenFromTheMoon.thumbs/Radar_Men_From_The_Moon8_000255.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 737,
+          "videoFile": {
+            "name": "Radar_Men_From_The_Moon8.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 76488365,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RadarMenFromTheMoon/Radar_Men_From_The_Moon8.mp4"
+        },
+        {
+          "archiveID": "RadarMenFromTheMoon@e09",
+          "sourceID": "RadarMenFromTheMoon",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Episode 9",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RadarMenFromTheMoon/RadarMenFromTheMoon.thumbs/Radar_Men_From_The_Moon9_000255.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 737,
+          "videoFile": {
+            "name": "Radar_Men_From_The_Moon9.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 76407159,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RadarMenFromTheMoon/Radar_Men_From_The_Moon9.mp4"
+        },
+        {
+          "archiveID": "RadarMenFromTheMoon@e10",
+          "sourceID": "RadarMenFromTheMoon",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Episode 10",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RadarMenFromTheMoon/RadarMenFromTheMoon.thumbs/Radar_Men_From_The_Moon10_000255.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 738,
+          "videoFile": {
+            "name": "Radar_Men_From_The_Moon10.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 76597523,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RadarMenFromTheMoon/Radar_Men_From_The_Moon10.mp4"
+        },
+        {
+          "archiveID": "RadarMenFromTheMoon@e11",
+          "sourceID": "RadarMenFromTheMoon",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Episode 11",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RadarMenFromTheMoon/RadarMenFromTheMoon.thumbs/Radar_Men_From_The_Moon11_000255.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 737,
+          "videoFile": {
+            "name": "Radar_Men_From_The_Moon11.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 76637351,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RadarMenFromTheMoon/Radar_Men_From_The_Moon11.mp4"
+        },
+        {
+          "archiveID": "RadarMenFromTheMoon@e12",
+          "sourceID": "RadarMenFromTheMoon",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Episode 12",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RadarMenFromTheMoon/RadarMenFromTheMoon.thumbs/Radar_Men_From_The_Moon12_000255.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 738,
+          "videoFile": {
+            "name": "Radar_Men_From_The_Moon12.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 76797884,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RadarMenFromTheMoon/Radar_Men_From_The_Moon12.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "RadarMenFromTheMoon@x-radar-men-from-the-moon",
+          "sourceID": "RadarMenFromTheMoon",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Radar Men From The Moon",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RadarMenFromTheMoon/RadarMenFromTheMoon.thumbs/Radar_Men_From_The_Moon_000390.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 1203,
+          "videoFile": {
+            "name": "Radar_Men_From_The_Moon.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 124622565,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RadarMenFromTheMoon/Radar_Men_From_The_Moon.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 12,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": [
+    {
+      "name": "George D. Wallace",
+      "character": "Commando Cody",
+      "order": 0,
+      "profilePath": "/vLVtDTFm2ol7Tw7oOAH0dquhlPy.jpg"
+    },
+    {
+      "name": "Aline Towne",
+      "character": "Joan Gilbert",
+      "order": 1,
+      "profilePath": "/kxVzIsrEAGX5zUWhGKWwkBOtTx0.jpg"
+    },
+    {
+      "name": "Roy Barcroft",
+      "character": "Retik",
+      "order": 2,
+      "profilePath": "/57EKCVAOfcNKNNcHBtkmp0cU9od.jpg"
+    },
+    {
+      "name": "William Bakewell",
+      "character": "Ted Richards",
+      "order": 3,
+      "profilePath": "/stKgMu22tlNrNg7UJwyCdROwxO8.jpg"
+    },
+    {
+      "name": "Peter Brocco",
+      "character": "Krog",
+      "order": 4,
+      "profilePath": "/aZhOvx1UiUoxGqzNbTHvzMJCAgN.jpg"
+    },
+    {
+      "name": "Clayton Moore",
+      "character": "Graber",
+      "order": 5,
+      "profilePath": "/uJSufv1R4YcwB0scngTkYYJEjds.jpg"
+    },
+    {
+      "name": "Robert Stevenson",
+      "character": "Daly",
+      "order": 6,
+      "profilePath": "/AfqR78fhdCGcCo52zRbUuSYwUsO.jpg"
+    },
+    {
+      "name": "Don Walters",
+      "character": "Mr. Henderson",
+      "order": 7,
+      "profilePath": null
+    }
+  ]
+}

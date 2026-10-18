@@ -1,0 +1,726 @@
+{
+  "version": 2,
+  "seriesID": "the-adventures-of-sherlock-holmes-1954",
+  "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+  "tvmazeID": null,
+  "title": "The Adventures Of Sherlock Holmes",
+  "yearStart": 1954,
+  "yearEnd": null,
+  "overview": "An episode of the 1954 syndicated series filmed in France, with Ronald Howard as Sherlock Holmes and H. Marion Crawford as Dr. Watson.",
+  "posterURL": "https://archive.org/services/img/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s1e01",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Cunningham Heritage",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S01E01_Cunningham%20Heritage_000789.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1620,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S01E01_Cunningham Heritage.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 182099430,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S01E01_Cunningham%20Heritage.ia.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s1e02",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Lady Beryl",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S01E02_Lady%20Beryl_000791.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1623,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S01E02_Lady Beryl.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 179910400,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S01E02_Lady%20Beryl.ia.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s1e03",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Pennsylvania Gun",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S01E03_Pennsylvania%20Gun%20_000776.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1593,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S01E03_Pennsylvania Gun .ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 198941573,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S01E03_Pennsylvania%20Gun%20.ia.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s1e04",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Texas Cowgirl",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S01E04_Texas%20Cowgirl%20_000789.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1619,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S01E04_Texas Cowgirl .mp4",
+            "format": "MPEG4",
+            "sizeBytes": 196046051,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S01E04_Texas%20Cowgirl%20.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s1e05",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Belligerant Ghost",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S01E05_Belligerant%20Ghost_000782.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1604,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S01E05_Belligerant Ghost.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 184963263,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S01E05_Belligerant%20Ghost.ia.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s1e06",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Shy Ballerina",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S01E06_Shy%20Ballerina%20_000759.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1557,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S01E06_Shy Ballerina .ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 148894604,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S01E06_Shy%20Ballerina%20.ia.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s1e07",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Winthrop Legend",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S01E07%20Winthrop%20Legend_000789.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1618,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S01E07 Winthrop Legend.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 121278629,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S01E07%20Winthrop%20Legend.ia.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s1e08",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Blind Man's Bluff",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S01E08_Blind%20Man%27s%20Bluff%20_000776.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1592,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S01E08_Blind Man's Bluff .ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 139936133,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S01E08_Blind%20Man%27s%20Bluff%20.ia.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s1e09",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Harry Crocker",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S01E09_Harry%20Crocker_000762.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1564,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S01E09_Harry Crocker.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 125591668,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S01E09_Harry%20Crocker.ia.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s1e10",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Mother Hubbard",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S01E10_Mother%20Hubbard_000779.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1597,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S01E10_Mother Hubbard.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 211434869,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S01E10_Mother%20Hubbard.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s2e01",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Red-Headed League",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S02E01_Red-Headed%20League_000786.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1612,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S02E01_Red-Headed League.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 229748431,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S02E01_Red-Headed%20League.ia.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s2e02",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "Shoeless Engineer",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S02E02_Shoeless%20Engineer_000777.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1595,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S02E02_Shoeless Engineer.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 200059205,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S02E02_Shoeless%20Engineer.ia.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s2e03",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Split Ticket",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S02E03_Split%20Ticket_000785.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1610,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S02E03_Split Ticket.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 209920621,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S02E03_Split%20Ticket.ia.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s2e04",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "French Interpreter",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S02E04_French%20Interpreter_000788.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1616,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S02E04_French Interpreter.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 176671548,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S02E04_French%20Interpreter.ia.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s2e05",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Singing Violin",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S02E05_Singing%20Violin_000780.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1600,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S02E05_Singing Violin.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 161809369,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S02E05_Singing%20Violin.ia.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s2e06",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Greystone Inscription",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S02E06_Greystone%20Inscription_000783.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1607,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S02E06_Greystone Inscription.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 124481649,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S02E06_Greystone%20Inscription.ia.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s2e08",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "Thistle Killer",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S02E08_Thistle%20Killer_000780.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1600,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S02E08_Thistle Killer.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 187926508,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S02E08_Thistle%20Killer.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s2e09",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Vanished Detective",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S02E09_Vanished%20Detective_000784.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1609,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S02E09_Vanished Detective.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 195185222,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S02E09_Vanished%20Detective.ia.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s2e10",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "Careless Suffragette",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S02E10_Careless%20Suffragette_000782.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1605,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S02E10_Careless Suffragette.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 203379977,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S02E10_Careless%20Suffragette.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s3e01",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "Reluctant Carpenter",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S03E01_Reluctant%20Carpenter_000783.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1607,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S03E01_Reluctant Carpenter.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 242913427,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S03E01_Reluctant%20Carpenter.ia.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s3e02",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 3,
+          "episodeNumber": 2,
+          "title": "Deadly Prophecy",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S03E02_Deadly%20Prophecy_000782.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1605,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S03E02_Deadly Prophecy.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 120714733,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S03E02_Deadly%20Prophecy.ia.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s3e05",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 3,
+          "episodeNumber": 5,
+          "title": "Violent Suitor",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S03E05_Violent%20Suitor_000790.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1620,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S03E05_Violent Suitor.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 201818796,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S03E05_Violent%20Suitor.ia.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s3e06",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 3,
+          "episodeNumber": 6,
+          "title": "Baker Street Nursemaids",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S03E06_Baker%20Street%20Nursemaids_000776.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1591,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S03E06_Baker Street Nursemaids.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 158185792,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S03E06_Baker%20Street%20Nursemaids.ia.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s3e07",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 3,
+          "episodeNumber": 7,
+          "title": "Perfect Husband",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S03E07_Perfect%20Husband_000776.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1592,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S03E07_Perfect Husband.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 232699548,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S03E07_Perfect%20Husband.ia.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s3e08",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 3,
+          "episodeNumber": 8,
+          "title": "Jolly Hangman",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S03E08_Jolly%20Hangman_000787.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1615,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S03E08_Jolly Hangman.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 154234872,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S03E08_Jolly%20Hangman.ia.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s3e09",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 3,
+          "episodeNumber": 9,
+          "title": "Imposter Mystery",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S03E09_Imposter%20Mystery_000779.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1598,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S03E09_Imposter Mystery.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 188706217,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S03E09_Imposter%20Mystery.ia.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s3e10",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 3,
+          "episodeNumber": 10,
+          "title": "Eiffel Tower prob4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S03E10_Eiffel%20Tower_prob4_000778.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1596,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S03E10_Eiffel Tower_prob4.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 180882636,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S03E10_Eiffel%20Tower_prob4.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s4e01",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 4,
+          "episodeNumber": 1,
+          "title": "Exhumed Client",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S04E01_Exhumed%20Client_000783.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1606,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S04E01_Exhumed Client.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 114445498,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S04E01_Exhumed%20Client.ia.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s4e02",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 4,
+          "episodeNumber": 2,
+          "title": "Impromptu Performance prob4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S04E02_Impromptu%20Performance_prob4_000782.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1605,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S04E02_Impromptu Performance_prob4.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 156028382,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S04E02_Impromptu%20Performance_prob4.ia.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s4e03",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 4,
+          "episodeNumber": 3,
+          "title": "Baker Street Bachelors",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S04E03_Baker%20Street%20Bachelors_000783.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1607,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S04E03_Baker Street Bachelors.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 163680458,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S04E03_Baker%20Street%20Bachelors.ia.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s4e04",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 4,
+          "episodeNumber": 4,
+          "title": "Royal Murder",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S04E04_Royal%20Murder_000785.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1611,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S04E04_Royal Murder.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 192493341,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S04E04_Royal%20Murder.ia.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s4e05",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 4,
+          "episodeNumber": 5,
+          "title": "Haunted Gainsborough",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S04E05_Haunted%20Gainsborough_000781.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1602,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S04E05_Haunted Gainsborough.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 125716429,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S04E05_Haunted%20Gainsborough.ia.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s4e06",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 4,
+          "episodeNumber": 6,
+          "title": "Neurotic Detective prob4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S04E06_Neurotic%20Detective_prob4_000785.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1610,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S04E06_Neurotic Detective_prob4.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 146092719,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S04E06_Neurotic%20Detective_prob4.ia.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s4e07",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 4,
+          "episodeNumber": 7,
+          "title": "Unlucky Gambler",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S04E07_Unlucky%20Gambler_000781.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1601,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S04E07_Unlucky Gambler.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 201341636,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S04E07_Unlucky%20Gambler.ia.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s4e08",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 4,
+          "episodeNumber": 8,
+          "title": "Diamond Tooth",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S04E08_Diamond%20Tooth_000776.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1593,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S04E08_Diamond Tooth.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 155008233,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S04E08_Diamond%20Tooth.ia.mp4"
+        },
+        {
+          "archiveID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter@s4e09",
+          "sourceID": "the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter",
+          "seasonNumber": 4,
+          "episodeNumber": 9,
+          "title": "Tyrant's Daughter",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter.thumbs/The%20Adventures%20of%20Sherlock%20Holmes_S04E09_Tyrant%27s%20Daughter_000790.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1621,
+          "videoFile": {
+            "name": "The Adventures of Sherlock Holmes_S04E09_Tyrant's Daughter.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 218136982,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-adventures-of-sherlock-holmes-s-03-e-01-reluctant-carpenter/The%20Adventures%20of%20Sherlock%20Holmes_S04E09_Tyrant%27s%20Daughter.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 36,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

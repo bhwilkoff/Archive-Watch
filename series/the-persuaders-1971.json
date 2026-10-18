@@ -1,0 +1,487 @@
+{
+  "version": 2,
+  "seriesID": "the-persuaders-1971",
+  "sourceID": "the-persuaders-complete-series-1971",
+  "tvmazeID": null,
+  "title": "The Persuaders",
+  "yearStart": 1971,
+  "yearEnd": null,
+  "overview": "The Persuaders! is a British action comedy television series starring Tony Curtis and Roger Moore, produced by ITC Entertainment, and initially broadcast on ITV and ABC in 1971. The show has been called 'the last major entry in the cycle of adventure series that began 11 years earlier with Danger Man in 1960', as well as 'the most ambitious and most expensive of Sir Lew Grade 's international action adventure series'. The Persuaders! was filmed in Britain, France, and Italy between May 1970 and June 1971. Despite its focus on the British and American markets, The Persuaders! became more successful elsewhere. It won its highest awards in Australia and Spain, and Roger Moore and Tony Curtis were honoured in Germany and France for their acting. The Persuaders! used many of the resources of Moore's previous show, The Saint. These included locations, and the idea of reusing many of the visible vehicles from episode to episode. The series' synth-laden theme music was composed by John Barry. The Persuaders are two equally-matched men from different backgrounds who reluctantly team together to solve cases that the police and the courts cannot. Danny Wilde, portrayed by Tony Curtis, is a rough diamond, educated and molded in the slums of New York City, who escaped by enlisting in the US Navy. He later became a millionaire in the oil business, subsequently making and then losing several fortunes as a Wall Street investor. Listless and without purpose, he jets around the world spending his money on frivolous ventures. Curtis himself had suffered a tough childhood in the Bronx, and also had served in the US Navy. Curtis was 46 when he made The Persuaders, but he performed all his own stunts and fight sequences. Lord Brett Rupert George Robert Andrew Sinclair, played by Roger Moore, is a polished British nobleman, educated at Harrow and Oxford, a former British Army officer, ex-racing car driver and race horse owner,, who addresses his colleague as \"Daniel\". Sinclair is described as well-educated and well off, but uses his privilege and assets only to eat luxury food, drink cocktails, and sleep with women. In the episode \"The Ozerov Inheritance\", Brett's full name is given as Brett Rupert George Robert Andrew Sinclair, Earl of Marnock, and it is confirmed that his grandfather was the 13th Earl. A pair of globetrotting millionaire playboys, the men are brought together by retired Judge Fulton ( Laurence Naismith ) in the French Riviera. They instantly dislike each other and destroy a hotel bar during a fist-fight. They are arrested and delivered to Fulton, who offers them the choice of spending 90 days in jail or helping him to right errors of impunity. Grudgingly, Wilde and Sinclair agree to help Fulton to solve a case. He then releases them from any threat of jail. The men develop a sparing affection for each other and soon stumble into more adventures, sometimes by chance, sometimes on commission from Judge Fulton. Although the Judge recurs in the series, he has no formal relationship with his two agents. Eleven episodes depict his finding a way to convince Wilde and Sinclair to act on his behalf. For instance, in \"Angie, Angie\" he easily convinces one of the pair. In \"The Man in the Middle\" he endangers his agents so that they must act on his behalf. When they are short of cash he lures them with money. In \"Powerswitch\" he manipulates events from the shadows, and Sinclair and Wilde do not know that he is involved. Some episodes rely on Danny being mistaken for other people, usually by some bizarre coincidence. In \"Element of Risk\", he is mistaken for a criminal mastermind named Lomax, played by Shane Rimmer. In \"Anyone Can Play\", he is mistaken at a Brighton casino for a Russian spy paymaster. In episode 12, \"That's Me Over There\", it appears that Sinclair has had a longstanding interest in crime-fighting, as he has had a dedicated telephone line installed for an informer on a master criminal. In episode 17, \"Five Miles to Midnight\", Sinclair tells Joan Collins 's character that he is working for the judge because it has given him something worthwhile to do after his failed motor racing career. Wilde never reveals or explains his motives.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/the-persuaders-complete-series-1971.ba60489e.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Mystery",
+    "Crime",
+    "Action"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-persuaders-complete-series-1971@e01",
+          "sourceID": "the-persuaders-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Overture",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-persuaders-complete-series-1971/the-persuaders-complete-series-1971.thumbs/The%20Persuaders%20-%2001%20Overture_001481.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3008,
+          "videoFile": {
+            "name": "The Persuaders - 01 Overture.mp4",
+            "format": "h.264",
+            "sizeBytes": 291485594,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-persuaders-complete-series-1971/The%20Persuaders%20-%2001%20Overture.mp4"
+        },
+        {
+          "archiveID": "the-persuaders-complete-series-1971@e02",
+          "sourceID": "the-persuaders-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The gold Napoleon",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-persuaders-complete-series-1971/the-persuaders-complete-series-1971.thumbs/The%20Persuaders%20-%2002%20The%20gold%20Napoleon_001477.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3003,
+          "videoFile": {
+            "name": "The Persuaders - 02 The gold Napoleon.mp4",
+            "format": "h.264",
+            "sizeBytes": 289020263,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-persuaders-complete-series-1971/The%20Persuaders%20-%2002%20The%20gold%20Napoleon.mp4"
+        },
+        {
+          "archiveID": "the-persuaders-complete-series-1971@e03",
+          "sourceID": "the-persuaders-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Take seven",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-persuaders-complete-series-1971/the-persuaders-complete-series-1971.thumbs/The%20Persuaders%20-%2003%20Take%20seven_001540.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3123,
+          "videoFile": {
+            "name": "The Persuaders - 03 Take seven.mp4",
+            "format": "h.264",
+            "sizeBytes": 302121076,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-persuaders-complete-series-1971/The%20Persuaders%20-%2003%20Take%20seven.mp4"
+        },
+        {
+          "archiveID": "the-persuaders-complete-series-1971@e04",
+          "sourceID": "the-persuaders-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Greensleeves",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-persuaders-complete-series-1971/the-persuaders-complete-series-1971.thumbs/The%20Persuaders%20-%2004%20Greensleeves_001484.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3007,
+          "videoFile": {
+            "name": "The Persuaders - 04 Greensleeves.mp4",
+            "format": "h.264",
+            "sizeBytes": 290561810,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-persuaders-complete-series-1971/The%20Persuaders%20-%2004%20Greensleeves.mp4"
+        },
+        {
+          "archiveID": "the-persuaders-complete-series-1971@e05",
+          "sourceID": "the-persuaders-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Powerswitch",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-persuaders-complete-series-1971/the-persuaders-complete-series-1971.thumbs/The%20Persuaders%20-%2005%20Powerswitch_001488.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3008,
+          "videoFile": {
+            "name": "The Persuaders - 05 Powerswitch.mp4",
+            "format": "h.264",
+            "sizeBytes": 290538090,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-persuaders-complete-series-1971/The%20Persuaders%20-%2005%20Powerswitch.mp4"
+        },
+        {
+          "archiveID": "the-persuaders-complete-series-1971@e06",
+          "sourceID": "the-persuaders-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The time and the place",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-persuaders-complete-series-1971/the-persuaders-complete-series-1971.thumbs/The%20Persuaders%20-%2006%20The%20time%20and%20the%20place_001477.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3004,
+          "videoFile": {
+            "name": "The Persuaders - 06 The time and the place.mp4",
+            "format": "h.264",
+            "sizeBytes": 291312376,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-persuaders-complete-series-1971/The%20Persuaders%20-%2006%20The%20time%20and%20the%20place.mp4"
+        },
+        {
+          "archiveID": "the-persuaders-complete-series-1971@e07",
+          "sourceID": "the-persuaders-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Someone like me",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-persuaders-complete-series-1971/the-persuaders-complete-series-1971.thumbs/The%20Persuaders%20-%2007%20Someone%20like%20me_001482.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3011,
+          "videoFile": {
+            "name": "The Persuaders - 07 Someone like me.mp4",
+            "format": "h.264",
+            "sizeBytes": 293115515,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-persuaders-complete-series-1971/The%20Persuaders%20-%2007%20Someone%20like%20me.mp4"
+        },
+        {
+          "archiveID": "the-persuaders-complete-series-1971@e08",
+          "sourceID": "the-persuaders-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Anyone can play",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-persuaders-complete-series-1971/the-persuaders-complete-series-1971.thumbs/The%20Persuaders%20-%2008%20Anyone%20can%20play_001527.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3106,
+          "videoFile": {
+            "name": "The Persuaders - 08 Anyone can play.mp4",
+            "format": "h.264",
+            "sizeBytes": 298149772,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-persuaders-complete-series-1971/The%20Persuaders%20-%2008%20Anyone%20can%20play.mp4"
+        },
+        {
+          "archiveID": "the-persuaders-complete-series-1971@e09",
+          "sourceID": "the-persuaders-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The old the new & the deadly",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-persuaders-complete-series-1971/the-persuaders-complete-series-1971.thumbs/The%20Persuaders%20-%2009%20The%20old_%20the%20new%20%26%20the%20deadly_001476.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 2999,
+          "videoFile": {
+            "name": "The Persuaders - 09 The old_ the new & the deadly.mp4",
+            "format": "h.264",
+            "sizeBytes": 289372963,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-persuaders-complete-series-1971/The%20Persuaders%20-%2009%20The%20old_%20the%20new%20%26%20the%20deadly.mp4"
+        },
+        {
+          "archiveID": "the-persuaders-complete-series-1971@e10",
+          "sourceID": "the-persuaders-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Angie Angie",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-persuaders-complete-series-1971/the-persuaders-complete-series-1971.thumbs/The%20Persuaders%20-%2010%20Angie_%20Angie_001479.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3002,
+          "videoFile": {
+            "name": "The Persuaders - 10 Angie_ Angie.mp4",
+            "format": "h.264",
+            "sizeBytes": 291269740,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-persuaders-complete-series-1971/The%20Persuaders%20-%2010%20Angie_%20Angie.mp4"
+        },
+        {
+          "archiveID": "the-persuaders-complete-series-1971@e11",
+          "sourceID": "the-persuaders-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Chain of events",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-persuaders-complete-series-1971/the-persuaders-complete-series-1971.thumbs/The%20Persuaders%20-%2011%20Chain%20of%20events_001475.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 2998,
+          "videoFile": {
+            "name": "The Persuaders - 11 Chain of events.mp4",
+            "format": "h.264",
+            "sizeBytes": 290472615,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-persuaders-complete-series-1971/The%20Persuaders%20-%2011%20Chain%20of%20events.mp4"
+        },
+        {
+          "archiveID": "the-persuaders-complete-series-1971@e12",
+          "sourceID": "the-persuaders-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "That's me over there",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-persuaders-complete-series-1971/the-persuaders-complete-series-1971.thumbs/The%20Persuaders%20-%2012%20That%27s%20me%20over%20there_001522.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3077,
+          "videoFile": {
+            "name": "The Persuaders - 12 That's me over there.mp4",
+            "format": "h.264",
+            "sizeBytes": 298743662,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-persuaders-complete-series-1971/The%20Persuaders%20-%2012%20That%27s%20me%20over%20there.mp4"
+        },
+        {
+          "archiveID": "the-persuaders-complete-series-1971@e13",
+          "sourceID": "the-persuaders-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "The long goodbye",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-persuaders-complete-series-1971/the-persuaders-complete-series-1971.thumbs/The%20Persuaders%20-%2013%20The%20long%20goodbye_001484.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3008,
+          "videoFile": {
+            "name": "The Persuaders - 13 The long goodbye.mp4",
+            "format": "h.264",
+            "sizeBytes": 291918691,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-persuaders-complete-series-1971/The%20Persuaders%20-%2013%20The%20long%20goodbye.mp4"
+        },
+        {
+          "archiveID": "the-persuaders-complete-series-1971@e14",
+          "sourceID": "the-persuaders-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The man in the middle",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-persuaders-complete-series-1971/the-persuaders-complete-series-1971.thumbs/The%20Persuaders%20-%2014%20The%20man%20in%20the%20middle_001507.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3064,
+          "videoFile": {
+            "name": "The Persuaders - 14 The man in the middle.mp4",
+            "format": "h.264",
+            "sizeBytes": 296021123,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-persuaders-complete-series-1971/The%20Persuaders%20-%2014%20The%20man%20in%20the%20middle.mp4"
+        },
+        {
+          "archiveID": "the-persuaders-complete-series-1971@e15",
+          "sourceID": "the-persuaders-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Element of risk",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-persuaders-complete-series-1971/the-persuaders-complete-series-1971.thumbs/The%20Persuaders%20-%2015%20Element%20of%20risk_001474.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 2996,
+          "videoFile": {
+            "name": "The Persuaders - 15 Element of risk.mp4",
+            "format": "h.264",
+            "sizeBytes": 291340117,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-persuaders-complete-series-1971/The%20Persuaders%20-%2015%20Element%20of%20risk.mp4"
+        },
+        {
+          "archiveID": "the-persuaders-complete-series-1971@e16",
+          "sourceID": "the-persuaders-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "A home of one's own",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-persuaders-complete-series-1971/the-persuaders-complete-series-1971.thumbs/The%20Persuaders%20-%2016%20A%20home%20of%20one%27s%20own_001476.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 2999,
+          "videoFile": {
+            "name": "The Persuaders - 16 A home of one's own.mp4",
+            "format": "h.264",
+            "sizeBytes": 290515546,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-persuaders-complete-series-1971/The%20Persuaders%20-%2016%20A%20home%20of%20one%27s%20own.mp4"
+        },
+        {
+          "archiveID": "the-persuaders-complete-series-1971@e17",
+          "sourceID": "the-persuaders-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Five miles to midnight",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-persuaders-complete-series-1971/the-persuaders-complete-series-1971.thumbs/The%20Persuaders%20-%2017%20Five%20miles%20to%20midnight_001484.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3002,
+          "videoFile": {
+            "name": "The Persuaders - 17 Five miles to midnight.mp4",
+            "format": "h.264",
+            "sizeBytes": 292164359,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-persuaders-complete-series-1971/The%20Persuaders%20-%2017%20Five%20miles%20to%20midnight.mp4"
+        },
+        {
+          "archiveID": "the-persuaders-complete-series-1971@e18",
+          "sourceID": "the-persuaders-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Nuisance value",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-persuaders-complete-series-1971/the-persuaders-complete-series-1971.thumbs/The%20Persuaders%20-%2018%20Nuisance%20value_001482.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3006,
+          "videoFile": {
+            "name": "The Persuaders - 18 Nuisance value.mp4",
+            "format": "h.264",
+            "sizeBytes": 292865918,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-persuaders-complete-series-1971/The%20Persuaders%20-%2018%20Nuisance%20value.mp4"
+        },
+        {
+          "archiveID": "the-persuaders-complete-series-1971@e19",
+          "sourceID": "the-persuaders-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "The morning after",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-persuaders-complete-series-1971/the-persuaders-complete-series-1971.thumbs/The%20Persuaders%20-%2019%20The%20morning%20after_001481.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3005,
+          "videoFile": {
+            "name": "The Persuaders - 19 The morning after.mp4",
+            "format": "h.264",
+            "sizeBytes": 290885154,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-persuaders-complete-series-1971/The%20Persuaders%20-%2019%20The%20morning%20after.mp4"
+        },
+        {
+          "archiveID": "the-persuaders-complete-series-1971@e20",
+          "sourceID": "the-persuaders-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Read and destroy",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-persuaders-complete-series-1971/the-persuaders-complete-series-1971.thumbs/The%20Persuaders%20-%2020%20Read%20and%20destroy_001481.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3009,
+          "videoFile": {
+            "name": "The Persuaders - 20 Read and destroy.mp4",
+            "format": "h.264",
+            "sizeBytes": 293001805,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-persuaders-complete-series-1971/The%20Persuaders%20-%2020%20Read%20and%20destroy.mp4"
+        },
+        {
+          "archiveID": "the-persuaders-complete-series-1971@e21",
+          "sourceID": "the-persuaders-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "A death in the family",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-persuaders-complete-series-1971/the-persuaders-complete-series-1971.thumbs/The%20Persuaders%20-%2021%20A%20death%20in%20the%20family_001479.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3007,
+          "videoFile": {
+            "name": "The Persuaders - 21 A death in the family.mp4",
+            "format": "h.264",
+            "sizeBytes": 292312925,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-persuaders-complete-series-1971/The%20Persuaders%20-%2021%20A%20death%20in%20the%20family.mp4"
+        },
+        {
+          "archiveID": "the-persuaders-complete-series-1971@e22",
+          "sourceID": "the-persuaders-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "The Ozerov inheritance",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-persuaders-complete-series-1971/the-persuaders-complete-series-1971.thumbs/The%20Persuaders%20-%2022%20The%20Ozerov%20inheritance_001555.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3156,
+          "videoFile": {
+            "name": "The Persuaders - 22 The Ozerov inheritance.mp4",
+            "format": "h.264",
+            "sizeBytes": 304795614,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-persuaders-complete-series-1971/The%20Persuaders%20-%2022%20The%20Ozerov%20inheritance.mp4"
+        },
+        {
+          "archiveID": "the-persuaders-complete-series-1971@e23",
+          "sourceID": "the-persuaders-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "To the death baby",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-persuaders-complete-series-1971/the-persuaders-complete-series-1971.thumbs/The%20Persuaders%20-%2023%20To%20the%20death_%20baby_001481.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3006,
+          "videoFile": {
+            "name": "The Persuaders - 23 To the death_ baby.mp4",
+            "format": "h.264",
+            "sizeBytes": 289930025,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-persuaders-complete-series-1971/The%20Persuaders%20-%2023%20To%20the%20death_%20baby.mp4"
+        },
+        {
+          "archiveID": "the-persuaders-complete-series-1971@e24",
+          "sourceID": "the-persuaders-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Someone waiting",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-persuaders-complete-series-1971/the-persuaders-complete-series-1971.thumbs/The%20Persuaders%20-%2024%20Someone%20waiting_001479.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3003,
+          "videoFile": {
+            "name": "The Persuaders - 24 Someone waiting.mp4",
+            "format": "h.264",
+            "sizeBytes": 290057150,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-persuaders-complete-series-1971/The%20Persuaders%20-%2024%20Someone%20waiting.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 24,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

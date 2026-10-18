@@ -1,0 +1,2790 @@
+{
+  "version": 2,
+  "seriesID": "in-search-of-1977",
+  "sourceID": "In-Search-Of-complete-series",
+  "tvmazeID": null,
+  "title": "In Search Of",
+  "yearStart": 1977,
+  "yearEnd": null,
+  "overview": "Every episode of the 1977–1982 television series investigating paranormal mysteries, hosted and narrated by Leonard Nimoy.",
+  "posterURL": "https://archive.org/services/img/In-Search-Of-complete-series",
+  "backdropURL": null,
+  "genres": [
+    "Mystery"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "In-Search-Of-complete-series@s1e01",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Other Voices",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1365,
+          "videoFile": {
+            "name": "In Search Of.../Season 1/S01E01 - Other Voices.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 343186928,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%201/S01E01%20-%20Other%20Voices.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s1e02",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Strange Visitors",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1394,
+          "videoFile": {
+            "name": "In Search Of.../Season 1/S01E02 - Strange Visitors.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 455300946,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%201/S01E02%20-%20Strange%20Visitors.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s1e03",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Ancient Aviators",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1352,
+          "videoFile": {
+            "name": "In Search Of.../Season 1/S01E03 - Ancient Aviators.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 325366019,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%201/S01E03%20-%20Ancient%20Aviators.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s1e04",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Bermuda Triangle",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1371,
+          "videoFile": {
+            "name": "In Search Of.../Season 1/S01E04 - The Bermuda Triangle.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 274770454,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%201/S01E04%20-%20The%20Bermuda%20Triangle.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s1e05",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Bigfoot",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1353,
+          "videoFile": {
+            "name": "In Search Of.../Season 1/S01E05 - Bigfoot.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 340251019,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%201/S01E05%20-%20Bigfoot.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s1e06",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Killer Bees",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1368,
+          "videoFile": {
+            "name": "In Search Of.../Season 1/S01E06 - Killer Bees.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 498946918,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%201/S01E06%20-%20Killer%20Bees.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s1e07",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Earthquakes",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1367,
+          "videoFile": {
+            "name": "In Search Of.../Season 1/S01E07 - Earthquakes.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 456874124,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%201/S01E07%20-%20Earthquakes.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s1e08",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Mummy's Curse",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1359,
+          "videoFile": {
+            "name": "In Search Of.../Season 1/S01E08 - The Mummy's Curse.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 259737792,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%201/S01E08%20-%20The%20Mummy%27s%20Curse.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s1e09",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Martians",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1368,
+          "videoFile": {
+            "name": "In Search Of.../Season 1/S01E09 - Martians.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 367004226,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%201/S01E09%20-%20Martians.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s1e10",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Atlantis",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1400,
+          "videoFile": {
+            "name": "In Search Of.../Season 1/S01E10 - Atlantis.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 487215373,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%201/S01E10%20-%20Atlantis.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s1e11",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Psychic Detectives",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1365,
+          "videoFile": {
+            "name": "In Search Of.../Season 1/S01E11 - Psychic Detectives.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 351946351,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%201/S01E11%20-%20Psychic%20Detectives.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s1e12",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "A Call from Space",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1395,
+          "videoFile": {
+            "name": "In Search Of.../Season 1/S01E12 - A Call from Space.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 379966787,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%201/S01E12%20-%20A%20Call%20from%20Space.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s1e13",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Learning ESP",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1367,
+          "videoFile": {
+            "name": "In Search Of.../Season 1/S01E13 - Learning ESP.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 390210210,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%201/S01E13%20-%20Learning%20ESP.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s1e14",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Nazi Plunder",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1397,
+          "videoFile": {
+            "name": "In Search Of.../Season 1/S01E14 - Nazi Plunder.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 454865440,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%201/S01E14%20-%20Nazi%20Plunder.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s1e15",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Amelia Earhart",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1377,
+          "videoFile": {
+            "name": "In Search Of.../Season 1/S01E15 - Amelia Earhart.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 348863443,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%201/S01E15%20-%20Amelia%20Earhart.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s1e16",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Dracula",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1373,
+          "videoFile": {
+            "name": "In Search Of.../Season 1/S01E16 - Dracula.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 276716584,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%201/S01E16%20-%20Dracula.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s1e17",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "The Easter Island Massacre",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1368,
+          "videoFile": {
+            "name": "In Search Of.../Season 1/S01E17 - The Easter Island Massacre.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 389798371,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%201/S01E17%20-%20The%20Easter%20Island%20Massacre.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s1e18",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Ghosts",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1404,
+          "videoFile": {
+            "name": "In Search Of.../Season 1/S01E18 - Ghosts.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 316510052,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%201/S01E18%20-%20Ghosts.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s1e19",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Life After Death",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1367,
+          "videoFile": {
+            "name": "In Search Of.../Season 1/S01E19 - Life After Death.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 253231554,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%201/S01E19%20-%20Life%20After%20Death.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s1e20",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "The Loch Ness Monster",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1397,
+          "videoFile": {
+            "name": "In Search Of.../Season 1/S01E20 - The Loch Ness Monster.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 316304786,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%201/S01E20%20-%20The%20Loch%20Ness%20Monster.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s1e21",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "UFOs",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1374,
+          "videoFile": {
+            "name": "In Search Of.../Season 1/S01E21 - UFOs.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 340208667,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%201/S01E21%20-%20UFOs.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s1e22",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Voodoo",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1376,
+          "videoFile": {
+            "name": "In Search Of.../Season 1/S01E22 - Voodoo.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 356931467,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%201/S01E22%20-%20Voodoo.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s1e23",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Inca Treasures",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1379,
+          "videoFile": {
+            "name": "In Search Of.../Season 1/S01E23 - Inca Treasures.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 332270841,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%201/S01E23%20-%20Inca%20Treasures.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s1e24",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "The Magic of Stonehenge",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1367,
+          "videoFile": {
+            "name": "In Search Of.../Season 1/S01E24 - The Magic of Stonehenge.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 373520024,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%201/S01E24%20-%20The%20Magic%20of%20Stonehenge.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "In-Search-Of-complete-series@s2e01",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "The Lost Dutchman Mine",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1364,
+          "videoFile": {
+            "name": "In Search Of.../Season 2/S02E01 - The Lost Dutchman Mine.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 424284499,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%202/S02E01%20-%20The%20Lost%20Dutchman%20Mine.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s2e02",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "The Man Who Would Not Die",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1365,
+          "videoFile": {
+            "name": "In Search Of.../Season 2/S02E02 - The Man Who Would Not Die.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 243564573,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%202/S02E02%20-%20The%20Man%20Who%20Would%20Not%20Die.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s2e03",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Firewalkers",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1394,
+          "videoFile": {
+            "name": "In Search Of.../Season 2/S02E03 - Firewalkers.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 500877305,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%202/S02E03%20-%20Firewalkers.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s2e04",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "Mayan Mysteries",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1389,
+          "videoFile": {
+            "name": "In Search Of.../Season 2/S02E04 - Mayan Mysteries.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 571222897,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%202/S02E04%20-%20Mayan%20Mysteries.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s2e05",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Astrology",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1398,
+          "videoFile": {
+            "name": "In Search Of.../Season 2/S02E05 - Astrology.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 473877608,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%202/S02E05%20-%20Astrology.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s2e06",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Michael Rockefeller",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1365,
+          "videoFile": {
+            "name": "In Search Of.../Season 2/S02E06 - Michael Rockefeller.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 561135845,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%202/S02E06%20-%20Michael%20Rockefeller.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s2e07",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "Hurricanes",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1363,
+          "videoFile": {
+            "name": "In Search Of.../Season 2/S02E07 - Hurricanes.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 407114772,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%202/S02E07%20-%20Hurricanes.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s2e08",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "The Ogopogo Monster",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1366,
+          "videoFile": {
+            "name": "In Search Of.../Season 2/S02E08 - The Ogopogo Monster.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 387913393,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%202/S02E08%20-%20The%20Ogopogo%20Monster.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s2e09",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Pyramid Secrets",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1330,
+          "videoFile": {
+            "name": "In Search Of.../Season 2/S02E09 - Pyramid Secrets.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 379352034,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%202/S02E09%20-%20Pyramid%20Secrets.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s2e10",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "Dead Sea Scrolls",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1363,
+          "videoFile": {
+            "name": "In Search Of.../Season 2/S02E10 - Dead Sea Scrolls.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 397636234,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%202/S02E10%20-%20Dead%20Sea%20Scrolls.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s2e11",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "Reincarnation",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1365,
+          "videoFile": {
+            "name": "In Search Of.../Season 2/S02E11 - Reincarnation.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 419472294,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%202/S02E11%20-%20Reincarnation.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s2e12",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "The Shark Worshippers",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1362,
+          "videoFile": {
+            "name": "In Search Of.../Season 2/S02E12 - The Shark Worshippers.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 502680640,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%202/S02E12%20-%20The%20Shark%20Worshippers.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s2e13",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "Anastasia",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1357,
+          "videoFile": {
+            "name": "In Search Of.../Season 2/S02E13 - Anastasia.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 398251084,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%202/S02E13%20-%20Anastasia.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s2e14",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 2,
+          "episodeNumber": 14,
+          "title": "The Secrets of Life",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1365,
+          "videoFile": {
+            "name": "In Search Of.../Season 2/S02E14 - The Secrets of Life.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 459850822,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%202/S02E14%20-%20The%20Secrets%20of%20Life.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s2e15",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 2,
+          "episodeNumber": 15,
+          "title": "Immortality",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1364,
+          "videoFile": {
+            "name": "In Search Of.../Season 2/S02E15 - Immortality.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 375936486,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%202/S02E15%20-%20Immortality.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s2e16",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 2,
+          "episodeNumber": 16,
+          "title": "The Swamp Monster",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1362,
+          "videoFile": {
+            "name": "In Search Of.../Season 2/S02E16 - The Swamp Monster.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 559379012,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%202/S02E16%20-%20The%20Swamp%20Monster.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s2e17",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 2,
+          "episodeNumber": 17,
+          "title": "Hypnosis",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1368,
+          "videoFile": {
+            "name": "In Search Of.../Season 2/S02E17 - Hypnosis.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 360649585,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%202/S02E17%20-%20Hypnosis.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s2e18",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 2,
+          "episodeNumber": 18,
+          "title": "Troy",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1363,
+          "videoFile": {
+            "name": "In Search Of.../Season 2/S02E18 - Troy.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 386662975,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%202/S02E18%20-%20Troy.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s2e19",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 2,
+          "episodeNumber": 19,
+          "title": "Witch Doctors",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1366,
+          "videoFile": {
+            "name": "In Search Of.../Season 2/S02E19 - Witch Doctors.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 418726516,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%202/S02E19%20-%20Witch%20Doctors.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s2e20",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 2,
+          "episodeNumber": 20,
+          "title": "Haunted Castles",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1362,
+          "videoFile": {
+            "name": "In Search Of.../Season 2/S02E20 - Haunted Castles.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 356312972,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%202/S02E20%20-%20Haunted%20Castles.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s2e21",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 2,
+          "episodeNumber": 21,
+          "title": "Butch Cassidy",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1368,
+          "videoFile": {
+            "name": "In Search Of.../Season 2/S02E21 - Butch Cassidy.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 511764035,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%202/S02E21%20-%20Butch%20Cassidy.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s2e22",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 2,
+          "episodeNumber": 22,
+          "title": "Deadly Ants",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1369,
+          "videoFile": {
+            "name": "In Search Of.../Season 2/S02E22 - Deadly Ants.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 657127696,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%202/S02E22%20-%20Deadly%20Ants.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s2e23",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 2,
+          "episodeNumber": 23,
+          "title": "The Coming Ice Age",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1354,
+          "videoFile": {
+            "name": "In Search Of.../Season 2/S02E23 - The Coming Ice Age.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 428929186,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%202/S02E23%20-%20The%20Coming%20Ice%20Age.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s2e24",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 2,
+          "episodeNumber": 24,
+          "title": "The Garden of Eden",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1366,
+          "videoFile": {
+            "name": "In Search Of.../Season 2/S02E24 - The Garden of Eden.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 529262096,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%202/S02E24%20-%20The%20Garden%20of%20Eden.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "In-Search-Of-complete-series@s3e01",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "UFO Captives",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1363,
+          "videoFile": {
+            "name": "In Search Of.../Season 3/S03E01 - UFO Captives.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 589998470,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%203/S03E01%20-%20UFO%20Captives.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s3e02",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 3,
+          "episodeNumber": 2,
+          "title": "Tornadoes",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1364,
+          "videoFile": {
+            "name": "In Search Of.../Season 3/S03E02 - Tornadoes.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 782298965,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%203/S03E02%20-%20Tornadoes.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s3e03",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 3,
+          "episodeNumber": 3,
+          "title": "Cloning",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1364,
+          "videoFile": {
+            "name": "In Search Of.../Season 3/S03E03 - Cloning.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 855441512,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%203/S03E03%20-%20Cloning.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s3e04",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 3,
+          "episodeNumber": 4,
+          "title": "Water Seekers",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1391,
+          "videoFile": {
+            "name": "In Search Of.../Season 3/S03E04 - Water Seekers.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 919269055,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%203/S03E04%20-%20Water%20Seekers.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s3e05",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 3,
+          "episodeNumber": 5,
+          "title": "Jack the Ripper",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1365,
+          "videoFile": {
+            "name": "In Search Of.../Season 3/S03E05 - Jack the Ripper.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 358448393,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%203/S03E05%20-%20Jack%20the%20Ripper.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s3e06",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 3,
+          "episodeNumber": 6,
+          "title": "Cryogenics",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1394,
+          "videoFile": {
+            "name": "In Search Of.../Season 3/S03E06 - Cryogenics.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 919645805,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%203/S03E06%20-%20Cryogenics.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s3e07",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 3,
+          "episodeNumber": 7,
+          "title": "The Siberian Fireball",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1363,
+          "videoFile": {
+            "name": "In Search Of.../Season 3/S03E07 - The Siberian Fireball.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 474144025,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%203/S03E07%20-%20The%20Siberian%20Fireball.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s3e08",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 3,
+          "episodeNumber": 8,
+          "title": "The Great Lakes Triangle",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1363,
+          "videoFile": {
+            "name": "In Search Of.../Season 3/S03E08 - The Great Lakes Triangle.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 678090134,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%203/S03E08%20-%20The%20Great%20Lakes%20Triangle.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s3e09",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 3,
+          "episodeNumber": 9,
+          "title": "Monster Hunters",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1364,
+          "videoFile": {
+            "name": "In Search Of.../Season 3/S03E09 - Monster Hunters.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 517281478,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%203/S03E09%20-%20Monster%20Hunters.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s3e10",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 3,
+          "episodeNumber": 10,
+          "title": "Bermuda Triangle Pirates",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1367,
+          "videoFile": {
+            "name": "In Search Of.../Season 3/S03E10 - Bermuda Triangle Pirates.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 340565279,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%203/S03E10%20-%20Bermuda%20Triangle%20Pirates.ia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s3e11",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 3,
+          "episodeNumber": 11,
+          "title": "In Search Of . - -Indian Astronomers",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1179,
+          "videoFile": {
+            "name": "In Search Of.../Season 3/In Search Of.. 3x11-S03E11-Indian Astronomers.mp4",
+            "format": "h.264",
+            "sizeBytes": 117938094,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%203/In%20Search%20Of..%203x11-S03E11-Indian%20Astronomers.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s3e12",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 3,
+          "episodeNumber": 12,
+          "title": "In Search Of . - Sherlock Holmes",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1324,
+          "videoFile": {
+            "name": "In Search Of.../Season 3/In Search Of.. 3x12 - Sherlock Holmes.mp4",
+            "format": "h.264",
+            "sizeBytes": 131800045,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%203/In%20Search%20Of..%203x12%20-%20Sherlock%20Holmes.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s3e13",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 3,
+          "episodeNumber": 13,
+          "title": "In Search Of . - Lost Vikings",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1319,
+          "videoFile": {
+            "name": "In Search Of.../Season 3/In Search Of.. 3x13 - Lost Vikings.mp4",
+            "format": "h.264",
+            "sizeBytes": 129820799,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%203/In%20Search%20Of..%203x13%20-%20Lost%20Vikings.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s3e14",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 3,
+          "episodeNumber": 14,
+          "title": "In Search Of . - Dreams and Nightmares",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1322,
+          "videoFile": {
+            "name": "In Search Of.../Season 3/In Search Of.. 3x14 - Dreams and Nightmares.mp4",
+            "format": "h.264",
+            "sizeBytes": 130089468,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%203/In%20Search%20Of..%203x14%20-%20Dreams%20and%20Nightmares.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s3e15",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 3,
+          "episodeNumber": 15,
+          "title": "In Search Of . - Animal ESP",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1290,
+          "videoFile": {
+            "name": "In Search Of.../Season 3/In Search Of.. 3x15 - Animal ESP.mp4",
+            "format": "h.264",
+            "sizeBytes": 126560820,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%203/In%20Search%20Of..%203x15%20-%20Animal%20ESP.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s3e16",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 3,
+          "episodeNumber": 16,
+          "title": "In Search Of . - The Money Pit Mystery (aka Captain Kidd)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1319,
+          "videoFile": {
+            "name": "In Search Of.../Season 3/In Search Of.. 3x16 - The Money Pit Mystery (aka Captain Kidd).mp4",
+            "format": "h.264",
+            "sizeBytes": 130206544,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%203/In%20Search%20Of..%203x16%20-%20The%20Money%20Pit%20Mystery%20%28aka%20Captain%20Kidd%29.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s3e17",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 3,
+          "episodeNumber": 17,
+          "title": "In Search Of . - Psychic Sea Hunt",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1288,
+          "videoFile": {
+            "name": "In Search Of.../Season 3/In Search Of.. 3x17 - Psychic Sea Hunt.mp4",
+            "format": "h.264",
+            "sizeBytes": 128728525,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%203/In%20Search%20Of..%203x17%20-%20Psychic%20Sea%20Hunt.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s3e18",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 3,
+          "episodeNumber": 18,
+          "title": "In Search Of . - The Angel of Death (aka Joseph Mengele)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1317,
+          "videoFile": {
+            "name": "In Search Of.../Season 3/In Search Of.. 3x18 - The Angel of Death (aka Joseph Mengele).mp4",
+            "format": "h.264",
+            "sizeBytes": 130601544,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%203/In%20Search%20Of..%203x18%20-%20The%20Angel%20of%20Death%20%28aka%20Joseph%20Mengele%29.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s3e19",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 3,
+          "episodeNumber": 19,
+          "title": "In Search Of . - Noah's Flood",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1234,
+          "videoFile": {
+            "name": "In Search Of.../Season 3/In Search Of.. 3x19 - Noah's Flood.mp4",
+            "format": "h.264",
+            "sizeBytes": 123109129,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%203/In%20Search%20Of..%203x19%20-%20Noah%27s%20Flood.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s3e20",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 3,
+          "episodeNumber": 20,
+          "title": "In Search Of . - The Diamond Curse",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1311,
+          "videoFile": {
+            "name": "In Search Of.../Season 3/In Search Of.. 3x20 - The Diamond Curse.mp4",
+            "format": "h.264",
+            "sizeBytes": 129846146,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%203/In%20Search%20Of..%203x20%20-%20The%20Diamond%20Curse.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s3e21",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 3,
+          "episodeNumber": 21,
+          "title": "In Search Of . - Ghostly Stakeout",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1289,
+          "videoFile": {
+            "name": "In Search Of.../Season 3/In Search Of.. 3x21 - Ghostly Stakeout.mp4",
+            "format": "h.264",
+            "sizeBytes": 128677901,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%203/In%20Search%20Of..%203x21%20-%20Ghostly%20Stakeout.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s3e22",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 3,
+          "episodeNumber": 22,
+          "title": "In Search Of . - Brain Power",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1318,
+          "videoFile": {
+            "name": "In Search Of.../Season 3/In Search Of.. 3x22 - Brain Power.mp4",
+            "format": "h.264",
+            "sizeBytes": 130514678,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%203/In%20Search%20Of..%203x22%20-%20Brain%20Power.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s3e23",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 3,
+          "episodeNumber": 23,
+          "title": "In Search Of . - Sodom & Gomorrah",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1309,
+          "videoFile": {
+            "name": "In Search Of.../Season 3/In Search Of.. 3x23 - Sodom & Gomorrah.mp4",
+            "format": "h.264",
+            "sizeBytes": 128954645,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%203/In%20Search%20Of..%203x23%20-%20Sodom%20%26%20Gomorrah.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s3e24",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 3,
+          "episodeNumber": 24,
+          "title": "In Search Of . - King Tut",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1305,
+          "videoFile": {
+            "name": "In Search Of.../Season 3/In Search Of.. 3x24 - King Tut.mp4",
+            "format": "h.264",
+            "sizeBytes": 129711926,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%203/In%20Search%20Of..%203x24%20-%20King%20Tut.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "In-Search-Of-complete-series@s4e01",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 4,
+          "episodeNumber": 1,
+          "title": "In Search Of . - Tidal Waves",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1315,
+          "videoFile": {
+            "name": "In Search Of.../Season 4/In Search Of.. 4x01 - Tidal Waves.mp4",
+            "format": "h.264",
+            "sizeBytes": 128640691,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%204/In%20Search%20Of..%204x01%20-%20Tidal%20Waves.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s4e02",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 4,
+          "episodeNumber": 2,
+          "title": "In Search Of . - Carlos, The Most Wanted Man in the World",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1335,
+          "videoFile": {
+            "name": "In Search Of.../Season 4/In Search Of.. 4x02 - Carlos, The Most Wanted Man in the World.mp4",
+            "format": "h.264",
+            "sizeBytes": 131998652,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%204/In%20Search%20Of..%204x02%20-%20Carlos%2C%20The%20Most%20Wanted%20Man%20in%20the%20World.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s4e03",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 4,
+          "episodeNumber": 3,
+          "title": "In Search Of . - The Amityville Horror",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1334,
+          "videoFile": {
+            "name": "In Search Of.../Season 4/In Search Of.. 4x03 - The Amityville Horror.mp4",
+            "format": "h.264",
+            "sizeBytes": 132527981,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%204/In%20Search%20Of..%204x03%20-%20The%20Amityville%20Horror.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s4e04",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 4,
+          "episodeNumber": 4,
+          "title": "In Search Of . - UFO Australia",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1303,
+          "videoFile": {
+            "name": "In Search Of.../Season 4/In Search Of.. 4x04 - UFO Australia.mp4",
+            "format": "h.264",
+            "sizeBytes": 127846448,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%204/In%20Search%20Of..%204x04%20-%20UFO%20Australia.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s4e05",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 4,
+          "episodeNumber": 5,
+          "title": "In Search Of . - Immortal Sharks",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1334,
+          "videoFile": {
+            "name": "In Search Of.../Season 4/In Search Of.. 4x05 - Immortal Sharks.mp4",
+            "format": "h.264",
+            "sizeBytes": 132849263,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%204/In%20Search%20Of..%204x05%20-%20Immortal%20Sharks.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s4e06",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 4,
+          "episodeNumber": 6,
+          "title": "In Search Of . - The Lost Colony of Roanoke",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1335,
+          "videoFile": {
+            "name": "In Search Of.../Season 4/In Search Of.. 4x06 - The Lost Colony of Roanoke.mp4",
+            "format": "h.264",
+            "sizeBytes": 130997668,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%204/In%20Search%20Of..%204x06%20-%20The%20Lost%20Colony%20of%20Roanoke.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s4e07",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 4,
+          "episodeNumber": 7,
+          "title": "In Search Of . - The Shroud of Turin",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1339,
+          "videoFile": {
+            "name": "In Search Of.../Season 4/In Search Of.. 4x07 - The Shroud of Turin.mp4",
+            "format": "h.264",
+            "sizeBytes": 131487330,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%204/In%20Search%20Of..%204x07%20-%20The%20Shroud%20of%20Turin.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s4e08",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 4,
+          "episodeNumber": 8,
+          "title": "In Search Of . - Mexican Pyramids",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1340,
+          "videoFile": {
+            "name": "In Search Of.../Season 4/In Search Of.. 4x08 - Mexican Pyramids.mp4",
+            "format": "h.264",
+            "sizeBytes": 131756274,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%204/In%20Search%20Of..%204x08%20-%20Mexican%20Pyramids.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s4e09",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 4,
+          "episodeNumber": 9,
+          "title": "In Search Of . - The Abominable Snowman",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1308,
+          "videoFile": {
+            "name": "In Search Of.../Season 4/In Search Of.. 4x09 - The Abominable Snowman.mp4",
+            "format": "h.264",
+            "sizeBytes": 128243043,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%204/In%20Search%20Of..%204x09%20-%20The%20Abominable%20Snowman.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s4e10",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 4,
+          "episodeNumber": 10,
+          "title": "In Search Of . - Pompeii",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1311,
+          "videoFile": {
+            "name": "In Search Of.../Season 4/In Search Of.. 4x10 - Pompeii.mp4",
+            "format": "h.264",
+            "sizeBytes": 128653982,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%204/In%20Search%20Of..%204x10%20-%20Pompeii.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s4e11",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 4,
+          "episodeNumber": 11,
+          "title": "In Search Of . - D B. Cooper",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1304,
+          "videoFile": {
+            "name": "In Search Of.../Season 4/In Search Of.. 4x11 - D.B. Cooper.mp4",
+            "format": "h.264",
+            "sizeBytes": 127412173,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%204/In%20Search%20Of..%204x11%20-%20D.B.%20Cooper.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s4e12",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 4,
+          "episodeNumber": 12,
+          "title": "In Search Of . - The Ten Commandments",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1330,
+          "videoFile": {
+            "name": "In Search Of.../Season 4/In Search Of.. 4x12 - The Ten Commandments.mp4",
+            "format": "h.264",
+            "sizeBytes": 130470254,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%204/In%20Search%20Of..%204x12%20-%20The%20Ten%20Commandments.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s4e13",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 4,
+          "episodeNumber": 13,
+          "title": "In Search Of . - The Dark Star",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1339,
+          "videoFile": {
+            "name": "In Search Of.../Season 4/In Search Of.. 4x13 - The Dark Star.mp4",
+            "format": "h.264",
+            "sizeBytes": 132893032,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%204/In%20Search%20Of..%204x13%20-%20The%20Dark%20Star.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s4e14",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 4,
+          "episodeNumber": 14,
+          "title": "In Search Of . - The San Andreas Fault",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1332,
+          "videoFile": {
+            "name": "In Search Of.../Season 4/In Search Of.. 4x14 - The San Andreas Fault.mp4",
+            "format": "h.264",
+            "sizeBytes": 130483895,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%204/In%20Search%20Of..%204x14%20-%20The%20San%20Andreas%20Fault.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s4e15",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 4,
+          "episodeNumber": 15,
+          "title": "In Search Of . - The Missing Heir",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1308,
+          "videoFile": {
+            "name": "In Search Of.../Season 4/In Search Of.. 4x15 - The Missing Heir.mp4",
+            "format": "h.264",
+            "sizeBytes": 128682448,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%204/In%20Search%20Of..%204x15%20-%20The%20Missing%20Heir.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s4e16",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 4,
+          "episodeNumber": 16,
+          "title": "In Search Of . - Vincent Van Gogh",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1335,
+          "videoFile": {
+            "name": "In Search Of.../Season 4/In Search Of.. 4x16 - Vincent Van Gogh.mp4",
+            "format": "h.264",
+            "sizeBytes": 129992703,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%204/In%20Search%20Of..%204x16%20-%20Vincent%20Van%20Gogh.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s4e17",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 4,
+          "episodeNumber": 17,
+          "title": "In Search Of . - Wild Children",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1325,
+          "videoFile": {
+            "name": "In Search Of.../Season 4/In Search Of.. 4x17 - Wild Children.mp4",
+            "format": "h.264",
+            "sizeBytes": 128853895,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%204/In%20Search%20Of..%204x17%20-%20Wild%20Children.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s4e18",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 4,
+          "episodeNumber": 18,
+          "title": "In Search Of . - The Ghost Ship (aka Mary Celeste)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1341,
+          "videoFile": {
+            "name": "In Search Of.../Season 4/In Search Of.. 4x18 - The Ghost Ship (aka Mary Celeste).mp4",
+            "format": "h.264",
+            "sizeBytes": 131005767,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%204/In%20Search%20Of..%204x18%20-%20The%20Ghost%20Ship%20%28aka%20Mary%20Celeste%29.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s4e19",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 4,
+          "episodeNumber": 19,
+          "title": "In Search Of . - Earth Visitors",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1307,
+          "videoFile": {
+            "name": "In Search Of.../Season 4/In Search Of.. 4x19 - Earth Visitors.mp4",
+            "format": "h.264",
+            "sizeBytes": 129018587,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%204/In%20Search%20Of..%204x19%20-%20Earth%20Visitors.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s4e20",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 4,
+          "episodeNumber": 20,
+          "title": "In Search Of . - John the Baptist",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1334,
+          "videoFile": {
+            "name": "In Search Of.../Season 4/In Search Of.. 4x20 - John the Baptist.mp4",
+            "format": "h.264",
+            "sizeBytes": 131840473,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%204/In%20Search%20Of..%204x20%20-%20John%20the%20Baptist.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s4e21",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 4,
+          "episodeNumber": 21,
+          "title": "In Search Of . - Air Disaster Predictions",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1337,
+          "videoFile": {
+            "name": "In Search Of.../Season 4/In Search Of.. 4x21 - Air Disaster Predictions.mp4",
+            "format": "h.264",
+            "sizeBytes": 132311278,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%204/In%20Search%20Of..%204x21%20-%20Air%20Disaster%20Predictions.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s4e22",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 4,
+          "episodeNumber": 22,
+          "title": "In Search Of . - The Bimini Wall",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1350,
+          "videoFile": {
+            "name": "In Search Of.../Season 4/In Search Of.. 4x22 - The Bimini Wall.mp4",
+            "format": "h.264",
+            "sizeBytes": 133696361,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%204/In%20Search%20Of..%204x22%20-%20The%20Bimini%20Wall.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s4e23",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 4,
+          "episodeNumber": 23,
+          "title": "In Search Of . - Glenn Miller",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1330,
+          "videoFile": {
+            "name": "In Search Of.../Season 4/In Search Of.. 4x23 - Glenn Miller.mp4",
+            "format": "h.264",
+            "sizeBytes": 131728375,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%204/In%20Search%20Of..%204x23%20-%20Glenn%20Miller.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s4e24",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 4,
+          "episodeNumber": 24,
+          "title": "In Search Of . - Past Lives",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1339,
+          "videoFile": {
+            "name": "In Search Of.../Season 4/In Search Of.. 4x24 - Past Lives.mp4",
+            "format": "h.264",
+            "sizeBytes": 131219643,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%204/In%20Search%20Of..%204x24%20-%20Past%20Lives.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 5,
+      "episodes": [
+        {
+          "archiveID": "In-Search-Of-complete-series@s5e01",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 5,
+          "episodeNumber": 1,
+          "title": "In Search Of . - UFO Coverups",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1336,
+          "videoFile": {
+            "name": "In Search Of.../Season 5/In Search Of.. 5x01 - UFO Coverups.mp4",
+            "format": "h.264",
+            "sizeBytes": 133589351,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%205/In%20Search%20Of..%205x01%20-%20UFO%20Coverups.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s5e02",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 5,
+          "episodeNumber": 2,
+          "title": "In Search Of . - Faith Healing",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1322,
+          "videoFile": {
+            "name": "In Search Of.../Season 5/In Search Of.. 5x02 - Faith Healing.mp4",
+            "format": "h.264",
+            "sizeBytes": 129079087,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%205/In%20Search%20Of..%205x02%20-%20Faith%20Healing.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s5e03",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 5,
+          "episodeNumber": 3,
+          "title": "In Search Of . - Lee Harvey Oswald",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1340,
+          "videoFile": {
+            "name": "In Search Of.../Season 5/In Search Of.. 5x03 - Lee Harvey Oswald.mp4",
+            "format": "h.264",
+            "sizeBytes": 131294321,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%205/In%20Search%20Of..%205x03%20-%20Lee%20Harvey%20Oswald.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s5e04",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 5,
+          "episodeNumber": 4,
+          "title": "In Search Of . - Daredevil Death Wish",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1338,
+          "videoFile": {
+            "name": "In Search Of.../Season 5/In Search Of.. 5x04 - Daredevil Death Wish.mp4",
+            "format": "h.264",
+            "sizeBytes": 131735661,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%205/In%20Search%20Of..%205x04%20-%20Daredevil%20Death%20Wish.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s5e05",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 5,
+          "episodeNumber": 5,
+          "title": "In Search Of . - Life After Life (aka Out of Body Experiences)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1334,
+          "videoFile": {
+            "name": "In Search Of.../Season 5/In Search Of.. 5x05 - Life After Life (aka Out of Body Experiences).mp4",
+            "format": "h.264",
+            "sizeBytes": 131455757,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%205/In%20Search%20Of..%205x05%20-%20Life%20After%20Life%20%28aka%20Out%20of%20Body%20Experiences%29.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s5e06",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 5,
+          "episodeNumber": 6,
+          "title": "In Search Of . - Moon Madness",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1346,
+          "videoFile": {
+            "name": "In Search Of.../Season 5/In Search Of.. 5x06 - Moon Madness.mp4",
+            "format": "h.264",
+            "sizeBytes": 134621299,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%205/In%20Search%20Of..%205x06%20-%20Moon%20Madness.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s5e07",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 5,
+          "episodeNumber": 7,
+          "title": "In Search Of . - Dangerous Volcanoes",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1358,
+          "videoFile": {
+            "name": "In Search Of.../Season 5/In Search Of.. 5x07 - Dangerous Volcanoes.mp4",
+            "format": "h.264",
+            "sizeBytes": 137085005,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%205/In%20Search%20Of..%205x07%20-%20Dangerous%20Volcanoes.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s5e08",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 5,
+          "episodeNumber": 8,
+          "title": "In Search Of . - The Lindbergh Kidnapping",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1355,
+          "videoFile": {
+            "name": "In Search Of.../Season 5/In Search Of.. 5x08 - The Lindbergh Kidnapping.mp4",
+            "format": "h.264",
+            "sizeBytes": 132766370,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%205/In%20Search%20Of..%205x08%20-%20The%20Lindbergh%20Kidnapping.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s5e09",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 5,
+          "episodeNumber": 9,
+          "title": "In Search Of . - Acupuncture",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1343,
+          "videoFile": {
+            "name": "In Search Of.../Season 5/In Search Of.. 5x09 - Acupuncture.mp4",
+            "format": "h.264",
+            "sizeBytes": 131790429,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%205/In%20Search%20Of..%205x09%20-%20Acupuncture.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s5e10",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 5,
+          "episodeNumber": 10,
+          "title": "In Search Of . - Jimmy Hoffa",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1330,
+          "videoFile": {
+            "name": "In Search Of.../Season 5/In Search Of.. 5x10 - Jimmy Hoffa.mp4",
+            "format": "h.264",
+            "sizeBytes": 129395997,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%205/In%20Search%20Of..%205x10%20-%20Jimmy%20Hoffa.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s5e11",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 5,
+          "episodeNumber": 11,
+          "title": "In Search Of . - Fountain of Youth",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1343,
+          "videoFile": {
+            "name": "In Search Of.../Season 5/In Search Of.. 5x11 - Fountain of Youth.mp4",
+            "format": "h.264",
+            "sizeBytes": 133984489,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%205/In%20Search%20Of..%205x11%20-%20Fountain%20of%20Youth.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s5e12",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 5,
+          "episodeNumber": 12,
+          "title": "In Search Of . - Laugh Therapy",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1330,
+          "videoFile": {
+            "name": "In Search Of.../Season 5/In Search Of.. 5x12 - Laugh Therapy.mp4",
+            "format": "h.264",
+            "sizeBytes": 130451181,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%205/In%20Search%20Of..%205x12%20-%20Laugh%20Therapy.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s5e13",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 5,
+          "episodeNumber": 13,
+          "title": "In Search Of . - Salem Witches",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1329,
+          "videoFile": {
+            "name": "In Search Of.../Season 5/In Search Of.. 5x13 - Salem Witches.mp4",
+            "format": "h.264",
+            "sizeBytes": 130688807,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%205/In%20Search%20Of..%205x13%20-%20Salem%20Witches.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s5e14",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 5,
+          "episodeNumber": 14,
+          "title": "In Search Of . - Super Children",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1343,
+          "videoFile": {
+            "name": "In Search Of.../Season 5/In Search Of.. 5x14 - Super Children.mp4",
+            "format": "h.264",
+            "sizeBytes": 131909769,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%205/In%20Search%20Of..%205x14%20-%20Super%20Children.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s5e15",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 5,
+          "episodeNumber": 15,
+          "title": "In Search Of . - The Great Wall of China",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1344,
+          "videoFile": {
+            "name": "In Search Of.../Season 5/In Search Of.. 5x15 - The Great Wall of China.mp4",
+            "format": "h.264",
+            "sizeBytes": 135914878,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%205/In%20Search%20Of..%205x15%20-%20The%20Great%20Wall%20of%20China.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s5e16",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 5,
+          "episodeNumber": 16,
+          "title": "In Search Of . - The Castle of Secrets (aka Coral Castle)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1312,
+          "videoFile": {
+            "name": "In Search Of.../Season 5/In Search Of.. 5x16 - The Castle of Secrets (aka Coral Castle).mp4",
+            "format": "h.264",
+            "sizeBytes": 130962550,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%205/In%20Search%20Of..%205x16%20-%20The%20Castle%20of%20Secrets%20%28aka%20Coral%20Castle%29.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s5e17",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 5,
+          "episodeNumber": 17,
+          "title": "In Search Of . - Great Lovers",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1330,
+          "videoFile": {
+            "name": "In Search Of.../Season 5/In Search Of.. 5x17 - Great Lovers.mp4",
+            "format": "h.264",
+            "sizeBytes": 129808093,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%205/In%20Search%20Of..%205x17%20-%20Great%20Lovers.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s5e18",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 5,
+          "episodeNumber": 18,
+          "title": "In Search Of . - The Holy Grail",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1349,
+          "videoFile": {
+            "name": "In Search Of.../Season 5/In Search Of.. 5x18 - The Holy Grail.mp4",
+            "format": "h.264",
+            "sizeBytes": 131984443,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%205/In%20Search%20Of..%205x18%20-%20The%20Holy%20Grail.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s5e19",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 5,
+          "episodeNumber": 19,
+          "title": "In Search Of . - The Death of Marilyn Monroe",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1335,
+          "videoFile": {
+            "name": "In Search Of.../Season 5/In Search Of.. 5x19 - The Death of Marilyn Monroe.mp4",
+            "format": "h.264",
+            "sizeBytes": 132081673,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%205/In%20Search%20Of..%205x19%20-%20The%20Death%20of%20Marilyn%20Monroe.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s5e20",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 5,
+          "episodeNumber": 20,
+          "title": "In Search Of . - Chinese Explorers",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1332,
+          "videoFile": {
+            "name": "In Search Of.../Season 5/In Search Of.. 5x20 - Chinese Explorers.mp4",
+            "format": "h.264",
+            "sizeBytes": 131291296,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%205/In%20Search%20Of..%205x20%20-%20Chinese%20Explorers.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s5e21",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 5,
+          "episodeNumber": 21,
+          "title": "In Search Of . - The Hindenburg Mystery",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1305,
+          "videoFile": {
+            "name": "In Search Of.../Season 5/In Search Of.. 5x21 - The Hindenburg Mystery.mp4",
+            "format": "h.264",
+            "sizeBytes": 127950241,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%205/In%20Search%20Of..%205x21%20-%20The%20Hindenburg%20Mystery.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s5e22",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 5,
+          "episodeNumber": 22,
+          "title": "In Search Of . - The End of the World",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1349,
+          "videoFile": {
+            "name": "In Search Of.../Season 5/In Search Of.. 5x22 - The End of the World.mp4",
+            "format": "h.264",
+            "sizeBytes": 132356228,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%205/In%20Search%20Of..%205x22%20-%20The%20End%20of%20the%20World.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s5e23",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 5,
+          "episodeNumber": 23,
+          "title": "In Search Of . - The Lusitania",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1309,
+          "videoFile": {
+            "name": "In Search Of.../Season 5/In Search Of.. 5x23 - The Lusitania.mp4",
+            "format": "h.264",
+            "sizeBytes": 128787591,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%205/In%20Search%20Of..%205x23%20-%20The%20Lusitania.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s5e24",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 5,
+          "episodeNumber": 24,
+          "title": "In Search Of . - Sun Worshippers",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1339,
+          "videoFile": {
+            "name": "In Search Of.../Season 5/In Search Of.. 5x24 - Sun Worshippers.mp4",
+            "format": "h.264",
+            "sizeBytes": 131668134,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%205/In%20Search%20Of..%205x24%20-%20Sun%20Worshippers.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 6,
+      "episodes": [
+        {
+          "archiveID": "In-Search-Of-complete-series@s6e01",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 6,
+          "episodeNumber": 1,
+          "title": "In Search Of . - Jesse James",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1325,
+          "videoFile": {
+            "name": "In Search Of.../Season 6/In Search Of.. 6x01 - Jesse James.mp4",
+            "format": "h.264",
+            "sizeBytes": 131378033,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%206/In%20Search%20Of..%206x01%20-%20Jesse%20James.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s6e02",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 6,
+          "episodeNumber": 2,
+          "title": "In Search Of . - Biofeedback",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1348,
+          "videoFile": {
+            "name": "In Search Of.../Season 6/In Search Of.. 6x02 - Biofeedback.mp4",
+            "format": "h.264",
+            "sizeBytes": 133374452,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%206/In%20Search%20Of..%206x02%20-%20Biofeedback.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s6e03",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 6,
+          "episodeNumber": 3,
+          "title": "In Search Of . - Ghosts in Photography",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1339,
+          "videoFile": {
+            "name": "In Search Of.../Season 6/In Search Of.. 6x03 - Ghosts in Photography.mp4",
+            "format": "h.264",
+            "sizeBytes": 132688733,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%206/In%20Search%20Of..%206x03%20-%20Ghosts%20in%20Photography.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s6e04",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 6,
+          "episodeNumber": 4,
+          "title": "In Search Of . - M I A 's",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1335,
+          "videoFile": {
+            "name": "In Search Of.../Season 6/In Search Of.. 6x04 - M.I.A.'s.mp4",
+            "format": "h.264",
+            "sizeBytes": 131543511,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%206/In%20Search%20Of..%206x04%20-%20M.I.A.%27s.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s6e05",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 6,
+          "episodeNumber": 5,
+          "title": "In Search Of . - The Elephant Man",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1339,
+          "videoFile": {
+            "name": "In Search Of.../Season 6/In Search Of.. 6x05 - The Elephant Man.mp4",
+            "format": "h.264",
+            "sizeBytes": 133898806,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%206/In%20Search%20Of..%206x05%20-%20The%20Elephant%20Man.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s6e06",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 6,
+          "episodeNumber": 6,
+          "title": "In Search Of . - The Lincoln Conspiracy",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1334,
+          "videoFile": {
+            "name": "In Search Of.../Season 6/In Search Of.. 6x06 - The Lincoln Conspiracy.mp4",
+            "format": "h.264",
+            "sizeBytes": 132230046,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%206/In%20Search%20Of..%206x06%20-%20The%20Lincoln%20Conspiracy.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s6e07",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 6,
+          "episodeNumber": 7,
+          "title": "In Search Of . - Jim Jones",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1313,
+          "videoFile": {
+            "name": "In Search Of.../Season 6/In Search Of.. 6x07 - Jim Jones.mp4",
+            "format": "h.264",
+            "sizeBytes": 129592444,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%206/In%20Search%20Of..%206x07%20-%20Jim%20Jones.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s6e08",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 6,
+          "episodeNumber": 8,
+          "title": "In Search Of . - King Solomon's Mines",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1347,
+          "videoFile": {
+            "name": "In Search Of.../Season 6/In Search Of.. 6x08 - King Solomon's Mines.mp4",
+            "format": "h.264",
+            "sizeBytes": 131618630,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%206/In%20Search%20Of..%206x08%20-%20King%20Solomon%27s%20Mines.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s6e09",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 6,
+          "episodeNumber": 9,
+          "title": "In Search Of . - The Tower of London Murders",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1341,
+          "videoFile": {
+            "name": "In Search Of.../Season 6/In Search Of.. 6x09 - The Tower of London Murders.mp4",
+            "format": "h.264",
+            "sizeBytes": 132441160,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%206/In%20Search%20Of..%206x09%20-%20The%20Tower%20of%20London%20Murders.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s6e10",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 6,
+          "episodeNumber": 10,
+          "title": "In Search Of . - The Aztec Conquest",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1340,
+          "videoFile": {
+            "name": "In Search Of.../Season 6/In Search Of.. 6x10 - The Aztec Conquest.mp4",
+            "format": "h.264",
+            "sizeBytes": 132259003,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%206/In%20Search%20Of..%206x10%20-%20The%20Aztec%20Conquest.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s6e11",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 6,
+          "episodeNumber": 11,
+          "title": "In Search Of . - Houdini's Secrets",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1334,
+          "videoFile": {
+            "name": "In Search Of.../Season 6/In Search Of.. 6x11 - Houdini's Secrets.mp4",
+            "format": "h.264",
+            "sizeBytes": 131776201,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%206/In%20Search%20Of..%206x11%20-%20Houdini%27s%20Secrets.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s6e12",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 6,
+          "episodeNumber": 12,
+          "title": "In Search Of . - Hiroshima Survivors",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1342,
+          "videoFile": {
+            "name": "In Search Of.../Season 6/In Search Of.. 6x12 - Hiroshima Survivors.mp4",
+            "format": "h.264",
+            "sizeBytes": 133407024,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%206/In%20Search%20Of..%206x12%20-%20Hiroshima%20Survivors.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s6e13",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 6,
+          "episodeNumber": 13,
+          "title": "In Search Of . - The Titanic",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1335,
+          "videoFile": {
+            "name": "In Search Of.../Season 6/In Search Of.. 6x13 - The Titanic.mp4",
+            "format": "h.264",
+            "sizeBytes": 132268689,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%206/In%20Search%20Of..%206x13%20-%20The%20Titanic.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s6e14",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 6,
+          "episodeNumber": 14,
+          "title": "In Search Of . - Future Life",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1349,
+          "videoFile": {
+            "name": "In Search Of.../Season 6/In Search Of.. 6x14 - Future Life.mp4",
+            "format": "h.264",
+            "sizeBytes": 133545827,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%206/In%20Search%20Of..%206x14%20-%20Future%20Life.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s6e15",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 6,
+          "episodeNumber": 15,
+          "title": "In Search Of . - Nostradamus",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1343,
+          "videoFile": {
+            "name": "In Search Of.../Season 6/In Search Of.. 6x15 - Nostradamus.mp4",
+            "format": "h.264",
+            "sizeBytes": 132559974,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%206/In%20Search%20Of..%206x15%20-%20Nostradamus.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s6e16",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 6,
+          "episodeNumber": 16,
+          "title": "In Search Of . - Spirit Voices",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1317,
+          "videoFile": {
+            "name": "In Search Of.../Season 6/In Search Of.. 6x16 - Spirit Voices.mp4",
+            "format": "h.264",
+            "sizeBytes": 129460753,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%206/In%20Search%20Of..%206x16%20-%20Spirit%20Voices.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s6e17",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 6,
+          "episodeNumber": 17,
+          "title": "In Search Of . - The Human Aura",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1334,
+          "videoFile": {
+            "name": "In Search Of.../Season 6/In Search Of.. 6x17 - The Human Aura.mp4",
+            "format": "h.264",
+            "sizeBytes": 130824649,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%206/In%20Search%20Of..%206x17%20-%20The%20Human%20Aura.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s6e18",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 6,
+          "episodeNumber": 18,
+          "title": "In Search Of . - The Missing Link",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1344,
+          "videoFile": {
+            "name": "In Search Of.../Season 6/In Search Of.. 6x18 - The Missing Link.mp4",
+            "format": "h.264",
+            "sizeBytes": 131813811,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%206/In%20Search%20Of..%206x18%20-%20The%20Missing%20Link.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s6e19",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 6,
+          "episodeNumber": 19,
+          "title": "In Search Of . - Time & Space Travel",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1329,
+          "videoFile": {
+            "name": "In Search Of.../Season 6/In Search Of.. 6x19 - Time & Space Travel.mp4",
+            "format": "h.264",
+            "sizeBytes": 130885240,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%206/In%20Search%20Of..%206x19%20-%20Time%20%26%20Space%20Travel.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s6e20",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 6,
+          "episodeNumber": 20,
+          "title": "In Search Of . - Eva Braun",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1347,
+          "videoFile": {
+            "name": "In Search Of.../Season 6/In Search Of.. 6x20 - Eva Braun.mp4",
+            "format": "h.264",
+            "sizeBytes": 132895909,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%206/In%20Search%20Of..%206x20%20-%20Eva%20Braun.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s6e21",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 6,
+          "episodeNumber": 21,
+          "title": "In Search Of . - The Walls of Jericho",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1341,
+          "videoFile": {
+            "name": "In Search Of.../Season 6/In Search Of.. 6x21 - The Walls of Jericho.mp4",
+            "format": "h.264",
+            "sizeBytes": 131426146,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%206/In%20Search%20Of..%206x21%20-%20The%20Walls%20of%20Jericho.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s6e22",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 6,
+          "episodeNumber": 22,
+          "title": "In Search Of . - Bishop Pike",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1339,
+          "videoFile": {
+            "name": "In Search Of.../Season 6/In Search Of.. 6x22 - Bishop Pike.mp4",
+            "format": "h.264",
+            "sizeBytes": 133554515,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%206/In%20Search%20Of..%206x22%20-%20Bishop%20Pike.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s6e23",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 6,
+          "episodeNumber": 23,
+          "title": "In Search Of . - The Ultimate Disaster",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1335,
+          "videoFile": {
+            "name": "In Search Of.../Season 6/In Search Of.. 6x23 - The Ultimate Disaster.mp4",
+            "format": "h.264",
+            "sizeBytes": 131630998,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%206/In%20Search%20Of..%206x23%20-%20The%20Ultimate%20Disaster.mp4"
+        },
+        {
+          "archiveID": "In-Search-Of-complete-series@s6e24",
+          "sourceID": "In-Search-Of-complete-series",
+          "seasonNumber": 6,
+          "episodeNumber": 24,
+          "title": "In Search Of . - Life Before Birth",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 1370,
+          "videoFile": {
+            "name": "In Search Of.../Season 6/In Search Of.. 6x24 - Life Before Birth.mp4",
+            "format": "h.264",
+            "sizeBytes": 138271173,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/In-Search-Of-complete-series/In%20Search%20Of.../Season%206/In%20Search%20Of..%206x24%20-%20Life%20Before%20Birth.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 144,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

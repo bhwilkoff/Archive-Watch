@@ -1,0 +1,763 @@
+{
+  "version": 2,
+  "seriesID": "survivors-1975",
+  "sourceID": "survivors-1975",
+  "tvmazeID": null,
+  "title": "Survivors",
+  "yearStart": 1975,
+  "yearEnd": null,
+  "overview": "Survivors is a British post-apocalyptic fiction drama television series created by Terry Nation and produced by Terence Dudley at the BBC, that broadcast from 1975 to 1977. It concerns the plight of a group of people who have survived an apocalyptic plague pandemic, which was accidentally released by a Chinese scientist and quickly spread across the world via air travel. Referred to as \"The Death\", the plague kills approximately 4,999 out of every 5,000 human beings on the planet within a matter of weeks of being released. The programme ran for three series and 38 episodes (series 1 and 2 comprised 13 episodes each, the third series just 12; budget cuts and technical problems reduced the planned last double episode to a single, as some scenes were lost during shooting). All series were broadcast on Wednesday evenings on BBC 1, from April 1975 to June 1977. Writer Terry Nation (whose work included many scripts for Doctor Who and Blake's 7 ) created the series, but he left the show after the first series due to disputes with producer Terence Dudley. The series' main actors included Carolyn Seymour (Abby), Lucy Fleming (Jenny), Ian McCulloch (Greg), and Denis Lill (Charles). The child actor Stephen Dudley (John) was given his part by his father, the show's producer Terence Dudley; while the child actress Tanya Ronder (who in series 1 and 2 played Lizzie) is the daughter of Jack Ronder, who wrote eight episodes of Survivors. In addition, the few appearances of Greg and Jenny's baby son Paul on Survivors saw Lucy Fleming's real-life son Diggory appear as Paul, although uncredited. Notable guest stars in the series included Patrick Troughton, Peter Jeffrey, Brian Blessed, George Baker, Philip Madoc, Bryan Pringle, Iain Cuthbertson, Peter Bowles, Kevin McNally, Robert Fyfe, Denis Lawson, David Neilson, Peter Duncan, June Brown, David Troughton, and Roger Lloyd-Pack. In a High Court case in the mid-1970s, which was abandoned by both sides due to escalating costs, writer Brian Clemens claimed that he had told Terry Nation the concept for the series in the late 1960s and had registered the idea with the Writers' Guild of Great Britain in 1965. Nation strenuously denied this. A BBC Four documentary, entitled The Cult of... Survivors, featuring interviews with actors Lucy Fleming, Ian McCulloch, and Carolyn Seymour, director Pennant Roberts, and scriptwriter Martin Worth, was broadcast on 5 December 2006, as part of the channel's Science Fiction Britannia series.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/survivors-1975.63bce931.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Horror",
+    "Sci-Fi",
+    "Mystery"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "survivors-1975@s1e01",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Fourth Horseman",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S01E01%20-%20The%20Fourth%20Horseman_001076.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3003,
+          "videoFile": {
+            "name": "Survivors S01E01 - The Fourth Horseman.mp4",
+            "format": "h.264",
+            "sizeBytes": 282708152,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S01E01%20-%20The%20Fourth%20Horseman.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s1e02",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Genesis",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S01E02%20-%20Genesis_001661.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2981,
+          "videoFile": {
+            "name": "Survivors S01E02 - Genesis.mp4",
+            "format": "h.264",
+            "sizeBytes": 281810374,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S01E02%20-%20Genesis.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s1e03",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Gone Away",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S01E03%20-%20Gone%20Away_001647.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2955,
+          "videoFile": {
+            "name": "Survivors S01E03 - Gone Away.mp4",
+            "format": "h.264",
+            "sizeBytes": 278021718,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S01E03%20-%20Gone%20Away.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s1e04",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Corn Dolly",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S01E04%20-%20Corn%20Dolly_001678.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2999,
+          "videoFile": {
+            "name": "Survivor S01E04 - Corn Dolly.mp4",
+            "format": "h.264",
+            "sizeBytes": 282328948,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivor%20S01E04%20-%20Corn%20Dolly.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s1e05",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Gone to the Angels",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S01E05%20-%20Gone%20to%20the%20Angels_001662.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2982,
+          "videoFile": {
+            "name": "Survivor S01E05 - Gone to the Angels.mp4",
+            "format": "h.264",
+            "sizeBytes": 281493556,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivor%20S01E05%20-%20Gone%20to%20the%20Angels.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s1e06",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Garlands War",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S01E06%20-%20Garlands%20War_001663.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2983,
+          "videoFile": {
+            "name": "Survivors S01E06 - Garlands War.mp4",
+            "format": "h.264",
+            "sizeBytes": 282182625,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S01E06%20-%20Garlands%20War.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s1e07",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Starvation",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S01E07%20-%20Starvation_001661.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2970,
+          "videoFile": {
+            "name": "Survivors S01E07 - Starvation.mp4",
+            "format": "h.264",
+            "sizeBytes": 280783619,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S01E07%20-%20Starvation.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s1e08",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Spoil of War",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S01E08%20-%20Spoil%20of%20War_001643.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2944,
+          "videoFile": {
+            "name": "Survivors S01E08 - Spoil of War.mp4",
+            "format": "h.264",
+            "sizeBytes": 277539172,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S01E08%20-%20Spoil%20of%20War.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s1e09",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Law and Order",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S01E09%20-%20Law%20and%20Order_001665.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2985,
+          "videoFile": {
+            "name": "Survivors S01E09 - Law and Order.mp4",
+            "format": "h.264",
+            "sizeBytes": 281846984,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S01E09%20-%20Law%20and%20Order.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s1e10",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Future Hour",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S01E10%20-%20The%20Future%20Hour_001648.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2950,
+          "videoFile": {
+            "name": "Survivors S01E10 - The Future Hour.mp4",
+            "format": "h.264",
+            "sizeBytes": 278038947,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S01E10%20-%20The%20Future%20Hour.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s1e11",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Revenge",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S01E11%20-%20Revenge_001644.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2940,
+          "videoFile": {
+            "name": "Survivors S01E11 - Revenge.mp4",
+            "format": "h.264",
+            "sizeBytes": 278532253,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S01E11%20-%20Revenge.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s1e12",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Something of Value",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S01E12%20-%20Something%20of%20Value_001670.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2983,
+          "videoFile": {
+            "name": "Survivors S01E12 - Something of Value.mp4",
+            "format": "h.264",
+            "sizeBytes": 281157989,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S01E12%20-%20Something%20of%20Value.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s1e13",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "A Beginning",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S01E13%20-%20A%20Beginning_001675.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3002,
+          "videoFile": {
+            "name": "Survivors S01E13 - A Beginning.mp4",
+            "format": "h.264",
+            "sizeBytes": 283844853,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S01E13%20-%20A%20Beginning.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "survivors-1975@s2e01",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Birth of Hope",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S02E01%20-%20Birth%20of%20Hope_001636.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2935,
+          "videoFile": {
+            "name": "Survivors S02E01 - Birth of Hope.mp4",
+            "format": "h.264",
+            "sizeBytes": 279007262,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S02E01%20-%20Birth%20of%20Hope.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s2e02",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "A Greater Love",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S02E02%20-%20A%20Greater%20Love_001679.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3001,
+          "videoFile": {
+            "name": "Survivors S02E02 - A Greater Love.mp4",
+            "format": "h.264",
+            "sizeBytes": 284778873,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S02E02%20-%20A%20Greater%20Love.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s2e03",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "The Lights of London - Pt-01",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S02E03%20-%20The%20Lights%20of%20London%20-%20Pt-01_001665.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2981,
+          "videoFile": {
+            "name": "Survivors S02E03 - The Lights of London - Pt-01.mp4",
+            "format": "h.264",
+            "sizeBytes": 283737726,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S02E03%20-%20The%20Lights%20of%20London%20-%20Pt-01.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s2e04",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "The Lights of London - Pt-02",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S02E04%20-%20The%20Lights%20of%20London%20-%20Pt-02_001669.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2994,
+          "videoFile": {
+            "name": "Survivors S02E04 - The Lights of London - Pt-02.mp4",
+            "format": "h.264",
+            "sizeBytes": 284197715,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S02E04%20-%20The%20Lights%20of%20London%20-%20Pt-02.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s2e05",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Face of the Tiger",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S02E05%20-%20Face%20of%20the%20Tiger_001663.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2980,
+          "videoFile": {
+            "name": "Survivors S02E05 - Face of the Tiger.mp4",
+            "format": "h.264",
+            "sizeBytes": 281692960,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S02E05%20-%20Face%20of%20the%20Tiger.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s2e06",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "The Witch",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S02E06%20-%20The%20Witch_001652.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2965,
+          "videoFile": {
+            "name": "Survivors S02E06 - The Witch.mp4",
+            "format": "h.264",
+            "sizeBytes": 280765820,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S02E06%20-%20The%20Witch.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s2e07",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "A Friend in Need",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S02E07%20-%20A%20Friend%20in%20Need_001666.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2976,
+          "videoFile": {
+            "name": "Survivors S02E07 - A Friend in Need.mp4",
+            "format": "h.264",
+            "sizeBytes": 283265697,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S02E07%20-%20A%20Friend%20in%20Need.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s2e08",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "By Bread Alone",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S02E08%20-%20By%20Bread%20Alone_001642.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2933,
+          "videoFile": {
+            "name": "Survivors S02E08 - By Bread Alone.mp4",
+            "format": "h.264",
+            "sizeBytes": 279088695,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S02E08%20-%20By%20Bread%20Alone.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s2e09",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "The Chosen",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S02E09%20-%20The%20Chosen_001669.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2990,
+          "videoFile": {
+            "name": "Survivors S02E09 - The Chosen.mp4",
+            "format": "h.264",
+            "sizeBytes": 285499253,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S02E09%20-%20The%20Chosen.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s2e10",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "Parasites",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S02E10%20-%20Parasites_001659.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2970,
+          "videoFile": {
+            "name": "Survivors S02E10 - Parasites.mp4",
+            "format": "h.264",
+            "sizeBytes": 279989987,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S02E10%20-%20Parasites.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s2e11",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "New Arrivals",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S02E11%20-%20New%20Arrivals_001656.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2971,
+          "videoFile": {
+            "name": "Survivors S02E11 - New Arrivals.mp4",
+            "format": "h.264",
+            "sizeBytes": 280518550,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S02E11%20-%20New%20Arrivals.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s2e12",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "Over The Hill",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S02E12%20-%20Over%20The%20Hill_001671.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2992,
+          "videoFile": {
+            "name": "Survivors S02E12 - Over The Hill.mp4",
+            "format": "h.264",
+            "sizeBytes": 283777630,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S02E12%20-%20Over%20The%20Hill.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s2e13",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "New World",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S02E13%20-%20New%20World_001660.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2974,
+          "videoFile": {
+            "name": "Survivors S02E13 - New World.mp4",
+            "format": "h.264",
+            "sizeBytes": 283163764,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S02E13%20-%20New%20World.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "survivors-1975@s3e01",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "Manhunt",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S03E01%20-%20Manhunt_001657.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2974,
+          "videoFile": {
+            "name": "Survivors S03E01 - Manhunt.mp4",
+            "format": "h.264",
+            "sizeBytes": 281689657,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S03E01%20-%20Manhunt.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s3e02",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 3,
+          "episodeNumber": 2,
+          "title": "A Little Learning",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S03E02%20-%20A%20Little%20Learning_001619.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2901,
+          "videoFile": {
+            "name": "Survivors S03E02 - A Little Learning.mp4",
+            "format": "h.264",
+            "sizeBytes": 274720986,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S03E02%20-%20A%20Little%20Learning.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s3e03",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 3,
+          "episodeNumber": 3,
+          "title": "The Law of the Jungle",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S03E03%20-%20The%20Law%20of%20the%20Jungle_001644.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2937,
+          "videoFile": {
+            "name": "Survivors S03E03 - The Law of the Jungle.mp4",
+            "format": "h.264",
+            "sizeBytes": 279168029,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S03E03%20-%20The%20Law%20of%20the%20Jungle.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s3e04",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 3,
+          "episodeNumber": 4,
+          "title": "Mad Dog",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S03E04%20-%20Mad%20Dog_001652.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2964,
+          "videoFile": {
+            "name": "Survivors S03E04 - Mad Dog.mp4",
+            "format": "h.264",
+            "sizeBytes": 281331679,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S03E04%20-%20Mad%20Dog.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s3e05",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 3,
+          "episodeNumber": 5,
+          "title": "Bridgehead",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S03E05%20-%20Bridgehead_001636.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2933,
+          "videoFile": {
+            "name": "Survivors S03E05 - Bridgehead.mp4",
+            "format": "h.264",
+            "sizeBytes": 276582067,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S03E05%20-%20Bridgehead.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s3e06",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 3,
+          "episodeNumber": 6,
+          "title": "Reunion",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S03E06%20-%20Reunion_001654.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2961,
+          "videoFile": {
+            "name": "Survivors S03E06 - Reunion.mp4",
+            "format": "h.264",
+            "sizeBytes": 282848210,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S03E06%20-%20Reunion.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s3e07",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 3,
+          "episodeNumber": 7,
+          "title": "The Peacemaker",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S03E07%20-%20The%20Peacemaker_001643.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2946,
+          "videoFile": {
+            "name": "Survivors S03E07 - The Peacemaker.mp4",
+            "format": "h.264",
+            "sizeBytes": 279906274,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S03E07%20-%20The%20Peacemaker.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s3e08",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 3,
+          "episodeNumber": 8,
+          "title": "Sparks",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S03E08%20-%20Sparks_001641.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2942,
+          "videoFile": {
+            "name": "Survivors S03E08 - Sparks.mp4",
+            "format": "h.264",
+            "sizeBytes": 278356320,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S03E08%20-%20Sparks.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s3e09",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 3,
+          "episodeNumber": 9,
+          "title": "The Enemy",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S03E09%20-%20The%20Enemy_001653.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2966,
+          "videoFile": {
+            "name": "Survivors S03E09 - The Enemy.mp4",
+            "format": "h.264",
+            "sizeBytes": 279222536,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S03E09%20-%20The%20Enemy.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s3e10",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 3,
+          "episodeNumber": 10,
+          "title": "The Last Laugh",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S03E10%20-%20The%20Last%20Laugh_001678.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2999,
+          "videoFile": {
+            "name": "Survivors S03E10 - The Last Laugh.mp4",
+            "format": "h.264",
+            "sizeBytes": 284412520,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S03E10%20-%20The%20Last%20Laugh.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s3e11",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 3,
+          "episodeNumber": 11,
+          "title": "Long Live the King",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S03E11%20-%20Long%20Live%20the%20King_001647.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2954,
+          "videoFile": {
+            "name": "Survivors S03E11 - Long Live the King.mp4",
+            "format": "h.264",
+            "sizeBytes": 282412218,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S03E11%20-%20Long%20Live%20the%20King.mp4"
+        },
+        {
+          "archiveID": "survivors-1975@s3e12",
+          "sourceID": "survivors-1975",
+          "seasonNumber": 3,
+          "episodeNumber": 12,
+          "title": "Power",
+          "overview": null,
+          "stillURL": "https://archive.org/download/survivors-1975/survivors-1975.thumbs/Survivors%20S03E12%20-%20Power_001653.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2968,
+          "videoFile": {
+            "name": "Survivors S03E12 - Power.mp4",
+            "format": "h.264",
+            "sizeBytes": 279116848,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/survivors-1975/Survivors%20S03E12%20-%20Power.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 38,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

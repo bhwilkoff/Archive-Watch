@@ -67,7 +67,7 @@ final class PublishService {
         let id: String          // archive.org item id == our catalogItemID
         let title: String
         var archiveWatchURL: String { "https://archivewatch.org/item/\(id)" }
-        var archiveOrgURL: String { "https://archive.org/details/\(id)" }
+        var archiveOrgURL: String { "https://archive.org/details/\(Catalog.archiveItemID(id))" }
     }
 
     static let s3 = "https://s3.us.archive.org"

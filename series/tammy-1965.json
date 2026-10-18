@@ -1,0 +1,545 @@
+{
+  "version": 2,
+  "seriesID": "tammy-1965",
+  "sourceID": "movie-tammy-and-the-millionaire",
+  "tvmazeID": null,
+  "title": "Tammy",
+  "yearStart": 1965,
+  "yearEnd": null,
+  "overview": "A Louisiana bayou girl goes to work as secretary to a wealthy family; all 26 episodes of the 1965 series Tammy with Debbie Watson, and the film Tammy and the Millionaire assembled from them.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/movie-tammy-and-the-millionaire.7c562ea5.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "movie-tammy-and-the-millionaire@s1e01",
+          "sourceID": "movie-tammy-and-the-millionaire",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Tammy Leaves Home",
+          "overview": null,
+          "stillURL": "https://archive.org/download/movie-tammy-and-the-millionaire/movie-tammy-and-the-millionaire.thumbs/S01E01%20-%20Tammy%20Leaves%20Home_000648.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1448,
+          "videoFile": {
+            "name": "S01E01 - Tammy Leaves Home.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 175874454,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/movie-tammy-and-the-millionaire/S01E01%20-%20Tammy%20Leaves%20Home.mp4"
+        },
+        {
+          "archiveID": "movie-tammy-and-the-millionaire@s1e02",
+          "sourceID": "movie-tammy-and-the-millionaire",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Aristocratic Tates",
+          "overview": null,
+          "stillURL": "https://archive.org/download/movie-tammy-and-the-millionaire/movie-tammy-and-the-millionaire.thumbs/S01E02%20-%20The%20Aristocratic%20Tates_000653.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1453,
+          "videoFile": {
+            "name": "S01E02 - The Aristocratic Tates.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 199649851,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/movie-tammy-and-the-millionaire/S01E02%20-%20The%20Aristocratic%20Tates.mp4"
+        },
+        {
+          "archiveID": "movie-tammy-and-the-millionaire@s1e03",
+          "sourceID": "movie-tammy-and-the-millionaire",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Tammy Plays Cupid",
+          "overview": null,
+          "stillURL": "https://archive.org/download/movie-tammy-and-the-millionaire/movie-tammy-and-the-millionaire.thumbs/S01E03%20-%20Tammy%20Plays%20Cupid_000654.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1460,
+          "videoFile": {
+            "name": "S01E03 - Tammy Plays Cupid.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 296493772,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/movie-tammy-and-the-millionaire/S01E03%20-%20Tammy%20Plays%20Cupid.mp4"
+        },
+        {
+          "archiveID": "movie-tammy-and-the-millionaire@s1e04",
+          "sourceID": "movie-tammy-and-the-millionaire",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Poker Game",
+          "overview": null,
+          "stillURL": "https://archive.org/download/movie-tammy-and-the-millionaire/movie-tammy-and-the-millionaire.thumbs/S01E04%20-%20The%20Poker%20Game_000651.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1453,
+          "videoFile": {
+            "name": "S01E04 - The Poker Game.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 234057171,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/movie-tammy-and-the-millionaire/S01E04%20-%20The%20Poker%20Game.mp4"
+        },
+        {
+          "archiveID": "movie-tammy-and-the-millionaire@s1e05",
+          "sourceID": "movie-tammy-and-the-millionaire",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Tarleton Land Grant",
+          "overview": null,
+          "stillURL": "https://archive.org/download/movie-tammy-and-the-millionaire/movie-tammy-and-the-millionaire.thumbs/S01E05%20-%20The%20Tarleton%20Land%20Grant_000654.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1457,
+          "videoFile": {
+            "name": "S01E05 - The Tarleton Land Grant.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 250725697,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/movie-tammy-and-the-millionaire/S01E05%20-%20The%20Tarleton%20Land%20Grant.mp4"
+        },
+        {
+          "archiveID": "movie-tammy-and-the-millionaire@s1e06",
+          "sourceID": "movie-tammy-and-the-millionaire",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Prophet and Loss",
+          "overview": null,
+          "stillURL": "https://archive.org/download/movie-tammy-and-the-millionaire/movie-tammy-and-the-millionaire.thumbs/S01E06%20-%20Prophet%20and%20Loss_000649.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1454,
+          "videoFile": {
+            "name": "S01E06 - Prophet and Loss.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 227669240,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/movie-tammy-and-the-millionaire/S01E06%20-%20Prophet%20and%20Loss.mp4"
+        },
+        {
+          "archiveID": "movie-tammy-and-the-millionaire@s1e07",
+          "sourceID": "movie-tammy-and-the-millionaire",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Will the Real Dwayne Whitt Please Stand Up",
+          "overview": null,
+          "stillURL": "https://archive.org/download/movie-tammy-and-the-millionaire/movie-tammy-and-the-millionaire.thumbs/S01E07%20-%20Will%20the%20Real%20Dwayne%20Whitt%20Please%20Stand%20Up_000650.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1454,
+          "videoFile": {
+            "name": "S01E07 - Will the Real Dwayne Whitt Please Stand Up.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 268887714,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/movie-tammy-and-the-millionaire/S01E07%20-%20Will%20the%20Real%20Dwayne%20Whitt%20Please%20Stand%20Up.mp4"
+        },
+        {
+          "archiveID": "movie-tammy-and-the-millionaire@s1e08",
+          "sourceID": "movie-tammy-and-the-millionaire",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Still Waters",
+          "overview": null,
+          "stillURL": "https://archive.org/download/movie-tammy-and-the-millionaire/movie-tammy-and-the-millionaire.thumbs/S01E08%20-%20Still%20Waters_000625.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1385,
+          "videoFile": {
+            "name": "S01E08 - Still Waters.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 247089776,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/movie-tammy-and-the-millionaire/S01E08%20-%20Still%20Waters.mp4"
+        },
+        {
+          "archiveID": "movie-tammy-and-the-millionaire@s1e09",
+          "sourceID": "movie-tammy-and-the-millionaire",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Mind Your Manners",
+          "overview": null,
+          "stillURL": "https://archive.org/download/movie-tammy-and-the-millionaire/movie-tammy-and-the-millionaire.thumbs/S01E09%20-%20Mind%20Your%20Manners_000652.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1453,
+          "videoFile": {
+            "name": "S01E09 - Mind Your Manners.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 220865092,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/movie-tammy-and-the-millionaire/S01E09%20-%20Mind%20Your%20Manners.mp4"
+        },
+        {
+          "archiveID": "movie-tammy-and-the-millionaire@s1e10",
+          "sourceID": "movie-tammy-and-the-millionaire",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Grandpa's Old Flame",
+          "overview": null,
+          "stillURL": "https://archive.org/download/movie-tammy-and-the-millionaire/movie-tammy-and-the-millionaire.thumbs/S01E10%20-%20Grandpa%27s%20Old%20Flame_000649.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1443,
+          "videoFile": {
+            "name": "S01E10 - Grandpa's Old Flame.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 216592629,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/movie-tammy-and-the-millionaire/S01E10%20-%20Grandpa%27s%20Old%20Flame.mp4"
+        },
+        {
+          "archiveID": "movie-tammy-and-the-millionaire@s1e11",
+          "sourceID": "movie-tammy-and-the-millionaire",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Riverfyin' of Billy Joe Morgan",
+          "overview": null,
+          "stillURL": "https://archive.org/download/movie-tammy-and-the-millionaire/movie-tammy-and-the-millionaire.thumbs/S01E11%20-%20The%20Riverfyin%27%20of%20Billy%20Joe%20Morgan_000649.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1454,
+          "videoFile": {
+            "name": "S01E11 - The Riverfyin' of Billy Joe Morgan.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 227159380,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/movie-tammy-and-the-millionaire/S01E11%20-%20The%20Riverfyin%27%20of%20Billy%20Joe%20Morgan.mp4"
+        },
+        {
+          "archiveID": "movie-tammy-and-the-millionaire@s1e12",
+          "sourceID": "movie-tammy-and-the-millionaire",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Grandpa's Secret Love",
+          "overview": null,
+          "stillURL": "https://archive.org/download/movie-tammy-and-the-millionaire/movie-tammy-and-the-millionaire.thumbs/S01E12%20-%20Grandpa%27s%20Secret%20Love_000650.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1449,
+          "videoFile": {
+            "name": "S01E12 - Grandpa's Secret Love.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 232784684,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/movie-tammy-and-the-millionaire/S01E12%20-%20Grandpa%27s%20Secret%20Love.mp4"
+        },
+        {
+          "archiveID": "movie-tammy-and-the-millionaire@s1e13",
+          "sourceID": "movie-tammy-and-the-millionaire",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Cletus Comes Callin'",
+          "overview": null,
+          "stillURL": "https://archive.org/download/movie-tammy-and-the-millionaire/movie-tammy-and-the-millionaire.thumbs/S01E13%20-%20Cletus%20Comes%20Callin%27_000647.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1452,
+          "videoFile": {
+            "name": "S01E13 - Cletus Comes Callin'.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 236798236,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/movie-tammy-and-the-millionaire/S01E13%20-%20Cletus%20Comes%20Callin%27.mp4"
+        },
+        {
+          "archiveID": "movie-tammy-and-the-millionaire@s1e14",
+          "sourceID": "movie-tammy-and-the-millionaire",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Enoch Bowl",
+          "overview": null,
+          "stillURL": "https://archive.org/download/movie-tammy-and-the-millionaire/movie-tammy-and-the-millionaire.thumbs/S01E14%20-%20The%20Enoch%20Bowl_000646.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1449,
+          "videoFile": {
+            "name": "S01E14 - The Enoch Bowl.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 256198069,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/movie-tammy-and-the-millionaire/S01E14%20-%20The%20Enoch%20Bowl.mp4"
+        },
+        {
+          "archiveID": "movie-tammy-and-the-millionaire@s1e15",
+          "sourceID": "movie-tammy-and-the-millionaire",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "A Severe Case of Matrimony",
+          "overview": null,
+          "stillURL": "https://archive.org/download/movie-tammy-and-the-millionaire/movie-tammy-and-the-millionaire.thumbs/S01E15%20-%20A%20Severe%20Case%20of%20Matrimony_000653.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1453,
+          "videoFile": {
+            "name": "S01E15 - A Severe Case of Matrimony.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 249332007,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/movie-tammy-and-the-millionaire/S01E15%20-%20A%20Severe%20Case%20of%20Matrimony.mp4"
+        },
+        {
+          "archiveID": "movie-tammy-and-the-millionaire@s1e16",
+          "sourceID": "movie-tammy-and-the-millionaire",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "To Know Me Is To Love Me",
+          "overview": null,
+          "stillURL": "https://archive.org/download/movie-tammy-and-the-millionaire/movie-tammy-and-the-millionaire.thumbs/S01E16%20-%20To%20Know%20Me%20Is%20To%20Love%20Me_000649.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1456,
+          "videoFile": {
+            "name": "S01E16 - To Know Me Is To Love Me.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 202898742,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/movie-tammy-and-the-millionaire/S01E16%20-%20To%20Know%20Me%20Is%20To%20Love%20Me.mp4"
+        },
+        {
+          "archiveID": "movie-tammy-and-the-millionaire@s1e17",
+          "sourceID": "movie-tammy-and-the-millionaire",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "The Law and Mr. Tarleton",
+          "overview": null,
+          "stillURL": "https://archive.org/download/movie-tammy-and-the-millionaire/movie-tammy-and-the-millionaire.thumbs/S01E17%20-%20The%20Law%20and%20Mr.%20Tarleton_000637.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1427,
+          "videoFile": {
+            "name": "S01E17 - The Law and Mr. Tarleton.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 186302592,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/movie-tammy-and-the-millionaire/S01E17%20-%20The%20Law%20and%20Mr.%20Tarleton.mp4"
+        },
+        {
+          "archiveID": "movie-tammy-and-the-millionaire@s1e18",
+          "sourceID": "movie-tammy-and-the-millionaire",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Lavinia's Wedding Day",
+          "overview": null,
+          "stillURL": "https://archive.org/download/movie-tammy-and-the-millionaire/movie-tammy-and-the-millionaire.thumbs/S01E18%20-%20Lavinia%27s%20Wedding%20Day_000652.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1454,
+          "videoFile": {
+            "name": "S01E18 - Lavinia's Wedding Day.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 191288954,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/movie-tammy-and-the-millionaire/S01E18%20-%20Lavinia%27s%20Wedding%20Day.mp4"
+        },
+        {
+          "archiveID": "movie-tammy-and-the-millionaire@s1e19",
+          "sourceID": "movie-tammy-and-the-millionaire",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Two for Tee Pee",
+          "overview": null,
+          "stillURL": "https://archive.org/download/movie-tammy-and-the-millionaire/movie-tammy-and-the-millionaire.thumbs/S01E19%20-%20Two%20for%20Tee%20Pee_000655.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1456,
+          "videoFile": {
+            "name": "S01E19 - Two for Tee Pee.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 213130331,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/movie-tammy-and-the-millionaire/S01E19%20-%20Two%20for%20Tee%20Pee.mp4"
+        },
+        {
+          "archiveID": "movie-tammy-and-the-millionaire@s1e20",
+          "sourceID": "movie-tammy-and-the-millionaire",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Blue Nose, Wet Nose",
+          "overview": null,
+          "stillURL": "https://archive.org/download/movie-tammy-and-the-millionaire/movie-tammy-and-the-millionaire.thumbs/S01E20%20-%20Blue%20Nose%2C%20Wet%20Nose_000639.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1429,
+          "videoFile": {
+            "name": "S01E20 - Blue Nose, Wet Nose.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 205772247,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/movie-tammy-and-the-millionaire/S01E20%20-%20Blue%20Nose%2C%20Wet%20Nose.mp4"
+        },
+        {
+          "archiveID": "movie-tammy-and-the-millionaire@s1e21",
+          "sourceID": "movie-tammy-and-the-millionaire",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "The Monster from Catfish Bend",
+          "overview": null,
+          "stillURL": "https://archive.org/download/movie-tammy-and-the-millionaire/movie-tammy-and-the-millionaire.thumbs/S01E21%20-%20The%20Monster%20from%20Catfish%20Bend_000654.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1463,
+          "videoFile": {
+            "name": "S01E21 - The Monster from Catfish Bend.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 212135026,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/movie-tammy-and-the-millionaire/S01E21%20-%20The%20Monster%20from%20Catfish%20Bend.mp4"
+        },
+        {
+          "archiveID": "movie-tammy-and-the-millionaire@s1e22",
+          "sourceID": "movie-tammy-and-the-millionaire",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Larnin' Works Wonders",
+          "overview": null,
+          "stillURL": "https://archive.org/download/movie-tammy-and-the-millionaire/movie-tammy-and-the-millionaire.thumbs/S01E22%20-%20Larnin%27%20Works%20Wonders_000651.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1450,
+          "videoFile": {
+            "name": "S01E22 - Larnin' Works Wonders.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 192252001,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/movie-tammy-and-the-millionaire/S01E22%20-%20Larnin%27%20Works%20Wonders.mp4"
+        },
+        {
+          "archiveID": "movie-tammy-and-the-millionaire@s1e23",
+          "sourceID": "movie-tammy-and-the-millionaire",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Tammy Goes to Paris",
+          "overview": null,
+          "stillURL": "https://archive.org/download/movie-tammy-and-the-millionaire/movie-tammy-and-the-millionaire.thumbs/S01E23%20-%20Tammy%20Goes%20to%20Paris_000648.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1448,
+          "videoFile": {
+            "name": "S01E23 - Tammy Goes to Paris.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 191867024,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/movie-tammy-and-the-millionaire/S01E23%20-%20Tammy%20Goes%20to%20Paris.mp4"
+        },
+        {
+          "archiveID": "movie-tammy-and-the-millionaire@s1e24",
+          "sourceID": "movie-tammy-and-the-millionaire",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "The Cinemazation Of Tammy Tarleton",
+          "overview": null,
+          "stillURL": "https://archive.org/download/movie-tammy-and-the-millionaire/movie-tammy-and-the-millionaire.thumbs/S01E24%20-%20The%20Cinemazation%20Of%20Tammy%20Tarleton_000649.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1456,
+          "videoFile": {
+            "name": "S01E24 - The Cinemazation Of Tammy Tarleton.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 233636218,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/movie-tammy-and-the-millionaire/S01E24%20-%20The%20Cinemazation%20Of%20Tammy%20Tarleton.mp4"
+        },
+        {
+          "archiveID": "movie-tammy-and-the-millionaire@s1e25",
+          "sourceID": "movie-tammy-and-the-millionaire",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Uncle Lucius Returns",
+          "overview": null,
+          "stillURL": "https://archive.org/download/movie-tammy-and-the-millionaire/movie-tammy-and-the-millionaire.thumbs/S01E25%20-%20Uncle%20Lucius%20Returns_000651.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1455,
+          "videoFile": {
+            "name": "S01E25 - Uncle Lucius Returns.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 239463872,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/movie-tammy-and-the-millionaire/S01E25%20-%20Uncle%20Lucius%20Returns.mp4"
+        },
+        {
+          "archiveID": "movie-tammy-and-the-millionaire@s1e26",
+          "sourceID": "movie-tammy-and-the-millionaire",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Uncle Lucius, the Businessman",
+          "overview": null,
+          "stillURL": "https://archive.org/download/movie-tammy-and-the-millionaire/movie-tammy-and-the-millionaire.thumbs/S01E26%20-%20Uncle%20Lucius%2C%20the%20Businessman_000645.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1445,
+          "videoFile": {
+            "name": "S01E26 - Uncle Lucius, the Businessman.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 238911167,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/movie-tammy-and-the-millionaire/S01E26%20-%20Uncle%20Lucius%2C%20the%20Businessman.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "movie-tammy-and-the-millionaire@x-movie-tammy-and-the-millionaire",
+          "sourceID": "movie-tammy-and-the-millionaire",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Movie-Tammy And The Millionaire",
+          "overview": null,
+          "stillURL": "https://archive.org/download/movie-tammy-and-the-millionaire/movie-tammy-and-the-millionaire.thumbs/Movie-Tammy%20And%20The%20Millionaire_002339.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 5249,
+          "videoFile": {
+            "name": "Movie-Tammy And The Millionaire.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1127495916,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/movie-tammy-and-the-millionaire/Movie-Tammy%20And%20The%20Millionaire.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 27,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

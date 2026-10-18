@@ -1,0 +1,620 @@
+{
+  "version": 2,
+  "seriesID": "sherlock-holmes-1954-sherlock-holmes-1954",
+  "sourceID": "Sherlock_Holmes_1954",
+  "tvmazeID": null,
+  "title": "Sherlock Holmes",
+  "yearStart": 1954,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/download/archivewatch-covers/Sherlock_Holmes_1954.8d8f6da9.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Adventure",
+    "Crime",
+    "Mystery"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Sherlock_Holmes_1954@e01",
+          "sourceID": "Sherlock_Holmes_1954",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Episode 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sherlock_Holmes_1954/Sherlock_Holmes_1954.thumbs/S01_000629.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1619,
+          "videoFile": {
+            "name": "S01.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 180262228,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sherlock_Holmes_1954/S01.mp4"
+        },
+        {
+          "archiveID": "Sherlock_Holmes_1954@e02",
+          "sourceID": "Sherlock_Holmes_1954",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Episode 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sherlock_Holmes_1954/Sherlock_Holmes_1954.thumbs/S02_000631.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1623,
+          "videoFile": {
+            "name": "S02.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 182441913,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sherlock_Holmes_1954/S02.mp4"
+        },
+        {
+          "archiveID": "Sherlock_Holmes_1954@e03",
+          "sourceID": "Sherlock_Holmes_1954",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Episode 3",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sherlock_Holmes_1954/Sherlock_Holmes_1954.thumbs/S03_000622.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1601,
+          "videoFile": {
+            "name": "S03.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 181353194,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sherlock_Holmes_1954/S03.mp4"
+        },
+        {
+          "archiveID": "Sherlock_Holmes_1954@e04",
+          "sourceID": "Sherlock_Holmes_1954",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Episode 4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sherlock_Holmes_1954/Sherlock_Holmes_1954.thumbs/S04_000631.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1622,
+          "videoFile": {
+            "name": "S04.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 187440650,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sherlock_Holmes_1954/S04.mp4"
+        },
+        {
+          "archiveID": "Sherlock_Holmes_1954@e05",
+          "sourceID": "Sherlock_Holmes_1954",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Episode 5",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sherlock_Holmes_1954/Sherlock_Holmes_1954.thumbs/S05_000629.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1618,
+          "videoFile": {
+            "name": "S05.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 185273709,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sherlock_Holmes_1954/S05.mp4"
+        },
+        {
+          "archiveID": "Sherlock_Holmes_1954@e06",
+          "sourceID": "Sherlock_Holmes_1954",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Episode 6",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sherlock_Holmes_1954/Sherlock_Holmes_1954.thumbs/S06_000606.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1558,
+          "videoFile": {
+            "name": "S06.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 175248548,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sherlock_Holmes_1954/S06.mp4"
+        },
+        {
+          "archiveID": "Sherlock_Holmes_1954@e07",
+          "sourceID": "Sherlock_Holmes_1954",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Episode 7",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sherlock_Holmes_1954/Sherlock_Holmes_1954.thumbs/S07_000630.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1621,
+          "videoFile": {
+            "name": "S07.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 178289744,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sherlock_Holmes_1954/S07.mp4"
+        },
+        {
+          "archiveID": "Sherlock_Holmes_1954@e08",
+          "sourceID": "Sherlock_Holmes_1954",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Episode 8",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sherlock_Holmes_1954/Sherlock_Holmes_1954.thumbs/S08_000623.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1602,
+          "videoFile": {
+            "name": "S08.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 180060246,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sherlock_Holmes_1954/S08.mp4"
+        },
+        {
+          "archiveID": "Sherlock_Holmes_1954@e09",
+          "sourceID": "Sherlock_Holmes_1954",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Episode 9",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sherlock_Holmes_1954/Sherlock_Holmes_1954.thumbs/S09_000606.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1559,
+          "videoFile": {
+            "name": "S09.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 170608880,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sherlock_Holmes_1954/S09.mp4"
+        },
+        {
+          "archiveID": "Sherlock_Holmes_1954@e10",
+          "sourceID": "Sherlock_Holmes_1954",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Episode 10",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sherlock_Holmes_1954/Sherlock_Holmes_1954.thumbs/S10_000622.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1601,
+          "videoFile": {
+            "name": "S10.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 182424808,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sherlock_Holmes_1954/S10.mp4"
+        },
+        {
+          "archiveID": "Sherlock_Holmes_1954@e11",
+          "sourceID": "Sherlock_Holmes_1954",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Episode 11",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sherlock_Holmes_1954/Sherlock_Holmes_1954.thumbs/S11_000626.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1610,
+          "videoFile": {
+            "name": "S11.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 185030999,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sherlock_Holmes_1954/S11.mp4"
+        },
+        {
+          "archiveID": "Sherlock_Holmes_1954@e12",
+          "sourceID": "Sherlock_Holmes_1954",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Episode 12",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sherlock_Holmes_1954/Sherlock_Holmes_1954.thumbs/S12_000622.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1600,
+          "videoFile": {
+            "name": "S12.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 175215836,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sherlock_Holmes_1954/S12.mp4"
+        },
+        {
+          "archiveID": "Sherlock_Holmes_1954@e13",
+          "sourceID": "Sherlock_Holmes_1954",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Episode 13",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sherlock_Holmes_1954/Sherlock_Holmes_1954.thumbs/S13_000620.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1595,
+          "videoFile": {
+            "name": "S13.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 182646933,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sherlock_Holmes_1954/S13.mp4"
+        },
+        {
+          "archiveID": "Sherlock_Holmes_1954@e14",
+          "sourceID": "Sherlock_Holmes_1954",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Episode 14",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sherlock_Holmes_1954/Sherlock_Holmes_1954.thumbs/S14_000629.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1618,
+          "videoFile": {
+            "name": "S14.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 179303854,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sherlock_Holmes_1954/S14.mp4"
+        },
+        {
+          "archiveID": "Sherlock_Holmes_1954@e15",
+          "sourceID": "Sherlock_Holmes_1954",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Episode 15",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sherlock_Holmes_1954/Sherlock_Holmes_1954.thumbs/S15_000623.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1603,
+          "videoFile": {
+            "name": "S15.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 175186906,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sherlock_Holmes_1954/S15.mp4"
+        },
+        {
+          "archiveID": "Sherlock_Holmes_1954@e16",
+          "sourceID": "Sherlock_Holmes_1954",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Episode 16",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sherlock_Holmes_1954/Sherlock_Holmes_1954.thumbs/S16_000622.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1601,
+          "videoFile": {
+            "name": "S16.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 176995453,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sherlock_Holmes_1954/S16.mp4"
+        },
+        {
+          "archiveID": "Sherlock_Holmes_1954@e17",
+          "sourceID": "Sherlock_Holmes_1954",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Episode 17",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sherlock_Holmes_1954/Sherlock_Holmes_1954.thumbs/S17_000625.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1607,
+          "videoFile": {
+            "name": "S17.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 181585447,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sherlock_Holmes_1954/S17.mp4"
+        },
+        {
+          "archiveID": "Sherlock_Holmes_1954@e18",
+          "sourceID": "Sherlock_Holmes_1954",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Episode 18",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sherlock_Holmes_1954/Sherlock_Holmes_1954.thumbs/S18_000620.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1596,
+          "videoFile": {
+            "name": "S18.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 179895943,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sherlock_Holmes_1954/S18.mp4"
+        },
+        {
+          "archiveID": "Sherlock_Holmes_1954@e19",
+          "sourceID": "Sherlock_Holmes_1954",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Episode 19",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sherlock_Holmes_1954/Sherlock_Holmes_1954.thumbs/S19_000623.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1602,
+          "videoFile": {
+            "name": "S19.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 180075129,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sherlock_Holmes_1954/S19.mp4"
+        },
+        {
+          "archiveID": "Sherlock_Holmes_1954@e20",
+          "sourceID": "Sherlock_Holmes_1954",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Episode 20",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sherlock_Holmes_1954/Sherlock_Holmes_1954.thumbs/S20_000622.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1601,
+          "videoFile": {
+            "name": "S20.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 180901604,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sherlock_Holmes_1954/S20.mp4"
+        },
+        {
+          "archiveID": "Sherlock_Holmes_1954@e21",
+          "sourceID": "Sherlock_Holmes_1954",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Episode 21",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sherlock_Holmes_1954/Sherlock_Holmes_1954.thumbs/S21_000625.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1607,
+          "videoFile": {
+            "name": "S21.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 182940691,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sherlock_Holmes_1954/S21.mp4"
+        },
+        {
+          "archiveID": "Sherlock_Holmes_1954@e22",
+          "sourceID": "Sherlock_Holmes_1954",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Episode 22",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sherlock_Holmes_1954/Sherlock_Holmes_1954.thumbs/S22_000620.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1596,
+          "videoFile": {
+            "name": "S22.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 174304205,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sherlock_Holmes_1954/S22.mp4"
+        },
+        {
+          "archiveID": "Sherlock_Holmes_1954@e23",
+          "sourceID": "Sherlock_Holmes_1954",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Episode 23",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sherlock_Holmes_1954/Sherlock_Holmes_1954.thumbs/S23_000623.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1603,
+          "videoFile": {
+            "name": "S23.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 179701160,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sherlock_Holmes_1954/S23.mp4"
+        },
+        {
+          "archiveID": "Sherlock_Holmes_1954@e24",
+          "sourceID": "Sherlock_Holmes_1954",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Episode 24",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sherlock_Holmes_1954/Sherlock_Holmes_1954.thumbs/S24_000628.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1614,
+          "videoFile": {
+            "name": "S24.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 188252871,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sherlock_Holmes_1954/S24.mp4"
+        },
+        {
+          "archiveID": "Sherlock_Holmes_1954@e25",
+          "sourceID": "Sherlock_Holmes_1954",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Episode 25",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sherlock_Holmes_1954/Sherlock_Holmes_1954.thumbs/S25_000618.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1590,
+          "videoFile": {
+            "name": "S25.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 176836706,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sherlock_Holmes_1954/S25.mp4"
+        },
+        {
+          "archiveID": "Sherlock_Holmes_1954@e26",
+          "sourceID": "Sherlock_Holmes_1954",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Episode 26",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sherlock_Holmes_1954/Sherlock_Holmes_1954.thumbs/S26_000620.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1595,
+          "videoFile": {
+            "name": "S26.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 183895321,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sherlock_Holmes_1954/S26.mp4"
+        },
+        {
+          "archiveID": "Sherlock_Holmes_1954@e27",
+          "sourceID": "Sherlock_Holmes_1954",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Episode 27",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sherlock_Holmes_1954/Sherlock_Holmes_1954.thumbs/S27_000627.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1612,
+          "videoFile": {
+            "name": "S27.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 178523318,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sherlock_Holmes_1954/S27.mp4"
+        },
+        {
+          "archiveID": "Sherlock_Holmes_1954@e28",
+          "sourceID": "Sherlock_Holmes_1954",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "Episode 28",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sherlock_Holmes_1954/Sherlock_Holmes_1954.thumbs/S28_000620.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1594,
+          "videoFile": {
+            "name": "S28.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 179121104,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sherlock_Holmes_1954/S28.mp4"
+        },
+        {
+          "archiveID": "Sherlock_Holmes_1954@e29",
+          "sourceID": "Sherlock_Holmes_1954",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "Episode 29",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sherlock_Holmes_1954/Sherlock_Holmes_1954.thumbs/S29_000618.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1590,
+          "videoFile": {
+            "name": "S29.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 177856216,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sherlock_Holmes_1954/S29.mp4"
+        },
+        {
+          "archiveID": "Sherlock_Holmes_1954@e30",
+          "sourceID": "Sherlock_Holmes_1954",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "Episode 30",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sherlock_Holmes_1954/Sherlock_Holmes_1954.thumbs/S30_000626.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1609,
+          "videoFile": {
+            "name": "S30.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 174860231,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sherlock_Holmes_1954/S30.mp4"
+        },
+        {
+          "archiveID": "Sherlock_Holmes_1954@e31",
+          "sourceID": "Sherlock_Holmes_1954",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "Episode 31",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Sherlock_Holmes_1954/Sherlock_Holmes_1954.thumbs/S31_000622.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1600,
+          "videoFile": {
+            "name": "S31.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 175562968,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Sherlock_Holmes_1954/S31.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 31,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

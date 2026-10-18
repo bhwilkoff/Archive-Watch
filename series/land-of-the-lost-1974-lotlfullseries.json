@@ -1,0 +1,854 @@
+{
+  "version": 2,
+  "seriesID": "land-of-the-lost-1974-lotlfullseries",
+  "sourceID": "LotLFullSeries",
+  "tvmazeID": null,
+  "title": "Land of the Lost",
+  "yearStart": 1974,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/download/archivewatch-covers/LotLFullSeries.fd52b359.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "LotLFullSeries@s1e01",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Cha-Ka",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s1e01%20-%20Cha-Ka_000909.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1389,
+          "videoFile": {
+            "name": "s1e01 - Cha-Ka.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 173282030,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s1e01%20-%20Cha-Ka.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s1e02",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Sleestak God",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s1e02%20-%20The%20Sleestak%20God_000904.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1390,
+          "videoFile": {
+            "name": "s1e02 - The Sleestak God.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 199339388,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s1e02%20-%20The%20Sleestak%20God.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s1e03",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Dopey",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s1e03%20-%20Dopey_000909.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1389,
+          "videoFile": {
+            "name": "s1e03 - Dopey.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 190082080,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s1e03%20-%20Dopey.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s1e04",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Downstream",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s1e04%20-%20Downstream_000907.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1389,
+          "videoFile": {
+            "name": "s1e04 - Downstream.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 179406032,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s1e04%20-%20Downstream.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s1e05",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Tag Team",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s1e05%20-%20Tag%20Team_000912.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1390,
+          "videoFile": {
+            "name": "s1e05 - Tag Team.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 197556034,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s1e05%20-%20Tag%20Team.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s1e06",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Stranger",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s1e06%20-%20The%20Stranger_000908.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1390,
+          "videoFile": {
+            "name": "s1e06 - The Stranger.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 214625651,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s1e06%20-%20The%20Stranger.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s1e07",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Album",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s1e07%20-%20Album_000905.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1389,
+          "videoFile": {
+            "name": "s1e07 - Album.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 163254536,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s1e07%20-%20Album.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s1e08",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Skylons",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s1e08%20-%20Skylons_000905.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1389,
+          "videoFile": {
+            "name": "s1e07 - Skylons.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 218448650,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s1e07%20-%20Skylons.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s1e09",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Hole",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s1e09%20-%20The%20Hole_000904.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1390,
+          "videoFile": {
+            "name": "s1e09 - The Hole.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 152423795,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s1e09%20-%20The%20Hole.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s1e10",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Paku Who Came To Dinner",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s1e10%20-%20The%20Paku%20Who%20Came%20To%20Dinner_000880.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1345,
+          "videoFile": {
+            "name": "s1e10 - The Paku Who Came To Dinner.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 183673141,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s1e10%20-%20The%20Paku%20Who%20Came%20To%20Dinner.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s1e11",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Search",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s1e11%20-%20The%20Search_000909.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1390,
+          "videoFile": {
+            "name": "s1e11 - The Search.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 188774246,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s1e11%20-%20The%20Search.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s1e12",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Possession",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s1e12%20-%20The%20Possession_000906.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1390,
+          "videoFile": {
+            "name": "s1e12 - The Possession.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 162063361,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s1e12%20-%20The%20Possession.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s1e13",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Follow That Dinosaur",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s1e13%20-%20Follow%20That%20Dinosaur_000907.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1391,
+          "videoFile": {
+            "name": "s1e13 - Follow That Dinosaur.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 187311269,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s1e13%20-%20Follow%20That%20Dinosaur.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s1e14",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Stone Soup",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s1e14%20-%20Stone%20Soup_000907.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1389,
+          "videoFile": {
+            "name": "s1e14 - Stone Soup.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 189906656,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s1e14%20-%20Stone%20Soup.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s1e15",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Elsewhen",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s1e15%20-%20Elsewhen_000904.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1390,
+          "videoFile": {
+            "name": "s1e15 - Elsewhen.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 147073722,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s1e15%20-%20Elsewhen.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s1e16",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Hurricane",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s1e16%20-%20Hurricane_000905.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1391,
+          "videoFile": {
+            "name": "s1e16 - Hurricane.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 183741248,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s1e16%20-%20Hurricane.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s1e17",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Circle",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s1e17%20-%20Circle_000910.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1391,
+          "videoFile": {
+            "name": "s1e17 - Circle.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 201098244,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s1e17%20-%20Circle.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "LotLFullSeries@s2e01",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Tar Pit",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s2e01%20-%20Tar%20Pit_000970.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1479,
+          "videoFile": {
+            "name": "s2e01 - Tar Pit.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 233454169,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s2e01%20-%20Tar%20Pit.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s2e02",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "The Zarn",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s2e02%20-The%20Zarn_000965.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1481,
+          "videoFile": {
+            "name": "s2e02 -The Zarn.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 138781974,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s2e02%20-The%20Zarn.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s2e03",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Fair Trade",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s2e03%20-%20Fair%20Trade_000969.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1481,
+          "videoFile": {
+            "name": "s2e03 - Fair Trade.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 208965795,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s2e03%20-%20Fair%20Trade.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s2e04",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "One of Our Pylons is Missing",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s2e04%20-%20One%20of%20Our%20Pylons%20is%20Missing_000963.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1481,
+          "videoFile": {
+            "name": "s2e04 - One of Our Pylons is Missing.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 271650566,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s2e04%20-%20One%20of%20Our%20Pylons%20is%20Missing.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s2e05",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "The Test",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s2e05%20-%20The%20Test_000969.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1480,
+          "videoFile": {
+            "name": "s2e05 - The Test.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 217546839,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s2e05%20-%20The%20Test.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s2e06",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Gravity Storm",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s2e06%20-%20Gravity%20Storm_000966.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1480,
+          "videoFile": {
+            "name": "s2e06 - Gravity Storm.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 198303385,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s2e06%20-%20Gravity%20Storm.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s2e07",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "The Longest Day",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s2e07%20-%20The%20Longest%20Day_000964.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1482,
+          "videoFile": {
+            "name": "s2e07 - The Longest Day.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 162214098,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s2e07%20-%20The%20Longest%20Day.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s2e08",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "The Pylon Express",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s2e08%20-%20The%20Pylon%20Express_000968.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1484,
+          "videoFile": {
+            "name": "s2e08 - The Pylon Express.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 226111200,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s2e08%20-%20The%20Pylon%20Express.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s2e09",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Nice Day",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s2e09%20-%20Nice%20Day_000964.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1479,
+          "videoFile": {
+            "name": "s2e09 - Nice Day.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 217205043,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s2e09%20-%20Nice%20Day.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s2e10",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "Baby Sitter",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s2e10%20-%20Baby%20Sitter_000965.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1485,
+          "videoFile": {
+            "name": "s2e10 - Baby Sitter.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 246162820,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s2e10%20-%20Baby%20Sitter.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s2e11",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "The Musician",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s2e11%20-%20The%20Musician_000965.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1483,
+          "videoFile": {
+            "name": "s2e11 - The Musician.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 219414337,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s2e11%20-%20The%20Musician.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s2e12",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "Split Personality",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s2e12%20-%20Split%20Personality_000971.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1484,
+          "videoFile": {
+            "name": "s2e12 - Split Personality.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 156475510,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s2e12%20-%20Split%20Personality.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s2e13",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "Black Out",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s2e13%20-%20Black%20Out_000965.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1484,
+          "videoFile": {
+            "name": "s2e13 - Black Out.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 214107618,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s2e13%20-%20Black%20Out.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "LotLFullSeries@s3e01",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "Aftershock",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s3e01%20-%20Aftershock_000941.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1439,
+          "videoFile": {
+            "name": "s3e01 - Aftershock.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 193952022,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s3e01%20-%20Aftershock.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s3e02",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 3,
+          "episodeNumber": 2,
+          "title": "Survival Kit",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s3e02%20-%20Survival%20Kit_000939.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1441,
+          "videoFile": {
+            "name": "s3e02 - Survival Kit.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 150239975,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s3e02%20-%20Survival%20Kit.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s3e03",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 3,
+          "episodeNumber": 3,
+          "title": "Orb",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s3e03%20-%20Orb_000945.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1441,
+          "videoFile": {
+            "name": "s3e03 - Orb.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 147821530,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s3e03%20-%20Orb.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s3e04",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 3,
+          "episodeNumber": 4,
+          "title": "Repairman",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s3e04%20-%20Repairman_000937.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1439,
+          "videoFile": {
+            "name": "s3e04 - Repairman.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 167110142,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s3e04%20-%20Repairman.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s3e05",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 3,
+          "episodeNumber": 5,
+          "title": "Medusa",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s3e05%20-%20Medusa_000941.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1439,
+          "videoFile": {
+            "name": "s3e05 - Medusa.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 179052987,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s3e05%20-%20Medusa.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s3e06",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 3,
+          "episodeNumber": 6,
+          "title": "Cornered",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s3e06%20-%20Cornered_000941.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1442,
+          "videoFile": {
+            "name": "s3e06 - Cornered.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 158629283,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s3e06%20-%20Cornered.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s3e07",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 3,
+          "episodeNumber": 7,
+          "title": "Flying Dutchman",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s3e07%20-%20Flying%20Dutchman_000941.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1441,
+          "videoFile": {
+            "name": "s3e07 - Flying Dutchman.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 147092450,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s3e07%20-%20Flying%20Dutchman.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s3e08",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 3,
+          "episodeNumber": 8,
+          "title": "Hot-Air Artist",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s3e08%20-%20Hot-Air%20Artist_000937.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1442,
+          "videoFile": {
+            "name": "s3e08 - Hot-Air Artist.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 183041742,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s3e08%20-%20Hot-Air%20Artist.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s3e09",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 3,
+          "episodeNumber": 9,
+          "title": "Abominable Snowman",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s3e09%20-%20Abominable%20Snowman_000937.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1435,
+          "videoFile": {
+            "name": "s3e09 - Abominable Snowman.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 193498011,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s3e09%20-%20Abominable%20Snowman.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s3e10",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 3,
+          "episodeNumber": 10,
+          "title": "Timestop",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s3e10%20-%20Timestop_000938.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1443,
+          "videoFile": {
+            "name": "s3e10 - Timestop.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 163796332,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s3e10%20-%20Timestop.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s3e11",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 3,
+          "episodeNumber": 11,
+          "title": "Ancient Guardian",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s3e11%20-%20Ancient%20Guardian_000943.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1437,
+          "videoFile": {
+            "name": "s3e11 - Ancient Guardian.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 141851451,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s3e11%20-%20Ancient%20Guardian.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s3e12",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 3,
+          "episodeNumber": 12,
+          "title": "Scarab",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s3e12%20-%20Scarab_000943.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1440,
+          "videoFile": {
+            "name": "s3e12 - Scarab.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 163210635,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s3e12%20-%20Scarab.ia.mp4"
+        },
+        {
+          "archiveID": "LotLFullSeries@s3e13",
+          "sourceID": "LotLFullSeries",
+          "seasonNumber": 3,
+          "episodeNumber": 13,
+          "title": "Medicine Man",
+          "overview": null,
+          "stillURL": "https://archive.org/download/LotLFullSeries/LotLFullSeries.thumbs/s3e13%20-%20Medicine%20Man_000938.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 1439,
+          "videoFile": {
+            "name": "s3e13 - Medicine Man.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 175859825,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/LotLFullSeries/s3e13%20-%20Medicine%20Man.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 43,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

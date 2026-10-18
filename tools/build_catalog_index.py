@@ -40,6 +40,7 @@ import sys as _sys
 _sys.path.insert(0, str(__import__('pathlib').Path(__file__).resolve().parent))
 from build_sqlite import _is_adult  # noqa: E402  (Decision 105: one adult predicate)
 from build_sqlite import _rights_bucket  # noqa: E402  (the audit's own verdict)
+from build_sqlite import bundle_sources, series_cards  # noqa: E402  (Decision 166)
 
 # THE MARQUEE'S BAR, the same rule as Catalog.Item.isHeroRightsSafe (Swift)
 # and CatalogDatabase.heroAnd (Kotlin); tools/test_hero_rule_parity.py holds
@@ -163,7 +164,7 @@ def main():
         except Exception:  # noqa: BLE001
             curated_collections = []
     curated_lower = {c.lower(): c for c in curated_collections}
-    from build_sqlite import LIST_MEMBERS, SERIES_BY_FRANCHISE, _shelf_ids_for
+    from build_sqlite import LIST_MEMBERS, SERIES_BY_FRANCHISE, TV_CATEGORY_SHELVES, _shelf_ids_for
 
     adult = set()
     if FEATURED.exists():
@@ -185,8 +186,18 @@ def main():
     # Browse filter chips; the filter runs client-side against the search column.
     keyword_freq: dict[str, int] = {}
     studio_freq: dict[str, int] = {}
+    bundled = bundle_sources(series_cards(items))
+    # A bundle's series card keeps the bundle's place on the TV rows, as in the
+    # apps' build (never a film row: Decision 036).
+    bundle_shelves: dict[str, set] = {}
+    for it in items:
+        if it.get("archiveID") in bundled and not it.get("excluded"):
+            bundle_shelves.setdefault(f"series:{bundled[it['archiveID']]}", set()).update(
+                _shelf_ids_for(it) & TV_CATEGORY_SHELVES)
     for it in items:
         if it.get("excluded"):          # rights audit (Decision 027)
+            continue
+        if it.get("archiveID") in bundled:   # its series card stands for it
             continue
         # Decision 105 — ONE predicate. The apps hide mature titles behind a
         # default-off setting computed by build_sqlite._is_adult (item flag +
@@ -302,7 +313,7 @@ def main():
         # rights rule). This read `shelves` alone — a field only the old
         # catalog builder set — so the web's Silent Era shelf had 7 films to
         # the apps' 3,467, Newsreels 11 to 995 (2026-09-25).
-        for shelf_id in _shelf_ids_for(it):
+        for shelf_id in _shelf_ids_for(it) | bundle_shelves.get(aid, set()):
             shelf_members.setdefault(shelf_id, []).append((designed, pop_score, aid))
         for c in cols:
             if (canon := curated_lower.get(c)):

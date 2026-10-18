@@ -1,0 +1,181 @@
+{
+  "version": 2,
+  "seriesID": "supernatural-1977",
+  "sourceID": "supernatural-1977",
+  "tvmazeID": null,
+  "title": "Supernatural",
+  "yearStart": 1977,
+  "yearEnd": null,
+  "overview": "British gothic horror anthology series created by Robert Muller which aired on BBC1 in the summer of 1977. The episodes are standalone, though episodes 2 and 3 share a cast and linked plot. All episodes written by Muller with the exception of episode 6, written by Sue Lake. Stars a number of big-name actors of the era such as Robert Hardy, Sinéad Cusack, Billie Whitelaw, Ian Hendry, Jeremy Brett, Lesley-Anne Down, Denholm Elliott, John Osborne, Catherine Schell, Gordon Jackson, and Jeremy Clyde.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/supernatural-1977.e0a67932.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Horror"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "supernatural-1977@e01",
+          "sourceID": "supernatural-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Ghost of Venice",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3192,
+          "videoFile": {
+            "name": "Supernatural (1977)/Ep01 Ghost of Venice.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 527462682,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/supernatural-1977/Supernatural%20%281977%29/Ep01%20Ghost%20of%20Venice.mp4"
+        },
+        {
+          "archiveID": "supernatural-1977@e02",
+          "sourceID": "supernatural-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Countess Iona",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3663,
+          "videoFile": {
+            "name": "Supernatural (1977)/Ep02 Countess Iona.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 547235032,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/supernatural-1977/Supernatural%20%281977%29/Ep02%20Countess%20Iona.mp4"
+        },
+        {
+          "archiveID": "supernatural-1977@e03",
+          "sourceID": "supernatural-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Werewolf Reunion",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3193,
+          "videoFile": {
+            "name": "Supernatural (1977)/Ep03 The Werewolf Reunion.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 707329553,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/supernatural-1977/Supernatural%20%281977%29/Ep03%20The%20Werewolf%20Reunion.mp4"
+        },
+        {
+          "archiveID": "supernatural-1977@e04",
+          "sourceID": "supernatural-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Mr. Nightingale",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3807,
+          "videoFile": {
+            "name": "Supernatural (1977)/Ep04 Mr. Nightingale.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 761614388,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/supernatural-1977/Supernatural%20%281977%29/Ep04%20Mr.%20Nightingale.mp4"
+        },
+        {
+          "archiveID": "supernatural-1977@e05",
+          "sourceID": "supernatural-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Lady Sibyl",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3556,
+          "videoFile": {
+            "name": "Supernatural (1977)/Ep05 Lady Sibyl.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 619585271,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/supernatural-1977/Supernatural%20%281977%29/Ep05%20Lady%20Sibyl.mp4"
+        },
+        {
+          "archiveID": "supernatural-1977@e06",
+          "sourceID": "supernatural-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Viktoria",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3786,
+          "videoFile": {
+            "name": "Supernatural (1977)/Ep06 Viktoria.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 640562465,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/supernatural-1977/Supernatural%20%281977%29/Ep06%20Viktoria.mp4"
+        },
+        {
+          "archiveID": "supernatural-1977@e07",
+          "sourceID": "supernatural-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Night of the Marionettes",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3502,
+          "videoFile": {
+            "name": "Supernatural (1977)/Ep07 Night of the Marionettes.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 725866011,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/supernatural-1977/Supernatural%20%281977%29/Ep07%20Night%20of%20the%20Marionettes.mp4"
+        },
+        {
+          "archiveID": "supernatural-1977@e08",
+          "sourceID": "supernatural-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Dorabella",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3604,
+          "videoFile": {
+            "name": "Supernatural (1977)/Ep08 Dorabella.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 712050024,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/supernatural-1977/Supernatural%20%281977%29/Ep08%20Dorabella.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 8,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

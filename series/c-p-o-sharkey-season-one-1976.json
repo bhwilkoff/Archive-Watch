@@ -1,0 +1,314 @@
+{
+  "version": 2,
+  "seriesID": "c-p-o-sharkey-season-one-1976",
+  "sourceID": "cposharkeyseasonone",
+  "tvmazeID": null,
+  "title": "C.P.O. Sharkey (Season One)",
+  "yearStart": 1976,
+  "yearEnd": null,
+  "overview": "C.P.O. Sharkey is an American television sitcom, created by Aaron Ruben, that aired on NBC from December 1, 1976, to April 28, 1978. The series starred Don Rickles in the title role, with Peter Isacksen, Elizabeth Allen, Harrison Page, and Richard X. Slattery featured in the cast.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/cposharkeyseasonone.fe619133.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "cposharkeyseasonone@s1e01",
+          "sourceID": "cposharkeyseasonone",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Oh Captain! My Captain",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cposharkeyseasonone/cposharkeyseasonone.thumbs/S01E01-%20Oh%20Captain%21%20My%20Captain_000532.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1537,
+          "videoFile": {
+            "name": "S01E01- Oh Captain! My Captain.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 71833868,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cposharkeyseasonone/S01E01-%20Oh%20Captain%21%20My%20Captain.mp4"
+        },
+        {
+          "archiveID": "cposharkeyseasonone@s1e02",
+          "sourceID": "cposharkeyseasonone",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Shimokawa Ships Out",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cposharkeyseasonone/cposharkeyseasonone.thumbs/S01E02-Shimokawa%20Ships%20Out_000511.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1292,
+          "videoFile": {
+            "name": "S01E02-Shimokawa Ships Out.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 77494250,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cposharkeyseasonone/S01E02-Shimokawa%20Ships%20Out.mp4"
+        },
+        {
+          "archiveID": "cposharkeyseasonone@s1e03",
+          "sourceID": "cposharkeyseasonone",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Dear John Letter",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cposharkeyseasonone/cposharkeyseasonone.thumbs/S01E03-%20The%20Dear%20John%20Letter_000475.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1304,
+          "videoFile": {
+            "name": "S01E03- The Dear John Letter.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 65773585,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cposharkeyseasonone/S01E03-%20The%20Dear%20John%20Letter.mp4"
+        },
+        {
+          "archiveID": "cposharkeyseasonone@s1e04",
+          "sourceID": "cposharkeyseasonone",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Goodbye Dolly",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cposharkeyseasonone/cposharkeyseasonone.thumbs/S01E04-%20Goodbye%20Dolly_000475.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1333,
+          "videoFile": {
+            "name": "S01E04- Goodbye Dolly.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 82829039,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cposharkeyseasonone/S01E04-%20Goodbye%20Dolly.mp4"
+        },
+        {
+          "archiveID": "cposharkeyseasonone@s1e05",
+          "sourceID": "cposharkeyseasonone",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Skolnick in Love",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cposharkeyseasonone/cposharkeyseasonone.thumbs/S01E05-%20Skolnick%20in%20Love_000474.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1378,
+          "videoFile": {
+            "name": "S01E05- Skolnick in Love.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 75318066,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cposharkeyseasonone/S01E05-%20Skolnick%20in%20Love.mp4"
+        },
+        {
+          "archiveID": "cposharkeyseasonone@s1e06",
+          "sourceID": "cposharkeyseasonone",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Mignone's Mutiny",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cposharkeyseasonone/cposharkeyseasonone.thumbs/S01E06-%20Mignone%27s%20Mutiny_000474.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1359,
+          "videoFile": {
+            "name": "S01E06- Mignone's Mutiny.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 76496652,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cposharkeyseasonone/S01E06-%20Mignone%27s%20Mutiny.mp4"
+        },
+        {
+          "archiveID": "cposharkeyseasonone@s1e07",
+          "sourceID": "cposharkeyseasonone",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Kowalski, the Somnambulist",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cposharkeyseasonone/cposharkeyseasonone.thumbs/S01E07-%20Kowalski%2C%20the%20Somnambulist_000475.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1309,
+          "videoFile": {
+            "name": "S01E07- Kowalski, the Somnambulist.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 90952410,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cposharkeyseasonone/S01E07-%20Kowalski%2C%20the%20Somnambulist.mp4"
+        },
+        {
+          "archiveID": "cposharkeyseasonone@s1e08",
+          "sourceID": "cposharkeyseasonone",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Sunday in Tijuana",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cposharkeyseasonone/cposharkeyseasonone.thumbs/S01E08-%20Sunday%20in%20Tijuana_000474.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1313,
+          "videoFile": {
+            "name": "S01E08- Sunday in Tijuana.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 128252948,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cposharkeyseasonone/S01E08-%20Sunday%20in%20Tijuana.mp4"
+        },
+        {
+          "archiveID": "cposharkeyseasonone@s1e09",
+          "sourceID": "cposharkeyseasonone",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Rodriguez and His Mamacita",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cposharkeyseasonone/cposharkeyseasonone.thumbs/S01E09-%20Rodriguez%20and%20His%20Mamacita_000475.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1377,
+          "videoFile": {
+            "name": "S01E09- Rodriguez and His Mamacita.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 102723848,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cposharkeyseasonone/S01E09-%20Rodriguez%20and%20His%20Mamacita.mp4"
+        },
+        {
+          "archiveID": "cposharkeyseasonone@s1e10",
+          "sourceID": "cposharkeyseasonone",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Sharkey Boogies on Down",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cposharkeyseasonone/cposharkeyseasonone.thumbs/S01E10-%20Sharkey%20Boogies%20on%20Down_000474.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1351,
+          "videoFile": {
+            "name": "S01E10- Sharkey Boogies on Down.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 135588503,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cposharkeyseasonone/S01E10-%20Sharkey%20Boogies%20on%20Down.mp4"
+        },
+        {
+          "archiveID": "cposharkeyseasonone@s1e11",
+          "sourceID": "cposharkeyseasonone",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Sharkey Finds Peace and Quiet",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cposharkeyseasonone/cposharkeyseasonone.thumbs/S01E11-%20Sharkey%20Finds%20Peace%20and%20Quiet_000539.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1499,
+          "videoFile": {
+            "name": "S01E11- Sharkey Finds Peace and Quiet.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 94329833,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cposharkeyseasonone/S01E11-%20Sharkey%20Finds%20Peace%20and%20Quiet.mp4"
+        },
+        {
+          "archiveID": "cposharkeyseasonone@s1e12",
+          "sourceID": "cposharkeyseasonone",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Sharkey the Marriage Counselor",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cposharkeyseasonone/cposharkeyseasonone.thumbs/S01E12-%20Sharkey%20the%20Marriage%20Counselor_000474.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1302,
+          "videoFile": {
+            "name": "S01E12- Sharkey the Marriage Counselor.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 125790209,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cposharkeyseasonone/S01E12-%20Sharkey%20the%20Marriage%20Counselor.mp4"
+        },
+        {
+          "archiveID": "cposharkeyseasonone@s1e13",
+          "sourceID": "cposharkeyseasonone",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Sharkey's Secret Life",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cposharkeyseasonone/cposharkeyseasonone.thumbs/S01E13-%20Sharkey%27s%20Secret%20Life_000414.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1156,
+          "videoFile": {
+            "name": "S01E13- Sharkey's Secret Life.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 120163479,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cposharkeyseasonone/S01E13-%20Sharkey%27s%20Secret%20Life.mp4"
+        },
+        {
+          "archiveID": "cposharkeyseasonone@s1e14",
+          "sourceID": "cposharkeyseasonone",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Pizza Party",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cposharkeyseasonone/cposharkeyseasonone.thumbs/S01E14-%20The%20Pizza%20Party_000474.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1327,
+          "videoFile": {
+            "name": "S01E14- The Pizza Party.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 121728560,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cposharkeyseasonone/S01E14-%20The%20Pizza%20Party.mp4"
+        },
+        {
+          "archiveID": "cposharkeyseasonone@s1e15",
+          "sourceID": "cposharkeyseasonone",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "A Wino Is Loose",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cposharkeyseasonone/cposharkeyseasonone.thumbs/S01E15-%20A%20Wino%20Is%20Loose_000475.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 1327,
+          "videoFile": {
+            "name": "S01E15- A Wino Is Loose.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 90225621,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cposharkeyseasonone/S01E15-%20A%20Wino%20Is%20Loose.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 15,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

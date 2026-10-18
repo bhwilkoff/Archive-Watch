@@ -1,0 +1,297 @@
+{
+  "version": 2,
+  "seriesID": "barbary-coast-1975",
+  "sourceID": "barbary-coast-complete-series-1975",
+  "tvmazeID": null,
+  "title": "Barbary Coast",
+  "yearStart": 1975,
+  "yearEnd": null,
+  "overview": "Barbary Coast is an American television series that aired on ABC. The pilot film first aired on May 4, 1975, and the series itself premiered September 8, 1975; the last episode aired January 9, 1976. With an 1870s setting, Barbary Coast features the adventures of government agent Jeff Cable (played by William Shatner ), and his pal, conman and gambler Cash (\"Cash makes no enemies\") Conover ( Doug McClure; played by Dennis Cole in the pilot) who is the owner of the Golden Gate Casino. The title was taken from the setting, \"a square-mile section of San Francisco called the Barbary Coast, a wide-open, rip-roaring district whose inhabitants ranged from flashy ladies to sourdoughs.\" This was Shatner's first live-action series since Star Trek (also produced by Paramount Television ). Cable and Conover battled against various criminals, and Cable frequently donned disguises in the course of his investigations.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/barbary-coast-complete-series-1975.5e36659d.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Western",
+    "Crime",
+    "Action"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "barbary-coast-complete-series-1975@s1e00",
+          "sourceID": "barbary-coast-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 0,
+          "title": "Pilot",
+          "overview": null,
+          "stillURL": "https://archive.org/download/barbary-coast-complete-series-1975/barbary-coast-complete-series-1975.thumbs/Barbary%20Coast%20S01E00%20-%20Pilot_002465.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 5814,
+          "videoFile": {
+            "name": "Barbary Coast S01E00 - Pilot.mp4",
+            "format": "h.264",
+            "sizeBytes": 553948724,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/barbary-coast-complete-series-1975/Barbary%20Coast%20S01E00%20-%20Pilot.mp4"
+        },
+        {
+          "archiveID": "barbary-coast-complete-series-1975@s1e01",
+          "sourceID": "barbary-coast-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Funny Money",
+          "overview": null,
+          "stillURL": "https://archive.org/download/barbary-coast-complete-series-1975/barbary-coast-complete-series-1975.thumbs/Barbary%20Coast%20S01E01%20-%20Funny%20Money_001271.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2998,
+          "videoFile": {
+            "name": "Barbary Coast S01E01 - Funny Money.mp4",
+            "format": "h.264",
+            "sizeBytes": 283213737,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/barbary-coast-complete-series-1975/Barbary%20Coast%20S01E01%20-%20Funny%20Money.mp4"
+        },
+        {
+          "archiveID": "barbary-coast-complete-series-1975@s1e02",
+          "sourceID": "barbary-coast-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Crazy Cats",
+          "overview": null,
+          "stillURL": "https://archive.org/download/barbary-coast-complete-series-1975/barbary-coast-complete-series-1975.thumbs/Barbary%20Coast%20S01E02%20-%20Crazy%20Cats_001285.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3027,
+          "videoFile": {
+            "name": "Barbary Coast S01E02 - Crazy Cats.mp4",
+            "format": "h.264",
+            "sizeBytes": 286328868,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/barbary-coast-complete-series-1975/Barbary%20Coast%20S01E02%20-%20Crazy%20Cats.mp4"
+        },
+        {
+          "archiveID": "barbary-coast-complete-series-1975@s1e03",
+          "sourceID": "barbary-coast-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Jesse Who",
+          "overview": null,
+          "stillURL": "https://archive.org/download/barbary-coast-complete-series-1975/barbary-coast-complete-series-1975.thumbs/Barbary%20Coast%20S01E03%20-%20Jesse%20Who_001286.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3029,
+          "videoFile": {
+            "name": "Barbary Coast S01E03 - Jesse Who.mp4",
+            "format": "h.264",
+            "sizeBytes": 287085057,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/barbary-coast-complete-series-1975/Barbary%20Coast%20S01E03%20-%20Jesse%20Who.mp4"
+        },
+        {
+          "archiveID": "barbary-coast-complete-series-1975@s1e04",
+          "sourceID": "barbary-coast-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Ballad of Redwing Jail",
+          "overview": null,
+          "stillURL": "https://archive.org/download/barbary-coast-complete-series-1975/barbary-coast-complete-series-1975.thumbs/Barbary%20Coast%20S01E04%20-%20The%20Ballad%20of%20Redwing%20Jail_001288.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3029,
+          "videoFile": {
+            "name": "Barbary Coast S01E04 - The Ballad of Redwing Jail.mp4",
+            "format": "h.264",
+            "sizeBytes": 287073883,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/barbary-coast-complete-series-1975/Barbary%20Coast%20S01E04%20-%20The%20Ballad%20of%20Redwing%20Jail.mp4"
+        },
+        {
+          "archiveID": "barbary-coast-complete-series-1975@s1e05",
+          "sourceID": "barbary-coast-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Guns for a Queen",
+          "overview": null,
+          "stillURL": "https://archive.org/download/barbary-coast-complete-series-1975/barbary-coast-complete-series-1975.thumbs/Barbary%20Coast%20S01E05%20-%20Guns%20for%20a%20Queen_001247.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2940,
+          "videoFile": {
+            "name": "Barbary Coast S01E05 - Guns for a Queen.mp4",
+            "format": "h.264",
+            "sizeBytes": 278201501,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/barbary-coast-complete-series-1975/Barbary%20Coast%20S01E05%20-%20Guns%20for%20a%20Queen.mp4"
+        },
+        {
+          "archiveID": "barbary-coast-complete-series-1975@s1e06",
+          "sourceID": "barbary-coast-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Irish Luck",
+          "overview": null,
+          "stillURL": "https://archive.org/download/barbary-coast-complete-series-1975/barbary-coast-complete-series-1975.thumbs/Barbary%20Coast%20S01E06%20-%20Irish%20Luck_001289.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3027,
+          "videoFile": {
+            "name": "Barbary Coast S01E06 - Irish Luck.mp4",
+            "format": "h.264",
+            "sizeBytes": 286401960,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/barbary-coast-complete-series-1975/Barbary%20Coast%20S01E06%20-%20Irish%20Luck.mp4"
+        },
+        {
+          "archiveID": "barbary-coast-complete-series-1975@s1e07",
+          "sourceID": "barbary-coast-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Sauce for the Goose",
+          "overview": null,
+          "stillURL": "https://archive.org/download/barbary-coast-complete-series-1975/barbary-coast-complete-series-1975.thumbs/Barbary%20Coast%20S01E07%20-%20Sauce%20for%20the%20Goose_001284.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3027,
+          "videoFile": {
+            "name": "Barbary Coast S01E07 - Sauce for the Goose.mp4",
+            "format": "h.264",
+            "sizeBytes": 287313287,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/barbary-coast-complete-series-1975/Barbary%20Coast%20S01E07%20-%20Sauce%20for%20the%20Goose.mp4"
+        },
+        {
+          "archiveID": "barbary-coast-complete-series-1975@s1e08",
+          "sourceID": "barbary-coast-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "An Iron-Clad Plan",
+          "overview": null,
+          "stillURL": "https://archive.org/download/barbary-coast-complete-series-1975/barbary-coast-complete-series-1975.thumbs/Barbary%20Coast%20S01E08%20-%20An%20Iron-Clad%20Plan_001283.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3028,
+          "videoFile": {
+            "name": "Barbary Coast S01E08 - An Iron-Clad Plan.mp4",
+            "format": "h.264",
+            "sizeBytes": 286989416,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/barbary-coast-complete-series-1975/Barbary%20Coast%20S01E08%20-%20An%20Iron-Clad%20Plan.mp4"
+        },
+        {
+          "archiveID": "barbary-coast-complete-series-1975@s1e09",
+          "sourceID": "barbary-coast-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Arson and Old Lace",
+          "overview": null,
+          "stillURL": "https://archive.org/download/barbary-coast-complete-series-1975/barbary-coast-complete-series-1975.thumbs/Barbary%20Coast%20S01E09%20-%20Arson%20and%20Old%20Lace_001261.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2969,
+          "videoFile": {
+            "name": "Barbary Coast S01E09 - Arson and Old Lace.mp4",
+            "format": "h.264",
+            "sizeBytes": 279930132,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/barbary-coast-complete-series-1975/Barbary%20Coast%20S01E09%20-%20Arson%20and%20Old%20Lace.mp4"
+        },
+        {
+          "archiveID": "barbary-coast-complete-series-1975@s1e10",
+          "sourceID": "barbary-coast-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Sharks Eat Sharks",
+          "overview": null,
+          "stillURL": "https://archive.org/download/barbary-coast-complete-series-1975/barbary-coast-complete-series-1975.thumbs/Barbary%20Coast%20S01E10%20-%20Sharks%20Eat%20Sharks_001285.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3025,
+          "videoFile": {
+            "name": "Barbary Coast S01E10 - Sharks Eat Sharks.mp4",
+            "format": "h.264",
+            "sizeBytes": 286072929,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/barbary-coast-complete-series-1975/Barbary%20Coast%20S01E10%20-%20Sharks%20Eat%20Sharks.mp4"
+        },
+        {
+          "archiveID": "barbary-coast-complete-series-1975@s1e11",
+          "sourceID": "barbary-coast-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Day Cable Was Hanged",
+          "overview": null,
+          "stillURL": "https://archive.org/download/barbary-coast-complete-series-1975/barbary-coast-complete-series-1975.thumbs/Barbary%20Coast%20S01E11%20-%20The%20Day%20Cable%20Was%20Hanged_001284.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3027,
+          "videoFile": {
+            "name": "Barbary Coast S01E11 - The Day Cable Was Hanged.mp4",
+            "format": "h.264",
+            "sizeBytes": 286296615,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/barbary-coast-complete-series-1975/Barbary%20Coast%20S01E11%20-%20The%20Day%20Cable%20Was%20Hanged.mp4"
+        },
+        {
+          "archiveID": "barbary-coast-complete-series-1975@s1e12",
+          "sourceID": "barbary-coast-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Mary Had More Than a Little",
+          "overview": null,
+          "stillURL": "https://archive.org/download/barbary-coast-complete-series-1975/barbary-coast-complete-series-1975.thumbs/Barbary%20Coast%20S01E12%20-%20Mary%20Had%20More%20Than%20a%20Little_001285.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3027,
+          "videoFile": {
+            "name": "Barbary Coast S01E12 - Mary Had More Than a Little.mp4",
+            "format": "h.264",
+            "sizeBytes": 288902745,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/barbary-coast-complete-series-1975/Barbary%20Coast%20S01E12%20-%20Mary%20Had%20More%20Than%20a%20Little.mp4"
+        },
+        {
+          "archiveID": "barbary-coast-complete-series-1975@s1e13",
+          "sourceID": "barbary-coast-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "The Dawson Marker",
+          "overview": null,
+          "stillURL": "https://archive.org/download/barbary-coast-complete-series-1975/barbary-coast-complete-series-1975.thumbs/Barbary%20Coast%20S01E13%20-%20The%20Dawson%20Marker_001284.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 3026,
+          "videoFile": {
+            "name": "Barbary Coast S01E13 - The Dawson Marker.mp4",
+            "format": "h.264",
+            "sizeBytes": 287452830,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/barbary-coast-complete-series-1975/Barbary%20Coast%20S01E13%20-%20The%20Dawson%20Marker.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 14,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

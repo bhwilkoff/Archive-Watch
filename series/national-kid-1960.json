@@ -1,0 +1,770 @@
+{
+  "version": 2,
+  "seriesID": "national-kid-1960",
+  "sourceID": "national-kid-episode-01",
+  "tvmazeID": null,
+  "title": "National Kid",
+  "yearStart": 1960,
+  "yearEnd": null,
+  "overview": "National Kid is a messenger from the Andromeda Galaxy thirty thousand light-years away, who is immortal and protects the Earth from invaders",
+  "posterURL": "https://image.tmdb.org/t/p/w500/cYI8rN8hfmWKWOFzAoSmtwCxfzI.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Science Fiction"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "national-kid-episode-01@e01",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Episode 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2001_000623.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1490,
+          "videoFile": {
+            "name": "National Kid -episode 01.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 130396774,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2001.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e02",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Episode 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2002_000638.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1531,
+          "videoFile": {
+            "name": "National Kid -episode 02.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 138488530,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2002.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e03",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Episode 3",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2003_000639.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1522,
+          "videoFile": {
+            "name": "National Kid -episode 03.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 128663766,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2003.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e04",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Episode 4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2004_000638.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1525,
+          "videoFile": {
+            "name": "National Kid -episode 04.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 126504415,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2004.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e05",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Episode 5",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2005_000629.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1516,
+          "videoFile": {
+            "name": "National Kid -episode 05.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 133975150,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2005.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e06",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Episode 6",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2006_000620.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1495,
+          "videoFile": {
+            "name": "National Kid -episode 06.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 125766294,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2006.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e07",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Episode 7",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2007_000405.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 967,
+          "videoFile": {
+            "name": "National Kid -episode 07.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 77406761,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2007.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e08",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Episode 8",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2008_000623.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1502,
+          "videoFile": {
+            "name": "National Kid -episode 08.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 138061735,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2008.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e09",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Episode 9",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2009_000637.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1528,
+          "videoFile": {
+            "name": "National Kid -episode 09.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 120206123,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2009.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e10",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Episode 10",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2010_000633.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1519,
+          "videoFile": {
+            "name": "National Kid -episode 10.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 119561148,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2010.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e11",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Episode 11",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2011_000630.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1510,
+          "videoFile": {
+            "name": "National Kid -episode 11.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 114386316,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2011.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e12",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Episode 12",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2012_000638.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1540,
+          "videoFile": {
+            "name": "National Kid -episode 12.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 113899863,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2012.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e13",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Episode 13",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2013_000633.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1528,
+          "videoFile": {
+            "name": "National Kid -episode 13.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 124358229,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2013.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e14",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Episode 14",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2014_000623.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1492,
+          "videoFile": {
+            "name": "National Kid -episode 14.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 150906848,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2014.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e15",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Episode 15",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2015_000628.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1511,
+          "videoFile": {
+            "name": "National Kid -episode 15.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 138187420,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2015.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e16",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Episode 16",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2016_000643.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1529,
+          "videoFile": {
+            "name": "National Kid -episode 16.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 142406524,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2016.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e17",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Episode 17",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2017_000634.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1528,
+          "videoFile": {
+            "name": "National Kid -episode 17.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 122650852,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2017.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e18",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Episode 18",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2018_000634.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1521,
+          "videoFile": {
+            "name": "National Kid -episode 18.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 135451403,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2018.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e19",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Episode 19",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2019_000631.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1521,
+          "videoFile": {
+            "name": "National Kid -episode 19.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 124312123,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2019.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e20",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Episode 20",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2020_000631.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1523,
+          "videoFile": {
+            "name": "National Kid -episode 20.mp4",
+            "format": "h.264",
+            "sizeBytes": 146893109,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2020.mp4"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e21",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Episode 21",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2021_000603.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1451,
+          "videoFile": {
+            "name": "National Kid -episode 21.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 140375082,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2021.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e22",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Episode 22",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2022_000633.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1521,
+          "videoFile": {
+            "name": "National Kid -episode 22.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 150834759,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2022.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e23",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Episode 23",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2023_000631.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1525,
+          "videoFile": {
+            "name": "National Kid -episode 23.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 159233231,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2023.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e24",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Episode 24",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2024_000633.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1526,
+          "videoFile": {
+            "name": "National Kid -episode 24.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 151591071,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2024.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e25",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Episode 25",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2025_000635.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1513,
+          "videoFile": {
+            "name": "National Kid -episode 25.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 148324096,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2025.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e26",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Episode 26",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2026_000632.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1514,
+          "videoFile": {
+            "name": "National Kid -episode 26.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 143398909,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2026.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e27",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Episode 27",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2027_000631.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1524,
+          "videoFile": {
+            "name": "National Kid -episode 27.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 141033885,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2027.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e28",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "Episode 28",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2028_000637.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1529,
+          "videoFile": {
+            "name": "National Kid -episode 28.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 143825998,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2028.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e29",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "Episode 29",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2029_000635.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1512,
+          "videoFile": {
+            "name": "National Kid -episode 29.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 126166053,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2029.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e30",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "Episode 30",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2030_000633.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1521,
+          "videoFile": {
+            "name": "National Kid -episode 30.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 132981625,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2030.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e31",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "Episode 31",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2031_000634.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1530,
+          "videoFile": {
+            "name": "National Kid -episode 31.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 128982035,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2031.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e32",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 32,
+          "title": "Episode 32",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2032_000636.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1520,
+          "videoFile": {
+            "name": "National Kid -episode 32.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 145408508,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2032.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e33",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 33,
+          "title": "Episode 33",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2033_000631.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1510,
+          "videoFile": {
+            "name": "National Kid -episode 33.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 137274455,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2033.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e34",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 34,
+          "title": "Episode 34",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2034_000625.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1507,
+          "videoFile": {
+            "name": "National Kid -episode 34.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 133708280,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2034.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e35",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 35,
+          "title": "Episode 35",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2035_000631.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1522,
+          "videoFile": {
+            "name": "National Kid -episode 35.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 138168425,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2035.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e36",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "Episode 36",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2036_000613.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1467,
+          "videoFile": {
+            "name": "National Kid -episode 36.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 123077410,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2036.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e37",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 37,
+          "title": "Episode 37",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2037_000617.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1476,
+          "videoFile": {
+            "name": "National Kid -episode 37.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 113884256,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2037.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e38",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 38,
+          "title": "Episode 38",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2038_000609.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1469,
+          "videoFile": {
+            "name": "National Kid -episode 38.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 124718267,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2038.m4v"
+        },
+        {
+          "archiveID": "national-kid-episode-01@e39",
+          "sourceID": "national-kid-episode-01",
+          "seasonNumber": 1,
+          "episodeNumber": 39,
+          "title": "Episode 39",
+          "overview": null,
+          "stillURL": "https://archive.org/download/national-kid-episode-01/national-kid-episode-01.thumbs/National%20Kid%20-episode%2039_000619.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1476,
+          "videoFile": {
+            "name": "National Kid -episode 39.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 130378909,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/national-kid-episode-01/National%20Kid%20-episode%2039.m4v"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 39,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": []
+}

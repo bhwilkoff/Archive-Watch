@@ -1,0 +1,378 @@
+{
+  "version": 2,
+  "seriesID": "mysterious-doctor-satan-1940",
+  "sourceID": "mysterious-doctor-satan-1940-colorized-cliffhanger-serial",
+  "tvmazeID": null,
+  "title": "Mysterious Doctor Satan",
+  "yearStart": 1940,
+  "yearEnd": null,
+  "overview": "A mad scientist named Dr. Satan plots to steal key pieces of technology to enable him to build an army of robots based on his prototype to conquer America. The only one standing in his way is Bob Wayne, who fights Satan as the enigmatic Copperhead. Mysterious Doctor Satan is a 1940 film serial named after its chief villain. Doctor Satan's main opponent is the masked mystery man, \"The Copperhead\", whose secret identity is Bob Wayne, a man searching for justice and revenge on Satan for the death of his step-father. The serial charts the conflict between the two as Bob Wayne pursues Doctor Satan, while the latter completes his plans for world domination.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/cf3SZEnnDHikHvclv16U4KsMDk1.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/zbIHZkwDmBDO6pEVJqQHH1Llnnf.jpg",
+  "genres": [
+    "Action",
+    "Adventure",
+    "Crime",
+    "Science Fiction"
+  ],
+  "networks": [],
+  "creator": "John English",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "mysterious-doctor-satan-1940-colorized-cliffhanger-serial@e01",
+          "sourceID": "mysterious-doctor-satan-1940-colorized-cliffhanger-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Return of the Copperhead",
+          "overview": null,
+          "stillURL": "https://archive.org/download/mysterious-doctor-satan-1940-colorized-cliffhanger-serial/mysterious-doctor-satan-1940-colorized-cliffhanger-serial.thumbs/MDS%20Chapter%2001%20Return%20of%20the%20Copperhead_000621.jpg",
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 1789,
+          "videoFile": {
+            "name": "MDS Chapter 01 Return of the Copperhead.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 115039034,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mysterious-doctor-satan-1940-colorized-cliffhanger-serial/MDS%20Chapter%2001%20Return%20of%20the%20Copperhead.mp4"
+        },
+        {
+          "archiveID": "mysterious-doctor-satan-1940-colorized-cliffhanger-serial@e02",
+          "sourceID": "mysterious-doctor-satan-1940-colorized-cliffhanger-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Thirteen Steps",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 996,
+          "videoFile": {
+            "name": "MDS Chapter 02 Thirteen Steps.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 66330402,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mysterious-doctor-satan-1940-colorized-cliffhanger-serial/MDS%20Chapter%2002%20Thirteen%20Steps.mp4"
+        },
+        {
+          "archiveID": "mysterious-doctor-satan-1940-colorized-cliffhanger-serial@e03",
+          "sourceID": "mysterious-doctor-satan-1940-colorized-cliffhanger-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Undersea Tomb",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 976,
+          "videoFile": {
+            "name": "MDS Chapter 03 Undersea Tomb.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 60707490,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mysterious-doctor-satan-1940-colorized-cliffhanger-serial/MDS%20Chapter%2003%20Undersea%20Tomb.mp4"
+        },
+        {
+          "archiveID": "mysterious-doctor-satan-1940-colorized-cliffhanger-serial@e04",
+          "sourceID": "mysterious-doctor-satan-1940-colorized-cliffhanger-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Human Bomb",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 939,
+          "videoFile": {
+            "name": "MDS Chapter 04 The Human Bomb.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 74071224,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mysterious-doctor-satan-1940-colorized-cliffhanger-serial/MDS%20Chapter%2004%20The%20Human%20Bomb.mp4"
+        },
+        {
+          "archiveID": "mysterious-doctor-satan-1940-colorized-cliffhanger-serial@e05",
+          "sourceID": "mysterious-doctor-satan-1940-colorized-cliffhanger-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Doctor Satan's Man of Steel",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 944,
+          "videoFile": {
+            "name": "MDS Chapter 05 Doctor Satan's Man of Steel.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 65823368,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mysterious-doctor-satan-1940-colorized-cliffhanger-serial/MDS%20Chapter%2005%20Doctor%20Satan%27s%20Man%20of%20Steel.mp4"
+        },
+        {
+          "archiveID": "mysterious-doctor-satan-1940-colorized-cliffhanger-serial@e06",
+          "sourceID": "mysterious-doctor-satan-1940-colorized-cliffhanger-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Double Cross",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 940,
+          "videoFile": {
+            "name": "MDS Chapter 06 Double Cross.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 63567750,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mysterious-doctor-satan-1940-colorized-cliffhanger-serial/MDS%20Chapter%2006%20Double%20Cross.mp4"
+        },
+        {
+          "archiveID": "mysterious-doctor-satan-1940-colorized-cliffhanger-serial@e07",
+          "sourceID": "mysterious-doctor-satan-1940-colorized-cliffhanger-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Monster Strikes",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 940,
+          "videoFile": {
+            "name": "MDS Chapter 07 The Monster Strikes.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 64286896,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mysterious-doctor-satan-1940-colorized-cliffhanger-serial/MDS%20Chapter%2007%20The%20Monster%20Strikes.mp4"
+        },
+        {
+          "archiveID": "mysterious-doctor-satan-1940-colorized-cliffhanger-serial@e08",
+          "sourceID": "mysterious-doctor-satan-1940-colorized-cliffhanger-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Highway of Death",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 932,
+          "videoFile": {
+            "name": "MDS Chapter 08 Highway of Death.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 69171493,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mysterious-doctor-satan-1940-colorized-cliffhanger-serial/MDS%20Chapter%2008%20Highway%20of%20Death.mp4"
+        },
+        {
+          "archiveID": "mysterious-doctor-satan-1940-colorized-cliffhanger-serial@e09",
+          "sourceID": "mysterious-doctor-satan-1940-colorized-cliffhanger-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Double Jeopardy",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 931,
+          "videoFile": {
+            "name": "MDS Chapter 09 Double Jeopardy.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 76238496,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mysterious-doctor-satan-1940-colorized-cliffhanger-serial/MDS%20Chapter%2009%20Double%20Jeopardy.mp4"
+        },
+        {
+          "archiveID": "mysterious-doctor-satan-1940-colorized-cliffhanger-serial@e10",
+          "sourceID": "mysterious-doctor-satan-1940-colorized-cliffhanger-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Bridge of Peril",
+          "overview": null,
+          "stillURL": "https://archive.org/download/mysterious-doctor-satan-1940-colorized-cliffhanger-serial/mysterious-doctor-satan-1940-colorized-cliffhanger-serial.thumbs/MDS%20Chapter%2010%20Bridge%20of%20Peril_000295.jpg",
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 932,
+          "videoFile": {
+            "name": "MDS Chapter 10 Bridge of Peril.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 69075496,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mysterious-doctor-satan-1940-colorized-cliffhanger-serial/MDS%20Chapter%2010%20Bridge%20of%20Peril.mp4"
+        },
+        {
+          "archiveID": "mysterious-doctor-satan-1940-colorized-cliffhanger-serial@e11",
+          "sourceID": "mysterious-doctor-satan-1940-colorized-cliffhanger-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Death Closes In",
+          "overview": null,
+          "stillURL": "https://archive.org/download/mysterious-doctor-satan-1940-colorized-cliffhanger-serial/mysterious-doctor-satan-1940-colorized-cliffhanger-serial.thumbs/MDS%20Chapter%2011%20Death%20Closes%20In_000295.jpg",
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 960,
+          "videoFile": {
+            "name": "MDS Chapter 11 Death Closes In.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 59546191,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mysterious-doctor-satan-1940-colorized-cliffhanger-serial/MDS%20Chapter%2011%20Death%20Closes%20In.mp4"
+        },
+        {
+          "archiveID": "mysterious-doctor-satan-1940-colorized-cliffhanger-serial@e12",
+          "sourceID": "mysterious-doctor-satan-1940-colorized-cliffhanger-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Crack-Up",
+          "overview": null,
+          "stillURL": "https://archive.org/download/mysterious-doctor-satan-1940-colorized-cliffhanger-serial/mysterious-doctor-satan-1940-colorized-cliffhanger-serial.thumbs/MDS%20Chapter%2012%20Crack-Up_000294.jpg",
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 960,
+          "videoFile": {
+            "name": "MDS Chapter 12 Crack-Up.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 59814066,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mysterious-doctor-satan-1940-colorized-cliffhanger-serial/MDS%20Chapter%2012%20Crack-Up.mp4"
+        },
+        {
+          "archiveID": "mysterious-doctor-satan-1940-colorized-cliffhanger-serial@e13",
+          "sourceID": "mysterious-doctor-satan-1940-colorized-cliffhanger-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Disguised",
+          "overview": null,
+          "stillURL": "https://archive.org/download/mysterious-doctor-satan-1940-colorized-cliffhanger-serial/mysterious-doctor-satan-1940-colorized-cliffhanger-serial.thumbs/MDS%20Chapter%2013%20Disguised_000297.jpg",
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 936,
+          "videoFile": {
+            "name": "MDS Chapter 13 Disguised.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 61757034,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mysterious-doctor-satan-1940-colorized-cliffhanger-serial/MDS%20Chapter%2013%20Disguised.mp4"
+        },
+        {
+          "archiveID": "mysterious-doctor-satan-1940-colorized-cliffhanger-serial@e14",
+          "sourceID": "mysterious-doctor-satan-1940-colorized-cliffhanger-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Flaming Coffin",
+          "overview": null,
+          "stillURL": "https://archive.org/download/mysterious-doctor-satan-1940-colorized-cliffhanger-serial/mysterious-doctor-satan-1940-colorized-cliffhanger-serial.thumbs/MDS%20Chapter%2014%20The%20Flaming%20Coffin_000296.jpg",
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 940,
+          "videoFile": {
+            "name": "MDS Chapter 14 The Flaming Coffin.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 66568300,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mysterious-doctor-satan-1940-colorized-cliffhanger-serial/MDS%20Chapter%2014%20The%20Flaming%20Coffin.mp4"
+        },
+        {
+          "archiveID": "mysterious-doctor-satan-1940-colorized-cliffhanger-serial@e15",
+          "sourceID": "mysterious-doctor-satan-1940-colorized-cliffhanger-serial",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Doctor Satan Strikes",
+          "overview": null,
+          "stillURL": "https://archive.org/download/mysterious-doctor-satan-1940-colorized-cliffhanger-serial/mysterious-doctor-satan-1940-colorized-cliffhanger-serial.thumbs/MDS%20Chapter%2015%20Doctor%20Satan%20Strikes_000294.jpg",
+          "airDate": null,
+          "year": 1940,
+          "runtimeSeconds": 963,
+          "videoFile": {
+            "name": "MDS Chapter 15 Doctor Satan Strikes.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 65217947,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mysterious-doctor-satan-1940-colorized-cliffhanger-serial/MDS%20Chapter%2015%20Doctor%20Satan%20Strikes.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 15,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": [
+    {
+      "name": "Eduardo Ciannelli",
+      "character": "Doctor Satan",
+      "order": 0,
+      "profilePath": "/eiDBc4v8xrRhkaIpXEu9ZNViAiB.jpg"
+    },
+    {
+      "name": "Robert Wilcox",
+      "character": "Bob Wayne / Copperhead",
+      "order": 1,
+      "profilePath": "/hnbzxVwBUz1SppKvayhxJKfMIBF.jpg"
+    },
+    {
+      "name": "William Newell",
+      "character": "Speed Martin",
+      "order": 2,
+      "profilePath": "/ykA4ASS1IyxDR3691Gyt6c7l7RU.jpg"
+    },
+    {
+      "name": "C. Montague Shaw",
+      "character": "Prof. Thomas Scott",
+      "order": 3,
+      "profilePath": "/7u7wp5oqxUzaA8DnqJBB9lBG1Ww.jpg"
+    },
+    {
+      "name": "Ella Neal",
+      "character": "Lois Scott",
+      "order": 4,
+      "profilePath": "/87RgKjFlnmDBvezuEx2HZigjVeQ.jpg"
+    },
+    {
+      "name": "Dorothy Herbert",
+      "character": "Alice Brent",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Charles Trowbridge",
+      "character": "Gov. Bronson",
+      "order": 6,
+      "profilePath": "/l0pMZJiTfkxBOESbOAkAAedUzuJ.jpg"
+    },
+    {
+      "name": "Jack Mulhall",
+      "character": "Police Chief Rand",
+      "order": 7,
+      "profilePath": "/4r33PICmACJZ2Bjum0v1EkvOxbx.jpg"
+    },
+    {
+      "name": "Edwin Stanley",
+      "character": "Col. Bevans",
+      "order": 8,
+      "profilePath": "/ezkjW2BKID76lEVDF56lPxPOykE.jpg"
+    },
+    {
+      "name": "Walter McGrail",
+      "character": "Stoner",
+      "order": 9,
+      "profilePath": "/ctOCxa0EQ6b2H2BL3d1BzeGyPaQ.jpg"
+    }
+  ]
+}

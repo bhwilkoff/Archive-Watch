@@ -1,0 +1,282 @@
+{
+  "version": 2,
+  "seriesID": "zorro-s-black-whip-1944",
+  "sourceID": "zorro-s-black-whip-1944-colorized",
+  "tvmazeID": null,
+  "title": "Zorro's Black Whip",
+  "yearStart": 1944,
+  "yearEnd": null,
+  "overview": "Pretty Girl Barbara Mededith takes over her murdered brother's crusading newspaper. She also assumes the dead sibling's identity as \"The Black Whip,\" righting the wrongs of Crescent City very much in the manner of her famous ancestor, Zorro.",
+  "posterURL": "https://commons.wikimedia.org/wiki/Special:FilePath/Zorrosblackwhip.jpg?width=600",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/zsnSZFnevbpZjh1qdjNrxaDkHny.jpg",
+  "genres": [
+    "Western"
+  ],
+  "networks": [],
+  "creator": "Spencer Gordon Bennet",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "zorro-s-black-whip-1944-colorized@e01",
+          "sourceID": "zorro-s-black-whip-1944-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Masked Avenger",
+          "overview": null,
+          "stillURL": "https://archive.org/download/zorro-s-black-whip-1944-colorized/zorro-s-black-whip-1944-colorized.thumbs/Black%20Whip%20Chapter%2001%20The%20Masked%20Avenger_000476.jpg",
+          "airDate": null,
+          "year": 1944,
+          "runtimeSeconds": 1394,
+          "videoFile": {
+            "name": "Black Whip Chapter 01 The Masked Avenger.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 376545738,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/zorro-s-black-whip-1944-colorized/Black%20Whip%20Chapter%2001%20The%20Masked%20Avenger.mp4"
+        },
+        {
+          "archiveID": "zorro-s-black-whip-1944-colorized@e02",
+          "sourceID": "zorro-s-black-whip-1944-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Tomb of Terror",
+          "overview": null,
+          "stillURL": "https://archive.org/download/zorro-s-black-whip-1944-colorized/zorro-s-black-whip-1944-colorized.thumbs/Black%20Whip%20Chapter%2002%20Tomb%20of%20Terror_000273.jpg",
+          "airDate": null,
+          "year": 1944,
+          "runtimeSeconds": 864,
+          "videoFile": {
+            "name": "Black Whip Chapter 02 Tomb of Terror.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 215671996,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/zorro-s-black-whip-1944-colorized/Black%20Whip%20Chapter%2002%20Tomb%20of%20Terror.mp4"
+        },
+        {
+          "archiveID": "zorro-s-black-whip-1944-colorized@e03",
+          "sourceID": "zorro-s-black-whip-1944-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Mob Murder",
+          "overview": null,
+          "stillURL": "https://archive.org/download/zorro-s-black-whip-1944-colorized/zorro-s-black-whip-1944-colorized.thumbs/Black%20Whip%20Chapter%2003%20Mob%20Murder_000297.jpg",
+          "airDate": null,
+          "year": 1944,
+          "runtimeSeconds": 861,
+          "videoFile": {
+            "name": "Black Whip Chapter 03 Mob Murder.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 204607398,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/zorro-s-black-whip-1944-colorized/Black%20Whip%20Chapter%2003%20Mob%20Murder.mp4"
+        },
+        {
+          "archiveID": "zorro-s-black-whip-1944-colorized@e04",
+          "sourceID": "zorro-s-black-whip-1944-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Detour to Death",
+          "overview": null,
+          "stillURL": "https://archive.org/download/zorro-s-black-whip-1944-colorized/zorro-s-black-whip-1944-colorized.thumbs/Black%20Whip%20Chapter%2004%20Detour%20to%20Death_000299.jpg",
+          "airDate": null,
+          "year": 1944,
+          "runtimeSeconds": 857,
+          "videoFile": {
+            "name": "Black Whip Chapter 04 Detour to Death.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 234790151,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/zorro-s-black-whip-1944-colorized/Black%20Whip%20Chapter%2004%20Detour%20to%20Death.mp4"
+        },
+        {
+          "archiveID": "zorro-s-black-whip-1944-colorized@e05",
+          "sourceID": "zorro-s-black-whip-1944-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Take Off That Mask",
+          "overview": null,
+          "stillURL": "https://archive.org/download/zorro-s-black-whip-1944-colorized/zorro-s-black-whip-1944-colorized.thumbs/Black%20Whip%20Chapter%2005%20Take%20Off%20That%20Mask_000267.jpg",
+          "airDate": null,
+          "year": 1944,
+          "runtimeSeconds": 861,
+          "videoFile": {
+            "name": "Black Whip Chapter 05 Take Off That Mask.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 233319495,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/zorro-s-black-whip-1944-colorized/Black%20Whip%20Chapter%2005%20Take%20Off%20That%20Mask.mp4"
+        },
+        {
+          "archiveID": "zorro-s-black-whip-1944-colorized@e06",
+          "sourceID": "zorro-s-black-whip-1944-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Fatal Gold",
+          "overview": null,
+          "stillURL": "https://archive.org/download/zorro-s-black-whip-1944-colorized/zorro-s-black-whip-1944-colorized.thumbs/Black%20Whip%20Chapter%2006%20Fatal%20Gold_000301.jpg",
+          "airDate": null,
+          "year": 1944,
+          "runtimeSeconds": 866,
+          "videoFile": {
+            "name": "Black Whip Chapter 06 Fatal Gold.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 239000387,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/zorro-s-black-whip-1944-colorized/Black%20Whip%20Chapter%2006%20Fatal%20Gold.mp4"
+        },
+        {
+          "archiveID": "zorro-s-black-whip-1944-colorized@e07",
+          "sourceID": "zorro-s-black-whip-1944-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Wolf Pack",
+          "overview": null,
+          "stillURL": "https://archive.org/download/zorro-s-black-whip-1944-colorized/zorro-s-black-whip-1944-colorized.thumbs/Black%20Whip%20Chapter%2007%20Wolf%20Pack_000318.jpg",
+          "airDate": null,
+          "year": 1944,
+          "runtimeSeconds": 864,
+          "videoFile": {
+            "name": "Black Whip Chapter 07 Wolf Pack.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 241720132,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/zorro-s-black-whip-1944-colorized/Black%20Whip%20Chapter%2007%20Wolf%20Pack.mp4"
+        },
+        {
+          "archiveID": "zorro-s-black-whip-1944-colorized@e08",
+          "sourceID": "zorro-s-black-whip-1944-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Invisible Victim",
+          "overview": null,
+          "stillURL": "https://archive.org/download/zorro-s-black-whip-1944-colorized/zorro-s-black-whip-1944-colorized.thumbs/Black%20Whip%20Chapter%2008%20The%20Invisible%20Victim_000318.jpg",
+          "airDate": null,
+          "year": 1944,
+          "runtimeSeconds": 865,
+          "videoFile": {
+            "name": "Black Whip Chapter 08 The Invisible Victim.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 235802650,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/zorro-s-black-whip-1944-colorized/Black%20Whip%20Chapter%2008%20The%20Invisible%20Victim.mp4"
+        },
+        {
+          "archiveID": "zorro-s-black-whip-1944-colorized@e09",
+          "sourceID": "zorro-s-black-whip-1944-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Avalanche",
+          "overview": null,
+          "stillURL": "https://archive.org/download/zorro-s-black-whip-1944-colorized/zorro-s-black-whip-1944-colorized.thumbs/Black%20Whip%20Chapter%2009%20Avalanche_000324.jpg",
+          "airDate": null,
+          "year": 1944,
+          "runtimeSeconds": 864,
+          "videoFile": {
+            "name": "Black Whip Chapter 09 Avalanche.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 211510627,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/zorro-s-black-whip-1944-colorized/Black%20Whip%20Chapter%2009%20Avalanche.mp4"
+        },
+        {
+          "archiveID": "zorro-s-black-whip-1944-colorized@e10",
+          "sourceID": "zorro-s-black-whip-1944-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Fangs of Doom",
+          "overview": null,
+          "stillURL": "https://archive.org/download/zorro-s-black-whip-1944-colorized/zorro-s-black-whip-1944-colorized.thumbs/Black%20Whip%20Chapter%2010%20Fangs%20of%20Doom_000317.jpg",
+          "airDate": null,
+          "year": 1944,
+          "runtimeSeconds": 864,
+          "videoFile": {
+            "name": "Black Whip Chapter 10 Fangs of Doom.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 269062225,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/zorro-s-black-whip-1944-colorized/Black%20Whip%20Chapter%2010%20Fangs%20of%20Doom.mp4"
+        },
+        {
+          "archiveID": "zorro-s-black-whip-1944-colorized@e11",
+          "sourceID": "zorro-s-black-whip-1944-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Flaming Juggernaut",
+          "overview": null,
+          "stillURL": "https://archive.org/download/zorro-s-black-whip-1944-colorized/zorro-s-black-whip-1944-colorized.thumbs/Black%20Whip%20Chapter%2011%20Flaming%20Juggernaut_000312.jpg",
+          "airDate": null,
+          "year": 1944,
+          "runtimeSeconds": 870,
+          "videoFile": {
+            "name": "Black Whip Chapter 11 Flaming Juggernaut.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 212919147,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/zorro-s-black-whip-1944-colorized/Black%20Whip%20Chapter%2011%20Flaming%20Juggernaut.mp4"
+        },
+        {
+          "archiveID": "zorro-s-black-whip-1944-colorized@e12",
+          "sourceID": "zorro-s-black-whip-1944-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Trail of Tyranny",
+          "overview": null,
+          "stillURL": "https://archive.org/download/zorro-s-black-whip-1944-colorized/zorro-s-black-whip-1944-colorized.thumbs/Black%20Whip%20Chapter%2012%20Trail%20of%20Tyranny_000308.jpg",
+          "airDate": null,
+          "year": 1944,
+          "runtimeSeconds": 857,
+          "videoFile": {
+            "name": "Black Whip Chapter 12 Trail of Tyranny.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 136911360,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/zorro-s-black-whip-1944-colorized/Black%20Whip%20Chapter%2012%20Trail%20of%20Tyranny.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 12,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "commons",
+  "cast": [
+    {
+      "name": "Linda Stirling",
+      "character": "Barbara Meredith",
+      "order": 0,
+      "profilePath": "/aeWmvxgNYUgoiQNP7SeEVS30e1M.jpg"
+    },
+    {
+      "name": "Lucien Littlefield",
+      "character": "'Tenpoint' Jackson",
+      "order": 1,
+      "profilePath": "/65jnSJmU2BC4Jrpg2Nfg6glU6wN.jpg"
+    },
+    {
+      "name": "George J. Lewis",
+      "character": "Vic Gordon",
+      "order": 2,
+      "profilePath": "/cgo8gX8VDRoQV42rgQKJU4ceP3p.jpg"
+    },
+    {
+      "name": "Francis McDonald",
+      "character": "Dan Hammond",
+      "order": 3,
+      "profilePath": "/5sIApbjJvZx0KvEDEk7BWKUuAeg.jpg"
+    }
+  ]
+}

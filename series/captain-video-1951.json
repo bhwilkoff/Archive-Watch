@@ -1,0 +1,375 @@
+{
+  "version": 2,
+  "seriesID": "captain-video-1951",
+  "sourceID": "captain-video-serial-trailer-colorized",
+  "tvmazeID": null,
+  "title": "Captain Video",
+  "yearStart": 1951,
+  "yearEnd": null,
+  "overview": "Space hero Captain Video, the leader of a group of crime-fighters known as the Video Rangers. Who battles the evil interplanetary menace, dictator Vultura on the planet Atoma, and his lackey, the traitorous earth scientist Dr. Tobor who are planning to conquer the earth.",
+  "posterURL": "https://commons.wikimedia.org/wiki/Special:FilePath/Captain_Video_title_card.JPG?width=600",
+  "backdropURL": null,
+  "genres": [
+    "Science Fiction"
+  ],
+  "networks": [],
+  "creator": "Wallace Grissell",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "captain-video-serial-trailer-colorized@e01",
+          "sourceID": "captain-video-serial-trailer-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Journey into Space",
+          "overview": null,
+          "stillURL": "https://archive.org/download/captain-video-serial-trailer-colorized/captain-video-serial-trailer-colorized.thumbs/CV%20Chapter%2001%20Journey%20into%20Space_000537.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1685,
+          "videoFile": {
+            "name": "CV Chapter 01 Journey into Space.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 222854595,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/captain-video-serial-trailer-colorized/CV%20Chapter%2001%20Journey%20into%20Space.mp4"
+        },
+        {
+          "archiveID": "captain-video-serial-trailer-colorized@e02",
+          "sourceID": "captain-video-serial-trailer-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Menace of Atoma",
+          "overview": null,
+          "stillURL": "https://archive.org/download/captain-video-serial-trailer-colorized/captain-video-serial-trailer-colorized.thumbs/CV%20Chapter%2002%20Menace%20of%20Atoma_000295.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 962,
+          "videoFile": {
+            "name": "CV Chapter 02 Menace of Atoma.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 202801037,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/captain-video-serial-trailer-colorized/CV%20Chapter%2002%20Menace%20of%20Atoma.mp4"
+        },
+        {
+          "archiveID": "captain-video-serial-trailer-colorized@e03",
+          "sourceID": "captain-video-serial-trailer-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Captain Video's Peril",
+          "overview": null,
+          "stillURL": "https://archive.org/download/captain-video-serial-trailer-colorized/captain-video-serial-trailer-colorized.thumbs/CV%20Chapter%2003%20Captain%20Video%27s%20Peril_000294.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 995,
+          "videoFile": {
+            "name": "CV Chapter 03 Captain Video's Peril.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 171029427,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/captain-video-serial-trailer-colorized/CV%20Chapter%2003%20Captain%20Video%27s%20Peril.mp4"
+        },
+        {
+          "archiveID": "captain-video-serial-trailer-colorized@e04",
+          "sourceID": "captain-video-serial-trailer-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Entombed in Ice",
+          "overview": null,
+          "stillURL": "https://archive.org/download/captain-video-serial-trailer-colorized/captain-video-serial-trailer-colorized.thumbs/CV%20Chapter%2004%20Entombed%20in%20Ice_000294.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 988,
+          "videoFile": {
+            "name": "CV Chapter 04 Entombed in Ice.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 151792486,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/captain-video-serial-trailer-colorized/CV%20Chapter%2004%20Entombed%20in%20Ice.mp4"
+        },
+        {
+          "archiveID": "captain-video-serial-trailer-colorized@e05",
+          "sourceID": "captain-video-serial-trailer-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Flames of Atoma",
+          "overview": null,
+          "stillURL": "https://archive.org/download/captain-video-serial-trailer-colorized/captain-video-serial-trailer-colorized.thumbs/CV%20Chapter%2005%20Flames%20of%20Atoma_000297.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 980,
+          "videoFile": {
+            "name": "CV Chapter 05 Flames of Atoma.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 148040042,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/captain-video-serial-trailer-colorized/CV%20Chapter%2005%20Flames%20of%20Atoma.mp4"
+        },
+        {
+          "archiveID": "captain-video-serial-trailer-colorized@e06",
+          "sourceID": "captain-video-serial-trailer-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Astray in the Stratosphere",
+          "overview": null,
+          "stillURL": "https://archive.org/download/captain-video-serial-trailer-colorized/captain-video-serial-trailer-colorized.thumbs/CV%20Chapter%2006%20Astray%20in%20the%20Stratosphere_000299.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 990,
+          "videoFile": {
+            "name": "CV Chapter 06 Astray in the Stratosphere.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 151006409,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/captain-video-serial-trailer-colorized/CV%20Chapter%2006%20Astray%20in%20the%20Stratosphere.mp4"
+        },
+        {
+          "archiveID": "captain-video-serial-trailer-colorized@e07",
+          "sourceID": "captain-video-serial-trailer-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Blasted by the Atomic Eye",
+          "overview": null,
+          "stillURL": "https://archive.org/download/captain-video-serial-trailer-colorized/captain-video-serial-trailer-colorized.thumbs/CV%20Chapter%2007%20Blasted%20by%20the%20Atomic%20Eye_000295.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 922,
+          "videoFile": {
+            "name": "CV Chapter 07 Blasted by the Atomic Eye.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 145061643,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/captain-video-serial-trailer-colorized/CV%20Chapter%2007%20Blasted%20by%20the%20Atomic%20Eye.mp4"
+        },
+        {
+          "archiveID": "captain-video-serial-trailer-colorized@e08",
+          "sourceID": "captain-video-serial-trailer-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Invisible Menace",
+          "overview": null,
+          "stillURL": "https://archive.org/download/captain-video-serial-trailer-colorized/captain-video-serial-trailer-colorized.thumbs/CV%20Chapter%2008%20Invisible%20Menace_000358.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1001,
+          "videoFile": {
+            "name": "CV Chapter 08 Invisible Menace.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 155384034,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/captain-video-serial-trailer-colorized/CV%20Chapter%2008%20Invisible%20Menace.mp4"
+        },
+        {
+          "archiveID": "captain-video-serial-trailer-colorized@e09",
+          "sourceID": "captain-video-serial-trailer-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Video Springs a Trap",
+          "overview": null,
+          "stillURL": "https://archive.org/download/captain-video-serial-trailer-colorized/captain-video-serial-trailer-colorized.thumbs/CV%20Chapter%2009%20Video%20Springs%20a%20Trap_000297.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 965,
+          "videoFile": {
+            "name": "CV Chapter 09 Video Springs a Trap.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 162452532,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/captain-video-serial-trailer-colorized/CV%20Chapter%2009%20Video%20Springs%20a%20Trap.mp4"
+        },
+        {
+          "archiveID": "captain-video-serial-trailer-colorized@e10",
+          "sourceID": "captain-video-serial-trailer-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Menace of the Mystery Metal",
+          "overview": null,
+          "stillURL": "https://archive.org/download/captain-video-serial-trailer-colorized/captain-video-serial-trailer-colorized.thumbs/CV%20Chapter%2010%20Menace%20of%20the%20Mystery%20Metal_000294.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 985,
+          "videoFile": {
+            "name": "CV Chapter 10 Menace of the Mystery Metal.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 182993688,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/captain-video-serial-trailer-colorized/CV%20Chapter%2010%20Menace%20of%20the%20Mystery%20Metal.mp4"
+        },
+        {
+          "archiveID": "captain-video-serial-trailer-colorized@e11",
+          "sourceID": "captain-video-serial-trailer-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Weapon of Destruction",
+          "overview": null,
+          "stillURL": "https://archive.org/download/captain-video-serial-trailer-colorized/captain-video-serial-trailer-colorized.thumbs/CV%20Chapter%2011%20Weapon%20of%20Destruction_000295.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1007,
+          "videoFile": {
+            "name": "CV Chapter 11 Weapon of Destruction.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 175387955,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/captain-video-serial-trailer-colorized/CV%20Chapter%2011%20Weapon%20of%20Destruction.mp4"
+        },
+        {
+          "archiveID": "captain-video-serial-trailer-colorized@e12",
+          "sourceID": "captain-video-serial-trailer-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Robot Rocket",
+          "overview": null,
+          "stillURL": "https://archive.org/download/captain-video-serial-trailer-colorized/captain-video-serial-trailer-colorized.thumbs/CV%20Chapter%2012%20Robot%20Rocket_000294.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 967,
+          "videoFile": {
+            "name": "CV Chapter 12 Robot Rocket.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 164658616,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/captain-video-serial-trailer-colorized/CV%20Chapter%2012%20Robot%20Rocket.mp4"
+        },
+        {
+          "archiveID": "captain-video-serial-trailer-colorized@e13",
+          "sourceID": "captain-video-serial-trailer-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Mystery of Station X",
+          "overview": null,
+          "stillURL": "https://archive.org/download/captain-video-serial-trailer-colorized/captain-video-serial-trailer-colorized.thumbs/CV%20Chapter%2013%20Mystery%20of%20Station%20X_000296.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 990,
+          "videoFile": {
+            "name": "CV Chapter 13 Mystery of Station X.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 147931058,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/captain-video-serial-trailer-colorized/CV%20Chapter%2013%20Mystery%20of%20Station%20X.mp4"
+        },
+        {
+          "archiveID": "captain-video-serial-trailer-colorized@e14",
+          "sourceID": "captain-video-serial-trailer-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Vengeance of Vultura",
+          "overview": null,
+          "stillURL": "https://archive.org/download/captain-video-serial-trailer-colorized/captain-video-serial-trailer-colorized.thumbs/CV%20Chapter%2014%20Vengeance%20of%20Vultura_000296.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 988,
+          "videoFile": {
+            "name": "CV Chapter 14 Vengeance of Vultura.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 146356282,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/captain-video-serial-trailer-colorized/CV%20Chapter%2014%20Vengeance%20of%20Vultura.mp4"
+        },
+        {
+          "archiveID": "captain-video-serial-trailer-colorized@e15",
+          "sourceID": "captain-video-serial-trailer-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Video vs. Vultura",
+          "overview": null,
+          "stillURL": "https://archive.org/download/captain-video-serial-trailer-colorized/captain-video-serial-trailer-colorized.thumbs/CV%20Chapter%2015%20Video%20vs.%20Vultura_000354.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1034,
+          "videoFile": {
+            "name": "CV Chapter 15 Video vs. Vultura.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 156873738,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/captain-video-serial-trailer-colorized/CV%20Chapter%2015%20Video%20vs.%20Vultura.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "captain-video-serial-trailer-colorized@x-cv-trailer",
+          "sourceID": "captain-video-serial-trailer-colorized",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "trailer",
+          "overview": null,
+          "stillURL": "https://archive.org/download/captain-video-serial-trailer-colorized/captain-video-serial-trailer-colorized.thumbs/CV%20trailer_000087.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 209,
+          "videoFile": {
+            "name": "CV trailer.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 43412610,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/captain-video-serial-trailer-colorized/CV%20trailer.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 16,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "commons",
+  "cast": [
+    {
+      "name": "William Fawcett",
+      "character": null,
+      "order": 0,
+      "profilePath": "/ep0wJtC7nwKs2QUoPIWPD77zVxO.jpg"
+    },
+    {
+      "name": "Skelton Knaggs",
+      "character": null,
+      "order": 1,
+      "profilePath": "/xbUWhjciDvMOx1WdoFHwU4680Ph.jpg"
+    },
+    {
+      "name": "George Eldredge",
+      "character": "Dr. Tobor",
+      "order": 2,
+      "profilePath": "/4sWV8w8lX6UC0mnI8wmESKcwO6z.jpg"
+    },
+    {
+      "name": "Don C. Harvey",
+      "character": null,
+      "order": 3,
+      "profilePath": "/fu0TL4OisSESWMtzouWJBDZeCKL.jpg"
+    },
+    {
+      "name": "Judd Holdren",
+      "character": "Captain Video",
+      "order": 4,
+      "profilePath": "/gjpzszVLXNdUZxpCptZdkO4lKF3.jpg"
+    },
+    {
+      "name": "Gene Roth",
+      "character": "Vultura",
+      "order": 5,
+      "profilePath": "/mx7J3DIue4s5ShNaxmdq8TNFxPY.jpg"
+    }
+  ]
+}

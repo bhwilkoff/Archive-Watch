@@ -1,0 +1,369 @@
+{
+  "version": 2,
+  "seriesID": "the-jackie-gleason-show-season-8-1969",
+  "sourceID": "jackie-gleason-show-season-8-1969-1970",
+  "tvmazeID": null,
+  "title": "The Jackie Gleason Show Season 8",
+  "yearStart": 1969,
+  "yearEnd": null,
+  "overview": "Here are some episodes of The Jackie Gleason Show Season 8 (1969-1970). Also considered to be season 4 of the Jackie Gleason Show revival series.",
+  "posterURL": "https://archive.org/services/img/jackie-gleason-show-season-8-1969-1970",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "jackie-gleason-show-season-8-1969-1970@s4e01",
+          "sourceID": "jackie-gleason-show-season-8-1969-1970",
+          "seasonNumber": 4,
+          "episodeNumber": 1,
+          "title": "09-27-1969 - JGSR - HM01 - Play It Again, Norton",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/jackie-gleason-show-season-8-1969-1970.thumbs/S04E01%20-%2009-27-1969%20-%20JGSR%20-%20HM01%20-%20Play%20It%20Again%2C%20Norton_001195.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 3007,
+          "videoFile": {
+            "name": "S04E01 - 09-27-1969 - JGSR - HM01 - Play It Again, Norton.mp4",
+            "format": "h.264",
+            "sizeBytes": 291363831,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/S04E01%20-%2009-27-1969%20-%20JGSR%20-%20HM01%20-%20Play%20It%20Again%2C%20Norton.mp4"
+        },
+        {
+          "archiveID": "jackie-gleason-show-season-8-1969-1970@s4e02",
+          "sourceID": "jackie-gleason-show-season-8-1969-1970",
+          "seasonNumber": 4,
+          "episodeNumber": 2,
+          "title": "10-04-1969 - JGSR - HM02 - Ralph Goes Hollywood",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/jackie-gleason-show-season-8-1969-1970.thumbs/S04E02%20-%2010-04-1969%20-%20JGSR%20-%20HM02%20-%20Ralph%20Goes%20Hollywood_001184.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2982,
+          "videoFile": {
+            "name": "S04E02 - 10-04-1969 - JGSR - HM02 - Ralph Goes Hollywood.mp4",
+            "format": "h.264",
+            "sizeBytes": 289357637,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/S04E02%20-%2010-04-1969%20-%20JGSR%20-%20HM02%20-%20Ralph%20Goes%20Hollywood.mp4"
+        },
+        {
+          "archiveID": "jackie-gleason-show-season-8-1969-1970@s4e03",
+          "sourceID": "jackie-gleason-show-season-8-1969-1970",
+          "seasonNumber": 4,
+          "episodeNumber": 3,
+          "title": "10-11-1969 - JGSR - HM03 - The Mexican Hat Trick",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/jackie-gleason-show-season-8-1969-1970.thumbs/S04E03%20-%2010-11-1969%20-%20JGSR%20-%20HM03%20-%20The%20Mexican%20Hat%20Trick_001201.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 3020,
+          "videoFile": {
+            "name": "03 - The Mexican Hat Trick.mp4",
+            "format": "h.264",
+            "sizeBytes": 291022230,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/03%20-%20The%20Mexican%20Hat%20Trick.mp4"
+        },
+        {
+          "archiveID": "jackie-gleason-show-season-8-1969-1970@s4e04",
+          "sourceID": "jackie-gleason-show-season-8-1969-1970",
+          "seasonNumber": 4,
+          "episodeNumber": 4,
+          "title": "10-18-1969 - JGSR - HM04 - Case of the Cuckoo Thief",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/jackie-gleason-show-season-8-1969-1970.thumbs/S04E04%20-%2010-18-1969%20-%20JGSR%20-%20HM04%20-%20Case%20of%20the%20Cuckoo%20Thief_001180.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2970,
+          "videoFile": {
+            "name": "04 - Case of the Cuckoo Thief.mp4",
+            "format": "h.264",
+            "sizeBytes": 287766302,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/04%20-%20Case%20of%20the%20Cuckoo%20Thief.mp4"
+        },
+        {
+          "archiveID": "jackie-gleason-show-season-8-1969-1970@s4e05",
+          "sourceID": "jackie-gleason-show-season-8-1969-1970",
+          "seasonNumber": 4,
+          "episodeNumber": 5,
+          "title": "10-25-1969 - JGSR - Yes, We Have No Bonanzas",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/jackie-gleason-show-season-8-1969-1970.thumbs/S04E05%20-%2010-25-1969%20-%20JGSR%20-%20Yes%2C%20We%20Have%20No%20Bonanzas_001270.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2942,
+          "videoFile": {
+            "name": "S04E05 - 10-25-1969 - JGSR - Yes, We Have No Bonanzas.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 700807081,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/S04E05%20-%2010-25-1969%20-%20JGSR%20-%20Yes%2C%20We%20Have%20No%20Bonanzas.ia.mp4"
+        },
+        {
+          "archiveID": "jackie-gleason-show-season-8-1969-1970@s4e06",
+          "sourceID": "jackie-gleason-show-season-8-1969-1970",
+          "seasonNumber": 4,
+          "episodeNumber": 6,
+          "title": "11-01-1969 - JGSR - HM05 - The Honeymoon is Over",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/jackie-gleason-show-season-8-1969-1970.thumbs/S04E06%20-%2011-01-1969%20-%20JGSR%20-%20HM05%20-%20The%20Honeymoon%20is%20Over_001191.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 3005,
+          "videoFile": {
+            "name": "06 - The Honeymoon is Over.mp4",
+            "format": "h.264",
+            "sizeBytes": 290085785,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/06%20-%20The%20Honeymoon%20is%20Over.mp4"
+        },
+        {
+          "archiveID": "jackie-gleason-show-season-8-1969-1970@s4e07",
+          "sourceID": "jackie-gleason-show-season-8-1969-1970",
+          "seasonNumber": 4,
+          "episodeNumber": 7,
+          "title": "11-08-1969 - JGSR - HM06 - Happiness is a Rich Uncle",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/jackie-gleason-show-season-8-1969-1970.thumbs/S04E07%20-%2011-08-1969%20-%20JGSR%20-%20HM06%20-%20Happiness%20is%20a%20Rich%20Uncle_001125.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2824,
+          "videoFile": {
+            "name": "07 - Happiness is a Rich Uncle.mp4",
+            "format": "h.264",
+            "sizeBytes": 272594783,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/07%20-%20Happiness%20is%20a%20Rich%20Uncle.mp4"
+        },
+        {
+          "archiveID": "jackie-gleason-show-season-8-1969-1970@s4e08",
+          "sourceID": "jackie-gleason-show-season-8-1969-1970",
+          "seasonNumber": 4,
+          "episodeNumber": 8,
+          "title": "11-15-1969 - JGSR - HM07 - Hawaii, Oh! Oh!",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/jackie-gleason-show-season-8-1969-1970.thumbs/S04E08%20-%2011-15-1969%20-%20JGSR%20-%20HM07%20-%20Hawaii%2C%20Oh%21%20Oh%21_001173.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2946,
+          "videoFile": {
+            "name": "S04E08 - 11-15-1969 - JGSR - HM07 - Hawaii, Oh! Oh!.mp4",
+            "format": "h.264",
+            "sizeBytes": 284313500,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/S04E08%20-%2011-15-1969%20-%20JGSR%20-%20HM07%20-%20Hawaii%2C%20Oh%21%20Oh%21.mp4"
+        },
+        {
+          "archiveID": "jackie-gleason-show-season-8-1969-1970@s4e09",
+          "sourceID": "jackie-gleason-show-season-8-1969-1970",
+          "seasonNumber": 4,
+          "episodeNumber": 9,
+          "title": "11-22-1969 - JGSR - HM08 - The Sun and Raccoon Capital",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/jackie-gleason-show-season-8-1969-1970.thumbs/S04E09%20-%2011-22-1969%20-%20JGSR%20-%20HM08%20-%20The%20Sun%20and%20Raccoon%20Capital_001279.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2964,
+          "videoFile": {
+            "name": "08 - The Sun and Raccoon Capital.mp4",
+            "format": "h.264",
+            "sizeBytes": 285516520,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/08%20-%20The%20Sun%20and%20Raccoon%20Capital.mp4"
+        },
+        {
+          "archiveID": "jackie-gleason-show-season-8-1969-1970@s4e10",
+          "sourceID": "jackie-gleason-show-season-8-1969-1970",
+          "seasonNumber": 4,
+          "episodeNumber": 10,
+          "title": "11-29-1969 - JGSR - HM09 - The Match Game",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/jackie-gleason-show-season-8-1969-1970.thumbs/S04E10%20-%2011-29-1969%20-%20JGSR%20-%20HM09%20-%20The%20Match%20Game_001299.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 3007,
+          "videoFile": {
+            "name": "10 - The Match Game.mp4",
+            "format": "h.264",
+            "sizeBytes": 291081540,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/10%20-%20The%20Match%20Game.mp4"
+        },
+        {
+          "archiveID": "jackie-gleason-show-season-8-1969-1970@s4e11",
+          "sourceID": "jackie-gleason-show-season-8-1969-1970",
+          "seasonNumber": 4,
+          "episodeNumber": 11,
+          "title": "12-06-1969 - JGSR - HM10 - Double Trouble",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/jackie-gleason-show-season-8-1969-1970.thumbs/S04E11%20-%2012-06-1969%20-%20JGSR%20-%20HM10%20-%20Double%20Trouble_001311.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 3035,
+          "videoFile": {
+            "name": "10 - Double Trouble.mp4",
+            "format": "h.264",
+            "sizeBytes": 292477112,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/10%20-%20Double%20Trouble.mp4"
+        },
+        {
+          "archiveID": "jackie-gleason-show-season-8-1969-1970@s4e12",
+          "sourceID": "jackie-gleason-show-season-8-1969-1970",
+          "seasonNumber": 4,
+          "episodeNumber": 12,
+          "title": "12-13-1969 - JGSR - Reggie And The Red Baron",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/jackie-gleason-show-season-8-1969-1970.thumbs/S04E12%20-%2012-13-1969%20-%20JGSR%20-%20Reggie%20And%20The%20Red%20Baron_001329.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 3070,
+          "videoFile": {
+            "name": "S04E12 - 12-13-1969 - JGSR - Reggie And The Red Baron.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 670626046,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/S04E12%20-%2012-13-1969%20-%20JGSR%20-%20Reggie%20And%20The%20Red%20Baron.ia.mp4"
+        },
+        {
+          "archiveID": "jackie-gleason-show-season-8-1969-1970@s4e14",
+          "sourceID": "jackie-gleason-show-season-8-1969-1970",
+          "seasonNumber": 4,
+          "episodeNumber": 14,
+          "title": "01-10-1970 - JGSR - Art Carney, Milton Berle, Allan Drake, Jackie Gayle, Irwin C. Watson",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/jackie-gleason-show-season-8-1969-1970.thumbs/S04E14%20-%2001-10-1970%20-%20JGSR%20-%20Art%20Carney%2C%20Milton%20Berle%2C%20Allan%20Drake%2C%20Jackie%20Gayle%2C%20Irwin%20C.%20Watson_001256.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2890,
+          "videoFile": {
+            "name": "S04E14 - 01-10-1970 - JGSR - Art Carney, Milton Berle, Allan Drake, Jackie Gayle, Irwin C. Watson.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 542485304,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/S04E14%20-%2001-10-1970%20-%20JGSR%20-%20Art%20Carney%2C%20Milton%20Berle%2C%20Allan%20Drake%2C%20Jackie%20Gayle%2C%20Irwin%20C.%20Watson.ia.mp4"
+        },
+        {
+          "archiveID": "jackie-gleason-show-season-8-1969-1970@s4e15",
+          "sourceID": "jackie-gleason-show-season-8-1969-1970",
+          "seasonNumber": 4,
+          "episodeNumber": 15,
+          "title": "01-17-1970 - JGSR - George Burns, Lisa Miller, Morey Amsterdam, Frank Gorshin, Max Spygrave",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/jackie-gleason-show-season-8-1969-1970.thumbs/S04E15%20-%2001-17-1970%20-%20JGSR%20-%20George%20Burns%2C%20Lisa%20Miller%2C%20Morey%20Amsterdam%2C%20Frank%20Gorshin%2C%20Max%20Spygrave_001195.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2765,
+          "videoFile": {
+            "name": "S04E15 - 01-17-1970 - JGSR - George Burns, Lisa Miller, Morey Amsterdam, Frank Gorshin, Max Spygrave.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 300783756,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/S04E15%20-%2001-17-1970%20-%20JGSR%20-%20George%20Burns%2C%20Lisa%20Miller%2C%20Morey%20Amsterdam%2C%20Frank%20Gorshin%2C%20Max%20Spygrave.ia.mp4"
+        },
+        {
+          "archiveID": "jackie-gleason-show-season-8-1969-1970@s4e16",
+          "sourceID": "jackie-gleason-show-season-8-1969-1970",
+          "seasonNumber": 4,
+          "episodeNumber": 16,
+          "title": "01-31-1970 - JGSR - Jack Benny, Sonny Sands, Aaron Williams",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/jackie-gleason-show-season-8-1969-1970.thumbs/S04E16%20-%2001-31-1970%20-%20JGSR%20-%20Jack%20Benny%2C%20Sonny%20Sands%2C%20Aaron%20Williams_000963.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2224,
+          "videoFile": {
+            "name": "S04E16 - 01-31-1970 - JGSR - Jack Benny, Sonny Sands, Aaron Williams.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 392526482,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/S04E16%20-%2001-31-1970%20-%20JGSR%20-%20Jack%20Benny%2C%20Sonny%20Sands%2C%20Aaron%20Williams.ia.mp4"
+        },
+        {
+          "archiveID": "jackie-gleason-show-season-8-1969-1970@s4e17",
+          "sourceID": "jackie-gleason-show-season-8-1969-1970",
+          "seasonNumber": 4,
+          "episodeNumber": 17,
+          "title": "02-07-1970 - JGSR - Art Carney, Milton Berle, Jerry Collins, Rodney Dangerfield, Timmie Rogers (Ed Norton Sings If I Were A Rich Man)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/jackie-gleason-show-season-8-1969-1970.thumbs/S04E17%20-%2002-07-1970%20-%20JGSR%20-%20Art%20Carney%2C%20Milton%20Berle%2C%20Jerry%20Collins%2C%20Rodney%20Dangerfield%2C%20Timmie%20Rogers%20%28Ed%20Norton%20Sings%20If%20I%20Were%20A%20Rich%20Man%29_001199.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2768,
+          "videoFile": {
+            "name": "S04E17 - 02-07-1970 - JGSR - Art Carney, Milton Berle, Jerry Collins, Rodney Dangerfield, Timmie Rogers (Ed Norton Sings If I Were A Rich Man).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 515432581,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/S04E17%20-%2002-07-1970%20-%20JGSR%20-%20Art%20Carney%2C%20Milton%20Berle%2C%20Jerry%20Collins%2C%20Rodney%20Dangerfield%2C%20Timmie%20Rogers%20%28Ed%20Norton%20Sings%20If%20I%20Were%20A%20Rich%20Man%29.ia.mp4"
+        },
+        {
+          "archiveID": "jackie-gleason-show-season-8-1969-1970@s4e19",
+          "sourceID": "jackie-gleason-show-season-8-1969-1970",
+          "seasonNumber": 4,
+          "episodeNumber": 19,
+          "title": "02-21-1970 - JGSR - HM11 - We’re Off to See the Wizard",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/jackie-gleason-show-season-8-1969-1970.thumbs/S04E19%20-%2002-21-1970%20-%20JGSR%20-%20HM11%20-%20We%E2%80%99re%20Off%20to%20See%20the%20Wizard_001210.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2795,
+          "videoFile": {
+            "name": "11 - We’re Off to See the Wizard.mp4",
+            "format": "h.264",
+            "sizeBytes": 268604945,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/11%20-%20We%E2%80%99re%20Off%20to%20See%20the%20Wizard.mp4"
+        },
+        {
+          "archiveID": "jackie-gleason-show-season-8-1969-1970@s4e20",
+          "sourceID": "jackie-gleason-show-season-8-1969-1970",
+          "seasonNumber": 4,
+          "episodeNumber": 20,
+          "title": "02-28-1970 - JGSR - HM12 - Operation Protest",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/jackie-gleason-show-season-8-1969-1970.thumbs/S04E20%20-%2002-28-1970%20-%20JGSR%20-%20HM12%20-%20Operation%20Protest_001291.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 2982,
+          "videoFile": {
+            "name": "12 - Operation Protest.mp4",
+            "format": "h.264",
+            "sizeBytes": 288127507,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jackie-gleason-show-season-8-1969-1970/12%20-%20Operation%20Protest.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 18,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

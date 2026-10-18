@@ -1,0 +1,350 @@
+{
+  "version": 2,
+  "seriesID": "hawk-1966",
+  "sourceID": "Hawk-1966-Full-Series",
+  "tvmazeID": null,
+  "title": "Hawk",
+  "yearStart": 1966,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/download/archivewatch-covers/Hawk-1966-Full-Series.b42458fd.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Hawk-1966-Full-Series@s1e01",
+          "sourceID": "Hawk-1966-Full-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "DO NOT MUTILATE OR SPINDLE",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2767,
+          "videoFile": {
+            "name": "Hawk (17 of 17)/S01E01 - DO NOT MUTILATE OR SPINDLE.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 266977874,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Hawk-1966-Full-Series/Hawk%20%2817%20of%2017%29/S01E01%20-%20DO%20NOT%20MUTILATE%20OR%20SPINDLE.ia.mp4"
+        },
+        {
+          "archiveID": "Hawk-1966-Full-Series@s1e02",
+          "sourceID": "Hawk-1966-Full-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "THE LONGLEAT CHRONICLES",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2770,
+          "videoFile": {
+            "name": "Hawk (17 of 17)/S01E02 - THE LONGLEAT CHRONICLES.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 267921404,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Hawk-1966-Full-Series/Hawk%20%2817%20of%2017%29/S01E02%20-%20THE%20LONGLEAT%20CHRONICLES.ia.mp4"
+        },
+        {
+          "archiveID": "Hawk-1966-Full-Series@s1e03",
+          "sourceID": "Hawk-1966-Full-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "THANKS FOR THE HONEYMOON",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2781,
+          "videoFile": {
+            "name": "Hawk (17 of 17)/S01E03 - THANKS FOR THE HONEYMOON.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 268433305,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Hawk-1966-Full-Series/Hawk%20%2817%20of%2017%29/S01E03%20-%20THANKS%20FOR%20THE%20HONEYMOON.ia.mp4"
+        },
+        {
+          "archiveID": "Hawk-1966-Full-Series@s1e04",
+          "sourceID": "Hawk-1966-Full-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "GAME WITH A DEAD END",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 3027,
+          "videoFile": {
+            "name": "Hawk (17 of 17)/S01E04 - GAME WITH A DEAD END.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 292564190,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Hawk-1966-Full-Series/Hawk%20%2817%20of%2017%29/S01E04%20-%20GAME%20WITH%20A%20DEAD%20END.ia.mp4"
+        },
+        {
+          "archiveID": "Hawk-1966-Full-Series@s1e05",
+          "sourceID": "Hawk-1966-Full-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Death Comes Full Circle",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 3190,
+          "videoFile": {
+            "name": "Hawk (17 of 17)/S01E05 - Death Comes Full Circle.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 307188479,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Hawk-1966-Full-Series/Hawk%20%2817%20of%2017%29/S01E05%20-%20Death%20Comes%20Full%20Circle.ia.mp4"
+        },
+        {
+          "archiveID": "Hawk-1966-Full-Series@s1e06",
+          "sourceID": "Hawk-1966-Full-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Theory Of The Innocent Bystander",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2795,
+          "videoFile": {
+            "name": "Hawk (17 of 17)/S01E06 - The Theory Of The Innocent Bystander.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 270729766,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Hawk-1966-Full-Series/Hawk%20%2817%20of%2017%29/S01E06%20-%20The%20Theory%20Of%20The%20Innocent%20Bystander.ia.mp4"
+        },
+        {
+          "archiveID": "Hawk-1966-Full-Series@s1e07",
+          "sourceID": "Hawk-1966-Full-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Man Who Owned Everyone",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2778,
+          "videoFile": {
+            "name": "Hawk (17 of 17)/S01E07 - The Man Who Owned Everyone.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 276879511,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Hawk-1966-Full-Series/Hawk%20%2817%20of%2017%29/S01E07%20-%20The%20Man%20Who%20Owned%20Everyone.ia.mp4"
+        },
+        {
+          "archiveID": "Hawk-1966-Full-Series@s1e08",
+          "sourceID": "Hawk-1966-Full-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "How Close Can You Get",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2767,
+          "videoFile": {
+            "name": "Hawk (17 of 17)/S01E08 - How Close Can You Get.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 276155868,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Hawk-1966-Full-Series/Hawk%20%2817%20of%2017%29/S01E08%20-%20How%20Close%20Can%20You%20Get.ia.mp4"
+        },
+        {
+          "archiveID": "Hawk-1966-Full-Series@s1e09",
+          "sourceID": "Hawk-1966-Full-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Living End of Sisterbaby",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2874,
+          "videoFile": {
+            "name": "Hawk (17 of 17)/S01E09 - The Living End of Sisterbaby.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 618198752,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Hawk-1966-Full-Series/Hawk%20%2817%20of%2017%29/S01E09%20-%20The%20Living%20End%20of%20Sisterbaby.ia.mp4"
+        },
+        {
+          "archiveID": "Hawk-1966-Full-Series@s1e10",
+          "sourceID": "Hawk-1966-Full-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Shivering Pigeon",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2773,
+          "videoFile": {
+            "name": "Hawk (17 of 17)/S01E10 - The Shivering Pigeon.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 276100230,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Hawk-1966-Full-Series/Hawk%20%2817%20of%2017%29/S01E10%20-%20The%20Shivering%20Pigeon.ia.mp4"
+        },
+        {
+          "archiveID": "Hawk-1966-Full-Series@s1e11",
+          "sourceID": "Hawk-1966-Full-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Ulysses and the Republic",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2777,
+          "videoFile": {
+            "name": "Hawk (17 of 17)/S01E11 - Ulysses and the Republic.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 277751054,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Hawk-1966-Full-Series/Hawk%20%2817%20of%2017%29/S01E11%20-%20Ulysses%20and%20the%20Republic.ia.mp4"
+        },
+        {
+          "archiveID": "Hawk-1966-Full-Series@s1e12",
+          "sourceID": "Hawk-1966-Full-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Legacy for a Lousy Future",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2765,
+          "videoFile": {
+            "name": "Hawk (17 of 17)/S01E12 - Legacy for a Lousy Future.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 633582966,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Hawk-1966-Full-Series/Hawk%20%2817%20of%2017%29/S01E12%20-%20Legacy%20for%20a%20Lousy%20Future.ia.mp4"
+        },
+        {
+          "archiveID": "Hawk-1966-Full-Series@s1e13",
+          "sourceID": "Hawk-1966-Full-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "H Is a Dirty Letter",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2767,
+          "videoFile": {
+            "name": "Hawk (17 of 17)/S01E13 - H Is a Dirty Letter.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 627087696,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Hawk-1966-Full-Series/Hawk%20%2817%20of%2017%29/S01E13%20-%20H%20Is%20a%20Dirty%20Letter.ia.mp4"
+        },
+        {
+          "archiveID": "Hawk-1966-Full-Series@s1e14",
+          "sourceID": "Hawk-1966-Full-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Some Devil Whispered in His Ear",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2769,
+          "videoFile": {
+            "name": "Hawk (17 of 17)/S01E14 - Some Devil Whispered in His Ear.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 272079178,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Hawk-1966-Full-Series/Hawk%20%2817%20of%2017%29/S01E14%20-%20Some%20Devil%20Whispered%20in%20His%20Ear.ia.mp4"
+        },
+        {
+          "archiveID": "Hawk-1966-Full-Series@s1e15",
+          "sourceID": "Hawk-1966-Full-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "The Hands of Corbin Claybrooke",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2767,
+          "videoFile": {
+            "name": "Hawk (17 of 17)/S01E15 - The Hands of Corbin Claybrooke.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 272042880,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Hawk-1966-Full-Series/Hawk%20%2817%20of%2017%29/S01E15%20-%20The%20Hands%20of%20Corbin%20Claybrooke.ia.mp4"
+        },
+        {
+          "archiveID": "Hawk-1966-Full-Series@s1e16",
+          "sourceID": "Hawk-1966-Full-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Wall Of Silence",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2772,
+          "videoFile": {
+            "name": "Hawk (17 of 17)/S01E16 - Wall Of Silence.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 268235192,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Hawk-1966-Full-Series/Hawk%20%2817%20of%2017%29/S01E16%20-%20Wall%20Of%20Silence.ia.mp4"
+        },
+        {
+          "archiveID": "Hawk-1966-Full-Series@s1e17",
+          "sourceID": "Hawk-1966-Full-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Blind Man's Bluff",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 2782,
+          "videoFile": {
+            "name": "Hawk (17 of 17)/S01E17 - Blind Man's Bluff.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 273397446,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Hawk-1966-Full-Series/Hawk%20%2817%20of%2017%29/S01E17%20-%20Blind%20Man%27s%20Bluff.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 17,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

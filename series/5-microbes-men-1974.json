@@ -1,0 +1,141 @@
+{
+  "version": 2,
+  "seriesID": "5-microbes-men-1974",
+  "sourceID": "microbes-men-ep-6-of-6-the-search-for-the-magic-bullet-paul-ehrlich_202110",
+  "tvmazeID": null,
+  "title": "5. Microbes & Men",
+  "yearStart": 1974,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://archive.org/services/img/microbes-men-ep-6-of-6-the-search-for-the-magic-bullet-paul-ehrlich_202110",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "microbes-men-ep-6-of-6-the-search-for-the-magic-bullet-paul-ehrlich_202110@e01",
+          "sourceID": "microbes-men-ep-6-of-6-the-search-for-the-magic-bullet-paul-ehrlich_202110",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "of 6 The Invisible Enemy (Ignac Semmelweis)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/microbes-men-ep-6-of-6-the-search-for-the-magic-bullet-paul-ehrlich_202110/microbes-men-ep-6-of-6-the-search-for-the-magic-bullet-paul-ehrlich_202110.thumbs/Microbes%20%26%20Men%20Ep%201%20of%206%20The%20Invisible%20Enemy%20%28Ignac%20Semmelweis%29_001135.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 3350,
+          "videoFile": {
+            "name": "Microbes & Men Ep 1 of 6 The Invisible Enemy (Ignac Semmelweis).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 643138421,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/microbes-men-ep-6-of-6-the-search-for-the-magic-bullet-paul-ehrlich_202110/Microbes%20%26%20Men%20Ep%201%20of%206%20The%20Invisible%20Enemy%20%28Ignac%20Semmelweis%29.ia.mp4"
+        },
+        {
+          "archiveID": "microbes-men-ep-6-of-6-the-search-for-the-magic-bullet-paul-ehrlich_202110@e02",
+          "sourceID": "microbes-men-ep-6-of-6-the-search-for-the-magic-bullet-paul-ehrlich_202110",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "of 6 A Germ is Life (Louis Pasteur Robert Koch)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/microbes-men-ep-6-of-6-the-search-for-the-magic-bullet-paul-ehrlich_202110/microbes-men-ep-6-of-6-the-search-for-the-magic-bullet-paul-ehrlich_202110.thumbs/Microbes%20%26%20Men%20Ep%202%20of%206%20A%20Germ%20is%20Life%20%28Louis%20Pasteur%20Robert%20Koch%29_001139.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 3366,
+          "videoFile": {
+            "name": "Microbes & Men Ep 2 of 6 A Germ is Life (Louis Pasteur Robert Koch).mp4",
+            "format": "h.264",
+            "sizeBytes": 328479526,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/microbes-men-ep-6-of-6-the-search-for-the-magic-bullet-paul-ehrlich_202110/Microbes%20%26%20Men%20Ep%202%20of%206%20A%20Germ%20is%20Life%20%28Louis%20Pasteur%20Robert%20Koch%29.mp4"
+        },
+        {
+          "archiveID": "microbes-men-ep-6-of-6-the-search-for-the-magic-bullet-paul-ehrlich_202110@e03",
+          "sourceID": "microbes-men-ep-6-of-6-the-search-for-the-magic-bullet-paul-ehrlich_202110",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "of 6 Men of Little Faith",
+          "overview": null,
+          "stillURL": "https://archive.org/download/microbes-men-ep-6-of-6-the-search-for-the-magic-bullet-paul-ehrlich_202110/microbes-men-ep-6-of-6-the-search-for-the-magic-bullet-paul-ehrlich_202110.thumbs/Microbes%20%26%20Men%20Ep%203%20of%206%20Men%20of%20Little%20Faith_001128.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 3315,
+          "videoFile": {
+            "name": "Microbes & Men Ep 3 of 6 Men of Little Faith.mp4",
+            "format": "h.264",
+            "sizeBytes": 322252177,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/microbes-men-ep-6-of-6-the-search-for-the-magic-bullet-paul-ehrlich_202110/Microbes%20%26%20Men%20Ep%203%20of%206%20Men%20of%20Little%20Faith.mp4"
+        },
+        {
+          "archiveID": "microbes-men-ep-6-of-6-the-search-for-the-magic-bullet-paul-ehrlich_202110@e04",
+          "sourceID": "microbes-men-ep-6-of-6-the-search-for-the-magic-bullet-paul-ehrlich_202110",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "of 6 Certain Death (Rabies)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/microbes-men-ep-6-of-6-the-search-for-the-magic-bullet-paul-ehrlich_202110/microbes-men-ep-6-of-6-the-search-for-the-magic-bullet-paul-ehrlich_202110.thumbs/Microbes%20%26%20Men%20Ep%204%20of%206%20Certain%20Death%20%28Rabies%29_001127.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 3332,
+          "videoFile": {
+            "name": "Microbes & Men Ep 4 of 6 Certain Death (Rabies).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 727238280,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/microbes-men-ep-6-of-6-the-search-for-the-magic-bullet-paul-ehrlich_202110/Microbes%20%26%20Men%20Ep%204%20of%206%20Certain%20Death%20%28Rabies%29.ia.mp4"
+        },
+        {
+          "archiveID": "microbes-men-ep-6-of-6-the-search-for-the-magic-bullet-paul-ehrlich_202110@e05",
+          "sourceID": "microbes-men-ep-6-of-6-the-search-for-the-magic-bullet-paul-ehrlich_202110",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "of 6 The Tuberculin Affair (TB)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/microbes-men-ep-6-of-6-the-search-for-the-magic-bullet-paul-ehrlich_202110/microbes-men-ep-6-of-6-the-search-for-the-magic-bullet-paul-ehrlich_202110.thumbs/Microbes%20%26%20Men%20Ep%205%20of%206%20The%20Tuberculin%20Affair%20%28TB%29_001145.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 3369,
+          "videoFile": {
+            "name": "Microbes & Men Ep 5 of 6 The Tuberculin Affair (TB).mp4",
+            "format": "h.264",
+            "sizeBytes": 325613935,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/microbes-men-ep-6-of-6-the-search-for-the-magic-bullet-paul-ehrlich_202110/Microbes%20%26%20Men%20Ep%205%20of%206%20The%20Tuberculin%20Affair%20%28TB%29.mp4"
+        },
+        {
+          "archiveID": "microbes-men-ep-6-of-6-the-search-for-the-magic-bullet-paul-ehrlich_202110@e06",
+          "sourceID": "microbes-men-ep-6-of-6-the-search-for-the-magic-bullet-paul-ehrlich_202110",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "of 6 The Search for the Magic Bullet (Paul Ehrlich)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/microbes-men-ep-6-of-6-the-search-for-the-magic-bullet-paul-ehrlich_202110/microbes-men-ep-6-of-6-the-search-for-the-magic-bullet-paul-ehrlich_202110.thumbs/Microbes%20%26%20Men%20Ep%206%20of%206%20The%20Search%20for%20the%20Magic%20Bullet%20%28Paul%20Ehrlich%29_001133.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 3349,
+          "videoFile": {
+            "name": "Microbes & Men Ep 6 of 6 The Search for the Magic Bullet (Paul Ehrlich).mp4",
+            "format": "h.264",
+            "sizeBytes": 324128659,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/microbes-men-ep-6-of-6-the-search-for-the-magic-bullet-paul-ehrlich_202110/Microbes%20%26%20Men%20Ep%206%20of%206%20The%20Search%20for%20the%20Magic%20Bullet%20%28Paul%20Ehrlich%29.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

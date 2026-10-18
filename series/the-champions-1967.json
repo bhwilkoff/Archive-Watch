@@ -1,0 +1,601 @@
+{
+  "version": 2,
+  "seriesID": "the-champions-1967",
+  "sourceID": "the-champions-complete-series-1967",
+  "tvmazeID": null,
+  "title": "The Champions",
+  "yearStart": 1967,
+  "yearEnd": null,
+  "overview": "The Champions is a British espionage thriller / science fiction / occult detective fiction adventure television series. It was produced by Lew Grade 's ITC Entertainment production company, and consists of 30 episodes broadcast in the UK on ITV during 1968–1969. The series was broadcast in the US on NBC, starting in summer 1968. Agents Craig Stirling, Sharron Macready and Richard Barrett work for a United Nations law enforcement organization called 'Nemesis', based in Geneva. Barrett is a codebreaker, Stirling a pilot, and Macready a recently widowed scientist and doctor. In the pilot episode, the team is escaping by air from a spying mission in China. Their stolen plane, damaged by gunfire during the getaway, crashes in the Himalayas. They are rescued by the residents of Shangri-La, an advanced civilization living secretly in the mountains of Tibet, who save their lives, granting them enhanced abilities, including extrasensory powers to communicate with one another over distances (telepathy) and to foresee events (precognition), enhanced versions of the ordinary five senses, and intellectual and physical abilities reaching the fullest extent of human capabilities. Many stories feature unusual villains, such as fascist regimes from unspecified South American countries, Nazis (a common theme of ITC 1960s and 1970s TV, in part owing to both the writers and the domestic audience having been of the war generation) or the Chinese. The villains' schemes often threaten world peace; Nemesis' brief is international, so the agents deal with threats transcending national interests. The main characters have to learn the use of their new powers as they go along, keeping what they discover secret from friend and foe alike. Each episode begins with a close-up shot of a map, showing the region in which the story is to take place, followed by a teaser sometimes prefaced by stock footage; this is followed by the title sequence. Immediately following that is a post-title vignette, in which one or more of the Champions demonstrates exceptional mental or physical abilities, often astonishing or humiliating others. In one example Stirling participates in a sharpshooting contest. In another, Macready's car is blocked in, two laughing passing drunks try to lift it out but she goes round to the other side and pulls it out of the parking space one-handed. Paradoxically, the narration during these often-public demonstrations usually mentions the need to keep the powers a secret. The narration involved in these particular scenes is spoken by American-born actor David Bauer, who also appeared as a foreign-accented villain in the episode \"The Experiment\". The only other series regular is the Champions' boss, Tremayne. He does not know that his agents have special abilities, although he does ask innocent questions about just how on their missions they managed to carry out certain tasks about which their reports were vague.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/the-champions-complete-series-1967.a8005b5e.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Mystery",
+    "Crime",
+    "Action"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-champions-complete-series-1967@e01",
+          "sourceID": "the-champions-complete-series-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Beginning",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-champions-complete-series-1967/the-champions-complete-series-1967.thumbs/The%20Champions%20%20%20Episode%2001%20%20%20The%20Beginning%20DivX_001407.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2860,
+          "videoFile": {
+            "name": "The Champions   Episode 01   The Beginning DivX.mp4",
+            "format": "h.264",
+            "sizeBytes": 269687564,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-champions-complete-series-1967/The%20Champions%20%20%20Episode%2001%20%20%20The%20Beginning%20DivX.mp4"
+        },
+        {
+          "archiveID": "the-champions-complete-series-1967@e02",
+          "sourceID": "the-champions-complete-series-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Invisible Man",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-champions-complete-series-1967/the-champions-complete-series-1967.thumbs/The%20Champions%20%20%20Episode%2002%20%20%20The%20Invisible%20Man%20DivX_001438.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2918,
+          "videoFile": {
+            "name": "The Champions   Episode 02   The Invisible Man DivX.mp4",
+            "format": "h.264",
+            "sizeBytes": 275698213,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-champions-complete-series-1967/The%20Champions%20%20%20Episode%2002%20%20%20The%20Invisible%20Man%20DivX.mp4"
+        },
+        {
+          "archiveID": "the-champions-complete-series-1967@e03",
+          "sourceID": "the-champions-complete-series-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Reply Box No 666",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-champions-complete-series-1967/the-champions-complete-series-1967.thumbs/The%20Champions%20%20%20Episode%2003%20%20%20Reply%20Box%20No%20666%20DivX_001436.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2921,
+          "videoFile": {
+            "name": "The Champions   Episode 03   Reply Box No 666 DivX.mp4",
+            "format": "h.264",
+            "sizeBytes": 274921165,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-champions-complete-series-1967/The%20Champions%20%20%20Episode%2003%20%20%20Reply%20Box%20No%20666%20DivX.mp4"
+        },
+        {
+          "archiveID": "the-champions-complete-series-1967@e04",
+          "sourceID": "the-champions-complete-series-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Experiment",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-champions-complete-series-1967/the-champions-complete-series-1967.thumbs/The%20Champions%20%20%20Episode%2004%20%20%20The%20Experiment%20DivX_001445.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2931,
+          "videoFile": {
+            "name": "The Champions   Episode 04   The Experiment DivX.mp4",
+            "format": "h.264",
+            "sizeBytes": 277589988,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-champions-complete-series-1967/The%20Champions%20%20%20Episode%2004%20%20%20The%20Experiment%20DivX.mp4"
+        },
+        {
+          "archiveID": "the-champions-complete-series-1967@e05",
+          "sourceID": "the-champions-complete-series-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Happening",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-champions-complete-series-1967/the-champions-complete-series-1967.thumbs/The%20Champions%20%20%20Episode%2005%20%20%20Happening%20DivX_001429.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2913,
+          "videoFile": {
+            "name": "The Champions   Episode 05   Happening DivX.mp4",
+            "format": "h.264",
+            "sizeBytes": 274138947,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-champions-complete-series-1967/The%20Champions%20%20%20Episode%2005%20%20%20Happening%20DivX.mp4"
+        },
+        {
+          "archiveID": "the-champions-complete-series-1967@e06",
+          "sourceID": "the-champions-complete-series-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Operation Deep Freeze",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-champions-complete-series-1967/the-champions-complete-series-1967.thumbs/The%20Champions%20%20%20Episode%2006%20%20%20Operation%20Deep%20Freeze%20DivX_001431.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2921,
+          "videoFile": {
+            "name": "The Champions   Episode 06   Operation Deep Freeze DivX.mp4",
+            "format": "h.264",
+            "sizeBytes": 275974008,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-champions-complete-series-1967/The%20Champions%20%20%20Episode%2006%20%20%20Operation%20Deep%20Freeze%20DivX.mp4"
+        },
+        {
+          "archiveID": "the-champions-complete-series-1967@e07",
+          "sourceID": "the-champions-complete-series-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Survivors",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-champions-complete-series-1967/the-champions-complete-series-1967.thumbs/The%20Champions%20%20%20Episode%2007%20%20%20The%20Survivors%20DivX_001431.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2909,
+          "videoFile": {
+            "name": "The Champions   Episode 07   The Survivors DivX.mp4",
+            "format": "h.264",
+            "sizeBytes": 274399091,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-champions-complete-series-1967/The%20Champions%20%20%20Episode%2007%20%20%20The%20Survivors%20DivX.mp4"
+        },
+        {
+          "archiveID": "the-champions-complete-series-1967@e08",
+          "sourceID": "the-champions-complete-series-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "To Trap A Rat",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-champions-complete-series-1967/the-champions-complete-series-1967.thumbs/The%20Champions%20%20%20Episode%2008%20%20%20To%20Trap%20A%20Rat%20DivX_001438.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2919,
+          "videoFile": {
+            "name": "The Champions   Episode 08   To Trap A Rat DivX.mp4",
+            "format": "h.264",
+            "sizeBytes": 275060514,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-champions-complete-series-1967/The%20Champions%20%20%20Episode%2008%20%20%20To%20Trap%20A%20Rat%20DivX.mp4"
+        },
+        {
+          "archiveID": "the-champions-complete-series-1967@e09",
+          "sourceID": "the-champions-complete-series-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Iron Man",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-champions-complete-series-1967/the-champions-complete-series-1967.thumbs/The%20Champions%20%20%20Episode%2009%20%20%20The%20Iron%20Man%20DivX_001434.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2908,
+          "videoFile": {
+            "name": "The Champions   Episode 09   The Iron Man DivX.mp4",
+            "format": "h.264",
+            "sizeBytes": 278975946,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-champions-complete-series-1967/The%20Champions%20%20%20Episode%2009%20%20%20The%20Iron%20Man%20DivX.mp4"
+        },
+        {
+          "archiveID": "the-champions-complete-series-1967@e10",
+          "sourceID": "the-champions-complete-series-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Ghost Plane",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-champions-complete-series-1967/the-champions-complete-series-1967.thumbs/The%20Champions%20%20%20Episode%2010%20%20%20The%20Ghost%20Plane%20DivX_001420.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2898,
+          "videoFile": {
+            "name": "The Champions   Episode 10   The Ghost Plane DivX.mp4",
+            "format": "h.264",
+            "sizeBytes": 274092401,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-champions-complete-series-1967/The%20Champions%20%20%20Episode%2010%20%20%20The%20Ghost%20Plane%20DivX.mp4"
+        },
+        {
+          "archiveID": "the-champions-complete-series-1967@e11",
+          "sourceID": "the-champions-complete-series-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Dark Island",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-champions-complete-series-1967/the-champions-complete-series-1967.thumbs/The%20Champions%20%20%20Episode%2011%20%20%20The%20Dark%20Island%20DivX_001429.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2909,
+          "videoFile": {
+            "name": "The Champions   Episode 11   The Dark Island DivX.mp4",
+            "format": "h.264",
+            "sizeBytes": 273775281,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-champions-complete-series-1967/The%20Champions%20%20%20Episode%2011%20%20%20The%20Dark%20Island%20DivX.mp4"
+        },
+        {
+          "archiveID": "the-champions-complete-series-1967@e12",
+          "sourceID": "the-champions-complete-series-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Fanatics",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-champions-complete-series-1967/the-champions-complete-series-1967.thumbs/The%20Champions%20%20%20Episode%2012%20%20%20The%20Fanatics%20DivX_001442.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2928,
+          "videoFile": {
+            "name": "The Champions   Episode 12   The Fanatics DivX.mp4",
+            "format": "h.264",
+            "sizeBytes": 278262115,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-champions-complete-series-1967/The%20Champions%20%20%20Episode%2012%20%20%20The%20Fanatics%20DivX.mp4"
+        },
+        {
+          "archiveID": "the-champions-complete-series-1967@e13",
+          "sourceID": "the-champions-complete-series-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Twelve Hours",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-champions-complete-series-1967/the-champions-complete-series-1967.thumbs/The%20Champions%20%20%20Episode%2013%20%20%20Twelve%20Hours%20DivX_001422.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2898,
+          "videoFile": {
+            "name": "The Champions   Episode 13   Twelve Hours DivX.mp4",
+            "format": "h.264",
+            "sizeBytes": 272666325,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-champions-complete-series-1967/The%20Champions%20%20%20Episode%2013%20%20%20Twelve%20Hours%20DivX.mp4"
+        },
+        {
+          "archiveID": "the-champions-complete-series-1967@e14",
+          "sourceID": "the-champions-complete-series-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Search",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-champions-complete-series-1967/the-champions-complete-series-1967.thumbs/The%20Champions%20%20%20Episode%2014%20%20%20The%20Search%20DivX_001435.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2913,
+          "videoFile": {
+            "name": "The Champions   Episode 14   The Search DivX.mp4",
+            "format": "h.264",
+            "sizeBytes": 274437508,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-champions-complete-series-1967/The%20Champions%20%20%20Episode%2014%20%20%20The%20Search%20DivX.mp4"
+        },
+        {
+          "archiveID": "the-champions-complete-series-1967@e15",
+          "sourceID": "the-champions-complete-series-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "The Gilded Cage",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-champions-complete-series-1967/the-champions-complete-series-1967.thumbs/The%20Champions%20%20%20Episode%2015%20%20%20The%20Gilded%20Cage%20DivX_001433.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2916,
+          "videoFile": {
+            "name": "The Champions   Episode 15   The Gilded Cage DivX.mp4",
+            "format": "h.264",
+            "sizeBytes": 277717560,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-champions-complete-series-1967/The%20Champions%20%20%20Episode%2015%20%20%20The%20Gilded%20Cage%20DivX.mp4"
+        },
+        {
+          "archiveID": "the-champions-complete-series-1967@e16",
+          "sourceID": "the-champions-complete-series-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Shadow Of The Panther",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-champions-complete-series-1967/the-champions-complete-series-1967.thumbs/The%20Champions%20%20%20Episode%2016%20%20%20Shadow%20Of%20The%20Panther%20DivX_001424.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2904,
+          "videoFile": {
+            "name": "The Champions   Episode 16   Shadow Of The Panther DivX.mp4",
+            "format": "h.264",
+            "sizeBytes": 277198947,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-champions-complete-series-1967/The%20Champions%20%20%20Episode%2016%20%20%20Shadow%20Of%20The%20Panther%20DivX.mp4"
+        },
+        {
+          "archiveID": "the-champions-complete-series-1967@e17",
+          "sourceID": "the-champions-complete-series-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "A Case Of Lemmings",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-champions-complete-series-1967/the-champions-complete-series-1967.thumbs/The%20Champions%20%20%20Episode%2017%20%20%20A%20Case%20Of%20Lemmings%20DivX_001416.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2884,
+          "videoFile": {
+            "name": "The Champions   Episode 17   A Case Of Lemmings DivX.mp4",
+            "format": "h.264",
+            "sizeBytes": 274037304,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-champions-complete-series-1967/The%20Champions%20%20%20Episode%2017%20%20%20A%20Case%20Of%20Lemmings%20DivX.mp4"
+        },
+        {
+          "archiveID": "the-champions-complete-series-1967@e18",
+          "sourceID": "the-champions-complete-series-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "The Interrogation",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-champions-complete-series-1967/the-champions-complete-series-1967.thumbs/The%20Champions%20%20%20Episode%2018%20%20%20The%20Interrogation%20DivX_001432.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2918,
+          "videoFile": {
+            "name": "The Champions   Episode 18   The Interrogation DivX.mp4",
+            "format": "h.264",
+            "sizeBytes": 278595043,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-champions-complete-series-1967/The%20Champions%20%20%20Episode%2018%20%20%20The%20Interrogation%20DivX.mp4"
+        },
+        {
+          "archiveID": "the-champions-complete-series-1967@e19",
+          "sourceID": "the-champions-complete-series-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "The Mission",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-champions-complete-series-1967/the-champions-complete-series-1967.thumbs/The%20Champions%20%20%20Episode%2019%20%20%20The%20Mission%20DivX_001431.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2916,
+          "videoFile": {
+            "name": "The Champions   Episode 19   The Mission DivX.mp4",
+            "format": "h.264",
+            "sizeBytes": 278959997,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-champions-complete-series-1967/The%20Champions%20%20%20Episode%2019%20%20%20The%20Mission%20DivX.mp4"
+        },
+        {
+          "archiveID": "the-champions-complete-series-1967@e20",
+          "sourceID": "the-champions-complete-series-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "The Silent Enemy",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-champions-complete-series-1967/the-champions-complete-series-1967.thumbs/The%20Champions%20%20%20Episode%2020%20%20%20The%20Silent%20Enemy%20DivX_001434.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2924,
+          "videoFile": {
+            "name": "The Champions   Episode 20   The Silent Enemy DivX.mp4",
+            "format": "h.264",
+            "sizeBytes": 278778603,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-champions-complete-series-1967/The%20Champions%20%20%20Episode%2020%20%20%20The%20Silent%20Enemy%20DivX.mp4"
+        },
+        {
+          "archiveID": "the-champions-complete-series-1967@e21",
+          "sourceID": "the-champions-complete-series-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "The Body Snatchers",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-champions-complete-series-1967/the-champions-complete-series-1967.thumbs/The%20Champions%20%20%20Episode%2021%20%20%20The%20Body%20Snatchers%20DivX_001432.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2916,
+          "videoFile": {
+            "name": "The Champions   Episode 21   The Body Snatchers DivX.mp4",
+            "format": "h.264",
+            "sizeBytes": 277406405,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-champions-complete-series-1967/The%20Champions%20%20%20Episode%2021%20%20%20The%20Body%20Snatchers%20DivX.mp4"
+        },
+        {
+          "archiveID": "the-champions-complete-series-1967@e22",
+          "sourceID": "the-champions-complete-series-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Get Me Out of Here!",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-champions-complete-series-1967/the-champions-complete-series-1967.thumbs/The%20Champions%20%20%20Episode%2022%20%20%20Get%20Me%20Out%20of%20Here%21%20DivX_001432.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2911,
+          "videoFile": {
+            "name": "The Champions   Episode 22   Get Me Out of Here! DivX.mp4",
+            "format": "h.264",
+            "sizeBytes": 278628258,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-champions-complete-series-1967/The%20Champions%20%20%20Episode%2022%20%20%20Get%20Me%20Out%20of%20Here%21%20DivX.mp4"
+        },
+        {
+          "archiveID": "the-champions-complete-series-1967@e23",
+          "sourceID": "the-champions-complete-series-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "The Night People",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-champions-complete-series-1967/the-champions-complete-series-1967.thumbs/The%20Champions%20%20%20Episode%2023%20%20%20The%20Night%20People%20DivX_001436.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2927,
+          "videoFile": {
+            "name": "The Champions   Episode 23   The Night People DivX.mp4",
+            "format": "h.264",
+            "sizeBytes": 279606815,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-champions-complete-series-1967/The%20Champions%20%20%20Episode%2023%20%20%20The%20Night%20People%20DivX.mp4"
+        },
+        {
+          "archiveID": "the-champions-complete-series-1967@e24",
+          "sourceID": "the-champions-complete-series-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Project Zero",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-champions-complete-series-1967/the-champions-complete-series-1967.thumbs/The%20Champions%20%20%20Episode%2024%20%20%20Project%20Zero%20DivX_001420.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2895,
+          "videoFile": {
+            "name": "The Champions   Episode 24   Project Zero DivX.mp4",
+            "format": "h.264",
+            "sizeBytes": 274423058,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-champions-complete-series-1967/The%20Champions%20%20%20Episode%2024%20%20%20Project%20Zero%20DivX.mp4"
+        },
+        {
+          "archiveID": "the-champions-complete-series-1967@e25",
+          "sourceID": "the-champions-complete-series-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Desert Journey",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-champions-complete-series-1967/the-champions-complete-series-1967.thumbs/The%20Champions%20%20%20Episode%2025%20%20%20Desert%20Journey%20DivX_001427.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2898,
+          "videoFile": {
+            "name": "The Champions   Episode 25   Desert Journey DivX.mp4",
+            "format": "h.264",
+            "sizeBytes": 274093706,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-champions-complete-series-1967/The%20Champions%20%20%20Episode%2025%20%20%20Desert%20Journey%20DivX.mp4"
+        },
+        {
+          "archiveID": "the-champions-complete-series-1967@e26",
+          "sourceID": "the-champions-complete-series-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Full Circle",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-champions-complete-series-1967/the-champions-complete-series-1967.thumbs/The%20Champions%20%20%20Episode%2026%20%20%20Full%20Circle%20DivX_001429.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2915,
+          "videoFile": {
+            "name": "The Champions   Episode 26   Full Circle DivX.mp4",
+            "format": "h.264",
+            "sizeBytes": 276763523,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-champions-complete-series-1967/The%20Champions%20%20%20Episode%2026%20%20%20Full%20Circle%20DivX.mp4"
+        },
+        {
+          "archiveID": "the-champions-complete-series-1967@e27",
+          "sourceID": "the-champions-complete-series-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Nutcracker",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-champions-complete-series-1967/the-champions-complete-series-1967.thumbs/The%20Champions%20%20%20Episode%2027%20%20%20Nutcracker%20DivX_001431.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2913,
+          "videoFile": {
+            "name": "The Champions   Episode 27   Nutcracker DivX.mp4",
+            "format": "h.264",
+            "sizeBytes": 277964565,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-champions-complete-series-1967/The%20Champions%20%20%20Episode%2027%20%20%20Nutcracker%20DivX.mp4"
+        },
+        {
+          "archiveID": "the-champions-complete-series-1967@e28",
+          "sourceID": "the-champions-complete-series-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "The Final Countdown",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-champions-complete-series-1967/the-champions-complete-series-1967.thumbs/The%20Champions%20%20%20Episode%2028%20%20%20The%20Final%20Countdown%20DivX_001426.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2904,
+          "videoFile": {
+            "name": "The Champions   Episode 28   The Final Countdown DivX.mp4",
+            "format": "h.264",
+            "sizeBytes": 277033531,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-champions-complete-series-1967/The%20Champions%20%20%20Episode%2028%20%20%20The%20Final%20Countdown%20DivX.mp4"
+        },
+        {
+          "archiveID": "the-champions-complete-series-1967@e29",
+          "sourceID": "the-champions-complete-series-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "The Gun Runners",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-champions-complete-series-1967/the-champions-complete-series-1967.thumbs/The%20Champions%20%20%20Episode%2029%20%20%20The%20Gun%20Runners%20DivX_001428.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2911,
+          "videoFile": {
+            "name": "The Champions   Episode 29   The Gun Runners DivX.mp4",
+            "format": "h.264",
+            "sizeBytes": 277015997,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-champions-complete-series-1967/The%20Champions%20%20%20Episode%2029%20%20%20The%20Gun%20Runners%20DivX.mp4"
+        },
+        {
+          "archiveID": "the-champions-complete-series-1967@e30",
+          "sourceID": "the-champions-complete-series-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "Autokill",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-champions-complete-series-1967/the-champions-complete-series-1967.thumbs/The%20Champions%20%20%20Episode%2030%20%20%20Autokill%20DivX_001425.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2907,
+          "videoFile": {
+            "name": "The Champions   Episode 30   Autokill DivX.mp4",
+            "format": "h.264",
+            "sizeBytes": 277482890,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-champions-complete-series-1967/The%20Champions%20%20%20Episode%2030%20%20%20Autokill%20DivX.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 30,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

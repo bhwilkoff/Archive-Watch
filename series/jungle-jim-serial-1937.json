@@ -1,0 +1,183 @@
+{
+  "version": 2,
+  "seriesID": "jungle-jim-serial-1937",
+  "sourceID": "JungleJimSerial-1937-Chapters1Thru4",
+  "tvmazeID": null,
+  "title": "Jungle Jim Serial",
+  "yearStart": 1937,
+  "yearEnd": null,
+  "overview": "Two safaris enter the African jungle hunting a white girl raised by animals who is heir to a fortune; Grant Withers in chapters 1–4 of Universal's 1937 serial Jungle Jim, from Alex Raymond's comic strip; Spanish subtitles.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/JungleJimSerial-1937-Chapters1Thru4.2c05a76c.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "JungleJimSerial-1937-Chapters1Thru4@e01",
+          "sourceID": "JungleJimSerial-1937-Chapters1Thru4",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Jungle Jim - serial Chap 01 - spanish sub titles",
+          "overview": null,
+          "stillURL": "https://archive.org/download/JungleJimSerial-1937-Chapters1Thru4/JungleJimSerial-1937-Chapters1Thru4.thumbs/JungleJim-SerialChap01-SpanishSubTitles_000420.jpg",
+          "airDate": null,
+          "year": 1937,
+          "runtimeSeconds": 1213,
+          "videoFile": {
+            "name": "JungleJim-SerialChap01-SpanishSubTitles_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 88142356,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/JungleJimSerial-1937-Chapters1Thru4/JungleJim-SerialChap01-SpanishSubTitles_512kb.mp4"
+        },
+        {
+          "archiveID": "JungleJimSerial-1937-Chapters1Thru4@e02",
+          "sourceID": "JungleJimSerial-1937-Chapters1Thru4",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Jungle Jim - serial Chap 02 - spanish sub titles",
+          "overview": null,
+          "stillURL": "https://archive.org/download/JungleJimSerial-1937-Chapters1Thru4/JungleJimSerial-1937-Chapters1Thru4.thumbs/JungleJim-SerialChap02-SpanishSubTitles_000420.jpg",
+          "airDate": null,
+          "year": 1937,
+          "runtimeSeconds": 1235,
+          "videoFile": {
+            "name": "JungleJim-SerialChap02-SpanishSubTitles_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 89746214,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/JungleJimSerial-1937-Chapters1Thru4/JungleJim-SerialChap02-SpanishSubTitles_512kb.mp4"
+        },
+        {
+          "archiveID": "JungleJimSerial-1937-Chapters1Thru4@e03",
+          "sourceID": "JungleJimSerial-1937-Chapters1Thru4",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Jungle Jim - serial Chap 03 - spanish sub titles",
+          "overview": null,
+          "stillURL": "https://archive.org/download/JungleJimSerial-1937-Chapters1Thru4/JungleJimSerial-1937-Chapters1Thru4.thumbs/JungleJim-SerialChap03-SpanishSubTitles_000420.jpg",
+          "airDate": null,
+          "year": 1937,
+          "runtimeSeconds": 1231,
+          "videoFile": {
+            "name": "JungleJim-SerialChap03-SpanishSubTitles_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 89463239,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/JungleJimSerial-1937-Chapters1Thru4/JungleJim-SerialChap03-SpanishSubTitles_512kb.mp4"
+        },
+        {
+          "archiveID": "JungleJimSerial-1937-Chapters1Thru4@e04",
+          "sourceID": "JungleJimSerial-1937-Chapters1Thru4",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Jungle Jim - serial Chap 04 - spanish sub titles",
+          "overview": null,
+          "stillURL": "https://archive.org/download/JungleJimSerial-1937-Chapters1Thru4/JungleJimSerial-1937-Chapters1Thru4.thumbs/JungleJim-SerialChap04-SpanishSubTitles_000360.jpg",
+          "airDate": null,
+          "year": 1937,
+          "runtimeSeconds": 1166,
+          "videoFile": {
+            "name": "JungleJim-SerialChap04-SpanishSubTitles_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 84676433,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/JungleJimSerial-1937-Chapters1Thru4/JungleJim-SerialChap04-SpanishSubTitles_512kb.mp4"
+        },
+        {
+          "archiveID": "JungleJimSerial-1937-GrantWithers-Chapters5Thru8@e05",
+          "sourceID": "JungleJimSerial-1937-GrantWithers-Chapters5Thru8",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Jungle Jim - serial Chap 05 - spanish sub titles",
+          "overview": null,
+          "stillURL": "https://archive.org/download/JungleJimSerial-1937-GrantWithers-Chapters5Thru8/JungleJimSerial-1937-GrantWithers-Chapters5Thru8.thumbs/JungleJim-SerialChap05-SpanishSubTitles_000360.jpg",
+          "airDate": null,
+          "year": 1937,
+          "runtimeSeconds": 1156,
+          "videoFile": {
+            "name": "JungleJim-SerialChap05-SpanishSubTitles_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 84037292,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/JungleJimSerial-1937-GrantWithers-Chapters5Thru8/JungleJim-SerialChap05-SpanishSubTitles_512kb.mp4"
+        },
+        {
+          "archiveID": "JungleJimSerial-1937-GrantWithers-Chapters5Thru8@e06",
+          "sourceID": "JungleJimSerial-1937-GrantWithers-Chapters5Thru8",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Jungle Jim - serial Chap 06 - spanish sub titles",
+          "overview": null,
+          "stillURL": "https://archive.org/download/JungleJimSerial-1937-GrantWithers-Chapters5Thru8/JungleJimSerial-1937-GrantWithers-Chapters5Thru8.thumbs/JungleJim-SerialChap06-SpanishSubTitles_000360.jpg",
+          "airDate": null,
+          "year": 1937,
+          "runtimeSeconds": 1155,
+          "videoFile": {
+            "name": "JungleJim-SerialChap06-SpanishSubTitles_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 83945779,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/JungleJimSerial-1937-GrantWithers-Chapters5Thru8/JungleJim-SerialChap06-SpanishSubTitles_512kb.mp4"
+        },
+        {
+          "archiveID": "JungleJimSerial-1937-GrantWithers-Chapters5Thru8@e07",
+          "sourceID": "JungleJimSerial-1937-GrantWithers-Chapters5Thru8",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Jungle Jim - serial Chap 07 - spanish sub titles",
+          "overview": null,
+          "stillURL": "https://archive.org/download/JungleJimSerial-1937-GrantWithers-Chapters5Thru8/JungleJimSerial-1937-GrantWithers-Chapters5Thru8.thumbs/JungleJim-SerialChap07-SpanishSubTitles_000360.jpg",
+          "airDate": null,
+          "year": 1937,
+          "runtimeSeconds": 1191,
+          "videoFile": {
+            "name": "JungleJim-SerialChap07-SpanishSubTitles_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 86584476,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/JungleJimSerial-1937-GrantWithers-Chapters5Thru8/JungleJim-SerialChap07-SpanishSubTitles_512kb.mp4"
+        },
+        {
+          "archiveID": "JungleJimSerial-1937-GrantWithers-Chapters5Thru8@e08",
+          "sourceID": "JungleJimSerial-1937-GrantWithers-Chapters5Thru8",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Jungle Jim - serial Chap 08 - spanish sub titles",
+          "overview": null,
+          "stillURL": "https://archive.org/download/JungleJimSerial-1937-GrantWithers-Chapters5Thru8/JungleJimSerial-1937-GrantWithers-Chapters5Thru8.thumbs/JungleJim-SerialChap08-SpanishSubTitles_000360.jpg",
+          "airDate": null,
+          "year": 1937,
+          "runtimeSeconds": 1117,
+          "videoFile": {
+            "name": "JungleJim-SerialChap08-SpanishSubTitles_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 80978857,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/JungleJimSerial-1937-GrantWithers-Chapters5Thru8/JungleJim-SerialChap08-SpanishSubTitles_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 8,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": [],
+  "sourceIDs": [
+    "JungleJimSerial-1937-Chapters1Thru4",
+    "JungleJimSerial-1937-GrantWithers-Chapters5Thru8"
+  ]
+}

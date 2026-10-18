@@ -1,0 +1,523 @@
+{
+  "version": 2,
+  "seriesID": "adventures-in-rainbow-country-s01-1970",
+  "sourceID": "adventures-in-rainbow-country-s-01-e-01-la-chute",
+  "tvmazeID": null,
+  "title": "Adventures in Rainbow Country S01",
+  "yearStart": 1970,
+  "yearEnd": null,
+  "overview": null,
+  "posterURL": "https://image.tmdb.org/t/p/w500/itJsQgclAMKmnXTSiYLWZQWX0z0.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Action"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "adventures-in-rainbow-country-s-01-e-01-la-chute@s1e01",
+          "sourceID": "adventures-in-rainbow-country-s-01-e-01-la-chute",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "in Rainbow Country - La Chute",
+          "overview": null,
+          "stillURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/adventures-in-rainbow-country-s-01-e-01-la-chute.thumbs/Adventures%20in%20Rainbow%20Country%20S01E01%20-%20La%20Chute_000633.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1403,
+          "videoFile": {
+            "name": "Adventures in Rainbow Country S01E01 - La Chute.mp4",
+            "format": "h.264",
+            "sizeBytes": 139324102,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/Adventures%20in%20Rainbow%20Country%20S01E01%20-%20La%20Chute.mp4"
+        },
+        {
+          "archiveID": "adventures-in-rainbow-country-s-01-e-01-la-chute@s1e02",
+          "sourceID": "adventures-in-rainbow-country-s-01-e-01-la-chute",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "In Rainbow Country - The Tower",
+          "overview": null,
+          "stillURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/adventures-in-rainbow-country-s-01-e-01-la-chute.thumbs/Adventures%20In%20Rainbow%20Country%20S01E02%20-%20The%20Tower_000497.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1398,
+          "videoFile": {
+            "name": "Adventures In Rainbow Country S01E02 - The Tower.mp4",
+            "format": "h.264",
+            "sizeBytes": 140641049,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/Adventures%20In%20Rainbow%20Country%20S01E02%20-%20The%20Tower.mp4"
+        },
+        {
+          "archiveID": "adventures-in-rainbow-country-s-01-e-01-la-chute@s1e03",
+          "sourceID": "adventures-in-rainbow-country-s-01-e-01-la-chute",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "In Rainbow Country - The Frank William's File",
+          "overview": null,
+          "stillURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/adventures-in-rainbow-country-s-01-e-01-la-chute.thumbs/Adventures%20In%20Rainbow%20Country%20S01E03%20-%20The%20Frank%20William%27s%20File_000504.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1400,
+          "videoFile": {
+            "name": "Adventures In Rainbow Country S01E03 - The Frank William's File.mp4",
+            "format": "h.264",
+            "sizeBytes": 141202234,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/Adventures%20In%20Rainbow%20Country%20S01E03%20-%20The%20Frank%20William%27s%20File.mp4"
+        },
+        {
+          "archiveID": "adventures-in-rainbow-country-s-01-e-01-la-chute@s1e04",
+          "sourceID": "adventures-in-rainbow-country-s-01-e-01-la-chute",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "in Rainbow Country - Skydiver",
+          "overview": null,
+          "stillURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/adventures-in-rainbow-country-s-01-e-01-la-chute.thumbs/Adventures%20in%20Rainbow%20Country%20S01E04%20-%20Skydiver_000630.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1401,
+          "videoFile": {
+            "name": "Adventures in Rainbow Country S01E04 - Skydiver.mp4",
+            "format": "h.264",
+            "sizeBytes": 140855841,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/Adventures%20in%20Rainbow%20Country%20S01E04%20-%20Skydiver.mp4"
+        },
+        {
+          "archiveID": "adventures-in-rainbow-country-s-01-e-01-la-chute@s1e05",
+          "sourceID": "adventures-in-rainbow-country-s-01-e-01-la-chute",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "In Rainbow Country - The Kid from Spanish Harlem",
+          "overview": null,
+          "stillURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/adventures-in-rainbow-country-s-01-e-01-la-chute.thumbs/Adventures%20In%20Rainbow%20Country%20S01E05%20-%20The%20Kid%20from%20Spanish%20Harlem_000632.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1405,
+          "videoFile": {
+            "name": "Adventures In Rainbow Country S01E05 - The Kid from Spanish Harlem.mp4",
+            "format": "h.264",
+            "sizeBytes": 140274790,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/Adventures%20In%20Rainbow%20Country%20S01E05%20-%20The%20Kid%20from%20Spanish%20Harlem.mp4"
+        },
+        {
+          "archiveID": "adventures-in-rainbow-country-s-01-e-01-la-chute@s1e06",
+          "sourceID": "adventures-in-rainbow-country-s-01-e-01-la-chute",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "in Rainbow Country - Panic in the Bush",
+          "overview": null,
+          "stillURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/adventures-in-rainbow-country-s-01-e-01-la-chute.thumbs/Adventures%20in%20Rainbow%20Country%20S01E06%20-%20Panic%20in%20the%20Bush_000626.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1402,
+          "videoFile": {
+            "name": "Adventures in Rainbow Country S01E06 - Panic in the Bush.mp4",
+            "format": "h.264",
+            "sizeBytes": 140849880,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/Adventures%20in%20Rainbow%20Country%20S01E06%20-%20Panic%20in%20the%20Bush.mp4"
+        },
+        {
+          "archiveID": "adventures-in-rainbow-country-s-01-e-01-la-chute@s1e07",
+          "sourceID": "adventures-in-rainbow-country-s-01-e-01-la-chute",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "in Rainbow Country - Long, Tough Race",
+          "overview": null,
+          "stillURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/adventures-in-rainbow-country-s-01-e-01-la-chute.thumbs/Adventures%20in%20Rainbow%20Country%20S01E07%20-%20Long%2C%20Tough%20Race_000626.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1403,
+          "videoFile": {
+            "name": "Adventures in Rainbow Country S01E07 - Long, Tough Race.mp4",
+            "format": "h.264",
+            "sizeBytes": 140680513,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/Adventures%20in%20Rainbow%20Country%20S01E07%20-%20Long%2C%20Tough%20Race.mp4"
+        },
+        {
+          "archiveID": "adventures-in-rainbow-country-s-01-e-01-la-chute@s1e08",
+          "sourceID": "adventures-in-rainbow-country-s-01-e-01-la-chute",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "in Rainbow Country - Town That Died",
+          "overview": null,
+          "stillURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/adventures-in-rainbow-country-s-01-e-01-la-chute.thumbs/Adventures%20in%20Rainbow%20Country%20S01E08%20-%20Town%20That%20Died_000629.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1404,
+          "videoFile": {
+            "name": "Adventures in Rainbow Country S01E08 - Town That Died.mp4",
+            "format": "h.264",
+            "sizeBytes": 141492567,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/Adventures%20in%20Rainbow%20Country%20S01E08%20-%20Town%20That%20Died.mp4"
+        },
+        {
+          "archiveID": "adventures-in-rainbow-country-s-01-e-01-la-chute@s1e09",
+          "sourceID": "adventures-in-rainbow-country-s-01-e-01-la-chute",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "in Rainbow Country - The Eye of the Needle",
+          "overview": null,
+          "stillURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/adventures-in-rainbow-country-s-01-e-01-la-chute.thumbs/Adventures%20in%20Rainbow%20Country%20S01E09%20-%20The%20Eye%20of%20the%20Needle_000625.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1402,
+          "videoFile": {
+            "name": "Adventures in Rainbow Country S01E09 - The Eye of the Needle.mp4",
+            "format": "h.264",
+            "sizeBytes": 143726624,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/Adventures%20in%20Rainbow%20Country%20S01E09%20-%20The%20Eye%20of%20the%20Needle.mp4"
+        },
+        {
+          "archiveID": "adventures-in-rainbow-country-s-01-e-01-la-chute@s1e10",
+          "sourceID": "adventures-in-rainbow-country-s-01-e-01-la-chute",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "in Rainbow Country - Girl on a Tightrope",
+          "overview": null,
+          "stillURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/adventures-in-rainbow-country-s-01-e-01-la-chute.thumbs/Adventures%20in%20Rainbow%20Country%20S01E10%20-%20Girl%20on%20a%20Tightrope_000626.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1403,
+          "videoFile": {
+            "name": "Adventures in Rainbow Country S01E10 - Girl on a Tightrope.mp4",
+            "format": "h.264",
+            "sizeBytes": 142271393,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/Adventures%20in%20Rainbow%20Country%20S01E10%20-%20Girl%20on%20a%20Tightrope.mp4"
+        },
+        {
+          "archiveID": "adventures-in-rainbow-country-s-01-e-01-la-chute@s1e11",
+          "sourceID": "adventures-in-rainbow-country-s-01-e-01-la-chute",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "in Rainbow Country - The Return of Eli Rocque",
+          "overview": null,
+          "stillURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/adventures-in-rainbow-country-s-01-e-01-la-chute.thumbs/Adventures%20in%20Rainbow%20Country%20S01E11%20-%20The%20Return%20of%20Eli%20Rocque_000626.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1404,
+          "videoFile": {
+            "name": "Adventures in Rainbow Country S01E11 - The Return of Eli Rocque.mp4",
+            "format": "h.264",
+            "sizeBytes": 142725203,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/Adventures%20in%20Rainbow%20Country%20S01E11%20-%20The%20Return%20of%20Eli%20Rocque.mp4"
+        },
+        {
+          "archiveID": "adventures-in-rainbow-country-s-01-e-01-la-chute@s1e12",
+          "sourceID": "adventures-in-rainbow-country-s-01-e-01-la-chute",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "in Rainbow Country - Roar of the Hornet",
+          "overview": null,
+          "stillURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/adventures-in-rainbow-country-s-01-e-01-la-chute.thumbs/Adventures%20in%20Rainbow%20Country%20S01E12%20-%20Roar%20of%20the%20Hornet_000503.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1401,
+          "videoFile": {
+            "name": "Adventures in Rainbow Country S01E12 - Roar of the Hornet.mp4",
+            "format": "h.264",
+            "sizeBytes": 143560195,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/Adventures%20in%20Rainbow%20Country%20S01E12%20-%20Roar%20of%20the%20Hornet.mp4"
+        },
+        {
+          "archiveID": "adventures-in-rainbow-country-s-01-e-01-la-chute@s1e13",
+          "sourceID": "adventures-in-rainbow-country-s-01-e-01-la-chute",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "in Rainbow Country - Lac Du Diable",
+          "overview": null,
+          "stillURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/adventures-in-rainbow-country-s-01-e-01-la-chute.thumbs/Adventures%20in%20Rainbow%20Country%20S01E13%20-%20Lac%20Du%20Diable_000630.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1402,
+          "videoFile": {
+            "name": "Adventures in Rainbow Country S01E13 - Lac Du Diable.mp4",
+            "format": "h.264",
+            "sizeBytes": 140215358,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/Adventures%20in%20Rainbow%20Country%20S01E13%20-%20Lac%20Du%20Diable.mp4"
+        },
+        {
+          "archiveID": "adventures-in-rainbow-country-s-01-e-01-la-chute@s1e14",
+          "sourceID": "adventures-in-rainbow-country-s-01-e-01-la-chute",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "in Rainbow Country -The Muskies Are Losing Their Teeth xvid",
+          "overview": null,
+          "stillURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/adventures-in-rainbow-country-s-01-e-01-la-chute.thumbs/Adventures%20in%20Rainbow%20Country%20S01E14%20-The%20Muskies%20Are%20Losing%20Their%20Teeth_xvid_000628.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1408,
+          "videoFile": {
+            "name": "Adventures in Rainbow Country S01E14 -The Muskies Are Losing Their Teeth_xvid.mp4",
+            "format": "h.264",
+            "sizeBytes": 134711744,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/Adventures%20in%20Rainbow%20Country%20S01E14%20-The%20Muskies%20Are%20Losing%20Their%20Teeth_xvid.mp4"
+        },
+        {
+          "archiveID": "adventures-in-rainbow-country-s-01-e-01-la-chute@s1e15",
+          "sourceID": "adventures-in-rainbow-country-s-01-e-01-la-chute",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "in Rainbow Country - Milk Run",
+          "overview": null,
+          "stillURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/adventures-in-rainbow-country-s-01-e-01-la-chute.thumbs/Adventures%20in%20Rainbow%20Country%20S01E15%20-%20Milk%20Run_000627.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1407,
+          "videoFile": {
+            "name": "Adventures in Rainbow Country S01E15 - Milk Run.mp4",
+            "format": "h.264",
+            "sizeBytes": 141888855,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/Adventures%20in%20Rainbow%20Country%20S01E15%20-%20Milk%20Run.mp4"
+        },
+        {
+          "archiveID": "adventures-in-rainbow-country-s-01-e-01-la-chute@s1e16",
+          "sourceID": "adventures-in-rainbow-country-s-01-e-01-la-chute",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "in Rainbow Country - Wall of Silence",
+          "overview": null,
+          "stillURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/adventures-in-rainbow-country-s-01-e-01-la-chute.thumbs/Adventures%20in%20Rainbow%20Country%20S01E16%20-%20Wall%20of%20Silence_000624.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1400,
+          "videoFile": {
+            "name": "Adventures in Rainbow Country S01E16 - Wall of Silence.mp4",
+            "format": "h.264",
+            "sizeBytes": 142940687,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/Adventures%20in%20Rainbow%20Country%20S01E16%20-%20Wall%20of%20Silence.mp4"
+        },
+        {
+          "archiveID": "adventures-in-rainbow-country-s-01-e-01-la-chute@s1e17",
+          "sourceID": "adventures-in-rainbow-country-s-01-e-01-la-chute",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "in Rainbow Country - Where the Wild Rice Grows",
+          "overview": null,
+          "stillURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/adventures-in-rainbow-country-s-01-e-01-la-chute.thumbs/Adventures%20in%20Rainbow%20Country%20S01E17%20-%20Where%20the%20Wild%20Rice%20Grows_000624.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1389,
+          "videoFile": {
+            "name": "Adventures in Rainbow Country S01E17 - Where the Wild Rice Grows.mp4",
+            "format": "h.264",
+            "sizeBytes": 140823982,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/Adventures%20in%20Rainbow%20Country%20S01E17%20-%20Where%20the%20Wild%20Rice%20Grows.mp4"
+        },
+        {
+          "archiveID": "adventures-in-rainbow-country-s-01-e-01-la-chute@s1e18",
+          "sourceID": "adventures-in-rainbow-country-s-01-e-01-la-chute",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "in Rainbow Country - The Bird Watchers",
+          "overview": null,
+          "stillURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/adventures-in-rainbow-country-s-01-e-01-la-chute.thumbs/Adventures%20in%20Rainbow%20Country%20S01E18%20-%20The%20Bird%20Watchers_000493.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1392,
+          "videoFile": {
+            "name": "Adventures in Rainbow Country S01E18 - The Bird Watchers.mp4",
+            "format": "h.264",
+            "sizeBytes": 142971788,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/Adventures%20in%20Rainbow%20Country%20S01E18%20-%20The%20Bird%20Watchers.mp4"
+        },
+        {
+          "archiveID": "adventures-in-rainbow-country-s-01-e-01-la-chute@s1e19",
+          "sourceID": "adventures-in-rainbow-country-s-01-e-01-la-chute",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "in Rainbow Country - The Boy Who Loved Animals",
+          "overview": null,
+          "stillURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/adventures-in-rainbow-country-s-01-e-01-la-chute.thumbs/Adventures%20in%20Rainbow%20Country%20S01E19%20-%20The%20Boy%20Who%20Loved%20Animals_000633.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1404,
+          "videoFile": {
+            "name": "Adventures in Rainbow Country S01E19 - The Boy Who Loved Animals.mp4",
+            "format": "h.264",
+            "sizeBytes": 143509512,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/Adventures%20in%20Rainbow%20Country%20S01E19%20-%20The%20Boy%20Who%20Loved%20Animals.mp4"
+        },
+        {
+          "archiveID": "adventures-in-rainbow-country-s-01-e-01-la-chute@s1e20",
+          "sourceID": "adventures-in-rainbow-country-s-01-e-01-la-chute",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "in Rainbow Country - Mystery at Whaleback Bay",
+          "overview": null,
+          "stillURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/adventures-in-rainbow-country-s-01-e-01-la-chute.thumbs/Adventures%20in%20Rainbow%20Country%20S01E20%20-%20Mystery%20at%20Whaleback%20Bay_000626.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1387,
+          "videoFile": {
+            "name": "Adventures in Rainbow Country S01E20 - Mystery at Whaleback Bay.mp4",
+            "format": "h.264",
+            "sizeBytes": 140806981,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/Adventures%20in%20Rainbow%20Country%20S01E20%20-%20Mystery%20at%20Whaleback%20Bay.mp4"
+        },
+        {
+          "archiveID": "adventures-in-rainbow-country-s-01-e-01-la-chute@s1e21",
+          "sourceID": "adventures-in-rainbow-country-s-01-e-01-la-chute",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "in Rainbow Country - Night Caller",
+          "overview": null,
+          "stillURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/adventures-in-rainbow-country-s-01-e-01-la-chute.thumbs/Adventures%20in%20Rainbow%20Country%20S01E21%20-%20Night%20Caller_000619.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1391,
+          "videoFile": {
+            "name": "Adventures in Rainbow Country S01E21 - Night Caller.mp4",
+            "format": "h.264",
+            "sizeBytes": 143008802,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/Adventures%20in%20Rainbow%20Country%20S01E21%20-%20Night%20Caller.mp4"
+        },
+        {
+          "archiveID": "adventures-in-rainbow-country-s-01-e-01-la-chute@s1e22",
+          "sourceID": "adventures-in-rainbow-country-s-01-e-01-la-chute",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "in Rainbow Country - Lake on Blue Mountain",
+          "overview": null,
+          "stillURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/adventures-in-rainbow-country-s-01-e-01-la-chute.thumbs/Adventures%20in%20Rainbow%20Country%20S01E22%20-%20Lake%20on%20Blue%20Mountain_000629.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1413,
+          "videoFile": {
+            "name": "Adventures in Rainbow Country S01E22 - Lake on Blue Mountain.mp4",
+            "format": "h.264",
+            "sizeBytes": 143896068,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/Adventures%20in%20Rainbow%20Country%20S01E22%20-%20Lake%20on%20Blue%20Mountain.mp4"
+        },
+        {
+          "archiveID": "adventures-in-rainbow-country-s-01-e-01-la-chute@s1e23",
+          "sourceID": "adventures-in-rainbow-country-s-01-e-01-la-chute",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "in Rainbow Country - Stolen Tugboat",
+          "overview": null,
+          "stillURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/adventures-in-rainbow-country-s-01-e-01-la-chute.thumbs/Adventures%20in%20Rainbow%20Country%20S01E23%20-%20Stolen%20Tugboat_000499.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1401,
+          "videoFile": {
+            "name": "Adventures in Rainbow Country S01E23 - Stolen Tugboat.mp4",
+            "format": "h.264",
+            "sizeBytes": 143064827,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/Adventures%20in%20Rainbow%20Country%20S01E23%20-%20Stolen%20Tugboat.mp4"
+        },
+        {
+          "archiveID": "adventures-in-rainbow-country-s-01-e-01-la-chute@s1e24",
+          "sourceID": "adventures-in-rainbow-country-s-01-e-01-la-chute",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "in Rainbow Country - The Hermit",
+          "overview": null,
+          "stillURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/adventures-in-rainbow-country-s-01-e-01-la-chute.thumbs/Adventures%20in%20Rainbow%20Country%20S01E24%20-%20The%20Hermit_000500.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1404,
+          "videoFile": {
+            "name": "Adventures in Rainbow Country S01E24 - The Hermit.mp4",
+            "format": "h.264",
+            "sizeBytes": 143164031,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/Adventures%20in%20Rainbow%20Country%20S01E24%20-%20The%20Hermit.mp4"
+        },
+        {
+          "archiveID": "adventures-in-rainbow-country-s-01-e-01-la-chute@s1e25",
+          "sourceID": "adventures-in-rainbow-country-s-01-e-01-la-chute",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "in Rainbow Country - Pursuit Along the Aux Sables",
+          "overview": null,
+          "stillURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/adventures-in-rainbow-country-s-01-e-01-la-chute.thumbs/Adventures%20in%20Rainbow%20Country%20S01E25%20-%20Pursuit%20Along%20the%20Aux%20Sables_000628.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1405,
+          "videoFile": {
+            "name": "Adventures in Rainbow Country S01E25 - Pursuit Along the Aux Sables.mp4",
+            "format": "h.264",
+            "sizeBytes": 142757456,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/Adventures%20in%20Rainbow%20Country%20S01E25%20-%20Pursuit%20Along%20the%20Aux%20Sables.mp4"
+        },
+        {
+          "archiveID": "adventures-in-rainbow-country-s-01-e-01-la-chute@s1e26",
+          "sourceID": "adventures-in-rainbow-country-s-01-e-01-la-chute",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "in Rainbow Country - Dreamers Rock",
+          "overview": null,
+          "stillURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/adventures-in-rainbow-country-s-01-e-01-la-chute.thumbs/Adventures%20in%20Rainbow%20Country%20S01E26%20-%20Dreamers%20Rock_000628.jpg",
+          "airDate": null,
+          "year": 1970,
+          "runtimeSeconds": 1406,
+          "videoFile": {
+            "name": "Adventures in Rainbow Country S01E26 - Dreamers Rock.mp4",
+            "format": "h.264",
+            "sizeBytes": 143806019,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/adventures-in-rainbow-country-s-01-e-01-la-chute/Adventures%20in%20Rainbow%20Country%20S01E26%20-%20Dreamers%20Rock.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 26,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": []
+}

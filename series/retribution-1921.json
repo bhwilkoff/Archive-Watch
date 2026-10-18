@@ -1,0 +1,1461 @@
+{
+  "version": 2,
+  "seriesID": "retribution-1921",
+  "sourceID": "Retribution-DT",
+  "tvmazeID": null,
+  "title": "Retribution",
+  "yearStart": 1921,
+  "yearEnd": null,
+  "overview": "Retribution is a 1921 Australian silent film directed by Armand Lionello, who ran a Brisbane acting school. The film was shot in Brisbane and is considered a lost film.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/Retribution-DT.0294d072.jpg",
+  "backdropURL": null,
+  "genres": [
+    "War"
+  ],
+  "networks": [],
+  "creator": "Armand Lionello",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Retribution-DT@e01",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Retribution Parody 1 - Lovers' Lane",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 2244,
+          "videoFile": {
+            "name": "Retribution Parody 01 - Lovers' Lane.mp4",
+            "format": "h.264",
+            "sizeBytes": 227477002,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2001%20-%20Lovers%27%20Lane.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e02",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Retribution Parody 2 - The Anti-Antichrist",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 6706,
+          "videoFile": {
+            "name": "Retribution Parody 02 - The Anti-antichrist.mp4",
+            "format": "h.264",
+            "sizeBytes": 680112769,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2002%20-%20The%20Anti-antichrist.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e03",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Retribution Parody 3 - Brave New World",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 2161,
+          "videoFile": {
+            "name": "Retribution Parody 03 - Brave New World.mp4",
+            "format": "h.264",
+            "sizeBytes": 218633113,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2003%20-%20Brave%20New%20World.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e04",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Retribution Parody 4 - A Whole New World",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 6683,
+          "videoFile": {
+            "name": "Retribution Parody 04 - A Whole New World.mp4",
+            "format": "h.264",
+            "sizeBytes": 676224533,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2004%20-%20A%20Whole%20New%20World.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e05",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Retribution Parody 5 - Let My People Go",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 4186,
+          "videoFile": {
+            "name": "Retribution Parody 05 - Let My People Go.mp4",
+            "format": "h.264",
+            "sizeBytes": 424270656,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2005%20-%20Let%20My%20People%20Go.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e06",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Retribution Parody 6 - Now We Are Free",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 3933,
+          "videoFile": {
+            "name": "Retribution Parody 06 - Now We Are Free.mp4",
+            "format": "h.264",
+            "sizeBytes": 398656130,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2006%20-%20Now%20We%20Are%20Free.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e07",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Retribution Parody 7 - Langoliers",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 6147,
+          "videoFile": {
+            "name": "Retribution Parody 07 - Langoliers.mp4",
+            "format": "h.264",
+            "sizeBytes": 625886775,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2007%20-%20Langoliers.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e08",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Veil of Ignorance",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 4788,
+          "videoFile": {
+            "name": "Retribution Parody 08 - Veil of Ignorance.mp4",
+            "format": "h.264",
+            "sizeBytes": 486001102,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2008%20-%20Veil%20of%20Ignorance.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e09",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "To Believe",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 2925,
+          "videoFile": {
+            "name": "Retribution Parody 09 - To Believe.mp4",
+            "format": "h.264",
+            "sizeBytes": 295433470,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2009%20-%20To%20Believe.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e10",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Postman",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 4736,
+          "videoFile": {
+            "name": "Retribution Parody 10 - The Postman.mp4",
+            "format": "h.264",
+            "sizeBytes": 480348867,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2010%20-%20The%20Postman.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e11",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Prison Break",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 5002,
+          "videoFile": {
+            "name": "Retribution Parody 11 - Prison Break.mp4",
+            "format": "h.264",
+            "sizeBytes": 506252505,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2011%20-%20Prison%20Break.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e12",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Street Smarts",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 3538,
+          "videoFile": {
+            "name": "Retribution Parody 12 - Street Smarts.mp4",
+            "format": "h.264",
+            "sizeBytes": 358216974,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2012%20-%20Street%20Smarts.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e13",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Volcano High",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 6442,
+          "videoFile": {
+            "name": "Retribution Parody 13 - Volcano High.mp4",
+            "format": "h.264",
+            "sizeBytes": 653356912,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2013%20-%20Volcano%20High.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e14",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Unbreakable",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 4554,
+          "videoFile": {
+            "name": "Retribution Parody 14 - Unbreakable.mp4",
+            "format": "h.264",
+            "sizeBytes": 459929180,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2014%20-%20Unbreakable.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e15",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Ring of Fire",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 4528,
+          "videoFile": {
+            "name": "Retribution Parody 15 - Ring of Fire.mp4",
+            "format": "h.264",
+            "sizeBytes": 458825292,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2015%20-%20Ring%20of%20Fire.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e16",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Satan's Particle",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 3138,
+          "videoFile": {
+            "name": "Retribution Parody 16 - Satan's Particle.mp4",
+            "format": "h.264",
+            "sizeBytes": 318083531,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2016%20-%20Satan%27s%20Particle.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e17",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "The Press Corpse",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 4636,
+          "videoFile": {
+            "name": "Retribution Parody 17 - The Press Corpse.mp4",
+            "format": "h.264",
+            "sizeBytes": 469001209,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2017%20-%20The%20Press%20Corpse.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e18",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Return to Innocence",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 5296,
+          "videoFile": {
+            "name": "Retribution Parody 18 - Return to Innocence.mp4",
+            "format": "h.264",
+            "sizeBytes": 537880600,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2018%20-%20Return%20to%20Innocence.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e19",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "The Secret Covenant",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 7146,
+          "videoFile": {
+            "name": "Retribution Parody 19 - The Secret Covenant.mp4",
+            "format": "h.264",
+            "sizeBytes": 721724422,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2019%20-%20The%20Secret%20Covenant.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e20",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Rebirthing",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 7503,
+          "videoFile": {
+            "name": "Retribution Parody 20 - Rebirthing.mp4",
+            "format": "h.264",
+            "sizeBytes": 754930402,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2020%20-%20Rebirthing.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e21",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Cube",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 9997,
+          "videoFile": {
+            "name": "Retribution Parody 21 - Cube.mp4",
+            "format": "h.264",
+            "sizeBytes": 1011814557,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2021%20-%20Cube.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e22",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Cleric",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 9985,
+          "videoFile": {
+            "name": "Retribution Parody 22 - Cleric.mp4",
+            "format": "h.264",
+            "sizeBytes": 1008385789,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2022%20-%20Cleric.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e23",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Captain Amerika",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 4452,
+          "videoFile": {
+            "name": "Retribution Parody 23 - Captain Amerika.mp4",
+            "format": "h.264",
+            "sizeBytes": 451385254,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2023%20-%20Captain%20Amerika.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e24",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Bohemian Rhapsody",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 4347,
+          "videoFile": {
+            "name": "Retribution Parody 24 - Bohemian Rhapsody.mp4",
+            "format": "h.264",
+            "sizeBytes": 438832563,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2024%20-%20Bohemian%20Rhapsody.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e25",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Lolita",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 6714,
+          "videoFile": {
+            "name": "Retribution Parody 25 - Lolita.mp4",
+            "format": "h.264",
+            "sizeBytes": 680633125,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2025%20-%20Lolita.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e26",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Fallen Angels",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 3308,
+          "videoFile": {
+            "name": "Retribution Parody 26 - Fallen Angels.mp4",
+            "format": "h.264",
+            "sizeBytes": 334376311,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2026%20-%20Fallen%20Angels.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e27",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Children of Atom",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 4625,
+          "videoFile": {
+            "name": "Retribution Parody 27 - Children of Atom.mp4",
+            "format": "h.264",
+            "sizeBytes": 466489766,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2027%20-%20Children%20of%20Atom.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e28",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "Jericho",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 4135,
+          "videoFile": {
+            "name": "Retribution Parody 28 - Jericho.mp4",
+            "format": "h.264",
+            "sizeBytes": 418548928,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2028%20-%20Jericho.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e29",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "God Bless the USA",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 5826,
+          "videoFile": {
+            "name": "Retribution Parody 29 - God Bless the USA.mp4",
+            "format": "h.264",
+            "sizeBytes": 589927178,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2029%20-%20God%20Bless%20the%20USA.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e30",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "Left Behind",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 3694,
+          "videoFile": {
+            "name": "Retribution Parody 30 - Left Behind.mp4",
+            "format": "h.264",
+            "sizeBytes": 375383649,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2030%20-%20Left%20Behind.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e31",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "Age of Anamnesis",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 4322,
+          "videoFile": {
+            "name": "Retribution Parody 31 - Age of Anamnesis.mp4",
+            "format": "h.264",
+            "sizeBytes": 437521810,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2031%20-%20Age%20of%20Anamnesis.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e32",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 32,
+          "title": "Vanity Mirror",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 2931,
+          "videoFile": {
+            "name": "Retribution Parody 32 - Vanity Mirror.mp4",
+            "format": "h.264",
+            "sizeBytes": 297154896,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2032%20-%20Vanity%20Mirror.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e33",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 33,
+          "title": "Summer of 69",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 3781,
+          "videoFile": {
+            "name": "Retribution Parody 33 - Summer of 69.mp4",
+            "format": "h.264",
+            "sizeBytes": 380525605,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2033%20-%20Summer%20of%2069.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e34",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 34,
+          "title": "Retribution Parody 34 - Wasteland Survival Guide",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 9158,
+          "videoFile": {
+            "name": "Retribution Parody 34 - Wasteland Survival Guide.mp4",
+            "format": "h.264",
+            "sizeBytes": 930660325,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2034%20-%20Wasteland%20Survival%20Guide.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e35",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 35,
+          "title": "Retribution Parody 35 - Red Alert",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 10524,
+          "videoFile": {
+            "name": "Retribution Parody 35 - Red Alert.mp4",
+            "format": "h.264",
+            "sizeBytes": 1067220577,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2035%20-%20Red%20Alert.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e36",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "Retribution Parody 36 - Blood Ties",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 5440,
+          "videoFile": {
+            "name": "Retribution Parody 36 - Blood Ties.mp4",
+            "format": "h.264",
+            "sizeBytes": 552639828,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2036%20-%20Blood%20Ties.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e37",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 37,
+          "title": "Retribution Parody 37 - Original Sin",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 4129,
+          "videoFile": {
+            "name": "Retribution Parody 37 - Original Sin.mp4",
+            "format": "h.264",
+            "sizeBytes": 417332655,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2037%20-%20Original%20Sin.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e38",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 38,
+          "title": "Retribution Parody 38 - Stardust",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 6451,
+          "videoFile": {
+            "name": "Retribution Parody 38 - Stardust.mp4",
+            "format": "h.264",
+            "sizeBytes": 655256583,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2038%20-%20Stardust.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e39",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 39,
+          "title": "Retribution Parody 39 - The Crow",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 4285,
+          "videoFile": {
+            "name": "Retribution Parody 39 - The Crow.mp4",
+            "format": "h.264",
+            "sizeBytes": 432690687,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2039%20-%20The%20Crow.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e40",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 40,
+          "title": "Retribution Parody 40 - Solomon's Temple",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 5125,
+          "videoFile": {
+            "name": "Retribution Parody 40 - Solomon's Temple.mp4",
+            "format": "h.264",
+            "sizeBytes": 516964772,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2040%20-%20Solomon%27s%20Temple.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e41",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 41,
+          "title": "Retribution Parody 41 - Amnesia Day",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 6205,
+          "videoFile": {
+            "name": "Retribution Parody 41 - Amnesia Day.mp4",
+            "format": "h.264",
+            "sizeBytes": 629066731,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2041%20-%20Amnesia%20Day.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e42",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 42,
+          "title": "Retribution Parody 42 - From Hell",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 8027,
+          "videoFile": {
+            "name": "Retribution Parody 42 - From Hell.mp4",
+            "format": "h.264",
+            "sizeBytes": 812930270,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2042%20-%20From%20Hell.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e43",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 43,
+          "title": "Retribution Parody 43 - Beautiful World",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 7112,
+          "videoFile": {
+            "name": "Retribution Parody 43 - Beautiful World.mp4",
+            "format": "h.264",
+            "sizeBytes": 723744160,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2043%20-%20Beautiful%20World.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e44",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 44,
+          "title": "Retribution Parody 44 - Doomsday Clock",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 5912,
+          "videoFile": {
+            "name": "Retribution Parody 44 - Doomsday Clock.mp4",
+            "format": "h.264",
+            "sizeBytes": 598232598,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2044%20-%20Doomsday%20Clock.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e45",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 45,
+          "title": "Retribution Parody 45 - Little Rascals",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 4523,
+          "videoFile": {
+            "name": "Retribution Parody 45 - Little Rascals.mp4",
+            "format": "h.264",
+            "sizeBytes": 459851138,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2045%20-%20Little%20Rascals.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e46",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 46,
+          "title": "Retribution Parody 46 - War Games",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 5816,
+          "videoFile": {
+            "name": "Retribution Parody 46 - War Games.mp4",
+            "format": "h.264",
+            "sizeBytes": 591253535,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2046%20-%20War%20Games.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e47",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 47,
+          "title": "Retribution Parody 47 - High Skool Musikal",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 6811,
+          "videoFile": {
+            "name": "Retribution Parody 47 - High Skool Musikal.mp4",
+            "format": "h.264",
+            "sizeBytes": 690629771,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2047%20-%20High%20Skool%20Musikal.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e48",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 48,
+          "title": "Retribution Parody 48 - Demon Hunters",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 8302,
+          "videoFile": {
+            "name": "Retribution Parody 48 - Demon Hunters.mp4",
+            "format": "h.264",
+            "sizeBytes": 845761244,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2048%20-%20Demon%20Hunters.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e49",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 49,
+          "title": "Retribution Parody 49 - Infected",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 7589,
+          "videoFile": {
+            "name": "Retribution Parody 49 - Infected.mp4",
+            "format": "h.264",
+            "sizeBytes": 767001924,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2049%20-%20Infected.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e50",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 50,
+          "title": "Retribution Parody 50 - War on God",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 5901,
+          "videoFile": {
+            "name": "Retribution Parody 50 - War on God.mp4",
+            "format": "h.264",
+            "sizeBytes": 595981236,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2050%20-%20War%20on%20God.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e51",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 51,
+          "title": "Retribution Parody 51 - Planet of the Apes",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 6115,
+          "videoFile": {
+            "name": "Retribution Parody 51 - Planet of the Apes.mp4",
+            "format": "h.264",
+            "sizeBytes": 622075915,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2051%20-%20Planet%20of%20the%20Apes.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e52",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 52,
+          "title": "Retribution Parody 52 - Trojan Horse",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 8286,
+          "videoFile": {
+            "name": "Retribution Parody 52 - Trojan Horse.mp4",
+            "format": "h.264",
+            "sizeBytes": 838091344,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2052%20-%20Trojan%20Horse.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e53",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 53,
+          "title": "Retribution Parody 53 - Life in Death",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 5328,
+          "videoFile": {
+            "name": "Retribution Parody 53 - Life In Death.mp4",
+            "format": "h.264",
+            "sizeBytes": 541125845,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2053%20-%20Life%20In%20Death.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e54",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 54,
+          "title": "Retribution Parody 54 - Chicken Little",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 4091,
+          "videoFile": {
+            "name": "Retribution Parody 54 - Chicken Little.mp4",
+            "format": "h.264",
+            "sizeBytes": 415865928,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2054%20-%20Chicken%20Little.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e55",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 55,
+          "title": "Retribution Parody 55 - U, Robot",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 9520,
+          "videoFile": {
+            "name": "Retribution Parody 55 - U Robot.mp4",
+            "format": "h.264",
+            "sizeBytes": 966328079,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2055%20-%20U%20Robot.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e56",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 56,
+          "title": "Retribution Parody 56 - Dreamtime",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 7812,
+          "videoFile": {
+            "name": "Retribution Parody 56 - Dreamtime.mp4",
+            "format": "h.264",
+            "sizeBytes": 791893161,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2056%20-%20Dreamtime.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e57",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 57,
+          "title": "Retribution Parody 57 - Hide and Seek",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 8412,
+          "videoFile": {
+            "name": "Retribution Parody 57 - Hide and Seek.mp4",
+            "format": "h.264",
+            "sizeBytes": 854554284,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2057%20-%20Hide%20and%20Seek.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e58",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 58,
+          "title": "Retribution Parody 58 - Seikilos of Euterpos",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 7439,
+          "videoFile": {
+            "name": "Retribution Parody 58 - Seikilos of Euterpos.mp4",
+            "format": "h.264",
+            "sizeBytes": 755036947,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2058%20-%20Seikilos%20of%20Euterpos.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e59",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 59,
+          "title": "Retribution Parody 59 - Lord of the Flies",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 5715,
+          "videoFile": {
+            "name": "Retribution Parody 59 - Lord of the Flies.mp4",
+            "format": "h.264",
+            "sizeBytes": 579549311,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2059%20-%20Lord%20of%20the%20Flies.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e60",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 60,
+          "title": "Retribution Parody 60 - Mass Requiem",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 8699,
+          "videoFile": {
+            "name": "Retribution Parody 60 - Mass Requiem.mp4",
+            "format": "h.264",
+            "sizeBytes": 882286320,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2060%20-%20Mass%20Requiem.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e61",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 61,
+          "title": "Retribution Parody 61 - Pygmalion and Galatea",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 5529,
+          "videoFile": {
+            "name": "Retribution Parody 61 - Pygmalion and Galatea.mp4",
+            "format": "h.264",
+            "sizeBytes": 560260523,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2061%20-%20Pygmalion%20and%20Galatea.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e62",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 62,
+          "title": "Retribution Parody 62 - Purple Dawn",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 10636,
+          "videoFile": {
+            "name": "Retribution Parody 62 - Purple Dawn.mp4",
+            "format": "h.264",
+            "sizeBytes": 1079547930,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2062%20-%20Purple%20Dawn.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e63",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 63,
+          "title": "Retribution Parody 63 - They Live",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 6368,
+          "videoFile": {
+            "name": "Retribution Parody 63 - They Live.mp4",
+            "format": "h.264",
+            "sizeBytes": 642153268,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2063%20-%20They%20Live.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e64",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 64,
+          "title": "Retribution Parody 64 - Game of Thrones",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 7433,
+          "videoFile": {
+            "name": "Retribution Parody 64 - Game of Thrones.mp4",
+            "format": "h.264",
+            "sizeBytes": 751642431,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2064%20-%20Game%20of%20Thrones.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e65",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 65,
+          "title": "Retribution Parody 65 - Spirited Away",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 5234,
+          "videoFile": {
+            "name": "Retribution Parody 65 - Spirited Away.mp4",
+            "format": "h.264",
+            "sizeBytes": 527191168,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2065%20-%20Spirited%20Away.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e66",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 66,
+          "title": "Retribution Parody 66 - Year of Light",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 8949,
+          "videoFile": {
+            "name": "Retribution Parody 66 - Year of Light.mp4",
+            "format": "h.264",
+            "sizeBytes": 900116671,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2066%20-%20Year%20of%20Light.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e67",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 67,
+          "title": "Retribution Parody 67 - Black Rain",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 3272,
+          "videoFile": {
+            "name": "Retribution Parody 67 - Black Rain.mp4",
+            "format": "h.264",
+            "sizeBytes": 332051137,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2067%20-%20Black%20Rain.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e68",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 68,
+          "title": "Retribution Parody 68 - Sophie's World",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 4304,
+          "videoFile": {
+            "name": "Retribution Parody 68 - Sophie's World.mp4",
+            "format": "h.264",
+            "sizeBytes": 433280419,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2068%20-%20Sophie%27s%20World.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e69",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 69,
+          "title": "Retribution Parody 69 - Young Ones",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 5972,
+          "videoFile": {
+            "name": "Retribution Parody 69 - Young Ones.mp4",
+            "format": "h.264",
+            "sizeBytes": 602339232,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2069%20-%20Young%20Ones.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e70",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 70,
+          "title": "Retribution Parody 70 - LazyTown",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 4531,
+          "videoFile": {
+            "name": "Retribution Parody 70 - Lazytown.mp4",
+            "format": "h.264",
+            "sizeBytes": 458086303,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2070%20-%20Lazytown.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e71",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 71,
+          "title": "Retribution Parody 71 - Ghost Earthship",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 9621,
+          "videoFile": {
+            "name": "Retribution Parody 71 - Ghost Earthship.mp4",
+            "format": "h.264",
+            "sizeBytes": 974831668,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2071%20-%20Ghost%20Earthship.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e72",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 72,
+          "title": "Retribution Parody 72 - Grand Genjutsu",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 11075,
+          "videoFile": {
+            "name": "Retribution Parody 72 - Grand Genjutsu.mp4",
+            "format": "h.264",
+            "sizeBytes": 1118118252,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2072%20-%20Grand%20Genjutsu.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e73",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 73,
+          "title": "Retribution Parody 73 - Barbie Girl",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 5691,
+          "videoFile": {
+            "name": "Retribution Parody 73 - Barbie Girl.mp4",
+            "format": "h.264",
+            "sizeBytes": 577634946,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2073%20-%20Barbie%20Girl.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e74",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 74,
+          "title": "Retribution Parody 74 - Bicycle Built For Two",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 2512,
+          "videoFile": {
+            "name": "Retribution Parody 74 - Bicycle Built for Two.mp4",
+            "format": "h.264",
+            "sizeBytes": 255057696,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2074%20-%20Bicycle%20Built%20for%20Two.mp4"
+        },
+        {
+          "archiveID": "Retribution-DT@e75",
+          "sourceID": "Retribution-DT",
+          "seasonNumber": 1,
+          "episodeNumber": 75,
+          "title": "Retribution Parody 75 - Daisy",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1921,
+          "runtimeSeconds": 3374,
+          "videoFile": {
+            "name": "Retribution Parody 75 - Daisy.mp4",
+            "format": "h.264",
+            "sizeBytes": 341226803,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Retribution-DT/Retribution%20Parody%2075%20-%20Daisy.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 75,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": [
+    {
+      "name": "Thorene Adair",
+      "character": null,
+      "order": 0,
+      "profilePath": null
+    }
+  ]
+}

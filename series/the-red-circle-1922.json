@@ -1,0 +1,278 @@
+{
+  "version": 2,
+  "seriesID": "the-red-circle-1922",
+  "sourceID": "daredevilsoftheredcircle01themonstrousplot",
+  "tvmazeID": null,
+  "title": "The Red Circle",
+  "yearStart": 1922,
+  "yearEnd": null,
+  "overview": "A London lady comes to Holmes in curiosity about her newest lodger. After first renting the room, arranging for meals and newspaper to be left at the door, and paying a very high fee, he disappears completely. Or, is it someone else now inside the room?",
+  "posterURL": "https://image.tmdb.org/t/p/w780/k2zNbRn3MYnNngCq6MTlzwmJohk.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Short",
+    "Crime",
+    "Drama"
+  ],
+  "networks": [],
+  "creator": "George Ridgwell",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "daredevilsoftheredcircle01themonstrousplot@e01",
+          "sourceID": "daredevilsoftheredcircle01themonstrousplot",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Monstrous Plot",
+          "overview": null,
+          "stillURL": "https://archive.org/download/daredevilsoftheredcircle01themonstrousplot/daredevilsoftheredcircle01themonstrousplot.thumbs/Daredevils%20of%20the%20Red%20Circle%2001%20The%20Monstrous%20Plot_000596.jpg",
+          "airDate": null,
+          "year": 1922,
+          "runtimeSeconds": 1671,
+          "videoFile": {
+            "name": "Daredevils of the Red Circle 01 The Monstrous Plot.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 84668682,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/daredevilsoftheredcircle01themonstrousplot/Daredevils%20of%20the%20Red%20Circle%2001%20The%20Monstrous%20Plot.mp4"
+        },
+        {
+          "archiveID": "daredevilsoftheredcircle01themonstrousplot@e02",
+          "sourceID": "daredevilsoftheredcircle01themonstrousplot",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Mysterious Friend",
+          "overview": null,
+          "stillURL": "https://archive.org/download/daredevilsoftheredcircle01themonstrousplot/daredevilsoftheredcircle01themonstrousplot.thumbs/Daredevils%20of%20the%20Red%20Circle%2002%20The%20Mysterious%20Friend_000354.jpg",
+          "airDate": null,
+          "year": 1922,
+          "runtimeSeconds": 1005,
+          "videoFile": {
+            "name": "Daredevils of the Red Circle 02 The Mysterious Friend.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 56633410,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/daredevilsoftheredcircle01themonstrousplot/Daredevils%20of%20the%20Red%20Circle%2002%20The%20Mysterious%20Friend.mp4"
+        },
+        {
+          "archiveID": "daredevilsoftheredcircle01themonstrousplot@e03",
+          "sourceID": "daredevilsoftheredcircle01themonstrousplot",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Executioner",
+          "overview": null,
+          "stillURL": "https://archive.org/download/daredevilsoftheredcircle01themonstrousplot/daredevilsoftheredcircle01themonstrousplot.thumbs/Daredevils%20of%20the%20Red%20Circle%2003%20The%20Executioner_000355.jpg",
+          "airDate": null,
+          "year": 1922,
+          "runtimeSeconds": 1012,
+          "videoFile": {
+            "name": "Daredevils of the Red Circle 03 The Executioner.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 54720719,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/daredevilsoftheredcircle01themonstrousplot/Daredevils%20of%20the%20Red%20Circle%2003%20The%20Executioner.mp4"
+        },
+        {
+          "archiveID": "daredevilsoftheredcircle01themonstrousplot@e04",
+          "sourceID": "daredevilsoftheredcircle01themonstrousplot",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Sabotage",
+          "overview": null,
+          "stillURL": "https://archive.org/download/daredevilsoftheredcircle01themonstrousplot/daredevilsoftheredcircle01themonstrousplot.thumbs/Daredevils%20of%20the%20Red%20Circle%2004%20Sabotage_000355.jpg",
+          "airDate": null,
+          "year": 1922,
+          "runtimeSeconds": 1003,
+          "videoFile": {
+            "name": "Daredevils of the Red Circle 04 Sabotage.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 50435892,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/daredevilsoftheredcircle01themonstrousplot/Daredevils%20of%20the%20Red%20Circle%2004%20Sabotage.mp4"
+        },
+        {
+          "archiveID": "daredevilsoftheredcircle01themonstrousplot@e05",
+          "sourceID": "daredevilsoftheredcircle01themonstrousplot",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Ray of Death",
+          "overview": null,
+          "stillURL": "https://archive.org/download/daredevilsoftheredcircle01themonstrousplot/daredevilsoftheredcircle01themonstrousplot.thumbs/Daredevils%20of%20the%20Red%20Circle%2005%20The%20Ray%20of%20Death_000294.jpg",
+          "airDate": null,
+          "year": 1922,
+          "runtimeSeconds": 1015,
+          "videoFile": {
+            "name": "Daredevils of the Red Circle 05 The Ray of Death.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 47741844,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/daredevilsoftheredcircle01themonstrousplot/Daredevils%20of%20the%20Red%20Circle%2005%20The%20Ray%20of%20Death.mp4"
+        },
+        {
+          "archiveID": "daredevilsoftheredcircle01themonstrousplot@e06",
+          "sourceID": "daredevilsoftheredcircle01themonstrousplot",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Thirty Seconds to Live",
+          "overview": null,
+          "stillURL": "https://archive.org/download/daredevilsoftheredcircle01themonstrousplot/daredevilsoftheredcircle01themonstrousplot.thumbs/Daredevils%20of%20the%20Red%20Circle%2006%20Thirty%20Seconds%20to%20Live_000294.jpg",
+          "airDate": null,
+          "year": 1922,
+          "runtimeSeconds": 1004,
+          "videoFile": {
+            "name": "Daredevils of the Red Circle 06 Thirty Seconds to Live.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 57647266,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/daredevilsoftheredcircle01themonstrousplot/Daredevils%20of%20the%20Red%20Circle%2006%20Thirty%20Seconds%20to%20Live.mp4"
+        },
+        {
+          "archiveID": "daredevilsoftheredcircle01themonstrousplot@e07",
+          "sourceID": "daredevilsoftheredcircle01themonstrousplot",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Flooded Mine",
+          "overview": null,
+          "stillURL": "https://archive.org/download/daredevilsoftheredcircle01themonstrousplot/daredevilsoftheredcircle01themonstrousplot.thumbs/Daredevils%20of%20the%20Red%20Circle%2007%20The%20Flooded%20Mine_000294.jpg",
+          "airDate": null,
+          "year": 1922,
+          "runtimeSeconds": 1007,
+          "videoFile": {
+            "name": "Daredevils of the Red Circle 07 The Flooded Mine.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 54787734,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/daredevilsoftheredcircle01themonstrousplot/Daredevils%20of%20the%20Red%20Circle%2007%20The%20Flooded%20Mine.mp4"
+        },
+        {
+          "archiveID": "daredevilsoftheredcircle01themonstrousplot@e08",
+          "sourceID": "daredevilsoftheredcircle01themonstrousplot",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "S O S",
+          "overview": null,
+          "stillURL": "https://archive.org/download/daredevilsoftheredcircle01themonstrousplot/daredevilsoftheredcircle01themonstrousplot.thumbs/Daredevils%20of%20the%20Red%20Circle%2008%20S.O.S_000294.jpg",
+          "airDate": null,
+          "year": 1922,
+          "runtimeSeconds": 1003,
+          "videoFile": {
+            "name": "Daredevils of the Red Circle 08 S.O.S.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 60834467,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/daredevilsoftheredcircle01themonstrousplot/Daredevils%20of%20the%20Red%20Circle%2008%20S.O.S.mp4"
+        },
+        {
+          "archiveID": "daredevilsoftheredcircle01themonstrousplot@e09",
+          "sourceID": "daredevilsoftheredcircle01themonstrousplot",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Ladder of Peril",
+          "overview": null,
+          "stillURL": "https://archive.org/download/daredevilsoftheredcircle01themonstrousplot/daredevilsoftheredcircle01themonstrousplot.thumbs/Daredevils%20of%20the%20Red%20Circle%2009%20Ladder%20of%20Peril_000294.jpg",
+          "airDate": null,
+          "year": 1922,
+          "runtimeSeconds": 1004,
+          "videoFile": {
+            "name": "Daredevils of the Red Circle 09 Ladder of Peril.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 56285138,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/daredevilsoftheredcircle01themonstrousplot/Daredevils%20of%20the%20Red%20Circle%2009%20Ladder%20of%20Peril.mp4"
+        },
+        {
+          "archiveID": "daredevilsoftheredcircle01themonstrousplot@e10",
+          "sourceID": "daredevilsoftheredcircle01themonstrousplot",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Infernal Machine",
+          "overview": null,
+          "stillURL": "https://archive.org/download/daredevilsoftheredcircle01themonstrousplot/daredevilsoftheredcircle01themonstrousplot.thumbs/Daredevils%20of%20the%20Red%20Circle%2010%20The%20Infernal%20Machine_000354.jpg",
+          "airDate": null,
+          "year": 1922,
+          "runtimeSeconds": 1001,
+          "videoFile": {
+            "name": "Daredevils of the Red Circle 10 The Infernal Machine.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 48998687,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/daredevilsoftheredcircle01themonstrousplot/Daredevils%20of%20the%20Red%20Circle%2010%20The%20Infernal%20Machine.mp4"
+        },
+        {
+          "archiveID": "daredevilsoftheredcircle01themonstrousplot@e11",
+          "sourceID": "daredevilsoftheredcircle01themonstrousplot",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Red Circle Speaks",
+          "overview": null,
+          "stillURL": "https://archive.org/download/daredevilsoftheredcircle01themonstrousplot/daredevilsoftheredcircle01themonstrousplot.thumbs/Daredevils%20of%20the%20Red%20Circle%2011%20The%20Red%20Circle%20Speaks_000294.jpg",
+          "airDate": null,
+          "year": 1922,
+          "runtimeSeconds": 1002,
+          "videoFile": {
+            "name": "Daredevils of the Red Circle 11 The Red Circle Speaks.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 59061804,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/daredevilsoftheredcircle01themonstrousplot/Daredevils%20of%20the%20Red%20Circle%2011%20The%20Red%20Circle%20Speaks.mp4"
+        },
+        {
+          "archiveID": "daredevilsoftheredcircle01themonstrousplot@e12",
+          "sourceID": "daredevilsoftheredcircle01themonstrousplot",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Flight to Doom",
+          "overview": null,
+          "stillURL": "https://archive.org/download/daredevilsoftheredcircle01themonstrousplot/daredevilsoftheredcircle01themonstrousplot.thumbs/Daredevils%20of%20the%20Red%20Circle%2012%20Flight%20to%20Doom_000354.jpg",
+          "airDate": null,
+          "year": 1922,
+          "runtimeSeconds": 1001,
+          "videoFile": {
+            "name": "Daredevils of the Red Circle 12 Flight to Doom.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 46197615,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/daredevilsoftheredcircle01themonstrousplot/Daredevils%20of%20the%20Red%20Circle%2012%20Flight%20to%20Doom.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 12,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": [
+    {
+      "name": "Eille Norwood",
+      "character": null,
+      "order": 0,
+      "profilePath": "/hEgc2sMCK5MsbJipFv0nL4LoDVu.jpg"
+    },
+    {
+      "name": "Hubert Willis",
+      "character": null,
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Teddy Arundell",
+      "character": null,
+      "order": 2,
+      "profilePath": null
+    }
+  ]
+}

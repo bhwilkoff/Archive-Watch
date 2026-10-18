@@ -1,0 +1,103 @@
+{
+  "version": 2,
+  "seriesID": "kntv-channel-11-news-reels-1968",
+  "sourceID": "hsj1983-68-1313",
+  "tvmazeID": null,
+  "title": "KNTV Channel 11 News Reels",
+  "yearStart": 1968,
+  "yearEnd": null,
+  "overview": "Reels A-G of original camera footage edited for broadcast on KNTV Channel 11 San Jose for August 30, 1968. Some segments may be silent. No broadcast script exists for this date. Reel 1 (sound): Mid-peninsula Free University demonstration and sit-in at Lytton Plaza in Palo Alto and at the law offices of Warren R. Thoits, after the landlord, Warren Thoits, reneged on the right of first refusal he had given the Free University organizers for space for university activities. \"Liberate downtown Palo Alto\" and \"We Won't Kow-tow to Big Business\" placards as students walk through the streets, ride in flat-bed trucks, and listen to a speaker (William Hydie?) in one of the empty office buildings. Organizer Rob (Bob Cullenbine?) is interviewed about what the demonstrators are hoping to achieve. Reel 2: Part 1 (silent): Small group demonstrating outside an office or municipal building after the violence at the Chicago Democratic National Convention. Placards read, \"Chicago Ill.\"; \"Dick Daly For Fuhrer\"; \"The Whole World Was Watching\"; and \"Protest Police Brutality\". Part 2 (sound): John Vasconcellos interviewed about the Democratic National Convention, which he attended. He says that people had to demonstrate, that \"we all deplore the violence that occurred\" and that the police reaction was an over-reaction. Reel 3: Part 1 (silent): Upside-down bi-plane in field, where it appears to have crashed. Three people walking around the plane examining the site. Part 2 (silent): Slow-motion footage of college football players rushing towards the camera, passing ball to player who kicks the ball. Part 3 (sound): Interview with San Jose State (?) football coach about their training. Says \"we think in order to win and be a consistent performer we need balance between running and passing...\" Part 4 (silent + sound): Shots of Santa Clara University football players practicing, coaches kneeling on field. Coach is interviewed about their team, says it's the youngest team they've ever had. Reel 4 (silent + sound): People inside a large room lining up at tables with forms and payment checks to register for college courses; the room is full of small tables where people are milling around, seated filling out forms. A \"Counselor\" sign is on one table. An older person is interviewed about why they have decided to go back to college, and what they've chosen to study. They've chosen math because they like to exercise their brain with problems; says they never finished college and this will fulfill a lifelong dream. They don't think it will take them longer than 4 years because they have credits through correspondence courses. They'll likely use the degree to teach other older people. Digital transfer by Movette Film Transfer (San Francisco, Calif.), April 2022",
+  "posterURL": "https://archive.org/services/img/hsj1983-68-1313",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "hsj1983-68-1313@e01",
+          "sourceID": "hsj1983-68-1313",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Episode 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/hsj1983-68-1313/hsj1983-68-1313.thumbs/1983-68-1313-1_OS-2072_000057.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 152,
+          "videoFile": {
+            "name": "1983-68-1313-1_OS-2072.mp4",
+            "format": "h.264",
+            "sizeBytes": 14537932,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/hsj1983-68-1313/1983-68-1313-1_OS-2072.mp4"
+        },
+        {
+          "archiveID": "hsj1983-68-1313@e02",
+          "sourceID": "hsj1983-68-1313",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Episode 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/hsj1983-68-1313/hsj1983-68-1313.thumbs/1983-68-1313-2_OS-2072_000034.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 93,
+          "videoFile": {
+            "name": "1983-68-1313-2_OS-2072.mp4",
+            "format": "h.264",
+            "sizeBytes": 8807041,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/hsj1983-68-1313/1983-68-1313-2_OS-2072.mp4"
+        },
+        {
+          "archiveID": "hsj1983-68-1313@e03",
+          "sourceID": "hsj1983-68-1313",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Episode 3",
+          "overview": null,
+          "stillURL": "https://archive.org/download/hsj1983-68-1313/hsj1983-68-1313.thumbs/1983-68-1313-3_OS-2072_000057.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 145,
+          "videoFile": {
+            "name": "1983-68-1313-3_OS-2072.mp4",
+            "format": "h.264",
+            "sizeBytes": 13718407,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/hsj1983-68-1313/1983-68-1313-3_OS-2072.mp4"
+        },
+        {
+          "archiveID": "hsj1983-68-1313@e04",
+          "sourceID": "hsj1983-68-1313",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Episode 4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/hsj1983-68-1313/hsj1983-68-1313.thumbs/1983-68-1313-4_OS-2072_000057.jpg",
+          "airDate": null,
+          "year": 1968,
+          "runtimeSeconds": 151,
+          "videoFile": {
+            "name": "1983-68-1313-4_OS-2072.mp4",
+            "format": "h.264",
+            "sizeBytes": 14525319,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/hsj1983-68-1313/1983-68-1313-4_OS-2072.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

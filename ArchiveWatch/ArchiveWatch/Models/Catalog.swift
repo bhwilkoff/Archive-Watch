@@ -29,6 +29,35 @@ extension KeyedDecodingContainer {
 // persisting user state (favorites, continue-watching, re-enrichments).
 
 struct Catalog: Decodable, Sendable {
+    /// Decision 166: an episode of a series held as files on ONE archive.org
+    /// item has the id `<item>@<token>` (`UFO.complete@e01`). archive.org ids
+    /// never contain "@", so the real item is always the part before the first.
+    static func archiveItemID(_ id: String) -> String {
+        guard let at = id.firstIndex(of: "@") else { return id }
+        return String(id[..<at])
+    }
+
+    static func isBundleFile(_ id: String) -> Bool { id.contains("@") }
+
+    /// The archive.org page for a title; a bundle episode's names its own file
+    /// (archive.org serves `/details/<item>/<file>`).
+    static func detailsURL(archiveID: String, video: URL?) -> String {
+        let item = archiveItemID(archiveID)
+        guard isBundleFile(archiveID), let file = archiveFileName(in: video),
+              let enc = file.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed)
+        else { return "https://archive.org/details/\(item)" }
+        return "https://archive.org/details/\(item)/\(enc)"
+    }
+
+    /// The file an archive.org download URL names, decoded
+    /// (`/download/<item>/<file>` → `<file>`), or nil for any other URL.
+    static func archiveFileName(in url: URL?) -> String? {
+        guard let url, url.host?.hasSuffix("archive.org") == true else { return nil }
+        let parts = url.pathComponents.filter { $0 != "/" }
+        guard parts.count >= 3, parts[0] == "download" else { return nil }
+        return parts.dropFirst(2).joined(separator: "/")
+    }
+
     /// Turn a stored downloadURL into a valid, playable URL.
     ///
     /// archive.org filenames routinely contain raw spaces and `#`
@@ -538,13 +567,14 @@ struct Catalog: Decodable, Sendable {
         }
 
         /// Canonical archive.org source page for provenance/attribution.
-        var sourceDetailsURL: String { "https://archive.org/details/\(archiveID)" }
+        var sourceDetailsURL: String { Catalog.detailsURL(archiveID: archiveID, video: videoURLParsed) }
 
         /// The always-available archive.org item thumbnail (a real video frame for most playable
         /// items). The UNIVERSAL poster fallback so a tile is NEVER blank when the designed poster
         /// URL is dead/throttled — every platform's poster view layers this behind the real poster.
         var archiveThumbURL: URL? {
-            let id = archiveID.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? archiveID
+            let item = Catalog.archiveItemID(archiveID)
+            let id = item.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? item
             return URL(string: "https://archive.org/services/img/\(id)")
         }
 

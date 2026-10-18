@@ -556,7 +556,10 @@ def main():
               f"{' (dry-run)' if args.dry_run else ''}: {', '.join(pruned[:8])}"
               f"{'…' if len(pruned) > 8 else ''}", flush=True)
 
-    files = sorted(SERIES_DIR.glob("*.json"))
+    # A bundle spine's episodes are its own item's files (Decision 166); a title
+    # search would graft other uploads onto it.
+    files = [p for p in sorted(SERIES_DIR.glob("*.json"))
+             if not json.loads(p.read_text(encoding="utf-8")).get("sourceID")]
     if args.series:
         files = [p for p in files if p.stem == args.series]
     elif args.min_episodes:

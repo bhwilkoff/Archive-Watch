@@ -1,0 +1,221 @@
+{
+  "version": 2,
+  "seriesID": "the-fantastic-journey-1977",
+  "sourceID": "the-fantastic-journey-1977_202504",
+  "tvmazeID": null,
+  "title": "The Fantastic Journey",
+  "yearStart": 1977,
+  "yearEnd": null,
+  "overview": "The Fantastic Journey is an American science fiction television series that was originally aired on NBC from February 3 through June 16, 1977. It was originally intended to run 13 episodes, as a mid-season replacement, but NBC cancelled the series in April, after the ninth episode aired. A tenth episode, already produced, was broadcast two months later. The series concerns a family and their associates who charter a boat out into the Caribbean for a scientific expedition. In the Bermuda Triangle, after encountering a glowing green cloud, accompanied by the eerie disembodied sound of ship's bells, the group find themselves shipwrecked on a mysterious uncharted island from which they cannot escape. Christina Hart as Gwenith, with Jared Martin as Varian, in \"An Act of Love\" They encounter Varian ( Jared Martin ), initially disguised as an Arawak native, who is later revealed to be from the year 2230. A 23rd-century pacifist, musician and healer, Varian explains to the travelers that, like he and many before them, they have been caught in a space/time continuum where people from the past, present, future and from other worlds are trapped, co-existing on the island in a series of \"Time Zones\". The only way home can be found in a place called \"Evoland\", which lies \"far to the rising sun\" (it was indicated in interviews at the time that Evoland was also the name of the island). The only way to travel between Time Zones is via invisible gateways that instantaneously transport individuals or groups from one zone to another. In one episode, \"Beyond the Mountain\", the group also encounters a second cloud, which has much the same effect, but which also splits up the group. After the initial pilot story, a steady group of travelers forms around Varian as de facto leader, and the series then follows this group as they travel across the many Time Zones of the island to find Evoland. On their way, they encounter people from different planets and times who are also trapped on the island and who have adapted to their plight in different ways. The pilot initially suggested the historical past would be explored. The series, though, soon adopted a consistently futuristic style during the series following pressure from the network. Three characters after the pilot were also dropped, as they wanted a more exotic group of travelers, hence the arrival of Liana and Willoway. Liana disappeared from the last two episodes when Katie Saylor fell ill.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/the-fantastic-journey-1977_202504.95f3b27b.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Sci-Fi",
+    "Mystery",
+    "Action"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-fantastic-journey-1977_202504@e01",
+          "sourceID": "the-fantastic-journey-1977_202504",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Vortex",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-fantastic-journey-1977_202504/the-fantastic-journey-1977_202504.thumbs/The%20Fantastic%20Journey%20%5B1977%5D%20E01%20-%20Vortex_001750.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 4406,
+          "videoFile": {
+            "name": "The Fantastic Journey [1977] E01 - Vortex.mp4",
+            "format": "h.264",
+            "sizeBytes": 418600990,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-fantastic-journey-1977_202504/The%20Fantastic%20Journey%20%5B1977%5D%20E01%20-%20Vortex.mp4"
+        },
+        {
+          "archiveID": "the-fantastic-journey-1977_202504@e02",
+          "sourceID": "the-fantastic-journey-1977_202504",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Atlantium",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-fantastic-journey-1977_202504/the-fantastic-journey-1977_202504.thumbs/The%20Fantastic%20Journey%20%5B1977%5D%20E02%20-%20Atlantium_001144.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2885,
+          "videoFile": {
+            "name": "The Fantastic Journey [1977] E02 - Atlantium.mp4",
+            "format": "h.264",
+            "sizeBytes": 273925053,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-fantastic-journey-1977_202504/The%20Fantastic%20Journey%20%5B1977%5D%20E02%20-%20Atlantium.mp4"
+        },
+        {
+          "archiveID": "the-fantastic-journey-1977_202504@e03",
+          "sourceID": "the-fantastic-journey-1977_202504",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Beyond the Mountain",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-fantastic-journey-1977_202504/the-fantastic-journey-1977_202504.thumbs/The%20Fantastic%20Journey%20%5B1977%5D%20E03%20-%20Beyond%20the%20Mountain_001144.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2882,
+          "videoFile": {
+            "name": "The Fantastic Journey [1977] E03 - Beyond the Mountain.mp4",
+            "format": "h.264",
+            "sizeBytes": 273976305,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-fantastic-journey-1977_202504/The%20Fantastic%20Journey%20%5B1977%5D%20E03%20-%20Beyond%20the%20Mountain.mp4"
+        },
+        {
+          "archiveID": "the-fantastic-journey-1977_202504@e04",
+          "sourceID": "the-fantastic-journey-1977_202504",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Children of the Gods",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-fantastic-journey-1977_202504/the-fantastic-journey-1977_202504.thumbs/The%20Fantastic%20Journey%20%5B1977%5D%20E04%20-%20Children%20of%20the%20Gods_001162.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2924,
+          "videoFile": {
+            "name": "The Fantastic Journey [1977] E04 - Children of the Gods.mp4",
+            "format": "h.264",
+            "sizeBytes": 278527679,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-fantastic-journey-1977_202504/The%20Fantastic%20Journey%20%5B1977%5D%20E04%20-%20Children%20of%20the%20Gods.mp4"
+        },
+        {
+          "archiveID": "the-fantastic-journey-1977_202504@e05",
+          "sourceID": "the-fantastic-journey-1977_202504",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "A Dream of Conquest",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-fantastic-journey-1977_202504/the-fantastic-journey-1977_202504.thumbs/The%20Fantastic%20Journey%20%5B1977%5D%20E05%20-%20A%20Dream%20of%20Conquest_001055.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2902,
+          "videoFile": {
+            "name": "The Fantastic Journey [1977] E05 - A Dream of Conquest.mp4",
+            "format": "h.264",
+            "sizeBytes": 275619278,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-fantastic-journey-1977_202504/The%20Fantastic%20Journey%20%5B1977%5D%20E05%20-%20A%20Dream%20of%20Conquest.mp4"
+        },
+        {
+          "archiveID": "the-fantastic-journey-1977_202504@e06",
+          "sourceID": "the-fantastic-journey-1977_202504",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "An Act of Love",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-fantastic-journey-1977_202504/the-fantastic-journey-1977_202504.thumbs/The%20Fantastic%20Journey%20%5B1977%5D%20E06%20-%20An%20Act%20of%20Love_001063.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2919,
+          "videoFile": {
+            "name": "The Fantastic Journey [1977] E06 - An Act of Love.mp4",
+            "format": "h.264",
+            "sizeBytes": 276415662,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-fantastic-journey-1977_202504/The%20Fantastic%20Journey%20%5B1977%5D%20E06%20-%20An%20Act%20of%20Love.mp4"
+        },
+        {
+          "archiveID": "the-fantastic-journey-1977_202504@e07",
+          "sourceID": "the-fantastic-journey-1977_202504",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Funhouse",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-fantastic-journey-1977_202504/the-fantastic-journey-1977_202504.thumbs/The%20Fantastic%20Journey%20%5B1977%5D%20E07%20-%20Funhouse_001040.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2857,
+          "videoFile": {
+            "name": "The Fantastic Journey [1977] E07 - Funhouse.mp4",
+            "format": "h.264",
+            "sizeBytes": 268603552,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-fantastic-journey-1977_202504/The%20Fantastic%20Journey%20%5B1977%5D%20E07%20-%20Funhouse.mp4"
+        },
+        {
+          "archiveID": "the-fantastic-journey-1977_202504@e08",
+          "sourceID": "the-fantastic-journey-1977_202504",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Turnabout",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-fantastic-journey-1977_202504/the-fantastic-journey-1977_202504.thumbs/The%20Fantastic%20Journey%20%5B1977%5D%20E08%20-%20Turnabout_001062.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2919,
+          "videoFile": {
+            "name": "The Fantastic Journey [1977] E08 - Turnabout.mp4",
+            "format": "h.264",
+            "sizeBytes": 276610884,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-fantastic-journey-1977_202504/The%20Fantastic%20Journey%20%5B1977%5D%20E08%20-%20Turnabout.mp4"
+        },
+        {
+          "archiveID": "the-fantastic-journey-1977_202504@e09",
+          "sourceID": "the-fantastic-journey-1977_202504",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Riddles",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-fantastic-journey-1977_202504/the-fantastic-journey-1977_202504.thumbs/The%20Fantastic%20Journey%20%5B1977%5D%20E09%20-%20Riddles_001061.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2920,
+          "videoFile": {
+            "name": "The Fantastic Journey [1977] E09 - Riddles.mp4",
+            "format": "h.264",
+            "sizeBytes": 276476202,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-fantastic-journey-1977_202504/The%20Fantastic%20Journey%20%5B1977%5D%20E09%20-%20Riddles.mp4"
+        },
+        {
+          "archiveID": "the-fantastic-journey-1977_202504@e10",
+          "sourceID": "the-fantastic-journey-1977_202504",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Innocent Prey",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-fantastic-journey-1977_202504/the-fantastic-journey-1977_202504.thumbs/The%20Fantastic%20Journey%20%5B1977%5D%20E10%20-%20The%20Innocent%20Prey_001164.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2928,
+          "videoFile": {
+            "name": "The Fantastic Journey [1977] E10 - The Innocent Prey.mp4",
+            "format": "h.264",
+            "sizeBytes": 277178047,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-fantastic-journey-1977_202504/The%20Fantastic%20Journey%20%5B1977%5D%20E10%20-%20The%20Innocent%20Prey.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 10,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

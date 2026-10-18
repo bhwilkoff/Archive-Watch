@@ -1,0 +1,293 @@
+{
+  "version": 2,
+  "seriesID": "bearcats-1971",
+  "sourceID": "Bearcats-Series-1971",
+  "tvmazeID": null,
+  "title": "Bearcats!",
+  "yearStart": 1971,
+  "yearEnd": null,
+  "overview": "Two soldiers of fortune roam the Southwest of 1914 in a Stutz Bearcat; all 13 episodes and the pilot Powderkeg of the 1971 CBS series with Rod Taylor and Dennis Cole.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/Bearcats-Series-1971.fbc966be.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Bearcats-Series-1971@s1e00",
+          "sourceID": "Bearcats-Series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 0,
+          "title": "Powderkeg",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Bearcats-Series-1971/Bearcats-Series-1971.thumbs/S01E00%20-%20Powderkeg_002377.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 5600,
+          "videoFile": {
+            "name": "S01E00 - Powderkeg.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 540586540,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Bearcats-Series-1971/S01E00%20-%20Powderkeg.ia.mp4"
+        },
+        {
+          "archiveID": "Bearcats-Series-1971@s1e01",
+          "sourceID": "Bearcats-Series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Devil Wears Armor",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Bearcats-Series-1971/Bearcats-Series-1971.thumbs/S01E01%20-%20The%20Devil%20Wears%20Armor_001279.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3007,
+          "videoFile": {
+            "name": "S01E01 - The Devil Wears Armor.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 492480962,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Bearcats-Series-1971/S01E01%20-%20The%20Devil%20Wears%20Armor.ia.mp4"
+        },
+        {
+          "archiveID": "Bearcats-Series-1971@s1e02",
+          "sourceID": "Bearcats-Series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Ground Loop at Spanish Wells",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Bearcats-Series-1971/Bearcats-Series-1971.thumbs/S01E02%20-%20Ground%20Loop%20at%20Spanish%20Wells_001288.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3024,
+          "videoFile": {
+            "name": "S01E02 - Ground Loop at Spanish Wells.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 494038700,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Bearcats-Series-1971/S01E02%20-%20Ground%20Loop%20at%20Spanish%20Wells.ia.mp4"
+        },
+        {
+          "archiveID": "Bearcats-Series-1971@s1e03",
+          "sourceID": "Bearcats-Series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Dos Gringos",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Bearcats-Series-1971/Bearcats-Series-1971.thumbs/S01E03%20-%20Dos%20Gringos_001284.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3026,
+          "videoFile": {
+            "name": "S01E03 - Dos Gringos.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 494474717,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Bearcats-Series-1971/S01E03%20-%20Dos%20Gringos.ia.mp4"
+        },
+        {
+          "archiveID": "Bearcats-Series-1971@s1e04",
+          "sourceID": "Bearcats-Series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Feathered Serpent",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Bearcats-Series-1971/Bearcats-Series-1971.thumbs/S01E04%20-%20The%20Feathered%20Serpent_001292.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3030,
+          "videoFile": {
+            "name": "S01E04 - The Feathered Serpent.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 493223385,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Bearcats-Series-1971/S01E04%20-%20The%20Feathered%20Serpent.ia.mp4"
+        },
+        {
+          "archiveID": "Bearcats-Series-1971@s1e05",
+          "sourceID": "Bearcats-Series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Hostages",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Bearcats-Series-1971/Bearcats-Series-1971.thumbs/S01E05%20-%20Hostages_001266.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 2973,
+          "videoFile": {
+            "name": "S01E05 - Hostages.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 493371325,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Bearcats-Series-1971/S01E05%20-%20Hostages.ia.mp4"
+        },
+        {
+          "archiveID": "Bearcats-Series-1971@s1e06",
+          "sourceID": "Bearcats-Series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Conqueror's Gold",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Bearcats-Series-1971/Bearcats-Series-1971.thumbs/S01E06%20-%20Conqueror%27s%20Gold_001283.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3022,
+          "videoFile": {
+            "name": "S01E06 - Conqueror's Gold.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 494242779,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Bearcats-Series-1971/S01E06%20-%20Conqueror%27s%20Gold.ia.mp4"
+        },
+        {
+          "archiveID": "Bearcats-Series-1971@s1e07",
+          "sourceID": "Bearcats-Series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Blood Knot",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Bearcats-Series-1971/Bearcats-Series-1971.thumbs/S01E07%20-%20Blood%20Knot_001292.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3046,
+          "videoFile": {
+            "name": "S01E07 - Blood Knot.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 492771324,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Bearcats-Series-1971/S01E07%20-%20Blood%20Knot.ia.mp4"
+        },
+        {
+          "archiveID": "Bearcats-Series-1971@s1e08",
+          "sourceID": "Bearcats-Series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Assault on San Saba",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Bearcats-Series-1971/Bearcats-Series-1971.thumbs/S01E08%20-%20Assault%20on%20San%20Saba_001291.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3026,
+          "videoFile": {
+            "name": "S01E08 - Assault on San Saba.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 493948634,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Bearcats-Series-1971/S01E08%20-%20Assault%20on%20San%20Saba.ia.mp4"
+        },
+        {
+          "archiveID": "Bearcats-Series-1971@s1e09",
+          "sourceID": "Bearcats-Series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Bitter Flats",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Bearcats-Series-1971/Bearcats-Series-1971.thumbs/S01E09%20-%20Bitter%20Flats_001275.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 2998,
+          "videoFile": {
+            "name": "S01E09 - Bitter Flats.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 494592530,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Bearcats-Series-1971/S01E09%20-%20Bitter%20Flats.ia.mp4"
+        },
+        {
+          "archiveID": "Bearcats-Series-1971@s1e10",
+          "sourceID": "Bearcats-Series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Tiger! Tiger!",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Bearcats-Series-1971/Bearcats-Series-1971.thumbs/S01E10%20-%20Tiger%21%20Tiger%21_001283.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3023,
+          "videoFile": {
+            "name": "S01E10 - Tiger! Tiger!.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 494338306,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Bearcats-Series-1971/S01E10%20-%20Tiger%21%20Tiger%21.ia.mp4"
+        },
+        {
+          "archiveID": "Bearcats-Series-1971@s1e11",
+          "sourceID": "Bearcats-Series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Big Guns",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Bearcats-Series-1971/Bearcats-Series-1971.thumbs/S01E11%20-%20The%20Big%20Guns_001283.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3021,
+          "videoFile": {
+            "name": "S01E11 - The Big Guns.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 494059309,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Bearcats-Series-1971/S01E11%20-%20The%20Big%20Guns.ia.mp4"
+        },
+        {
+          "archiveID": "Bearcats-Series-1971@s1e12",
+          "sourceID": "Bearcats-Series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Return of Estaban",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Bearcats-Series-1971/Bearcats-Series-1971.thumbs/S01E12%20-%20The%20Return%20of%20Estaban_001292.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3032,
+          "videoFile": {
+            "name": "S01E12 - The Return of Estaban.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 493713751,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Bearcats-Series-1971/S01E12%20-%20The%20Return%20of%20Estaban.ia.mp4"
+        },
+        {
+          "archiveID": "Bearcats-Series-1971@s1e13",
+          "sourceID": "Bearcats-Series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Man in a Cage",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Bearcats-Series-1971/Bearcats-Series-1971.thumbs/S01E13%20-%20Man%20in%20a%20Cage_001292.jpg",
+          "airDate": null,
+          "year": 1971,
+          "runtimeSeconds": 3027,
+          "videoFile": {
+            "name": "S01E13 - Man in a Cage.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 493474257,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Bearcats-Series-1971/S01E13%20-%20Man%20in%20a%20Cage.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 14,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

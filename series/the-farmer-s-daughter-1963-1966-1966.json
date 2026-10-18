@@ -1,0 +1,1595 @@
+{
+  "version": 2,
+  "seriesID": "the-farmer-s-daughter-1963-1966-1966",
+  "sourceID": "20220204_20220204_1021",
+  "tvmazeID": null,
+  "title": "The Farmer's Daughter 1963-1966",
+  "yearStart": 1966,
+  "yearEnd": null,
+  "overview": "The Farmer's Daughter 1963-1966 The Farmer's Daughter is an American single-camera sitcom, loosely based on the 1947 film, The series was produced by Screen Gems Television and aired on ABC from September 20, 1963, to April 22, 1966. That film was based the 1937 Finnish play and film Juurakon Hulda by Hella Wuolijoki, using the pen name Juhani Tervapää. The series starred Inger Stevens as Katy Holstrum, a young Swedish woman who becomes housekeeper for a widowed U.S. Congressman, Glen Morley (played by William Windom). In the series Glen has two sons, aged 14 and 8 at the time of the premiere. Steve, the older of the two boys, was played by Mickey Sholdar, while Danny was played by Rory O'Brien. The Congressman's mother, Agatha Morley, was played by Cathleen Nesbitt. Unlike the 1937 and 1947 films, Katy never ran for (nor was elected to) Congress in the series. In its first season (filmed in black-and-white), The Farmer's Daughter competed against Twilight Zone on CBS and the short-lived Larry Blyden series Harry's Girls on NBC. The series never broke into the top 30, but during its first two years it earned respectable ratings and proved to be moderately successful. The last episode of the second season featured the two leads becoming engaged. It was sponsored by Lark Cigarettes and Clairol, for whom the two leading stars often appeared at show's end promoting the products. (The commercials were also filmed.) It also enjoyed a brief run in syndication when it aired on CBN Cable in the 1980s. The third season brought some changes to the format, as the series began filming episodes in color. On Monday, November 1, 1965 (just in time for Sweeps), Katy Holstrum and Glen Morley were married in a wedding ceremony attended by 300 invited guests. After the wedding episode the show's ratings fell, and ABC canceled The Farmer's Daughter. In the second to last episode, \"Is He or Isn't He?\", Katy adopted Glen's sons, thereby providing the series closure as well as a \"happy ending.\" Inger Stevens as Katrin \"Katy\" Holstrum William Windom as Glen Morley Mickey Sholdar as Steve Morley Rory O'Brien as Danny Morley Cathleen Nesbitt as Agatha Morley Philip Coolidge as Cooper, the butler (1963–1964) sitcom, 1960s, inger stevens, William Windom, Mickey Sholdar, Rory O'Brien, Cathleen Nesbitt, Philip Coolidge",
+  "posterURL": "https://archive.org/download/archivewatch-covers/20220204_20220204_1021.5dbbe18e.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "20220204_20220204_1021@s1e01",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Speechmaker Pt1",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1360,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 1/The Farmer's Daughter - 1x01 - The Speechmaker Pt1.mp4",
+            "format": "h.264",
+            "sizeBytes": 133359938,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%201/The%20Farmer%27s%20Daughter%20-%201x01%20-%20The%20Speechmaker%20Pt1.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s1e02",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Speechmaker pt2",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1327,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 1/The Farmer's Daughter - 1x02 - The Speechmaker pt2.mp4",
+            "format": "h.264",
+            "sizeBytes": 130048314,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%201/The%20Farmer%27s%20Daughter%20-%201x02%20-%20The%20Speechmaker%20pt2.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s1e03",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Where's Katy",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1331,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 1/The Farmer's Daughter - 1x03 - Where's Katy.mp4",
+            "format": "h.264",
+            "sizeBytes": 130765858,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%201/The%20Farmer%27s%20Daughter%20-%201x03%20-%20Where%27s%20Katy.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s1e04",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "An Enterprising Young Man",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1323,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 1/The Farmer's Daughter - 1x04 - An Enterprising Young Man.mp4",
+            "format": "h.264",
+            "sizeBytes": 129584560,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%201/The%20Farmer%27s%20Daughter%20-%201x04%20-%20An%20Enterprising%20Young%20Man.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s1e05",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "An Affair of State",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1318,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 1/The Farmer's Daughter - 1x05 - An Affair of State.mp4",
+            "format": "h.264",
+            "sizeBytes": 129808830,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%201/The%20Farmer%27s%20Daughter%20-%201x05%20-%20An%20Affair%20of%20State.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s1e06",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Washington Spotlight",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1328,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 1/The Farmer's Daughter - 1x06 - The Washington Spotlight.mp4",
+            "format": "h.264",
+            "sizeBytes": 129697043,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%201/The%20Farmer%27s%20Daughter%20-%201x06%20-%20The%20Washington%20Spotlight.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s1e09",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Miss Cheese",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1336,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 1/The Farmer's Daughter - 1x09 - Miss Cheese.mp4",
+            "format": "h.264",
+            "sizeBytes": 130965137,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%201/The%20Farmer%27s%20Daughter%20-%201x09%20-%20Miss%20Cheese.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s1e10",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Editorial Wheel",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1337,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 1/The Farmer's Daughter - 1x10 - The Editorial Wheel.mp4",
+            "format": "h.264",
+            "sizeBytes": 130544507,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%201/The%20Farmer%27s%20Daughter%20-%201x10%20-%20The%20Editorial%20Wheel.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s1e11",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "I Am the Most Beautiful",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1333,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 1/The Farmer's Daughter - 1x11 - I Am the Most Beautiful.mp4",
+            "format": "h.264",
+            "sizeBytes": 130104953,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%201/The%20Farmer%27s%20Daughter%20-%201x11%20-%20I%20Am%20the%20Most%20Beautiful.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s1e12",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "One Rainy Night",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1332,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 1/The Farmer's Daughter - 1x12 - One Rainy Night.mp4",
+            "format": "h.264",
+            "sizeBytes": 130204123,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%201/The%20Farmer%27s%20Daughter%20-%201x12%20-%20One%20Rainy%20Night.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s1e13",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "The Simple Life",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1330,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 1/The Farmer's Daughter - 1x13 - The Simple Life.mp4",
+            "format": "h.264",
+            "sizeBytes": 130427743,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%201/The%20Farmer%27s%20Daughter%20-%201x13%20-%20The%20Simple%20Life.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s1e14",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Gypsy Love Song",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1320,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 1/The Farmer's Daughter - 1x14 - The Gypsy Love Song.mp4",
+            "format": "h.264",
+            "sizeBytes": 129281663,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%201/The%20Farmer%27s%20Daughter%20-%201x14%20-%20The%20Gypsy%20Love%20Song.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s1e15",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Mrs. Golden's Opportunity",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1317,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 1/The Farmer's Daughter - 1x15 - Mrs. Golden's Opportunity.mp4",
+            "format": "h.264",
+            "sizeBytes": 128730512,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%201/The%20Farmer%27s%20Daughter%20-%201x15%20-%20Mrs.%20Golden%27s%20Opportunity.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s1e19",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Marriage is for Real People",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1333,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 1/The Farmer's Daughter - 1x19 - Marriage is for Real People.mp4",
+            "format": "h.264",
+            "sizeBytes": 129850658,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%201/The%20Farmer%27s%20Daughter%20-%201x19%20-%20Marriage%20is%20for%20Real%20People.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s1e20",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Katy and the Imagemaker",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1327,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 1/The Farmer's Daughter - 1x20 - Katy and the Imagemaker.mp4",
+            "format": "h.264",
+            "sizeBytes": 130745475,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%201/The%20Farmer%27s%20Daughter%20-%201x20%20-%20Katy%20and%20the%20Imagemaker.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s1e21",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "The Playboy of Capitol Hill",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1327,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 1/The Farmer's Daughter - 1x21 - The Playboy of Capitol Hill.mp4",
+            "format": "h.264",
+            "sizeBytes": 130776979,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%201/The%20Farmer%27s%20Daughter%20-%201x21%20-%20The%20Playboy%20of%20Capitol%20Hill.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s1e22",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Bless Our Happy Home",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1307,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 1/The Farmer's Daughter - 1x22 - Bless Our Happy Home.mp4",
+            "format": "h.264",
+            "sizeBytes": 128341704,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%201/The%20Farmer%27s%20Daughter%20-%201x22%20-%20Bless%20Our%20Happy%20Home.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s1e23",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Katy and the Prince",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1335,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 1/The Farmer's Daughter - 1x23 - Katy and the Prince.mp4",
+            "format": "h.264",
+            "sizeBytes": 130546514,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%201/The%20Farmer%27s%20Daughter%20-%201x23%20-%20Katy%20and%20the%20Prince.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s1e24",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "The Swinger",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1335,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 1/The Farmer's Daughter - 1x24 - The Swinger.mp4",
+            "format": "h.264",
+            "sizeBytes": 130829384,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%201/The%20Farmer%27s%20Daughter%20-%201x24%20-%20The%20Swinger.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s1e25",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Katy Gets Arrested",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1339,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 1/The Farmer's Daughter - 1x25 - Katy Gets Arrested.mp4",
+            "format": "h.264",
+            "sizeBytes": 130444749,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%201/The%20Farmer%27s%20Daughter%20-%201x25%20-%20Katy%20Gets%20Arrested.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s1e27",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Christopher Columbus, Who",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1324,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 1/The Farmer's Daughter - 1x27 - Christopher Columbus, Who.mp4",
+            "format": "h.264",
+            "sizeBytes": 129956030,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%201/The%20Farmer%27s%20Daughter%20-%201x27%20-%20Christopher%20Columbus%2C%20Who.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s1e28",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "The One Eyed Sloth",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1358,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 1/The Farmer's Daughter - 1x28 - The One Eyed Sloth.mp4",
+            "format": "h.264",
+            "sizeBytes": 133203561,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%201/The%20Farmer%27s%20Daughter%20-%201x28%20-%20The%20One%20Eyed%20Sloth.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s1e29",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "Young and in Love",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1332,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 1/The Farmer's Daughter - 1x29 - Young and in Love.mp4",
+            "format": "h.264",
+            "sizeBytes": 130999752,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%201/The%20Farmer%27s%20Daughter%20-%201x29%20-%20Young%20and%20in%20Love.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s1e30",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "The Morley Report",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1333,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 1/The Farmer's Daughter - 1x30 - The Morley Report.mp4",
+            "format": "h.264",
+            "sizeBytes": 129695342,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%201/The%20Farmer%27s%20Daughter%20-%201x30%20-%20The%20Morley%20Report.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s1e31",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "The Octopus",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1326,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 1/The Farmer's Daughter - 1x31 - The Octopus.mp4",
+            "format": "h.264",
+            "sizeBytes": 130230019,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%201/The%20Farmer%27s%20Daughter%20-%201x31%20-%20The%20Octopus.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s1e32",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 1,
+          "episodeNumber": 32,
+          "title": "The Next Mrs. Morley",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1316,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 1/The Farmer's Daughter - 1x32 - The Next Mrs. Morley.mp4",
+            "format": "h.264",
+            "sizeBytes": 128849270,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%201/The%20Farmer%27s%20Daughter%20-%201x32%20-%20The%20Next%20Mrs.%20Morley.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s1e33",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 1,
+          "episodeNumber": 33,
+          "title": "Rendezvous for Two",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1317,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 1/The Farmer's Daughter - 1x33 - Rendezvous for Two.mp4",
+            "format": "h.264",
+            "sizeBytes": 127885695,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%201/The%20Farmer%27s%20Daughter%20-%201x33%20-%20Rendezvous%20for%20Two.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s1e34",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 1,
+          "episodeNumber": 34,
+          "title": "My Son, the Athlete",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1336,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 1/The Farmer's Daughter - 1x34 - My Son, the Athlete.mp4",
+            "format": "h.264",
+            "sizeBytes": 129975127,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%201/The%20Farmer%27s%20Daughter%20-%201x34%20-%20My%20Son%2C%20the%20Athlete.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s1e35",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 1,
+          "episodeNumber": 35,
+          "title": "Mismatch Maker",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1343,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 1/The Farmer's Daughter - 1x35 - Mismatch Maker.mp4",
+            "format": "h.264",
+            "sizeBytes": 130868760,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%201/The%20Farmer%27s%20Daughter%20-%201x35%20-%20Mismatch%20Maker.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s1e36",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "A Locket for Agatha",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1329,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 1/The Farmer's Daughter - 1x36 - A Locket for Agatha.mp4",
+            "format": "h.264",
+            "sizeBytes": 129308858,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%201/The%20Farmer%27s%20Daughter%20-%201x36%20-%20A%20Locket%20for%20Agatha.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "20220204_20220204_1021@s2e01",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "The Waiting Game",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1326,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 2/The Farmer's Daughter - 2x01 - The Waiting Game.mp4",
+            "format": "h.264",
+            "sizeBytes": 128673683,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%202/The%20Farmer%27s%20Daughter%20-%202x01%20-%20The%20Waiting%20Game.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s2e02",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "The Mink Machine",
+          "overview": null,
+          "stillURL": "https://archive.org/download/20220204_20220204_1021/20220204_20220204_1021.thumbs/The%20Farmer%27s%20Daughter%20-%202x02%20-%20The%20Mink%20Machine_001276.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1319,
+          "videoFile": {
+            "name": "The Farmer's Daughter - 2x02 - The Mink Machine.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 118079941,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmer%27s%20Daughter%20-%202x02%20-%20The%20Mink%20Machine.ia.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s2e03",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Real Live Congressman",
+          "overview": null,
+          "stillURL": "https://archive.org/download/20220204_20220204_1021/20220204_20220204_1021.thumbs/The%20Farmer%27s%20Daughter%20-%202x03%20-%20Real%20Live%20Congressman_001185.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1223,
+          "videoFile": {
+            "name": "The Farmer's Daughter - 2x03 - Real Live Congressman.mp4",
+            "format": "h.264",
+            "sizeBytes": 122400697,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmer%27s%20Daughter%20-%202x03%20-%20Real%20Live%20Congressman.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s2e04",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "Past Perfect",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1313,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 2/The Farmer's Daughter - 2x04 - Past Perfect.mp4",
+            "format": "h.264",
+            "sizeBytes": 128412251,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%202/The%20Farmer%27s%20Daughter%20-%202x04%20-%20Past%20Perfect.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s2e05",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Scandal in Washington",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1303,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 2/The Farmer's Daughter - 2x05 - Scandal in Washington.mp4",
+            "format": "h.264",
+            "sizeBytes": 126327852,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%202/The%20Farmer%27s%20Daughter%20-%202x05%20-%20Scandal%20in%20Washington.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s2e06",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Love on the Picket Line",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1326,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 2/The Farmer's Daughter - 2x06 - Love on the Picket Line.mp4",
+            "format": "h.264",
+            "sizeBytes": 128443800,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%202/The%20Farmer%27s%20Daughter%20-%202x06%20-%20Love%20on%20the%20Picket%20Line.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s2e07",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "The Name of the Game",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1327,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 2/The Farmer's Daughter - 2x07 - The Name of the Game.mp4",
+            "format": "h.264",
+            "sizeBytes": 129211656,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%202/The%20Farmer%27s%20Daughter%20-%202x07%20-%20The%20Name%20of%20the%20Game.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s2e08",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "Help Not Wanted",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1498,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 2/The Farmer's Daughter - 2x08 - Help Not Wanted.mp4",
+            "format": "h.264",
+            "sizeBytes": 145132296,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%202/The%20Farmer%27s%20Daughter%20-%202x08%20-%20Help%20Not%20Wanted.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s2e09",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Big Sultan, Little Sultan",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1310,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 2/The Farmer's Daughter - 2x09 - Big Sultan, Little Sultan.mp4",
+            "format": "h.264",
+            "sizeBytes": 127392207,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%202/The%20Farmer%27s%20Daughter%20-%202x09%20-%20Big%20Sultan%2C%20Little%20Sultan.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s2e10",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "Katy's 76th Birthday",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1248,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 2/The Farmer's Daughter - 2x10 - Katy's 76th Birthday.mp4",
+            "format": "h.264",
+            "sizeBytes": 121223777,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%202/The%20Farmer%27s%20Daughter%20-%202x10%20-%20Katy%27s%2076th%20Birthday.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s2e11",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "The Neutral",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1342,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 2/The Farmer's Daughter - 2x11 - The Neutral.mp4",
+            "format": "h.264",
+            "sizeBytes": 130728650,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%202/The%20Farmer%27s%20Daughter%20-%202x11%20-%20The%20Neutral.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s2e12",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "Speak for Yourself, John Katy",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1332,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 2/The Farmer's Daughter - 2x12 - Speak for Yourself, John Katy.mp4",
+            "format": "h.264",
+            "sizeBytes": 129333295,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%202/The%20Farmer%27s%20Daughter%20-%202x12%20-%20Speak%20for%20Yourself%2C%20John%20Katy.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s2e13",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "Matter of Honor",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1334,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 2/The Farmer's Daughter - 2x13 - Matter of Honor.mp4",
+            "format": "h.264",
+            "sizeBytes": 129793692,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%202/The%20Farmer%27s%20Daughter%20-%202x13%20-%20Matter%20of%20Honor.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s2e14",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 2,
+          "episodeNumber": 14,
+          "title": "The Helping Hand",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1345,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 2/The Farmer's Daughter - 2x14 - The Helping Hand.mp4",
+            "format": "h.264",
+            "sizeBytes": 130689122,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%202/The%20Farmer%27s%20Daughter%20-%202x14%20-%20The%20Helping%20Hand.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s2e15",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 2,
+          "episodeNumber": 15,
+          "title": "Like Father, Like Son",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1341,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 2/The Farmer's Daughter - 2x15 - Like Father, Like Son.mp4",
+            "format": "h.264",
+            "sizeBytes": 130810504,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%202/The%20Farmer%27s%20Daughter%20-%202x15%20-%20Like%20Father%2C%20Like%20Son.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s2e16",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 2,
+          "episodeNumber": 16,
+          "title": "Another Country Heard From",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1346,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 2/The Farmer's Daughter - 2x16 - Another Country Heard From.mp4",
+            "format": "h.264",
+            "sizeBytes": 130867264,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%202/The%20Farmer%27s%20Daughter%20-%202x16%20-%20Another%20Country%20Heard%20From.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s2e17",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 2,
+          "episodeNumber": 17,
+          "title": "Follow the Leader",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1340,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 2/The Farmer's Daughter - 2x17 - Follow the Leader.mp4",
+            "format": "h.264",
+            "sizeBytes": 130244819,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%202/The%20Farmer%27s%20Daughter%20-%202x17%20-%20Follow%20the%20Leader.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s2e19",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 2,
+          "episodeNumber": 19,
+          "title": "The Nesting Instinct",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1346,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 2/The Farmer's Daughter - 2x19 - The Nesting Instinct.mp4",
+            "format": "h.264",
+            "sizeBytes": 132542330,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%202/The%20Farmer%27s%20Daughter%20-%202x19%20-%20The%20Nesting%20Instinct.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s2e21",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 2,
+          "episodeNumber": 21,
+          "title": "Kate By Moonlight",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1348,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 2/The Farmer's Daughter - 2x21 - Kate By Moonlight.mp4",
+            "format": "h.264",
+            "sizeBytes": 132633497,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%202/The%20Farmer%27s%20Daughter%20-%202x21%20-%20Kate%20By%20Moonlight.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s2e22",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 2,
+          "episodeNumber": 22,
+          "title": "Exit Katy",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1331,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 2/The Farmer's Daughter - 2x22 - Exit Katy.mp4",
+            "format": "h.264",
+            "sizeBytes": 130712920,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%202/The%20Farmer%27s%20Daughter%20-%202x22%20-%20Exit%20Katy.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s2e23",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 2,
+          "episodeNumber": 23,
+          "title": "Rich Man, Poor Man",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1343,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 2/The Farmer's Daughter - 2x23 - Rich Man, Poor Man.mp4",
+            "format": "h.264",
+            "sizeBytes": 132358993,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%202/The%20Farmer%27s%20Daughter%20-%202x23%20-%20Rich%20Man%2C%20Poor%20Man.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s2e24",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 2,
+          "episodeNumber": 24,
+          "title": "Crime of Passion",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1341,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 2/The Farmer's Daughter - 2x24 - Crime of Passion.mp4",
+            "format": "h.264",
+            "sizeBytes": 131525806,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%202/The%20Farmer%27s%20Daughter%20-%202x24%20-%20Crime%20of%20Passion.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s2e25",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 2,
+          "episodeNumber": 25,
+          "title": "Why Don't They Ever Pick Me",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1345,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 2/The Farmer's Daughter - 2x25 - Why Don't They Ever Pick Me.mp4",
+            "format": "h.264",
+            "sizeBytes": 131652697,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%202/The%20Farmer%27s%20Daughter%20-%202x25%20-%20Why%20Don%27t%20They%20Ever%20Pick%20Me.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s2e26",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 2,
+          "episodeNumber": 26,
+          "title": "Katy's New Job",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1320,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 2/The Farmer's Daughter - 2x26 - Katy's New Job.mp4",
+            "format": "h.264",
+            "sizeBytes": 128914218,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%202/The%20Farmer%27s%20Daughter%20-%202x26%20-%20Katy%27s%20New%20Job.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s2e27",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 2,
+          "episodeNumber": 27,
+          "title": "Katy's Campaign",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1347,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 2/The Farmer's Daughter - 2x27 - Katy's Campaign.mp4",
+            "format": "h.264",
+            "sizeBytes": 132138748,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%202/The%20Farmer%27s%20Daughter%20-%202x27%20-%20Katy%27s%20Campaign.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s2e28",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 2,
+          "episodeNumber": 28,
+          "title": "The Woman Behind the Man",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1343,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 2/The Farmer's Daughter - 2x28 - The Woman Behind the Man.mp4",
+            "format": "h.264",
+            "sizeBytes": 131764541,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%202/The%20Farmer%27s%20Daughter%20-%202x28%20-%20The%20Woman%20Behind%20the%20Man.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s2e29",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 2,
+          "episodeNumber": 29,
+          "title": "Katy the Diplomat",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1317,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 2/The Farmer's Daughter - 2x29 - Katy the Diplomat.mp4",
+            "format": "h.264",
+            "sizeBytes": 129465256,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%202/The%20Farmer%27s%20Daughter%20-%202x29%20-%20Katy%20the%20Diplomat.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s2e30",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 2,
+          "episodeNumber": 30,
+          "title": "Katy's Castle",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1351,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 2/The Farmer's Daughter - 2x30 - Katy's Castle.mp4",
+            "format": "h.264",
+            "sizeBytes": 131708687,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%202/The%20Farmer%27s%20Daughter%20-%202x30%20-%20Katy%27s%20Castle.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s2e31",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 2,
+          "episodeNumber": 31,
+          "title": "Never Listen to Rumors",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1332,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 2/The Farmer's Daughter - 2x31 - Never Listen to Rumors.mp4",
+            "format": "h.264",
+            "sizeBytes": 129940906,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%202/The%20Farmer%27s%20Daughter%20-%202x31%20-%20Never%20Listen%20to%20Rumors.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s2e32",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 2,
+          "episodeNumber": 32,
+          "title": "Ja, Ja, a Thousand Times, Ja",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1342,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 2/The Farmer's Daughter - 2x32 - Ja, Ja, a Thousand Times, Ja.mp4",
+            "format": "h.264",
+            "sizeBytes": 131195813,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%202/The%20Farmer%27s%20Daughter%20-%202x32%20-%20Ja%2C%20Ja%2C%20a%20Thousand%20Times%2C%20Ja.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s2e33",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 2,
+          "episodeNumber": 33,
+          "title": "Nej, Nej, a Thousand Times, Nej",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1336,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 2/The Farmer's Daughter - 2x33 - Nej, Nej, a Thousand Times, Nej.mp4",
+            "format": "h.264",
+            "sizeBytes": 131192893,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%202/The%20Farmer%27s%20Daughter%20-%202x33%20-%20Nej%2C%20Nej%2C%20a%20Thousand%20Times%2C%20Nej.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s2e34",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 2,
+          "episodeNumber": 34,
+          "title": "The Hottest Ticket in Town",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1321,
+          "videoFile": {
+            "name": "The Farmers Daughter - Season 2/The Farmer's Daughter - 2x34 - The Hottest Ticket in Town.mp4",
+            "format": "h.264",
+            "sizeBytes": 129746041,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmers%20Daughter%20-%20Season%202/The%20Farmer%27s%20Daughter%20-%202x34%20-%20The%20Hottest%20Ticket%20in%20Town.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "20220204_20220204_1021@s3e03",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 3,
+          "episodeNumber": 3,
+          "title": "Stag at Bay",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1312,
+          "videoFile": {
+            "name": "The Farmer's Daughter - Season 3/The Farmer's Daughter - 3x03 - Stag at Bay.mp4",
+            "format": "h.264",
+            "sizeBytes": 128734040,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmer%27s%20Daughter%20-%20Season%203/The%20Farmer%27s%20Daughter%20-%203x03%20-%20Stag%20at%20Bay.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s3e04",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 3,
+          "episodeNumber": 4,
+          "title": "Sleeping Beauty Revisited",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1329,
+          "videoFile": {
+            "name": "The Farmer's Daughter - Season 3/The Farmer's Daughter - 3x04 - Sleeping Beauty Revisited.mp4",
+            "format": "h.264",
+            "sizeBytes": 130360396,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmer%27s%20Daughter%20-%20Season%203/The%20Farmer%27s%20Daughter%20-%203x04%20-%20Sleeping%20Beauty%20Revisited.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s3e05",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 3,
+          "episodeNumber": 5,
+          "title": "Forever is a Cast Iron Mess",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1309,
+          "videoFile": {
+            "name": "The Farmer's Daughter - Season 3/The Farmer's Daughter - 3x05 - Forever is a Cast Iron Mess.mp4",
+            "format": "h.264",
+            "sizeBytes": 128333943,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmer%27s%20Daughter%20-%20Season%203/The%20Farmer%27s%20Daughter%20-%203x05%20-%20Forever%20is%20a%20Cast%20Iron%20Mess.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s3e06",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 3,
+          "episodeNumber": 6,
+          "title": "Powder Puff Invasion",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1324,
+          "videoFile": {
+            "name": "The Farmer's Daughter - Season 3/The Farmer's Daughter - 3x06 - Powder Puff Invasion.mp4",
+            "format": "h.264",
+            "sizeBytes": 130164875,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmer%27s%20Daughter%20-%20Season%203/The%20Farmer%27s%20Daughter%20-%203x06%20-%20Powder%20Puff%20Invasion.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s3e07",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 3,
+          "episodeNumber": 7,
+          "title": "To Have and to Hold",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1326,
+          "videoFile": {
+            "name": "The Farmer's Daughter - Season 3/The Farmer's Daughter - 3x07 - To Have and to Hold.mp4",
+            "format": "h.264",
+            "sizeBytes": 128673701,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmer%27s%20Daughter%20-%20Season%203/The%20Farmer%27s%20Daughter%20-%203x07%20-%20To%20Have%20and%20to%20Hold.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s3e08",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 3,
+          "episodeNumber": 8,
+          "title": "Crisis at Crystal Springs",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1312,
+          "videoFile": {
+            "name": "The Farmer's Daughter - Season 3/The Farmer's Daughter - 3x08 - Crisis at Crystal Springs.mp4",
+            "format": "h.264",
+            "sizeBytes": 128506128,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmer%27s%20Daughter%20-%20Season%203/The%20Farmer%27s%20Daughter%20-%203x08%20-%20Crisis%20at%20Crystal%20Springs.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s3e09",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 3,
+          "episodeNumber": 9,
+          "title": "A Sonny Honeymoon",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1326,
+          "videoFile": {
+            "name": "The Farmer's Daughter - Season 3/The Farmer's Daughter - 3x09 - A Sonny Honeymoon.mp4",
+            "format": "h.264",
+            "sizeBytes": 129473828,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmer%27s%20Daughter%20-%20Season%203/The%20Farmer%27s%20Daughter%20-%203x09%20-%20A%20Sonny%20Honeymoon.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s3e10",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 3,
+          "episodeNumber": 10,
+          "title": "High Fashion",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1303,
+          "videoFile": {
+            "name": "The Farmer's Daughter - Season 3/The Farmer's Daughter - 3x10 - High Fashion.mp4",
+            "format": "h.264",
+            "sizeBytes": 127814725,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmer%27s%20Daughter%20-%20Season%203/The%20Farmer%27s%20Daughter%20-%203x10%20-%20High%20Fashion.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s3e11",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 3,
+          "episodeNumber": 11,
+          "title": "The Platinum Swizzle Stick",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1295,
+          "videoFile": {
+            "name": "The Farmer's Daughter - Season 3/The Farmer's Daughter - 3x11 - The Platinum Swizzle Stick.mp4",
+            "format": "h.264",
+            "sizeBytes": 127129494,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmer%27s%20Daughter%20-%20Season%203/The%20Farmer%27s%20Daughter%20-%203x11%20-%20The%20Platinum%20Swizzle%20Stick.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s3e12",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 3,
+          "episodeNumber": 12,
+          "title": "Steve, Boy Lovelorn",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1320,
+          "videoFile": {
+            "name": "The Farmer's Daughter - Season 3/The Farmer's Daughter - 3x12 - Steve, Boy Lovelorn.mp4",
+            "format": "h.264",
+            "sizeBytes": 130426123,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmer%27s%20Daughter%20-%20Season%203/The%20Farmer%27s%20Daughter%20-%203x12%20-%20Steve%2C%20Boy%20Lovelorn.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s3e13",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 3,
+          "episodeNumber": 13,
+          "title": "Jewel Beyond Compare",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1306,
+          "videoFile": {
+            "name": "The Farmer's Daughter - Season 3/The Farmer's Daughter - 3x13 - Jewel Beyond Compare.mp4",
+            "format": "h.264",
+            "sizeBytes": 128521284,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmer%27s%20Daughter%20-%20Season%203/The%20Farmer%27s%20Daughter%20-%203x13%20-%20Jewel%20Beyond%20Compare.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s3e16",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 3,
+          "episodeNumber": 16,
+          "title": "Moe Hill and the Mountains",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1328,
+          "videoFile": {
+            "name": "The Farmer's Daughter - Season 3/The Farmer's Daughter - 3x16 - Moe Hill and the Mountains.mp4",
+            "format": "h.264",
+            "sizeBytes": 130837901,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmer%27s%20Daughter%20-%20Season%203/The%20Farmer%27s%20Daughter%20-%203x16%20-%20Moe%20Hill%20and%20the%20Mountains.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s3e18",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 3,
+          "episodeNumber": 18,
+          "title": "The Fall and Rise of Steven Morley",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1332,
+          "videoFile": {
+            "name": "The Farmer's Daughter - Season 3/The Farmer's Daughter - 3x18 - The Fall and Rise of Steven Morley.mp4",
+            "format": "h.264",
+            "sizeBytes": 132813285,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmer%27s%20Daughter%20-%20Season%203/The%20Farmer%27s%20Daughter%20-%203x18%20-%20The%20Fall%20and%20Rise%20of%20Steven%20Morley.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s3e19",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 3,
+          "episodeNumber": 19,
+          "title": "Have You Ever Thought of Building",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1326,
+          "videoFile": {
+            "name": "The Farmer's Daughter - Season 3/The Farmer's Daughter - 3x19 - Have You Ever Thought of Building.mp4",
+            "format": "h.264",
+            "sizeBytes": 132289955,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmer%27s%20Daughter%20-%20Season%203/The%20Farmer%27s%20Daughter%20-%203x19%20-%20Have%20You%20Ever%20Thought%20of%20Building.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s3e20",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 3,
+          "episodeNumber": 20,
+          "title": "Katy in a Capsule",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1326,
+          "videoFile": {
+            "name": "The Farmer's Daughter - Season 3/The Farmer's Daughter - 3x20 - Katy in a Capsule.mp4",
+            "format": "h.264",
+            "sizeBytes": 131183203,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmer%27s%20Daughter%20-%20Season%203/The%20Farmer%27s%20Daughter%20-%203x20%20-%20Katy%20in%20a%20Capsule.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s3e23",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 3,
+          "episodeNumber": 23,
+          "title": "Alias Katy Morley",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1325,
+          "videoFile": {
+            "name": "The Farmer's Daughter - Season 3/The Farmer's Daughter - 3x23 - Alias Katy Morley.mp4",
+            "format": "h.264",
+            "sizeBytes": 130250005,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmer%27s%20Daughter%20-%20Season%203/The%20Farmer%27s%20Daughter%20-%203x23%20-%20Alias%20Katy%20Morley.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s3e24",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 3,
+          "episodeNumber": 24,
+          "title": "Anyone For Swindling",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1318,
+          "videoFile": {
+            "name": "The Farmer's Daughter - Season 3/The Farmer's Daughter - 3x24 - Anyone For Swindling.mp4",
+            "format": "h.264",
+            "sizeBytes": 129310776,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmer%27s%20Daughter%20-%20Season%203/The%20Farmer%27s%20Daughter%20-%203x24%20-%20Anyone%20For%20Swindling.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s3e27",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 3,
+          "episodeNumber": 27,
+          "title": "My Pappa, the Politician",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1328,
+          "videoFile": {
+            "name": "The Farmer's Daughter - Season 3/The Farmer's Daughter - 3x27 - My Pappa, the Politician.mp4",
+            "format": "h.264",
+            "sizeBytes": 130313785,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmer%27s%20Daughter%20-%20Season%203/The%20Farmer%27s%20Daughter%20-%203x27%20-%20My%20Pappa%2C%20the%20Politician.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s3e28",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 3,
+          "episodeNumber": 28,
+          "title": "The Wife of Your Friend May Not Be a Friend of Your Wife",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1318,
+          "videoFile": {
+            "name": "The Farmer's Daughter - Season 3/The Farmer's Daughter - 3x28 - The Wife of Your Friend May Not Be a Friend of Your Wife.mp4",
+            "format": "h.264",
+            "sizeBytes": 129844994,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmer%27s%20Daughter%20-%20Season%203/The%20Farmer%27s%20Daughter%20-%203x28%20-%20The%20Wife%20of%20Your%20Friend%20May%20Not%20Be%20a%20Friend%20of%20Your%20Wife.mp4"
+        },
+        {
+          "archiveID": "20220204_20220204_1021@s3e29",
+          "sourceID": "20220204_20220204_1021",
+          "seasonNumber": 3,
+          "episodeNumber": 29,
+          "title": "Is He or Isn't He",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1327,
+          "videoFile": {
+            "name": "The Farmer's Daughter - Season 3/The Farmer's Daughter - 3x29 - Is He or Isn't He.mp4",
+            "format": "h.264",
+            "sizeBytes": 130641500,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/20220204_20220204_1021/The%20Farmer%27s%20Daughter%20-%20Season%203/The%20Farmer%27s%20Daughter%20-%203x29%20-%20Is%20He%20or%20Isn%27t%20He.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 82,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

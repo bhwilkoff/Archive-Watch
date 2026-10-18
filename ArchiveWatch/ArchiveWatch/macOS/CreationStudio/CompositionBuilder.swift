@@ -508,7 +508,7 @@ enum CompositionBuilder {
             m.extendedLanguageTag = "und"
             return m
         }
-        let sources = Array(Set(catalogItemIDs)).sorted()
+        let sources = Array(Set(catalogItemIDs.map(Catalog.archiveItemID))).sorted()
             .map { "https://archive.org/details/\($0)" }.joined(separator: " · ")
         let desc = "Source(s): \(sources) · Created with Archive Watch (archivewatch.org)"
         return [

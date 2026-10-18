@@ -1,0 +1,276 @@
+{
+  "version": 2,
+  "seriesID": "roger-ramjet-13-episode-compilation-1965",
+  "sourceID": "roger-ramjet-1965-69-classic-episodes",
+  "tvmazeID": null,
+  "title": "Roger Ramjet: 13-Episode Compilation",
+  "yearStart": 1965,
+  "yearEnd": null,
+  "overview": "Roger Ramjet is a 1965–69 American animated television series, starring Roger Ramjet and the American Eagle Squadron. The show was known for its simple animation, frenetic pace, and frequent references to pop culture which appealed to adults as well as children. During its original run, the show aired on NBC. Reruns of the show aired on Cartoon Network from 1996 to 1998.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/roger-ramjet-1965-69-classic-episodes.889a8b20.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Animation"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "roger-ramjet-1965-69-classic-episodes@e01",
+          "sourceID": "roger-ramjet-1965-69-classic-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Episode 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roger-ramjet-1965-69-classic-episodes/roger-ramjet-1965-69-classic-episodes.thumbs/Roger%20Ramjet%20-%20Episode%2001_000121.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 319,
+          "videoFile": {
+            "name": "Roger Ramjet - Episode 01.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 113019551,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roger-ramjet-1965-69-classic-episodes/Roger%20Ramjet%20-%20Episode%2001.mp4"
+        },
+        {
+          "archiveID": "roger-ramjet-1965-69-classic-episodes@e02",
+          "sourceID": "roger-ramjet-1965-69-classic-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Episode 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roger-ramjet-1965-69-classic-episodes/roger-ramjet-1965-69-classic-episodes.thumbs/Roger%20Ramjet%20-%20Episode%2002_000118.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 320,
+          "videoFile": {
+            "name": "Roger Ramjet - Episode 02.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 110332764,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roger-ramjet-1965-69-classic-episodes/Roger%20Ramjet%20-%20Episode%2002.mp4"
+        },
+        {
+          "archiveID": "roger-ramjet-1965-69-classic-episodes@e03",
+          "sourceID": "roger-ramjet-1965-69-classic-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Episode 3",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roger-ramjet-1965-69-classic-episodes/roger-ramjet-1965-69-classic-episodes.thumbs/Roger%20Ramjet%20-%20Episode%2003_000118.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 319,
+          "videoFile": {
+            "name": "Roger Ramjet - Episode 03.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 113988628,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roger-ramjet-1965-69-classic-episodes/Roger%20Ramjet%20-%20Episode%2003.mp4"
+        },
+        {
+          "archiveID": "roger-ramjet-1965-69-classic-episodes@e04",
+          "sourceID": "roger-ramjet-1965-69-classic-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Episode 4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roger-ramjet-1965-69-classic-episodes/roger-ramjet-1965-69-classic-episodes.thumbs/Roger%20Ramjet%20-%20Episode%2004_000117.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 321,
+          "videoFile": {
+            "name": "Roger Ramjet - Episode 04.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 113123359,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roger-ramjet-1965-69-classic-episodes/Roger%20Ramjet%20-%20Episode%2004.mp4"
+        },
+        {
+          "archiveID": "roger-ramjet-1965-69-classic-episodes@e05",
+          "sourceID": "roger-ramjet-1965-69-classic-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Episode 5",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roger-ramjet-1965-69-classic-episodes/roger-ramjet-1965-69-classic-episodes.thumbs/Roger%20Ramjet%20-%20Episode%2005_000117.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 321,
+          "videoFile": {
+            "name": "Roger Ramjet - Episode 05.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 107422065,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roger-ramjet-1965-69-classic-episodes/Roger%20Ramjet%20-%20Episode%2005.mp4"
+        },
+        {
+          "archiveID": "roger-ramjet-1965-69-classic-episodes@e06",
+          "sourceID": "roger-ramjet-1965-69-classic-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Episode 6",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roger-ramjet-1965-69-classic-episodes/roger-ramjet-1965-69-classic-episodes.thumbs/Roger%20Ramjet%20-%20Episode%2006_000119.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 321,
+          "videoFile": {
+            "name": "Roger Ramjet - Episode 06.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 113196930,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roger-ramjet-1965-69-classic-episodes/Roger%20Ramjet%20-%20Episode%2006.mp4"
+        },
+        {
+          "archiveID": "roger-ramjet-1965-69-classic-episodes@e07",
+          "sourceID": "roger-ramjet-1965-69-classic-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Episode 7",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roger-ramjet-1965-69-classic-episodes/roger-ramjet-1965-69-classic-episodes.thumbs/Roger%20Ramjet%20-%20Episode%2007_000117.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 319,
+          "videoFile": {
+            "name": "Roger Ramjet - Episode 07.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 111758111,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roger-ramjet-1965-69-classic-episodes/Roger%20Ramjet%20-%20Episode%2007.mp4"
+        },
+        {
+          "archiveID": "roger-ramjet-1965-69-classic-episodes@e08",
+          "sourceID": "roger-ramjet-1965-69-classic-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Episode 8",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roger-ramjet-1965-69-classic-episodes/roger-ramjet-1965-69-classic-episodes.thumbs/Roger%20Ramjet%20-%20Episode%2008_000117.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 322,
+          "videoFile": {
+            "name": "Roger Ramjet - Episode 08.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 78356221,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roger-ramjet-1965-69-classic-episodes/Roger%20Ramjet%20-%20Episode%2008.mp4"
+        },
+        {
+          "archiveID": "roger-ramjet-1965-69-classic-episodes@e09",
+          "sourceID": "roger-ramjet-1965-69-classic-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Episode 9",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roger-ramjet-1965-69-classic-episodes/roger-ramjet-1965-69-classic-episodes.thumbs/Roger%20Ramjet%20-%20Episode%2009_000118.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 320,
+          "videoFile": {
+            "name": "Roger Ramjet - Episode 09.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 77059002,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roger-ramjet-1965-69-classic-episodes/Roger%20Ramjet%20-%20Episode%2009.mp4"
+        },
+        {
+          "archiveID": "roger-ramjet-1965-69-classic-episodes@e10",
+          "sourceID": "roger-ramjet-1965-69-classic-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Episode 10",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roger-ramjet-1965-69-classic-episodes/roger-ramjet-1965-69-classic-episodes.thumbs/Roger%20Ramjet%20-%20Episode%2010_000120.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 320,
+          "videoFile": {
+            "name": "Roger Ramjet - Episode 10.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 74467789,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roger-ramjet-1965-69-classic-episodes/Roger%20Ramjet%20-%20Episode%2010.mp4"
+        },
+        {
+          "archiveID": "roger-ramjet-1965-69-classic-episodes@e11",
+          "sourceID": "roger-ramjet-1965-69-classic-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Episode 11",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roger-ramjet-1965-69-classic-episodes/roger-ramjet-1965-69-classic-episodes.thumbs/Roger%20Ramjet%20-%20Episode%2011_000117.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 320,
+          "videoFile": {
+            "name": "Roger Ramjet - Episode 11.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 79681489,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roger-ramjet-1965-69-classic-episodes/Roger%20Ramjet%20-%20Episode%2011.mp4"
+        },
+        {
+          "archiveID": "roger-ramjet-1965-69-classic-episodes@e12",
+          "sourceID": "roger-ramjet-1965-69-classic-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Episode 12",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roger-ramjet-1965-69-classic-episodes/roger-ramjet-1965-69-classic-episodes.thumbs/Roger%20Ramjet%20-%20Episode%2012_000117.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 320,
+          "videoFile": {
+            "name": "Roger Ramjet - Episode 12.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 78043531,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roger-ramjet-1965-69-classic-episodes/Roger%20Ramjet%20-%20Episode%2012.mp4"
+        },
+        {
+          "archiveID": "roger-ramjet-1965-69-classic-episodes@e13",
+          "sourceID": "roger-ramjet-1965-69-classic-episodes",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Episode 13",
+          "overview": null,
+          "stillURL": "https://archive.org/download/roger-ramjet-1965-69-classic-episodes/roger-ramjet-1965-69-classic-episodes.thumbs/Roger%20Ramjet%20-%20Episode%2013_000118.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 319,
+          "videoFile": {
+            "name": "Roger Ramjet - Episode 13.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 75876108,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/roger-ramjet-1965-69-classic-episodes/Roger%20Ramjet%20-%20Episode%2013.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 13,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

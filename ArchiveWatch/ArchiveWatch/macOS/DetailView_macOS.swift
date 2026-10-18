@@ -590,7 +590,7 @@ struct DetailView: View {
         chosenVersionName = ArchiveVersions.chosenName(for: item.archiveID)
         guard versions.isEmpty else { return }
         loadingVersions = true
-        versions = await ArchiveVersions.list(itemID: item.archiveID)
+        versions = await ArchiveVersions.list(itemID: item.archiveID, defaultURL: item.videoURLParsed)
         loadingVersions = false
     }
 

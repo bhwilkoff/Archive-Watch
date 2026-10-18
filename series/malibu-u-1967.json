@@ -1,0 +1,160 @@
+{
+  "version": 2,
+  "seriesID": "malibu-u-1967",
+  "sourceID": "Malibu-U-1967",
+  "tvmazeID": null,
+  "title": "Malibu U",
+  "yearStart": 1967,
+  "yearEnd": null,
+  "overview": "All 7 episodes of Malibu U from 1967. These appear to be internal use only copies but are the highest quality versions anywhere on the internet.",
+  "posterURL": "https://archive.org/services/img/Malibu-U-1967",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Malibu-U-1967@s1e01",
+          "sourceID": "Malibu-U-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "July 21 1967 - Frankie Valli & Paul Lynde",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1768,
+          "videoFile": {
+            "name": "Malibu U (Complete)/S01E01 - July 21 1967  - Frankie Valli & Paul Lynde.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 170664976,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Malibu-U-1967/Malibu%20U%20%28Complete%29/S01E01%20-%20July%2021%201967%20%20-%20Frankie%20Valli%20%26%20Paul%20Lynde.ia.mp4"
+        },
+        {
+          "archiveID": "Malibu-U-1967@s1e02",
+          "sourceID": "Malibu-U-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "July 28 1967 - Bobby Rydell & Engelbert Humperdinck & Leonard Nimoy",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1666,
+          "videoFile": {
+            "name": "Malibu U (Complete)/S01E02 - July 28 1967 - Bobby Rydell & Engelbert Humperdinck & Leonard Nimoy.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 161666399,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Malibu-U-1967/Malibu%20U%20%28Complete%29/S01E02%20-%20July%2028%201967%20-%20Bobby%20Rydell%20%26%20Engelbert%20Humperdinck%20%26%20Leonard%20Nimoy.ia.mp4"
+        },
+        {
+          "archiveID": "Malibu-U-1967@s1e03",
+          "sourceID": "Malibu-U-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "August 4 1967 - James Darren",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1682,
+          "videoFile": {
+            "name": "Malibu U (Complete)/S01E03 - August 4 1967 - James Darren.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 606812545,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Malibu-U-1967/Malibu%20U%20%28Complete%29/S01E03%20-%20August%204%201967%20-%20James%20Darren.ia.mp4"
+        },
+        {
+          "archiveID": "Malibu-U-1967@s1e04",
+          "sourceID": "Malibu-U-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "August 11 1967 - The Turtles & Lou Rawls",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1727,
+          "videoFile": {
+            "name": "Malibu U (Complete)/S01E04 - August 11 1967 - The Turtles & Lou Rawls.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 167456778,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Malibu-U-1967/Malibu%20U%20%28Complete%29/S01E04%20-%20August%2011%201967%20-%20The%20Turtles%20%26%20Lou%20Rawls.ia.mp4"
+        },
+        {
+          "archiveID": "Malibu-U-1967@s1e05",
+          "sourceID": "Malibu-U-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "August 18 1967 - Don Ho & Freddy Cannon & The 5th Dimension",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1711,
+          "videoFile": {
+            "name": "Malibu U (Complete)/S01E05 - August 18 1967  - Don Ho &  Freddy Cannon & The 5th Dimension.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 56808235,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Malibu-U-1967/Malibu%20U%20%28Complete%29/S01E05%20-%20August%2018%201967%20%20-%20Don%20Ho%20%26%20%20Freddy%20Cannon%20%26%20The%205th%20Dimension.ia.mp4"
+        },
+        {
+          "archiveID": "Malibu-U-1967@s1e06",
+          "sourceID": "Malibu-U-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "August 25 1967 - The Doors",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1667,
+          "videoFile": {
+            "name": "Malibu U (Complete)/S01E06 - August 25 1967 - The Doors.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 160617405,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Malibu-U-1967/Malibu%20U%20%28Complete%29/S01E06%20-%20August%2025%201967%20-%20The%20Doors.ia.mp4"
+        },
+        {
+          "archiveID": "Malibu-U-1967@s1e07",
+          "sourceID": "Malibu-U-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "September 1 1967 - Marvin Gaye & Peter and Gordon",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 1670,
+          "videoFile": {
+            "name": "Malibu U (Complete)/S01E07 - September 1 1967 - Marvin Gaye & Peter and Gordon.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 161129191,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Malibu-U-1967/Malibu%20U%20%28Complete%29/S01E07%20-%20September%201%201967%20-%20Marvin%20Gaye%20%26%20Peter%20and%20Gordon.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 7,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

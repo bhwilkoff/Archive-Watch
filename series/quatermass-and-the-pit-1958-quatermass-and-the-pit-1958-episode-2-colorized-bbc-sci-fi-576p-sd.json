@@ -1,0 +1,143 @@
+{
+  "version": 2,
+  "seriesID": "quatermass-and-the-pit-1958-quatermass-and-the-pit-1958-episode-2-colorized-bbc-sci-fi-576p-sd",
+  "sourceID": "quatermass-and-the-pit-1958-episode-2-colorized-bbc-sci-fi-576p-sd",
+  "tvmazeID": null,
+  "title": "Quatermass and the Pit",
+  "yearStart": 1958,
+  "yearEnd": null,
+  "overview": "Quatermass and the Pit is a British television science-fiction serial transmitted live by BBC Television in December 1958 and January 1959. It was the third and last of the BBC's Quatermass serials, although the chief character, Professor Bernard Quatermass, reappeared in a 1979 ITV production called Quatermass. Like its predecessors, Quatermass and the Pit was written by Nigel Kneale. The serial has been cited as having influenced Stephen King and the film director John Carpenter.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/mtcmZEcsFiczV4mcmOQ2yYWMm06.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Sci-Fi"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "quatermass-and-the-pit-1958-episode-2-colorized-bbc-sci-fi-576p-sd@e01",
+          "sourceID": "quatermass-and-the-pit-1958-episode-2-colorized-bbc-sci-fi-576p-sd",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Episode 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/quatermass-and-the-pit-1958-episode-2-colorized-bbc-sci-fi-576p-sd/quatermass-and-the-pit-1958-episode-2-colorized-bbc-sci-fi-576p-sd.thumbs/quatermass%20and%20the%20pit-1958-episode%201-colorized-bbc%20sci-fi-576p-sd_000774.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 2164,
+          "videoFile": {
+            "name": "quatermass and the pit-1958-episode 1-colorized-bbc sci-fi-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 208495956,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/quatermass-and-the-pit-1958-episode-2-colorized-bbc-sci-fi-576p-sd/quatermass%20and%20the%20pit-1958-episode%201-colorized-bbc%20sci-fi-576p-sd.mp4"
+        },
+        {
+          "archiveID": "quatermass-and-the-pit-1958-episode-2-colorized-bbc-sci-fi-576p-sd@e02",
+          "sourceID": "quatermass-and-the-pit-1958-episode-2-colorized-bbc-sci-fi-576p-sd",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Episode 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/quatermass-and-the-pit-1958-episode-2-colorized-bbc-sci-fi-576p-sd/quatermass-and-the-pit-1958-episode-2-colorized-bbc-sci-fi-576p-sd.thumbs/quatermass%20and%20the%20pit-1958-episode%202-colorized-bbc%20sci-fi-576p-sd_000774.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 2264,
+          "videoFile": {
+            "name": "quatermass and the pit-1958-episode 2-colorized-bbc sci-fi-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 218079372,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/quatermass-and-the-pit-1958-episode-2-colorized-bbc-sci-fi-576p-sd/quatermass%20and%20the%20pit-1958-episode%202-colorized-bbc%20sci-fi-576p-sd.mp4"
+        },
+        {
+          "archiveID": "quatermass-and-the-pit-1958-episode-2-colorized-bbc-sci-fi-576p-sd@e03",
+          "sourceID": "quatermass-and-the-pit-1958-episode-2-colorized-bbc-sci-fi-576p-sd",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Episode 3",
+          "overview": null,
+          "stillURL": "https://archive.org/download/quatermass-and-the-pit-1958-episode-2-colorized-bbc-sci-fi-576p-sd/quatermass-and-the-pit-1958-episode-2-colorized-bbc-sci-fi-576p-sd.thumbs/quatermass%20and%20the%20pit-1958-episode%203-colorized-bbc%20sci-fi-576p-sd_000714.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1926,
+          "videoFile": {
+            "name": "quatermass and the pit-1958-episode 3-colorized-bbc sci-fi-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 185335690,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/quatermass-and-the-pit-1958-episode-2-colorized-bbc-sci-fi-576p-sd/quatermass%20and%20the%20pit-1958-episode%203-colorized-bbc%20sci-fi-576p-sd.mp4"
+        },
+        {
+          "archiveID": "quatermass-and-the-pit-1958-episode-2-colorized-bbc-sci-fi-576p-sd@e04",
+          "sourceID": "quatermass-and-the-pit-1958-episode-2-colorized-bbc-sci-fi-576p-sd",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Episode 4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/quatermass-and-the-pit-1958-episode-2-colorized-bbc-sci-fi-576p-sd/quatermass-and-the-pit-1958-episode-2-colorized-bbc-sci-fi-576p-sd.thumbs/quatermass%20and%20the%20pit-1958-episode%204-colorized-bbc%20sci-fi-576p-sd_000714.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 2059,
+          "videoFile": {
+            "name": "quatermass and the pit-1958-episode 4-colorized-bbc sci-fi-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 198438080,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/quatermass-and-the-pit-1958-episode-2-colorized-bbc-sci-fi-576p-sd/quatermass%20and%20the%20pit-1958-episode%204-colorized-bbc%20sci-fi-576p-sd.mp4"
+        },
+        {
+          "archiveID": "quatermass-and-the-pit-1958-episode-2-colorized-bbc-sci-fi-576p-sd@e05",
+          "sourceID": "quatermass-and-the-pit-1958-episode-2-colorized-bbc-sci-fi-576p-sd",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Episode 5",
+          "overview": null,
+          "stillURL": "https://archive.org/download/quatermass-and-the-pit-1958-episode-2-colorized-bbc-sci-fi-576p-sd/quatermass-and-the-pit-1958-episode-2-colorized-bbc-sci-fi-576p-sd.thumbs/quatermass%20and%20the%20pit-1958-episode%205-colorized-bbc%20sci-fi-576p-sd_000774.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 2163,
+          "videoFile": {
+            "name": "quatermass and the pit-1958-episode 5-colorized-bbc sci-fi-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 208332665,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/quatermass-and-the-pit-1958-episode-2-colorized-bbc-sci-fi-576p-sd/quatermass%20and%20the%20pit-1958-episode%205-colorized-bbc%20sci-fi-576p-sd.mp4"
+        },
+        {
+          "archiveID": "quatermass-and-the-pit-1958-episode-2-colorized-bbc-sci-fi-576p-sd@e06",
+          "sourceID": "quatermass-and-the-pit-1958-episode-2-colorized-bbc-sci-fi-576p-sd",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Episode 6",
+          "overview": null,
+          "stillURL": "https://archive.org/download/quatermass-and-the-pit-1958-episode-2-colorized-bbc-sci-fi-576p-sd/quatermass-and-the-pit-1958-episode-2-colorized-bbc-sci-fi-576p-sd.thumbs/quatermass%20and%20the%20pit-1958-episode%206-colorized-bbc%20sci-fi-576p-sd_000774.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 2171,
+          "videoFile": {
+            "name": "quatermass and the pit-1958-episode 6-colorized-bbc sci-fi-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 207955959,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/quatermass-and-the-pit-1958-episode-2-colorized-bbc-sci-fi-576p-sd/quatermass%20and%20the%20pit-1958-episode%206-colorized-bbc%20sci-fi-576p-sd.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": []
+}

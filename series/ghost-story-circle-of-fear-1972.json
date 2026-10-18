@@ -1,0 +1,467 @@
+{
+  "version": 2,
+  "seriesID": "ghost-story-circle-of-fear-1972",
+  "sourceID": "ghost-story-circle-of-fear-complete",
+  "tvmazeID": null,
+  "title": "Ghost Story-Circle of Fear",
+  "yearStart": 1972,
+  "yearEnd": null,
+  "overview": "The complete run of Ghost Story, the 1972–73 NBC supernatural anthology retitled Circle of Fear in its second half, hosted by Sebastian Cabot.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/ghost-story-circle-of-fear-complete.1bc1f57f.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Horror",
+    "Drama"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "ghost-story-circle-of-fear-complete@s1e00",
+          "sourceID": "ghost-story-circle-of-fear-complete",
+          "seasonNumber": 1,
+          "episodeNumber": 0,
+          "title": "The New House",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 2509,
+          "videoFile": {
+            "name": "Ghost Story-Circle of Fear (1972-1973)/Ghost Story-Circle of Fear 01x00 - The New House.mp4",
+            "format": "h.264",
+            "sizeBytes": 242462644,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ghost-story-circle-of-fear-complete/Ghost%20Story-Circle%20of%20Fear%20%281972-1973%29/Ghost%20Story-Circle%20of%20Fear%2001x00%20-%20The%20New%20House.mp4"
+        },
+        {
+          "archiveID": "ghost-story-circle-of-fear-complete@s1e01",
+          "sourceID": "ghost-story-circle-of-fear-complete",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Dead We Leave Behind",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 3077,
+          "videoFile": {
+            "name": "Ghost Story-Circle of Fear (1972-1973)/Ghost Story-Circle of Fear 01x01 - The Dead We Leave Behind.mp4",
+            "format": "h.264",
+            "sizeBytes": 295379512,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ghost-story-circle-of-fear-complete/Ghost%20Story-Circle%20of%20Fear%20%281972-1973%29/Ghost%20Story-Circle%20of%20Fear%2001x01%20-%20The%20Dead%20We%20Leave%20Behind.mp4"
+        },
+        {
+          "archiveID": "ghost-story-circle-of-fear-complete@s1e02",
+          "sourceID": "ghost-story-circle-of-fear-complete",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Concrete Captain",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 3087,
+          "videoFile": {
+            "name": "Ghost Story-Circle of Fear (1972-1973)/Ghost Story-Circle of Fear 01x02 - The Concrete Captain.mp4",
+            "format": "h.264",
+            "sizeBytes": 295979580,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ghost-story-circle-of-fear-complete/Ghost%20Story-Circle%20of%20Fear%20%281972-1973%29/Ghost%20Story-Circle%20of%20Fear%2001x02%20-%20The%20Concrete%20Captain.mp4"
+        },
+        {
+          "archiveID": "ghost-story-circle-of-fear-complete@s1e03",
+          "sourceID": "ghost-story-circle-of-fear-complete",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "At The Cradle Foot",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 3078,
+          "videoFile": {
+            "name": "Ghost Story-Circle of Fear (1972-1973)/Ghost Story-Circle of Fear 01x03 - At The Cradle Foot.mp4",
+            "format": "h.264",
+            "sizeBytes": 297066373,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ghost-story-circle-of-fear-complete/Ghost%20Story-Circle%20of%20Fear%20%281972-1973%29/Ghost%20Story-Circle%20of%20Fear%2001x03%20-%20At%20The%20Cradle%20Foot.mp4"
+        },
+        {
+          "archiveID": "ghost-story-circle-of-fear-complete@s1e04",
+          "sourceID": "ghost-story-circle-of-fear-complete",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Bad Connection",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 4333,
+          "videoFile": {
+            "name": "Ghost Story-Circle of Fear (1972-1973)/Ghost Story-Circle of Fear 01x04 - Bad Connection.mp4",
+            "format": "h.264",
+            "sizeBytes": 299836644,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ghost-story-circle-of-fear-complete/Ghost%20Story-Circle%20of%20Fear%20%281972-1973%29/Ghost%20Story-Circle%20of%20Fear%2001x04%20-%20Bad%20Connection.mp4"
+        },
+        {
+          "archiveID": "ghost-story-circle-of-fear-complete@s1e05",
+          "sourceID": "ghost-story-circle-of-fear-complete",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Summer House",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 2707,
+          "videoFile": {
+            "name": "Ghost Story-Circle of Fear (1972-1973)/Ghost Story-Circle of Fear 01x05 - The Summer House.mp4",
+            "format": "h.264",
+            "sizeBytes": 263032232,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ghost-story-circle-of-fear-complete/Ghost%20Story-Circle%20of%20Fear%20%281972-1973%29/Ghost%20Story-Circle%20of%20Fear%2001x05%20-%20The%20Summer%20House.mp4"
+        },
+        {
+          "archiveID": "ghost-story-circle-of-fear-complete@s1e06",
+          "sourceID": "ghost-story-circle-of-fear-complete",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Alter-Ego",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 4226,
+          "videoFile": {
+            "name": "Ghost Story-Circle of Fear (1972-1973)/Ghost Story-Circle of Fear 01x06 - Alter-Ego.mp4",
+            "format": "h.264",
+            "sizeBytes": 298612686,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ghost-story-circle-of-fear-complete/Ghost%20Story-Circle%20of%20Fear%20%281972-1973%29/Ghost%20Story-Circle%20of%20Fear%2001x06%20-%20Alter-Ego.mp4"
+        },
+        {
+          "archiveID": "ghost-story-circle-of-fear-complete@s1e07",
+          "sourceID": "ghost-story-circle-of-fear-complete",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Half a Death",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 2705,
+          "videoFile": {
+            "name": "Ghost Story-Circle of Fear (1972-1973)/Ghost Story-Circle of Fear 01x07 - Half a Death.mp4",
+            "format": "h.264",
+            "sizeBytes": 262406016,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ghost-story-circle-of-fear-complete/Ghost%20Story-Circle%20of%20Fear%20%281972-1973%29/Ghost%20Story-Circle%20of%20Fear%2001x07%20-%20Half%20a%20Death.mp4"
+        },
+        {
+          "archiveID": "ghost-story-circle-of-fear-complete@s1e08",
+          "sourceID": "ghost-story-circle-of-fear-complete",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "House Of Evil",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 3074,
+          "videoFile": {
+            "name": "Ghost Story-Circle of Fear (1972-1973)/Ghost Story-Circle of Fear 01x08 - House Of Evil.mp4",
+            "format": "h.264",
+            "sizeBytes": 296737539,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ghost-story-circle-of-fear-complete/Ghost%20Story-Circle%20of%20Fear%20%281972-1973%29/Ghost%20Story-Circle%20of%20Fear%2001x08%20-%20House%20Of%20Evil.mp4"
+        },
+        {
+          "archiveID": "ghost-story-circle-of-fear-complete@s1e09",
+          "sourceID": "ghost-story-circle-of-fear-complete",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Cry Of The Cat",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 3076,
+          "videoFile": {
+            "name": "Ghost Story-Circle of Fear (1972-1973)/Ghost Story-Circle of Fear 01x09 - Cry Of The Cat.mp4",
+            "format": "h.264",
+            "sizeBytes": 297296635,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ghost-story-circle-of-fear-complete/Ghost%20Story-Circle%20of%20Fear%20%281972-1973%29/Ghost%20Story-Circle%20of%20Fear%2001x09%20-%20Cry%20Of%20The%20Cat.mp4"
+        },
+        {
+          "archiveID": "ghost-story-circle-of-fear-complete@s1e10",
+          "sourceID": "ghost-story-circle-of-fear-complete",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Elegy For A Vampire",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 3018,
+          "videoFile": {
+            "name": "Ghost Story-Circle of Fear (1972-1973)/Ghost Story-Circle of Fear 01x10 - Elegy For A Vampire.mp4",
+            "format": "h.264",
+            "sizeBytes": 293091969,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ghost-story-circle-of-fear-complete/Ghost%20Story-Circle%20of%20Fear%20%281972-1973%29/Ghost%20Story-Circle%20of%20Fear%2001x10%20-%20Elegy%20For%20A%20Vampire.mp4"
+        },
+        {
+          "archiveID": "ghost-story-circle-of-fear-complete@s1e11",
+          "sourceID": "ghost-story-circle-of-fear-complete",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Touch Of Madness",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 3074,
+          "videoFile": {
+            "name": "Ghost Story-Circle of Fear (1972-1973)/Ghost Story-Circle of Fear 01x11 - Touch Of Madness.mp4",
+            "format": "h.264",
+            "sizeBytes": 298709394,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ghost-story-circle-of-fear-complete/Ghost%20Story-Circle%20of%20Fear%20%281972-1973%29/Ghost%20Story-Circle%20of%20Fear%2001x11%20-%20Touch%20Of%20Madness.mp4"
+        },
+        {
+          "archiveID": "ghost-story-circle-of-fear-complete@s1e12",
+          "sourceID": "ghost-story-circle-of-fear-complete",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Creatures Of The Canyon",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 3082,
+          "videoFile": {
+            "name": "Ghost Story-Circle of Fear (1972-1973)/Ghost Story-Circle of Fear 01x12 - Creatures Of The Canyon.mp4",
+            "format": "h.264",
+            "sizeBytes": 297368676,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ghost-story-circle-of-fear-complete/Ghost%20Story-Circle%20of%20Fear%20%281972-1973%29/Ghost%20Story-Circle%20of%20Fear%2001x12%20-%20Creatures%20Of%20The%20Canyon.mp4"
+        },
+        {
+          "archiveID": "ghost-story-circle-of-fear-complete@s1e13",
+          "sourceID": "ghost-story-circle-of-fear-complete",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Time Of Terror",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 3042,
+          "videoFile": {
+            "name": "Ghost Story-Circle of Fear (1972-1973)/Ghost Story-Circle of Fear 01x13 - Time Of Terror.mp4",
+            "format": "h.264",
+            "sizeBytes": 292689747,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ghost-story-circle-of-fear-complete/Ghost%20Story-Circle%20of%20Fear%20%281972-1973%29/Ghost%20Story-Circle%20of%20Fear%2001x13%20-%20Time%20Of%20Terror.mp4"
+        },
+        {
+          "archiveID": "ghost-story-circle-of-fear-complete@s1e14",
+          "sourceID": "ghost-story-circle-of-fear-complete",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Death's Head",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 3015,
+          "videoFile": {
+            "name": "Ghost Story-Circle of Fear (1972-1973)/Ghost Story-Circle of Fear 01x14 - Death's Head.mp4",
+            "format": "h.264",
+            "sizeBytes": 292207637,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ghost-story-circle-of-fear-complete/Ghost%20Story-Circle%20of%20Fear%20%281972-1973%29/Ghost%20Story-Circle%20of%20Fear%2001x14%20-%20Death%27s%20Head.mp4"
+        },
+        {
+          "archiveID": "ghost-story-circle-of-fear-complete@s1e15",
+          "sourceID": "ghost-story-circle-of-fear-complete",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Dark Vengeance",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 3014,
+          "videoFile": {
+            "name": "Ghost Story-Circle of Fear (1972-1973)/Ghost Story-Circle of Fear 01x15 - Dark Vengeance.mp4",
+            "format": "h.264",
+            "sizeBytes": 292759107,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ghost-story-circle-of-fear-complete/Ghost%20Story-Circle%20of%20Fear%20%281972-1973%29/Ghost%20Story-Circle%20of%20Fear%2001x15%20-%20Dark%20Vengeance.mp4"
+        },
+        {
+          "archiveID": "ghost-story-circle-of-fear-complete@s1e16",
+          "sourceID": "ghost-story-circle-of-fear-complete",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Earth, Air, Fire & Water",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 3016,
+          "videoFile": {
+            "name": "Ghost Story-Circle of Fear (1972-1973)/Ghost Story-Circle of Fear 01x16 - Earth, Air, Fire & Water.mp4",
+            "format": "h.264",
+            "sizeBytes": 291448248,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ghost-story-circle-of-fear-complete/Ghost%20Story-Circle%20of%20Fear%20%281972-1973%29/Ghost%20Story-Circle%20of%20Fear%2001x16%20-%20Earth%2C%20Air%2C%20Fire%20%26%20Water.mp4"
+        },
+        {
+          "archiveID": "ghost-story-circle-of-fear-complete@s1e17",
+          "sourceID": "ghost-story-circle-of-fear-complete",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Doorway To Death",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 5237,
+          "videoFile": {
+            "name": "Ghost Story-Circle of Fear (1972-1973)/Ghost Story-Circle of Fear 01x17 - Doorway To Death.mp4",
+            "format": "h.264",
+            "sizeBytes": 285837694,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ghost-story-circle-of-fear-complete/Ghost%20Story-Circle%20of%20Fear%20%281972-1973%29/Ghost%20Story-Circle%20of%20Fear%2001x17%20-%20Doorway%20To%20Death.mp4"
+        },
+        {
+          "archiveID": "ghost-story-circle-of-fear-complete@s1e18",
+          "sourceID": "ghost-story-circle-of-fear-complete",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Legion Of Demons",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 3016,
+          "videoFile": {
+            "name": "Ghost Story-Circle of Fear (1972-1973)/Ghost Story-Circle of Fear 01x18 - Legion Of Demons.mp4",
+            "format": "h.264",
+            "sizeBytes": 290565483,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ghost-story-circle-of-fear-complete/Ghost%20Story-Circle%20of%20Fear%20%281972-1973%29/Ghost%20Story-Circle%20of%20Fear%2001x18%20-%20Legion%20Of%20Demons.mp4"
+        },
+        {
+          "archiveID": "ghost-story-circle-of-fear-complete@s1e19",
+          "sourceID": "ghost-story-circle-of-fear-complete",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Graveyard Shift",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 3014,
+          "videoFile": {
+            "name": "Ghost Story-Circle of Fear (1972-1973)/Ghost Story-Circle of Fear 01x19 - Graveyard Shift.mp4",
+            "format": "h.264",
+            "sizeBytes": 292658422,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ghost-story-circle-of-fear-complete/Ghost%20Story-Circle%20of%20Fear%20%281972-1973%29/Ghost%20Story-Circle%20of%20Fear%2001x19%20-%20Graveyard%20Shift.mp4"
+        },
+        {
+          "archiveID": "ghost-story-circle-of-fear-complete@s1e20",
+          "sourceID": "ghost-story-circle-of-fear-complete",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Spare Parts",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 2987,
+          "videoFile": {
+            "name": "Ghost Story-Circle of Fear (1972-1973)/Ghost Story-Circle of Fear 01x20 - Spare Parts.mp4",
+            "format": "h.264",
+            "sizeBytes": 290750500,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ghost-story-circle-of-fear-complete/Ghost%20Story-Circle%20of%20Fear%20%281972-1973%29/Ghost%20Story-Circle%20of%20Fear%2001x20%20-%20Spare%20Parts.mp4"
+        },
+        {
+          "archiveID": "ghost-story-circle-of-fear-complete@s1e21",
+          "sourceID": "ghost-story-circle-of-fear-complete",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "The Ghost Of Potter's Field",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 3015,
+          "videoFile": {
+            "name": "Ghost Story-Circle of Fear (1972-1973)/Ghost Story-Circle of Fear 01x21 - The Ghost Of Potter's Field.mp4",
+            "format": "h.264",
+            "sizeBytes": 292938086,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ghost-story-circle-of-fear-complete/Ghost%20Story-Circle%20of%20Fear%20%281972-1973%29/Ghost%20Story-Circle%20of%20Fear%2001x21%20-%20The%20Ghost%20Of%20Potter%27s%20Field.mp4"
+        },
+        {
+          "archiveID": "ghost-story-circle-of-fear-complete@s1e22",
+          "sourceID": "ghost-story-circle-of-fear-complete",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "The Phantom Of Herald Square",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 3014,
+          "videoFile": {
+            "name": "Ghost Story-Circle of Fear (1972-1973)/Ghost Story-Circle of Fear 01x22 - The Phantom Of Herald Square.mp4",
+            "format": "h.264",
+            "sizeBytes": 293747783,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ghost-story-circle-of-fear-complete/Ghost%20Story-Circle%20of%20Fear%20%281972-1973%29/Ghost%20Story-Circle%20of%20Fear%2001x22%20-%20The%20Phantom%20Of%20Herald%20Square.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 23,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

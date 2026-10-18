@@ -252,6 +252,7 @@ into every session and the index alone carries every title.)
 - 163 — archive.org's own trailer collection outweighs the silent-era guard
 - 164 — Roblox is shelved: the films are what it cannot carry well
 - 165 — The Play build's floor is Android 7, because Play's automatic protection requires it; Fire TV keeps Android 6
+- 166 — A series held in one archive.org item is a series: its files become episodes, `<item>@<token>`, on evidence the item itself gives
 
 ---
 
@@ -910,3 +911,61 @@ they have and stop receiving Play updates.
 protection is on. Fire TV is the Android 6 build now: lint NewApi and
 `canHostShow` still have to hold at 23 there, and the ISRG roots in
 network_security_config.xml are still what let it download the catalog.
+
+## 166 — A series held in one archive.org item is a series: its files become episodes, `<item>@<token>`, on evidence the item itself gives
+*Date: 2026-10-18*
+
+An archive.org item whose files are a whole show or serial — `UFO.complete`
+(26 files), Leave It to Beaver's six seasons in one item, Spy Smasher's 12
+chapters — becomes a spine of its own (`tools/build_bundle_series.py`, in
+tv-canonical before the reconcile that makes its card). Each file is an
+episode with the id `<item>@<token>`: `e01` (no season), `s2e05`, or
+`x-<slug>` for an unnumbered extra, and the token is the file's own number,
+never its position. The spine and every episode carry `sourceID`; the item's
+own card is not published and its id forwards to `series:<slug>`; its TV
+shelves pass to the series card (never its film shelves: Decision 036).
+Every client splits an id at the first `@` to reach archive.org, and lists
+only the episode's own file and its derivatives as copies.
+
+**Why**: the owner, 2026-10-18 — *"We have many serialized tv shows in the
+database. These should function in the same way, especially if we have the
+data/metadata to support it."* They were film cards that played one file of
+dozens, with no episodes, progress or next. Measured over the catalog: 8,421
+items fetched (an item ≥3x its default file and ≥45 files), 241 parse as
+numbered works, **141 shows and 3,589 episodes** pass the rules below, every
+sampled file and still answers 200. `@` because archive.org ids never contain
+it, the Worker's id regexes accept it, and it is safe in a URL path and the
+Roku registry; `/` broke deep links and the 404 router, `~` the Worker.
+
+**What is NOT a series**, each measured against a real false positive: a
+film in pieces (`nosferatu-1of5`, a DVD's `VTS_01_3`, any `reel1`; "Part 3"
+only when the item is typed television — Insurrection, 1966, is an eight-part
+drama), numbered works with no MP4 (Apple's player opens no Ogg or Matroska,
+and no visible film card carries one), commercial breaks, home movies, audio
+items, anything `noRecommend` or in archive.org's own `deemphasize`
+collection (a numbered "Protocols of the Elders of Zion" audiobook passed
+every file rule). Numbered files alone are lectures, launch coverage and
+audiobooks as often as shows, so a series needs evidence of its own: episode
+words in its file names (episode/ep/chapter/E01/S01E01), a television
+typing, a title per episode, a run of ten or more, or its own metadata saying
+serial/series/episodes. Two uploads of one show: the fuller is the spine; a
+serial in halves with no number in common is merged (`sourceIDs`).
+
+**How to apply**: never key an episode by its position or its file name —
+a token that moved would lose every viewer's progress. A new client that
+builds an archive.org URL from an id splits at the first `@`. Tune a false
+positive by a rule with a control in `tools/test_bundle_series.py`, never by
+a list of ids. The scan caches each item's verdict and the files a spine
+needs (`shared/editorial/bundle_scan.json`, re-checked after 60 days or when
+the item's size changes), so the build itself needs no network.
+
+**Consequences**: serials typed as films (Spy Smasher, Flash Gordon, Radar
+Men from the Moon) leave Movies for TV. A source item keeps its film card
+until its `series:<slug>` card is in the catalog (`bundle_sources(cards)`),
+because the card is made by tv-canonical's reconcile and the DB can be built
+between the two. App builds made before this change show the series and play
+its episodes, but split no ids, so archive.org details and copies for an `@`
+episode fail until the next store builds. The bundled seed DB (first launch
+only) still shows the source items as film cards until the downloaded catalog
+replaces it.
+

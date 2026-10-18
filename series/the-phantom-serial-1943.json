@@ -1,0 +1,312 @@
+{
+  "version": 2,
+  "seriesID": "the-phantom-serial-1943",
+  "sourceID": "ThePhantom1943Serial-15Chapters",
+  "tvmazeID": null,
+  "title": "The Phantom Serial",
+  "yearStart": 1943,
+  "yearEnd": null,
+  "overview": "The Phantom (1943) is a Columbia Pictures 15 chapter serial starring Tom Tyler in the title role. The serial is based on Lee Falk's comic strip The Phantom. The serial also features Jeanne Bates as the Phantom's girlfriend Diana Palmer, and Ace the Wonder Dog as the Phantom's trusty German shepherd Devil (who is a wolf in the original comic). Professor Davidson plans an expedition to find the Lost City of Zoloz. The location of the city is contained on seven pieces of ivory, three of which Davidson already possesses. Doctor Bremmer, however, intends to find the lost city and use it as a secret airbase for his unnamed country. To remove him as an obstacle, he kills The Phantom, only for his recently returned son, Geoffrey Prescott, to inherit the family identity and take over the mantle of The Phantom. Three of the remaining ivory pieces are owned by Singapore Smith, who initially steals Davidson's pieces. The seventh, and most important, piece is missing at first but turns up in the possession of Tarter (which The Phantom acquires by wrestling Tarter's pet gorilla).",
+  "posterURL": "https://archive.org/download/archivewatch-covers/ThePhantom1943Serial-15Chapters.1ddfed6b.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "ThePhantom1943Serial-15Chapters@e01",
+          "sourceID": "ThePhantom1943Serial-15Chapters",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Phantom - chapter 01 - The Sign of the Skull",
+          "overview": null,
+          "stillURL": "https://archive.org/download/ThePhantom1943Serial-15Chapters/ThePhantom1943Serial-15Chapters.thumbs/ThePhantom-Chapter01-TheSignOfTheSkull_000510.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 1700,
+          "videoFile": {
+            "name": "ThePhantom-Chapter01-TheSignOfTheSkull_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 123383777,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ThePhantom1943Serial-15Chapters/ThePhantom-Chapter01-TheSignOfTheSkull_512kb.mp4"
+        },
+        {
+          "archiveID": "ThePhantom1943Serial-15Chapters@e02",
+          "sourceID": "ThePhantom1943Serial-15Chapters",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Phantom - chapter 02 - The Man Who Never Dies",
+          "overview": null,
+          "stillURL": "https://archive.org/download/ThePhantom1943Serial-15Chapters/ThePhantom1943Serial-15Chapters.thumbs/ThePhantom-Chapter02-TheManWhoNeverDies_000360.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 1118,
+          "videoFile": {
+            "name": "ThePhantom-Chapter02-TheManWhoNeverDies_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 81121653,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ThePhantom1943Serial-15Chapters/ThePhantom-Chapter02-TheManWhoNeverDies_512kb.mp4"
+        },
+        {
+          "archiveID": "ThePhantom1943Serial-15Chapters@e03",
+          "sourceID": "ThePhantom1943Serial-15Chapters",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Phantom - chapter 03 - A Traitor's Code",
+          "overview": null,
+          "stillURL": "https://archive.org/download/ThePhantom1943Serial-15Chapters/ThePhantom1943Serial-15Chapters.thumbs/ThePhantom-Chapter03-ATraitorsCode_000300.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 970,
+          "videoFile": {
+            "name": "ThePhantom-Chapter03-ATraitorsCode_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 70423351,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ThePhantom1943Serial-15Chapters/ThePhantom-Chapter03-ATraitorsCode_512kb.mp4"
+        },
+        {
+          "archiveID": "ThePhantom1943Serial-15Chapters@e04",
+          "sourceID": "ThePhantom1943Serial-15Chapters",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Phantom - chapter 04 - The Seat of Judgement",
+          "overview": null,
+          "stillURL": "https://archive.org/download/ThePhantom1943Serial-15Chapters/ThePhantom1943Serial-15Chapters.thumbs/ThePhantom-Chapter04-TheSeatOfJudgement_000300.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 979,
+          "videoFile": {
+            "name": "ThePhantom-Chapter04-TheSeatOfJudgement_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 71074235,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ThePhantom1943Serial-15Chapters/ThePhantom-Chapter04-TheSeatOfJudgement_512kb.mp4"
+        },
+        {
+          "archiveID": "ThePhantom1943Serial-15Chapters@e05",
+          "sourceID": "ThePhantom1943Serial-15Chapters",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Phantom - chapter 05 - The Ghost Who Walks",
+          "overview": null,
+          "stillURL": "https://archive.org/download/ThePhantom1943Serial-15Chapters/ThePhantom1943Serial-15Chapters.thumbs/ThePhantom-Chapter05-TheGhostWhoWalks_000360.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 1036,
+          "videoFile": {
+            "name": "ThePhantom-Chapter05-TheGhostWhoWalks_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 75239068,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ThePhantom1943Serial-15Chapters/ThePhantom-Chapter05-TheGhostWhoWalks_512kb.mp4"
+        },
+        {
+          "archiveID": "ThePhantom1943Serial-15Chapters@e06",
+          "sourceID": "ThePhantom1943Serial-15Chapters",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Phantom - chapter 06 - Jungle Whispers",
+          "overview": null,
+          "stillURL": "https://archive.org/download/ThePhantom1943Serial-15Chapters/ThePhantom1943Serial-15Chapters.thumbs/ThePhantom-Chapter06-JungleWhispers_000300.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 914,
+          "videoFile": {
+            "name": "ThePhantom-Chapter06-JungleWhispers_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 66298928,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ThePhantom1943Serial-15Chapters/ThePhantom-Chapter06-JungleWhispers_512kb.mp4"
+        },
+        {
+          "archiveID": "ThePhantom1943Serial-15Chapters@e07",
+          "sourceID": "ThePhantom1943Serial-15Chapters",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Phantom - chapter 07 - The Mystery Well",
+          "overview": null,
+          "stillURL": "https://archive.org/download/ThePhantom1943Serial-15Chapters/ThePhantom1943Serial-15Chapters.thumbs/ThePhantom-Chapter07-TheMysteryWell_000360.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 1016,
+          "videoFile": {
+            "name": "ThePhantom-Chapter07-TheMysteryWell_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 73778251,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ThePhantom1943Serial-15Chapters/ThePhantom-Chapter07-TheMysteryWell_512kb.mp4"
+        },
+        {
+          "archiveID": "ThePhantom1943Serial-15Chapters@e08",
+          "sourceID": "ThePhantom1943Serial-15Chapters",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Phantom - chapter 08 - In the Quest of the Keys",
+          "overview": null,
+          "stillURL": "https://archive.org/download/ThePhantom1943Serial-15Chapters/ThePhantom1943Serial-15Chapters.thumbs/ThePhantom-Chapter08-InTheQuestOfTheKeys_000360.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 1018,
+          "videoFile": {
+            "name": "ThePhantom-Chapter08-InTheQuestOfTheKeys_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 73891197,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ThePhantom1943Serial-15Chapters/ThePhantom-Chapter08-InTheQuestOfTheKeys_512kb.mp4"
+        },
+        {
+          "archiveID": "ThePhantom1943Serial-15Chapters@e09",
+          "sourceID": "ThePhantom1943Serial-15Chapters",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Phantom - chapter 09 - The Fire Princess",
+          "overview": null,
+          "stillURL": "https://archive.org/download/ThePhantom1943Serial-15Chapters/ThePhantom1943Serial-15Chapters.thumbs/ThePhantom-Chapter09-TheFirePrincess_000300.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 964,
+          "videoFile": {
+            "name": "ThePhantom-Chapter09-TheFirePrincess_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 69932524,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ThePhantom1943Serial-15Chapters/ThePhantom-Chapter09-TheFirePrincess_512kb.mp4"
+        },
+        {
+          "archiveID": "ThePhantom1943Serial-15Chapters@e10",
+          "sourceID": "ThePhantom1943Serial-15Chapters",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Phantom - chapter 10 - The Chamber of Death",
+          "overview": null,
+          "stillURL": "https://archive.org/download/ThePhantom1943Serial-15Chapters/ThePhantom1943Serial-15Chapters.thumbs/ThePhantom-Chapter10-TheChamberOfDeath_000300.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 934,
+          "videoFile": {
+            "name": "ThePhantom-Chapter10-TheChamberOfDeath_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 67848894,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ThePhantom1943Serial-15Chapters/ThePhantom-Chapter10-TheChamberOfDeath_512kb.mp4"
+        },
+        {
+          "archiveID": "ThePhantom1943Serial-15Chapters@e11",
+          "sourceID": "ThePhantom1943Serial-15Chapters",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Phantom - chapter 11 - The Emerald Key",
+          "overview": null,
+          "stillURL": "https://archive.org/download/ThePhantom1943Serial-15Chapters/ThePhantom1943Serial-15Chapters.thumbs/ThePhantom-Chapter11-TheEmeraldKey_000300.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 990,
+          "videoFile": {
+            "name": "ThePhantom-Chapter11-TheEmeraldKey_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 71871132,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ThePhantom1943Serial-15Chapters/ThePhantom-Chapter11-TheEmeraldKey_512kb.mp4"
+        },
+        {
+          "archiveID": "ThePhantom1943Serial-15Chapters@e12",
+          "sourceID": "ThePhantom1943Serial-15Chapters",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Phantom - chapter 12 - The Fangs of the Beast",
+          "overview": null,
+          "stillURL": "https://archive.org/download/ThePhantom1943Serial-15Chapters/ThePhantom1943Serial-15Chapters.thumbs/ThePhantom-Chapter12-TheFangsOfTheBeast_000300.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 985,
+          "videoFile": {
+            "name": "ThePhantom-Chapter12-TheFangsOfTheBeast_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 71544035,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ThePhantom1943Serial-15Chapters/ThePhantom-Chapter12-TheFangsOfTheBeast_512kb.mp4"
+        },
+        {
+          "archiveID": "ThePhantom1943Serial-15Chapters@e13",
+          "sourceID": "ThePhantom1943Serial-15Chapters",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "The Phantom - chapter 13 - The Road to Zoloz",
+          "overview": null,
+          "stillURL": "https://archive.org/download/ThePhantom1943Serial-15Chapters/ThePhantom1943Serial-15Chapters.thumbs/ThePhantom-Chapter13-TheRoadToZoloz_000300.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 991,
+          "videoFile": {
+            "name": "ThePhantom-Chapter13-TheRoadToZoloz_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 71973884,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ThePhantom1943Serial-15Chapters/ThePhantom-Chapter13-TheRoadToZoloz_512kb.mp4"
+        },
+        {
+          "archiveID": "ThePhantom1943Serial-15Chapters@e14",
+          "sourceID": "ThePhantom1943Serial-15Chapters",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Phantom - chapter 14 - The Lost City",
+          "overview": null,
+          "stillURL": "https://archive.org/download/ThePhantom1943Serial-15Chapters/ThePhantom1943Serial-15Chapters.thumbs/ThePhantom-Chapter14-TheLostCity_000300.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 1000,
+          "videoFile": {
+            "name": "ThePhantom-Chapter14-TheLostCity_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 72575334,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ThePhantom1943Serial-15Chapters/ThePhantom-Chapter14-TheLostCity_512kb.mp4"
+        },
+        {
+          "archiveID": "ThePhantom1943Serial-15Chapters@e15",
+          "sourceID": "ThePhantom1943Serial-15Chapters",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "The Phantom - chapter 15 - Peace in the Jungle",
+          "overview": null,
+          "stillURL": "https://archive.org/download/ThePhantom1943Serial-15Chapters/ThePhantom1943Serial-15Chapters.thumbs/ThePhantom-Chapter15-PeaceInTheJungle_000300.jpg",
+          "airDate": null,
+          "year": 1943,
+          "runtimeSeconds": 979,
+          "videoFile": {
+            "name": "ThePhantom-Chapter15-PeaceInTheJungle_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 71106513,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/ThePhantom1943Serial-15Chapters/ThePhantom-Chapter15-PeaceInTheJungle_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 15,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

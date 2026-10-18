@@ -1,0 +1,521 @@
+{
+  "version": 2,
+  "seriesID": "t-h-e-cat-1966",
+  "sourceID": "The-Cat-1966-Series",
+  "tvmazeID": null,
+  "title": "T.H.E Cat",
+  "yearStart": 1966,
+  "yearEnd": null,
+  "overview": "A former circus aerialist and cat burglar turned professional bodyguard; all 26 episodes of the 1966 NBC series T.H.E. Cat with Robert Loggia.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/The-Cat-1966-Series.c0d50b61.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "The-Cat-1966-Series@s1e01",
+          "sourceID": "The-Cat-1966-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "To Kill a Priest",
+          "overview": null,
+          "stillURL": "https://archive.org/download/The-Cat-1966-Series/The-Cat-1966-Series.thumbs/S01E01%20-%20To%20Kill%20a%20Priest_000816.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1829,
+          "videoFile": {
+            "name": "S01E01 - To Kill a Priest.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 190864172,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Cat-1966-Series/S01E01%20-%20To%20Kill%20a%20Priest.ia.mp4"
+        },
+        {
+          "archiveID": "The-Cat-1966-Series@s1e02",
+          "sourceID": "The-Cat-1966-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Sandman",
+          "overview": null,
+          "stillURL": "https://archive.org/download/The-Cat-1966-Series/The-Cat-1966-Series.thumbs/S01E02%20-%20Sandman_000670.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1503,
+          "videoFile": {
+            "name": "S01E02 - Sandman.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 156881815,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Cat-1966-Series/S01E02%20-%20Sandman.ia.mp4"
+        },
+        {
+          "archiveID": "The-Cat-1966-Series@s1e03",
+          "sourceID": "The-Cat-1966-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Payment Overdue",
+          "overview": null,
+          "stillURL": "https://archive.org/download/The-Cat-1966-Series/The-Cat-1966-Series.thumbs/S01E03%20-%20Payment%20Overdue_000540.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1515,
+          "videoFile": {
+            "name": "S01E03 - Payment Overdue.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 151786648,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Cat-1966-Series/S01E03%20-%20Payment%20Overdue.ia.mp4"
+        },
+        {
+          "archiveID": "The-Cat-1966-Series@s1e04",
+          "sourceID": "The-Cat-1966-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Brotherhood",
+          "overview": null,
+          "stillURL": "https://archive.org/download/The-Cat-1966-Series/The-Cat-1966-Series.thumbs/S01E04%20-%20Brotherhood_000673.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1512,
+          "videoFile": {
+            "name": "S01E04 - Brotherhood.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 158023694,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Cat-1966-Series/S01E04%20-%20Brotherhood.ia.mp4"
+        },
+        {
+          "archiveID": "The-Cat-1966-Series@s1e05",
+          "sourceID": "The-Cat-1966-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Little Arnie from Long Ago",
+          "overview": null,
+          "stillURL": "https://archive.org/download/The-Cat-1966-Series/The-Cat-1966-Series.thumbs/S01E05%20-%20Little%20Arnie%20from%20Long%20Ago_000673.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1503,
+          "videoFile": {
+            "name": "S01E05 - Little Arnie from Long Ago.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 149988013,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Cat-1966-Series/S01E05%20-%20Little%20Arnie%20from%20Long%20Ago.ia.mp4"
+        },
+        {
+          "archiveID": "The-Cat-1966-Series@s1e06",
+          "sourceID": "The-Cat-1966-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "None To Weep, None To Mourn",
+          "overview": null,
+          "stillURL": "https://archive.org/download/The-Cat-1966-Series/The-Cat-1966-Series.thumbs/S01E06%20-%20None%20To%20Weep%2C%20None%20To%20Mourn_000680.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1517,
+          "videoFile": {
+            "name": "S01E06 - None To Weep, None To Mourn.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 153830150,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Cat-1966-Series/S01E06%20-%20None%20To%20Weep%2C%20None%20To%20Mourn.ia.mp4"
+        },
+        {
+          "archiveID": "The-Cat-1966-Series@s1e07",
+          "sourceID": "The-Cat-1966-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Moment Of Truth",
+          "overview": null,
+          "stillURL": "https://archive.org/download/The-Cat-1966-Series/The-Cat-1966-Series.thumbs/S01E07%20-%20Moment%20Of%20Truth_000668.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1498,
+          "videoFile": {
+            "name": "S01E07 - Moment Of Truth.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 152127760,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Cat-1966-Series/S01E07%20-%20Moment%20Of%20Truth.ia.mp4"
+        },
+        {
+          "archiveID": "The-Cat-1966-Series@s1e08",
+          "sourceID": "The-Cat-1966-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Marked For Death",
+          "overview": null,
+          "stillURL": "https://archive.org/download/The-Cat-1966-Series/The-Cat-1966-Series.thumbs/S01E08%20-%20Marked%20For%20Death_000664.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1490,
+          "videoFile": {
+            "name": "S01E08 - Marked For Death.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 146458125,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Cat-1966-Series/S01E08%20-%20Marked%20For%20Death.ia.mp4"
+        },
+        {
+          "archiveID": "The-Cat-1966-Series@s1e09",
+          "sourceID": "The-Cat-1966-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Crossing At Destino Bay",
+          "overview": null,
+          "stillURL": "https://archive.org/download/The-Cat-1966-Series/The-Cat-1966-Series.thumbs/S01E09%20-%20Crossing%20At%20Destino%20Bay_000674.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1504,
+          "videoFile": {
+            "name": "S01E09 - Crossing At Destino Bay.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 147789905,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Cat-1966-Series/S01E09%20-%20Crossing%20At%20Destino%20Bay.ia.mp4"
+        },
+        {
+          "archiveID": "The-Cat-1966-Series@s1e10",
+          "sourceID": "The-Cat-1966-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "To Bell T H E. Cat",
+          "overview": null,
+          "stillURL": "https://archive.org/download/The-Cat-1966-Series/The-Cat-1966-Series.thumbs/S01E10%20-%20To%20Bell%20T.H.E.%20Cat_000667.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1497,
+          "videoFile": {
+            "name": "S01E10 - To Bell T.H.E. Cat.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 147395743,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Cat-1966-Series/S01E10%20-%20To%20Bell%20T.H.E.%20Cat.ia.mp4"
+        },
+        {
+          "archiveID": "The-Cat-1966-Series@s1e11",
+          "sourceID": "The-Cat-1966-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Curtains For Miss Winslow",
+          "overview": null,
+          "stillURL": "https://archive.org/download/The-Cat-1966-Series/The-Cat-1966-Series.thumbs/S01E11%20-%20Curtains%20For%20Miss%20Winslow_000671.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1502,
+          "videoFile": {
+            "name": "S01E11 - Curtains For Miss Winslow.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 155223652,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Cat-1966-Series/S01E11%20-%20Curtains%20For%20Miss%20Winslow.ia.mp4"
+        },
+        {
+          "archiveID": "The-Cat-1966-Series@s1e12",
+          "sourceID": "The-Cat-1966-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "King Of Limpets",
+          "overview": null,
+          "stillURL": "https://archive.org/download/The-Cat-1966-Series/The-Cat-1966-Series.thumbs/S01E12%20-%20King%20Of%20Limpets_000669.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1486,
+          "videoFile": {
+            "name": "S01E12 - King Of Limpets.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 145271153,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Cat-1966-Series/S01E12%20-%20King%20Of%20Limpets.ia.mp4"
+        },
+        {
+          "archiveID": "The-Cat-1966-Series@s1e13",
+          "sourceID": "The-Cat-1966-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "The System",
+          "overview": null,
+          "stillURL": "https://archive.org/download/The-Cat-1966-Series/The-Cat-1966-Series.thumbs/S01E13%20-%20The%20System_000539.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1494,
+          "videoFile": {
+            "name": "S01E13 - The System.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 147103994,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Cat-1966-Series/S01E13%20-%20The%20System.ia.mp4"
+        },
+        {
+          "archiveID": "The-Cat-1966-Series@s1e14",
+          "sourceID": "The-Cat-1966-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Canary Who Lost His Voice",
+          "overview": null,
+          "stillURL": "https://archive.org/download/The-Cat-1966-Series/The-Cat-1966-Series.thumbs/S01E14%20-%20The%20Canary%20Who%20Lost%20His%20Voice_000644.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1436,
+          "videoFile": {
+            "name": "S01E14 - The Canary Who Lost His Voice.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 138707855,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Cat-1966-Series/S01E14%20-%20The%20Canary%20Who%20Lost%20His%20Voice.ia.mp4"
+        },
+        {
+          "archiveID": "The-Cat-1966-Series@s1e15",
+          "sourceID": "The-Cat-1966-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Ring Of Anasis",
+          "overview": null,
+          "stillURL": "https://archive.org/download/The-Cat-1966-Series/The-Cat-1966-Series.thumbs/S01E15%20-%20Ring%20Of%20Anasis_000545.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1510,
+          "videoFile": {
+            "name": "S01E15 - Ring Of Anasis.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 148747289,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Cat-1966-Series/S01E15%20-%20Ring%20Of%20Anasis.ia.mp4"
+        },
+        {
+          "archiveID": "The-Cat-1966-Series@s1e16",
+          "sourceID": "The-Cat-1966-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Queen of Diamonds, Knave of Hearts",
+          "overview": null,
+          "stillURL": "https://archive.org/download/The-Cat-1966-Series/The-Cat-1966-Series.thumbs/S01E16%20-%20Queen%20of%20Diamonds%2C%20Knave%20of%20Hearts_000675.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1509,
+          "videoFile": {
+            "name": "S01E16 - Queen of Diamonds, Knave of Hearts.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 154117592,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Cat-1966-Series/S01E16%20-%20Queen%20of%20Diamonds%2C%20Knave%20of%20Hearts.ia.mp4"
+        },
+        {
+          "archiveID": "The-Cat-1966-Series@s1e17",
+          "sourceID": "The-Cat-1966-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "A Hot Place to Die",
+          "overview": null,
+          "stillURL": "https://archive.org/download/The-Cat-1966-Series/The-Cat-1966-Series.thumbs/S01E17%20-%20A%20Hot%20Place%20to%20Die_000677.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1509,
+          "videoFile": {
+            "name": "S01E17 - A Hot Place to Die.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 154128686,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Cat-1966-Series/S01E17%20-%20A%20Hot%20Place%20to%20Die.ia.mp4"
+        },
+        {
+          "archiveID": "The-Cat-1966-Series@s1e18",
+          "sourceID": "The-Cat-1966-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "A Slight Family Trait",
+          "overview": null,
+          "stillURL": "https://archive.org/download/The-Cat-1966-Series/The-Cat-1966-Series.thumbs/S01E18%20-%20A%20Slight%20Family%20Trait_000673.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1510,
+          "videoFile": {
+            "name": "S01E18 - A Slight Family Trait.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 149727266,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Cat-1966-Series/S01E18%20-%20A%20Slight%20Family%20Trait.ia.mp4"
+        },
+        {
+          "archiveID": "The-Cat-1966-Series@s1e19",
+          "sourceID": "The-Cat-1966-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "If Once You Fail",
+          "overview": null,
+          "stillURL": "https://archive.org/download/The-Cat-1966-Series/The-Cat-1966-Series.thumbs/S01E19%20-%20If%20Once%20You%20Fail_000672.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1508,
+          "videoFile": {
+            "name": "S01E19 - If Once You Fail.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 146617978,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Cat-1966-Series/S01E19%20-%20If%20Once%20You%20Fail.ia.mp4"
+        },
+        {
+          "archiveID": "The-Cat-1966-Series@s1e20",
+          "sourceID": "The-Cat-1966-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Design for Death",
+          "overview": null,
+          "stillURL": "https://archive.org/download/The-Cat-1966-Series/The-Cat-1966-Series.thumbs/S01E20%20-%20Design%20for%20Death_000676.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1514,
+          "videoFile": {
+            "name": "S01E20 - Design for Death.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 147041030,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Cat-1966-Series/S01E20%20-%20Design%20for%20Death.ia.mp4"
+        },
+        {
+          "archiveID": "The-Cat-1966-Series@s1e21",
+          "sourceID": "The-Cat-1966-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Matter Over Mind",
+          "overview": null,
+          "stillURL": "https://archive.org/download/The-Cat-1966-Series/The-Cat-1966-Series.thumbs/S01E21%20-%20Matter%20Over%20Mind_000676.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1513,
+          "videoFile": {
+            "name": "S01E21 - Matter Over Mind.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 146925591,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Cat-1966-Series/S01E21%20-%20Matter%20Over%20Mind.ia.mp4"
+        },
+        {
+          "archiveID": "The-Cat-1966-Series@s1e22",
+          "sourceID": "The-Cat-1966-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "The Blood-Red Night",
+          "overview": null,
+          "stillURL": "https://archive.org/download/The-Cat-1966-Series/The-Cat-1966-Series.thumbs/S01E22%20-%20The%20Blood-Red%20Night_000675.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1510,
+          "videoFile": {
+            "name": "S01E22 - The Blood-Red Night.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 147157632,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Cat-1966-Series/S01E22%20-%20The%20Blood-Red%20Night.ia.mp4"
+        },
+        {
+          "archiveID": "The-Cat-1966-Series@s1e23",
+          "sourceID": "The-Cat-1966-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "The Ninety Percent Blues",
+          "overview": null,
+          "stillURL": "https://archive.org/download/The-Cat-1966-Series/The-Cat-1966-Series.thumbs/S01E23%20-%20The%20Ninety%20Percent%20Blues_000676.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1502,
+          "videoFile": {
+            "name": "S01E23 - The Ninety Percent Blues.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 144656829,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Cat-1966-Series/S01E23%20-%20The%20Ninety%20Percent%20Blues.ia.mp4"
+        },
+        {
+          "archiveID": "The-Cat-1966-Series@s1e24",
+          "sourceID": "The-Cat-1966-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "The Long Chase",
+          "overview": null,
+          "stillURL": "https://archive.org/download/The-Cat-1966-Series/The-Cat-1966-Series.thumbs/S01E24%20-%20The%20Long%20Chase_000536.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1511,
+          "videoFile": {
+            "name": "S01E24 - The Long Chase.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 158726804,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Cat-1966-Series/S01E24%20-%20The%20Long%20Chase.ia.mp4"
+        },
+        {
+          "archiveID": "The-Cat-1966-Series@s1e25",
+          "sourceID": "The-Cat-1966-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Twenty-One and Out",
+          "overview": null,
+          "stillURL": "https://archive.org/download/The-Cat-1966-Series/The-Cat-1966-Series.thumbs/S01E25%20-%20Twenty-One%20and%20Out_000666.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1484,
+          "videoFile": {
+            "name": "S01E25 - Twenty-One and Out.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 144536817,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Cat-1966-Series/S01E25%20-%20Twenty-One%20and%20Out.ia.mp4"
+        },
+        {
+          "archiveID": "The-Cat-1966-Series@s1e26",
+          "sourceID": "The-Cat-1966-Series",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Lisa",
+          "overview": null,
+          "stillURL": "https://archive.org/download/The-Cat-1966-Series/The-Cat-1966-Series.thumbs/S01E26%20-%20Lisa_000529.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1494,
+          "videoFile": {
+            "name": "S01E26 - Lisa.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 144710535,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The-Cat-1966-Series/S01E26%20-%20Lisa.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 26,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

@@ -1,0 +1,258 @@
+{
+  "version": 2,
+  "seriesID": "rin-tin-tin-the-lightning-warrior-1931",
+  "sourceID": "RTTLW01",
+  "tvmazeID": null,
+  "title": "Rin Tin Tin THE LIGHTNING WARRIOR",
+  "yearStart": 1931,
+  "yearEnd": null,
+  "overview": "In this twelve-chapter serial, Rin Tin Tin and young Jimmy Carter battle a masked figure known as the Wolf Man who is terrorising settlers to drive them from a mining region.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/RTTLW01.ff1142b1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "War",
+    "Action"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "RTTLW01@e01",
+          "sourceID": "RTTLW01",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Drums of Doom",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RTTLW01/RTTLW01.thumbs/RTTLW01_000533.jpg",
+          "airDate": null,
+          "year": 1931,
+          "runtimeSeconds": 1569,
+          "videoFile": {
+            "name": "RTTLW01.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 222191648,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RTTLW01/RTTLW01.mp4"
+        },
+        {
+          "archiveID": "RTTLW01@e02",
+          "sourceID": "RTTLW01",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Wolf Man",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RTTLW01/RTTLW01.thumbs/RTTLW02_000390.jpg",
+          "airDate": null,
+          "year": 1931,
+          "runtimeSeconds": 1085,
+          "videoFile": {
+            "name": "RTTLW02.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 153713697,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RTTLW01/RTTLW02.mp4"
+        },
+        {
+          "archiveID": "RTTLW01@e03",
+          "sourceID": "RTTLW01",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Empty Saddles",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RTTLW01/RTTLW01.thumbs/RTTLW03_000330.jpg",
+          "airDate": null,
+          "year": 1931,
+          "runtimeSeconds": 979,
+          "videoFile": {
+            "name": "RTTLW03.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 138825549,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RTTLW01/RTTLW03.mp4"
+        },
+        {
+          "archiveID": "RTTLW01@e04",
+          "sourceID": "RTTLW01",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Flaming Arrows",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RTTLW01/RTTLW01.thumbs/RTTLW04_000390.jpg",
+          "airDate": null,
+          "year": 1931,
+          "runtimeSeconds": 1075,
+          "videoFile": {
+            "name": "RTTLW04.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 152238408,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RTTLW01/RTTLW04.mp4"
+        },
+        {
+          "archiveID": "RTTLW01@e05",
+          "sourceID": "RTTLW01",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Invisible Enemy",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RTTLW01/RTTLW01.thumbs/RTTLW05_000330.jpg",
+          "airDate": null,
+          "year": 1931,
+          "runtimeSeconds": 981,
+          "videoFile": {
+            "name": "RTTLW05.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 138893535,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RTTLW01/RTTLW05.mp4"
+        },
+        {
+          "archiveID": "RTTLW01@e06",
+          "sourceID": "RTTLW01",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Fatal Name",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RTTLW01/RTTLW01.thumbs/RTTLW06_000330.jpg",
+          "airDate": null,
+          "year": 1931,
+          "runtimeSeconds": 953,
+          "videoFile": {
+            "name": "RTTLW06.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 135055987,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RTTLW01/RTTLW06.mp4"
+        },
+        {
+          "archiveID": "RTTLW01@e07",
+          "sourceID": "RTTLW01",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Ordeal of Fire",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RTTLW01/RTTLW01.thumbs/RTTLW07_000330.jpg",
+          "airDate": null,
+          "year": 1931,
+          "runtimeSeconds": 1049,
+          "videoFile": {
+            "name": "RTTLW07.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 148594714,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RTTLW01/RTTLW07.mp4"
+        },
+        {
+          "archiveID": "RTTLW01@e08",
+          "sourceID": "RTTLW01",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Man Who Knew",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RTTLW01/RTTLW01.thumbs/RTTLW08_000390.jpg",
+          "airDate": null,
+          "year": 1931,
+          "runtimeSeconds": 1050,
+          "videoFile": {
+            "name": "RTTLW08.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 148762367,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RTTLW01/RTTLW08.mp4"
+        },
+        {
+          "archiveID": "RTTLW01@e09",
+          "sourceID": "RTTLW01",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Traitor's Hour",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RTTLW01/RTTLW01.thumbs/RTTLW09_000330.jpg",
+          "airDate": null,
+          "year": 1931,
+          "runtimeSeconds": 926,
+          "videoFile": {
+            "name": "RTTLW09.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 130988533,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RTTLW01/RTTLW09.mp4"
+        },
+        {
+          "archiveID": "RTTLW01@e10",
+          "sourceID": "RTTLW01",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Secret of the Cave",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RTTLW01/RTTLW01.thumbs/RTTLW10_000330.jpg",
+          "airDate": null,
+          "year": 1931,
+          "runtimeSeconds": 978,
+          "videoFile": {
+            "name": "RTTLW10.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 138590049,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RTTLW01/RTTLW10.mp4"
+        },
+        {
+          "archiveID": "RTTLW01@e11",
+          "sourceID": "RTTLW01",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Red Shadows",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RTTLW01/RTTLW01.thumbs/RTTLW11_000302.jpg",
+          "airDate": null,
+          "year": 1931,
+          "runtimeSeconds": 888,
+          "videoFile": {
+            "name": "RTTLW11.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 125824263,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RTTLW01/RTTLW11.mp4"
+        },
+        {
+          "archiveID": "RTTLW01@e12",
+          "sourceID": "RTTLW01",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Painted Faces",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RTTLW01/RTTLW01.thumbs/RTTLW12_000390.jpg",
+          "airDate": null,
+          "year": 1931,
+          "runtimeSeconds": 1124,
+          "videoFile": {
+            "name": "RTTLW12.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 159007341,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RTTLW01/RTTLW12.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 12,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

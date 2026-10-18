@@ -1,0 +1,144 @@
+{
+  "version": 2,
+  "seriesID": "the-mind-beyond-1976",
+  "sourceID": "mind-beyond-1976",
+  "tvmazeID": null,
+  "title": "The Mind Beyond",
+  "yearStart": 1976,
+  "yearEnd": null,
+  "overview": "British supernatural anthology series which aired as part of the BBC2 drama anthology series Playhouse (1974 - 83). The series featured actors such as Donald Pleasence, Janet Street-Porter, Jeremy Kemp, Michael Bryant, Peter Sallis, Richard Hurndall, and Geoffrey Bayldon. Episodes: Ep01 Meriel the Ghost Girl Ep02 Double Echo Ep03 The Love of a Good Woman Ep04 The Daedalus Equations Ep05 Stones Ep06 The Man with the Power",
+  "posterURL": "https://archive.org/download/archivewatch-covers/mind-beyond-1976.077b3891.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Horror",
+    "Drama"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "mind-beyond-1976@e01",
+          "sourceID": "mind-beyond-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Meriel The Ghost Girl",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 3581,
+          "videoFile": {
+            "name": "Mind Beyond, The (Playhouse, 1976)/Ep01 Meriel The Ghost Girl.mp4",
+            "format": "h.264",
+            "sizeBytes": 350104487,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mind-beyond-1976/Mind%20Beyond%2C%20The%20%28Playhouse%2C%201976%29/Ep01%20Meriel%20The%20Ghost%20Girl.mp4"
+        },
+        {
+          "archiveID": "mind-beyond-1976@e02",
+          "sourceID": "mind-beyond-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Double Echo",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 3228,
+          "videoFile": {
+            "name": "Mind Beyond, The (Playhouse, 1976)/Ep02 Double Echo.mp4",
+            "format": "h.264",
+            "sizeBytes": 314645803,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mind-beyond-1976/Mind%20Beyond%2C%20The%20%28Playhouse%2C%201976%29/Ep02%20Double%20Echo.mp4"
+        },
+        {
+          "archiveID": "mind-beyond-1976@e03",
+          "sourceID": "mind-beyond-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Love Of A Good Woman",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 3188,
+          "videoFile": {
+            "name": "Mind Beyond, The (Playhouse, 1976)/Ep03 The Love Of A Good Woman.mp4",
+            "format": "h.264",
+            "sizeBytes": 308965158,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mind-beyond-1976/Mind%20Beyond%2C%20The%20%28Playhouse%2C%201976%29/Ep03%20The%20Love%20Of%20A%20Good%20Woman.mp4"
+        },
+        {
+          "archiveID": "mind-beyond-1976@e04",
+          "sourceID": "mind-beyond-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Daedalus Equations",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 3314,
+          "videoFile": {
+            "name": "Mind Beyond, The (Playhouse, 1976)/Ep04 The Daedalus Equations.mp4",
+            "format": "h.264",
+            "sizeBytes": 322467300,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mind-beyond-1976/Mind%20Beyond%2C%20The%20%28Playhouse%2C%201976%29/Ep04%20The%20Daedalus%20Equations.mp4"
+        },
+        {
+          "archiveID": "mind-beyond-1976@e05",
+          "sourceID": "mind-beyond-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Stones",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 3592,
+          "videoFile": {
+            "name": "Mind Beyond, The (Playhouse, 1976)/Ep05 Stones.mp4",
+            "format": "h.264",
+            "sizeBytes": 355045542,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mind-beyond-1976/Mind%20Beyond%2C%20The%20%28Playhouse%2C%201976%29/Ep05%20Stones.mp4"
+        },
+        {
+          "archiveID": "mind-beyond-1976@e06",
+          "sourceID": "mind-beyond-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Man With The Power",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 3389,
+          "videoFile": {
+            "name": "Mind Beyond, The (Playhouse, 1976)/Ep06 The Man With The Power.mp4",
+            "format": "h.264",
+            "sizeBytes": 328589056,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/mind-beyond-1976/Mind%20Beyond%2C%20The%20%28Playhouse%2C%201976%29/Ep06%20The%20Man%20With%20The%20Power.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

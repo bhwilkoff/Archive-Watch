@@ -1,0 +1,259 @@
+{
+  "version": 2,
+  "seriesID": "battling-with-buffalo-bill-1931",
+  "sourceID": "UniversalPicturesBattlingwithBuffaloBill",
+  "tvmazeID": null,
+  "title": "Battling with Buffalo Bill",
+  "yearStart": 1931,
+  "yearEnd": null,
+  "overview": "Chapters 6 to 12 of Battling with Buffalo Bill (1931), Universal's twelve-chapter western serial with Tom Tyler as Buffalo Bill, Rex Bell, Francis Ford, Yakima Canutt and Jim Thorpe.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/UniversalPicturesBattlingwithBuffaloBill.f0793ef5.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "PublicDomainBattlingwithBuffaloBill@e01",
+          "sourceID": "PublicDomainBattlingwithBuffaloBill",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Cornered By Redskins",
+          "overview": null,
+          "stillURL": "https://archive.org/download/PublicDomainBattlingwithBuffaloBill/PublicDomainBattlingwithBuffaloBill.thumbs/BBB01_000360.jpg",
+          "airDate": null,
+          "year": 1931,
+          "runtimeSeconds": 1047,
+          "videoFile": {
+            "name": "BBB01_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 76103737,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/PublicDomainBattlingwithBuffaloBill/BBB01_512kb.mp4"
+        },
+        {
+          "archiveID": "PublicDomainBattlingwithBuffaloBill@e02",
+          "sourceID": "PublicDomainBattlingwithBuffaloBill",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Circling Death",
+          "overview": null,
+          "stillURL": "https://archive.org/download/PublicDomainBattlingwithBuffaloBill/PublicDomainBattlingwithBuffaloBill.thumbs/BBB02_000360.jpg",
+          "airDate": null,
+          "year": 1931,
+          "runtimeSeconds": 1027,
+          "videoFile": {
+            "name": "BBB02_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 74678393,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/PublicDomainBattlingwithBuffaloBill/BBB02_512kb.mp4"
+        },
+        {
+          "archiveID": "PublicDomainBattlingwithBuffaloBill@e03",
+          "sourceID": "PublicDomainBattlingwithBuffaloBill",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Between Hostile Tribes",
+          "overview": null,
+          "stillURL": "https://archive.org/download/PublicDomainBattlingwithBuffaloBill/PublicDomainBattlingwithBuffaloBill.thumbs/BBB03_000300.jpg",
+          "airDate": null,
+          "year": 1931,
+          "runtimeSeconds": 912,
+          "videoFile": {
+            "name": "BBB03_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 66346465,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/PublicDomainBattlingwithBuffaloBill/BBB03_512kb.mp4"
+        },
+        {
+          "archiveID": "PublicDomainBattlingwithBuffaloBill@e04",
+          "sourceID": "PublicDomainBattlingwithBuffaloBill",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Savage Horde",
+          "overview": null,
+          "stillURL": "https://archive.org/download/PublicDomainBattlingwithBuffaloBill/PublicDomainBattlingwithBuffaloBill.thumbs/BBB04_000300.jpg",
+          "airDate": null,
+          "year": 1931,
+          "runtimeSeconds": 908,
+          "videoFile": {
+            "name": "BBB04_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 66009112,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/PublicDomainBattlingwithBuffaloBill/BBB04_512kb.mp4"
+        },
+        {
+          "archiveID": "PublicDomainBattlingwithBuffaloBill@e05",
+          "sourceID": "PublicDomainBattlingwithBuffaloBill",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Fatal Plunge",
+          "overview": null,
+          "stillURL": "https://archive.org/download/PublicDomainBattlingwithBuffaloBill/PublicDomainBattlingwithBuffaloBill.thumbs/BBB05_000300.jpg",
+          "airDate": null,
+          "year": 1931,
+          "runtimeSeconds": 964,
+          "videoFile": {
+            "name": "BBB05_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 70082137,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/PublicDomainBattlingwithBuffaloBill/BBB05_512kb.mp4"
+        },
+        {
+          "archiveID": "UniversalPicturesBattlingwithBuffaloBill@e06",
+          "sourceID": "UniversalPicturesBattlingwithBuffaloBill",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Trapped",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UniversalPicturesBattlingwithBuffaloBill/UniversalPicturesBattlingwithBuffaloBill.thumbs/BBB06_000360.jpg",
+          "airDate": null,
+          "year": 1931,
+          "runtimeSeconds": 1066,
+          "videoFile": {
+            "name": "BBB06_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 77577871,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UniversalPicturesBattlingwithBuffaloBill/BBB06_512kb.mp4"
+        },
+        {
+          "archiveID": "UniversalPicturesBattlingwithBuffaloBill@e07",
+          "sourceID": "UniversalPicturesBattlingwithBuffaloBill",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Unseen Killer",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UniversalPicturesBattlingwithBuffaloBill/UniversalPicturesBattlingwithBuffaloBill.thumbs/BBB07_000300.jpg",
+          "airDate": null,
+          "year": 1931,
+          "runtimeSeconds": 988,
+          "videoFile": {
+            "name": "BBB07_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 71867917,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UniversalPicturesBattlingwithBuffaloBill/BBB07_512kb.mp4"
+        },
+        {
+          "archiveID": "UniversalPicturesBattlingwithBuffaloBill@e08",
+          "sourceID": "UniversalPicturesBattlingwithBuffaloBill",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Sentenced To Death",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UniversalPicturesBattlingwithBuffaloBill/UniversalPicturesBattlingwithBuffaloBill.thumbs/BBB08_000420.jpg",
+          "airDate": null,
+          "year": 1931,
+          "runtimeSeconds": 1209,
+          "videoFile": {
+            "name": "BBB08_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 87865737,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UniversalPicturesBattlingwithBuffaloBill/BBB08_512kb.mp4"
+        },
+        {
+          "archiveID": "UniversalPicturesBattlingwithBuffaloBill@e09",
+          "sourceID": "UniversalPicturesBattlingwithBuffaloBill",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Death Trap",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UniversalPicturesBattlingwithBuffaloBill/UniversalPicturesBattlingwithBuffaloBill.thumbs/BBB09_000300.jpg",
+          "airDate": null,
+          "year": 1931,
+          "runtimeSeconds": 993,
+          "videoFile": {
+            "name": "BBB09_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 72170025,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UniversalPicturesBattlingwithBuffaloBill/BBB09_512kb.mp4"
+        },
+        {
+          "archiveID": "UniversalPicturesBattlingwithBuffaloBill@e10",
+          "sourceID": "UniversalPicturesBattlingwithBuffaloBill",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "A Shot From Ambush",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UniversalPicturesBattlingwithBuffaloBill/UniversalPicturesBattlingwithBuffaloBill.thumbs/BBB10_000360.jpg",
+          "airDate": null,
+          "year": 1931,
+          "runtimeSeconds": 1100,
+          "videoFile": {
+            "name": "BBB10_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 79949634,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UniversalPicturesBattlingwithBuffaloBill/BBB10_512kb.mp4"
+        },
+        {
+          "archiveID": "UniversalPicturesBattlingwithBuffaloBill@e11",
+          "sourceID": "UniversalPicturesBattlingwithBuffaloBill",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Flaming Death",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UniversalPicturesBattlingwithBuffaloBill/UniversalPicturesBattlingwithBuffaloBill.thumbs/BBB11_000360.jpg",
+          "airDate": null,
+          "year": 1931,
+          "runtimeSeconds": 1076,
+          "videoFile": {
+            "name": "BBB11_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 78248754,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UniversalPicturesBattlingwithBuffaloBill/BBB11_512kb.mp4"
+        },
+        {
+          "archiveID": "UniversalPicturesBattlingwithBuffaloBill@e12",
+          "sourceID": "UniversalPicturesBattlingwithBuffaloBill",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Cheyenne Vengeance",
+          "overview": null,
+          "stillURL": "https://archive.org/download/UniversalPicturesBattlingwithBuffaloBill/UniversalPicturesBattlingwithBuffaloBill.thumbs/BBB12_000360.jpg",
+          "airDate": null,
+          "year": 1931,
+          "runtimeSeconds": 1023,
+          "videoFile": {
+            "name": "BBB12_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 74523832,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/UniversalPicturesBattlingwithBuffaloBill/BBB12_512kb.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 12,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": [],
+  "sourceIDs": [
+    "UniversalPicturesBattlingwithBuffaloBill",
+    "PublicDomainBattlingwithBuffaloBill"
+  ]
+}

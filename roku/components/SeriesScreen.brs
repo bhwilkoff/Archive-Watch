@@ -265,6 +265,9 @@ end sub
 function episodeTitle(e as Object) as String
     t = StripHTML(fmt(e.title))
     aid = fmt(e.archiveID)
+    ' A bundle episode's id is "<item>@<token>" (Decision 166).
+    at = Instr(1, aid, "@")
+    if at > 0 then aid = Left(aid, at - 1)
     if aid = "" then return t
     ' Only intervene when the title tells the viewer nothing.
     seriesT = ""

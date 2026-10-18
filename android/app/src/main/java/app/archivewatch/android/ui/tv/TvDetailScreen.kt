@@ -695,6 +695,7 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
     if (showVersions) {
         TvVersionOverlay(
             archiveID = current.archiveID,
+            ownURL = current.downloadURL,
             accent = current.accentColor,
             onDone = { showVersions = false },
         )
@@ -895,6 +896,7 @@ private fun TvStat(value: String, caption: String) {
 @Composable
 private fun TvVersionOverlay(
     archiveID: String,
+    ownURL: String?,
     accent: Color,
     onDone: () -> Unit,
 ) {
@@ -906,7 +908,7 @@ private fun TvVersionOverlay(
     // In a Watch Together room the HOST chooses the copy.
     val inRoom = app.archivewatch.android.studio.StudioRoomCopy.isActive(archiveID)
     LaunchedEffect(archiveID) {
-        versions = if (inRoom) emptyList() else app.archivewatch.android.data.ArchiveVersions.list(archiveID)
+        versions = if (inRoom) emptyList() else app.archivewatch.android.data.ArchiveVersions.list(archiveID, ownURL)
     }
     val firstFocus = remember { FocusRequester() }
     ClaimInitialFocus(firstFocus, key = versions != null)

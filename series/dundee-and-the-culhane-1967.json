@@ -1,0 +1,274 @@
+{
+  "version": 2,
+  "seriesID": "dundee-and-the-culhane-1967",
+  "sourceID": "Dundee-and-the-Culhane-1967",
+  "tvmazeID": null,
+  "title": "Dundee and the Culhane",
+  "yearStart": 1967,
+  "yearEnd": null,
+  "overview": "A British barrister and his American partner ride the frontier of the 1870s defending the accused; all 13 episodes of the 1967 CBS western Dundee and the Culhane with John Mills.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/Dundee-and-the-Culhane-1967.d5769d32.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Dundee-and-the-Culhane-1967@s1e01",
+          "sourceID": "Dundee-and-the-Culhane-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Turn the Other Cheek",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Dundee-and-the-Culhane-1967/Dundee-and-the-Culhane-1967.thumbs/S01E01%20-%20The%20Turn%20the%20Other%20Cheek%20Brief_000984.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2855,
+          "videoFile": {
+            "name": "S01E01 - The Turn the Other Cheek Brief.mp4",
+            "format": "h.264",
+            "sizeBytes": 278657810,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Dundee-and-the-Culhane-1967/S01E01%20-%20The%20Turn%20the%20Other%20Cheek%20Brief.mp4"
+        },
+        {
+          "archiveID": "Dundee-and-the-Culhane-1967@s1e02",
+          "sourceID": "Dundee-and-the-Culhane-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Vasquez",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Dundee-and-the-Culhane-1967/Dundee-and-the-Culhane-1967.thumbs/S01E02%20-%20The%20Vasquez%20Brief_001102.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2847,
+          "videoFile": {
+            "name": "S01E02 - The Vasquez Brief.mp4",
+            "format": "h.264",
+            "sizeBytes": 278457534,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Dundee-and-the-Culhane-1967/S01E02%20-%20The%20Vasquez%20Brief.mp4"
+        },
+        {
+          "archiveID": "Dundee-and-the-Culhane-1967@s1e03",
+          "sourceID": "Dundee-and-the-Culhane-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Cat In Bag",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Dundee-and-the-Culhane-1967/Dundee-and-the-Culhane-1967.thumbs/S01E03%20-%20The%20Cat%20In%20Bag%20Brief_001109.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2861,
+          "videoFile": {
+            "name": "S01E03 - The Cat In Bag Brief.mp4",
+            "format": "h.264",
+            "sizeBytes": 279395131,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Dundee-and-the-Culhane-1967/S01E03%20-%20The%20Cat%20In%20Bag%20Brief.mp4"
+        },
+        {
+          "archiveID": "Dundee-and-the-Culhane-1967@s1e04",
+          "sourceID": "Dundee-and-the-Culhane-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Murderer Stallion",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Dundee-and-the-Culhane-1967/Dundee-and-the-Culhane-1967.thumbs/S01E04%20-%20The%20Murderer%20Stallion%20Brief_001096.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2832,
+          "videoFile": {
+            "name": "S01E04 - The Murderer Stallion Brief.mp4",
+            "format": "h.264",
+            "sizeBytes": 275960455,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Dundee-and-the-Culhane-1967/S01E04%20-%20The%20Murderer%20Stallion%20Brief.mp4"
+        },
+        {
+          "archiveID": "Dundee-and-the-Culhane-1967@s1e05",
+          "sourceID": "Dundee-and-the-Culhane-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Dead Man's",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Dundee-and-the-Culhane-1967/Dundee-and-the-Culhane-1967.thumbs/S01E05%20-%20The%20Dead%20Man%27s%20Brief_001102.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2849,
+          "videoFile": {
+            "name": "S01E05 - The Dead Man's Brief.mp4",
+            "format": "h.264",
+            "sizeBytes": 277209829,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Dundee-and-the-Culhane-1967/S01E05%20-%20The%20Dead%20Man%27s%20Brief.mp4"
+        },
+        {
+          "archiveID": "Dundee-and-the-Culhane-1967@s1e06",
+          "sourceID": "Dundee-and-the-Culhane-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Jubilee Raid",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Dundee-and-the-Culhane-1967/Dundee-and-the-Culhane-1967.thumbs/S01E06%20-%20The%20Jubilee%20Raid%20Brief_000989.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2851,
+          "videoFile": {
+            "name": "S01E06 - The Jubilee Raid Brief.mp4",
+            "format": "h.264",
+            "sizeBytes": 278294543,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Dundee-and-the-Culhane-1967/S01E06%20-%20The%20Jubilee%20Raid%20Brief.mp4"
+        },
+        {
+          "archiveID": "Dundee-and-the-Culhane-1967@s1e07",
+          "sourceID": "Dundee-and-the-Culhane-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The 1000 Feet Deep",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Dundee-and-the-Culhane-1967/Dundee-and-the-Culhane-1967.thumbs/S01E07%20-%20The%201000%20Feet%20Deep%20Brief_001097.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2833,
+          "videoFile": {
+            "name": "S01E07 - The 1000 Feet Deep Brief.mp4",
+            "format": "h.264",
+            "sizeBytes": 275127386,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Dundee-and-the-Culhane-1967/S01E07%20-%20The%201000%20Feet%20Deep%20Brief.mp4"
+        },
+        {
+          "archiveID": "Dundee-and-the-Culhane-1967@s1e08",
+          "sourceID": "Dundee-and-the-Culhane-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Duelist",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Dundee-and-the-Culhane-1967/Dundee-and-the-Culhane-1967.thumbs/S01E08%20-%20The%20Duelist%20Brief_001111.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2849,
+          "videoFile": {
+            "name": "S01E08 - The Duelist Brief.mp4",
+            "format": "h.264",
+            "sizeBytes": 277797940,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Dundee-and-the-Culhane-1967/S01E08%20-%20The%20Duelist%20Brief.mp4"
+        },
+        {
+          "archiveID": "Dundee-and-the-Culhane-1967@s1e09",
+          "sourceID": "Dundee-and-the-Culhane-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The 310 to a Lynching",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Dundee-and-the-Culhane-1967/Dundee-and-the-Culhane-1967.thumbs/S01E09%20-%20The%20310%20to%20a%20Lynching%20Brief_001101.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2843,
+          "videoFile": {
+            "name": "S01E09 - The 310 to a Lynching Brief.mp4",
+            "format": "h.264",
+            "sizeBytes": 276531007,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Dundee-and-the-Culhane-1967/S01E09%20-%20The%20310%20to%20a%20Lynching%20Brief.mp4"
+        },
+        {
+          "archiveID": "Dundee-and-the-Culhane-1967@s1e10",
+          "sourceID": "Dundee-and-the-Culhane-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Death of a Warrior",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Dundee-and-the-Culhane-1967/Dundee-and-the-Culhane-1967.thumbs/S01E10%20-%20The%20Death%20of%20a%20Warrior%20Brief_000979.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2829,
+          "videoFile": {
+            "name": "S01E10 - The Death of a Warrior Brief.mp4",
+            "format": "h.264",
+            "sizeBytes": 275724031,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Dundee-and-the-Culhane-1967/S01E10%20-%20The%20Death%20of%20a%20Warrior%20Brief.mp4"
+        },
+        {
+          "archiveID": "Dundee-and-the-Culhane-1967@s1e11",
+          "sourceID": "Dundee-and-the-Culhane-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Thy Brothers Keeper",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Dundee-and-the-Culhane-1967/Dundee-and-the-Culhane-1967.thumbs/S01E11%20-%20Thy%20Brothers%20Keeper%20Brief_000980.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2853,
+          "videoFile": {
+            "name": "S01E11 - Thy Brothers Keeper Brief.mp4",
+            "format": "h.264",
+            "sizeBytes": 277463249,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Dundee-and-the-Culhane-1967/S01E11%20-%20Thy%20Brothers%20Keeper%20Brief.mp4"
+        },
+        {
+          "archiveID": "Dundee-and-the-Culhane-1967@s1e12",
+          "sourceID": "Dundee-and-the-Culhane-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Widows Weeds",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Dundee-and-the-Culhane-1967/Dundee-and-the-Culhane-1967.thumbs/S01E12%20-%20The%20Widows%20Weeds%20Brief_001081.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2789,
+          "videoFile": {
+            "name": "S01E12 - The Widows Weeds Brief.mp4",
+            "format": "h.264",
+            "sizeBytes": 271220149,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Dundee-and-the-Culhane-1967/S01E12%20-%20The%20Widows%20Weeds%20Brief.mp4"
+        },
+        {
+          "archiveID": "Dundee-and-the-Culhane-1967@s1e13",
+          "sourceID": "Dundee-and-the-Culhane-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "The Catch a Thief",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Dundee-and-the-Culhane-1967/Dundee-and-the-Culhane-1967.thumbs/S01E13%20-%20The%20%20Catch%20a%20Thief%20Brief_001121.jpg",
+          "airDate": null,
+          "year": 1967,
+          "runtimeSeconds": 2886,
+          "videoFile": {
+            "name": "S01E13 - The  Catch a Thief Brief.mp4",
+            "format": "h.264",
+            "sizeBytes": 280231188,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Dundee-and-the-Culhane-1967/S01E13%20-%20The%20%20Catch%20a%20Thief%20Brief.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 13,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

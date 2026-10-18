@@ -1,0 +1,338 @@
+{
+  "version": 2,
+  "seriesID": "raiders-of-ghost-city-1944",
+  "sourceID": "RaidersofGhostCity",
+  "tvmazeID": null,
+  "title": "Raiders of Ghost City",
+  "yearStart": 1944,
+  "yearEnd": null,
+  "overview": "During the latter stages of the Civil War, a gang of supposed Confederates, headed by Alex Morel (Lionel Atwill), raid all gold shipments destined for Washington from Oro Grande, California. Can they be brought to justice?",
+  "posterURL": "https://image.tmdb.org/t/p/w500/p3abbdVCHzJamdBjhKeXmT5LSwu.jpg",
+  "backdropURL": "https://image.tmdb.org/t/p/w1280/neAGpDaSVvu7z3LtjQW6qPE2vEq.jpg",
+  "genres": [
+    "Action",
+    "Western"
+  ],
+  "networks": [],
+  "creator": "Lewis D. Collins",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "RaidersofGhostCity@e01",
+          "sourceID": "RaidersofGhostCity",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "MurderbyAccident",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RaidersofGhostCity/RaidersofGhostCity.thumbs/Chapter01-MurderbyAccident_000354.jpg",
+          "airDate": null,
+          "year": 1944,
+          "runtimeSeconds": 1116,
+          "videoFile": {
+            "name": "Chapter01-MurderbyAccident.mp4",
+            "format": "h.264",
+            "sizeBytes": 113968768,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RaidersofGhostCity/Chapter01-MurderbyAccident.mp4"
+        },
+        {
+          "archiveID": "RaidersofGhostCity@e02",
+          "sourceID": "RaidersofGhostCity",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "FlamingTreachery",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RaidersofGhostCity/RaidersofGhostCity.thumbs/Chapter02-FlamingTreachery_000354.jpg",
+          "airDate": null,
+          "year": 1944,
+          "runtimeSeconds": 1062,
+          "videoFile": {
+            "name": "Chapter02-FlamingTreachery.mp4",
+            "format": "h.264",
+            "sizeBytes": 108449883,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RaidersofGhostCity/Chapter02-FlamingTreachery.mp4"
+        },
+        {
+          "archiveID": "RaidersofGhostCity@e03",
+          "sourceID": "RaidersofGhostCity",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "DeathRidesDouble",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RaidersofGhostCity/RaidersofGhostCity.thumbs/Chapter03-DeathRidesDouble_000354.jpg",
+          "airDate": null,
+          "year": 1944,
+          "runtimeSeconds": 1065,
+          "videoFile": {
+            "name": "Chapter03-DeathRidesDouble.mp4",
+            "format": "h.264",
+            "sizeBytes": 109003597,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RaidersofGhostCity/Chapter03-DeathRidesDouble.mp4"
+        },
+        {
+          "archiveID": "RaidersofGhostCity@e04",
+          "sourceID": "RaidersofGhostCity",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "GhostCityTerror",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RaidersofGhostCity/RaidersofGhostCity.thumbs/Chapter04-GhostCityTerror_000354.jpg",
+          "airDate": null,
+          "year": 1944,
+          "runtimeSeconds": 1117,
+          "videoFile": {
+            "name": "Chapter04-GhostCityTerror.mp4",
+            "format": "h.264",
+            "sizeBytes": 113947428,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RaidersofGhostCity/Chapter04-GhostCityTerror.mp4"
+        },
+        {
+          "archiveID": "RaidersofGhostCity@e05",
+          "sourceID": "RaidersofGhostCity",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "TheFatalLariat",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RaidersofGhostCity/RaidersofGhostCity.thumbs/Chapter05-TheFatalLariat_000354.jpg",
+          "airDate": null,
+          "year": 1944,
+          "runtimeSeconds": 1101,
+          "videoFile": {
+            "name": "Chapter05-TheFatalLariat.mp4",
+            "format": "h.264",
+            "sizeBytes": 112462261,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RaidersofGhostCity/Chapter05-TheFatalLariat.mp4"
+        },
+        {
+          "archiveID": "RaidersofGhostCity@e06",
+          "sourceID": "RaidersofGhostCity",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "WaterRising",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RaidersofGhostCity/RaidersofGhostCity.thumbs/Chapter06-WaterRising_000354.jpg",
+          "airDate": null,
+          "year": 1944,
+          "runtimeSeconds": 1046,
+          "videoFile": {
+            "name": "Chapter06-WaterRising.mp4",
+            "format": "h.264",
+            "sizeBytes": 107596416,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RaidersofGhostCity/Chapter06-WaterRising.mp4"
+        },
+        {
+          "archiveID": "RaidersofGhostCity@e07",
+          "sourceID": "RaidersofGhostCity",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "BulletAvalanche",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RaidersofGhostCity/RaidersofGhostCity.thumbs/Chapter07-BulletAvalanche_000354.jpg",
+          "airDate": null,
+          "year": 1944,
+          "runtimeSeconds": 1070,
+          "videoFile": {
+            "name": "Chapter07-BulletAvalanche.mp4",
+            "format": "h.264",
+            "sizeBytes": 109429639,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RaidersofGhostCity/Chapter07-BulletAvalanche.mp4"
+        },
+        {
+          "archiveID": "RaidersofGhostCity@e08",
+          "sourceID": "RaidersofGhostCity",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "DeathLaughsLast",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RaidersofGhostCity/RaidersofGhostCity.thumbs/Chapter08-DeathLaughsLast_000354.jpg",
+          "airDate": null,
+          "year": 1944,
+          "runtimeSeconds": 1056,
+          "videoFile": {
+            "name": "Chapter08-DeathLaughsLast.mp4",
+            "format": "h.264",
+            "sizeBytes": 107867722,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RaidersofGhostCity/Chapter08-DeathLaughsLast.mp4"
+        },
+        {
+          "archiveID": "RaidersofGhostCity@e09",
+          "sourceID": "RaidersofGhostCity",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "ColdSteel",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RaidersofGhostCity/RaidersofGhostCity.thumbs/Chapter09-ColdSteel_000354.jpg",
+          "airDate": null,
+          "year": 1944,
+          "runtimeSeconds": 1135,
+          "videoFile": {
+            "name": "Chapter09-ColdSteel.mp4",
+            "format": "h.264",
+            "sizeBytes": 115980444,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RaidersofGhostCity/Chapter09-ColdSteel.mp4"
+        },
+        {
+          "archiveID": "RaidersofGhostCity@e10",
+          "sourceID": "RaidersofGhostCity",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Showdown",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RaidersofGhostCity/RaidersofGhostCity.thumbs/Chapter10-Showdown_000294.jpg",
+          "airDate": null,
+          "year": 1944,
+          "runtimeSeconds": 1008,
+          "videoFile": {
+            "name": "Chapter10-Showdown.mp4",
+            "format": "h.264",
+            "sizeBytes": 103245928,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RaidersofGhostCity/Chapter10-Showdown.mp4"
+        },
+        {
+          "archiveID": "RaidersofGhostCity@e11",
+          "sourceID": "RaidersofGhostCity",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "TheTrailtoTorture",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RaidersofGhostCity/RaidersofGhostCity.thumbs/Chapter11-TheTrailtoTorture_000354.jpg",
+          "airDate": null,
+          "year": 1944,
+          "runtimeSeconds": 1068,
+          "videoFile": {
+            "name": "Chapter11-TheTrailtoTorture.mp4",
+            "format": "h.264",
+            "sizeBytes": 109228844,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RaidersofGhostCity/Chapter11-TheTrailtoTorture.mp4"
+        },
+        {
+          "archiveID": "RaidersofGhostCity@e12",
+          "sourceID": "RaidersofGhostCity",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "CallingAllBuckboards",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RaidersofGhostCity/RaidersofGhostCity.thumbs/Chapter12-CallingAllBuckboards_000288.jpg",
+          "airDate": null,
+          "year": 1944,
+          "runtimeSeconds": 839,
+          "videoFile": {
+            "name": "Chapter12-CallingAllBuckboards.mp4",
+            "format": "h.264",
+            "sizeBytes": 85864399,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RaidersofGhostCity/Chapter12-CallingAllBuckboards.mp4"
+        },
+        {
+          "archiveID": "RaidersofGhostCity@e13",
+          "sourceID": "RaidersofGhostCity",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "GoldenVengeance",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RaidersofGhostCity/RaidersofGhostCity.thumbs/Chapter13-GoldenVengeance_000294.jpg",
+          "airDate": null,
+          "year": 1944,
+          "runtimeSeconds": 955,
+          "videoFile": {
+            "name": "Chapter13-GoldenVengeance.mp4",
+            "format": "h.264",
+            "sizeBytes": 97672553,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RaidersofGhostCity/Chapter13-GoldenVengeance.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 13,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": [
+    {
+      "name": "Dennis Moore",
+      "character": "Capt. Steve Clark",
+      "order": 0,
+      "profilePath": "/l0ASkx4SxvHRGAJNLZsj1zkpg9V.jpg"
+    },
+    {
+      "name": "Wanda McKay",
+      "character": "Cathy Haines",
+      "order": 1,
+      "profilePath": "/ifZpy75FH8o0o1paoVAukStI5xu.jpg"
+    },
+    {
+      "name": "Lionel Atwill",
+      "character": "Erich von Rugen, alias Alex Morel",
+      "order": 2,
+      "profilePath": "/2KFwXY3fsMWWyeTFxeU9GNnAIMc.jpg"
+    },
+    {
+      "name": "Joe Sawyer",
+      "character": "Idaho Jones",
+      "order": 3,
+      "profilePath": "/ct5dfzO05LnrJ4EBANBK2y8FPGN.jpg"
+    },
+    {
+      "name": "Regis Toomey",
+      "character": "Capt. Clay Randolph [Chs. 1-6]",
+      "order": 4,
+      "profilePath": "/fBaA8glCL6YOMX8O58a3s3yJy4P.jpg"
+    },
+    {
+      "name": "Virginia Christine",
+      "character": "Countess Elsa von Merck, alias Trina Dressard",
+      "order": 5,
+      "profilePath": "/aVPUIpWumBgMFdWo0R5wCQWZM0N.jpg"
+    },
+    {
+      "name": "Eddy Waller",
+      "character": "Doc Blair (as Eddy C. Waller)",
+      "order": 6,
+      "profilePath": "/sSdKkGEXVeQno5OTcfdy1CBR80J.jpg"
+    },
+    {
+      "name": "Emmett Vogan",
+      "character": "Count Manfried von Rinkton, alias Carl Lawton [Chs. 6-7]",
+      "order": 7,
+      "profilePath": "/gKDRfOG9zZ5lOrNceUSIDI4ZbUh.jpg"
+    },
+    {
+      "name": "Addison Richards",
+      "character": "Colonel Sewell",
+      "order": 8,
+      "profilePath": "/4dfuxkteGt5zaXnd7oIDnKJGzlW.jpg"
+    },
+    {
+      "name": "Charles Wagenheim",
+      "character": "Hugo Metzger, alias Abel Rackerby [Chs. 8-9]",
+      "order": 9,
+      "profilePath": "/1lp2E3XDHVCryvHOCwq76CAclne.jpg"
+    }
+  ]
+}

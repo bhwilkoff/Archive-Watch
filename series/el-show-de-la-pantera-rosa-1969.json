@@ -1,0 +1,1600 @@
+{
+  "version": 2,
+  "seriesID": "el-show-de-la-pantera-rosa-1969",
+  "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+  "tvmazeID": null,
+  "title": "El Show De La Pantera Rosa",
+  "yearStart": 1969,
+  "yearEnd": null,
+  "overview": "Episodes of the Pink Panther cartoon series, Spanish-language version.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/el-show-de-la-pantera-rosa-temporada-1.f925c18c.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s1e01",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "La banda hippy all",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%201x01%20La%20banda%20hippy%20all_000538.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1225,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 1x01 La banda hippy all.mp4",
+            "format": "h.264",
+            "sizeBytes": 117878073,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%201x01%20La%20banda%20hippy%20all.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s1e02",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Toulouse el truco",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%201x02%20Toulouse%20el%20truco_000474.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1230,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 1x02 Toulouse el truco.mp4",
+            "format": "h.264",
+            "sizeBytes": 118408344,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%201x02%20Toulouse%20el%20truco.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s1e03",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Viaje en farsa",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%201x03%20Viaje%20en%20farsa_000542.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1227,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 1x03 Viaje en farsa.mp4",
+            "format": "h.264",
+            "sizeBytes": 118571725,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%201x03%20Viaje%20en%20farsa.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s1e04",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Enseñando al recluta",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%201x04%20Ense%C3%B1ando%20al%20recluta_000542.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1226,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 1x04 Enseñando al recluta.mp4",
+            "format": "h.264",
+            "sizeBytes": 119061770,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%201x04%20Ense%C3%B1ando%20al%20recluta.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s1e05",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Maniaticos de transilvania",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%201x05%20Maniaticos%20de%20transilvania_000512.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1162,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 1x05 Maniaticos de transilvania.mp4",
+            "format": "h.264",
+            "sizeBytes": 113260352,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%201x05%20Maniaticos%20de%20transilvania.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s1e06",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "El comisionado enfermo",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%201x06%20El%20comisionado%20enfermo_000472.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1226,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 1x06 El comisionado enfermo.mp4",
+            "format": "h.264",
+            "sizeBytes": 118531441,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%201x06%20El%20comisionado%20enfermo.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s1e07",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Las victimas del robot",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%201x07%20Las%20victimas%20del%20robot_000475.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1230,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 1x07 Las victimas del robot.mp4",
+            "format": "h.264",
+            "sizeBytes": 119924012,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%201x07%20Las%20victimas%20del%20robot.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s1e08",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "El caso del diamante de Paris",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%201x08%20El%20caso%20del%20diamante%20de%20Paris_000484.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1104,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 1x08 El caso del diamante de Paris.mp4",
+            "format": "h.264",
+            "sizeBytes": 106582837,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%201x08%20El%20caso%20del%20diamante%20de%20Paris.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s1e09",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "El gran robo",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%201x09%20El%20gran%20robo_000548.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1230,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 1x09 El gran robo.mp4",
+            "format": "h.264",
+            "sizeBytes": 118314168,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%201x09%20El%20gran%20robo.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s1e10",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Ladron involuntario",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%201x10%20Ladron%20involuntario_000479.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1240,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 1x10 Ladron involuntario.mp4",
+            "format": "h.264",
+            "sizeBytes": 119510699,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%201x10%20Ladron%20involuntario.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s1e11",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "El heroe de la policia montada",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%201x11%20El%20heroe%20de%20la%20policia%20montada_000568.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1278,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 1x11 El heroe de la policia montada.mp4",
+            "format": "h.264",
+            "sizeBytes": 123351827,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%201x11%20El%20heroe%20de%20la%20policia%20montada.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s1e12",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "El pozo guerrero",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%201x12%20El%20pozo%20guerrero_000569.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1290,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 1x12 El pozo guerrero.mp4",
+            "format": "h.264",
+            "sizeBytes": 125058250,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%201x12%20El%20pozo%20guerrero.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s1e13",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Los profugos",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%201x13%20Los%20profugos_000563.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1282,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 1x13 Los profugos.mp4",
+            "format": "h.264",
+            "sizeBytes": 123026622,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%201x13%20Los%20profugos.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s1e14",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Policia en las rocas",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%201x14%20Policia%20en%20las%20rocas_000541.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1233,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 1x14 Policia en las rocas.mp4",
+            "format": "h.264",
+            "sizeBytes": 118848317,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%201x14%20Policia%20en%20las%20rocas.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s1e15",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Can can canadiense",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%201x15%20Can%20can%20canadiense_000568.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1288,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 1x15 Can can canadiense.mp4",
+            "format": "h.264",
+            "sizeBytes": 125246511,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%201x15%20Can%20can%20canadiense.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s1e16",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Persecucion en Londres",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%201x16%20Persecucion%20en%20Londres_000564.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1285,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 1x16 Persecucion en Londres.mp4",
+            "format": "h.264",
+            "sizeBytes": 124209721,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%201x16%20Persecucion%20en%20Londres.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s1e17",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Las huellas misteriosas",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%201x17%20Las%20huellas%20misteriosas_000621.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1258,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 1x17 Las huellas misteriosas.mp4",
+            "format": "h.264",
+            "sizeBytes": 121204204,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%201x17%20Las%20huellas%20misteriosas.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s1e18",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Un matrimonio en enredos",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%201x18%20Un%20matrimonio%20en%20enredos_000627.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1274,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 1x18 Un matrimonio en enredos.mp4",
+            "format": "h.264",
+            "sizeBytes": 123445590,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%201x18%20Un%20matrimonio%20en%20enredos.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s1e19",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "El viaje espacial",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%201x19%20El%20viaje%20espacial_000600.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1221,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 1x19 El viaje espacial.mp4",
+            "format": "h.264",
+            "sizeBytes": 118326916,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%201x19%20El%20viaje%20espacial.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s1e20",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "El carterista de Paris",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%201x20%20El%20carterista%20de%20Paris_000602.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1224,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 1x20 El carterista de Paris.mp4",
+            "format": "h.264",
+            "sizeBytes": 118960334,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%201x20%20El%20carterista%20de%20Paris.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s1e21",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "aplastados en paris",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%201x21%20aplastados%20en%20paris_000605.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1229,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 1x21 aplastados en paris.mp4",
+            "format": "h.264",
+            "sizeBytes": 119531196,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%201x21%20aplastados%20en%20paris.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s1e22",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Rema rema y sigue adelante",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%201x22%20Rema%20rema%20y%20sigue%20adelante_000609.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1228,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 1x22 Rema rema y sigue adelante.mp4",
+            "format": "h.264",
+            "sizeBytes": 120183977,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%201x22%20Rema%20rema%20y%20sigue%20adelante.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s1e23",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Napoleon vuela en parte",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%201x23%20Napoleon%20vuela%20en%20parte_000547.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1103,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 1x23 Napoleon vuela en parte.mp4",
+            "format": "h.264",
+            "sizeBytes": 109287494,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%201x23%20Napoleon%20vuela%20en%20parte.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s1e24",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "El heroico inspector atrapa a la gallina Todo",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%201x24%20El%20heroico%20inspector%20atrapa%20a%20la%20gallina%20Todo_000602.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1225,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 1x24 El heroico inspector atrapa a la gallina Todo.mp4",
+            "format": "h.264",
+            "sizeBytes": 118586934,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%201x24%20El%20heroico%20inspector%20atrapa%20a%20la%20gallina%20Todo.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s1e25",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "La operacion gran piedra Degaulle",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%201x25%20La%20operacion%20gran%20piedra%20Degaulle_000676.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1229,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 1x25 La operacion gran piedra Degaulle.mp4",
+            "format": "h.264",
+            "sizeBytes": 118606876,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%201x25%20La%20operacion%20gran%20piedra%20Degaulle.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s1e26",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Buscad al fantasma",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%201x26%20Buscad%20al%20fantasma_000675.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1229,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 1x26 Buscad al fantasma.mp4",
+            "format": "h.264",
+            "sizeBytes": 118840942,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%201x26%20Buscad%20al%20fantasma.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s1e27",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Pierre y el queso cottage",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%201x27%20Pierre%20y%20el%20queso%20cottage_000693.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1271,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 1x27 Pierre y el queso cottage.mp4",
+            "format": "h.264",
+            "sizeBytes": 123306816,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%201x27%20Pierre%20y%20el%20queso%20cottage.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s1e28",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "Un caso clinico",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%201x28%20Un%20caso%20clinico_000701.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1285,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 1x28 Un caso clinico.mp4",
+            "format": "h.264",
+            "sizeBytes": 125899228,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%201x28%20Un%20caso%20clinico.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s1e29",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "Leccion de defensa personal",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%201x29%20Leccion%20de%20defensa%20personal_000672.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1230,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 1x29 Leccion de defensa personal.mp4",
+            "format": "h.264",
+            "sizeBytes": 119976826,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%201x29%20Leccion%20de%20defensa%20personal.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s1e30",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "Largo viaje",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%201x30%20Largo%20viaje_000701.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1271,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 1x30 Largo viaje.mp4",
+            "format": "h.264",
+            "sizeBytes": 123846211,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%201x30%20Largo%20viaje.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s1e31",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "El heroico comisario y sus amigas",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%201x31%20El%20heroico%20comisario%20y%20sus%20amigas_000695.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1273,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 1x31 El heroico comisario y sus amigas.mp4",
+            "format": "h.264",
+            "sizeBytes": 123505462,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%201x31%20El%20heroico%20comisario%20y%20sus%20amigas.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s1e32",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 1,
+          "episodeNumber": 32,
+          "title": "El amuleto",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%201x32%20El%20amuleto_000700.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1285,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 1x32 El amuleto.mp4",
+            "format": "h.264",
+            "sizeBytes": 124529807,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%201x32%20El%20amuleto.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s2e01",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "La hormiga y el Oso Hormiguero",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%202x01%20La%20hormiga%20y%20el%20Oso%20Hormiguero_000710.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1271,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 2x01 La hormiga y el Oso Hormiguero.mp4",
+            "format": "h.264",
+            "sizeBytes": 122213412,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%202x01%20La%20hormiga%20y%20el%20Oso%20Hormiguero.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s2e02",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "Rapida pero apetitosa",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%202x02%20Rapida%20pero%20apetitosa_000723.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1295,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 2x02 Rapida pero apetitosa.mp4",
+            "format": "h.264",
+            "sizeBytes": 124621011,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%202x02%20Rapida%20pero%20apetitosa.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s2e03",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "La hormiga desipol",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%202x03%20La%20hormiga%20desipol_000695.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1247,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 2x03 La hormiga desipol.mp4",
+            "format": "h.264",
+            "sizeBytes": 120799009,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%202x03%20La%20hormiga%20desipol.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s2e04",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "Hay una hormiga en mi futuro",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%202x04%20Hay%20una%20hormiga%20en%20mi%20futuro_000730.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1297,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 2x04 Hay una hormiga en mi futuro.mp4",
+            "format": "h.264",
+            "sizeBytes": 125001294,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%202x04%20Hay%20una%20hormiga%20en%20mi%20futuro.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s2e05",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Al diablo la computadora",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%202x05%20Al%20diablo%20la%20computadora_000722.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1290,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 2x05 Al diablo la computadora.mp4",
+            "format": "h.264",
+            "sizeBytes": 124300119,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%202x05%20Al%20diablo%20la%20computadora.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s2e06",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Nunca molestes a una hormiga",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%202x06%20Nunca%20molestes%20a%20una%20hormiga_000690.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1234,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 2x06 Nunca molestes a una hormiga.mp4",
+            "format": "h.264",
+            "sizeBytes": 118229003,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%202x06%20Nunca%20molestes%20a%20una%20hormiga.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s2e07",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "Hormigueo en la arena",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%202x07%20Hormigueo%20en%20la%20arena_000721.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1290,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 2x07 Hormigueo en la arena.mp4",
+            "format": "h.264",
+            "sizeBytes": 124814929,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%202x07%20Hormigueo%20en%20la%20arena.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s2e08",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "Isla de ensueño",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%202x08%20Isla%20de%20ensue%C3%B1o_000724.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1289,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 2x08 Isla de ensueño.mp4",
+            "format": "h.264",
+            "sizeBytes": 124911030,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%202x08%20Isla%20de%20ensue%C3%B1o.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s2e09",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Rasguña a un tigre",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%202x09%20Rasgu%C3%B1a%20a%20un%20tigre_000723.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1291,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 2x09 Rasguña a un tigre.mp4",
+            "format": "h.264",
+            "sizeBytes": 125334745,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%202x09%20Rasgu%C3%B1a%20a%20un%20tigre.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s2e10",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "Hormiga enlatada",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%202x10%20Hormiga%20enlatada_000720.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1293,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 2x10 Hormiga enlatada.mp4",
+            "format": "h.264",
+            "sizeBytes": 124621570,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%202x10%20Hormiga%20enlatada.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s2e11",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "Hormigas en la despensa",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%202x11%20Hormigas%20en%20la%20despensa_000846.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1294,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 2x11 Hormigas en la despensa.mp4",
+            "format": "h.264",
+            "sizeBytes": 124701977,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%202x11%20Hormigas%20en%20la%20despensa.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s2e12",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "Ciencia Friccion",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%202x12%20Ciencia%20Friccion_000840.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1292,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 2x12 Ciencia Friccion.mp4",
+            "format": "h.264",
+            "sizeBytes": 125420912,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%202x12%20Ciencia%20Friccion.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s2e13",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "Hermanos protectores",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%202x13%20Hermanos%20protectores_000844.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1297,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 2x13 Hermanos protectores.mp4",
+            "format": "h.264",
+            "sizeBytes": 130989017,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%202x13%20Hermanos%20protectores.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s2e14",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 2,
+          "episodeNumber": 14,
+          "title": "Me da en la nariz que hace frio",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%202x14%20Me%20da%20en%20la%20nariz%20que%20hace%20frio_000842.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1294,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 2x14 Me da en la nariz que hace frio.mp4",
+            "format": "h.264",
+            "sizeBytes": 125208671,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%202x14%20Me%20da%20en%20la%20nariz%20que%20hace%20frio.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s2e15",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 2,
+          "episodeNumber": 15,
+          "title": "Ten cuidado con un insecto musculado",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%202x15%20Ten%20cuidado%20con%20un%20insecto%20musculado_000843.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1293,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 2x15 Ten cuidado con un insecto musculado.mp4",
+            "format": "h.264",
+            "sizeBytes": 124716817,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%202x15%20Ten%20cuidado%20con%20un%20insecto%20musculado.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s2e16",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 2,
+          "episodeNumber": 16,
+          "title": "Burla cruel",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%202x16%20Burla%20cruel_000862.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1318,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 2x16 Burla cruel.mp4",
+            "format": "h.264",
+            "sizeBytes": 126915379,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%202x16%20Burla%20cruel.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s2e17",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 2,
+          "episodeNumber": 17,
+          "title": "De mal en peor",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%202x17%20De%20mal%20en%20peor_000839.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1287,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 2x17 De mal en peor.mp4",
+            "format": "h.264",
+            "sizeBytes": 124927856,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%202x17%20De%20mal%20en%20peor.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s3e01",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "Mi vida con papa",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%203x01%20Mi%20vida%20con%20papa_000786.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1208,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 3x01 Mi vida con papa.mp4",
+            "format": "h.264",
+            "sizeBytes": 118175501,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%203x01%20Mi%20vida%20con%20papa.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s3e02",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 3,
+          "episodeNumber": 2,
+          "title": "Crane el inteligente",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%203x02%20Crane%20el%20inteligente_000707.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1213,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 3x02 Crane el inteligente.mp4",
+            "format": "h.264",
+            "sizeBytes": 117957935,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%203x02%20Crane%20el%20inteligente.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s3e03",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 3,
+          "episodeNumber": 3,
+          "title": "Rey del pantano",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%203x03%20Rey%20del%20pantano_000688.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1179,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 3x03 Rey del pantano.mp4",
+            "format": "h.264",
+            "sizeBytes": 114950994,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%203x03%20Rey%20del%20pantano.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s3e04",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 3,
+          "episodeNumber": 4,
+          "title": "La escoba sonica",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%203x04%20La%20escoba%20sonica_000706.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1213,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 3x04 La escoba sonica.mp4",
+            "format": "h.264",
+            "sizeBytes": 118026871,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%203x04%20La%20escoba%20sonica.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s3e05",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 3,
+          "episodeNumber": 5,
+          "title": "Un crudo invierno",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%203x05%20Un%20crudo%20invierno_000703.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1212,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 3x05 Un crudo invierno.mp4",
+            "format": "h.264",
+            "sizeBytes": 117931491,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%203x05%20Un%20crudo%20invierno.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s3e06",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 3,
+          "episodeNumber": 6,
+          "title": "La cigueña y su cria",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%203x06%20La%20cigue%C3%B1a%20y%20su%20cria_000710.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1212,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 3x06 La cigueña y su cria.mp4",
+            "format": "h.264",
+            "sizeBytes": 118084896,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%203x06%20La%20cigue%C3%B1a%20y%20su%20cria.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s3e07",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 3,
+          "episodeNumber": 7,
+          "title": "El arte de la caballeria",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%203x07%20El%20arte%20de%20la%20caballeria_000709.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1219,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 3x07 El arte de la caballeria.mp4",
+            "format": "h.264",
+            "sizeBytes": 118774228,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%203x07%20El%20arte%20de%20la%20caballeria.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s3e08",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 3,
+          "episodeNumber": 8,
+          "title": "Un bocado de locos",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%203x08%20Un%20bocado%20de%20locos_000689.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1179,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 3x08 Un bocado de locos.mp4",
+            "format": "h.264",
+            "sizeBytes": 114069028,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%203x08%20Un%20bocado%20de%20locos.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s3e09",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 3,
+          "episodeNumber": 9,
+          "title": "Aventura marinera",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%203x09%20Aventura%20marinera_000686.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1177,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 3x09 Aventura marinera.mp4",
+            "format": "h.264",
+            "sizeBytes": 115042896,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%203x09%20Aventura%20marinera.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s3e10",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 3,
+          "episodeNumber": 10,
+          "title": "Los animales se divierten",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%203x10%20Los%20animales%20se%20divierten_000890.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1217,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 3x10 Los animales se divierten.mp4",
+            "format": "h.264",
+            "sizeBytes": 119275907,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%203x10%20Los%20animales%20se%20divierten.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s3e11",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 3,
+          "episodeNumber": 11,
+          "title": "Plumas voladoras",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%203x11%20Plumas%20voladoras_000858.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1180,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 3x11 Plumas voladoras.mp4",
+            "format": "h.264",
+            "sizeBytes": 114557443,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%203x11%20Plumas%20voladoras.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s3e12",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 3,
+          "episodeNumber": 12,
+          "title": "Nido destruido",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%203x12%20Nido%20destruido_000863.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1181,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 3x12 Nido destruido.mp4",
+            "format": "h.264",
+            "sizeBytes": 114249412,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%203x12%20Nido%20destruido.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s3e13",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 3,
+          "episodeNumber": 13,
+          "title": "Acomplejado",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%203x13%20Acomplejado_000863.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1179,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 3x13 Acomplejado.mp4",
+            "format": "h.264",
+            "sizeBytes": 114781101,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%203x13%20Acomplejado.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s3e14",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 3,
+          "episodeNumber": 14,
+          "title": "Un holgazan en la playa",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%203x14%20Un%20holgazan%20en%20la%20playa_000860.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1182,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 3x14 Un holgazan en la playa.mp4",
+            "format": "h.264",
+            "sizeBytes": 116560260,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%203x14%20Un%20holgazan%20en%20la%20playa.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s3e15",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 3,
+          "episodeNumber": 15,
+          "title": "Fuerza floral",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%203x15%20Fuerza%20floral_000885.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1218,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 3x15 Fuerza floral.mp4",
+            "format": "h.264",
+            "sizeBytes": 119167347,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%203x15%20Fuerza%20floral.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s3e16",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 3,
+          "episodeNumber": 16,
+          "title": "La senda de la mina abandonada",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%203x16%20La%20senda%20de%20la%20mina%20abandonada_000858.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1176,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 3x16 La senda de la mina abandonada.mp4",
+            "format": "h.264",
+            "sizeBytes": 115857763,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%203x16%20La%20senda%20de%20la%20mina%20abandonada.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s4e01",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 4,
+          "episodeNumber": 1,
+          "title": "La hormiga y el oso hormiguero",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%204x01%20La%20hormiga%20y%20el%20oso%20hormiguero_001006.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1383,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 4x01 La hormiga y el oso hormiguero.mp4",
+            "format": "h.264",
+            "sizeBytes": 138473644,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%204x01%20La%20hormiga%20y%20el%20oso%20hormiguero.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s4e02",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 4,
+          "episodeNumber": 2,
+          "title": "Fugaz pero sabroso",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%204x02%20Fugaz%20pero%20sabroso_001001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1380,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 4x02 Fugaz pero sabroso.mp4",
+            "format": "h.264",
+            "sizeBytes": 134295871,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%204x02%20Fugaz%20pero%20sabroso.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s4e03",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 4,
+          "episodeNumber": 3,
+          "title": "La hormiga desipol",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%204x03%20La%20hormiga%20desipol_001026.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1404,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 4x03 La hormiga desipol.mp4",
+            "format": "h.264",
+            "sizeBytes": 135995617,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%204x03%20La%20hormiga%20desipol.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s4e04",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 4,
+          "episodeNumber": 4,
+          "title": "Hay una hormiga en mis planta",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%204x04%20Hay%20una%20hormiga%20en%20mis%20planta_001001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1375,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 4x04 Hay una hormiga en mis planta.mp4",
+            "format": "h.264",
+            "sizeBytes": 133742904,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%204x04%20Hay%20una%20hormiga%20en%20mis%20planta.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s4e05",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 4,
+          "episodeNumber": 5,
+          "title": "Tecnologia, cuentos chinos",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%204x05%20Tecnologia%2C%20cuentos%20chinos_001024.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1410,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 4x05 Tecnologia, cuentos chinos.mp4",
+            "format": "h.264",
+            "sizeBytes": 136825362,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%204x05%20Tecnologia%2C%20cuentos%20chinos.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s4e06",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 4,
+          "episodeNumber": 6,
+          "title": "Nunca molestes a una hormiga",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%204x06%20Nunca%20molestes%20a%20una%20hormiga_001027.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1410,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 4x06 Nunca molestes a una hormiga.mp4",
+            "format": "h.264",
+            "sizeBytes": 138955085,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%204x06%20Nunca%20molestes%20a%20una%20hormiga.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s4e07",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 4,
+          "episodeNumber": 7,
+          "title": "Hormigueo en la arena",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%204x07%20Hormigueo%20en%20la%20arena_001009.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1392,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 4x07 Hormigueo en la arena.mp4",
+            "format": "h.264",
+            "sizeBytes": 136246609,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%204x07%20Hormigueo%20en%20la%20arena.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s4e08",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 4,
+          "episodeNumber": 8,
+          "title": "Isla de ensueño",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%204x08%20Isla%20de%20ensue%C3%B1o_000980.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1342,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 4x08 Isla de ensueño.mp4",
+            "format": "h.264",
+            "sizeBytes": 129802953,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%204x08%20Isla%20de%20ensue%C3%B1o.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s4e09",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 4,
+          "episodeNumber": 9,
+          "title": "Alivia a un tigre",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%204x09%20Alivia%20a%20un%20tigre_001001.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1376,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 4x09 Alivia a un tigre.mp4",
+            "format": "h.264",
+            "sizeBytes": 133905353,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%204x09%20Alivia%20a%20un%20tigre.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s4e10",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 4,
+          "episodeNumber": 10,
+          "title": "Hormiga enlatada",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%204x10%20Hormiga%20enlatada_001333.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1378,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 4x10 Hormiga enlatada.mp4",
+            "format": "h.264",
+            "sizeBytes": 134853927,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%204x10%20Hormiga%20enlatada.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s4e11",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 4,
+          "episodeNumber": 11,
+          "title": "Hormigas en la despensa",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%204x11%20Hormigas%20en%20la%20despensa_001331.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1374,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 4x11 Hormigas en la despensa.mp4",
+            "format": "h.264",
+            "sizeBytes": 133365461,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%204x11%20Hormigas%20en%20la%20despensa.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s4e12",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 4,
+          "episodeNumber": 12,
+          "title": "Ciencia Friccion",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%204x12%20Ciencia%20Friccion_001324.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1363,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 4x12 Ciencia Friccion.mp4",
+            "format": "h.264",
+            "sizeBytes": 131888332,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%204x12%20Ciencia%20Friccion.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s4e13",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 4,
+          "episodeNumber": 13,
+          "title": "Mumbo Jumbo",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%204x13%20Mumbo%20Jumbo_001330.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1374,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 4x13 Mumbo Jumbo.mp4",
+            "format": "h.264",
+            "sizeBytes": 133684912,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%204x13%20Mumbo%20Jumbo.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s4e14",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 4,
+          "episodeNumber": 14,
+          "title": "Me da en la nariz que hace frio",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%204x14%20Me%20da%20en%20la%20nariz%20que%20hace%20frio_001333.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1379,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 4x14 Me da en la nariz que hace frio.mp4",
+            "format": "h.264",
+            "sizeBytes": 133608338,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%204x14%20Me%20da%20en%20la%20nariz%20que%20hace%20frio.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s4e15",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 4,
+          "episodeNumber": 15,
+          "title": "Ten cuidado con un insecto musculado",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%204x15%20Ten%20cuidado%20con%20un%20insecto%20musculado_001333.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1375,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 4x15 Ten cuidado con un insecto musculado.mp4",
+            "format": "h.264",
+            "sizeBytes": 133132818,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%204x15%20Ten%20cuidado%20con%20un%20insecto%20musculado.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s4e16",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 4,
+          "episodeNumber": 16,
+          "title": "Duro de roer",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%204x16%20Duro%20de%20roer_001303.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1348,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 4x16 Duro de roer.mp4",
+            "format": "h.264",
+            "sizeBytes": 131167856,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%204x16%20Duro%20de%20roer.mp4"
+        },
+        {
+          "archiveID": "el-show-de-la-pantera-rosa-temporada-1@s4e17",
+          "sourceID": "el-show-de-la-pantera-rosa-temporada-1",
+          "seasonNumber": 4,
+          "episodeNumber": 17,
+          "title": "Peor el remedio que la enfermedad",
+          "overview": null,
+          "stillURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/el-show-de-la-pantera-rosa-temporada-1.thumbs/El%20show%20de%20La%20pantera%20rosa%20-%204x17%20Peor%20el%20remedio%20que%20la%20enfermedad_001338.jpg",
+          "airDate": null,
+          "year": 1969,
+          "runtimeSeconds": 1380,
+          "videoFile": {
+            "name": "El show de La pantera rosa - 4x17 Peor el remedio que la enfermedad.mp4",
+            "format": "h.264",
+            "sizeBytes": 134582636,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/el-show-de-la-pantera-rosa-temporada-1/El%20show%20de%20La%20pantera%20rosa%20-%204x17%20Peor%20el%20remedio%20que%20la%20enfermedad.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 82,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

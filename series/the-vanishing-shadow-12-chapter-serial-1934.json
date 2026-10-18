@@ -1,0 +1,258 @@
+{
+  "version": 2,
+  "seriesID": "the-vanishing-shadow-12-chapter-serial-1934",
+  "sourceID": "TheVanishingShadow-12ChapterSerial",
+  "tvmazeID": null,
+  "title": "The Vanishing Shadow - 12 chapter serial",
+  "yearStart": 1934,
+  "yearEnd": null,
+  "overview": "A son avenges his father's death at the hands of corrupt politicians with a series of inventions — ray guns, a robot and a belt that makes him invisible; the complete 12-chapter 1934 Universal serial.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/TheVanishingShadow-12ChapterSerial.c236df97.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Sci-Fi",
+    "Action"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "TheVanishingShadow-12ChapterSerial@e01",
+          "sourceID": "TheVanishingShadow-12ChapterSerial",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Vanishing Shadow - Chapter 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheVanishingShadow-12ChapterSerial/TheVanishingShadow-12ChapterSerial.thumbs/TheVanishingShadow-Chapter1_000450.jpg",
+          "airDate": null,
+          "year": 1934,
+          "runtimeSeconds": 1265,
+          "videoFile": {
+            "name": "TheVanishingShadow-Chapter1.mp4",
+            "format": "h.264",
+            "sizeBytes": 131106554,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheVanishingShadow-12ChapterSerial/TheVanishingShadow-Chapter1.mp4"
+        },
+        {
+          "archiveID": "TheVanishingShadow-12ChapterSerial@e02",
+          "sourceID": "TheVanishingShadow-12ChapterSerial",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Vanishing Shadow - Chapter 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheVanishingShadow-12ChapterSerial/TheVanishingShadow-12ChapterSerial.thumbs/TheVanishingShadow-Chapter2_000390.jpg",
+          "airDate": null,
+          "year": 1934,
+          "runtimeSeconds": 1223,
+          "videoFile": {
+            "name": "TheVanishingShadow-Chapter2.mp4",
+            "format": "h.264",
+            "sizeBytes": 126737659,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheVanishingShadow-12ChapterSerial/TheVanishingShadow-Chapter2.mp4"
+        },
+        {
+          "archiveID": "TheVanishingShadow-12ChapterSerial@e03",
+          "sourceID": "TheVanishingShadow-12ChapterSerial",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Vanishing Shadow - Chapter 3",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheVanishingShadow-12ChapterSerial/TheVanishingShadow-12ChapterSerial.thumbs/TheVanishingShadow-Chapter3_000450.jpg",
+          "airDate": null,
+          "year": 1934,
+          "runtimeSeconds": 1241,
+          "videoFile": {
+            "name": "TheVanishingShadow-Chapter3.mp4",
+            "format": "h.264",
+            "sizeBytes": 128624124,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheVanishingShadow-12ChapterSerial/TheVanishingShadow-Chapter3.mp4"
+        },
+        {
+          "archiveID": "TheVanishingShadow-12ChapterSerial@e04",
+          "sourceID": "TheVanishingShadow-12ChapterSerial",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Vanishing Shadow - Chapter 4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheVanishingShadow-12ChapterSerial/TheVanishingShadow-12ChapterSerial.thumbs/TheVanishingShadow-Chapter4_000390.jpg",
+          "airDate": null,
+          "year": 1934,
+          "runtimeSeconds": 1222,
+          "videoFile": {
+            "name": "TheVanishingShadow-Chapter4.mp4",
+            "format": "h.264",
+            "sizeBytes": 126822441,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheVanishingShadow-12ChapterSerial/TheVanishingShadow-Chapter4.mp4"
+        },
+        {
+          "archiveID": "TheVanishingShadow-12ChapterSerial@e05",
+          "sourceID": "TheVanishingShadow-12ChapterSerial",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Vanishing Shadow - Chapter 5",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheVanishingShadow-12ChapterSerial/TheVanishingShadow-12ChapterSerial.thumbs/TheVanishingShadow-Chapter5_000390.jpg",
+          "airDate": null,
+          "year": 1934,
+          "runtimeSeconds": 1113,
+          "videoFile": {
+            "name": "TheVanishingShadow-Chapter5.mp4",
+            "format": "h.264",
+            "sizeBytes": 115748364,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheVanishingShadow-12ChapterSerial/TheVanishingShadow-Chapter5.mp4"
+        },
+        {
+          "archiveID": "TheVanishingShadow-12ChapterSerial@e06",
+          "sourceID": "TheVanishingShadow-12ChapterSerial",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Vanishing Shadow - Chapter 6",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheVanishingShadow-12ChapterSerial/TheVanishingShadow-12ChapterSerial.thumbs/TheVanishingShadow-Chapter6_000450.jpg",
+          "airDate": null,
+          "year": 1934,
+          "runtimeSeconds": 1252,
+          "videoFile": {
+            "name": "TheVanishingShadow-Chapter6.mp4",
+            "format": "h.264",
+            "sizeBytes": 130012957,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheVanishingShadow-12ChapterSerial/TheVanishingShadow-Chapter6.mp4"
+        },
+        {
+          "archiveID": "TheVanishingShadow-12ChapterSerial@e07",
+          "sourceID": "TheVanishingShadow-12ChapterSerial",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Vanishing Shadow - Chapter 7",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheVanishingShadow-12ChapterSerial/TheVanishingShadow-12ChapterSerial.thumbs/TheVanishingShadow-Chapter7_000390.jpg",
+          "airDate": null,
+          "year": 1934,
+          "runtimeSeconds": 1201,
+          "videoFile": {
+            "name": "TheVanishingShadow-Chapter7.mp4",
+            "format": "h.264",
+            "sizeBytes": 124433039,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheVanishingShadow-12ChapterSerial/TheVanishingShadow-Chapter7.mp4"
+        },
+        {
+          "archiveID": "TheVanishingShadow-12ChapterSerial@e08",
+          "sourceID": "TheVanishingShadow-12ChapterSerial",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Vanishing Shadow - Chapter 8",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheVanishingShadow-12ChapterSerial/TheVanishingShadow-12ChapterSerial.thumbs/TheVanishingShadow-Chapter8_000390.jpg",
+          "airDate": null,
+          "year": 1934,
+          "runtimeSeconds": 1197,
+          "videoFile": {
+            "name": "TheVanishingShadow-Chapter8.mp4",
+            "format": "h.264",
+            "sizeBytes": 124145060,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheVanishingShadow-12ChapterSerial/TheVanishingShadow-Chapter8.mp4"
+        },
+        {
+          "archiveID": "TheVanishingShadow-12ChapterSerial@e09",
+          "sourceID": "TheVanishingShadow-12ChapterSerial",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Vanishing Shadow - Chapter 9",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheVanishingShadow-12ChapterSerial/TheVanishingShadow-12ChapterSerial.thumbs/TheVanishingShadow-Chapter9_000450.jpg",
+          "airDate": null,
+          "year": 1934,
+          "runtimeSeconds": 1259,
+          "videoFile": {
+            "name": "TheVanishingShadow-Chapter9.mp4",
+            "format": "h.264",
+            "sizeBytes": 130788550,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheVanishingShadow-12ChapterSerial/TheVanishingShadow-Chapter9.mp4"
+        },
+        {
+          "archiveID": "TheVanishingShadow-12ChapterSerial@e10",
+          "sourceID": "TheVanishingShadow-12ChapterSerial",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Vanishing Shadow - Chapter 10",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheVanishingShadow-12ChapterSerial/TheVanishingShadow-12ChapterSerial.thumbs/TheVanishingShadow-Chapter10_000390.jpg",
+          "airDate": null,
+          "year": 1934,
+          "runtimeSeconds": 1193,
+          "videoFile": {
+            "name": "TheVanishingShadow-Chapter10.mp4",
+            "format": "h.264",
+            "sizeBytes": 123534424,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheVanishingShadow-12ChapterSerial/TheVanishingShadow-Chapter10.mp4"
+        },
+        {
+          "archiveID": "TheVanishingShadow-12ChapterSerial@e11",
+          "sourceID": "TheVanishingShadow-12ChapterSerial",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Vanishing Shadow - Chapter 11",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheVanishingShadow-12ChapterSerial/TheVanishingShadow-12ChapterSerial.thumbs/TheVanishingShadow-Chapter11_000390.jpg",
+          "airDate": null,
+          "year": 1934,
+          "runtimeSeconds": 1132,
+          "videoFile": {
+            "name": "TheVanishingShadow-Chapter11.mp4",
+            "format": "h.264",
+            "sizeBytes": 117177582,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheVanishingShadow-12ChapterSerial/TheVanishingShadow-Chapter11.mp4"
+        },
+        {
+          "archiveID": "TheVanishingShadow-12ChapterSerial@e12",
+          "sourceID": "TheVanishingShadow-12ChapterSerial",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Vanishing Shadow - Chapter 12",
+          "overview": null,
+          "stillURL": "https://archive.org/download/TheVanishingShadow-12ChapterSerial/TheVanishingShadow-12ChapterSerial.thumbs/TheVanishingShadow-Chapter12_000450.jpg",
+          "airDate": null,
+          "year": 1934,
+          "runtimeSeconds": 1239,
+          "videoFile": {
+            "name": "TheVanishingShadow-Chapter12.mp4",
+            "format": "h.264",
+            "sizeBytes": 128033954,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheVanishingShadow-12ChapterSerial/TheVanishingShadow-Chapter12.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 12,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

@@ -1,0 +1,1096 @@
+{
+  "version": 2,
+  "seriesID": "the-professionals-1977",
+  "sourceID": "the-professionals-complete-series-1977",
+  "tvmazeID": null,
+  "title": "The Professionals",
+  "yearStart": 1977,
+  "yearEnd": null,
+  "overview": "The Professionals is a British crime-action television drama series produced by Avengers Mark1 Productions for London Weekend Television (LWT) that aired on the ITV network from 30 December 1977 to 6 February 1983. In all, 57 episodes were produced, filmed between 1977 and 1981. It starred Martin Shaw, Lewis Collins and Gordon Jackson as agents of the fictional \"CI5\" (Criminal Intelligence 5, alluding to the real-life MI5 and CID ). Criminal Intelligence 5 (CI5) is a British law enforcement department, instructed by the Home Secretary to use any means to deal with crimes of a serious nature that go beyond the capacity of the police, but which are not tasks for the Security Service or the military. The choice of CI5's name is inspired by CID and MI5. The premise allowed the programme makers to involve a wide variety of villains, including terrorists, hitmen, hate groups and espionage suspects, with plots sometimes relating to the Cold War. Led by George Cowley ( Gordon Jackson ), CI5 is known for using unconventional and sometimes illegal methods to beat criminals, or as Cowley put it, \"Fight fire with fire!\" The use of a fictitious force in this context was somewhat less controversial than the portrayal of the real Flying Squad in The Sweeney. Cowley's two best agents are Ray Doyle ( Martin Shaw ) and William Bodie ( Lewis Collins ). Doyle is an ex– detective constable who has worked the seedier parts of London, while Bodie is an ex- paratrooper, mercenary and SAS sergeant. Of the two, Doyle is the softer, compassionate and more thoughtful character, while Bodie is ruthless and more willing to take on criminals on their own terms. That said, Doyle is more hot-headed and tends to rush in, while Bodie waits for the shooting to start. While polar opposites, Bodie and Doyle have a deep and enduring friendship, and are almost inseparable. Although their loyalty to Cowley is beyond question, they have no qualms about disobeying orders if it means getting the right result, either for the case or themselves. Initially, Anthony Andrews was contracted to play Bodie, but he and Shaw did not have the chemistry that Clemens was looking for. As Shaw was deemed to have more \"screen presence\", Andrews was dropped, Clemens hiring Collins in his place. Shaw and Collins had played villains in a 1977 episode of The New Avengers (\"Obsession\") together, and reportedly had not got on with each other. Ironically, since this was the reason Collins was brought into the production, he and Shaw became friends off-screen, although they managed to keep up the on-screen chemistry and abrasiveness of Bodie and Doyle's relationship. The Collins character in \"Obsession\" signed off by saying \"Maybe we should work together again. Clemens intended to write two or three establishing episodes and then hand over to other writers, but their scripts were uneven and lacked the energy and pace needed. Clemens re-wrote nearly ten scripts for the first series episodes and took a direct hands-on approach to the filming. In later series, with the format established and the writers and directors familiar with the show, he took a more leisurely approach behind the scenes. The early years of the show featured varied plots, good scripts and ongoing character development of Bodie and Doyle and to a lesser extent Cowley, but later series featured increasingly overused ideas and script devices, and both Collins and Shaw stated they felt the show was becoming stale. Although the final series was broadcast from November 1982 until February 1983, no episodes were filmed after May 1981. The Professionals was created by Brian Clemens, who had been one of the driving forces behind The Avengers. The show was originally to have been called The A-Squad. Clemens and Albert Fennell were executive producers, with business partner Laurie Johnson providing the theme music. Sidney Hayers produced the first series in 1977, and Raymond Menmuir the remainder.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/the-professionals-complete-series-1977.2f1e5429.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Drama",
+    "Crime",
+    "Action"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-professionals-complete-series-1977@s1e01",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Private Madness Public Danger",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%201x01%20%20%20Private%20Madness%20Public%20Danger_001770.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3037,
+          "videoFile": {
+            "name": "The Professionals   1x01   Private Madness Public Danger.mp4",
+            "format": "h.264",
+            "sizeBytes": 292121310,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%201x01%20%20%20Private%20Madness%20Public%20Danger.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s1e02",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Female Factor",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%201x02%20%20%20The%20Female%20Factor_001770.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3036,
+          "videoFile": {
+            "name": "The Professionals   1x02   The Female Factor.mp4",
+            "format": "h.264",
+            "sizeBytes": 292775589,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%201x02%20%20%20The%20Female%20Factor.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s1e03",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Old Dog With New Tricks",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%201x03%20%20%20Old%20Dog%20With%20New%20Tricks_001760.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3034,
+          "videoFile": {
+            "name": "The Professionals   1x03   Old Dog With New Tricks.mp4",
+            "format": "h.264",
+            "sizeBytes": 298051121,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%201x03%20%20%20Old%20Dog%20With%20New%20Tricks.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s1e04",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Killer With A Long Arm",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%201x04%20%20%20Killer%20With%20A%20Long%20Arm_001760.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3026,
+          "videoFile": {
+            "name": "The Professionals   1x04   Killer With A Long Arm.mp4",
+            "format": "h.264",
+            "sizeBytes": 292166757,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%201x04%20%20%20Killer%20With%20A%20Long%20Arm.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s1e05",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Heroes",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%201x05%20%20%20Heroes_001770.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3036,
+          "videoFile": {
+            "name": "The Professionals   1x05   Heroes.mp4",
+            "format": "h.264",
+            "sizeBytes": 295837057,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%201x05%20%20%20Heroes.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s1e06",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Where The Jungle Ends",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%201x06%20%20%20Where%20The%20Jungle%20Ends_001770.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3036,
+          "videoFile": {
+            "name": "The Professionals   1x06   Where The Jungle Ends.mp4",
+            "format": "h.264",
+            "sizeBytes": 292875685,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%201x06%20%20%20Where%20The%20Jungle%20Ends.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s1e07",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Close Quarters",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%201x07%20%20%20Close%20Quarters_001770.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3036,
+          "videoFile": {
+            "name": "The Professionals   1x07   Close Quarters.mp4",
+            "format": "h.264",
+            "sizeBytes": 296364508,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%201x07%20%20%20Close%20Quarters.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s1e08",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Everest Was Also Conquered",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%201x08%20%20%20Everest%20Was%20Also%20Conquered_001760.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3029,
+          "videoFile": {
+            "name": "The Professionals   1x08   Everest Was Also Conquered.mp4",
+            "format": "h.264",
+            "sizeBytes": 292648771,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%201x08%20%20%20Everest%20Was%20Also%20Conquered.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s1e09",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "When The Heat Cools Off",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%201x09%20%20%20When%20The%20Heat%20Cools%20Off_001760.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3033,
+          "videoFile": {
+            "name": "The Professionals   1x09   When The Heat Cools Off.mp4",
+            "format": "h.264",
+            "sizeBytes": 295660454,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%201x09%20%20%20When%20The%20Heat%20Cools%20Off.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s1e10",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Stakeout",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%201x10%20%20%20Stakeout_001750.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3000,
+          "videoFile": {
+            "name": "The Professionals   1x10   Stakeout.mp4",
+            "format": "h.264",
+            "sizeBytes": 289609455,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%201x10%20%20%20Stakeout.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s1e11",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Long Shot",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%201x11%20%20%20Long%20Shot_001770.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3036,
+          "videoFile": {
+            "name": "The Professionals   1x11   Long Shot.mp4",
+            "format": "h.264",
+            "sizeBytes": 293340057,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%201x11%20%20%20Long%20Shot.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s1e12",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Look After Annie",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%201x12%20%20%20Look%20After%20Annie_001760.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3018,
+          "videoFile": {
+            "name": "The Professionals   1x12   Look After Annie.mp4",
+            "format": "h.264",
+            "sizeBytes": 290321900,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%201x12%20%20%20Look%20After%20Annie.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s1e13",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Klansmen",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%201x13%20%20%20Klansmen_001770.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3039,
+          "videoFile": {
+            "name": "The Professionals   1x13   Klansmen.mp4",
+            "format": "h.264",
+            "sizeBytes": 298357262,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%201x13%20%20%20Klansmen.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "the-professionals-complete-series-1977@s2e01",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Hunter Hunted",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%202x01%20%20%20Hunter%20Hunted_001770.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3041,
+          "videoFile": {
+            "name": "The Professionals   2x01   Hunter Hunted.mp4",
+            "format": "h.264",
+            "sizeBytes": 294212483,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%202x01%20%20%20Hunter%20Hunted.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s2e02",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "The Rack",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%202x02%20%20%20The%20Rack_001770.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3037,
+          "videoFile": {
+            "name": "The Professionals   2x02   The Rack.mp4",
+            "format": "h.264",
+            "sizeBytes": 291498264,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%202x02%20%20%20The%20Rack.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s2e03",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "First Night",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%202x03%20%20%20First%20Night_001760.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3032,
+          "videoFile": {
+            "name": "The Professionals   2x03   First Night.mp4",
+            "format": "h.264",
+            "sizeBytes": 291882707,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%202x03%20%20%20First%20Night.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s2e04",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "Man Without A Past",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%202x04%20%20%20Man%20Without%20A%20Past_001720.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2949,
+          "videoFile": {
+            "name": "The Professionals   2x04   Man Without A Past.mp4",
+            "format": "h.264",
+            "sizeBytes": 285585813,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%202x04%20%20%20Man%20Without%20A%20Past.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s2e05",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "In The Public Interest",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%202x05%20%20%20In%20The%20Public%20Interest_001760.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3018,
+          "videoFile": {
+            "name": "The Professionals   2x05   In The Public Interest.mp4",
+            "format": "h.264",
+            "sizeBytes": 290247903,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%202x05%20%20%20In%20The%20Public%20Interest.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s2e06",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Rogue",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%202x06%20%20%20Rogue_001760.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3030,
+          "videoFile": {
+            "name": "The Professionals   2x06   Rogue.mp4",
+            "format": "h.264",
+            "sizeBytes": 289704236,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%202x06%20%20%20Rogue.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s2e07",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "Not A Very Civil Civil Servant",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%202x07%20%20%20Not%20A%20Very%20Civil%20Civil%20Servant_001750.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3014,
+          "videoFile": {
+            "name": "The Professionals   2x07   Not A Very Civil Civil Servant.mp4",
+            "format": "h.264",
+            "sizeBytes": 290488987,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%202x07%20%20%20Not%20A%20Very%20Civil%20Civil%20Servant.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s2e08",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "A Stirring Of Dust",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%202x08%20%20%20A%20Stirring%20Of%20Dust_001760.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3031,
+          "videoFile": {
+            "name": "The Professionals   2x08   A Stirring Of Dust.mp4",
+            "format": "h.264",
+            "sizeBytes": 292669629,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%202x08%20%20%20A%20Stirring%20Of%20Dust.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s2e09",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Blind Run",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%202x09%20%20%20Blind%20Run_001760.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3025,
+          "videoFile": {
+            "name": "The Professionals   2x09   Blind Run.mp4",
+            "format": "h.264",
+            "sizeBytes": 291540971,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%202x09%20%20%20Blind%20Run.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s2e10",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "Fall Girl",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%202x10%20%20%20Fall%20Girl_001770.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3037,
+          "videoFile": {
+            "name": "The Professionals   2x10   Fall Girl.mp4",
+            "format": "h.264",
+            "sizeBytes": 296018354,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%202x10%20%20%20Fall%20Girl.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "the-professionals-complete-series-1977@s3e01",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "The Purging Of Ci5",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%203x01%20%20%20The%20Purging%20Of%20Ci5_001760.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3026,
+          "videoFile": {
+            "name": "The Professionals   3x01   The Purging Of Ci5.mp4",
+            "format": "h.264",
+            "sizeBytes": 291016292,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%203x01%20%20%20The%20Purging%20Of%20Ci5.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s3e02",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 3,
+          "episodeNumber": 2,
+          "title": "Backtrack",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%203x02%20%20%20Backtrack_001760.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3022,
+          "videoFile": {
+            "name": "The Professionals   3x02   Backtrack.mp4",
+            "format": "h.264",
+            "sizeBytes": 290104620,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%203x02%20%20%20Backtrack.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s3e03",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 3,
+          "episodeNumber": 3,
+          "title": "Stopover",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%203x03%20%20%20Stopover_001760.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3029,
+          "videoFile": {
+            "name": "The Professionals   3x03   Stopover.mp4",
+            "format": "h.264",
+            "sizeBytes": 291790594,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%203x03%20%20%20Stopover.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s3e04",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 3,
+          "episodeNumber": 4,
+          "title": "Dead Reckoning",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%203x04%20%20%20Dead%20Reckoning_001770.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3044,
+          "videoFile": {
+            "name": "The Professionals   3x04   Dead Reckoning.mp4",
+            "format": "h.264",
+            "sizeBytes": 293439226,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%203x04%20%20%20Dead%20Reckoning.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s3e05",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 3,
+          "episodeNumber": 5,
+          "title": "The Madness Of Mickey Hamilton",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%203x05%20%20%20The%20Madness%20Of%20%20Mickey%20Hamilton_001760.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3027,
+          "videoFile": {
+            "name": "The Professionals   3x05   The Madness Of  Mickey Hamilton.mp4",
+            "format": "h.264",
+            "sizeBytes": 292143302,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%203x05%20%20%20The%20Madness%20Of%20%20Mickey%20Hamilton.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s3e06",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 3,
+          "episodeNumber": 6,
+          "title": "A Hiding To Nothing",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%203x06%20%20%20A%20Hiding%20To%20Nothing_001760.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3020,
+          "videoFile": {
+            "name": "The Professionals   3x06   A Hiding To Nothing.mp4",
+            "format": "h.264",
+            "sizeBytes": 290693220,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%203x06%20%20%20A%20Hiding%20To%20Nothing.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s3e07",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 3,
+          "episodeNumber": 7,
+          "title": "Runner",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%203x07%20%20%20Runner_001770.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3037,
+          "videoFile": {
+            "name": "The Professionals   3x07   Runner.mp4",
+            "format": "h.264",
+            "sizeBytes": 293188691,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%203x07%20%20%20Runner.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s3e08",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 3,
+          "episodeNumber": 8,
+          "title": "Servant Of Two Masters",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%203x08%20%20%20Servant%20Of%20Two%20Masters_001760.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3019,
+          "videoFile": {
+            "name": "The Professionals   3x08   Servant Of Two Masters.mp4",
+            "format": "h.264",
+            "sizeBytes": 289112582,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%203x08%20%20%20Servant%20Of%20Two%20Masters.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "the-professionals-complete-series-1977@s4e01",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 4,
+          "episodeNumber": 1,
+          "title": "The Acorn Syndrome",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%204x01%20%20%20The%20Acorn%20Syndrome_001760.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3021,
+          "videoFile": {
+            "name": "The Professionals   4x01   The Acorn Syndrome.mp4",
+            "format": "h.264",
+            "sizeBytes": 292682720,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%204x01%20%20%20The%20Acorn%20Syndrome.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s4e02",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 4,
+          "episodeNumber": 2,
+          "title": "Wild Justice",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%204x02%20%20%20Wild%20Justice_001760.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3030,
+          "videoFile": {
+            "name": "The Professionals   4x02   Wild Justice.mp4",
+            "format": "h.264",
+            "sizeBytes": 294590243,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%204x02%20%20%20Wild%20Justice.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s4e03",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 4,
+          "episodeNumber": 3,
+          "title": "Fugitive",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%204x03%20%20%20Fugitive_001750.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3005,
+          "videoFile": {
+            "name": "The Professionals   4x03   Fugitive.mp4",
+            "format": "h.264",
+            "sizeBytes": 289523512,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%204x03%20%20%20Fugitive.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s4e04",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 4,
+          "episodeNumber": 4,
+          "title": "Involvement",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%204x04%20%20%20Involvement_001770.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3037,
+          "videoFile": {
+            "name": "The Professionals   4x04   Involvement.mp4",
+            "format": "h.264",
+            "sizeBytes": 295885890,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%204x04%20%20%20Involvement.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s4e06",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 4,
+          "episodeNumber": 6,
+          "title": "Take Away",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%204x06%20%20%20Take%20Away_001760.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3032,
+          "videoFile": {
+            "name": "The Professionals   4x06   Take Away.mp4",
+            "format": "h.264",
+            "sizeBytes": 295654430,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%204x06%20%20%20Take%20Away.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s4e07",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 4,
+          "episodeNumber": 7,
+          "title": "Blackout",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%204x07%20%20%20Blackout_001760.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3029,
+          "videoFile": {
+            "name": "The Professionals   4x07   Blackout.mp4",
+            "format": "h.264",
+            "sizeBytes": 295456040,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%204x07%20%20%20Blackout.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s4e08",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 4,
+          "episodeNumber": 8,
+          "title": "Blood Sports",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%204x08%20%20%20Blood%20Sports_001710.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 2933,
+          "videoFile": {
+            "name": "The Professionals   4x08   Blood Sports.mp4",
+            "format": "h.264",
+            "sizeBytes": 282974910,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%204x08%20%20%20Blood%20Sports.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s4e09",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 4,
+          "episodeNumber": 9,
+          "title": "Slush Fund",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%204x09%20%20%20Slush%20Fund_001760.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3033,
+          "videoFile": {
+            "name": "The Professionals   4x09   Slush Fund.mp4",
+            "format": "h.264",
+            "sizeBytes": 292552164,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%204x09%20%20%20Slush%20Fund.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s4e11",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 4,
+          "episodeNumber": 11,
+          "title": "Hijack",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%204x11%20%20%20Hijack_001770.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3038,
+          "videoFile": {
+            "name": "The Professionals   4x11   Hijack.mp4",
+            "format": "h.264",
+            "sizeBytes": 293419609,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%204x11%20%20%20Hijack.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s4e12",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 4,
+          "episodeNumber": 12,
+          "title": "Mixed Doubles",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%204x12%20%20%20Mixed%20Doubles_001770.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3035,
+          "videoFile": {
+            "name": "The Professionals   4x12   Mixed Doubles.mp4",
+            "format": "h.264",
+            "sizeBytes": 292989402,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%204x12%20%20%20Mixed%20Doubles.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s4e13",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 4,
+          "episodeNumber": 13,
+          "title": "Weekend In The Country",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%204x13%20%20%20Weekend%20In%20The%20Country_001760.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3033,
+          "videoFile": {
+            "name": "The Professionals   4x13   Weekend In The Country.mp4",
+            "format": "h.264",
+            "sizeBytes": 292542143,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%204x13%20%20%20Weekend%20In%20The%20Country.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s4e14",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 4,
+          "episodeNumber": 14,
+          "title": "Kickback",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%204x14%20%20%20Kickback_001760.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3027,
+          "videoFile": {
+            "name": "The Professionals   4x14   Kickback.mp4",
+            "format": "h.264",
+            "sizeBytes": 291211892,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%204x14%20%20%20Kickback.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s4e15",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 4,
+          "episodeNumber": 15,
+          "title": "Its Only A Beautiful Picture",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%204x15%20%20%20Its%20Only%20A%20Beautiful%20Picture_001770.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3035,
+          "videoFile": {
+            "name": "The Professionals   4x15   Its Only A Beautiful Picture.mp4",
+            "format": "h.264",
+            "sizeBytes": 292830633,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%204x15%20%20%20Its%20Only%20A%20Beautiful%20Picture.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 5,
+      "episodes": [
+        {
+          "archiveID": "the-professionals-complete-series-1977@s5e01",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 5,
+          "episodeNumber": 1,
+          "title": "Foxhole On The Roof",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%205x01%20%20%20Foxhole%20On%20The%20Roof_001750.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3006,
+          "videoFile": {
+            "name": "The Professionals   5x01   Foxhole On The Roof.mp4",
+            "format": "h.264",
+            "sizeBytes": 289784968,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%205x01%20%20%20Foxhole%20On%20The%20Roof.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s5e02",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 5,
+          "episodeNumber": 2,
+          "title": "Operation Susie",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%205x02%20%20%20Operation%20Susie_001760.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3023,
+          "videoFile": {
+            "name": "The Professionals   5x02   Operation Susie.mp4",
+            "format": "h.264",
+            "sizeBytes": 292276650,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%205x02%20%20%20Operation%20Susie.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s5e03",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 5,
+          "episodeNumber": 3,
+          "title": "Youll Be All Right",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%205x03%20%20%20Youll%20Be%20All%20Right_001750.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3017,
+          "videoFile": {
+            "name": "The Professionals   5x03   Youll Be All Right.mp4",
+            "format": "h.264",
+            "sizeBytes": 290973533,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%205x03%20%20%20Youll%20Be%20All%20Right.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s5e04",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 5,
+          "episodeNumber": 4,
+          "title": "Lawsons Last Stand",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%205x04%20%20%20Lawsons%20Last%20Stand_001760.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3024,
+          "videoFile": {
+            "name": "The Professionals   5x04   Lawsons Last Stand.mp4",
+            "format": "h.264",
+            "sizeBytes": 291325136,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%205x04%20%20%20Lawsons%20Last%20Stand.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s5e05",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 5,
+          "episodeNumber": 5,
+          "title": "Discovered In A Graveyard",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%205x05%20%20%20Discovered%20In%20A%20Graveyard_001760.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3018,
+          "videoFile": {
+            "name": "The Professionals   5x05   Discovered In A Graveyard.mp4",
+            "format": "h.264",
+            "sizeBytes": 291061272,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%205x05%20%20%20Discovered%20In%20A%20Graveyard.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s5e06",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 5,
+          "episodeNumber": 6,
+          "title": "Spy Probe",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%205x06%20%20%20Spy%20Probe_001780.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3059,
+          "videoFile": {
+            "name": "The Professionals   5x06   Spy Probe.mp4",
+            "format": "h.264",
+            "sizeBytes": 295385423,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%205x06%20%20%20Spy%20Probe.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s5e07",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 5,
+          "episodeNumber": 7,
+          "title": "Cry Wolf",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%205x07%20%20%20Cry%20Wolf_001750.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3010,
+          "videoFile": {
+            "name": "The Professionals   5x07   Cry Wolf.mp4",
+            "format": "h.264",
+            "sizeBytes": 290895817,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%205x07%20%20%20Cry%20Wolf.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s5e08",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 5,
+          "episodeNumber": 8,
+          "title": "The Untouchables",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%205x08%20%20%20The%20Untouchables_001790.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3077,
+          "videoFile": {
+            "name": "The Professionals   5x08   The Untouchables.mp4",
+            "format": "h.264",
+            "sizeBytes": 300288003,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%205x08%20%20%20The%20Untouchables.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s5e09",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 5,
+          "episodeNumber": 9,
+          "title": "The Ojuka Situation",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%205x09%20%20%20The%20Ojuka%20Situation_001760.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3018,
+          "videoFile": {
+            "name": "The Professionals   5x09   The Ojuka Situation.mp4",
+            "format": "h.264",
+            "sizeBytes": 294635714,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%205x09%20%20%20The%20Ojuka%20Situation.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s5e10",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 5,
+          "episodeNumber": 10,
+          "title": "A Man Called Quinn",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%205x10%20%20%20A%20Man%20Called%20Quinn_001750.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3015,
+          "videoFile": {
+            "name": "The Professionals   5x10   A Man Called Quinn.mp4",
+            "format": "h.264",
+            "sizeBytes": 291731359,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%205x10%20%20%20A%20Man%20Called%20Quinn.mp4"
+        },
+        {
+          "archiveID": "the-professionals-complete-series-1977@s5e11",
+          "sourceID": "the-professionals-complete-series-1977",
+          "seasonNumber": 5,
+          "episodeNumber": 11,
+          "title": "No Stone",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-professionals-complete-series-1977/the-professionals-complete-series-1977.thumbs/The%20Professionals%20%20%205x11%20%20%20No%20Stone_001770.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 3046,
+          "videoFile": {
+            "name": "The Professionals   5x11   No Stone.mp4",
+            "format": "h.264",
+            "sizeBytes": 294460944,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-professionals-complete-series-1977/The%20Professionals%20%20%205x11%20%20%20No%20Stone.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 55,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

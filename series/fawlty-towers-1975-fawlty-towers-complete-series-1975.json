@@ -1,0 +1,262 @@
+{
+  "version": 2,
+  "seriesID": "fawlty-towers-1975-fawlty-towers-complete-series-1975",
+  "sourceID": "fawlty-towers-complete-series-1975",
+  "tvmazeID": null,
+  "title": "Fawlty Towers",
+  "yearStart": 1975,
+  "yearEnd": null,
+  "overview": "BBC Two sitcom written by John Cleese and Connie Booth, broadcast in 1975 and 1979. Basil Fawlty (Cleese) runs a hotel in Torquay with his wife Sybil (Prunella Scales), chambermaid Polly (Booth) and Spanish waiter Manuel (Andrew Sachs), amid farcical situations and demanding guests.",
+  "posterURL": "https://archive.org/services/img/fawlty-towers-complete-series-1975",
+  "backdropURL": null,
+  "genres": [
+    "Comedy"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "fawlty-towers-complete-series-1975@s1e01",
+          "sourceID": "fawlty-towers-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "A touch of class",
+          "overview": null,
+          "stillURL": "https://archive.org/download/fawlty-towers-complete-series-1975/fawlty-towers-complete-series-1975.thumbs/Fawlty%20Towers%20S01E01%20-%20A%20touch%20of%20class_000650.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 1819,
+          "videoFile": {
+            "name": "Fawlty Towers S01E01 - A touch of class.mp4",
+            "format": "h.264",
+            "sizeBytes": 171024727,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/fawlty-towers-complete-series-1975/Fawlty%20Towers%20S01E01%20-%20A%20touch%20of%20class.mp4"
+        },
+        {
+          "archiveID": "fawlty-towers-complete-series-1975@s1e02",
+          "sourceID": "fawlty-towers-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Builders",
+          "overview": null,
+          "stillURL": "https://archive.org/download/fawlty-towers-complete-series-1975/fawlty-towers-complete-series-1975.thumbs/Fawlty%20Towers%20S01E02%20-%20The%20Builders_000609.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 1693,
+          "videoFile": {
+            "name": "Fawlty Towers S01E02 - The Builders.mp4",
+            "format": "h.264",
+            "sizeBytes": 158915096,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/fawlty-towers-complete-series-1975/Fawlty%20Towers%20S01E02%20-%20The%20Builders.mp4"
+        },
+        {
+          "archiveID": "fawlty-towers-complete-series-1975@s1e03",
+          "sourceID": "fawlty-towers-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The wedding party",
+          "overview": null,
+          "stillURL": "https://archive.org/download/fawlty-towers-complete-series-1975/fawlty-towers-complete-series-1975.thumbs/Fawlty%20Towers%20S01E03%20-%20The%20wedding%20party_000717.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 1999,
+          "videoFile": {
+            "name": "Fawlty Towers S01E03 - The wedding party.mp4",
+            "format": "h.264",
+            "sizeBytes": 188246977,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/fawlty-towers-complete-series-1975/Fawlty%20Towers%20S01E03%20-%20The%20wedding%20party.mp4"
+        },
+        {
+          "archiveID": "fawlty-towers-complete-series-1975@s1e04",
+          "sourceID": "fawlty-towers-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Hotel inspectors",
+          "overview": null,
+          "stillURL": "https://archive.org/download/fawlty-towers-complete-series-1975/fawlty-towers-complete-series-1975.thumbs/Fawlty%20Towers%20S01E04%20-%20The%20Hotel%20inspectors_000617.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 1724,
+          "videoFile": {
+            "name": "Fawlty Towers S01E04 - The Hotel inspectors.mp4",
+            "format": "h.264",
+            "sizeBytes": 162721535,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/fawlty-towers-complete-series-1975/Fawlty%20Towers%20S01E04%20-%20The%20Hotel%20inspectors.mp4"
+        },
+        {
+          "archiveID": "fawlty-towers-complete-series-1975@s1e05",
+          "sourceID": "fawlty-towers-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Gourmet night",
+          "overview": null,
+          "stillURL": "https://archive.org/download/fawlty-towers-complete-series-1975/fawlty-towers-complete-series-1975.thumbs/Fawlty%20Towers%20S01E05%20-%20Gourmet%20night_000617.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 1716,
+          "videoFile": {
+            "name": "Fawlty Towers S01E05 - Gourmet night.mp4",
+            "format": "h.264",
+            "sizeBytes": 161730781,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/fawlty-towers-complete-series-1975/Fawlty%20Towers%20S01E05%20-%20Gourmet%20night.mp4"
+        },
+        {
+          "archiveID": "fawlty-towers-complete-series-1975@s1e06",
+          "sourceID": "fawlty-towers-complete-series-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Germans",
+          "overview": null,
+          "stillURL": "https://archive.org/download/fawlty-towers-complete-series-1975/fawlty-towers-complete-series-1975.thumbs/Fawlty%20Towers%20S01E06%20-%20The%20Germans_000667.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 1874,
+          "videoFile": {
+            "name": "Fawlty Towers S01E06 - The Germans.mp4",
+            "format": "h.264",
+            "sizeBytes": 178053253,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/fawlty-towers-complete-series-1975/Fawlty%20Towers%20S01E06%20-%20The%20Germans.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "fawlty-towers-complete-series-1975@s2e01",
+          "sourceID": "fawlty-towers-complete-series-1975",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Communication problems",
+          "overview": null,
+          "stillURL": "https://archive.org/download/fawlty-towers-complete-series-1975/fawlty-towers-complete-series-1975.thumbs/Fawlty%20Towers%20S02E01%20-%20Communication%20problems_000675.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 1883,
+          "videoFile": {
+            "name": "Fawlty Towers S02E01 - Communication problems.mp4",
+            "format": "h.264",
+            "sizeBytes": 179220509,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/fawlty-towers-complete-series-1975/Fawlty%20Towers%20S02E01%20-%20Communication%20problems.mp4"
+        },
+        {
+          "archiveID": "fawlty-towers-complete-series-1975@s2e02",
+          "sourceID": "fawlty-towers-complete-series-1975",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "The psychiatrist",
+          "overview": null,
+          "stillURL": "https://archive.org/download/fawlty-towers-complete-series-1975/fawlty-towers-complete-series-1975.thumbs/Fawlty%20Towers%20S02E02%20-%20The%20psychiatrist_000775.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2176,
+          "videoFile": {
+            "name": "Fawlty Towers S02E02 - The psychiatrist.mp4",
+            "format": "h.264",
+            "sizeBytes": 208331580,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/fawlty-towers-complete-series-1975/Fawlty%20Towers%20S02E02%20-%20The%20psychiatrist.mp4"
+        },
+        {
+          "archiveID": "fawlty-towers-complete-series-1975@s2e03",
+          "sourceID": "fawlty-towers-complete-series-1975",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Waldorf salad",
+          "overview": null,
+          "stillURL": "https://archive.org/download/fawlty-towers-complete-series-1975/fawlty-towers-complete-series-1975.thumbs/Fawlty%20Towers%20S02E03%20-%20Waldorf%20salad_000692.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 1922,
+          "videoFile": {
+            "name": "Fawlty Towers S02E03 - Waldorf salad.mp4",
+            "format": "h.264",
+            "sizeBytes": 181442122,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/fawlty-towers-complete-series-1975/Fawlty%20Towers%20S02E03%20-%20Waldorf%20salad.mp4"
+        },
+        {
+          "archiveID": "fawlty-towers-complete-series-1975@s2e04",
+          "sourceID": "fawlty-towers-complete-series-1975",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "The kipper and the corpse",
+          "overview": null,
+          "stillURL": "https://archive.org/download/fawlty-towers-complete-series-1975/fawlty-towers-complete-series-1975.thumbs/Fawlty%20Towers%20S02E04%20-%20The%20kipper%20and%20the%20corpse_000675.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 1894,
+          "videoFile": {
+            "name": "Fawlty Towers S02E04 - The kipper and the corpse.mp4",
+            "format": "h.264",
+            "sizeBytes": 177877818,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/fawlty-towers-complete-series-1975/Fawlty%20Towers%20S02E04%20-%20The%20kipper%20and%20the%20corpse.mp4"
+        },
+        {
+          "archiveID": "fawlty-towers-complete-series-1975@s2e05",
+          "sourceID": "fawlty-towers-complete-series-1975",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "The anniversary",
+          "overview": null,
+          "stillURL": "https://archive.org/download/fawlty-towers-complete-series-1975/fawlty-towers-complete-series-1975.thumbs/Fawlty%20Towers%20S02E05%20-%20The%20anniversary_000625.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 1748,
+          "videoFile": {
+            "name": "Fawlty Towers S02E05 - The anniversary.mp4",
+            "format": "h.264",
+            "sizeBytes": 165573046,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/fawlty-towers-complete-series-1975/Fawlty%20Towers%20S02E05%20-%20The%20anniversary.mp4"
+        },
+        {
+          "archiveID": "fawlty-towers-complete-series-1975@s2e06",
+          "sourceID": "fawlty-towers-complete-series-1975",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Basil the rat",
+          "overview": null,
+          "stillURL": "https://archive.org/download/fawlty-towers-complete-series-1975/fawlty-towers-complete-series-1975.thumbs/Fawlty%20Towers%20S02E06%20-%20Basil%20the%20rat_000725.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 2024,
+          "videoFile": {
+            "name": "Fawlty Towers S02E06 - Basil the rat.mp4",
+            "format": "h.264",
+            "sizeBytes": 191317892,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/fawlty-towers-complete-series-1975/Fawlty%20Towers%20S02E06%20-%20Basil%20the%20rat.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 12,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

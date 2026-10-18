@@ -182,7 +182,7 @@ struct DetailView: View {
             chosenVersionName = ArchiveVersions.chosenName(for: item.archiveID)
             guard item.videoURLParsed != nil, versions.isEmpty else { return }
             loadingVersions = true
-            versions = await ArchiveVersions.list(itemID: item.archiveID)
+            versions = await ArchiveVersions.list(itemID: item.archiveID, defaultURL: item.videoURLParsed)
             loadingVersions = false
         }
     }
@@ -541,7 +541,7 @@ struct DetailView: View {
         URL(string: "https://archivewatch.org/item/\(item.archiveID)")!
     }
     private var archiveOrgURL: URL {
-        URL(string: "https://archive.org/details/\(item.archiveID)") ?? shareURL
+        URL(string: item.sourceDetailsURL) ?? shareURL
     }
 
     /// Detail wants sharper art than shelf tiles: upgrade known CDN size tokens

@@ -19,7 +19,8 @@ import Foundation
 enum ArchiveFallback {
 
     /// The best smaller playable derivative on the item, or nil.
-    static func smallerCopy(itemID: String, than currentURL: URL) async -> URL? {
+    static func smallerCopy(itemID title: String, than currentURL: URL) async -> URL? {
+        let itemID = Catalog.archiveItemID(title)
         guard let metaURL = URL(string: "https://archive.org/metadata/\(itemID)") else { return nil }
         var req = URLRequest(url: metaURL)
         req.timeoutInterval = 10
@@ -27,16 +28,22 @@ enum ArchiveFallback {
               let obj = try? JSONSerialization.jsonObject(with: data) as? [String: Any],
               let files = obj["files"] as? [[String: Any]] else { return nil }
 
-        let currentName = currentURL.lastPathComponent.removingPercentEncoding
-            ?? currentURL.lastPathComponent
-        let currentSize = files.first { ($0["name"] as? String) == currentName }
+        let currentName = (Catalog.isBundleFile(title) ? Catalog.archiveFileName(in: currentURL) : nil)
+            ?? currentURL.lastPathComponent.removingPercentEncoding ?? currentURL.lastPathComponent
+        let current = files.first { ($0["name"] as? String) == currentName }
+        let currentSize = current
             .flatMap { $0["size"] as? String }.flatMap { Int64($0) } ?? .max
+        // Decision 166: on a whole-series item every other original is another
+        // episode, so only derivatives of this episode's own file qualify.
+        let episodeRoot = Catalog.isBundleFile(title)
+            ? (current?["original"] as? String ?? currentName) : nil
 
         var best: (name: String, size: Int64)?
         for f in files {
             guard let name = f["name"] as? String,
                   name.lowercased().hasSuffix(".mp4"),
                   name != currentName,
+                  episodeRoot == nil || (f["original"] as? String) == episodeRoot,
                   (f["source"] as? String) == "derivative",
                   let sizeStr = f["size"] as? String, let size = Int64(sizeStr),
                   size > 5_000_000,                    // not a thumbnail-sized stub

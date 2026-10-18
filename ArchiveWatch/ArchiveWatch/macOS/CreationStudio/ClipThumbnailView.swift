@@ -79,7 +79,8 @@ final class ClipThumbnailCache {
             return f
         }
         if let p = fallbackPoster, let img = await load(p) { return img }
-        let id = catalogItemID.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? catalogItemID
+        let item = Catalog.archiveItemID(catalogItemID)
+        let id = item.addingPercentEncoding(withAllowedCharacters: .urlPathAllowed) ?? item
         if let u = URL(string: "https://archive.org/services/img/\(id)"), let img = await load(u) { return img }
         return nil
     }

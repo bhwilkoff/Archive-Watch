@@ -30,14 +30,20 @@ enum ArchiveThumbnails {
         let after = s[r.upperBound...]
         guard let slash = after.firstIndex(of: "/") else { return [] }
         let metaID = String(after[..<slash]).removingPercentEncoding ?? String(after[..<slash])
-        if let cached = await ThumbStripCache.shared.get(metaID) { return cached }
+        let file = Catalog.archiveFileName(in: videoURL) ?? ""
+        let cacheKey = metaID + "/" + file
+        if let cached = await ThumbStripCache.shared.get(cacheKey) { return cached }
         guard let metaURL = URL(string: "https://archive.org/metadata/\(metaID)"),
               let data = await StudioNet.data(from: metaURL),   // capped session — don't storm the main host
               let obj = (try? JSONSerialization.jsonObject(with: data)) as? [String: Any],
               let files = obj["files"] as? [[String: Any]] else { return [] }
 
+        // Decision 166: an item holding a whole series has every episode's
+        // frames; keep this file's own when the item says which they are.
+        let own = files.filter { ($0["original"] as? String) == file }
+        let pool = own.contains { ($0["format"] as? String) == "Thumbnail" } ? own : files
         var thumbs: [ArchiveThumb] = []
-        for f in files {
+        for f in pool {
             guard let name = f["name"] as? String,
                   (f["format"] as? String) == "Thumbnail" || name.contains(".thumbs/"),
                   name.lowercased().hasSuffix(".jpg") else { continue }
@@ -50,7 +56,7 @@ enum ArchiveThumbnails {
             thumbs.append(ArchiveThumb(id: secs, url: url))
         }
         let sorted = thumbs.sorted { $0.id < $1.id }
-        await ThumbStripCache.shared.set(metaID, sorted)
+        await ThumbStripCache.shared.set(cacheKey, sorted)
         return sorted
     }
 

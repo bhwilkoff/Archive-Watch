@@ -1,0 +1,258 @@
+{
+  "version": 2,
+  "seriesID": "rin-tin-tin-the-lone-defender-1930",
+  "sourceID": "RTTLD01",
+  "tvmazeID": null,
+  "title": "Rin Tin Tin THE LONE DEFENDER",
+  "yearStart": 1930,
+  "yearEnd": null,
+  "overview": "Rin Tin Tin defends a young woman whose father was murdered for his gold mine against the outlaws who want it, in this twelve-chapter 1930 serial.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/RTTLD01.43c74875.jpg",
+  "backdropURL": null,
+  "genres": [
+    "War",
+    "Action"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "RTTLD01@e01",
+          "sourceID": "RTTLD01",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Mystery of the Desert",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RTTLD01/RTTLD01.thumbs/RTTLD01_000450.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 1398,
+          "videoFile": {
+            "name": "RTTLD01.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 198077663,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RTTLD01/RTTLD01.mp4"
+        },
+        {
+          "archiveID": "RTTLD01@e02",
+          "sourceID": "RTTLD01",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Fugitive",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RTTLD01/RTTLD01.thumbs/RTTLD02_000390.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 1122,
+          "videoFile": {
+            "name": "RTTLD02.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 158974753,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RTTLD01/RTTLD02.mp4"
+        },
+        {
+          "archiveID": "RTTLD01@e03",
+          "sourceID": "RTTLD01",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Jaws of Peril",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RTTLD01/RTTLD01.thumbs/RTTLD03_000330.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 958,
+          "videoFile": {
+            "name": "RTTLD03.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 135629720,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RTTLD01/RTTLD03.mp4"
+        },
+        {
+          "archiveID": "RTTLD01@e04",
+          "sourceID": "RTTLD01",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Trapped",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RTTLD01/RTTLD01.thumbs/RTTLD04_000330.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 994,
+          "videoFile": {
+            "name": "RTTLD04.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 140918157,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RTTLD01/RTTLD04.mp4"
+        },
+        {
+          "archiveID": "RTTLD01@e05",
+          "sourceID": "RTTLD01",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Circle of Death",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RTTLD01/RTTLD01.thumbs/RTTLD05_000390.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 1074,
+          "videoFile": {
+            "name": "RTTLD05.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 151975822,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RTTLD01/RTTLD05.mp4"
+        },
+        {
+          "archiveID": "RTTLD01@e06",
+          "sourceID": "RTTLD01",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Surrounded by Law",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RTTLD01/RTTLD01.thumbs/RTTLD06_000390.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 1091,
+          "videoFile": {
+            "name": "RTTLD06.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 154701364,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RTTLD01/RTTLD06.mp4"
+        },
+        {
+          "archiveID": "RTTLD01@e07",
+          "sourceID": "RTTLD01",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Ghost Speaks",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RTTLD01/RTTLD01.thumbs/RTTLD07_000390.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 1056,
+          "videoFile": {
+            "name": "RTTLD07.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 149467142,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RTTLD01/RTTLD07.mp4"
+        },
+        {
+          "archiveID": "RTTLD01@e08",
+          "sourceID": "RTTLD01",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Brink of Destruction",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RTTLD01/RTTLD01.thumbs/RTTLD08_000330.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 973,
+          "videoFile": {
+            "name": "RTTLD08.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 137972386,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RTTLD01/RTTLD08.mp4"
+        },
+        {
+          "archiveID": "RTTLD01@e09",
+          "sourceID": "RTTLD01",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Avalanche",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RTTLD01/RTTLD01.thumbs/RTTLD09_000330.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 1028,
+          "videoFile": {
+            "name": "RTTLD09.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 145315946,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RTTLD01/RTTLD09.mp4"
+        },
+        {
+          "archiveID": "RTTLD01@e10",
+          "sourceID": "RTTLD01",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Fury of the Desert",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RTTLD01/RTTLD01.thumbs/RTTLD10_000330.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 1038,
+          "videoFile": {
+            "name": "RTTLD10.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 146988800,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RTTLD01/RTTLD10.mp4"
+        },
+        {
+          "archiveID": "RTTLD01@e11",
+          "sourceID": "RTTLD01",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Cornered",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RTTLD01/RTTLD01.thumbs/RTTLD11_000450.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 1277,
+          "videoFile": {
+            "name": "RTTLD11.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 180906865,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RTTLD01/RTTLD11.mp4"
+        },
+        {
+          "archiveID": "RTTLD01@e12",
+          "sourceID": "RTTLD01",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Vindicated!",
+          "overview": null,
+          "stillURL": "https://archive.org/download/RTTLD01/RTTLD01.thumbs/RTTLD12_000390.jpg",
+          "airDate": null,
+          "year": 1930,
+          "runtimeSeconds": 1062,
+          "videoFile": {
+            "name": "RTTLD12.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 150150415,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/RTTLD01/RTTLD12.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 12,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}

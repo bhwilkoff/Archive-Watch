@@ -1,0 +1,182 @@
+{
+  "version": 2,
+  "seriesID": "wolves-of-kultur-1918",
+  "sourceID": "chapter-01-the-torture-trap",
+  "tvmazeID": null,
+  "title": "Wolves of Kultur",
+  "yearStart": 1918,
+  "yearEnd": null,
+  "overview": "Wolves of Kultur is a 1918 adventure film serial directed by Joseph A. Golden. It was Charles Hutchison's first serial and though he was the second lead, the film made him a star. Originally 15 chapters, it survives today only in an edited 7 chapter version, cut to showcase Hutchison's stunt work. The story has a war preparedness theme as an unnamed foreign power threatens America's security.",
+  "posterURL": "https://commons.wikimedia.org/wiki/Special:FilePath/Wolves_of_Kultur_1918_8.jpg?width=600",
+  "backdropURL": null,
+  "genres": [
+    "Action",
+    "Adventure"
+  ],
+  "networks": [],
+  "creator": "Joseph A. Golden",
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "chapter-01-the-torture-trap@e01",
+          "sourceID": "chapter-01-the-torture-trap",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Torture Trap",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-the-torture-trap/chapter-01-the-torture-trap.thumbs/Chapter%2001%20-%20The%20Torture%20Trap_000656.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 1882,
+          "videoFile": {
+            "name": "Chapter 01 - The Torture Trap.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 854101811,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-the-torture-trap/Chapter%2001%20-%20The%20Torture%20Trap.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-the-torture-trap@e02",
+          "sourceID": "chapter-01-the-torture-trap",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Iron Chair",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-the-torture-trap/chapter-01-the-torture-trap.thumbs/Chapter%2002%20-%20The%20Iron%20Chair_000475.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 1366,
+          "videoFile": {
+            "name": "Chapter 02 - The Iron Chair.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 616697284,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-the-torture-trap/Chapter%2002%20-%20The%20Iron%20Chair.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-the-torture-trap@e03",
+          "sourceID": "chapter-01-the-torture-trap",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Trapping the Traitors",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-the-torture-trap/chapter-01-the-torture-trap.thumbs/Chapter%2003%20-%20Trapping%20the%20Traitors_000656.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 1763,
+          "videoFile": {
+            "name": "Chapter 03 - Trapping the Traitors.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 748831294,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-the-torture-trap/Chapter%2003%20-%20Trapping%20the%20Traitors.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-the-torture-trap@e04",
+          "sourceID": "chapter-01-the-torture-trap",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Ride of Death",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-the-torture-trap/chapter-01-the-torture-trap.thumbs/Chapter%2004%20-%20Ride%20of%20Death_000536.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 1425,
+          "videoFile": {
+            "name": "Chapter 04 - Ride of Death.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 653494233,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-the-torture-trap/Chapter%2004%20-%20Ride%20of%20Death.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-the-torture-trap@e05",
+          "sourceID": "chapter-01-the-torture-trap",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Hun's Hell Trap",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-the-torture-trap/chapter-01-the-torture-trap.thumbs/Chapter%2005%20-%20The%20Hun%27s%20Hell%20Trap_000475.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 1234,
+          "videoFile": {
+            "name": "Chapter 05 - The Hun's Hell Trap.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 543629820,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-the-torture-trap/Chapter%2005%20-%20The%20Hun%27s%20Hell%20Trap.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-the-torture-trap@e06",
+          "sourceID": "chapter-01-the-torture-trap",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Code of Hate",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-the-torture-trap/chapter-01-the-torture-trap.thumbs/Chapter%2006%20-%20The%20Code%20of%20Hate_000477.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 1296,
+          "videoFile": {
+            "name": "Chapter 06 - The Code of Hate.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 446197375,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-the-torture-trap/Chapter%2006%20-%20The%20Code%20of%20Hate.ia.mp4"
+        },
+        {
+          "archiveID": "chapter-01-the-torture-trap@e07",
+          "sourceID": "chapter-01-the-torture-trap",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Reward of Patriotism",
+          "overview": null,
+          "stillURL": "https://archive.org/download/chapter-01-the-torture-trap/chapter-01-the-torture-trap.thumbs/Chapter%2007%20-%20The%20Reward%20of%20Patriotism_000475.jpg",
+          "airDate": null,
+          "year": 1918,
+          "runtimeSeconds": 1319,
+          "videoFile": {
+            "name": "Chapter 07 - The Reward of Patriotism.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 672796918,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/chapter-01-the-torture-trap/Chapter%2007%20-%20The%20Reward%20of%20Patriotism.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 7,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "commons",
+  "cast": [
+    {
+      "name": "Leah Baird",
+      "character": null,
+      "order": 0,
+      "profilePath": "/sa3dtkd3jbAZ9KHOSrxtGWGF8HK.jpg"
+    },
+    {
+      "name": "Charles Hutchison",
+      "character": null,
+      "order": 1,
+      "profilePath": "/5FC6tAY2ftvta2ha6KgydHH95jJ.jpg"
+    },
+    {
+      "name": "Sheldon Lewis",
+      "character": null,
+      "order": 2,
+      "profilePath": "/zsgNwtpLXyYSFJU0XeNECvVDlh9.jpg"
+    }
+  ]
+}

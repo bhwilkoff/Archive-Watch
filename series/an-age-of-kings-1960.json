@@ -1,0 +1,312 @@
+{
+  "version": 2,
+  "seriesID": "an-age-of-kings-1960",
+  "sourceID": "an-age-of-kings-1960",
+  "tvmazeID": null,
+  "title": "An Age of Kings",
+  "yearStart": 1960,
+  "yearEnd": null,
+  "overview": "Groundbreaking 15-part BBC drama serial created by Peter Dews, written by Eric Crozier, and directed by Michael Hayes, adapting the eight William Shakespeare history plays which comprise the two Henriad s. These cover events in England and France during the second half of the Hundred Years' War, and the subsequent Wars of the Roses. They are: * Richard II (2 episodes) * Henry IV, Part 1 (2 episodes) * Henry IV, Part 2 (2 episodes) * Henry V (2 episodes) * Henry VI, Part 1 (1 episode) * Henry VI, Part 2 (2 episodes) * Henry VI, Part 3 (2 episodes) * Richard III (2 episodes) Stars David William as Richard II, Tom Fleming as Henry IV, Robert Hardy as Henry V, Terry Scully as Henry VI, and Paul Daneman as Richard III, as well as a whole host of other great British actors, including Julian Glover, Geoffrey Bayldon, Eileen Atkins, Michael Graham Cox, William Squire, Judi Dench, and some then-unknown Scottish guy named Sean Connery; wonder if he ever did anything else.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/wktuD6RcbSJmAWpeT01szcRfYVV.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "an-age-of-kings-1960@e01",
+          "sourceID": "an-age-of-kings-1960",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Hollow Crown (Richard II - Part 1",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3573,
+          "videoFile": {
+            "name": "An Age of Kings (1960)/Ep01 The Hollow Crown (Richard II - Part 1).mp4",
+            "format": "h.264",
+            "sizeBytes": 5100020699,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/an-age-of-kings-1960/An%20Age%20of%20Kings%20%281960%29/Ep01%20The%20Hollow%20Crown%20%28Richard%20II%20-%20Part%201%29.mp4"
+        },
+        {
+          "archiveID": "an-age-of-kings-1960@e02",
+          "sourceID": "an-age-of-kings-1960",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Deposing of a King (Richard II - Part 2",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3477,
+          "videoFile": {
+            "name": "An Age of Kings (1960)/Ep02 The Deposing of a King (Richard II - Part 2).mp4",
+            "format": "h.264",
+            "sizeBytes": 3654019794,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/an-age-of-kings-1960/An%20Age%20of%20Kings%20%281960%29/Ep02%20The%20Deposing%20of%20a%20King%20%28Richard%20II%20-%20Part%202%29.mp4"
+        },
+        {
+          "archiveID": "an-age-of-kings-1960@e03",
+          "sourceID": "an-age-of-kings-1960",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Rebellion from the North (1 Henry IV - Part 1",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 4676,
+          "videoFile": {
+            "name": "An Age of Kings (1960)/Ep03 Rebellion from the North (1 Henry IV - Part 1).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 467035020,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/an-age-of-kings-1960/An%20Age%20of%20Kings%20%281960%29/Ep03%20Rebellion%20from%20the%20North%20%281%20Henry%20IV%20-%20Part%201%29.ia.mp4"
+        },
+        {
+          "archiveID": "an-age-of-kings-1960@e04",
+          "sourceID": "an-age-of-kings-1960",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Road to Shrewsbury (1 Henry IV - Part 2",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 4279,
+          "videoFile": {
+            "name": "An Age of Kings (1960)/Ep04 The Road to Shrewsbury (1 Henry IV - Part 2).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 428091005,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/an-age-of-kings-1960/An%20Age%20of%20Kings%20%281960%29/Ep04%20The%20Road%20to%20Shrewsbury%20%281%20Henry%20IV%20-%20Part%202%29.ia.mp4"
+        },
+        {
+          "archiveID": "an-age-of-kings-1960@e05",
+          "sourceID": "an-age-of-kings-1960",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The New Conspiracy (2 Henry IV - Part 1",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3537,
+          "videoFile": {
+            "name": "An Age of Kings (1960)/Ep05 The New Conspiracy (2 Henry IV - Part 1).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 352953613,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/an-age-of-kings-1960/An%20Age%20of%20Kings%20%281960%29/Ep05%20The%20New%20Conspiracy%20%282%20Henry%20IV%20-%20Part%201%29.ia.mp4"
+        },
+        {
+          "archiveID": "an-age-of-kings-1960@e06",
+          "sourceID": "an-age-of-kings-1960",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Uneasy Lies the Head (2 Henry IV - Part 2",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 4505,
+          "videoFile": {
+            "name": "An Age of Kings (1960)/Ep06 Uneasy Lies the Head (2 Henry IV - Part 2).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 449904606,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/an-age-of-kings-1960/An%20Age%20of%20Kings%20%281960%29/Ep06%20Uneasy%20Lies%20the%20Head%20%282%20Henry%20IV%20-%20Part%202%29.ia.mp4"
+        },
+        {
+          "archiveID": "an-age-of-kings-1960@e07",
+          "sourceID": "an-age-of-kings-1960",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Signs of War (Henry V - Part 1",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3647,
+          "videoFile": {
+            "name": "An Age of Kings (1960)/Ep07 Signs of War (Henry V - Part 1).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 360898015,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/an-age-of-kings-1960/An%20Age%20of%20Kings%20%281960%29/Ep07%20Signs%20of%20War%20%28Henry%20V%20-%20Part%201%29.ia.mp4"
+        },
+        {
+          "archiveID": "an-age-of-kings-1960@e08",
+          "sourceID": "an-age-of-kings-1960",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Band of Brothers (Henry V - Part 2",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3460,
+          "videoFile": {
+            "name": "An Age of Kings (1960)/Ep08 The Band of Brothers (Henry V - Part 2).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 337848282,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/an-age-of-kings-1960/An%20Age%20of%20Kings%20%281960%29/Ep08%20The%20Band%20of%20Brothers%20%28Henry%20V%20-%20Part%202%29.ia.mp4"
+        },
+        {
+          "archiveID": "an-age-of-kings-1960@e09",
+          "sourceID": "an-age-of-kings-1960",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Red Rose and the White (1 Henry VI",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3530,
+          "videoFile": {
+            "name": "An Age of Kings (1960)/Ep09 The Red Rose and the White (1 Henry VI).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 352551541,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/an-age-of-kings-1960/An%20Age%20of%20Kings%20%281960%29/Ep09%20The%20Red%20Rose%20and%20the%20White%20%281%20Henry%20VI%29.ia.mp4"
+        },
+        {
+          "archiveID": "an-age-of-kings-1960@e10",
+          "sourceID": "an-age-of-kings-1960",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Fall of a Protector (2 Henry VI - Part 1",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3602,
+          "videoFile": {
+            "name": "An Age of Kings (1960)/Ep10 The Fall of a Protector (2 Henry VI - Part 1).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 360708993,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/an-age-of-kings-1960/An%20Age%20of%20Kings%20%281960%29/Ep10%20The%20Fall%20of%20a%20Protector%20%282%20Henry%20VI%20-%20Part%201%29.ia.mp4"
+        },
+        {
+          "archiveID": "an-age-of-kings-1960@e11",
+          "sourceID": "an-age-of-kings-1960",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Rabble from Kent (2 Henry VI - Part 2",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3464,
+          "videoFile": {
+            "name": "An Age of Kings (1960)/Ep11 The Rabble from Kent (2 Henry VI - Part 2).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 344883375,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/an-age-of-kings-1960/An%20Age%20of%20Kings%20%281960%29/Ep11%20The%20Rabble%20from%20Kent%20%282%20Henry%20VI%20-%20Part%202%29.ia.mp4"
+        },
+        {
+          "archiveID": "an-age-of-kings-1960@e12",
+          "sourceID": "an-age-of-kings-1960",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Morning's War (3 Henry VI - Part 1",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3669,
+          "videoFile": {
+            "name": "An Age of Kings (1960)/Ep12 The Morning's War (3 Henry VI - Part 1).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 366159556,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/an-age-of-kings-1960/An%20Age%20of%20Kings%20%281960%29/Ep12%20The%20Morning%27s%20War%20%283%20Henry%20VI%20-%20Part%201%29.ia.mp4"
+        },
+        {
+          "archiveID": "an-age-of-kings-1960@e13",
+          "sourceID": "an-age-of-kings-1960",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "The Sun in Splendour (3 Henry VI - Part 2",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3435,
+          "videoFile": {
+            "name": "An Age of Kings (1960)/Ep13 The Sun in Splendour (3 Henry VI - Part 2).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 342559963,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/an-age-of-kings-1960/An%20Age%20of%20Kings%20%281960%29/Ep13%20The%20Sun%20in%20Splendour%20%283%20Henry%20VI%20-%20Part%202%29.ia.mp4"
+        },
+        {
+          "archiveID": "an-age-of-kings-1960@e14",
+          "sourceID": "an-age-of-kings-1960",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Dangerous Brother (Richard III - Part 1",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3570,
+          "videoFile": {
+            "name": "An Age of Kings (1960)/Ep14 The Dangerous Brother (Richard III - Part 1).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 356364864,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/an-age-of-kings-1960/An%20Age%20of%20Kings%20%281960%29/Ep14%20The%20Dangerous%20Brother%20%28Richard%20III%20-%20Part%201%29.ia.mp4"
+        },
+        {
+          "archiveID": "an-age-of-kings-1960@e15",
+          "sourceID": "an-age-of-kings-1960",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "The Boar Hunt (Richard III - Part 2",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 4521,
+          "videoFile": {
+            "name": "An Age of Kings (1960)/Ep15 The Boar Hunt (Richard III - Part 2).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 449765820,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/an-age-of-kings-1960/An%20Age%20of%20Kings%20%281960%29/Ep15%20The%20Boar%20Hunt%20%28Richard%20III%20-%20Part%202%29.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 15,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": []
+}

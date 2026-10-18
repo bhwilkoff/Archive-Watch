@@ -294,7 +294,7 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                 AddToPlaylistDialog(container, current.archiveID) { showPlaylists = false }
             }
             if (showVersions) {
-                VersionSheet(current.archiveID) { showVersions = false }
+                VersionSheet(current.archiveID, current.downloadURL) { showVersions = false }
             }
             if (showGetSubs) {
                 GetSubtitlesSheet(container, current) { showGetSubs = false }
@@ -441,7 +441,7 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                                 context.startActivity(
                                     Intent(
                                         Intent.ACTION_VIEW,
-                                        ("https://archive.org/details/" + current.archiveID).toUri(),
+                                        current.sourceDetailsURL.toUri(),
                                     ),
                                 )
                             },
@@ -749,7 +749,7 @@ private fun AddToPlaylistDialog(
  */
 @OptIn(androidx.compose.material3.ExperimentalMaterial3Api::class)
 @Composable
-private fun VersionSheet(archiveID: String, onDone: () -> Unit) {
+private fun VersionSheet(archiveID: String, ownURL: String?, onDone: () -> Unit) {
     val context = androidx.compose.ui.platform.LocalContext.current
     var versions by remember {
         mutableStateOf<List<app.archivewatch.android.data.ArchiveVersions.Version>?>(null)
@@ -760,7 +760,7 @@ private fun VersionSheet(archiveID: String, onDone: () -> Unit) {
     // In a Watch Together room the HOST chooses the copy.
     val inRoom = app.archivewatch.android.studio.StudioRoomCopy.isActive(archiveID)
     LaunchedEffect(archiveID) {
-        versions = if (inRoom) emptyList() else app.archivewatch.android.data.ArchiveVersions.list(archiveID)
+        versions = if (inRoom) emptyList() else app.archivewatch.android.data.ArchiveVersions.list(archiveID, ownURL)
     }
     androidx.compose.material3.ModalBottomSheet(onDismissRequest = onDone) {
         Column(Modifier.padding(horizontal = 20.dp, vertical = 4.dp)) {

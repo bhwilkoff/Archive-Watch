@@ -1149,11 +1149,41 @@ def _rotated_shelf_positions(items, rotate_seed):
     return positions
 
 
-def _playable_episode_aids():
+def bundle_sources(cards=None) -> dict:
+    """{archive.org item: series slug} for every item whose files ARE a series
+    (build_bundle_series, Decision 166). The item's own card is replaced by its
+    series card everywhere a card is published, and its id forwards there.
+
+    With `cards` (the catalog's ids), only a source whose `series:<slug>` card
+    is already in the catalog: the card is made by tv-canonical's reconcile, so
+    a spine committed before that run must not take the item's card away and
+    leave nothing in its place."""
+    out = {}
+    for f in SERIES_DIR.glob("*.json"):
+        try:
+            d = json.loads(f.read_text(encoding="utf-8"))
+        except Exception:  # noqa: BLE001
+            continue
+        if d.get("sourceID"):
+            slug = d.get("seriesID") or f.stem
+            if cards is not None and f"series:{slug}" not in cards:
+                continue
+            for src in d.get("sourceIDs") or [d["sourceID"]]:
+                out[src] = slug
+    return out
+
+
+def series_cards(items) -> set:
+    return {it["archiveID"] for it in items
+            if str(it.get("archiveID") or "").startswith("series:") and not it.get("excluded")}
+
+
+def _playable_episode_aids(cards=None):
     """archiveIDs of every playable episode across the series spines — the set the
     episode-item materialization (Decision 045) will own, so populate_items can skip
-    their standalone duplicates and let the canonical EPISODE win (Decision 036)."""
-    aids = set()
+    their standalone duplicates and let the canonical EPISODE win (Decision 036).
+    A bundle's source item is in the set too: its episodes are its files."""
+    aids = set(bundle_sources(cards))
     for f in SERIES_DIR.glob("*.json"):
         try:
             d = json.loads(f.read_text(encoding="utf-8"))
@@ -1172,6 +1202,7 @@ def populate_items(db, items, rotate_seed="0", skip_aids=frozenset()):
     gem_suppressed = set()      # archive.org asked us not to feature these
     kw_rows, studio_rows = [], []   # metadata-expansion facets (Decision 046)
     shelf_pos = _rotated_shelf_positions(items, rotate_seed)
+    bundles = bundle_sources(series_cards(items))
     for it in items:
         # Rights audit (Decision 027): items flagged excluded=true stay in
         # catalog.json (reversible) but are never inserted, so they vanish from
@@ -1186,6 +1217,11 @@ def populate_items(db, items, rotate_seed="0", skip_aids=frozenset()):
         # the episode-item (materialized in populate_series) is the single card for it
         # (Decision 045/036). A tv-series CARD is never an episode, so never skip it.
         if aid in skip_aids and it.get("contentType") != "tv-series":
+            # A bundle's own card gives way to its series card, which keeps the
+            # bundle's place on the TV rows (never a film row: Decision 036).
+            if aid in bundles:
+                for s in _shelf_ids_for(it) & TV_CATEGORY_SHELVES:
+                    tv_shelf_series.setdefault(s, []).append(bundles[aid])
             continue
         item_rows.append((
             aid, _t(it.get("title")), it.get("year"), it.get("decade"),
@@ -1608,7 +1644,8 @@ def build_db_obj(cat, out_db, rotate_seed="0", materialize_episodes=True,
     deduped = dedupe_by_imdb(cat["items"])
     # Resolve spine ownership BEFORE merging, so episodes are never treated as
     # duplicate films (the set was previously computed after the merge).
-    spine_aids = _playable_episode_aids() if materialize_episodes else frozenset()
+    cards = series_cards(cat["items"])
+    spine_aids = _playable_episode_aids(cards) if materialize_episodes else frozenset()
     deduped = merge_film_duplicates(deduped, spine_aids=spine_aids)
     if out_db.exists():
         out_db.unlink()
@@ -1618,6 +1655,10 @@ def build_db_obj(cat, out_db, rotate_seed="0", materialize_episodes=True,
     # BOTH dedup paths, chased as one union so a cross-path hop resolves.
     aliases = dict(getattr(dedupe_by_imdb, "aliases", {}) or {})
     aliases.update(getattr(merge_film_duplicates, "aliases", {}) or {})
+    if materialize_episodes:
+        # A saved bundle id (a favorite, a playlist entry) opens its series.
+        for src, slug in bundle_sources(cards).items():
+            aliases.setdefault(src, f"series:{slug}")
     _chase_aliases(aliases)
     live = {it["archiveID"] for it in deduped}
     rows = [(o, n) for o, n in aliases.items() if n in live]

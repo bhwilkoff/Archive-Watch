@@ -1,0 +1,200 @@
+{
+  "version": 2,
+  "seriesID": "david-hand-s-animaland-1948",
+  "sourceID": "david-hands-animaland-the-complete-series-1948-50",
+  "tvmazeID": null,
+  "title": "David Hand's Animaland",
+  "yearStart": 1948,
+  "yearEnd": null,
+  "overview": "Now digitally restored to their original splendor, these nine exquisite and enchanting cartoons, relics of a bygone golden era of animation, brighten up the screen.",
+  "posterURL": "https://archive.org/services/img/david-hands-animaland-the-complete-series-1948-50",
+  "backdropURL": null,
+  "genres": [
+    "Animation"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "david-hands-animaland-the-complete-series-1948-50@e01",
+          "sourceID": "david-hands-animaland-the-complete-series-1948-50",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Lion (felis leo) (1948",
+          "overview": null,
+          "stillURL": "https://archive.org/download/david-hands-animaland-the-complete-series-1948-50/david-hands-animaland-the-complete-series-1948-50.thumbs/David%20Hand%27s%20Animaland%2001.%20The%20Lion%20%28felis%20leo%29%20%281948%29_000177.jpg",
+          "airDate": null,
+          "year": 1948,
+          "runtimeSeconds": 485,
+          "videoFile": {
+            "name": "David Hand's Animaland 01. The Lion (felis leo) (1948).mp4",
+            "format": "h.264",
+            "sizeBytes": 48409918,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/david-hands-animaland-the-complete-series-1948-50/David%20Hand%27s%20Animaland%2001.%20The%20Lion%20%28felis%20leo%29%20%281948%29.mp4"
+        },
+        {
+          "archiveID": "david-hands-animaland-the-complete-series-1948-50@e02",
+          "sourceID": "david-hands-animaland-the-complete-series-1948-50",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The House-Cat (felis vulgaris) (1948",
+          "overview": null,
+          "stillURL": "https://archive.org/download/david-hands-animaland-the-complete-series-1948-50/david-hands-animaland-the-complete-series-1948-50.thumbs/David%20Hand%27s%20Animaland%2002.%20The%20House-Cat%20%28felis%20vulgaris%29%20%281948%29_000177.jpg",
+          "airDate": null,
+          "year": 1948,
+          "runtimeSeconds": 451,
+          "videoFile": {
+            "name": "David Hand's Animaland 02. The House-Cat (felis vulgaris) (1948).mp4",
+            "format": "h.264",
+            "sizeBytes": 45267430,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/david-hands-animaland-the-complete-series-1948-50/David%20Hand%27s%20Animaland%2002.%20The%20House-Cat%20%28felis%20vulgaris%29%20%281948%29.mp4"
+        },
+        {
+          "archiveID": "david-hands-animaland-the-complete-series-1948-50@e03",
+          "sourceID": "david-hands-animaland-the-complete-series-1948-50",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Cuckoo (1948",
+          "overview": null,
+          "stillURL": "https://archive.org/download/david-hands-animaland-the-complete-series-1948-50/david-hands-animaland-the-complete-series-1948-50.thumbs/David%20Hand%27s%20Animaland%2003.%20The%20Cuckoo%20%281948%29_000207.jpg",
+          "airDate": null,
+          "year": 1948,
+          "runtimeSeconds": 519,
+          "videoFile": {
+            "name": "David Hand's Animaland 03. The Cuckoo (1948).mp4",
+            "format": "h.264",
+            "sizeBytes": 51772842,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/david-hands-animaland-the-complete-series-1948-50/David%20Hand%27s%20Animaland%2003.%20The%20Cuckoo%20%281948%29.mp4"
+        },
+        {
+          "archiveID": "david-hands-animaland-the-complete-series-1948-50@e04",
+          "sourceID": "david-hands-animaland-the-complete-series-1948-50",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Ostrich (1949",
+          "overview": null,
+          "stillURL": "https://archive.org/download/david-hands-animaland-the-complete-series-1948-50/david-hands-animaland-the-complete-series-1948-50.thumbs/David%20Hand%27s%20Animaland%2004.%20The%20Ostrich%20%281949%29_000177.jpg",
+          "airDate": null,
+          "year": 1948,
+          "runtimeSeconds": 469,
+          "videoFile": {
+            "name": "David Hand's Animaland 04. The Ostrich (1949).mp4",
+            "format": "h.264",
+            "sizeBytes": 46222830,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/david-hands-animaland-the-complete-series-1948-50/David%20Hand%27s%20Animaland%2004.%20The%20Ostrich%20%281949%29.mp4"
+        },
+        {
+          "archiveID": "david-hands-animaland-the-complete-series-1948-50@e05",
+          "sourceID": "david-hands-animaland-the-complete-series-1948-50",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Australian Platypus (1949",
+          "overview": null,
+          "stillURL": "https://archive.org/download/david-hands-animaland-the-complete-series-1948-50/david-hands-animaland-the-complete-series-1948-50.thumbs/David%20Hand%27s%20Animaland%2005.%20The%20Australian%20Platypus%20%281949%29_000177.jpg",
+          "airDate": null,
+          "year": 1948,
+          "runtimeSeconds": 474,
+          "videoFile": {
+            "name": "David Hand's Animaland 05. The Australian Platypus (1949).mp4",
+            "format": "h.264",
+            "sizeBytes": 47728901,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/david-hands-animaland-the-complete-series-1948-50/David%20Hand%27s%20Animaland%2005.%20The%20Australian%20Platypus%20%281949%29.mp4"
+        },
+        {
+          "archiveID": "david-hands-animaland-the-complete-series-1948-50@e06",
+          "sourceID": "david-hands-animaland-the-complete-series-1948-50",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "It's A Lovely Day (1949",
+          "overview": null,
+          "stillURL": "https://archive.org/download/david-hands-animaland-the-complete-series-1948-50/david-hands-animaland-the-complete-series-1948-50.thumbs/David%20Hand%27s%20Animaland%2006.%20It%27s%20A%20Lovely%20Day%20%281949%29_000177.jpg",
+          "airDate": null,
+          "year": 1948,
+          "runtimeSeconds": 476,
+          "videoFile": {
+            "name": "David Hand's Animaland 06. It's A Lovely Day (1949).mp4",
+            "format": "h.264",
+            "sizeBytes": 47711582,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/david-hands-animaland-the-complete-series-1948-50/David%20Hand%27s%20Animaland%2006.%20It%27s%20A%20Lovely%20Day%20%281949%29.mp4"
+        },
+        {
+          "archiveID": "david-hands-animaland-the-complete-series-1948-50@e07",
+          "sourceID": "david-hands-animaland-the-complete-series-1948-50",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Ginger Nutt's Bee-Bother (1949",
+          "overview": null,
+          "stillURL": "https://archive.org/download/david-hands-animaland-the-complete-series-1948-50/david-hands-animaland-the-complete-series-1948-50.thumbs/David%20Hand%27s%20Animaland%2007.%20Ginger%20Nutt%27s%20Bee-Bother%20%281949%29_000177.jpg",
+          "airDate": null,
+          "year": 1948,
+          "runtimeSeconds": 472,
+          "videoFile": {
+            "name": "David Hand's Animaland 07. Ginger Nutt's Bee-Bother (1949).mp4",
+            "format": "h.264",
+            "sizeBytes": 47519281,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/david-hands-animaland-the-complete-series-1948-50/David%20Hand%27s%20Animaland%2007.%20Ginger%20Nutt%27s%20Bee-Bother%20%281949%29.mp4"
+        },
+        {
+          "archiveID": "david-hands-animaland-the-complete-series-1948-50@e08",
+          "sourceID": "david-hands-animaland-the-complete-series-1948-50",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Ginger Nutt's Christmas Circus (1949",
+          "overview": null,
+          "stillURL": "https://archive.org/download/david-hands-animaland-the-complete-series-1948-50/david-hands-animaland-the-complete-series-1948-50.thumbs/David%20Hand%27s%20Animaland%2008.%20Ginger%20Nutt%27s%20Christmas%20Circus%20%281949%29_000177.jpg",
+          "airDate": null,
+          "year": 1948,
+          "runtimeSeconds": 428,
+          "videoFile": {
+            "name": "David Hand's Animaland 08. Ginger Nutt's Christmas Circus (1949).mp4",
+            "format": "h.264",
+            "sizeBytes": 42540248,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/david-hands-animaland-the-complete-series-1948-50/David%20Hand%27s%20Animaland%2008.%20Ginger%20Nutt%27s%20Christmas%20Circus%20%281949%29.mp4"
+        },
+        {
+          "archiveID": "david-hands-animaland-the-complete-series-1948-50@e09",
+          "sourceID": "david-hands-animaland-the-complete-series-1948-50",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Ginger Nutt's Forest Dragon (1950",
+          "overview": null,
+          "stillURL": "https://archive.org/download/david-hands-animaland-the-complete-series-1948-50/david-hands-animaland-the-complete-series-1948-50.thumbs/David%20Hand%27s%20Animaland%2009.%20Ginger%20Nutt%27s%20Forest%20Dragon%20%281950%29_000147.jpg",
+          "airDate": null,
+          "year": 1948,
+          "runtimeSeconds": 395,
+          "videoFile": {
+            "name": "David Hand's Animaland 09. Ginger Nutt's Forest Dragon (1950).mp4",
+            "format": "h.264",
+            "sizeBytes": 39062976,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/david-hands-animaland-the-complete-series-1948-50/David%20Hand%27s%20Animaland%2009.%20Ginger%20Nutt%27s%20Forest%20Dragon%20%281950%29.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 9,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

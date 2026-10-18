@@ -56,7 +56,7 @@ struct DownloadSheet: View {
         }
         .presentationDetents([.medium, .large])
         .task {
-            versions = await ArchiveVersions.list(itemID: item.archiveID)
+            versions = await ArchiveVersions.list(itemID: item.archiveID, defaultURL: item.videoURLParsed)
             loading = false
         }
     }

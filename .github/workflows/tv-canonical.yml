@@ -85,6 +85,17 @@ jobs:
             --max-minutes ${{ github.event.inputs.max_minutes || '150' }} \
             | tee tvbuild.log
 
+      # Decision 166: an item whose FILES are a whole series or serial
+      # (UFO.complete, Spy Smasher's chapters) becomes a spine of its own.
+      # After the canonical build, which skips these spines, and before the
+      # rights audit and reconcile, which make their series cards. The file
+      # lists are cached; a run fetches at most --limit new or changed items.
+      - name: Series held in one item
+        timeout-minutes: 60
+        run: |
+          python tools/test_bundle_series.py > /dev/null || { python tools/test_bundle_series.py; exit 1; }
+          python tools/build_bundle_series.py --scan --apply --limit 1500 | tee tvbundles.log
+
       # build_canonical_tv rewrites series/*.json from TVmaze, which RESETS posters
       # to TVmaze stills. Re-apply the professional TheTVDB posters/cast on top
       # (upgrade-only) BEFORE reconcile builds the catalog cards, so a rebuild
@@ -122,6 +133,7 @@ jobs:
           echo '```' >> $GITHUB_STEP_SUMMARY
           echo '--- discovery ---'  >> $GITHUB_STEP_SUMMARY; tail -6 tvdisc.log >> $GITHUB_STEP_SUMMARY
           echo '--- build ---'      >> $GITHUB_STEP_SUMMARY; tail -4 tvbuild.log >> $GITHUB_STEP_SUMMARY
+          echo '--- one-item series ---' >> $GITHUB_STEP_SUMMARY; head -2 tvbundles.log >> $GITHUB_STEP_SUMMARY
           echo '--- reconcile ---'  >> $GITHUB_STEP_SUMMARY; tail -6 tvreconcile.log >> $GITHUB_STEP_SUMMARY
           echo '--- repair ---'     >> $GITHUB_STEP_SUMMARY; tail -3 tvrepair.log >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY
@@ -143,7 +155,8 @@ jobs:
                   shared/editorial/tv_discovery.json \
                   shared/editorial/tv_rebuild_report.json \
                   shared/editorial/tv_rights_cache.json \
-                  shared/editorial/tv_rights_removed.csv
+                  shared/editorial/tv_rights_removed.csv \
+                  shared/editorial/bundle_scan.json
           if git diff --cached --quiet; then
             echo "No series changes (catalog still published below)."
             exit 0

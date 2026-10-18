@@ -217,7 +217,7 @@ data class CatalogItem(
     val resolvedPosterURL: String
         get() = posterURL ?: archiveThumb
     val archiveThumb: String
-        get() = "https://archive.org/services/img/$archiveID"
+        get() = "https://archive.org/services/img/${archiveItemOf(archiveID)}"
 
     /**
      * Whether Clip Studio (the Create feature) is offered for this item —
@@ -241,7 +241,7 @@ data class CatalogItem(
 
     /** Canonical archive.org source page for provenance/attribution. */
     val sourceDetailsURL: String
-        get() = "https://archive.org/details/$archiveID"
+        get() = archiveDetailsURL(archiveID, downloadURL)
 
     /**
      * Burned-in provenance credit line for exported clips — the attribution

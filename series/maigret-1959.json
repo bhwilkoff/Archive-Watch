@@ -1,0 +1,973 @@
+{
+  "version": 2,
+  "seriesID": "maigret-1959",
+  "sourceID": "s-01-e-01-murder-in-monmartre-1",
+  "tvmazeID": null,
+  "title": "Maigret",
+  "yearStart": 1959,
+  "yearEnd": null,
+  "overview": "Maigret is a British television series made by the BBC and which – following a pilot episode broadcast in 1959 – ran for 52 episodes from 1960 to 1963. Based on the Maigret stories of Georges Simenon, the series starred Rupert Davies in the title role. Unlike most BBC series produced in the 1960s, all episodes (bar the pilot) have survived intact.",
+  "posterURL": "https://image.tmdb.org/t/p/w500/pskC2szlKUS52mnz4GLrwKcr7Di.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s1e01",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Murder in Monmartre",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S01E01%20-%20Murder%20in%20Monmartre%201_001270.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3178,
+          "videoFile": {
+            "name": "S01E01 - Murder in Monmartre 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 323872201,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S01E01%20-%20Murder%20in%20Monmartre%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s1e02",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Unscheduled Departure",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S01E02%20-%20Unscheduled%20Departure%201_001262.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3179,
+          "videoFile": {
+            "name": "S01E02 - Unscheduled Departure 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 217182443,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S01E02%20-%20Unscheduled%20Departure%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s1e03",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Burglar's Wife",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S01E03%20-%20The%20Burglar%27s%20Wife%201_001264.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3173,
+          "videoFile": {
+            "name": "S01E03 - The Burglar's Wife 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 257635196,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S01E03%20-%20The%20Burglar%27s%20Wife%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s1e04",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Revolver",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S01E04%20-%20The%20Revolver%201_001265.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3181,
+          "videoFile": {
+            "name": "S01E04 - The Revolver 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 238727750,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S01E04%20-%20The%20Revolver%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s1e05",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Old Lady",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S01E05%20-%20The%20Old%20Lady%201_001269.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3184,
+          "videoFile": {
+            "name": "S01E05 - The Old Lady 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 274230282,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S01E05%20-%20The%20Old%20Lady%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s1e06",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Liberty Bar",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S01E06%20-%20Liberty%20Bar%201_001269.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3182,
+          "videoFile": {
+            "name": "S01E06 - Liberty Bar 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 276366109,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S01E06%20-%20Liberty%20Bar%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s1e07",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "A Man of Quality",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S01E07%20-%20A%20Man%20of%20Quality%201_001270.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3179,
+          "videoFile": {
+            "name": "S01E07 - A Man of Quality 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 313263363,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S01E07%20-%20A%20Man%20of%20Quality%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s1e08",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "My Friend the Inspector",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S01E08%20-%20My%20Friend%20the%20Inspector%201_001267.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3180,
+          "videoFile": {
+            "name": "S01E08 - My Friend the Inspector 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 291120276,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S01E08%20-%20My%20Friend%20the%20Inspector%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s1e09",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Mistake",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S01E09%20-%20The%20Mistake%201_001267.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3185,
+          "videoFile": {
+            "name": "S01E09 - The Mistake 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 294239540,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S01E09%20-%20The%20Mistake%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s1e10",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "On Holiday",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S01E10%20-%20On%20Holiday%201_001440.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3126,
+          "videoFile": {
+            "name": "S01E10 - On Holiday 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 320991999,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S01E10%20-%20On%20Holiday%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s1e11",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Experts",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S01E11%20-%20The%20Experts%201_001465.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3182,
+          "videoFile": {
+            "name": "S01E11 - The Experts 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 327580290,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S01E11%20-%20The%20Experts%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s1e12",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Cactus",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S01E12%20-%20The%20Cactus%201_001464.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3179,
+          "videoFile": {
+            "name": "S01E12 - The Cactus 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 301704807,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S01E12%20-%20The%20Cactus%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s1e13",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "The Children's Party",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S01E13%20-%20The%20Children%27s%20Party%201_001468.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3185,
+          "videoFile": {
+            "name": "S01E13 - The Children's Party 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 313267401,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S01E13%20-%20The%20Children%27s%20Party%201.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s2e01",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Shadow Play",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S02E01%20-%20Shadow%20Play%201_001455.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3159,
+          "videoFile": {
+            "name": "S02E01 - Shadow Play 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 336969326,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S02E01%20-%20Shadow%20Play%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s2e02",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "The Simple Case",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S02E02%20-%20The%20Simple%20Case%201_001391.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3024,
+          "videoFile": {
+            "name": "S02E02 - The Simple Case 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 257189442,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S02E02%20-%20The%20Simple%20Case%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s2e03",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Death of a Butcher",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S02E03%20-%20Death%20of%20a%20Butcher%201_001399.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3030,
+          "videoFile": {
+            "name": "S02E03 - Death of a Butcher 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 305758077,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S02E03%20-%20Death%20of%20a%20Butcher%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s2e04",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "The Winning Ticket",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S02E04%20-%20The%20Winning%20Ticket%201_001412.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3056,
+          "videoFile": {
+            "name": "S02E04 - The Winning Ticket 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 318243416,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S02E04%20-%20The%20Winning%20Ticket%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s2e05",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Inspector Lognon's Triumph",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S02E05%20-%20Inspector%20Lognon%27s%20Triumph%201_001408.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3056,
+          "videoFile": {
+            "name": "S02E05 - Inspector Lognon's Triumph 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 344180136,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S02E05%20-%20Inspector%20Lognon%27s%20Triumph%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s2e09",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "The Liars",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S02E09%20-%20The%20Liars%201_001408.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3053,
+          "videoFile": {
+            "name": "S02E09 - The Liars 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 299018940,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S02E09%20-%20The%20Liars%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s2e10",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "A Crime for Christmas",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S02E10%20-%20A%20Crime%20for%20Christmas%201_001646.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3021,
+          "videoFile": {
+            "name": "S02E10 - A Crime for Christmas 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 290486394,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S02E10%20-%20A%20Crime%20for%20Christmas%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s2e11",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "The Reluctant Witness",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S02E11%20-%20The%20Reluctant%20Witness%201_001644.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3005,
+          "videoFile": {
+            "name": "S02E11 - The Reluctant Witness 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 303068162,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S02E11%20-%20The%20Reluctant%20Witness%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s2e12",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "The White Hat",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S02E12%20-%20The%20White%20Hat%201_001648.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3021,
+          "videoFile": {
+            "name": "S02E12 - The White Hat 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 238439643,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S02E12%20-%20The%20White%20Hat%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s2e13",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "Murder on Monday",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S02E13%20-%20Murder%20on%20Monday%201_001699.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3112,
+          "videoFile": {
+            "name": "S02E13 - Murder on Monday 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 291376043,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S02E13%20-%20Murder%20on%20Monday%201.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s3e01",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "Voices from the Past",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S03E01%20-%20Voices%20from%20the%20Past%201_001632.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 2996,
+          "videoFile": {
+            "name": "S03E01 - Voices from the Past 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 325229473,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S03E01%20-%20Voices%20from%20the%20Past%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s3e02",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 3,
+          "episodeNumber": 2,
+          "title": "The Madman of Vervac",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S03E02%20-%20The%20Madman%20of%20Vervac%201_001646.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3008,
+          "videoFile": {
+            "name": "S03E02 - The Madman of Vervac 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 307219951,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S03E02%20-%20The%20Madman%20of%20Vervac%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s3e03",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 3,
+          "episodeNumber": 3,
+          "title": "The Countess",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S03E03%20-%20The%20Countess%201_001633.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 2988,
+          "videoFile": {
+            "name": "S03E03 - The Countess 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 279035446,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S03E03%20-%20The%20Countess%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s3e04",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 3,
+          "episodeNumber": 4,
+          "title": "The Wedding Guest",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S03E04%20-%20The%20Wedding%20Guest%201_001634.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 2998,
+          "videoFile": {
+            "name": "S03E04 - The Wedding Guest 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 305403279,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S03E04%20-%20The%20Wedding%20Guest%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s3e05",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 3,
+          "episodeNumber": 5,
+          "title": "High Politics",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S03E05%20-%20High%20Politics%201_001653.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3030,
+          "videoFile": {
+            "name": "S03E05 - High Politics 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 353284965,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S03E05%20-%20High%20Politics%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s3e06",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 3,
+          "episodeNumber": 6,
+          "title": "Love from Felicie",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S03E06%20-%20Love%20from%20Felicie%201_001667.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3055,
+          "videoFile": {
+            "name": "S03E06 - Love from Felicie 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 297651323,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S03E06%20-%20Love%20from%20Felicie%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s3e07",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 3,
+          "episodeNumber": 7,
+          "title": "The Dirty House",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S03E07%20-%20The%20Dirty%20House%201_001651.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3027,
+          "videoFile": {
+            "name": "S03E07 - The Dirty House 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 329995190,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S03E07%20-%20The%20Dirty%20House%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s3e08",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 3,
+          "episodeNumber": 8,
+          "title": "The Crystal Ball",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S03E08%20-%20The%20Crystal%20Ball%201_001646.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3014,
+          "videoFile": {
+            "name": "S03E08 - The Crystal Ball 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 301816484,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S03E08%20-%20The%20Crystal%20Ball%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s3e09",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 3,
+          "episodeNumber": 9,
+          "title": "The Crooked Castle",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S03E09%20-The%20Crooked%20Castle%201_001693.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3101,
+          "videoFile": {
+            "name": "S03E09 -The Crooked Castle 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 270610562,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S03E09%20-The%20Crooked%20Castle%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s3e10",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 3,
+          "episodeNumber": 10,
+          "title": "Death in Mind",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S03E10%20-%20Death%20in%20Mind%201_001616.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 2965,
+          "videoFile": {
+            "name": "S03E10 - Death in Mind 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 248834497,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S03E10%20-%20Death%20in%20Mind%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s3e11",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 3,
+          "episodeNumber": 11,
+          "title": "Seven Little Crosses",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S03E11%20-%20Seven%20Little%20Crosses%201_001935.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 2965,
+          "videoFile": {
+            "name": "S03E11 - Seven Little Crosses 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 319087332,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S03E11%20-%20Seven%20Little%20Crosses%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s3e12",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 3,
+          "episodeNumber": 12,
+          "title": "The Trap",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S03E12%20-%20The%20Trap%201_001996.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3068,
+          "videoFile": {
+            "name": "S03E12 - The Trap 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 245736375,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S03E12%20-%20The%20Trap%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s3e13",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 3,
+          "episodeNumber": 13,
+          "title": "The Amateurs",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S03E13%20-%20The%20Amateurs%201_001950.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 2995,
+          "videoFile": {
+            "name": "S03E13 - The Amateurs 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 237755213,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S03E13%20-%20The%20Amateurs%201.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s4e01",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 4,
+          "episodeNumber": 1,
+          "title": "Poor Cecile",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S04E01%20-%20Poor%20Cecile%201_001961.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3013,
+          "videoFile": {
+            "name": "S04E01 - Poor Cecile 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 256563497,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S04E01%20-%20Poor%20Cecile%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s4e02",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 4,
+          "episodeNumber": 2,
+          "title": "The Fontenay Murders",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S04E02%20-%20The%20Fontenay%20Murders%201_002060.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3168,
+          "videoFile": {
+            "name": "S04E02 - The Fontenay Murders 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 260628920,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S04E02%20-%20The%20Fontenay%20Murders%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s4e03",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 4,
+          "episodeNumber": 3,
+          "title": "The Lost Life",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S04E03%20-%20The%20Lost%20Life%201_001973.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3032,
+          "videoFile": {
+            "name": "S04E03 - The Lost Life 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 253833505,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S04E03%20-%20The%20Lost%20Life%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s4e04",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 4,
+          "episodeNumber": 4,
+          "title": "The Cellars of the Majestic",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S04E04%20-%20The%20Cellars%20of%20the%20Majestic%201_001953.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3005,
+          "videoFile": {
+            "name": "S04E04 - The Cellars of the Majestic 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 242154633,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S04E04%20-%20The%20Cellars%20of%20the%20Majestic%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s4e05",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 4,
+          "episodeNumber": 5,
+          "title": "A Man Condemned",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S04E05%20-%20A%20Man%20Condemned%201_001959.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3008,
+          "videoFile": {
+            "name": "S04E05 - A Man Condemned 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 238701102,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S04E05%20-%20A%20Man%20Condemned%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s4e06",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 4,
+          "episodeNumber": 6,
+          "title": "The Flemish Shop",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S04E06%20-%20The%20Flemish%20Shop%201_001944.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 2985,
+          "videoFile": {
+            "name": "S04E06 - The Flemish Shop 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 257807581,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S04E06%20-%20The%20Flemish%20Shop%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s4e07",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 4,
+          "episodeNumber": 7,
+          "title": "A Taste of Power",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S04E07%20-%20A%20Taste%20of%20Power%201_001955.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3008,
+          "videoFile": {
+            "name": "S04E07 - A Taste of Power 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 246101523,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S04E07%20-%20A%20Taste%20of%20Power%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s4e08",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 4,
+          "episodeNumber": 8,
+          "title": "The Log of the Cap Fagnet",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S04E08%20-%20The%20Log%20of%20the%20Cap%20Fagnet%201_001914.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 2944,
+          "videoFile": {
+            "name": "S04E08 - The Log of the Cap Fagnet 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 257056663,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S04E08%20-%20The%20Log%20of%20the%20Cap%20Fagnet%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s4e09",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 4,
+          "episodeNumber": 9,
+          "title": "The Judge's House",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S04E09%20-%20The%20Judge%27s%20House%201_001957.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3005,
+          "videoFile": {
+            "name": "S04E09 - The Judge's House 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 251325228,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S04E09%20-%20The%20Judge%27s%20House%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s4e10",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 4,
+          "episodeNumber": 10,
+          "title": "Another World",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S04E10%20-%20Another%20World%201_001874.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 2875,
+          "videoFile": {
+            "name": "S04E10 - Another World 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 229629374,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S04E10%20-%20Another%20World%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s4e11",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 4,
+          "episodeNumber": 11,
+          "title": "The Crime at Lock 14",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S04E11%20-%20The%20Crime%20at%20Lock%2014%201_001953.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3001,
+          "videoFile": {
+            "name": "S04E11 - The Crime at Lock 14 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 256540689,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S04E11%20-%20The%20Crime%20at%20Lock%2014%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s4e12",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 4,
+          "episodeNumber": 12,
+          "title": "Peter the Lett",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S04E12%20-%20Peter%20the%20Lett%201_002021.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3106,
+          "videoFile": {
+            "name": "S04E12 - Peter the Lett 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 267603329,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S04E12%20-%20Peter%20the%20Lett%201.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-01-murder-in-monmartre-1@s4e13",
+          "sourceID": "s-01-e-01-murder-in-monmartre-1",
+          "seasonNumber": 4,
+          "episodeNumber": 13,
+          "title": "Maigret's Little Joke",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/s-01-e-01-murder-in-monmartre-1.thumbs/S04E13%20-%20Maigret%27s%20Little%20Joke%201_001958.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 3000,
+          "videoFile": {
+            "name": "S04E13 - Maigret's Little Joke 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 275501762,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-01-murder-in-monmartre-1/S04E13%20-%20Maigret%27s%20Little%20Joke%201.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 49,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "tmdb",
+  "cast": []
+}

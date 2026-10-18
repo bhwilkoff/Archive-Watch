@@ -1,0 +1,236 @@
+{
+  "version": 2,
+  "seriesID": "the-veil-1958",
+  "sourceID": "the-veil-episode-4-the-doctors",
+  "tvmazeID": null,
+  "title": "The Veil",
+  "yearStart": 1958,
+  "yearEnd": null,
+  "overview": "The Veil is an American horror/suspense anthology television series produced in 1958 by Hal Roach Studios. The series is hosted by Boris Karloff, who also acts in every episode but one. Episode plots allegedly were based upon real-life reports of supernatural happenings and the unexplained. Ten of the 11 episodes begin and end with Karloff standing in front of a roaring fireplace and inviting viewers to find out what lies \"behind the veil\".",
+  "posterURL": "https://archive.org/services/img/the-veil-episode-4-the-doctors",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-veil-episode-4-the-doctors@e01",
+          "sourceID": "the-veil-episode-4-the-doctors",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Vision of Crime",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-veil-episode-4-the-doctors/the-veil-episode-4-the-doctors.thumbs/The%20Veil%20-%20Episode%201%20-%20%20Vision%20of%20Crime_000534.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1583,
+          "videoFile": {
+            "name": "The Veil - Episode 1 -  Vision of Crime.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 90313437,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-veil-episode-4-the-doctors/The%20Veil%20-%20Episode%201%20-%20%20Vision%20of%20Crime.mp4"
+        },
+        {
+          "archiveID": "the-veil-episode-4-the-doctors@e02",
+          "sourceID": "the-veil-episode-4-the-doctors",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Girl on the Road",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-veil-episode-4-the-doctors/the-veil-episode-4-the-doctors.thumbs/The%20Veil%20-%20Episode%202%20-%20Girl%20on%20the%20Road_000536.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1585,
+          "videoFile": {
+            "name": "The Veil - Episode 2 - Girl on the Road.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 93420938,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-veil-episode-4-the-doctors/The%20Veil%20-%20Episode%202%20-%20Girl%20on%20the%20Road.mp4"
+        },
+        {
+          "archiveID": "the-veil-episode-4-the-doctors@e03",
+          "sourceID": "the-veil-episode-4-the-doctors",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Food on the Table",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-veil-episode-4-the-doctors/the-veil-episode-4-the-doctors.thumbs/The%20Veil%20-%20Episode%203%20-%20Food%20on%20the%20Table_000535.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1574,
+          "videoFile": {
+            "name": "The Veil - Episode 3 - Food on the Table.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 85653433,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-veil-episode-4-the-doctors/The%20Veil%20-%20Episode%203%20-%20Food%20on%20the%20Table.mp4"
+        },
+        {
+          "archiveID": "the-veil-episode-4-the-doctors@e04",
+          "sourceID": "the-veil-episode-4-the-doctors",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Doctors",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-veil-episode-4-the-doctors/the-veil-episode-4-the-doctors.thumbs/The%20Veil%20-%20Episode%204%20-%20The%20Doctors_000474.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1524,
+          "videoFile": {
+            "name": "The Veil - Episode 4 - The Doctors.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 97088769,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-veil-episode-4-the-doctors/The%20Veil%20-%20Episode%204%20-%20The%20Doctors.mp4"
+        },
+        {
+          "archiveID": "the-veil-episode-4-the-doctors@e05",
+          "sourceID": "the-veil-episode-4-the-doctors",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Crystal Ball",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-veil-episode-4-the-doctors/the-veil-episode-4-the-doctors.thumbs/The%20Veil%20-%20Episode%205%20-%20The%20Crystal%20Ball_000534.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1583,
+          "videoFile": {
+            "name": "The Veil - Episode 5 - The Crystal Ball.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 96545604,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-veil-episode-4-the-doctors/The%20Veil%20-%20Episode%205%20-%20The%20Crystal%20Ball.mp4"
+        },
+        {
+          "archiveID": "the-veil-episode-4-the-doctors@e06",
+          "sourceID": "the-veil-episode-4-the-doctors",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Genesis",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-veil-episode-4-the-doctors/the-veil-episode-4-the-doctors.thumbs/The%20Veil%20-%20Episode%206%20-%20Genesis_000644.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1753,
+          "videoFile": {
+            "name": "The Veil - Episode 6 - Genesis.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 75816076,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-veil-episode-4-the-doctors/The%20Veil%20-%20Episode%206%20-%20Genesis.mp4"
+        },
+        {
+          "archiveID": "the-veil-episode-4-the-doctors@e07",
+          "sourceID": "the-veil-episode-4-the-doctors",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Destination Nightmare",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-veil-episode-4-the-doctors/the-veil-episode-4-the-doctors.thumbs/The%20Veil%20-%20Episode%207%20-%20Destination%20Nightmare_000478.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1515,
+          "videoFile": {
+            "name": "The Veil - Episode 7 - Destination Nightmare.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 88686521,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-veil-episode-4-the-doctors/The%20Veil%20-%20Episode%207%20-%20Destination%20Nightmare.mp4"
+        },
+        {
+          "archiveID": "the-veil-episode-4-the-doctors@e08",
+          "sourceID": "the-veil-episode-4-the-doctors",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Summer Heat",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-veil-episode-4-the-doctors/the-veil-episode-4-the-doctors.thumbs/The%20Veil%20-%20Episode%208%20-%20Summer%20Heat_000536.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1587,
+          "videoFile": {
+            "name": "The Veil - Episode 8 - Summer Heat.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 89634473,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-veil-episode-4-the-doctors/The%20Veil%20-%20Episode%208%20-%20Summer%20Heat.mp4"
+        },
+        {
+          "archiveID": "the-veil-episode-4-the-doctors@e09",
+          "sourceID": "the-veil-episode-4-the-doctors",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Return of Madame Vernoy",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-veil-episode-4-the-doctors/the-veil-episode-4-the-doctors.thumbs/The%20Veil%20-%20Episode%209%20-%20The%20Return%20of%20Madame%20Vernoy_000534.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1584,
+          "videoFile": {
+            "name": "The Veil - Episode 9 - The Return of Madame Vernoy.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 97665674,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-veil-episode-4-the-doctors/The%20Veil%20-%20Episode%209%20-%20The%20Return%20of%20Madame%20Vernoy.mp4"
+        },
+        {
+          "archiveID": "the-veil-episode-4-the-doctors@e10",
+          "sourceID": "the-veil-episode-4-the-doctors",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Jack the Ripper",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-veil-episode-4-the-doctors/the-veil-episode-4-the-doctors.thumbs/The%20Veil%20-%20Episode%2010%20-%20Jack%20the%20Ripper_000534.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1579,
+          "videoFile": {
+            "name": "The Veil - Episode 10 - Jack the Ripper.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 90812566,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-veil-episode-4-the-doctors/The%20Veil%20-%20Episode%2010%20-%20Jack%20the%20Ripper.mp4"
+        },
+        {
+          "archiveID": "the-veil-episode-4-the-doctors@e11",
+          "sourceID": "the-veil-episode-4-the-doctors",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Whatever Happened to Peggy",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-veil-episode-4-the-doctors/the-veil-episode-4-the-doctors.thumbs/The%20Veil%20-%20Episode%2011%20-%20Whatever%20Happened%20to%20Peggy_000476.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1452,
+          "videoFile": {
+            "name": "The Veil - Episode 11 - Whatever Happened to Peggy.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 72692593,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-veil-episode-4-the-doctors/The%20Veil%20-%20Episode%2011%20-%20Whatever%20Happened%20to%20Peggy.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 11,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

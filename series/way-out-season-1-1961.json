@@ -1,0 +1,202 @@
+{
+  "version": 2,
+  "seriesID": "way-out-season-1-1961",
+  "sourceID": "way-out-e-1-1961-colorized-576p-sd",
+  "tvmazeID": null,
+  "title": "Way Out – Season 1",
+  "yearStart": 1961,
+  "yearEnd": null,
+  "overview": "Way Out is a 1961 American horror, fantasy, and science fiction television anthology series hosted by writer Roald Dahl.The macabre black-and-white 25-minute shows were introduced by Dahl, his face projected in a disconcerting hall of mirrors effect, dryly delivering a brief introductory monologue, expounding on such unusual subjects as undertakers or frogs or murdering a romantic rival with ground tiger's whiskers.",
+  "posterURL": "https://archive.org/download/archivewatch-covers/way-out-e-1-1961-colorized-576p-sd.461ff70b.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Horror",
+    "Sci-Fi",
+    "Fantasy"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "way-out-e-1-1961-colorized-576p-sd@e01",
+          "sourceID": "way-out-e-1-1961-colorized-576p-sd",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Episode 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/way-out-e-1-1961-colorized-576p-sd/way-out-e-1-1961-colorized-576p-sd.thumbs/way%20out-%20e1-1961-colorized-576p-sd_000596.jpg",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1653,
+          "videoFile": {
+            "name": "way out- e1-1961-colorized-576p-sd.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 159061189,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/way-out-e-1-1961-colorized-576p-sd/way%20out-%20e1-1961-colorized-576p-sd.ia.mp4"
+        },
+        {
+          "archiveID": "way-out-e-1-1961-colorized-576p-sd@e06",
+          "sourceID": "way-out-e-1-1961-colorized-576p-sd",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Episode 6",
+          "overview": null,
+          "stillURL": "https://archive.org/download/way-out-e-1-1961-colorized-576p-sd/way-out-e-1-1961-colorized-576p-sd.thumbs/way%20out-%20e6-1961-colorized-576p-sd_000654.jpg",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1906,
+          "videoFile": {
+            "name": "way out- e6-1961-colorized-576p-sd.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 184356247,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/way-out-e-1-1961-colorized-576p-sd/way%20out-%20e6-1961-colorized-576p-sd.ia.mp4"
+        },
+        {
+          "archiveID": "way-out-e-1-1961-colorized-576p-sd@e07",
+          "sourceID": "way-out-e-1-1961-colorized-576p-sd",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Episode 7",
+          "overview": null,
+          "stillURL": "https://archive.org/download/way-out-e-1-1961-colorized-576p-sd/way-out-e-1-1961-colorized-576p-sd.thumbs/way%20out-%20e7-1961-colorized-576p-sd_000541.jpg",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1491,
+          "videoFile": {
+            "name": "way out- e7-1961-colorized-576p-sd.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 143124387,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/way-out-e-1-1961-colorized-576p-sd/way%20out-%20e7-1961-colorized-576p-sd.ia.mp4"
+        },
+        {
+          "archiveID": "way-out-e-1-1961-colorized-576p-sd@e08",
+          "sourceID": "way-out-e-1-1961-colorized-576p-sd",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Episode 8",
+          "overview": null,
+          "stillURL": "https://archive.org/download/way-out-e-1-1961-colorized-576p-sd/way-out-e-1-1961-colorized-576p-sd.thumbs/way%20out-%20e8-1961-colorized-576p-sd_000534.jpg",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1529,
+          "videoFile": {
+            "name": "way out- e8-1961-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 146888573,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/way-out-e-1-1961-colorized-576p-sd/way%20out-%20e8-1961-colorized-576p-sd.mp4"
+        },
+        {
+          "archiveID": "way-out-e-1-1961-colorized-576p-sd@e09",
+          "sourceID": "way-out-e-1-1961-colorized-576p-sd",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Episode 9",
+          "overview": null,
+          "stillURL": "https://archive.org/download/way-out-e-1-1961-colorized-576p-sd/way-out-e-1-1961-colorized-576p-sd.thumbs/way%20out-%20e9-1961-colorized-576p-sd_000654.jpg",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1770,
+          "videoFile": {
+            "name": "way out- e9-1961-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 171416693,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/way-out-e-1-1961-colorized-576p-sd/way%20out-%20e9-1961-colorized-576p-sd.mp4"
+        },
+        {
+          "archiveID": "way-out-e-1-1961-colorized-576p-sd@e10",
+          "sourceID": "way-out-e-1-1961-colorized-576p-sd",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Episode 10",
+          "overview": null,
+          "stillURL": "https://archive.org/download/way-out-e-1-1961-colorized-576p-sd/way-out-e-1-1961-colorized-576p-sd.thumbs/way%20out-%20e10-1961-colorized-576p-sd_000594.jpg",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1695,
+          "videoFile": {
+            "name": "way out- e10-1961-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 163260147,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/way-out-e-1-1961-colorized-576p-sd/way%20out-%20e10-1961-colorized-576p-sd.mp4"
+        },
+        {
+          "archiveID": "way-out-e-1-1961-colorized-576p-sd@e11",
+          "sourceID": "way-out-e-1-1961-colorized-576p-sd",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Episode 11",
+          "overview": null,
+          "stillURL": "https://archive.org/download/way-out-e-1-1961-colorized-576p-sd/way-out-e-1-1961-colorized-576p-sd.thumbs/way%20out-%20e11-1961-colorized-576p-sd_000654.jpg",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1764,
+          "videoFile": {
+            "name": "way out- e11-1961-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 169658079,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/way-out-e-1-1961-colorized-576p-sd/way%20out-%20e11-1961-colorized-576p-sd.mp4"
+        },
+        {
+          "archiveID": "way-out-e-1-1961-colorized-576p-sd@e12",
+          "sourceID": "way-out-e-1-1961-colorized-576p-sd",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Episode 12",
+          "overview": null,
+          "stillURL": "https://archive.org/download/way-out-e-1-1961-colorized-576p-sd/way-out-e-1-1961-colorized-576p-sd.thumbs/way%20out-%20e12-1961-colorized-576p-sd_000654.jpg",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1792,
+          "videoFile": {
+            "name": "way out- e12-1961-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 174011557,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/way-out-e-1-1961-colorized-576p-sd/way%20out-%20e12-1961-colorized-576p-sd.mp4"
+        },
+        {
+          "archiveID": "way-out-e-1-1961-colorized-576p-sd@e14",
+          "sourceID": "way-out-e-1-1961-colorized-576p-sd",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Episode 14",
+          "overview": null,
+          "stillURL": "https://archive.org/download/way-out-e-1-1961-colorized-576p-sd/way-out-e-1-1961-colorized-576p-sd.thumbs/way%20out-%20e14-1961-colorized-576p-sd_000594.jpg",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1732,
+          "videoFile": {
+            "name": "way out- e14-1961-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 166183631,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/way-out-e-1-1961-colorized-576p-sd/way%20out-%20e14-1961-colorized-576p-sd.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 9,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "generated",
+  "cast": []
+}
