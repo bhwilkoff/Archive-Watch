@@ -22,31 +22,13 @@
       "seasonNumber": 1,
       "episodes": [
         {
-          "archiveID": "bat-masterson-tv-1958-s01e01-double-showdown",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Bat Masterson TV 1958 colorized s01e01 Double Showdown",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/bat-masterson-tv-1958-s01e01-double-showdown",
-          "airDate": null,
-          "year": 1958,
-          "runtimeSeconds": 1558,
-          "videoFile": {
-            "name": "Bat Masterson TV 1958 colorized s01e01 Double Showdown.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 193572127,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/bat-masterson-tv-1958-s01e01-double-showdown/Bat%20Masterson%20TV%201958%20colorized%20s01e01%20Double%20Showdown.mp4"
-        },
-        {
           "archiveID": "bat-masterson-s-01-e-01-double-showdown-colorized-ai",
           "seasonNumber": 1,
           "episodeNumber": 1,
-          "title": "Double Showdown (Pilot)",
+          "title": "Double Showdown",
           "overview": "Bat responds to cry for help when a friend's small gambling house is threatened by rival casino owned by Big Keel Roberts. Roberts suggest that he and Bat play one hand of poker, with the winner gaining ownership of both casinos.",
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/532/1331935.jpg",
-          "airDate": "1958-10-08",
+          "airDate": null,
           "year": 1958,
           "runtimeSeconds": 1800,
           "videoFile": {
@@ -56,6 +38,24 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/bat-masterson-s-01-e-01-double-showdown-colorized-ai/Bat%20Masterson%20S01E01%20Double%20Showdown%20%28Colorized%2CAI%29.mp4"
+        },
+        {
+          "archiveID": "bat-masterson-tv-1958-s01e01-double-showdown",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Double Showdown (Pilot)",
+          "overview": "Bat responds to cry for help when a friend's small gambling house is threatened by rival casino owned by Big Keel Roberts. Roberts suggest that he and Bat play one hand of poker, with the winner gaining ownership of both casinos.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/532/1331935.jpg",
+          "airDate": "1958-10-08",
+          "year": 1958,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Bat Masterson TV 1958 colorized s01e01 Double Showdown.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 193572127,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/bat-masterson-tv-1958-s01e01-double-showdown/Bat%20Masterson%20TV%201958%20colorized%20s01e01%20Double%20Showdown.mp4"
         },
         {
           "archiveID": "bat-masterson-colorized-s-1e-4-stampede-at-tent-city",
@@ -130,8 +130,5 @@
       "order": 0,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256364/photo/63ac8ceeb8504.jpg"
     }
-  ],
-  "seriesImdbID": "tt0052445",
-  "canonicalEpisodeCount": 108,
-  "canonicalSeasons": 3
+  ]
 }
