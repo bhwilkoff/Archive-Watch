@@ -235,6 +235,14 @@ someone opens App Behavior Analysis and presses **Run analysis**. The 1.0.77
 package sat for an hour waiting on a queue it had never joined. After the
 upload: static analysis, then App Behavior Analysis -> Run analysis -> "queued".
 
+**From 2026-10-01 a package needs `rsg_version=1.3` and a minimum firmware of
+15.1** (found 2026-10-19, 1.0.78). Static analysis reports a manifest without
+1.3 as an ERROR, and the firmware list starts at v15.1.0 b1. The field's own
+text says each device runs the highest package it can, so a Roku below 15.1
+keeps 1.0.77 (floor v8.0.0 b1) and gets no further updates. RSG 1.3 was checked
+on the Stick 4K (16.0.4) before upload: Home drew 35 rows and 26 Men's series
+screen opened with no console errors.
+
 ## The sequence
 
 1. ~~Owner runs `genkey` and stores the password outside the repo.~~ DONE —
