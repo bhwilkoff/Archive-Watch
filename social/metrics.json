@@ -3555,6 +3555,53 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxq43uod4a2r",
+   "platform": "bluesky",
+   "id": "big_bluff",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-13T03:35:55.333096+00:00",
+   "sampled": "2026-10-19T20:34:43.139926+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3my66tcvs4p2q",
+   "platform": "bluesky",
+   "id": "gov.ntis.ava18577vnb1",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-18T18:01:57.906180+00:00",
+   "sampled": "2026-10-19T20:34:43.139926+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117463226009205041",
+   "platform": "mastodon",
+   "id": "gov.ntis.ava18577vnb1",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-18T18:01:57.906180+00:00",
+   "sampled": "2026-10-19T20:34:43.139926+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }
