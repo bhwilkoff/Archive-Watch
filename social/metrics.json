@@ -3508,6 +3508,53 @@
     "reposts": 0,
     "replies": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxplby6bk32q",
+   "platform": "bluesky",
+   "id": "silent-the-centaurs",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-12T22:35:02.335570+00:00",
+   "sampled": "2026-10-19T01:06:52.359488+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117430322785894735",
+   "platform": "mastodon",
+   "id": "silent-the-centaurs",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-12T22:35:02.335570+00:00",
+   "sampled": "2026-10-19T01:06:52.359488+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3my4essfm522m",
+   "platform": "bluesky",
+   "id": "rpsoundofastone",
+   "slot": "from-the-vaults",
+   "format": "card",
+   "window": "24h",
+   "posted": "2026-10-18T00:43:59.598812+00:00",
+   "sampled": "2026-10-19T01:06:52.359488+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }
