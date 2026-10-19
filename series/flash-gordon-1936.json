@@ -270,7 +270,32 @@
   ],
   "episodesCount": 13,
   "canonicalEpisodesCount": null,
-  "tvdbID": null,
+  "tvdbID": "254867",
   "artworkSource": "generated",
-  "cast": []
+  "cast": [
+    {
+      "name": "Buster Crabbe",
+      "character": "Flash Gordon",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/377771/photo/675163b286aa2.jpg"
+    },
+    {
+      "name": "Jean Rogers",
+      "character": "Dale Arden",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/627087/5ecefa079caea.jpg"
+    },
+    {
+      "name": "Frank Shannon",
+      "character": "Dr. Alexis Zarko",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Charles Middleton",
+      "character": "Ming the Merciless",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/293796.jpg"
+    }
+  ]
 }

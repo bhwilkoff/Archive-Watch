@@ -306,7 +306,26 @@
   ],
   "episodesCount": 15,
   "canonicalEpisodesCount": null,
-  "tvdbID": null,
+  "tvdbID": "196291",
   "artworkSource": "generated",
-  "cast": []
+  "cast": [
+    {
+      "name": "Tom Tyler",
+      "character": "Godfrey Prescott / The Phantom",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/354113/photo/66ab253610ec6.jpg"
+    },
+    {
+      "name": "Jeanne Bates",
+      "character": "Diana Palmer",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/260648/photo/6451427c8bca7.jpg"
+    },
+    {
+      "name": "Ace the Wonder Dog",
+      "character": "Devil",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/8167262/5ea86bfdc714a.jpg"
+    }
+  ]
 }

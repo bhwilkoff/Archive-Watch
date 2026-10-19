@@ -7,7 +7,7 @@
   "yearStart": 1977,
   "yearEnd": null,
   "overview": "Every episode of the 1977–1982 television series investigating paranormal mysteries, hosted and narrated by Leonard Nimoy.",
-  "posterURL": "https://archive.org/services/img/In-Search-Of-complete-series",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/71309-1.jpg",
   "backdropURL": null,
   "genres": [
     "Mystery"
@@ -2784,7 +2784,26 @@
   ],
   "episodesCount": 144,
   "canonicalEpisodesCount": null,
-  "tvdbID": null,
-  "artworkSource": "archive",
-  "cast": []
+  "tvdbID": "71309",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Leonard Nimoy",
+      "character": "Host (1977 - 1982)",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/253725/62087665.jpg"
+    },
+    {
+      "name": "Mitch Pileggi",
+      "character": "Host (2002)",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Zachary Quinto",
+      "character": "Host (2018-)",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/268766/25868241.jpg"
+    }
+  ]
 }

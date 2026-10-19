@@ -6,7 +6,7 @@
   "title": "Land of the Lost",
   "yearStart": 1974,
   "yearEnd": null,
-  "overview": null,
+  "overview": "Rick Marshall and his children Will and Holly were on a weekend expedition rafting trough a river when an enourmous earthquake diverts them to an eclectic alien world inhabited by dinosaurs, chimpanzee-like cavemen called Pakuni, and aggressive, humanoid creatures called Sleestak.",
   "posterURL": "https://archive.org/download/archivewatch-covers/LotLFullSeries.fd52b359.jpg",
   "backdropURL": null,
   "genres": [],
@@ -848,7 +848,50 @@
   ],
   "episodesCount": 43,
   "canonicalEpisodesCount": null,
-  "tvdbID": null,
+  "tvdbID": "71177",
   "artworkSource": "generated",
-  "cast": []
+  "cast": [
+    {
+      "name": "Kathy Coleman",
+      "character": "Holly Marshall",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/7451.jpg"
+    },
+    {
+      "name": "Spencer Milligan",
+      "character": "Park Ranger Rick Marshall",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/7452.jpg"
+    },
+    {
+      "name": "Ron Harper",
+      "character": "Uncle Jack",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/7453.jpg"
+    },
+    {
+      "name": "Wesley Eure",
+      "character": "Will Marshall",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Philip Paley",
+      "character": "Cha-Ka",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Sharon Baird",
+      "character": "Sa",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Jon Locke",
+      "character": "Sleestack Leader",
+      "order": 6,
+      "profilePath": null
+    }
+  ]
 }

@@ -4618,7 +4618,44 @@
   ],
   "episodesCount": 240,
   "canonicalEpisodesCount": null,
-  "tvdbID": null,
+  "tvdbID": "71575",
   "artworkSource": "generated",
-  "cast": []
+  "cast": [
+    {
+      "name": "Jerry Mathers",
+      "character": "Theodore \"Beaver\" Cleaver",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/10665.jpg"
+    },
+    {
+      "name": "Barbara Billingsley",
+      "character": "June Cleaver",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/319294/photo/6071f1ef8a2c1.jpg"
+    },
+    {
+      "name": "Hugh Beaumont",
+      "character": "Ward Cleaver",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/289550/photo/6517b21e2ea27.jpg"
+    },
+    {
+      "name": "Tony Dow",
+      "character": "Wallace Cleaver",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257843/photo/62f291dddc2f9.jpg"
+    },
+    {
+      "name": "Ken Osmond",
+      "character": "Eddie Haskell",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/319144/photo/635c26e4c7ed2.jpg"
+    },
+    {
+      "name": "Frank Bank",
+      "character": "Clarence \"Lumpy\" Rutherford",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/199811.jpg"
+    }
+  ]
 }

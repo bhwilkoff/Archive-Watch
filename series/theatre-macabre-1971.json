@@ -479,7 +479,14 @@
   ],
   "episodesCount": 24,
   "canonicalEpisodesCount": null,
-  "tvdbID": null,
+  "tvdbID": "408992",
   "artworkSource": "generated",
-  "cast": []
+  "cast": [
+    {
+      "name": "Christopher Lee",
+      "character": "",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/283326/primary.jpg"
+    }
+  ]
 }

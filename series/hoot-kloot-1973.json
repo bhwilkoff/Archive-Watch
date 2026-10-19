@@ -344,7 +344,20 @@
   ],
   "episodesCount": 17,
   "canonicalEpisodesCount": null,
-  "tvdbID": null,
+  "tvdbID": "72884",
   "artworkSource": "generated",
-  "cast": []
+  "cast": [
+    {
+      "name": "Bob Holt",
+      "character": "",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/335526/photo/6494e7d86c075.jpg"
+    },
+    {
+      "name": "Larry D. Mann",
+      "character": "",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256854/photo/62e160e88bb87.jpg"
+    }
+  ]
 }

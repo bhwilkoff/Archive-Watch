@@ -177,7 +177,44 @@
   ],
   "episodesCount": 8,
   "canonicalEpisodesCount": null,
-  "tvdbID": null,
+  "tvdbID": "248769",
   "artworkSource": "generated",
-  "cast": []
+  "cast": [
+    {
+      "name": "Tamzin Neville",
+      "character": "Anthea",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Max Harris",
+      "character": "Robert",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Jane Forster",
+      "character": "Jane",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Gary Russell",
+      "character": "Cyril",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Trisha Mortimer",
+      "character": "Eliza",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Hilary Mason",
+      "character": "Biddle",
+      "order": 5,
+      "profilePath": null
+    }
+  ]
 }

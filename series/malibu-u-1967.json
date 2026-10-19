@@ -7,7 +7,7 @@
   "yearStart": 1967,
   "yearEnd": null,
   "overview": "All 7 episodes of Malibu U from 1967. These appear to be internal use only copies but are the highest quality versions anywhere on the internet.",
-  "posterURL": "https://archive.org/services/img/Malibu-U-1967",
+  "posterURL": "https://artworks.thetvdb.com/banners/v4/series/74766/posters/681f9851f0d77.jpg",
   "backdropURL": null,
   "genres": [],
   "networks": [],
@@ -154,7 +154,26 @@
   ],
   "episodesCount": 7,
   "canonicalEpisodesCount": null,
-  "tvdbID": null,
-  "artworkSource": "archive",
-  "cast": []
+  "tvdbID": "74766",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Erin Gray",
+      "character": "",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/257940/600f7adbad7df.jpg"
+    },
+    {
+      "name": "Rick Nelson",
+      "character": "",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Robie Porter",
+      "character": "",
+      "order": 2,
+      "profilePath": null
+    }
+  ]
 }

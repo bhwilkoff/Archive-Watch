@@ -757,7 +757,116 @@
   ],
   "episodesCount": 38,
   "canonicalEpisodesCount": null,
-  "tvdbID": null,
+  "tvdbID": "78544",
   "artworkSource": "generated",
-  "cast": []
+  "cast": [
+    {
+      "name": "Carolyn Seymour",
+      "character": "Abby Grant",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/65604.jpg"
+    },
+    {
+      "name": "Delia Paton",
+      "character": "Mina",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "John Hallett",
+      "character": "Barney",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Michael Gover",
+      "character": "Arthur Russell",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Heather Wright",
+      "character": "Melanie",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Stephen Dudley",
+      "character": "John Millon",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Anna Pitt",
+      "character": "Agnes Carlsson",
+      "order": 6,
+      "profilePath": null
+    },
+    {
+      "name": "Julie Neubert",
+      "character": "Wendy",
+      "order": 7,
+      "profilePath": null
+    },
+    {
+      "name": "Eileen Helsby",
+      "character": "Charmain Wentworth",
+      "order": 8,
+      "profilePath": null
+    },
+    {
+      "name": "Angie Stevens",
+      "character": "Lizzie Willoughby",
+      "order": 9,
+      "profilePath": null
+    },
+    {
+      "name": "Peter Duncan",
+      "character": "Dave",
+      "order": 10,
+      "profilePath": null
+    },
+    {
+      "name": "Roger Monk",
+      "character": "Pete",
+      "order": 11,
+      "profilePath": null
+    },
+    {
+      "name": "Richard Heffer",
+      "character": "Jimmy Garland",
+      "order": 12,
+      "profilePath": null
+    },
+    {
+      "name": "Sally Osborn",
+      "character": "Agnes Carlsson",
+      "order": 13,
+      "profilePath": null
+    },
+    {
+      "name": "Terry Scully",
+      "character": "Vic Thatcher",
+      "order": 14,
+      "profilePath": null
+    },
+    {
+      "name": "Annie Irving",
+      "character": "Ruth Anderson",
+      "order": 15,
+      "profilePath": null
+    },
+    {
+      "name": "Lucy Fleming",
+      "character": "Jenny Richards",
+      "order": 16,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/390327/photo/69270897ac4f9.jpg"
+    },
+    {
+      "name": "Lorna Lewis",
+      "character": "Pet Simpson",
+      "order": 17,
+      "profilePath": null
+    }
+  ]
 }

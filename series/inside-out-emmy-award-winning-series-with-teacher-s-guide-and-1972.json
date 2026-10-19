@@ -1,0 +1,597 @@
+{
+  "version": 2,
+  "seriesID": "inside-out-emmy-award-winning-series-with-teacher-s-guide-and-1972",
+  "sourceID": "inside.out",
+  "tvmazeID": null,
+  "title": "Inside Out Emmy Award winning series - with Teacher's Guide and",
+  "yearStart": 1972,
+  "yearEnd": null,
+  "overview": "The show was produced from 1972 to 1973 by the National Instructional Television Center (NIT), in association with various contributing stations, such as KETC in St. Louis, Missouri, WVIZ in Cleveland Ohio, WNVT-TV in Northern Virginia, and The Ontario Educational Communications Authority. It was one of the last programs to be produced by NIT; the organisation would be reformulated as the Agency for Instructional Television (AIT) in April 1973. Funding for Inside/Out was provided by grants from 32 different educational agencies within the United States and Canada, with additional support from Exxon Corporation. The series' uncredited theme music is an excerpt from \"Ripple\" by composer Simon Haseley and performed by \"The London Studio Group\", sourced from the De Wolfe production music library. Inside/Out was an anthology series of 15-minute shorts that were designed to teach children about social issues. Instead of resorting to happy endings, as many shows of this kind had done, Inside/Out typically had cliffhanger endings, leaving the viewers to draw their own conclusions as to what they would do in similar situations. Due to the critical acclaim for this series, some PBS stations would double-run two Inside/Out episodes in a half-hour time slot in the evening so that parents could watch this series with their children. This series was commonly watched on classroom TV broadcasts during school hours as well as on 16mm film reels. It was a staple of daytime instructional television blocks (generally programmed by local agencies or school boards rather than by PBS ) on public TV stations for many years, until at least the late 1980s. Inside/Out was the first in a series of similarly produced instructional programs made by AIT. Others that followed that used the similar formula included Bread and Butterflies (1974), Self Incorporated (1975), Trade-Offs (a program on economic theory, 1978), Thinkabout (a series on creativity, 1979), On The Level (1980) and Give & Take (a series about the economy in general and a sequel series to Trade-Offs, 1982) . All of the series, including Inside/Out, were produced for only one season, but were frequently rerun on television and shown in schools for several years afterward, as the topics presented kept its currency. In 1974, Bantam Books ' young readers' Pathfinder series, in their Canadian branch, published Stories from Inside/Out by children's writer and screenwriter Ken Sobol, which adapted several of the series scripts to prose, and included discussion questions. In 1996, AIT produced an updated version of the series, Looking from the Inside/Out. The series won the 1974 Emmy Award for 'Outstanding Instructional Children's Programming'. These videos are all to be used only for free, personal, educational purposes. ___________________________________________________________________________________",
+  "posterURL": "https://archive.org/services/img/inside.out",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "inside.out@e01",
+          "sourceID": "inside.out",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Because Its Fun",
+          "overview": null,
+          "stillURL": "https://archive.org/download/inside.out/inside.out.thumbs/Inside%20Out%2001%20Because%20Its%20Fun_000506.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 870,
+          "videoFile": {
+            "name": "Inside Out 01 Because Its Fun.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 144281653,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/inside.out/Inside%20Out%2001%20Because%20Its%20Fun.mp4"
+        },
+        {
+          "archiveID": "inside.out@e02",
+          "sourceID": "inside.out",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "How Do You Show",
+          "overview": null,
+          "stillURL": "https://archive.org/download/inside.out/inside.out.thumbs/Inside%20Out%2002%20How%20Do%20You%20Show_000325.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 853,
+          "videoFile": {
+            "name": "Inside Out 02 How Do You Show.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 162417263,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/inside.out/Inside%20Out%2002%20How%20Do%20You%20Show.mp4"
+        },
+        {
+          "archiveID": "inside.out@e03",
+          "sourceID": "inside.out",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Strong Feelings",
+          "overview": null,
+          "stillURL": "https://archive.org/download/inside.out/inside.out.thumbs/Inside%20Out%2003%20Strong%20Feelings_000510.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 879,
+          "videoFile": {
+            "name": "Inside Out 03 Strong Feelings.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 121254254,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/inside.out/Inside%20Out%2003%20Strong%20Feelings.mp4"
+        },
+        {
+          "archiveID": "inside.out@e04",
+          "sourceID": "inside.out",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Must I May I",
+          "overview": null,
+          "stillURL": "https://archive.org/download/inside.out/inside.out.thumbs/Inside%20Out%2004%20Must%20I%20May%20I_000514.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 870,
+          "videoFile": {
+            "name": "Inside Out 04 Must I May I.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 154610982,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/inside.out/Inside%20Out%2004%20Must%20I%20May%20I.mp4"
+        },
+        {
+          "archiveID": "inside.out@e05",
+          "sourceID": "inside.out",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Traveling Shoes",
+          "overview": null,
+          "stillURL": "https://archive.org/download/inside.out/inside.out.thumbs/Inside%20Out%2005%20Traveling%20Shoes_000519.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 892,
+          "videoFile": {
+            "name": "Inside Out 05 Traveling Shoes.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 148980202,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/inside.out/Inside%20Out%2005%20Traveling%20Shoes.mp4"
+        },
+        {
+          "archiveID": "inside.out@e06",
+          "sourceID": "inside.out",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Just Joking",
+          "overview": null,
+          "stillURL": "https://archive.org/download/inside.out/inside.out.thumbs/Inside%20Out%2006%20Just%20Joking_000487.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 840,
+          "videoFile": {
+            "name": "Inside Out 06 Just Joking.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 125351391,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/inside.out/Inside%20Out%2006%20Just%20Joking.mp4"
+        },
+        {
+          "archiveID": "inside.out@e07",
+          "sourceID": "inside.out",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "But Names Will Never Hurt",
+          "overview": null,
+          "stillURL": "https://archive.org/download/inside.out/inside.out.thumbs/Inside%20Out%2007%20But%20Names%20Will%20Never%20Hurt_000511.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 877,
+          "videoFile": {
+            "name": "Inside Out 07 But Names Will Never Hurt.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 121335993,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/inside.out/Inside%20Out%2007%20But%20Names%20Will%20Never%20Hurt.mp4"
+        },
+        {
+          "archiveID": "inside.out@e08",
+          "sourceID": "inside.out",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Home Sweet Home",
+          "overview": null,
+          "stillURL": "https://archive.org/download/inside.out/inside.out.thumbs/Inside%20Out%2008%20Home%20Sweet%20Home_000498.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 854,
+          "videoFile": {
+            "name": "Inside Out 08 Home Sweet Home.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 109588636,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/inside.out/Inside%20Out%2008%20Home%20Sweet%20Home.mp4"
+        },
+        {
+          "archiveID": "inside.out@e09",
+          "sourceID": "inside.out",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Jeffs Company",
+          "overview": null,
+          "stillURL": "https://archive.org/download/inside.out/inside.out.thumbs/Inside%20Out%2009%20Jeffs%20Company_000510.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 868,
+          "videoFile": {
+            "name": "Inside Out 09 Jeffs Company.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 152672811,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/inside.out/Inside%20Out%2009%20Jeffs%20Company.mp4"
+        },
+        {
+          "archiveID": "inside.out@e10",
+          "sourceID": "inside.out",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Buy and Buy",
+          "overview": null,
+          "stillURL": "https://archive.org/download/inside.out/inside.out.thumbs/Inside%20Out%2010%20Buy%20and%20Buy_000498.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 856,
+          "videoFile": {
+            "name": "Inside Out 10 Buy and Buy.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 138433741,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/inside.out/Inside%20Out%2010%20Buy%20and%20Buy.mp4"
+        },
+        {
+          "archiveID": "inside.out@e11",
+          "sourceID": "inside.out",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Can I Help",
+          "overview": null,
+          "stillURL": "https://archive.org/download/inside.out/inside.out.thumbs/Inside%20Out%2011%20Can%20I%20Help_000493.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 850,
+          "videoFile": {
+            "name": "Inside Out 11 Can I Help.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 153199292,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/inside.out/Inside%20Out%2011%20Can%20I%20Help.mp4"
+        },
+        {
+          "archiveID": "inside.out@e12",
+          "sourceID": "inside.out",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Living With Love",
+          "overview": null,
+          "stillURL": "https://archive.org/download/inside.out/inside.out.thumbs/Inside%20Out%2012%20Living%20With%20Love_000523.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 901,
+          "videoFile": {
+            "name": "Inside Out 12 Living With Love.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 142999067,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/inside.out/Inside%20Out%2012%20Living%20With%20Love.mp4"
+        },
+        {
+          "archiveID": "inside.out@e13",
+          "sourceID": "inside.out",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Can Do Cant Do",
+          "overview": null,
+          "stillURL": "https://archive.org/download/inside.out/inside.out.thumbs/Inside%20Out%2013%20Can%20Do%20Cant%20Do_000505.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 871,
+          "videoFile": {
+            "name": "Inside Out 13 Can Do Cant Do.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 96547925,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/inside.out/Inside%20Out%2013%20Can%20Do%20Cant%20Do.mp4"
+        },
+        {
+          "archiveID": "inside.out@e14",
+          "sourceID": "inside.out",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Breakup",
+          "overview": null,
+          "stillURL": "https://archive.org/download/inside.out/inside.out.thumbs/Inside%20Out%2014%20Breakup_000514.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 884,
+          "videoFile": {
+            "name": "Inside Out 14 Breakup.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 135560952,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/inside.out/Inside%20Out%2014%20Breakup.mp4"
+        },
+        {
+          "archiveID": "inside.out@e15",
+          "sourceID": "inside.out",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Love Susan",
+          "overview": null,
+          "stillURL": "https://archive.org/download/inside.out/inside.out.thumbs/Inside%20Out%2015%20Love%20Susan_000511.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 881,
+          "videoFile": {
+            "name": "Inside Out 15 Love Susan.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 101074770,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/inside.out/Inside%20Out%2015%20Love%20Susan.mp4"
+        },
+        {
+          "archiveID": "inside.out@e16",
+          "sourceID": "inside.out",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Brothers and Sisters",
+          "overview": null,
+          "stillURL": "https://archive.org/download/inside.out/inside.out.thumbs/Inside%20Out%2016%20Brothers%20and%20Sisters_000487.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 838,
+          "videoFile": {
+            "name": "Inside Out 16 Brothers and Sisters.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 107789121,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/inside.out/Inside%20Out%2016%20Brothers%20and%20Sisters.mp4"
+        },
+        {
+          "archiveID": "inside.out@e17",
+          "sourceID": "inside.out",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Someone Special",
+          "overview": null,
+          "stillURL": "https://archive.org/download/inside.out/inside.out.thumbs/Inside%20Out%2017%20Someone%20Special_000513.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 884,
+          "videoFile": {
+            "name": "Inside Out 17 Someone Special.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 109795935,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/inside.out/Inside%20Out%2017%20Someone%20Special.mp4"
+        },
+        {
+          "archiveID": "inside.out@e18",
+          "sourceID": "inside.out",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "I Want To",
+          "overview": null,
+          "stillURL": "https://archive.org/download/inside.out/inside.out.thumbs/Inside%20Out%2018%20I%20Want%20To_000507.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 875,
+          "videoFile": {
+            "name": "Inside Out 18 I Want To.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 114369336,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/inside.out/Inside%20Out%2018%20I%20Want%20To.mp4"
+        },
+        {
+          "archiveID": "inside.out@e19",
+          "sourceID": "inside.out",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "When is Help",
+          "overview": null,
+          "stillURL": "https://archive.org/download/inside.out/inside.out.thumbs/Inside%20Out%2019%20When%20is%20Help_000490.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 839,
+          "videoFile": {
+            "name": "Inside Out 19 When is Help.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 141157654,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/inside.out/Inside%20Out%2019%20When%20is%20Help.mp4"
+        },
+        {
+          "archiveID": "inside.out@e20",
+          "sourceID": "inside.out",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Bully",
+          "overview": null,
+          "stillURL": "https://archive.org/download/inside.out/inside.out.thumbs/Inside%20Out%2020%20Bully_000488.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 837,
+          "videoFile": {
+            "name": "Inside Out 20 Bully.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 139059106,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/inside.out/Inside%20Out%2020%20Bully.mp4"
+        },
+        {
+          "archiveID": "inside.out@e21",
+          "sourceID": "inside.out",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "But They Might Laugh",
+          "overview": null,
+          "stillURL": "https://archive.org/download/inside.out/inside.out.thumbs/Inside%20Out%2021%20But%20They%20Might%20Laugh_000495.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 851,
+          "videoFile": {
+            "name": "Inside Out 21 But They Might Laugh.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 145431044,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/inside.out/Inside%20Out%2021%20But%20They%20Might%20Laugh.mp4"
+        },
+        {
+          "archiveID": "inside.out@e22",
+          "sourceID": "inside.out",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Lost is A Feeling",
+          "overview": null,
+          "stillURL": "https://archive.org/download/inside.out/inside.out.thumbs/Inside%20Out%2022%20Lost%20is%20A%20Feeling_000510.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 876,
+          "videoFile": {
+            "name": "Inside Out 22 Lost is A Feeling.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 151878465,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/inside.out/Inside%20Out%2022%20Lost%20is%20A%20Feeling.mp4"
+        },
+        {
+          "archiveID": "inside.out@e23",
+          "sourceID": "inside.out",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Donna",
+          "overview": null,
+          "stillURL": "https://archive.org/download/inside.out/inside.out.thumbs/Inside%20Out%2023%20Donna_000494.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 851,
+          "videoFile": {
+            "name": "Inside Out 23 Donna.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 125035275,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/inside.out/Inside%20Out%2023%20Donna.mp4"
+        },
+        {
+          "archiveID": "inside.out@e24",
+          "sourceID": "inside.out",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "You Belong",
+          "overview": null,
+          "stillURL": "https://archive.org/download/inside.out/inside.out.thumbs/Inside%20Out%2024%20You%20Belong_000505.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 867,
+          "videoFile": {
+            "name": "Inside Out 24 You Belong.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 133210940,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/inside.out/Inside%20Out%2024%20You%20Belong.mp4"
+        },
+        {
+          "archiveID": "inside.out@e25",
+          "sourceID": "inside.out",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Just One Place",
+          "overview": null,
+          "stillURL": "https://archive.org/download/inside.out/inside.out.thumbs/Inside%20Out%2025%20Just%20One%20Place_000507.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 873,
+          "videoFile": {
+            "name": "Inside Out 25 Just One Place.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 151010748,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/inside.out/Inside%20Out%2025%20Just%20One%20Place.mp4"
+        },
+        {
+          "archiveID": "inside.out@e26",
+          "sourceID": "inside.out",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "In My Memory",
+          "overview": null,
+          "stillURL": "https://archive.org/download/inside.out/inside.out.thumbs/Inside%20Out%2026%20In%20My%20Memory_000520.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 895,
+          "videoFile": {
+            "name": "Inside Out 26 In My Memory.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 103390426,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/inside.out/Inside%20Out%2026%20In%20My%20Memory.mp4"
+        },
+        {
+          "archiveID": "inside.out@e27",
+          "sourceID": "inside.out",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "I Dare You",
+          "overview": null,
+          "stillURL": "https://archive.org/download/inside.out/inside.out.thumbs/Inside%20Out%2027%20I%20Dare%20You_000507.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 869,
+          "videoFile": {
+            "name": "Inside Out 27 I Dare You.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 149713905,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/inside.out/Inside%20Out%2027%20I%20Dare%20You.mp4"
+        },
+        {
+          "archiveID": "inside.out@e28",
+          "sourceID": "inside.out",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "Yes I Can",
+          "overview": null,
+          "stillURL": "https://archive.org/download/inside.out/inside.out.thumbs/Inside%20Out%2028%20Yes%20I%20Can_000516.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 883,
+          "videoFile": {
+            "name": "Inside Out 28 Yes I Can.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 152141085,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/inside.out/Inside%20Out%2028%20Yes%20I%20Can.mp4"
+        },
+        {
+          "archiveID": "inside.out@e29",
+          "sourceID": "inside.out",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "A Sense of Joy",
+          "overview": null,
+          "stillURL": "https://archive.org/download/inside.out/inside.out.thumbs/Inside%20Out%2029%20A%20Sense%20of%20Joy_000503.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 864,
+          "videoFile": {
+            "name": "Inside Out 29 A Sense of Joy.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 169520895,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/inside.out/Inside%20Out%2029%20A%20Sense%20of%20Joy.mp4"
+        },
+        {
+          "archiveID": "inside.out@e30",
+          "sourceID": "inside.out",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "Getting Even",
+          "overview": null,
+          "stillURL": "https://archive.org/download/inside.out/inside.out.thumbs/Inside%20Out%2030%20Getting%20Even_000489.jpg",
+          "airDate": null,
+          "year": 1972,
+          "runtimeSeconds": 836,
+          "videoFile": {
+            "name": "Inside Out 30 Getting Even.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 144619263,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/inside.out/Inside%20Out%2030%20Getting%20Even.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 30,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

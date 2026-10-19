@@ -6,7 +6,7 @@
   "title": "Sherlock Holmes",
   "yearStart": 1954,
   "yearEnd": null,
-  "overview": null,
+  "overview": "Based on the characters created by Arthur Conan Doyle: Dr. John Watson returns from Afghanistan, and decides to share lodgings in Baker Street with Sherlock Holmes, an acquaintance of one of Watson's own friends. Not long afterward, Holmes brings Watson with him when he solves a murder case that has confused Inspector Lestrade. Watson soon becomes Holmes's friend, assistant, and chronicler, as the private detective takes on one baffling case after another.",
   "posterURL": "https://archive.org/download/archivewatch-covers/Sherlock_Holmes_1954.8d8f6da9.jpg",
   "backdropURL": null,
   "genres": [
@@ -614,7 +614,26 @@
   ],
   "episodesCount": 31,
   "canonicalEpisodesCount": null,
-  "tvdbID": null,
+  "tvdbID": "73529",
   "artworkSource": "generated",
-  "cast": []
+  "cast": [
+    {
+      "name": "Howard Marion-Crawford",
+      "character": "Dr. John H. Watson",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Archie Duncan",
+      "character": "Inspector Lestrade",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Ronald Howard",
+      "character": "Sherlock Holmes",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/313913/5f7f3aff19427.jpg"
+    }
+  ]
 }

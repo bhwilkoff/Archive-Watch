@@ -515,7 +515,26 @@
   ],
   "episodesCount": 26,
   "canonicalEpisodesCount": null,
-  "tvdbID": null,
+  "tvdbID": "76655",
   "artworkSource": "generated",
-  "cast": []
+  "cast": [
+    {
+      "name": "R.G. Armstrong",
+      "character": "Police Capt. McAllister",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257858/photo/634986352431a.jpg"
+    },
+    {
+      "name": "Robert Carricart",
+      "character": "Pepe Cordoza",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Robert Loggia",
+      "character": "T. Hewitt Edward Cat",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253855/photo/60a02009b47e1.jpg"
+    }
+  ]
 }

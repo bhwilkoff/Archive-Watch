@@ -1,0 +1,599 @@
+{
+  "version": 2,
+  "seriesID": "all-about-you-elementary-health-and-hygiene-series-1974",
+  "sourceID": "all_about_you",
+  "tvmazeID": null,
+  "title": "All About You Elementary Health and Hygiene Series",
+  "yearStart": 1974,
+  "yearEnd": null,
+  "overview": "The show was geared towards youngsters aged 6–8 as a way to educate them on their bodies, especially where they came from, why they have what they have, what makes them work and why they work. The series was first produced at WHRO-TV, \"Hampton Roads ETV\", in Hampton, Virginia. In 1974, production of the series was moved to WGBH-TV Boston, where it was produced in association with WGBH's in-school television initiative, the \"21-Inch Classroom\". The 1974 episodes were distributed in the US and Canada by the Agency for Instructional Television; this is one of a few WGBH series to have not been distributed by NET or PBS. The show was geared towards youngsters aged 6–8 as a way to educate them on their bodies, especially where they came from, why they have what they have, what makes them work and why they work. The show's opening and closing credits always featured slides of cartoon drawings of kids enjoying themselves at a circus with appropriate circus music. ... (See, you CAN give back something ... ) . _. Episode list: All About You 01 What Are You Anyway? All About You 02 What Holds You Up? All About You 03 No Strings on You All About You 04 Move Those Muscles! All About You 05 What's Your Fuel? All About You 06 What You Eat All About You 07 Good Mouthkeeping All About You 08 What Are You Made Of? All About You 09 Take a Deep Breath All About You 10 Your Heart: The Mighty Muscle All About You 11 Getting Rid of Waste All About You 12 Your Birthday Suit All About You 13 Getting the Message All About You 14 Your Busy Brain All About You 15 Listen, Look, and Learn All About You 16 Handy Hands All About You 17 Talk, Talk, Talk All About You 18 What Keeps You Alive? All About You 19 In the Beginning All About You 20 Secrets in Your Cells All About You 21 Look at You Now All About You 22 No Two Alike All About You 23 Sneezles, Wheezles, and Measles All About You 24 Watch Out! All About You 25 If You Go to the Hospital All About You 26 You and Your Feelings All About You 27 Everybody Is Afraid Sometimes All About You 28 What Are Families For? These videos are all to be used only for free, personal, educational purposes. ___________________________________________________________________________________ Something for the younger set … this could be best for Home School Use. Some of those awkward questions that kids ask - could be better handled: by watching an episode or two, that directly answers their concerns, as a springboard to a proper discussion of the question. ) - in short: They S⊔",
+  "posterURL": "https://archive.org/services/img/all_about_you",
+  "backdropURL": null,
+  "genres": [
+    "Family"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "all_about_you@e01",
+          "sourceID": "all_about_you",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Episode 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/all_about_you/all_about_you.thumbs/all_about_you_01_000435.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 888,
+          "videoFile": {
+            "name": "all_about_you_01.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 196631347,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/all_about_you/all_about_you_01.mp4"
+        },
+        {
+          "archiveID": "all_about_you@e02",
+          "sourceID": "all_about_you",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Episode 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/all_about_you/all_about_you.thumbs/all_about_you_02_000428.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 870,
+          "videoFile": {
+            "name": "all_about_you_02.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 174590813,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/all_about_you/all_about_you_02.mp4"
+        },
+        {
+          "archiveID": "all_about_you@e03",
+          "sourceID": "all_about_you",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Episode 3",
+          "overview": null,
+          "stillURL": "https://archive.org/download/all_about_you/all_about_you.thumbs/all_about_you_03_000429.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 875,
+          "videoFile": {
+            "name": "all_about_you_03.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 187352107,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/all_about_you/all_about_you_03.mp4"
+        },
+        {
+          "archiveID": "all_about_you@e04",
+          "sourceID": "all_about_you",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Episode 4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/all_about_you/all_about_you.thumbs/all_about_you_04_000408.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 834,
+          "videoFile": {
+            "name": "all_about_you_04.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 199024897,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/all_about_you/all_about_you_04.mp4"
+        },
+        {
+          "archiveID": "all_about_you@e05",
+          "sourceID": "all_about_you",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Episode 5",
+          "overview": null,
+          "stillURL": "https://archive.org/download/all_about_you/all_about_you.thumbs/all_about_you_05_000421.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 844,
+          "videoFile": {
+            "name": "all_about_you_05.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 174185120,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/all_about_you/all_about_you_05.mp4"
+        },
+        {
+          "archiveID": "all_about_you@e06",
+          "sourceID": "all_about_you",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Episode 6",
+          "overview": null,
+          "stillURL": "https://archive.org/download/all_about_you/all_about_you.thumbs/all_about_you_06_000332.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 837,
+          "videoFile": {
+            "name": "all_about_you_06.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 170070623,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/all_about_you/all_about_you_06.mp4"
+        },
+        {
+          "archiveID": "all_about_you@e07",
+          "sourceID": "all_about_you",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Episode 7",
+          "overview": null,
+          "stillURL": "https://archive.org/download/all_about_you/all_about_you.thumbs/all_about_you_07_000426.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 855,
+          "videoFile": {
+            "name": "all_about_you_07.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 174356413,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/all_about_you/all_about_you_07.mp4"
+        },
+        {
+          "archiveID": "all_about_you@e08",
+          "sourceID": "all_about_you",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Episode 8",
+          "overview": null,
+          "stillURL": "https://archive.org/download/all_about_you/all_about_you.thumbs/all_about_you_08_000431.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 868,
+          "videoFile": {
+            "name": "all_about_you_08.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 181281035,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/all_about_you/all_about_you_08.mp4"
+        },
+        {
+          "archiveID": "all_about_you@e09",
+          "sourceID": "all_about_you",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Episode 9",
+          "overview": null,
+          "stillURL": "https://archive.org/download/all_about_you/all_about_you.thumbs/all_about_you_09_000424.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 863,
+          "videoFile": {
+            "name": "all_about_you_09.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 185331908,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/all_about_you/all_about_you_09.mp4"
+        },
+        {
+          "archiveID": "all_about_you@e10",
+          "sourceID": "all_about_you",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Episode 10",
+          "overview": null,
+          "stillURL": "https://archive.org/download/all_about_you/all_about_you.thumbs/all_about_you_10_000330.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 838,
+          "videoFile": {
+            "name": "all_about_you_10.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 189820502,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/all_about_you/all_about_you_10.mp4"
+        },
+        {
+          "archiveID": "all_about_you@e11",
+          "sourceID": "all_about_you",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Episode 11",
+          "overview": null,
+          "stillURL": "https://archive.org/download/all_about_you/all_about_you.thumbs/all_about_you_11_000429.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 872,
+          "videoFile": {
+            "name": "all_about_you_11.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 182610289,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/all_about_you/all_about_you_11.mp4"
+        },
+        {
+          "archiveID": "all_about_you@e12",
+          "sourceID": "all_about_you",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Episode 12",
+          "overview": null,
+          "stillURL": "https://archive.org/download/all_about_you/all_about_you.thumbs/all_about_you_12_000407.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 821,
+          "videoFile": {
+            "name": "all_about_you_12.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 179510603,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/all_about_you/all_about_you_12.mp4"
+        },
+        {
+          "archiveID": "all_about_you@e13",
+          "sourceID": "all_about_you",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Episode 13",
+          "overview": null,
+          "stillURL": "https://archive.org/download/all_about_you/all_about_you.thumbs/all_about_you_13_000348.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 871,
+          "videoFile": {
+            "name": "all_about_you_13.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 184988603,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/all_about_you/all_about_you_13.mp4"
+        },
+        {
+          "archiveID": "all_about_you@e14",
+          "sourceID": "all_about_you",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Episode 14",
+          "overview": null,
+          "stillURL": "https://archive.org/download/all_about_you/all_about_you.thumbs/all_about_you_14_000343.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 855,
+          "videoFile": {
+            "name": "all_about_you_14.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 153925171,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/all_about_you/all_about_you_14.mp4"
+        },
+        {
+          "archiveID": "all_about_you@e15",
+          "sourceID": "all_about_you",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Episode 15",
+          "overview": null,
+          "stillURL": "https://archive.org/download/all_about_you/all_about_you.thumbs/all_about_you_15_000421.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 851,
+          "videoFile": {
+            "name": "all_about_you_15.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 163292496,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/all_about_you/all_about_you_15.mp4"
+        },
+        {
+          "archiveID": "all_about_you@e16",
+          "sourceID": "all_about_you",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Episode 16",
+          "overview": null,
+          "stillURL": "https://archive.org/download/all_about_you/all_about_you.thumbs/all_about_you_16_000342.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 869,
+          "videoFile": {
+            "name": "all_about_you_16.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 210738088,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/all_about_you/all_about_you_16.mp4"
+        },
+        {
+          "archiveID": "all_about_you@e17",
+          "sourceID": "all_about_you",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Episode 17",
+          "overview": null,
+          "stillURL": "https://archive.org/download/all_about_you/all_about_you.thumbs/all_about_you_17_000349.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 873,
+          "videoFile": {
+            "name": "all_about_you_17.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 167124005,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/all_about_you/all_about_you_17.mp4"
+        },
+        {
+          "archiveID": "all_about_you@e18",
+          "sourceID": "all_about_you",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Episode 18",
+          "overview": null,
+          "stillURL": "https://archive.org/download/all_about_you/all_about_you.thumbs/all_about_you_18_000343.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 854,
+          "videoFile": {
+            "name": "all_about_you_18.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 145818977,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/all_about_you/all_about_you_18.mp4"
+        },
+        {
+          "archiveID": "all_about_you@e19",
+          "sourceID": "all_about_you",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Episode 19",
+          "overview": null,
+          "stillURL": "https://archive.org/download/all_about_you/all_about_you.thumbs/all_about_you_19_000339.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 845,
+          "videoFile": {
+            "name": "all_about_you_19.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 160172433,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/all_about_you/all_about_you_19.mp4"
+        },
+        {
+          "archiveID": "all_about_you@e20",
+          "sourceID": "all_about_you",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Episode 20",
+          "overview": null,
+          "stillURL": "https://archive.org/download/all_about_you/all_about_you.thumbs/all_about_you_20_000334.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 850,
+          "videoFile": {
+            "name": "all_about_you_20.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 162517475,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/all_about_you/all_about_you_20.mp4"
+        },
+        {
+          "archiveID": "all_about_you@e21",
+          "sourceID": "all_about_you",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Episode 21",
+          "overview": null,
+          "stillURL": "https://archive.org/download/all_about_you/all_about_you.thumbs/all_about_you_21_000334.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 854,
+          "videoFile": {
+            "name": "all_about_you_21.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 189258937,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/all_about_you/all_about_you_21.mp4"
+        },
+        {
+          "archiveID": "all_about_you@e22",
+          "sourceID": "all_about_you",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Episode 22",
+          "overview": null,
+          "stillURL": "https://archive.org/download/all_about_you/all_about_you.thumbs/all_about_you_22_000349.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 873,
+          "videoFile": {
+            "name": "all_about_you_22.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 153423857,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/all_about_you/all_about_you_22.mp4"
+        },
+        {
+          "archiveID": "all_about_you@e23",
+          "sourceID": "all_about_you",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Episode 23",
+          "overview": null,
+          "stillURL": "https://archive.org/download/all_about_you/all_about_you.thumbs/all_about_you_23_000428.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 871,
+          "videoFile": {
+            "name": "all_about_you_23.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 203903889,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/all_about_you/all_about_you_23.mp4"
+        },
+        {
+          "archiveID": "all_about_you@e24",
+          "sourceID": "all_about_you",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Episode 24",
+          "overview": null,
+          "stillURL": "https://archive.org/download/all_about_you/all_about_you.thumbs/all_about_you_24_000345.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 879,
+          "videoFile": {
+            "name": "all_about_you_24.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 193232158,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/all_about_you/all_about_you_24.mp4"
+        },
+        {
+          "archiveID": "all_about_you@e25",
+          "sourceID": "all_about_you",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Episode 25",
+          "overview": null,
+          "stillURL": "https://archive.org/download/all_about_you/all_about_you.thumbs/all_about_you_25_000341.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 851,
+          "videoFile": {
+            "name": "all_about_you_25.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 115469018,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/all_about_you/all_about_you_25.mp4"
+        },
+        {
+          "archiveID": "all_about_you@e26",
+          "sourceID": "all_about_you",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Episode 26",
+          "overview": null,
+          "stillURL": "https://archive.org/download/all_about_you/all_about_you.thumbs/all_about_you_26_000339.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 857,
+          "videoFile": {
+            "name": "all_about_you_26.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 162065991,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/all_about_you/all_about_you_26.mp4"
+        },
+        {
+          "archiveID": "all_about_you@e27",
+          "sourceID": "all_about_you",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Episode 27",
+          "overview": null,
+          "stillURL": "https://archive.org/download/all_about_you/all_about_you.thumbs/all_about_you_27_000332.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 851,
+          "videoFile": {
+            "name": "all_about_you_27.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 152583447,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/all_about_you/all_about_you_27.mp4"
+        },
+        {
+          "archiveID": "all_about_you@e28",
+          "sourceID": "all_about_you",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "Episode 28",
+          "overview": null,
+          "stillURL": "https://archive.org/download/all_about_you/all_about_you.thumbs/all_about_you_28_000340.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 857,
+          "videoFile": {
+            "name": "all_about_you_28.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 173650340,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/all_about_you/all_about_you_28.mp4"
+        },
+        {
+          "archiveID": "all_about_you@e29",
+          "sourceID": "all_about_you",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "Episode 29",
+          "overview": null,
+          "stillURL": "https://archive.org/download/all_about_you/all_about_you.thumbs/all_about_you_29_000435.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 886,
+          "videoFile": {
+            "name": "all_about_you_29.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 186617286,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/all_about_you/all_about_you_29.mp4"
+        },
+        {
+          "archiveID": "all_about_you@e30",
+          "sourceID": "all_about_you",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "Episode 30",
+          "overview": null,
+          "stillURL": "https://archive.org/download/all_about_you/all_about_you.thumbs/all_about_you_30_000437.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 883,
+          "videoFile": {
+            "name": "all_about_you_30.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 196334128,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/all_about_you/all_about_you_30.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 30,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

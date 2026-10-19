@@ -957,7 +957,26 @@
   ],
   "episodesCount": 49,
   "canonicalEpisodesCount": null,
-  "tvdbID": null,
+  "tvdbID": "76408",
   "artworkSource": "generated",
-  "cast": []
+  "cast": [
+    {
+      "name": "Jack Warden",
+      "character": "Lt. Mike Haines",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/265736/photo/62fba97da52b2.jpg"
+    },
+    {
+      "name": "Robert Hooks",
+      "character": "Det. Jeff Ward",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Frank Converse",
+      "character": "Det. Johnny Corso",
+      "order": 2,
+      "profilePath": null
+    }
+  ]
 }

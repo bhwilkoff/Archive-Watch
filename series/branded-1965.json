@@ -940,7 +940,14 @@
   ],
   "episodesCount": 48,
   "canonicalEpisodesCount": null,
-  "tvdbID": null,
+  "tvdbID": "72699",
   "artworkSource": "generated",
-  "cast": []
+  "cast": [
+    {
+      "name": "Chuck Connors",
+      "character": "Jason McCord",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/19444.jpg"
+    }
+  ]
 }

@@ -7,7 +7,7 @@
   "yearStart": 1969,
   "yearEnd": null,
   "overview": "1969 S01 Strange Paradise was a Canadian Soap Opera from 1969-70. There were 195 episodes, with three story arcs of 65 episodes, each originally running for thirteen weeks. The show attempted to capitalize on the success of ABC's long-running supernatural soap Dark Shadows.",
-  "posterURL": "https://archive.org/services/img/strange-paradise-episode-01",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/5d574115a13db.jpg",
   "backdropURL": null,
   "genres": [],
   "networks": [],
@@ -3707,7 +3707,116 @@
   ],
   "episodesCount": 194,
   "canonicalEpisodesCount": null,
-  "tvdbID": null,
-  "artworkSource": "archive",
-  "cast": []
+  "tvdbID": "71568",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Neil Dainard",
+      "character": "",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Tudi Wiggins",
+      "character": "",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Paisley Maxwell",
+      "character": "",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Sylvia Feigel",
+      "character": "",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Jon Granik",
+      "character": "",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Peg Dixon",
+      "character": "",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Lucy Warner",
+      "character": "",
+      "order": 6,
+      "profilePath": null
+    },
+    {
+      "name": "Jan Campbell",
+      "character": "",
+      "order": 7,
+      "profilePath": null
+    },
+    {
+      "name": "Kurt Shiegl",
+      "character": "",
+      "order": 8,
+      "profilePath": null
+    },
+    {
+      "name": "Angela Roland",
+      "character": "",
+      "order": 9,
+      "profilePath": null
+    },
+    {
+      "name": "Patricia Moffatt",
+      "character": "",
+      "order": 10,
+      "profilePath": null
+    },
+    {
+      "name": "Dan MacDonald",
+      "character": "",
+      "order": 11,
+      "profilePath": null
+    },
+    {
+      "name": "Vivian Reis",
+      "character": "",
+      "order": 12,
+      "profilePath": null
+    },
+    {
+      "name": "Colin Fox",
+      "character": "",
+      "order": 13,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/261368/photo/6238876c4fb54.jpg"
+    },
+    {
+      "name": "Robert Goodier",
+      "character": "",
+      "order": 14,
+      "profilePath": null
+    },
+    {
+      "name": "Dawn Greenhalgh",
+      "character": "",
+      "order": 15,
+      "profilePath": null
+    },
+    {
+      "name": "Bruce Gray",
+      "character": "",
+      "order": 16,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/269023/photo/630fa1429a6f4.jpg"
+    },
+    {
+      "name": "Jack Creley",
+      "character": "",
+      "order": 17,
+      "profilePath": null
+    }
+  ]
 }

@@ -1762,40 +1762,6 @@
    ]
   },
   {
-   "slug": "fawlty-towers-1975",
-   "tvmazeID": 577,
-   "title": "Fawlty Towers",
-   "matched": true,
-   "canonEps": 12,
-   "ourItems": 8,
-   "mappedEps": 1,
-   "extras": 7,
-   "repicked": 1,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 8,
-   "kinds": [
-    "orphan-episode",
-    "series",
-    "single"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "fawlty-towers-1975"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "fawlty-towers-complete-series-1975"
-    },
-    {
-     "kind": "single",
-     "ref": "fawlty_towers_202604"
-    }
-   ]
-  },
-  {
    "slug": "mackenzie-s-raiders-1958",
    "tvmazeID": 35960,
    "title": "Mackenzie's Raiders",
@@ -1949,6 +1915,35 @@
     {
      "kind": "series",
      "ref": "dr-shrinker-1976"
+    }
+   ]
+  },
+  {
+   "slug": "fawlty-towers-1975",
+   "tvmazeID": 577,
+   "title": "Fawlty Towers",
+   "matched": true,
+   "canonEps": 12,
+   "ourItems": 7,
+   "mappedEps": 0,
+   "extras": 7,
+   "repicked": 1,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "availableEps": 7,
+   "kinds": [
+    "series",
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "fawlty-towers-1975"
+    },
+    {
+     "kind": "single",
+     "ref": "fawlty_towers_202604"
     }
    ]
   },
@@ -3766,11 +3761,11 @@
    ]
   },
   {
-   "slug": "treehouse-detectives-2018",
-   "tvmazeID": 21822,
-   "title": "Treehouse Detectives",
+   "slug": "treehouse-masters-2013",
+   "tvmazeID": 1446,
+   "title": "Treehouse Masters",
    "matched": true,
-   "canonEps": 20,
+   "canonEps": 98,
    "ourItems": 3,
    "mappedEps": 0,
    "extras": 3,
@@ -4234,8 +4229,8 @@
    "repickSkipped": 0,
    "availableEps": 1,
    "kinds": [
-    "series",
-    "single"
+    "orphan-episode",
+    "series"
    ],
    "mergedFrom": 2,
    "consumedRefs": [
@@ -4244,7 +4239,7 @@
      "ref": "tate-1960"
     },
     {
-     "kind": "single",
+     "kind": "orphan-episode",
      "ref": "tateseason1"
     }
    ]
@@ -4270,35 +4265,6 @@
     {
      "kind": "series",
      "ref": "the-adventures-of-the-scarlet-pimpernel-1955"
-    }
-   ]
-  },
-  {
-   "slug": "the-amazing-spider-man-1977",
-   "tvmazeID": 7623,
-   "title": "The Amazing Spider-Man",
-   "matched": true,
-   "canonEps": 14,
-   "ourItems": 2,
-   "mappedEps": 1,
-   "extras": 1,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "availableEps": 2,
-   "kinds": [
-    "orphan-episode",
-    "series"
-   ],
-   "mergedFrom": 2,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "the-amazing-spider-man-1977"
-    },
-    {
-     "kind": "orphan-episode",
-     "ref": "the-amazing-spider-man-complete-series-1977"
     }
    ]
   },
@@ -5491,6 +5457,29 @@
    ]
   },
   {
+   "slug": "the-amazing-spider-man-1977",
+   "tvmazeID": 7623,
+   "title": "The Amazing Spider-Man",
+   "matched": true,
+   "canonEps": 14,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-amazing-spider-man-1977"
+    }
+   ]
+  },
+  {
    "slug": "the-americans-1961",
    "tvmazeID": 22151,
    "title": "The Americans",
@@ -6113,52 +6102,6 @@
    ]
   },
   {
-   "slug": "leave-it-to-beaver-1957",
-   "tvmazeID": 2128,
-   "title": "Leave It to Beaver",
-   "matched": true,
-   "canonEps": 234,
-   "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "leave-it-to-beaver-the-complete-series-1957-1963"
-    }
-   ]
-  },
-  {
-   "slug": "alias-smith-and-jones-1971",
-   "tvmazeID": 3184,
-   "title": "Alias Smith and Jones",
-   "matched": true,
-   "canonEps": 50,
-   "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "Alias-Smith-And-Jones-1973"
-    }
-   ]
-  },
-  {
    "slug": "sea-hunt-1958",
    "tvmazeID": 3710,
    "title": "Sea Hunt",
@@ -6182,190 +6125,6 @@
    ]
   },
   {
-   "slug": "man-from-atlantis-1977",
-   "tvmazeID": 1485,
-   "title": "Man from Atlantis",
-   "matched": true,
-   "canonEps": 13,
-   "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "man-from-atlantis-complete-series-1977"
-    }
-   ]
-  },
-  {
-   "slug": "the-professionals-1977",
-   "tvmazeID": 7737,
-   "title": "The Professionals",
-   "matched": true,
-   "canonEps": 57,
-   "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "the-professionals-complete-series-1977"
-    }
-   ]
-  },
-  {
-   "slug": "barbary-coast-1975",
-   "tvmazeID": 13088,
-   "title": "Barbary Coast",
-   "matched": true,
-   "canonEps": 13,
-   "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "barbary-coast-complete-series-1975"
-    }
-   ]
-  },
-  {
-   "slug": "the-immortal-1970",
-   "tvmazeID": 3845,
-   "title": "The Immortal",
-   "matched": true,
-   "canonEps": 15,
-   "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "the-immortal-complete-series-1970"
-    }
-   ]
-  },
-  {
-   "slug": "department-s-1969",
-   "tvmazeID": 6788,
-   "title": "Department S",
-   "matched": true,
-   "canonEps": 28,
-   "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "department-s-complete-series-1970"
-    }
-   ]
-  },
-  {
-   "slug": "the-man-in-room-17-1965",
-   "tvmazeID": 13500,
-   "title": "The Man in Room 17",
-   "matched": true,
-   "canonEps": 26,
-   "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "man-in-room-17-complete-series-1965"
-    }
-   ]
-  },
-  {
-   "slug": "dundee-and-the-culhane-1967",
-   "tvmazeID": 76247,
-   "title": "Dundee and the Culhane",
-   "matched": true,
-   "canonEps": 12,
-   "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "Dundee-and-the-Culhane-1967"
-    }
-   ]
-  },
-  {
-   "slug": "kolchak-the-night-stalker-1972",
-   "tvmazeID": 3564,
-   "title": "Kolchak: The Night Stalker",
-   "matched": true,
-   "canonEps": 20,
-   "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "kolchak-the-night-stalker-complete-series-1972"
-    }
-   ]
-  },
-  {
    "slug": "captain-scarlet-and-the-mysterons-1967",
    "tvmazeID": 3650,
    "title": "Captain Scarlet and the Mysterons",
@@ -6385,29 +6144,6 @@
     {
      "kind": "orphan-episode",
      "ref": "captain-scarlet-tv-series"
-    }
-   ]
-  },
-  {
-   "slug": "the-farmers-daughter-1963",
-   "tvmazeID": 17406,
-   "title": "The Farmers Daughter",
-   "matched": true,
-   "canonEps": 101,
-   "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "kinds": [
-    "orphan-episode"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "orphan-episode",
-     "ref": "20220204_20220204_1021"
     }
    ]
   },
@@ -7540,6 +7276,29 @@
    ]
   },
   {
+   "slug": "the-farmers-daughter-1963",
+   "tvmazeID": 17406,
+   "title": "The Farmers Daughter",
+   "matched": true,
+   "canonEps": 101,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "kinds": [
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "single",
+     "ref": "20220204_20220204_1021"
+    }
+   ]
+  },
+  {
    "slug": "tabitha-1976",
    "tvmazeID": 23041,
    "title": "Tabitha",
@@ -7817,11 +7576,11 @@
    ]
   },
   {
-   "slug": "big-brother-best-shows-ever-2020",
-   "tvmazeID": 48066,
-   "title": "Big Brother: Best Shows Ever",
+   "slug": "the-armando-iannucci-shows-2001",
+   "tvmazeID": 2574,
+   "title": "The Armando Iannucci Shows",
    "matched": true,
-   "canonEps": 10,
+   "canonEps": 8,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -7955,11 +7714,11 @@
    ]
   },
   {
-   "slug": "alice-2020",
-   "tvmazeID": 49255,
+   "slug": "alice-1976",
+   "tvmazeID": 7553,
    "title": "Alice",
    "matched": true,
-   "canonEps": 16,
+   "canonEps": 202,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -8578,11 +8337,11 @@
    ]
   },
   {
-   "slug": "bear-in-the-big-blue-house-1997",
-   "tvmazeID": 8913,
-   "title": "Bear in the Big Blue House",
+   "slug": "the-hungry-games-alaska-s-big-bear-challenge-2024",
+   "tvmazeID": 78046,
+   "title": "The Hungry Games: Alaska's Big Bear Challenge",
    "matched": true,
-   "canonEps": 116,
+   "canonEps": 3,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -9011,6 +8770,29 @@
     {
      "kind": "single",
      "ref": "FMM_Good_Neighbors"
+    }
+   ]
+  },
+  {
+   "slug": "kolchak-the-night-stalker-1972",
+   "tvmazeID": 3564,
+   "title": "Kolchak: The Night Stalker",
+   "matched": true,
+   "canonEps": 20,
+   "ourItems": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "kinds": [
+    "single"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "single",
+     "ref": "kolchak-the-night-stalker-complete-series-1972"
     }
    ]
   },
@@ -9546,11 +9328,11 @@
    ]
   },
   {
-   "slug": "dr-slump-1981",
-   "tvmazeID": 55244,
+   "slug": "dr-slump-1997",
+   "tvmazeID": 55245,
    "title": "Dr. Slump",
    "matched": true,
-   "canonEps": 243,
+   "canonEps": 74,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -10194,7 +9976,7 @@
    "tvmazeID": 3164,
    "title": "Heartland",
    "matched": true,
-   "canonEps": 283,
+   "canonEps": 285,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -10514,11 +10296,11 @@
    ]
   },
   {
-   "slug": "misery-loves-company-1995",
-   "tvmazeID": 37170,
-   "title": "Misery Loves Company",
+   "slug": "the-misery-index-2019",
+   "tvmazeID": 43103,
+   "title": "The Misery Index",
    "matched": true,
-   "canonEps": 8,
+   "canonEps": 49,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -10883,11 +10665,11 @@
    ]
   },
   {
-   "slug": "dennis-the-menace-1959",
-   "tvmazeID": 2121,
+   "slug": "dennis-the-menace-1986",
+   "tvmazeID": 26779,
    "title": "Dennis the Menace",
    "matched": true,
-   "canonEps": 146,
+   "canonEps": 36,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -11990,21 +11772,11 @@
   }
  ],
  "reclassifyArchiveIDs": [
+  "lost-media-found-the-amazing-adventures-of-spider-man-film-scenes-screen-animations",
   "TheDeathKiss",
   "the-killers-1946-1080p-1456x-1080-blu-ray-x-264",
-  "leave-it-to-beaver-the-complete-series-1957-1963",
-  "Alias-Smith-And-Jones-1973",
   "Sea_Hunt_Mark_of_the_Octopus",
-  "man-from-atlantis-complete-series-1977",
-  "the-professionals-complete-series-1977",
-  "barbary-coast-complete-series-1975",
-  "the-immortal-complete-series-1970",
-  "department-s-complete-series-1970",
-  "man-in-room-17-complete-series-1965",
-  "Dundee-and-the-Culhane-1967",
-  "kolchak-the-night-stalker-complete-series-1972",
   "captain-scarlet-tv-series",
-  "20220204_20220204_1021",
   "Dragnet_The_Big_Lift",
   "Love_That_Bob_Ep4x26_Bob_Goes_Bird_Watching",
   "PeteAndGladys1960CbsSneakPreview",
@@ -12053,6 +11825,7 @@
   "JeffFoxworthyShow",
   "707.-sorry-1981-88",
   "mind-your-language-1977_202212",
+  "20220204_20220204_1021",
   "tabitha_tv_series",
   "504.-thats-my-boy-1981-86",
   "please-sir-1968-72",
@@ -12114,6 +11887,7 @@
   "Tales_Of_Tomorrow_-_The_Dark_Angel",
   "OZZIE_AND_HARRIET_ep_The_New_Chairs",
   "FMM_Good_Neighbors",
+  "kolchak-the-night-stalker-complete-series-1972",
   "BbcNews1958",
   "the-big-comfy-couch_202108",
   "s-01.-e-06-out-of-the-box-high-fliers",
@@ -12237,7 +12011,9 @@
   "rude-awakening-complete-series",
   "hippies_202602"
  ],
- "orphanSeriesSlugs": [],
+ "orphanSeriesSlugs": [
+  "the-amazing-spider-man-1977"
+ ],
  "unmatched": [
   {
    "title": "Alan Watts",
@@ -13213,48 +12989,6 @@
    "ref": "chips_202105"
   },
   {
-   "title": "s 01 e 26 papa benjamin",
-   "year": 1960,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "s-01-e-26-papa-benjamin"
-  },
-  {
-   "title": "s 01 e 01 murder in monmartre 1",
-   "year": 1959,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "s-01-e-01-murder-in-monmartre-1"
-  },
-  {
-   "title": "T H E Cat",
-   "year": 1966,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "The-Cat-1966-Series"
-  },
-  {
-   "title": "The Baron Full Series",
-   "year": 1966,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "The_Baron_1966_Series"
-  },
-  {
-   "title": "Hawk Full Series",
-   "year": 1966,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "Hawk-1966-Full-Series"
-  },
-  {
-   "title": "Matt Helm Full Series",
-   "year": 1975,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "Matt-Helm-1975-Series"
-  },
-  {
    "title": "Kukla, Fran and Ollie",
    "year": 1947,
    "items": 1,
@@ -13269,27 +13003,6 @@
    "ref": "ILedThreeLivesArmyInfiltration"
   },
   {
-   "title": "N Y P D Full Series",
-   "year": 1967,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "s-02-e-16-the-attacker_202309"
-  },
-  {
-   "title": "The Loner Full Series",
-   "year": 1965,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "The-Loner-1965-Series"
-  },
-  {
-   "title": "Bearcats! with Pilot",
-   "year": 1971,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "Bearcats-Series-1971"
-  },
-  {
    "title": "Bob's Forgotten Fiancee",
    "year": 1958,
    "items": 1,
@@ -13302,13 +13015,6 @@
    "items": 1,
    "kind": "orphan-episode",
    "ref": "tz_promos_s1_1959-60"
-  },
-  {
-   "title": "branded s 02 e 22 barbed wire 202405",
-   "year": 1965,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "branded-s-02-e-22-barbed-wire_202405"
   },
   {
    "title": "Tom Terrific",
@@ -13381,27 +13087,6 @@
    "ref": "the-richard-pryor-show-s-01-e-01"
   },
   {
-   "title": "Sanford Arms 6/8 episodes",
-   "year": 1977,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "Sanford-Arms-1977"
-  },
-  {
-   "title": "Spy Trap",
-   "year": 1972,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "spy-trap"
-  },
-  {
-   "title": "C P O Sharkey",
-   "year": 1976,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "cposharkeyseasonone"
-  },
-  {
    "title": "Jackie Gleason",
    "year": 1962,
    "items": 1,
@@ -13437,13 +13122,6 @@
    "ref": "the-protectors"
   },
   {
-   "title": "James at 15 S01",
-   "year": 1977,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "james-at-15-s-01-e-01-pilot"
-  },
-  {
    "title": "redigo s 1 e 2 the blooded bull",
    "year": 1963,
    "items": 1,
@@ -13456,13 +13134,6 @@
    "items": 1,
    "kind": "orphan-episode",
    "ref": "topper-s-01-e-01-topper-meets-the-ghosts-1953-10-09"
-  },
-  {
-   "title": "Adventures in Rainbow Country S01",
-   "year": 1970,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "adventures-in-rainbow-country-s-01-e-01-la-chute"
   },
   {
    "title": "All Quiet on the Western Front",
@@ -13486,13 +13157,6 @@
    "ref": "the-avengers-s-04-e-04-death-at-bargain-prices-23-october-1965"
   },
   {
-   "title": "The Cousteau Odyssey",
-   "year": 1977,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "CousteauOdysseyISOs"
-  },
-  {
    "title": "s 2 e 24 the bus",
    "year": 1976,
    "items": 1,
@@ -13507,13 +13171,6 @@
    "ref": "tfarorps1e3"
   },
   {
-   "title": "The Phoenix and the Magic Carpet",
-   "year": 1976,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "the-phoenix-and-the-magic-carpet-complete-series-1976"
-  },
-  {
    "title": "O Elo Perdido 3º temporada",
    "year": 1974,
    "items": 1,
@@ -13521,25 +13178,11 @@
    "ref": "o-elo-perdido-s03"
   },
   {
-   "title": "Ghost Story Circle of Fear",
-   "year": 1972,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "ghost-story-circle-of-fear-complete"
-  },
-  {
    "title": "The Crab Nebula",
    "year": 1971,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "TheCrabNebula"
-  },
-  {
-   "title": "Theatre Macabre",
-   "year": 1971,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "theatre-macabre-s-1e-4-mateo-falcone-1971"
   },
   {
    "title": "Jeannie C Riley",
@@ -13787,25 +13430,11 @@
    "ref": "Love_That_Bob_Ep4x32_Grandpas_Old_Buddy"
   },
   {
-   "title": "drifters 202605",
-   "year": 1929,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "drifters-202605"
-  },
-  {
    "title": "Cheyenne S 01 E 14 Johnny Bravo",
    "year": 1929,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "cheyenne.-s-01-e-14.-johnny.-bravo"
-  },
-  {
-   "title": "The Jackie Gleason Show",
-   "year": 1969,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "jackie-gleason-show-season-8-1969-1970"
   },
   {
    "title": "Diver Dan , episode 22",
@@ -14179,20 +13808,6 @@
    "ref": "AngelaLansbury_ThoroughlyModernMillie_1968"
   },
   {
-   "title": "Thriller S01",
-   "year": 1960,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "thriller-s-01-e-26-papa-benjamin"
-  },
-  {
-   "title": "T H E Cat",
-   "year": 1967,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "t-h-e-cat-tv-1967-s01e24-the-long-chase"
-  },
-  {
    "title": "Flash Gordon episodes 16 & 35",
    "year": 1955,
    "items": 1,
@@ -14221,25 +13836,11 @@
    "ref": "two-faces-west-tv-1961-colorized-s01e16-the-prisoner"
   },
   {
-   "title": "T H E Cat",
-   "year": 1967,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "t.-h.-e.-cat-tv-1967-colorized-s01e17-a-hot-place-to-die"
-  },
-  {
    "title": "Hullabaloo April 6",
    "year": 1965,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "hullabaloo-april-6-1965-s-1-e-13"
-  },
-  {
-   "title": "Terry And The Pirates",
-   "year": 1953,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "terry-and-the-pirates-tv-1953-s01e11-black-market-for-death"
   },
   {
    "title": "Flash Gordon episodes 18 & 38",
@@ -14298,13 +13899,6 @@
    "ref": "1952.-tales-of-tomorrow-s-01-e-17-20-000-leagues-under-the-sea-the-chase_202308"
   },
   {
-   "title": "pathfinders s 01 e 03",
-   "year": 1972,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "pathfinders-1972-s-01-e-03"
-  },
-  {
    "title": "Secret File U S A",
    "year": 1955,
    "items": 1,
@@ -14347,32 +13941,11 @@
    "ref": "what-makes-shaw-run-run-1972-whickers-orient-s-01e-01"
   },
   {
-   "title": "Zorro S01 PT BR",
-   "year": 1957,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "1957-zorro-s-01"
-  },
-  {
    "title": "jackie gleason show",
    "year": 1968,
    "items": 1,
    "kind": "orphan-episode",
    "ref": "jackie-gleason-show-season-7-1968-1969"
-  },
-  {
-   "title": "Malibu U",
-   "year": 1967,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "Malibu-U-1967"
-  },
-  {
-   "title": "the jackie gleason show",
-   "year": 1967,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "the-jackie-gleason-show-season-6-1967-1968"
   },
   {
    "title": "Man With ACamera 2x 01 The Killer",
@@ -14429,6 +14002,13 @@
    "items": 1,
    "kind": "orphan-episode",
    "ref": "1940-06-xx-Die-Deutsche-Wochenschau-Monatsbildbericht"
+  },
+  {
+   "title": "What's Up for October?",
+   "year": 2009,
+   "items": 1,
+   "kind": "orphan-episode",
+   "ref": "394794main_whatsup20091001-320x180"
   },
   {
    "title": "Lucy meets John Wayne",
@@ -17945,6 +17525,13 @@
    "ref": "ch5polarodysseyparadoxoftheemperorsoct1998"
   },
   {
+   "title": "Ghost Story-Circle of Fear (1972-1973)",
+   "year": 1972,
+   "items": 1,
+   "kind": "single",
+   "ref": "ghost-story-circle-of-fear-complete"
+  },
+  {
    "title": "(DVD)-Lone_Ranger_The_Renegades",
    "year": null,
    "items": 1,
@@ -19252,6 +18839,13 @@
    "items": 1,
    "kind": "single",
    "ref": "VAS_23_Target_Suribachi"
+  },
+  {
+   "title": "The Cousteau Odyssey DVD ISOs",
+   "year": 1977,
+   "items": 1,
+   "kind": "single",
+   "ref": "CousteauOdysseyISOs"
   },
   {
    "title": "Racket Squad; A Place for Grandma",

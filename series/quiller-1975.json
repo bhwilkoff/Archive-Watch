@@ -272,7 +272,20 @@
   ],
   "episodesCount": 13,
   "canonicalEpisodesCount": null,
-  "tvdbID": null,
+  "tvdbID": "74506",
   "artworkSource": "generated",
-  "cast": []
+  "cast": [
+    {
+      "name": "Michael Jayston",
+      "character": "",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Moray Watson",
+      "character": "",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/299611/photo/6313d039b50fb.jpg"
+    }
+  ]
 }

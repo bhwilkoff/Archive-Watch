@@ -249,9 +249,28 @@
   ],
   "episodesCount": 12,
   "canonicalEpisodesCount": null,
-  "tvdbID": null,
+  "tvdbID": "253777",
   "artworkSource": "generated",
-  "cast": [],
+  "cast": [
+    {
+      "name": "Tom Tyler",
+      "character": "William \"Buffalo Bill\" Cody",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/354113/photo/66ab253610ec6.jpg"
+    },
+    {
+      "name": "Lucile Browne",
+      "character": "Jane Mills",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "William Desmond",
+      "character": "John Mills",
+      "order": 2,
+      "profilePath": null
+    }
+  ],
   "sourceIDs": [
     "UniversalPicturesBattlingwithBuffaloBill",
     "PublicDomainBattlingwithBuffaloBill"

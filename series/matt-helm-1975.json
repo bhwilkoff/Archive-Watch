@@ -287,7 +287,32 @@
   ],
   "episodesCount": 14,
   "canonicalEpisodesCount": null,
-  "tvdbID": null,
+  "tvdbID": "70375",
   "artworkSource": "tmdb",
-  "cast": []
+  "cast": [
+    {
+      "name": "Jeff Donnell",
+      "character": "Ethel",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/376.jpg"
+    },
+    {
+      "name": "Anthony Franciosa",
+      "character": "Matt Helm",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/377.jpg"
+    },
+    {
+      "name": "Gene Evans",
+      "character": "Sergeant Hanrahan",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/255693/photo/6467f21def733.jpg"
+    },
+    {
+      "name": "Laraine Stephens",
+      "character": "Claire Kronski",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/379.jpg"
+    }
+  ]
 }

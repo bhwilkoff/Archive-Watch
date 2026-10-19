@@ -539,7 +539,74 @@
   ],
   "episodesCount": 27,
   "canonicalEpisodesCount": null,
-  "tvdbID": null,
+  "tvdbID": "73987",
   "artworkSource": "generated",
-  "cast": []
+  "cast": [
+    {
+      "name": "Denver Pyle",
+      "character": "",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "George Furth",
+      "character": "",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Frank McGrath",
+      "character": "",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Donald Woods",
+      "character": "",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Jay Sheffield",
+      "character": "",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Debbie Watson",
+      "character": "",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/371834/photo/64db958c6892b.jpg"
+    },
+    {
+      "name": "Linda Marshall",
+      "character": "",
+      "order": 6,
+      "profilePath": null
+    },
+    {
+      "name": "Dennis Robertson",
+      "character": "",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256632/photo/60ae5e9432c37.jpg"
+    },
+    {
+      "name": "David Macklin",
+      "character": "",
+      "order": 8,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/258243/photo/6310e167ac2c5.jpg"
+    },
+    {
+      "name": "Doris Packer",
+      "character": "",
+      "order": 9,
+      "profilePath": null
+    },
+    {
+      "name": "Dorothy Green",
+      "character": "",
+      "order": 10,
+      "profilePath": null
+    }
+  ]
 }

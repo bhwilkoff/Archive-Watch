@@ -6,7 +6,7 @@
   "title": "Men into Space",
   "yearStart": null,
   "yearEnd": null,
-  "overview": null,
+  "overview": "Men into Space is an American science-fiction television series broadcast from September 30, 1959 to September 7, 1960 by CBS which depicted future efforts by the United States Air Force to explore and develop outer space. The black-and-white filmed show starred William Lundigan as Col. Edward McCauley.",
   "posterURL": "https://archive.org/download/archivewatch-covers/men.into.-space.-.a02a6fae.jpg",
   "backdropURL": null,
   "genres": [],
@@ -743,7 +743,50 @@
   ],
   "episodesCount": 38,
   "canonicalEpisodesCount": null,
-  "tvdbID": null,
+  "tvdbID": "77374",
   "artworkSource": "generated",
-  "cast": []
+  "cast": [
+    {
+      "name": "Charles Herbert",
+      "character": "",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/270040/photo/62e4aae5b5a28.jpg"
+    },
+    {
+      "name": "Joyce Taylor",
+      "character": "",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "William Lundigan",
+      "character": "",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Tyler McVey",
+      "character": "",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Ron Foster",
+      "character": "",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Russ Conway",
+      "character": "",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/258734/photo/63b7a4b96d838.jpg"
+    },
+    {
+      "name": "Angie Dickinson",
+      "character": "",
+      "order": 6,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253641/photo/61567490c5806.jpg"
+    }
+  ]
 }

@@ -268,7 +268,116 @@
   ],
   "episodesCount": 13,
   "canonicalEpisodesCount": null,
-  "tvdbID": null,
+  "tvdbID": "257467",
   "artworkSource": "generated",
-  "cast": []
+  "cast": [
+    {
+      "name": "James Maxwell",
+      "character": "King Henry VII",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Norma West",
+      "character": "Elizabeth of York",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Marigold Sharman",
+      "character": "Margaret Beaufort",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Derek Anders",
+      "character": "James IV",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Adrienne Byrne",
+      "character": "Catherine of Aragon",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "John Franklyn-Robbins",
+      "character": "Sir William Stanley",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Colin Jeavons",
+      "character": "Sir Robert Clifford",
+      "order": 6,
+      "profilePath": null
+    },
+    {
+      "name": "Michael Johnson",
+      "character": "Lord Lovell",
+      "order": 7,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253790/photo/64d068bc574cf.jpg"
+    },
+    {
+      "name": "Jason Kemp",
+      "character": "Prince Arthur",
+      "order": 8,
+      "profilePath": null
+    },
+    {
+      "name": "Rachel Kempson",
+      "character": "Margaret of York",
+      "order": 9,
+      "profilePath": null
+    },
+    {
+      "name": "James Laurenson",
+      "character": "Earl of Lincoln",
+      "order": 10,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/314988/photo/6884dbdd0865c.jpg"
+    },
+    {
+      "name": "Hayward Morse",
+      "character": "Thomas Atwood",
+      "order": 11,
+      "profilePath": null
+    },
+    {
+      "name": "Christopher Neame",
+      "character": "Earl of Warwick",
+      "order": 12,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256313/photo/6ab9783b224ba.jpg"
+    },
+    {
+      "name": "Maurice Roëves",
+      "character": "Humphrey Stafford",
+      "order": 13,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/7917383/photo/66ead4e34f364.jpg"
+    },
+    {
+      "name": "Nicholas Selby",
+      "character": "Earl of Devon",
+      "order": 14,
+      "profilePath": null
+    },
+    {
+      "name": "Richard Warwick",
+      "character": "Perkin Warbeck",
+      "order": 15,
+      "profilePath": null
+    },
+    {
+      "name": "Joanna Tope",
+      "character": "Cicely",
+      "order": 16,
+      "profilePath": null
+    },
+    {
+      "name": "David Collings",
+      "character": "Richard Simmons",
+      "order": 17,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/255340/6023fc88e4efb.jpg"
+    }
+  ]
 }

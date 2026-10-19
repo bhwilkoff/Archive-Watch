@@ -1,0 +1,312 @@
+{
+  "version": 2,
+  "seriesID": "self-incorporated-series-about-challenges-of-early-adolescence-1975",
+  "sourceID": "self_incorporated",
+  "tvmazeID": null,
+  "title": "Self Incorporated Series about challenges of early adolescence",
+  "yearStart": 1975,
+  "yearEnd": null,
+  "overview": "Self Incorporated ★ Series about challenges of early adolescence Self-Incorporated: Self Incorporated is a 15-program television/film series designed to stimulate classroom discussion of critical issues and problems of early adolescence. It aims at helping 11 to 13-year-olds cope with the physical, social, and emotional changes they are experiencing.\"Self - Incorporated\" was created under the management of the Agency for Instructional Television through the resources of a consortium of 42 state and provincial educational and broadcasting agencies, with additional assistance from Exxon Corporation. Episodes: Self Incorporated 01 Trying Times Self Incorporated 02 Who Wins? Self Incorporated 03 No Trespassing Self Incorporated 04 Getting Closer Self Incorporated 05 Down and Back Self Incorporated 06 Pressure Makes Perfect Self Incorporated 07 Two Sons Self Incorporated 08 The Clique Self Incorporated 09 Different Folks Self Incorporated 10 What's Wrong With Jonathan? Self Incorporated 11 Family Matters Self Incorporated 12 My Friend? These videos are all to be used only for free, personal, educational purposes. ___________________________________________________________________________________",
+  "posterURL": "https://archive.org/services/img/self_incorporated",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "self_incorporated@e01",
+          "sourceID": "self_incorporated",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Episode 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/self_incorporated/self_incorporated.thumbs/self_incorporated_01_000308.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 884,
+          "videoFile": {
+            "name": "self_incorporated_01.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 211825749,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/self_incorporated/self_incorporated_01.mp4"
+        },
+        {
+          "archiveID": "self_incorporated@e02",
+          "sourceID": "self_incorporated",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Episode 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/self_incorporated/self_incorporated.thumbs/self_incorporated_02_000310.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 891,
+          "videoFile": {
+            "name": "self_incorporated_02.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 207088218,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/self_incorporated/self_incorporated_02.mp4"
+        },
+        {
+          "archiveID": "self_incorporated@e03",
+          "sourceID": "self_incorporated",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Episode 3",
+          "overview": null,
+          "stillURL": "https://archive.org/download/self_incorporated/self_incorporated.thumbs/self_incorporated_03_000317.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 891,
+          "videoFile": {
+            "name": "self_incorporated_03.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 211883902,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/self_incorporated/self_incorporated_03.mp4"
+        },
+        {
+          "archiveID": "self_incorporated@e04",
+          "sourceID": "self_incorporated",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Episode 4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/self_incorporated/self_incorporated.thumbs/self_incorporated_04_000303.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 875,
+          "videoFile": {
+            "name": "self_incorporated_04.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 216081121,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/self_incorporated/self_incorporated_04.mp4"
+        },
+        {
+          "archiveID": "self_incorporated@e05",
+          "sourceID": "self_incorporated",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Episode 5",
+          "overview": null,
+          "stillURL": "https://archive.org/download/self_incorporated/self_incorporated.thumbs/self_incorporated_05_000307.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 873,
+          "videoFile": {
+            "name": "self_incorporated_05.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 178226817,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/self_incorporated/self_incorporated_05.mp4"
+        },
+        {
+          "archiveID": "self_incorporated@e06",
+          "sourceID": "self_incorporated",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Episode 6",
+          "overview": null,
+          "stillURL": "https://archive.org/download/self_incorporated/self_incorporated.thumbs/self_incorporated_06_000311.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 898,
+          "videoFile": {
+            "name": "self_incorporated_06.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 230417836,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/self_incorporated/self_incorporated_06.mp4"
+        },
+        {
+          "archiveID": "self_incorporated@e07",
+          "sourceID": "self_incorporated",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Episode 7",
+          "overview": null,
+          "stillURL": "https://archive.org/download/self_incorporated/self_incorporated.thumbs/self_incorporated_07_000355.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 884,
+          "videoFile": {
+            "name": "self_incorporated_07.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 205042225,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/self_incorporated/self_incorporated_07.mp4"
+        },
+        {
+          "archiveID": "self_incorporated@e08",
+          "sourceID": "self_incorporated",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Episode 8",
+          "overview": null,
+          "stillURL": "https://archive.org/download/self_incorporated/self_incorporated.thumbs/self_incorporated_08_000308.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 878,
+          "videoFile": {
+            "name": "self_incorporated_08.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 212513890,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/self_incorporated/self_incorporated_08.mp4"
+        },
+        {
+          "archiveID": "self_incorporated@e09",
+          "sourceID": "self_incorporated",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Episode 9",
+          "overview": null,
+          "stillURL": "https://archive.org/download/self_incorporated/self_incorporated.thumbs/self_incorporated_09_000310.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 890,
+          "videoFile": {
+            "name": "self_incorporated_09.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 234560241,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/self_incorporated/self_incorporated_09.mp4"
+        },
+        {
+          "archiveID": "self_incorporated@e10",
+          "sourceID": "self_incorporated",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Episode 10",
+          "overview": null,
+          "stillURL": "https://archive.org/download/self_incorporated/self_incorporated.thumbs/self_incorporated_10_000351.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 871,
+          "videoFile": {
+            "name": "self_incorporated_10.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 201956538,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/self_incorporated/self_incorporated_10.mp4"
+        },
+        {
+          "archiveID": "self_incorporated@e11",
+          "sourceID": "self_incorporated",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Episode 11",
+          "overview": null,
+          "stillURL": "https://archive.org/download/self_incorporated/self_incorporated.thumbs/self_incorporated_11_000305.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 881,
+          "videoFile": {
+            "name": "self_incorporated_11.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 250790181,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/self_incorporated/self_incorporated_11.mp4"
+        },
+        {
+          "archiveID": "self_incorporated@e12",
+          "sourceID": "self_incorporated",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Episode 12",
+          "overview": null,
+          "stillURL": "https://archive.org/download/self_incorporated/self_incorporated.thumbs/self_incorporated_12_000303.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 876,
+          "videoFile": {
+            "name": "self_incorporated_12.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 249307835,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/self_incorporated/self_incorporated_12.mp4"
+        },
+        {
+          "archiveID": "self_incorporated@e13",
+          "sourceID": "self_incorporated",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Episode 13",
+          "overview": null,
+          "stillURL": "https://archive.org/download/self_incorporated/self_incorporated.thumbs/self_incorporated_13_000312.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 876,
+          "videoFile": {
+            "name": "self_incorporated_13.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 187716390,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/self_incorporated/self_incorporated_13.mp4"
+        },
+        {
+          "archiveID": "self_incorporated@e14",
+          "sourceID": "self_incorporated",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Episode 14",
+          "overview": null,
+          "stillURL": "https://archive.org/download/self_incorporated/self_incorporated.thumbs/self_incorporated_14_000307.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 885,
+          "videoFile": {
+            "name": "self_incorporated_14.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 197587772,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/self_incorporated/self_incorporated_14.mp4"
+        },
+        {
+          "archiveID": "self_incorporated@e15",
+          "sourceID": "self_incorporated",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Episode 15",
+          "overview": null,
+          "stillURL": "https://archive.org/download/self_incorporated/self_incorporated.thumbs/self_incorporated_15_000344.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 870,
+          "videoFile": {
+            "name": "self_incorporated_15.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 214751326,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/self_incorporated/self_incorporated_15.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 15,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

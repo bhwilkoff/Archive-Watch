@@ -548,7 +548,44 @@
   ],
   "episodesCount": 27,
   "canonicalEpisodesCount": null,
-  "tvdbID": null,
+  "tvdbID": "78322",
   "artworkSource": "generated",
-  "cast": []
+  "cast": [
+    {
+      "name": "Denholm Elliott",
+      "character": "",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257991/photo/62a61fa76fc70.jpg"
+    },
+    {
+      "name": "Richard Vernon",
+      "character": "",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Willoughy Goddard",
+      "character": "",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Michael Aldridge",
+      "character": "",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/299881/photo/6ab95ec1742cc.jpg"
+    },
+    {
+      "name": "Michael Gover",
+      "character": "Hubert Hatton",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Amber Kammer",
+      "character": "Tracey Peverill",
+      "order": 5,
+      "profilePath": null
+    }
+  ]
 }

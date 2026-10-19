@@ -6,7 +6,7 @@
   "title": "Hawk",
   "yearStart": 1966,
   "yearEnd": null,
-  "overview": null,
+  "overview": "John Hawk (Burt Reynolds) is a full-blooded Iroquois Indian working the night beat for the New York District Attorney's Office with his partner Detective Carter.  Filmed on location in and around New York City at night.",
   "posterURL": "https://archive.org/download/archivewatch-covers/Hawk-1966-Full-Series.b42458fd.jpg",
   "backdropURL": null,
   "genres": [],
@@ -344,7 +344,32 @@
   ],
   "episodesCount": 17,
   "canonicalEpisodesCount": null,
-  "tvdbID": null,
+  "tvdbID": "76562",
   "artworkSource": "generated",
-  "cast": []
+  "cast": [
+    {
+      "name": "Bruce Glover",
+      "character": "Asst. D.A. Murray Slaken",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/265219/photo/649709ef2a5f6.jpg"
+    },
+    {
+      "name": "Wayne Grice",
+      "character": "Det. Dan Carter",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Leon Janney",
+      "character": "Asst. D.A. Ed Gorton",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Burt Reynolds",
+      "character": "Det. Lt. John Hawk",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/253437/primary.jpg"
+    }
+  ]
 }

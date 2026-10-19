@@ -271,7 +271,20 @@
   ],
   "episodesCount": 13,
   "canonicalEpisodesCount": null,
-  "tvdbID": null,
+  "tvdbID": "70416",
   "artworkSource": "tmdb",
-  "cast": []
+  "cast": [
+    {
+      "name": "Kenneth More",
+      "character": "",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/308711/photo/6497031e518a3.jpg"
+    },
+    {
+      "name": "Dennis Burgess",
+      "character": "Hercule Flambeau",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/308712/photo/65df62ad2c156.jpg"
+    }
+  ]
 }

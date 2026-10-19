@@ -268,7 +268,20 @@
   ],
   "episodesCount": 13,
   "canonicalEpisodesCount": null,
-  "tvdbID": null,
+  "tvdbID": "77887",
   "artworkSource": "generated",
-  "cast": []
+  "cast": [
+    {
+      "name": "John Mills",
+      "character": "Dundee",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/284111/photo/61dbc0b6191c6.jpg"
+    },
+    {
+      "name": "Sean Garrison",
+      "character": "The Culhane",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/289750/photo/63289247827a9.jpg"
+    }
+  ]
 }

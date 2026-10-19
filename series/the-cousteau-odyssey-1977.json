@@ -145,7 +145,26 @@
   ],
   "episodesCount": 6,
   "canonicalEpisodesCount": null,
-  "tvdbID": null,
+  "tvdbID": "79893",
   "artworkSource": "generated",
-  "cast": []
+  "cast": [
+    {
+      "name": "Jacques Cousteau",
+      "character": "Himself",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/72607.jpg"
+    },
+    {
+      "name": "Philippe Cousteau",
+      "character": "Himself",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/318061.jpg"
+    },
+    {
+      "name": "Theodore Strauss",
+      "character": "Narrator",
+      "order": 2,
+      "profilePath": null
+    }
+  ]
 }

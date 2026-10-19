@@ -591,7 +591,32 @@
   ],
   "episodesCount": 30,
   "canonicalEpisodesCount": null,
-  "tvdbID": null,
+  "tvdbID": "76361",
   "artworkSource": "tmdb",
-  "cast": []
+  "cast": [
+    {
+      "name": "Steve Forrest",
+      "character": "John Mannering 'The Baron'",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257132/photo/60ee48fbced3a.jpg"
+    },
+    {
+      "name": "Sue Lloyd",
+      "character": "Cordelia Winfield",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/299287/photo/69b5004f1d1fe.jpg"
+    },
+    {
+      "name": "Paul Ferris",
+      "character": "David Marlowe",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/406896/photo/60ee493fadf9d.jpg"
+    },
+    {
+      "name": "Colin Gordon",
+      "character": "John Alexander Templeton-Green",
+      "order": 3,
+      "profilePath": null
+    }
+  ]
 }

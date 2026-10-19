@@ -7,7 +7,7 @@
   "yearStart": 1966,
   "yearEnd": null,
   "overview": "Insurrection is an Irish docudrama written by Hugh Leonard and directed by Michael Garvey and Louis Lentin. It was first broadcast on Telefís Éireann in Ireland on 10 April 1966 and later on the BBC in the United Kingdom, ABC in Australia and several other European countries. Only one series of eight episodes was made, with each episode broadcast on consecutive nights. The series was repeated only once when, on 1 May 1966, it was shown in its entirety. The series portrays the 1916 Easter Rising which was mounted by Irish republicans to end British rule in Ireland and establish an independent Irish Republic. The events were reconstructed as it might have been seen by an Irish television service at the time. Ray McAnally acted as the studio anchor of a news programme that presented daily coverage of the Rising as it unfolded, with Telefís Éireann reporters broadcasting on the spot updates of the events and conducting interviews with key participants. Along with the key figures of the insurrection, the series also looked at the action in the General Post Office, Liberty Hall and events like the Battle of Mount Street Bridge. Incidents outside Dublin such as the arrest of Roger Casement, the sinking of the Aud and the battle of Ashbourne were introduced into the programs as filmed news items of the day. McAnally interviewed guests in studio and also used models and street maps to clarify details for the viewers. Insurrection has received critical acclaim from television critics. Described in the RTV Guide as \"undoubtedly the most difficult and ambitious project ever attempted by Irish television\", the series formed the centerpiece of Telefís Éireann's 1916 golden jubilee commemoration. It was regarded as pioneering in its use of the outside broadcast unit to record drama on location and its presentation of an historical event in the style of modern TV war reporting. This technique was borrowed from the 1964 BBC TV film Culloden. On 8 March 2016, RTÉ announced that Insurrection would be rebroadcast as part of their 1916 centenary commemoration.",
-  "posterURL": "https://archive.org/services/img/insurrection-1966_202404",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/5da1107938e1a.jpg",
   "backdropURL": null,
   "genres": [],
   "networks": [],
@@ -173,7 +173,7 @@
   ],
   "episodesCount": 8,
   "canonicalEpisodesCount": null,
-  "tvdbID": null,
-  "artworkSource": "archive",
+  "tvdbID": "308721",
+  "artworkSource": "tvdb",
   "cast": []
 }

@@ -292,7 +292,98 @@
   ],
   "episodesCount": 14,
   "canonicalEpisodesCount": null,
-  "tvdbID": null,
+  "tvdbID": "469082",
   "artworkSource": "generated",
-  "cast": []
+  "cast": [
+    {
+      "name": "Paul Daneman",
+      "character": "Cmdr. Ryan",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/263898/photo/64ca87dae7d35.jpg"
+    },
+    {
+      "name": "Prentis Hancock",
+      "character": "Lt. Saunders",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/258532/photo/658fd1faa5385.jpg"
+    },
+    {
+      "name": "Julian Glover",
+      "character": "Cmdr. Anderson",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/247890/5faaebdc5e765.jpg"
+    },
+    {
+      "name": "Michael Gwynn",
+      "character": "Carson",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Peter Welch",
+      "character": "Det. Supt. Clark",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Tom Adams",
+      "character": "Major Sullivan",
+      "order": 5,
+      "profilePath": null
+    },
+    {
+      "name": "Eric McCaine",
+      "character": "Det. Insp. Williams",
+      "order": 6,
+      "profilePath": null
+    },
+    {
+      "name": "Kevin Stoney",
+      "character": "Trent",
+      "order": 7,
+      "profilePath": null
+    },
+    {
+      "name": "Jon Laurimore",
+      "character": "Rankin",
+      "order": 8,
+      "profilePath": null
+    },
+    {
+      "name": "Derek Martin",
+      "character": "Brown",
+      "order": 9,
+      "profilePath": null
+    },
+    {
+      "name": "Patsy Smart",
+      "character": "Mrs Burton",
+      "order": 10,
+      "profilePath": null
+    },
+    {
+      "name": "Willy Bowman",
+      "character": "Starhemburg",
+      "order": 11,
+      "profilePath": null
+    },
+    {
+      "name": "Jimmy Mac",
+      "character": "The Commisionaire",
+      "order": 12,
+      "profilePath": null
+    },
+    {
+      "name": "Sally Lahee",
+      "character": "Mrs Trent",
+      "order": 13,
+      "profilePath": null
+    },
+    {
+      "name": "Denis DeMarne",
+      "character": "Morgan",
+      "order": 14,
+      "profilePath": null
+    }
+  ]
 }

@@ -215,7 +215,38 @@
   ],
   "episodesCount": 10,
   "canonicalEpisodesCount": null,
-  "tvdbID": null,
+  "tvdbID": "74893",
   "artworkSource": "generated",
-  "cast": []
+  "cast": [
+    {
+      "name": "Roddy McDowall",
+      "character": "Dr. Jonathan Willoway",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253872/photo/62387709ed796.jpg"
+    },
+    {
+      "name": "Ike Eisenmann",
+      "character": "Scott Jordan",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/289464/photo/60624d801804c.jpg"
+    },
+    {
+      "name": "Katie Saylor",
+      "character": "Liana",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/35387.jpg"
+    },
+    {
+      "name": "Carl Franklin",
+      "character": "Dr. Fred Walters",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/35388.jpg"
+    },
+    {
+      "name": "Jared Martin",
+      "character": "Varian",
+      "order": 4,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256553/photo/630f9909d6fef.jpg"
+    }
+  ]
 }

@@ -353,7 +353,32 @@
   ],
   "episodesCount": 17,
   "canonicalEpisodesCount": null,
-  "tvdbID": null,
+  "tvdbID": "74930",
   "artworkSource": "tmdb",
-  "cast": []
+  "cast": [
+    {
+      "name": "Christine Belford",
+      "character": "",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "George Peppard",
+      "character": "Banacek",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/254917/photo/65199aea5254c.jpg"
+    },
+    {
+      "name": "Ralph Manza",
+      "character": "",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257800/photo/6496e7dcc00b8.jpg"
+    },
+    {
+      "name": "Murray Matheson",
+      "character": "",
+      "order": 3,
+      "profilePath": null
+    }
+  ]
 }

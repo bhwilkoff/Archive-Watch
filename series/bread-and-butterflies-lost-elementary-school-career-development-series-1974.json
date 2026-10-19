@@ -1,0 +1,312 @@
+{
+  "version": 2,
+  "seriesID": "bread-and-butterflies-lost-elementary-school-career-development-series-1974",
+  "sourceID": "bread-and-butterflies",
+  "tvmazeID": null,
+  "title": "Bread and Butterflies \"Lost\" elementary school career development series",
+  "yearStart": 1974,
+  "yearEnd": null,
+  "overview": "Bread and Butterflies ★ \"Lost\" elementary school career development series Broadcast in 1974 and 1975 on NET/PBS by the Agency for Instructional Technology BREAD And BUTTERFLIES is not merely learning about work, or uncovering personal feelings about career roles, or doing work-related tasks; it is a combination of all three. It pulls together all the facets of personal and career development that help young people understand who they are and what they can become. The affective learning emphasized in the series is a process of developing in the classroom the spirit of the individual -- the confidence that he or she is somebody, that each has special things that he or she can do well, and that all can have a say in what happens to them in the years ahead. Based on two years of planning by educators and broadcasters, the project includes fifteen 15-minute color television programs, a comprehensive Curriculum Guide, and in-service teacher's program, and informational program, and workshop materials. BREAD & BUTTERFLIES was created, under the supervision of the Agency for Instructional Television, through the resources of thirty-eight educational and broadcasting agencies with assistance from Exxon Corporation. \"BREAD & BUTTERFLIES was first broadcast during the 1974-75 school year on 150 public/instructional television stations (see enclosed list). It is now into its second year of use and is being broadcast on over 150 stations.",
+  "posterURL": "https://archive.org/services/img/bread-and-butterflies",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "bread-and-butterflies@e01",
+          "sourceID": "bread-and-butterflies",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Treasure Hunt",
+          "overview": null,
+          "stillURL": "https://archive.org/download/bread-and-butterflies/bread-and-butterflies.thumbs/Bread%20and%20Butterflies%2001%20Treasure%20Hunt_000351.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 887,
+          "videoFile": {
+            "name": "Bread and Butterflies 01 Treasure Hunt.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 349752498,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/bread-and-butterflies/Bread%20and%20Butterflies%2001%20Treasure%20Hunt.mp4"
+        },
+        {
+          "archiveID": "bread-and-butterflies@e02",
+          "sourceID": "bread-and-butterflies",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Work Means",
+          "overview": null,
+          "stillURL": "https://archive.org/download/bread-and-butterflies/bread-and-butterflies.thumbs/Bread%20and%20Butterflies%2002%20Work%20Means_000345.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 864,
+          "videoFile": {
+            "name": "Bread and Butterflies 02 Work Means.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 261919426,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/bread-and-butterflies/Bread%20and%20Butterflies%2002%20Work%20Means.mp4"
+        },
+        {
+          "archiveID": "bread-and-butterflies@e03",
+          "sourceID": "bread-and-butterflies",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Things Ideas People",
+          "overview": null,
+          "stillURL": "https://archive.org/download/bread-and-butterflies/bread-and-butterflies.thumbs/Bread%20and%20Butterflies%2003%20Things%20Ideas%20People_000301.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 874,
+          "videoFile": {
+            "name": "Bread and Butterflies 03 Things Ideas People.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 235811276,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/bread-and-butterflies/Bread%20and%20Butterflies%2003%20Things%20Ideas%20People.mp4"
+        },
+        {
+          "archiveID": "bread-and-butterflies@e04",
+          "sourceID": "bread-and-butterflies",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Way We Live",
+          "overview": null,
+          "stillURL": "https://archive.org/download/bread-and-butterflies/bread-and-butterflies.thumbs/Bread%20and%20Butterflies%2004%20The%20Way%20We%20Live_000310.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 873,
+          "videoFile": {
+            "name": "Bread and Butterflies 04 The Way We Live.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 249911806,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/bread-and-butterflies/Bread%20and%20Butterflies%2004%20The%20Way%20We%20Live.mp4"
+        },
+        {
+          "archiveID": "bread-and-butterflies@e05",
+          "sourceID": "bread-and-butterflies",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Taking Care Of Business",
+          "overview": null,
+          "stillURL": "https://archive.org/download/bread-and-butterflies/bread-and-butterflies.thumbs/Bread%20and%20Butterflies%2005%20Taking%20Care%20Of%20Business_000304.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 882,
+          "videoFile": {
+            "name": "Bread and Butterflies 05 Taking Care Of Business.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 257593474,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/bread-and-butterflies/Bread%20and%20Butterflies%2005%20Taking%20Care%20Of%20Business.mp4"
+        },
+        {
+          "archiveID": "bread-and-butterflies@e06",
+          "sourceID": "bread-and-butterflies",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Success Story",
+          "overview": null,
+          "stillURL": "https://archive.org/download/bread-and-butterflies/bread-and-butterflies.thumbs/Bread%20and%20Butterflies%2006%20Success%20Story_000301.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 872,
+          "videoFile": {
+            "name": "Bread and Butterflies 06 Success Story.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 277443756,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/bread-and-butterflies/Bread%20and%20Butterflies%2006%20Success%20Story.mp4"
+        },
+        {
+          "archiveID": "bread-and-butterflies@e07",
+          "sourceID": "bread-and-butterflies",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "School And Jobs",
+          "overview": null,
+          "stillURL": "https://archive.org/download/bread-and-butterflies/bread-and-butterflies.thumbs/Bread%20and%20Butterflies%2007%20School%20And%20Jobs_000307.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 875,
+          "videoFile": {
+            "name": "Bread and Butterflies 07 School And Jobs.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 228152739,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/bread-and-butterflies/Bread%20and%20Butterflies%2007%20School%20And%20Jobs.mp4"
+        },
+        {
+          "archiveID": "bread-and-butterflies@e08",
+          "sourceID": "bread-and-butterflies",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Power Play",
+          "overview": null,
+          "stillURL": "https://archive.org/download/bread-and-butterflies/bread-and-butterflies.thumbs/Bread%20and%20Butterflies%2008%20Power%20Play_000303.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 875,
+          "videoFile": {
+            "name": "Bread and Butterflies 08 Power Play.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 249339593,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/bread-and-butterflies/Bread%20and%20Butterflies%2008%20Power%20Play.mp4"
+        },
+        {
+          "archiveID": "bread-and-butterflies@e09",
+          "sourceID": "bread-and-butterflies",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Planning Ahead",
+          "overview": null,
+          "stillURL": "https://archive.org/download/bread-and-butterflies/bread-and-butterflies.thumbs/Bread%20and%20Butterflies%2009%20Planning%20Ahead_000298.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 857,
+          "videoFile": {
+            "name": "Bread and Butterflies 09 Planning Ahead.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 254021004,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/bread-and-butterflies/Bread%20and%20Butterflies%2009%20Planning%20Ahead.mp4"
+        },
+        {
+          "archiveID": "bread-and-butterflies@e10",
+          "sourceID": "bread-and-butterflies",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "People Need People",
+          "overview": null,
+          "stillURL": "https://archive.org/download/bread-and-butterflies/bread-and-butterflies.thumbs/Bread%20and%20Butterflies%2010%20People%20Need%20People_000300.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 870,
+          "videoFile": {
+            "name": "Bread and Butterflies 10 People Need People.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 305016388,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/bread-and-butterflies/Bread%20and%20Butterflies%2010%20People%20Need%20People.mp4"
+        },
+        {
+          "archiveID": "bread-and-butterflies@e11",
+          "sourceID": "bread-and-butterflies",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Our Own Two Hands",
+          "overview": null,
+          "stillURL": "https://archive.org/download/bread-and-butterflies/bread-and-butterflies.thumbs/Bread%20and%20Butterflies%2011%20Our%20Own%20Two%20Hands_000299.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 867,
+          "videoFile": {
+            "name": "Bread and Butterflies 11 Our Own Two Hands.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 272943761,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/bread-and-butterflies/Bread%20and%20Butterflies%2011%20Our%20Own%20Two%20Hands.mp4"
+        },
+        {
+          "archiveID": "bread-and-butterflies@e12",
+          "sourceID": "bread-and-butterflies",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Me Myself and Maybe",
+          "overview": null,
+          "stillURL": "https://archive.org/download/bread-and-butterflies/bread-and-butterflies.thumbs/Bread%20and%20Butterflies%2012%20Me%20Myself%20and%20Maybe_000347.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 869,
+          "videoFile": {
+            "name": "Bread and Butterflies 12 Me Myself and Maybe.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 241553344,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/bread-and-butterflies/Bread%20and%20Butterflies%2012%20Me%20Myself%20and%20Maybe.mp4"
+        },
+        {
+          "archiveID": "bread-and-butterflies@e13",
+          "sourceID": "bread-and-butterflies",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Youre Wrong",
+          "overview": null,
+          "stillURL": "https://archive.org/download/bread-and-butterflies/bread-and-butterflies.thumbs/Bread%20and%20Butterflies%2013%20Youre%20Wrong_000355.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 884,
+          "videoFile": {
+            "name": "Bread and Butterflies 13 Youre Wrong.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 232116887,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/bread-and-butterflies/Bread%20and%20Butterflies%2013%20Youre%20Wrong.mp4"
+        },
+        {
+          "archiveID": "bread-and-butterflies@e14",
+          "sourceID": "bread-and-butterflies",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Decisions Decisions",
+          "overview": null,
+          "stillURL": "https://archive.org/download/bread-and-butterflies/bread-and-butterflies.thumbs/Bread%20and%20Butterflies%2014%20Decisions%20Decisions_000296.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 859,
+          "videoFile": {
+            "name": "Bread and Butterflies 14 Decisions Decisions.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 212116925,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/bread-and-butterflies/Bread%20and%20Butterflies%2014%20Decisions%20Decisions.mp4"
+        },
+        {
+          "archiveID": "bread-and-butterflies@e15",
+          "sourceID": "bread-and-butterflies",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Choosing Changes",
+          "overview": null,
+          "stillURL": "https://archive.org/download/bread-and-butterflies/bread-and-butterflies.thumbs/Bread%20and%20Butterflies%2015%20Choosing%20Changes_000299.jpg",
+          "airDate": null,
+          "year": 1974,
+          "runtimeSeconds": 864,
+          "videoFile": {
+            "name": "Bread and Butterflies 15 Choosing Changes.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 283449098,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/bread-and-butterflies/Bread%20and%20Butterflies%2015%20Choosing%20Changes.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 15,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

@@ -789,7 +789,32 @@
   ],
   "episodesCount": 40,
   "canonicalEpisodesCount": null,
-  "tvdbID": null,
+  "tvdbID": "72428",
   "artworkSource": "tmdb",
-  "cast": []
+  "cast": [
+    {
+      "name": "Lois Maxwell",
+      "character": "Lieutenant Atlanta Shore",
+      "order": 0,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/278169/5faac4fd514e7.jpg"
+    },
+    {
+      "name": "Don Mason",
+      "character": "Captain Troy Tempest",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/17485.jpg"
+    },
+    {
+      "name": "Ray Barrett",
+      "character": "Commander Sam Shore",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/person/324501/5ea421ab5744e.jpg"
+    },
+    {
+      "name": "Robert Easton",
+      "character": "Lieutenant George \"Phones\" Sheridan",
+      "order": 3,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/17487.jpg"
+    }
+  ]
 }
