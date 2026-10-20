@@ -254,6 +254,7 @@ into every session and the index alone carries every title.)
 - 165 — The Play build's floor is Android 7, because Play's automatic protection requires it; Fire TV keeps Android 6
 - 166 — A series held in one archive.org item is a series: its files become episodes, `<item>@<token>`, on evidence the item itself gives
 - 167 — A whole series filed in one item and matched onto a TVmaze show becomes that show's episodes, placed by title
+- 168 — Correction to 167: each file of a whole-series item is judged by its own year; its item answers only for the licence
 
 ---
 
@@ -1008,4 +1009,25 @@ episodes, not 39, and `FireballXL5.complete` is black and white (mean saturation
 1.7 against 6.4 for the colorized upload). `tools/test_bundle_in_tvmaze.py`
 holds the cases with a single-item, promo and fragment control, and gates the
 tv-canonical build.
+
+## 168 — Correction to 167: each file of a whole-series item is judged by its own year; its item answers only for the licence
+*Date: 2026-10-20*
+
+`audit_tv_rights` judges every episode of a TVmaze spine by the episode's OWN
+year, and a file of a whole-series item (`X@s3e01`) asks archive.org about its
+item `X` (`item_of`) for the licence and collections. It does not judge the
+item as a whole, and it does not remove an item's other files when one is
+removed. Decision 167's "removes all its files with it" was the defect, not the
+rule.
+
+**Why**: the first tv-canonical run with 167 keyed the year by item, so the first
+1978 file of `George_and_Mildred` set the year for all 39, and every file was
+removed, the 1976 and 1977 episodes with them; Logan's Run and The Tony Randall
+Show lost their spines entirely (111 files in all). Judged per file: 47 files,
+every one aired 1978 or later, and every show stays.
+
+**How to apply**: never key the audit's `need` by item; fetch and cache by item,
+judge by file. The 111 manifest rows were removed and the five spines restored
+and rebuilt, since `tv_rights_removed.csv` re-removes by id on every run.
+`test_tv_rights_items.py` holds a 1976 and a 1978 file of one upload.
 

@@ -199,9 +199,7 @@ def collect_need(spines: dict, episode_years: bool = True) -> tuple[dict, dict]:
             continue
         for s in d.get("seasons") or []:
             for e in s.get("episodes") or []:
-                # archive.org judges the ITEM: a file of a whole-series item
-                # (`X@e08`, Decision 167) is asked about as `X`
-                aid = e.get("sourceID") or e.get("archiveID")
+                aid = e.get("archiveID")
                 if not aid:
                     continue
                 ey = episode_year(e) if episode_years else None
@@ -214,11 +212,19 @@ def collect_need(spines: dict, episode_years: bool = True) -> tuple[dict, dict]:
     return need, title_years
 
 
+def item_of(aid: str) -> str:
+    """The archive.org item an episode lives in. A file of a whole-series item
+    (`X@e08`, Decision 167) is judged by its OWN year against ITS item's record:
+    one upload can hold a show's 1976 and 1978 episodes, and only the second are
+    modern."""
+    return str(aid).split("@", 1)[0]
+
+
 def judge(need: dict, title_years: dict, cache: dict) -> tuple[dict, int, int]:
     """(archiveID -> why for every REMOVE, kept, unconfirmed)."""
     drop, kept, unconfirmed = {}, 0, 0
     for aid, year in need.items():
-        v, why = verdict(year, cache.get(aid, {"ok": False}), title_years.get(aid))
+        v, why = verdict(year, cache.get(item_of(aid), {"ok": False}), title_years.get(aid))
         if v == "remove":
             drop[aid] = why
         elif v == "unconfirmed":
@@ -240,7 +246,7 @@ def main() -> int:
 
     spines = load_spines(SERIES_DIR)
     need, title_years = collect_need(spines)
-    ids = sorted(need)
+    ids = sorted({item_of(a) for a in need})
     if args.limit:
         ids = ids[: args.limit]
     print(f"[tv-rights] spines {len(spines)}, modern items to confirm {len(ids)}")
@@ -287,10 +293,9 @@ def main() -> int:
             keep_eps = []
             for e in s.get("episodes") or []:
                 aid = str(e.get("archiveID") or "")
-                item = str(e.get("sourceID") or aid)
-                if aid in drop_ids or item in drop_ids:
+                if aid in drop_ids:
                     removed_rows.append((f.stem, d.get("title"), y, aid,
-                                         e.get("title"), drop_ids.get(aid) or drop_ids[item]))
+                                         e.get("title"), drop_ids[aid]))
                     eps_removed += 1
                     hit = True
                 else:

@@ -22,9 +22,15 @@ SPINE = {"title": "Sketch Show", "yearStart": 1975, "seasons": [{"episodes": [
     {"archiveID": "sketch-1976", "title": "S01E10", "year": 1976},
     {"archiveID": "sketch-1985-gov", "title": "Newsreel", "year": 1985},
     {"archiveID": "sketch-undated", "title": "S02E01", "year": None},
+    # one upload holding the whole show (Decision 167): each file keeps its own year
+    {"archiveID": "sketch-box@s1e01", "sourceID": "sketch-box", "title": "Pilot", "year": None,
+     "airDate": "1976-09-06"},
+    {"archiveID": "sketch-box@s3e01", "sourceID": "sketch-box", "title": "Return", "year": None,
+     "airDate": "1978-09-07"},
 ]}]}
 CACHE = {
     "sketch-1992": {"ok": True, "licenseurl": "", "rights": "", "collections": ["television"], "year": 1992},
+    "sketch-box": {"ok": True, "licenseurl": "", "rights": "", "collections": ["television"], "year": 1976},
     "sketch-1985-gov": {"ok": True, "licenseurl": "", "rights": "", "collections": [GOV], "year": 1985},
 }
 
@@ -51,6 +57,10 @@ def main() -> int:
     check("an undated episode under a pre-1978 show is not fetched", "sketch-undated" in need, False)
     check("an air date stands in for a missing year",
           T.episode_year({"year": None, "airDate": "1983-02-01"}), 1983)
+
+    check("a whole-series upload's 1978 file is removed, judged against its item's record",
+          "sketch-box@s3e01" in drop, True)
+    check("the same upload's 1976 file is kept", "sketch-box@s1e01" in drop, False)
 
     # CONTROL: the whole-spine skip must fail the first case, or this test
     # cannot tell the fix from the defect.

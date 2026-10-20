@@ -758,6 +758,37 @@ keep serving it.
 
 ## Session Log
 
+### 2026-10-20 — whole series filed in one item become their shows' episodes (Decision 167)
+
+A viewer (echosoft.llc@gmail.com) asked for Fireball XL5's 39 colorized
+episodes, noting the last "More episodes" entry ended in a period. Owner:
+*"Please fix all items that you have discovered with this issue and push any new
+builds that might need to be made to take advantage of all of the new episodes."*
+v1.46.15 -> 1.46.16 (2140).
+
+- **Cause**: `FireballXL5.complete` (39 files) sat on the TVmaze spine as ONE
+  episode, "Fireball XL5.", because Decision 166's scan read only catalog cards.
+  150 such items on 85 shows. The item is black and white (saturation 1.7 vs 6.4
+  for a colorized upload); archive.org holds 3 colorized episodes, not 39.
+- **Fix**: the scan reads TVmaze-spine items; `build_canonical_tv` expands each
+  into `<item>@<token>` files placed by their own title (show name, markers and
+  shared tags stripped; a unique long prefix), number only when untitled; an
+  upload that names mostly another show's episodes stays as it was (The Invisible
+  Man 1958 under 1975). Ten tools now read the item from `sourceID`. Local trial
+  over the shows: 552 -> ~3,900 episodes, one entry lost (a colorized duplicate).
+  `tools/test_bundle_in_tvmaze.py` gates tv-canonical and publish-db.
+- **CI run 39499978399**: Fireball XL5 39/39; 78 shows, 3,659 files. Its rights
+  step removed 111 files by ITEM year (George and Mildred's 1976-77 too; Logan's
+  Run and Tony Randall deleted) -- fixed to judge per file (Decision 168),
+  manifest rows dropped, the five spines restored and rebuilt: 47 files, all 1978+.
+- **Builds**: Android vc69 (1.46.16) built in CI, its R8 release APK smoke-run on
+  the Pixel, promoted to Play production. Roku 1.0.79 (versions picker splits `@`
+  ids) sideloaded and compiles on the Roku 2 XD floor. Apple builds need nothing.
+**Open**: Amazon edit is OPEN with vc69 uploaded; committing it needs release
+notes (`tools/submit-amazon.py --apk <apk> --notes "..." --commit`), refused by
+this session's permission check. Roku 1.0.79 waits for 1.0.78 to go live
+(2026-10-20 5 PM PT), then package + upload + Schedule publishing (owner).
+
 ### 2026-10-08 — iPhone Duo, the new App Store assets, and screenshots for every Apple platform
 
 Owner: *"There are new fields, screenshots, and a whole new device class that
@@ -789,31 +820,5 @@ even the home screen need better screenshots."* v1.45.20 -> 1.46.0 (2124).
 (when GitHub adds it to `xcode-27`, actions/runner-images#14850); the open and
 partly-folded poses, and Clip Studio's arrangement, need the owner's Duo
 (after 2026-10-23).
-
-### 2026-10-03 — the Samsung TV brought to the other platforms, tested on the S90C, packaged
-
-Owner: *"we need to update the Tizen app and get it ready to submit to the
-Samsung App Store. Please update all features and design to the current state
-on other platforms, complete full testing on my Samsung tv, and then get a
-build ready for shipping to the App Store"*, and *"build better tooling"* for
-testing on the set. v1.45.0 -> 1.45.7.
-
-**Tooling**: the TV is driven in-app over a Chii inspector (a debug-only
-package with its own CSP; `tools/tv_chii.mjs`, `tv_inspect.mjs`,
-`tv_press.mjs`, `docs/tizen-signing.md` 2026-10-03); woken by HDMI-CEC from
-the bedroom Apple TV. Samsung's remote WebSocket never answers (memory
-samsung_tv_harness). **Brought to parity**: Player Options (subtitles, copy,
-episodes, autoplay), channel keys and lineups, subtitles drawn at ten-foot
-size, Continue Watching progress, history removal by held OK, QR sharing,
-Collections and Settings in the nav, room joining from a keypad, Top rated,
-Search doors, Detail as a scene (TV-DESIGN §7.8), a guide that reads at ten
-feet and makes channels with the remote (§4.6d). **Samsung's checklist**:
-Return asks before exiting, no screensaver in playback, playback resumes,
-offline notice, cold launch 6.9 s (10 s limit, 5 s ideal); Tizen's player
-breaks on a rate change so there is no Speed, and its end-of-file error is the
-film's end. Owner answers: keep the marquee's Left/Right; About -> Settings;
-guide steps one program. **Ready**: `~/Desktop/ArchiveWatch-Samsung-1.45.7/`
-(signed `.wgt` + five 1920x1080 screenshots), listing copy in
-`docs/tizen-submission.md` §4. **Open**: the Seller Office account (owner).
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).

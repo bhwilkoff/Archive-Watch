@@ -1,5 +1,31 @@
 # Archive Watch — Session Log (archive)
 
+### 2026-10-03 — the Samsung TV brought to the other platforms, tested on the S90C, packaged
+
+Owner: *"we need to update the Tizen app and get it ready to submit to the
+Samsung App Store. Please update all features and design to the current state
+on other platforms, complete full testing on my Samsung tv, and then get a
+build ready for shipping to the App Store"*, and *"build better tooling"* for
+testing on the set. v1.45.0 -> 1.45.7.
+
+**Tooling**: the TV is driven in-app over a Chii inspector (a debug-only
+package with its own CSP; `tools/tv_chii.mjs`, `tv_inspect.mjs`,
+`tv_press.mjs`, `docs/tizen-signing.md` 2026-10-03); woken by HDMI-CEC from
+the bedroom Apple TV. Samsung's remote WebSocket never answers (memory
+samsung_tv_harness). **Brought to parity**: Player Options (subtitles, copy,
+episodes, autoplay), channel keys and lineups, subtitles drawn at ten-foot
+size, Continue Watching progress, history removal by held OK, QR sharing,
+Collections and Settings in the nav, room joining from a keypad, Top rated,
+Search doors, Detail as a scene (TV-DESIGN §7.8), a guide that reads at ten
+feet and makes channels with the remote (§4.6d). **Samsung's checklist**:
+Return asks before exiting, no screensaver in playback, playback resumes,
+offline notice, cold launch 6.9 s (10 s limit, 5 s ideal); Tizen's player
+breaks on a rate change so there is no Speed, and its end-of-file error is the
+film's end. Owner answers: keep the marquee's Left/Right; About -> Settings;
+guide steps one program. **Ready**: `~/Desktop/ArchiveWatch-Samsung-1.45.7/`
+(signed `.wgt` + five 1920x1080 screenshots), listing copy in
+`docs/tizen-submission.md` §4. **Open**: the Seller Office account (owner).
+
 ### 2026-10-02 — the first full show's seven notes, fixed and tested on the Mac
 
 Owner, after streaming a whole film: dropped 451 and a stutter; resizing and
