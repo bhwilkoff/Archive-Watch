@@ -3602,6 +3602,53 @@
     "reposts": 0,
     "replies": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxrvgg3uz42d",
+   "platform": "bluesky",
+   "id": "The_Wonderful_Wizard_of_Oz",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-13T20:41:52.044498+00:00",
+   "sampled": "2026-10-20T01:49:48.453762+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117435539787340623",
+   "platform": "mastodon",
+   "id": "The_Wonderful_Wizard_of_Oz",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-13T20:41:52.044498+00:00",
+   "sampled": "2026-10-20T01:49:48.453762+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3my6wkknttf2m",
+   "platform": "bluesky",
+   "id": "TheEscapeOnTheFastFreight",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-19T01:06:41.647197+00:00",
+   "sampled": "2026-10-20T01:49:48.453762+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }
