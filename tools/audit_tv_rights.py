@@ -199,7 +199,9 @@ def collect_need(spines: dict, episode_years: bool = True) -> tuple[dict, dict]:
             continue
         for s in d.get("seasons") or []:
             for e in s.get("episodes") or []:
-                aid = e.get("archiveID")
+                # archive.org judges the ITEM: a file of a whole-series item
+                # (`X@e08`, Decision 167) is asked about as `X`
+                aid = e.get("sourceID") or e.get("archiveID")
                 if not aid:
                     continue
                 ey = episode_year(e) if episode_years else None
@@ -285,9 +287,10 @@ def main() -> int:
             keep_eps = []
             for e in s.get("episodes") or []:
                 aid = str(e.get("archiveID") or "")
-                if aid in drop_ids:
+                item = str(e.get("sourceID") or aid)
+                if aid in drop_ids or item in drop_ids:
                     removed_rows.append((f.stem, d.get("title"), y, aid,
-                                         e.get("title"), drop_ids[aid]))
+                                         e.get("title"), drop_ids.get(aid) or drop_ids[item]))
                     eps_removed += 1
                     hit = True
                 else:

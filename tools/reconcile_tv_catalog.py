@@ -149,6 +149,12 @@ def main():
             for ep in season.get("episodes", []):
                 if ep.get("archiveID"):
                     episode_ids.add(ep["archiveID"])
+                if ep.get("sourceID") and not s.get("sourceID"):
+                    # a whole-series item whose files are this TVmaze show's
+                    # episodes (Decision 167) is served by them, not as its own
+                    # card. A bundle spine's source keeps its card: build_sqlite
+                    # forwards it, and build_bundle_series needs it to keep the spine.
+                    episode_ids.add(ep["sourceID"])
     print(f"[reconcile] canonical/kept series cards: {len(cards)}; "
           f"episode archiveIDs indexed: {len(episode_ids)}")
 

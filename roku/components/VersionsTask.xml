@@ -7,6 +7,8 @@
 <component name="VersionsTask" extends="Task">
   <interface>
     <field id="archiveID" type="string" />
+    <!-- an episode of a whole-series item (`X@e08`) lists only its own file -->
+    <field id="fileName" type="string" />
     <field id="status" type="string" alwaysNotify="true" />
     <field id="versions" type="array" />
   </interface>

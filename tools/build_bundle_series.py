@@ -375,6 +375,8 @@ def save_cache(c: dict) -> None:
 
 
 def spine_episode_aids(skip_bundles=True) -> set[str]:
+    """Every item a TVmaze spine serves, by its ITEM: an episode expanded out of
+    a whole-series item (`X@e08`) still names `X` as the item it lives in."""
     out = set()
     for f in SERIES_DIR.glob("*.json"):
         d = json.loads(f.read_text(encoding="utf-8"))
@@ -383,8 +385,27 @@ def spine_episode_aids(skip_bundles=True) -> set[str]:
         for s in d.get("seasons", []):
             for e in s.get("episodes", []):
                 if e.get("archiveID"):
-                    out.add(e["archiveID"])
+                    out.add(e.get("sourceID") or item_of(e["archiveID"]))
     return out
+
+
+def spine_items() -> list[dict]:
+    """The items TVmaze spines serve, shaped like catalog items for the scan:
+    a whole series filed in one item and matched onto a TVmaze show was served
+    as ONE episode of it ("Fireball XL5.", playing one file of 39), because the
+    scan only looked at catalog cards. Its size is the episode's file."""
+    out = {}
+    for f in SERIES_DIR.glob("*.json"):
+        d = json.loads(f.read_text(encoding="utf-8"))
+        if d.get("sourceID"):
+            continue
+        for s in d.get("seasons", []):
+            for e in s.get("episodes", []):
+                aid = e.get("sourceID") or item_of(e.get("archiveID") or "")
+                if aid and aid not in out:
+                    out[aid] = {"archiveID": aid, "title": e.get("title"), "contentType": "tv-episode",
+                                "videoFile": e.get("videoFile"), "spine": d.get("seriesID") or f.stem}
+    return list(out.values())
 
 
 def candidates(items: list[dict]) -> tuple[list[dict], set[str]]:
@@ -426,6 +447,8 @@ def scrape_sizes(ids: list[str], session) -> dict[str, tuple]:
 
 def scan(items, cache, session, throttle=0.2, limit=None, save=None):
     pool, compilations = candidates(items)
+    in_pool = {it["archiveID"] for it in pool}
+    pool += [it for it in spine_items() if it["archiveID"] not in in_pool]
     sizes = scrape_sizes([it["archiveID"] for it in pool], session)
     now = datetime.now(timezone.utc)
     fetched = 0
@@ -438,7 +461,7 @@ def scan(items, cache, session, throttle=0.2, limit=None, save=None):
             if prev:
                 cache.pop(aid, None)
             continue
-        if aid in compilations:
+        if aid in compilations and not it.get("spine"):
             cache[aid] = {"isize": isize, "verdict": "compilation", "checkedAt": now.date().isoformat()}
             continue
         fresh = prev.get("isize") == isize and prev.get("checkedAt") and \
@@ -495,6 +518,77 @@ def series_evidence(it: dict, rows: list[dict]) -> str | None:
         return "a long run"
     text = " ".join([it.get("title") or "", it.get("synopsis") or ""] + [str(x) for x in it.get("subjects") or []])
     return "metadata" if _SERIES_WORDS.search(text) else None
+
+
+# ── a whole series inside a TVmaze spine ───────────────────────────────────
+
+# "Room-222-Season-2", "thesmithfamilyseasontwo": the season an item holds when
+# its files carry only an episode number
+_ITEM_SEASON = re.compile(r"(?:season|series)[ ._-]*(\d{1,2}|one|two|three|four|five|six|seven|eight|nine|ten)(?![0-9a-z])", re.I)
+_WORDS = {w: i for i, w in enumerate("one two three four five six seven eight nine ten".split(), 1)}
+_COLORIZED = re.compile(r"colori[sz]ed|colou?ri[sz]ed|in[ ._-]colou?r", re.I)
+MIN_EPISODE_SECONDS = 240  # a promo or a title card filed beside the episodes is not one
+
+
+def item_season(aid: str, title: str | None = None) -> int | None:
+    for text in (aid, title or ""):
+        m = _ITEM_SEASON.search(text or "")
+        if m:
+            v = m.group(1).lower()
+            return int(v) if v.isdigit() else _WORDS[v]
+    return None
+
+
+def is_colorized(aid: str, title: str | None = None) -> bool:
+    return bool(_COLORIZED.search(f"{aid} {title or ''}"))
+
+
+def tv_episodes(aid: str, entry: dict) -> list[dict] | None:
+    """A whole-series item's files as episode rows for the TVmaze spine it was
+    matched onto (Decision 167). Each row is a playable episode with the
+    Decision 166 id `<item>@<token>`; `bundleTitle` is the uploader's own
+    episode title (None when the file only states a number), which the spine
+    builder matches against the canonical episode names before any number,
+    because an uploader's numbering is often production order."""
+    if (entry or {}).get("verdict") != "bundle" or not entry.get("files"):
+        return None
+    files = entry["files"]
+    rows, _ = parse_bundle([f for f in files if not (f.get("name") or "").startswith(f"{aid}.thumbs/")])
+    if not rows:
+        return None
+    hint = item_season(aid)
+    # an episode's title is its own: words every file shares ("colorized",
+    # "720p Bluray x264") are the upload's tags, so those files go by number
+    seen = {}
+    for r in rows:
+        k = (r["title"] or "").strip().lower()
+        seen[k] = seen.get(k, 0) + 1
+    out = []
+    for r in rows:
+        f = r["file"]
+        secs = runtime_from_file(f)
+        if secs and secs < MIN_EPISODE_SECONDS:
+            continue
+        n = r["episode"]
+        # "1875" and "XL5 to H2O" are titles; "07" or "Episode 7" is only a number
+        title = r["title"] if r["title"] and not re.fullmatch(
+            r"\W*(?:(?:episode|ep|chapter|chap|part|pt)\W*)?\d{1,3}\W*", r["title"], re.I) \
+            and seen[r["title"].strip().lower()] == 1 else None
+        out.append({
+            "archiveID": f"{aid}{SEP}{token_of(r)}",
+            "sourceID": aid,
+            "seasonNumber": (r["season"] if r["season"] is not None else hint) if n is not None else None,
+            "episodeNumber": n,
+            "title": title or (f"{r['word'] or 'Episode'} {n}" if n is not None else _clean_words(_stem(r["root"]))),
+            "bundleTitle": title,
+            "stillURL": _still(files, aid, r["root"]),
+            "year": None,
+            "runtimeSeconds": secs,
+            "videoFile": {"name": f["name"], "format": f.get("format"),
+                          "sizeBytes": int(f.get("size") or 0), "tier": 1},
+            "downloadURL": download_url(aid, f["name"]),
+        })
+    return out or None
 
 
 def merge_uploads(spines: list[dict]) -> dict:

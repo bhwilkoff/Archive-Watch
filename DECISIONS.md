@@ -253,6 +253,7 @@ into every session and the index alone carries every title.)
 - 164 — Roblox is shelved: the films are what it cannot carry well
 - 165 — The Play build's floor is Android 7, because Play's automatic protection requires it; Fire TV keeps Android 6
 - 166 — A series held in one archive.org item is a series: its files become episodes, `<item>@<token>`, on evidence the item itself gives
+- 167 — A whole series filed in one item and matched onto a TVmaze show becomes that show's episodes, placed by title
 
 ---
 
@@ -968,4 +969,43 @@ its episodes, but split no ids, so archive.org details and copies for an `@`
 episode fail until the next store builds. The bundled seed DB (first launch
 only) still shows the source items as film cards until the downloaded catalog
 replaces it.
+
+## 167 — A whole series filed in one item and matched onto a TVmaze show becomes that show's episodes, placed by title
+*Date: 2026-10-20*
+
+When an item whose files are a whole show (Decision 166's rules) has been
+matched onto a TVmaze spine, `build_canonical_tv.expand_bundles` replaces it
+with one row per file, `<item>@<token>` with an episode-level `sourceID`, read
+from `bundle_scan.json` (which now scans the items TVmaze spines serve, not only
+catalog cards). Each file is placed on a canonical episode by its OWN TITLE
+first, and by its number (and the season its item names: "Room-222-Season-2")
+only when it states no title. A file whose episode is already played by another
+copy is dropped; a file under four minutes, or under 40% of its episode's
+running time, is not that episode. Items that are one episode each place first,
+then the fullest upload, and a colorized upload last (Decision 158). The
+re-pick is skipped for these files: by item id it would swap in the item's
+largest file, another episode.
+
+**Why**: a viewer, 2026-10-20, asking for Fireball XL5's 39 episodes and noting
+the last entry under More episodes ended in a period. That entry was
+`FireballXL5.complete`, 39 files, served as ONE episode titled "Fireball XL5."
+and playing episode 25; the show page listed 5 of 39. Decision 166 never saw it
+because its scan read catalog cards, and an item on a TVmaze spine is not one.
+Measured over every TVmaze spine: 150 such items on 85 shows, ~4,800 files (The
+Prisoner, Space: 1999, Supercar, The Dick Van Dyke Show, The Addams Family's five
+uploads, Ozzie and Harriet's 436). Numbers alone mislead: the uploader numbered
+by production, so "08. Space Immigrants" is TVmaze's 1x03.
+
+**How to apply**: every tool that reads spine episodes must take the item from
+`sourceID` (or `item_of`), never from the `@` id: the rights audit asks
+archive.org about the item and removes all its files with it; the series audit,
+the derivative repair and the re-pick leave these files alone; reconcile,
+backfill and discovery count the item as served; `build_sqlite.bundle_sources`
+forwards the item's id to the series. A bundle SPINE's source keeps its catalog
+card (166); an item expanded into a TVmaze spine loses it. The colorized request
+that raised this could not be met: archive.org holds 3 colorized Fireball XL5
+episodes, not 39, and `FireballXL5.complete` is black and white (mean saturation
+1.7 against 6.4 for the colorized upload). `tools/test_bundle_in_tvmaze.py`
+holds the cases with a single-item, promo and fragment control, and gates the
+tv-canonical build.
 

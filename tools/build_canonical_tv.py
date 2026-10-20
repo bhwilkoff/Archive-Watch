@@ -45,6 +45,7 @@ import urllib.parse
 from collections import defaultdict
 
 import remediate_catalog as R  # the pipeline's own url encoder
+import build_bundle_series as BUNDLE  # Decision 167: a whole series in one item
 import audit_rights as _AR  # the film audit owns the rights rules
 AR_MODERN = _AR.MODERN
 import urllib.request
@@ -391,7 +392,138 @@ def clean_extra_title(t):
     return s or None
 
 
-def map_items_to_canonical(our_eps, canon):
+_BUNDLE_CACHE = None
+
+
+def _wrong_show_bundles(our_eps):
+    """Items whose files mostly name episodes this show does not have: a whole
+    series matched onto the wrong show (The Invisible Man of 1958 under the 1975
+    one). Mapping their files would fill the show with another show's episodes."""
+    total, placed = defaultdict(int), defaultdict(int)
+    for e in our_eps:
+        if e.get("sourceID") and e.get("bundleTitle"):
+            total[e["sourceID"]] += 1
+            placed[e["sourceID"]] += bool(e.get("_named"))
+    return {src for src, n in total.items() if n >= 4 and placed[src] < 0.25 * n}
+
+
+def expand_bundles(our_eps, keep=frozenset()):
+    """Decision 167: an item whose files are the whole show (`FireballXL5.complete`,
+    39 files) was pooled as ONE episode of it. Replace it — and any episodes a
+    previous run already expanded from it — with one row per file, read from
+    build_bundle_series's cache (the build needs no network for them). An item
+    whose files no longer parse keeps what it had. Returns (eps, n_expanded)."""
+    global _BUNDLE_CACHE
+    if _BUNDLE_CACHE is None:
+        _BUNDLE_CACHE = BUNDLE.load_cache()
+    by_src, rest = {}, []
+    for e in our_eps:
+        src = e.get("sourceID") or BUNDLE.item_of(e.get("archiveID") or "")
+        if src and src not in keep and (_BUNDLE_CACHE.get(src) or {}).get("verdict") == "bundle":
+            by_src.setdefault(src, []).append(e)
+        else:
+            rest.append(e)
+    expanded = 0
+    for src, olds in by_src.items():
+        rows = BUNDLE.tv_episodes(src, _BUNDLE_CACHE[src])
+        if rows:
+            rest.extend(rows)
+            expanded += 1
+        else:
+            rest.extend(olds)
+    return rest, expanded
+
+
+def _unexpanded(our_eps, srcs):
+    """`our_eps` with the items in `srcs` as they were before any expansion: the
+    item itself, never a file of it a previous run placed."""
+    out, seen = [], set()
+    for e in our_eps:
+        src = e.get("sourceID") or BUNDLE.item_of(e.get("archiveID") or "")
+        if src in srcs:
+            if src not in seen and not e.get("sourceID"):
+                out.append(e)
+                seen.add(src)
+            elif src not in seen and e.get("sourceID"):
+                out.append({"archiveID": src, "title": src, "downloadURL": None, "videoFile": None})
+                seen.add(src)
+            continue
+        out.append(e)
+    return out
+
+
+def _bundle_order(our_eps):
+    """Items that are one episode each place first, as before; files of
+    whole-series items after them, the fullest upload first and a colorized one
+    last (Decision 158: a colorization is never the default copy)."""
+    singles = [e for e in our_eps if not e.get("sourceID")]
+    files = [e for e in our_eps if e.get("sourceID")]
+    size = defaultdict(int)
+    for e in files:
+        size[e["sourceID"]] += 1
+    files.sort(key=lambda e: (BUNDLE.is_colorized(e["sourceID"]), -size[e["sourceID"]], e["sourceID"]))
+    return singles + files
+
+
+_LEAD_MARK = re.compile(r"^(?:s\d{1,2}\s*e\d{1,3}|\d{1,2}x\d{2,3}|e?p?\d{1,3}|episode\s+\d{1,3})\s+")
+
+
+def _title_variants(title, show_tokens):
+    """The ways an upload's title may name its episode: as written, without the
+    show's own name in front ("Prisoner. Arrival", "1999 The Exiles"), and
+    without an episode marker ("Fireball XL5 - 1x01 - Planet 46")."""
+    out = []
+    t = _norm(title)
+    for _ in range(3):
+        if t and t not in out:
+            out.append(t)
+        words = t.split()
+        while words and words[0] in show_tokens:
+            words.pop(0)
+        t = _LEAD_MARK.sub("", " ".join(words))
+    if t and t not in out:
+        out.append(t)
+    return [v for v in out if len(v) >= 3]
+
+
+def _title_target(variants, canon_titles):
+    names = [t for t, _ in canon_titles]
+    for v in variants:
+        hit = [c for t, c in canon_titles if t == v]
+        if hit:
+            return hit[0]
+    for v in variants:
+        best = difflib.get_close_matches(v, names, n=1, cutoff=0.82)
+        if best:
+            return next(c for t, c in canon_titles if t == best[0])
+    for v in variants:
+        # a file name cut short ("Happy Birthday Gra") or a title the canonical
+        # list shortens ("Mother Lurch Visits"): one canonical name only
+        hit = [c for t, c in canon_titles
+               if min(len(t), len(v)) >= 10 and (t.startswith(v) or v.startswith(t))]
+        if len(hit) == 1:
+            return hit[0]
+    return None
+
+
+def _map_bundle_row(it, by_sxe, canon_titles, show_tokens=frozenset()):
+    """A file of a whole-series item is placed by its own TITLE first: uploaders
+    number by production order as often as by broadcast (FireballXL5.complete's
+    "08. Space Immigrants" is TVmaze's 1x03). Only a file that states no title is
+    placed by its number."""
+    if it.get("bundleTitle"):
+        return _title_target(_title_variants(it["bundleTitle"], show_tokens), canon_titles)
+    n = it.get("episodeNumber")
+    if n is None:
+        return None
+    if it.get("seasonNumber") is not None:
+        return by_sxe.get((it["seasonNumber"], n))
+    # a file that names no season counts the whole run ("spectreman@e22")
+    order = sorted(by_sxe)
+    return by_sxe[order[n - 1]] if 0 < n <= len(order) else None
+
+
+def map_items_to_canonical(our_eps, canon, show_title=None):
     """our_eps: list of dicts {archiveID, title, downloadURL, videoFile, ...}.
     canon: canonical episode list. Returns (mapped, extras) where mapped is a
     list of canonical episodes with our playable item attached, extras is our
@@ -401,8 +533,27 @@ def map_items_to_canonical(our_eps, canon):
     used = set()
     mapped = {}
     extras = []
+    extra_titles = set()
+    show_tokens = set(_norm(show_title).split()) | {"the"}
 
-    for it in our_eps:
+    for it in _bundle_order(our_eps):
+        if it.get("sourceID"):
+            target = _map_bundle_row(it, by_sxe, canon_titles, show_tokens)
+            it["_named"] = bool(target)   # names an episode of this show, placed or not
+            if target:
+                key = (target["season"], target["number"])
+                rt, crt = it.get("runtimeSeconds"), target.get("runtimeSeconds")
+                if key not in used and not (rt and crt and rt < 0.4 * crt):
+                    used.add(key)
+                    mapped[key] = (target, it)
+                # else: another copy already plays this episode, or this file is
+                # a fragment of it — a second entry would only repeat it
+                continue
+            nt = _norm(it.get("title"))
+            if nt not in extra_titles:   # five uploads of one show add one extra each, not five
+                extra_titles.add(nt)
+                extras.append(it)
+            continue
         title = it.get("title") or ""
         sxe_texts = _item_sxe_texts(it)
         s, e = parse_sxe(*sxe_texts)
@@ -430,6 +581,22 @@ def map_items_to_canonical(our_eps, canon):
         else:
             extras.append(it)
 
+    # An item that is one episode but named in a way the passes above cannot read
+    # ("Fireball XL5 - 1x01 - Planet 46") is placed by its title when a file of a
+    # whole-series item would otherwise hold its slot: items place first.
+    if any(it.get("sourceID") for _, it in mapped.values()):
+        still = []
+        for it in extras:
+            target = None if it.get("sourceID") else \
+                _title_target(_title_variants(it.get("title"), show_tokens), canon_titles)
+            key = (target["season"], target["number"]) if target else None
+            if key and (key not in used or mapped[key][1].get("sourceID")):
+                used.add(key)
+                mapped[key] = (target, it)
+            else:
+                still.append(it)
+        extras = still
+
     return mapped, extras
 
 
@@ -448,6 +615,8 @@ def collect_our_episodes_from_series(series_json):
 def rebuild_show(show, our_eps, *, repick, deadline=None):
     """Build one canonical series from a pre-resolved TVmaze show + the pooled
     Archive items. Returns (series_dict|None, report_row)."""
+    pooled = dedup_items(our_eps)
+    our_eps, n_bundles = expand_bundles(pooled)
     our_eps = dedup_items(our_eps)
     canon = canonical_episodes(show)
     prem0 = (show.get("premiered") or "")[:4]
@@ -456,7 +625,7 @@ def rebuild_show(show, our_eps, *, repick, deadline=None):
            "title": show.get("name"), "matched": True,
            "canonEps": len(canon), "ourItems": len(our_eps),
            "mappedEps": 0, "extras": 0, "repicked": 0, "deadItems": 0,
-           "repickSkipped": 0}
+           "repickSkipped": 0, "bundles": n_bundles}
     if not canon:
         return None, row
 
@@ -486,7 +655,14 @@ def rebuild_show(show, our_eps, *, repick, deadline=None):
     year_lo = prem_i
     year_hi = int(ended0) if ended0.isdigit() else None
 
-    mapped, extras = map_items_to_canonical(our_eps, canon)
+    mapped, extras = map_items_to_canonical(our_eps, canon, show.get("name"))
+    wrong = _wrong_show_bundles(our_eps)
+    if wrong:
+        our_eps = dedup_items(expand_bundles(_unexpanded(pooled, wrong), keep=wrong)[0])
+        mapped, extras = map_items_to_canonical(our_eps, canon, show.get("name"))
+        n_bundles -= len(wrong)
+        row["bundles"] = n_bundles
+        row["wrongShowBundles"] = sorted(wrong)
     row["mappedEps"] = len(mapped)
     row["extras"] = len(extras)
 
@@ -509,7 +685,9 @@ def rebuild_show(show, our_eps, *, repick, deadline=None):
         dl = item.get("downloadURL")
         vf = item.get("videoFile")
         ok = True
-        if _may_repick():
+        # a file of a whole-series item was picked from the item's own file list;
+        # a re-pick by item id would swap in the item's largest file, another episode
+        if not item.get("sourceID") and _may_repick():
             dl, vf, changed, ok = ensure_playable(item.get("archiveID"), dl, vf)
             if changed:
                 row["repicked"] += 1
@@ -518,6 +696,7 @@ def rebuild_show(show, our_eps, *, repick, deadline=None):
             continue
         ep = {
             "archiveID": item.get("archiveID"),
+            **({"sourceID": item["sourceID"]} if item.get("sourceID") else {}),
             "seasonNumber": s, "episodeNumber": n,
             "title": cep["title"],
             "overview": cep["overview"],
@@ -540,20 +719,25 @@ def rebuild_show(show, our_eps, *, repick, deadline=None):
             dl = item.get("downloadURL")
             vf = item.get("videoFile")
             ok = True
-            if _may_repick():
+            if not item.get("sourceID") and _may_repick():
                 dl, vf, changed, ok = ensure_playable(item.get("archiveID"), dl, vf)
                 if changed:
                     row["repicked"] += 1
             if not ok or not dl:
                 row["deadItems"] += 1
                 continue
-            sxe_texts = _item_sxe_texts(item)
-            s2, e2 = parse_sxe(*sxe_texts)
+            if item.get("sourceID"):
+                s2, e2 = item.get("seasonNumber"), item.get("episodeNumber")
+            else:
+                sxe_texts = _item_sxe_texts(item)
+                s2, e2 = parse_sxe(*sxe_texts)
+                e2 = e2 or parse_epnum(*sxe_texts)
             ep = {
                 "archiveID": item.get("archiveID"),
+                **({"sourceID": item["sourceID"]} if item.get("sourceID") else {}),
                 "seasonNumber": s2,
-                "episodeNumber": e2 or parse_epnum(*sxe_texts),
-                "title": clean_extra_title(item.get("title")) or "Untitled",
+                "episodeNumber": e2,
+                "title": (item.get("title") if item.get("sourceID") else clean_extra_title(item.get("title"))) or "Untitled",
                 "overview": item.get("overview"),
                 "stillURL": item.get("stillURL"),
                 "airDate": None,
@@ -677,6 +861,10 @@ def gather_raw_targets(titles_filter):
         if d.get("sourceID"):
             bundled.add(d["sourceID"])
             continue   # a bundle spine is built from its item's files (Decision 166)
+        # an item expanded into this spine's episodes (Decision 167) is served by
+        # them; as a catalog card it would be pooled again as one more episode
+        bundled.update(e["sourceID"] for se in d.get("seasons", [])
+                       for e in se.get("episodes", []) if e.get("sourceID"))
         # ref = the existing on-disk slug, so the reconcile step can delete
         # superseded files once their content is folded into a canonical one.
         targets.append((d.get("title"), d.get("yearStart"),
@@ -721,7 +909,7 @@ def gather_raw_targets(titles_filter):
     if disc.exists():
         for it in json.loads(disc.read_text()).get("items", []):
             aid = it.get("archiveID")
-            if not aid or aid in have_targets:
+            if not aid or aid in have_targets or aid in bundled:
                 continue
             # Discovery items have never been near catalog.json, so the rights
             # audit has never seen them either. Judge on the year we have;
@@ -853,7 +1041,8 @@ def main():
         merged = f" merged={row['mergedFrom']}" if row["mergedFrom"] > 1 else ""
         print(f"  {row['title']!r:40} canon={row['canonEps']:3} "
               f"pooled={row['ourItems']:3} mapped={row['mappedEps']:3} "
-              f"avail={avail:3} repick={row['repicked']:2} extras={row['extras']:2}{merged}",
+              f"avail={avail:3} repick={row['repicked']:2} extras={row['extras']:2}{merged}"
+              f"{' bundles=%d' % row['bundles'] if row.get('bundles') else ''}",
               flush=True)
         if series and not args.dry_run:
             slug = series["seriesID"]

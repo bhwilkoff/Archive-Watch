@@ -115,6 +115,10 @@ def flag_offline(spines):
                        .lower().startswith(SCRAPE_PREFIXES))
         scrape_cluster = eps and n_scrape >= len(eps) / 2
         for e in eps:
+            if e.get("sourceID"):
+                # a file of a whole-series item (Decision 167): placed by its own
+                # title, and its `@` token is the uploader's number, not an S/E claim
+                continue
             aid = e.get("archiveID") or ""
             t = e.get("title") or ""
             reasons = []

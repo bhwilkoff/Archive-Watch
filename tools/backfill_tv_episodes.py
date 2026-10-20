@@ -214,6 +214,8 @@ def existing_archive_ids(series_doc):
         for e in s.get("episodes", []):
             if e.get("archiveID"):
                 ids.add(e["archiveID"])
+                if e.get("sourceID"):   # its item is in the spine too (Decision 167)
+                    ids.add(e["sourceID"])
     return ids
 
 

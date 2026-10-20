@@ -1026,8 +1026,21 @@ sub openVersions()
     end if
     m.detail.toast = "Looking up the copies on archive.org…"
     m.vtask.archiveID = m.detail.item.id
+    m.vtask.fileName = episodeFileName()
     m.vtask.control = "RUN"
 end sub
+
+' The file an `@` episode plays, from the url the episode index gave it.
+function episodeFileName() as String
+    u = ""
+    for each src in [m.detail.item, m.detail.detail]
+        if u = "" and src <> invalid and src.url <> invalid then u = fmt(src.url)
+    end for
+    if u = "" or Instr(1, m.detail.item.id, "@") = 0 then return ""
+    parts = u.Split("/")
+    x = CreateObject("roUrlTransfer")
+    return x.Unescape(parts[parts.Count() - 1])
+end function
 
 sub onVersionsLoaded()
     if m.vtask.status <> "ready" or m.vtask.versions.Count() = 0

@@ -65,6 +65,8 @@ def existing_ids():
             for e in s.get("episodes", []):
                 if e.get("archiveID"):
                     have.add(e["archiveID"])
+                if e.get("sourceID"):
+                    have.add(e["sourceID"])
     return have
 
 

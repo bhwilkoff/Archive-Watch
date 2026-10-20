@@ -1164,12 +1164,18 @@ def bundle_sources(cards=None) -> dict:
             d = json.loads(f.read_text(encoding="utf-8"))
         except Exception:  # noqa: BLE001
             continue
+        slug = d.get("seriesID") or f.stem
+        if cards is not None and f"series:{slug}" not in cards:
+            continue
         if d.get("sourceID"):
-            slug = d.get("seriesID") or f.stem
-            if cards is not None and f"series:{slug}" not in cards:
-                continue
             for src in d.get("sourceIDs") or [d["sourceID"]]:
                 out[src] = slug
+        else:
+            # a whole-series item expanded into a TVmaze spine's episodes (Decision 167)
+            for season in d.get("seasons", []):
+                for ep in season.get("episodes", []):
+                    if ep.get("sourceID"):
+                        out.setdefault(ep["sourceID"], slug)
     return out
 
 

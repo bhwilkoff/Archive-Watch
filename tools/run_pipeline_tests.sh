@@ -17,7 +17,7 @@ takedowns quoted_title_merge related channel_schedule caps_credit_title
 roku_search_feed details_contract no_evidence_gate color_guard review_filter
 wikipedia_lead resolve_title series_collections episode_url index_bif_column
 studio_rights_coverage studio_rights_parity web_adult_gate hero_rule_parity
-search_rank_parity discovery_queue_merge private_derivative mcp_data
+search_rank_parity discovery_queue_merge private_derivative mcp_data bundle_series bundle_in_tvmaze
 "
 fail=0; n=0
 for t in $TESTS; do

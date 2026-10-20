@@ -201,6 +201,8 @@ def main():
                 for ep in s.get("episodes", []):
                     if stats["candidates"] >= budget:
                         break
+                    if ep.get("sourceID"):   # one file of a whole-series item (Decision 167)
+                        continue
                     if needs_repair(ep.get("downloadURL"), (ep.get("videoFile") or {}).get("format"),
                                     bool(ep.get("needsFaststart"))):
                         if repair_item(ep, args.throttle, stats):

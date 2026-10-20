@@ -149,7 +149,7 @@ export async function getFilm(args, memo) {
     if (reviews.length) f.reviews = reviews;
     if (d[7]?.length) f.subtitles = d[7].map((c) => c[1]);
   }
-  f.archive_org = `https://archive.org/details/${encodeURIComponent(f.id)}`;
+  f.archive_org = `https://archive.org/details/${encodeURIComponent(String(f.id).split("@")[0])}`;
   return f;
 }
 

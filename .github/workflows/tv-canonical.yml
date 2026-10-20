@@ -80,6 +80,8 @@ jobs:
           # re-apply, the reconcile, the COMMIT and the catalog publish — was
           # SKIPPED. Three consecutive runs produced nothing. Stopping early
           # writes what was built and lets the rest of the chain run.
+          # Decision 167: a whole series in one item becomes its show's episodes.
+          python tools/test_bundle_in_tvmaze.py > /dev/null || { python tools/test_bundle_in_tvmaze.py; exit 1; }
           python tools/build_canonical_tv.py \
             --throttle ${{ github.event.inputs.throttle || '0.3' }} \
             --max-minutes ${{ github.event.inputs.max_minutes || '150' }} \

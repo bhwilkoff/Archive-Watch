@@ -55,7 +55,7 @@ function copiesOn(aid as String, other as Boolean) as Dynamic
             if other then label = label + " · another upload"
             label = label + " — " + tail
 
-            out.Push({ name: fmt(f.name), label: label, size: size, source: src, item: aid })
+            out.Push({ name: fmt(f.name), label: label, size: size, source: src, item: aid, original: fmt(f.original) })
         end if
     end for
     return out
@@ -86,10 +86,30 @@ sub run()
         m.top.status = "error"
         return
     end if
+    ' Decisions 166/167: `UFO.complete@e08` is one FILE of the archive.org item
+    ' before the "@"; its copies are that file and its derivatives, never the
+    ' other episodes beside it.
+    own = ""
+    at = Instr(1, aid, "@")
+    if at > 0
+        own = m.top.fileName
+        aid = Left(aid, at - 1)
+    end if
     out = copiesOn(aid, false)
     if out = invalid
         m.top.status = "error"
         return
+    end if
+    if own <> ""
+        root = own
+        for each v in out
+            if v.name = own and v.original <> "" and v.original <> "invalid" then root = v.original
+        end for
+        mine = []
+        for each v in out
+            if v.name = root or v.original = root then mine.Push(v)
+        end for
+        if mine.Count() > 0 then out = mine
     end if
     ' UPLOADS MERGED INTO THIS TITLE (Decision 040), so their copies can be
     ' chosen too. Owner, 2026-09-22, on Keaton's two Scarecrows: "folded
