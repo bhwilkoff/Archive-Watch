@@ -2797,6 +2797,66 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": "barticle"
+  },
+  {
+   "at": "2026-10-20T19:06:05.374294+00:00",
+   "id": "therecklessmoment1949",
+   "title": "The Reckless Moment",
+   "slot": "viewer-said",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mydddtxxzq2u",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "1969nam"
+  },
+  {
+   "at": "2026-10-20T19:06:05.374294+00:00",
+   "id": "therecklessmoment1949",
+   "title": "The Reckless Moment",
+   "slot": "viewer-said",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117474799924468415",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "1969nam"
+  },
+  {
+   "at": "2026-10-20T19:06:05.374294+00:00",
+   "id": "therecklessmoment1949",
+   "title": "The Reckless Moment",
+   "slot": "viewer-said",
+   "platform": "threads",
+   "url": "https://www.threads.com/@archivewatchapp/post/Deui5vpoIou",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "1969nam"
+  },
+  {
+   "at": "2026-10-20T19:06:05.374294+00:00",
+   "id": "therecklessmoment1949",
+   "title": "The Reckless Moment",
+   "slot": "viewer-said",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/Deui-r3oMDk/",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": "117474799546234648",
+   "reviewer": "1969nam"
+  },
+  {
+   "at": "2026-10-20T19:06:05.374294+00:00",
+   "id": "therecklessmoment1949",
+   "title": "The Reckless Moment",
+   "slot": "viewer-said",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=d39sQeRjVZY",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": "1969nam"
   }
  ]
 }
