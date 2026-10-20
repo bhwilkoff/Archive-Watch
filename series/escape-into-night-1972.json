@@ -21,12 +21,89 @@
       "seasonNumber": 1,
       "episodes": [
         {
-          "archiveID": "escape_into_night",
+          "archiveID": "escape_into_night@s1e01",
+          "sourceID": "escape_into_night",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Episode 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/escape_into_night/escape_into_night.thumbs/S01.E01_000540.jpg",
+          "airDate": "1972-04-19",
+          "year": 1972,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01.E01.mp4",
+            "format": "h.264",
+            "sizeBytes": 144573829,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/escape_into_night/S01.E01.mp4"
+        },
+        {
+          "archiveID": "escape_into_night@s1e02",
+          "sourceID": "escape_into_night",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Episode 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/escape_into_night/escape_into_night.thumbs/S01.E02_000543.jpg",
+          "airDate": "1972-04-26",
+          "year": 1972,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01.E02.mp4",
+            "format": "h.264",
+            "sizeBytes": 144282568,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/escape_into_night/S01.E02.mp4"
+        },
+        {
+          "archiveID": "escape_into_night@s1e03",
+          "sourceID": "escape_into_night",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Episode 3",
+          "overview": null,
+          "stillURL": "https://archive.org/download/escape_into_night/escape_into_night.thumbs/S01.E03_000542.jpg",
+          "airDate": "1972-05-03",
+          "year": 1972,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01.E03.mp4",
+            "format": "h.264",
+            "sizeBytes": 144311497,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/escape_into_night/S01.E03.mp4"
+        },
+        {
+          "archiveID": "escape_into_night@s1e04",
+          "sourceID": "escape_into_night",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Episode 4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/escape_into_night/escape_into_night.thumbs/S01.E04_000539.jpg",
+          "airDate": "1972-05-10",
+          "year": 1972,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01.E04.mp4",
+            "format": "h.264",
+            "sizeBytes": 142185098,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/escape_into_night/S01.E04.mp4"
+        },
+        {
+          "archiveID": "escape_into_night@s1e05",
+          "sourceID": "escape_into_night",
           "seasonNumber": 1,
           "episodeNumber": 5,
           "title": "Episode 5",
           "overview": null,
-          "stillURL": "https://archive.org/download/archivewatch-covers/escape_into_night.2265dfcb.jpg",
+          "stillURL": "https://archive.org/download/escape_into_night/escape_into_night.thumbs/S01.E05_000535.jpg",
           "airDate": "1972-05-17",
           "year": 1972,
           "runtimeSeconds": 1800,
@@ -34,14 +111,33 @@
             "name": "S01.E05.mp4",
             "format": "h.264",
             "sizeBytes": 148107108,
-            "tier": 2
+            "tier": 1
           },
           "downloadURL": "https://archive.org/download/escape_into_night/S01.E05.mp4"
+        },
+        {
+          "archiveID": "escape_into_night@s1e06",
+          "sourceID": "escape_into_night",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Episode 6",
+          "overview": null,
+          "stillURL": "https://archive.org/download/escape_into_night/escape_into_night.thumbs/S01.E06_000542.jpg",
+          "airDate": "1972-05-24",
+          "year": 1972,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01.E06.mp4",
+            "format": "h.264",
+            "sizeBytes": 143777586,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/escape_into_night/S01.E06.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 1,
+  "episodesCount": 6,
   "canonicalEpisodesCount": 6,
   "tvdbID": "215111",
   "artworkSource": "tvdb",
@@ -76,8 +172,5 @@
       "order": 4,
       "profilePath": null
     }
-  ],
-  "seriesImdbID": "tt0357363",
-  "canonicalEpisodeCount": 2,
-  "canonicalSeasons": 1
+  ]
 }

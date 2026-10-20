@@ -22,22 +22,649 @@
       "seasonNumber": 1,
       "episodes": [
         {
-          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "archiveID": "rockyJonesSpaceRangerBeyondTheCurtainOfSpace1954",
           "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Beyond the Curtain of Space (1)",
+          "episodeNumber": 3,
+          "title": "Beyond the Curtain of Space (3)",
           "overview": null,
-          "stillURL": "https://archive.org/services/img/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
-          "airDate": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/hzehIOwKA7ZWUxKYh74rxNwSkTr.jpg",
+          "airDate": "1954-03-09",
           "year": 1954,
           "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Beyond_the_curtain_of_space_II_4-17-54.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 150288453,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/rockyJonesSpaceRangerBeyondTheCurtainOfSpace1954/Beyond_the_curtain_of_space_II_4-17-54.ia.mp4"
+        },
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e04",
+          "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Bobbys Comet [low, 360p]-4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1.thumbs/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e04%20Bobbys%20Comet%20Chap%201%20%5Blow%2C%20360p%5D-4_000652.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1561,
+          "videoFile": {
+            "name": "Rocky Jones, Space Rangers 1954 S01e04 Bobbys Comet Chap 1 [low, 360p]-4.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 85350935,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e04%20Bobbys%20Comet%20Chap%201%20%5Blow%2C%20360p%5D-4.m4v"
+        },
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e05",
+          "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Bobbys Comet [low, 360p]-5",
+          "overview": null,
+          "stillURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1.thumbs/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e05%20Bobbys%20Comet%20Chap%202%20%5Blow%2C%20360p%5D-5_000654.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1569,
+          "videoFile": {
+            "name": "Rocky Jones, Space Rangers 1954 S01e05 Bobbys Comet Chap 2 [low, 360p]-5.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 85019618,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e05%20Bobbys%20Comet%20Chap%202%20%5Blow%2C%20360p%5D-5.m4v"
+        },
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e06",
+          "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Bobbys Comet [low, 360p]-6",
+          "overview": null,
+          "stillURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1.thumbs/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e06%20Bobbys%20Comet%20Chap%203%20%5Blow%2C%20360p%5D-6_000652.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1565,
+          "videoFile": {
+            "name": "Rocky Jones, Space Rangers 1954 S01e06 Bobbys Comet Chap 3 [low, 360p]-6.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 73775907,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e06%20Bobbys%20Comet%20Chap%203%20%5Blow%2C%20360p%5D-6.m4v"
+        },
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e08",
+          "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Rockys Odyssey [low, 360p]-8",
+          "overview": null,
+          "stillURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1.thumbs/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e08%20Rockys%20Odyssey%20Chap%201%20%5Blow%2C%20360p%5D-8_000645.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1556,
+          "videoFile": {
+            "name": "Rocky Jones, Space Rangers 1954 S01e08 Rockys Odyssey Chap 1 [low, 360p]-8.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 62768632,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e08%20Rockys%20Odyssey%20Chap%201%20%5Blow%2C%20360p%5D-8.m4v"
+        },
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e09",
+          "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Rockys Odyssey [low, 360p]-9",
+          "overview": null,
+          "stillURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1.thumbs/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e09%20Rockys%20Odyssey%20Chap%202%20%5Blow%2C%20360p%5D-9_000651.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1563,
+          "videoFile": {
+            "name": "Rocky Jones, Space Rangers 1954 S01e09 Rockys Odyssey Chap 2 [low, 360p]-9.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 68417518,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e09%20Rockys%20Odyssey%20Chap%202%20%5Blow%2C%20360p%5D-9.m4v"
+        },
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e07",
+          "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Escape Into Space",
+          "overview": null,
+          "stillURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1.thumbs/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e07%20Escape%20Into%20Space%20%5Blow%2C%20360p%5D-7_000656.jpg",
+          "airDate": "1954-04-27",
+          "year": 1954,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Rocky Jones, Space Rangers 1954 S01e07 Escape Into Space [low, 360p]-7.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 67461351,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e07%20Escape%20Into%20Space%20%5Blow%2C%20360p%5D-7.m4v"
+        },
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e10",
+          "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Rockys Odyssey [low, 360p]-10",
+          "overview": null,
+          "stillURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1.thumbs/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e10%20Rockys%20Odyssey%20Chap%203%20%5Blow%2C%20360p%5D-10_000805.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1929,
+          "videoFile": {
+            "name": "Rocky Jones, Space Rangers 1954 S01e10 Rockys Odyssey Chap 3 [low, 360p]-10.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 80058597,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e10%20Rockys%20Odyssey%20Chap%203%20%5Blow%2C%20360p%5D-10.m4v"
+        },
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e11",
+          "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Pirates Of Prah [low, 360p]-11",
+          "overview": null,
+          "stillURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1.thumbs/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e11%20The%20Pirates%20Of%20Prah%20Chap%201%20%5Blow%2C%20360p%5D-11_000652.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1560,
+          "videoFile": {
+            "name": "Rocky Jones, Space Rangers 1954 S01e11 The Pirates Of Prah Chap 1 [low, 360p]-11.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 56578701,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e11%20The%20Pirates%20Of%20Prah%20Chap%201%20%5Blow%2C%20360p%5D-11.m4v"
+        },
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e12",
+          "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Pirates Of Prah [low, 360p]-12",
+          "overview": null,
+          "stillURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1.thumbs/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e12%20The%20Pirates%20Of%20Prah%20Chap%202%20%5Blow%2C%20360p%5D-12_000662.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1578,
+          "videoFile": {
+            "name": "Rocky Jones, Space Rangers 1954 S01e12 The Pirates Of Prah Chap 2 [low, 360p]-12.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 54418912,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e12%20The%20Pirates%20Of%20Prah%20Chap%202%20%5Blow%2C%20360p%5D-12.m4v"
+        },
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e13",
+          "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "The Pirates Of Prah [low, 360p]-13",
+          "overview": null,
+          "stillURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1.thumbs/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e13%20The%20Pirates%20Of%20Prah%20Chap%203%20%5Blow%2C%20360p%5D-13_000652.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1571,
+          "videoFile": {
+            "name": "Rocky Jones, Space Rangers 1954 S01e13 The Pirates Of Prah Chap 3 [low, 360p]-13.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 57383448,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e13%20The%20Pirates%20Of%20Prah%20Chap%203%20%5Blow%2C%20360p%5D-13.m4v"
+        },
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e14",
+          "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Forbidden Moon [low, 360p]-14",
+          "overview": null,
+          "stillURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1.thumbs/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e14%20Forbidden%20Moon%20Chap%201%20%5Blow%2C%20360p%5D-14_000655.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1570,
+          "videoFile": {
+            "name": "Rocky Jones, Space Rangers 1954 S01e14 Forbidden Moon Chap 1 [low, 360p]-14.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 60202115,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e14%20Forbidden%20Moon%20Chap%201%20%5Blow%2C%20360p%5D-14.m4v"
+        },
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e17",
+          "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Silver Needle in the Sky (1)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1.thumbs/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e17%20Silver%20Needle%20In%20The%20Sky-17_000649.jpg",
+          "airDate": "1954-05-25",
+          "year": 1954,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Rocky Jones, Space Rangers 1954 S01e17 Silver Needle In The Sky-17.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 66475519,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e17%20Silver%20Needle%20In%20The%20Sky-17.m4v"
+        },
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e15",
+          "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Forbidden Moon [low, 360p]-15",
+          "overview": null,
+          "stillURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1.thumbs/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e15%20Forbidden%20Moon%20Chap%202%20%5Blow%2C%20360p%5D-15_000656.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1564,
+          "videoFile": {
+            "name": "Rocky Jones, Space Rangers 1954 S01e15 Forbidden Moon Chap 2 [low, 360p]-15.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 62390911,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e15%20Forbidden%20Moon%20Chap%202%20%5Blow%2C%20360p%5D-15.m4v"
+        },
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e16",
+          "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Forbidden Moon [low, 360p]-16",
+          "overview": null,
+          "stillURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1.thumbs/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e16%20Forbidden%20Moon%20Chap%203%20%5Blow%2C%20360p%5D-16_000655.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1575,
+          "videoFile": {
+            "name": "Rocky Jones, Space Rangers 1954 S01e16 Forbidden Moon Chap 3 [low, 360p]-16.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 69760863,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e16%20Forbidden%20Moon%20Chap%203%20%5Blow%2C%20360p%5D-16.m4v"
+        },
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e18",
+          "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Silver Needle in the Sky (3)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1.thumbs/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e18%20Silver%20Needle%20In%20The%20Sky%20Chap%202%20%5Blow%2C%20360p%5D-18_000653.jpg",
+          "airDate": "1954-06-09",
+          "year": 1954,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Rocky Jones, Space Rangers 1954 S01e18 Silver Needle In The Sky Chap 2 [low, 360p]-18.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 59407838,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e18%20Silver%20Needle%20In%20The%20Sky%20Chap%202%20%5Blow%2C%20360p%5D-18.m4v"
+        },
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e20",
+          "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Kips Private War [low, 360p]-20",
+          "overview": null,
+          "stillURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1.thumbs/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e20%20Kips%20Private%20War%20%5Blow%2C%20360p%5D-20_000659.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1572,
           "videoFile": {
             "name": "Rocky Jones, Space Rangers 1954 S01e20 Kips Private War [low, 360p]-20.mp4",
             "format": "h.264",
             "sizeBytes": 163423104,
-            "tier": 2
+            "tier": 1
           },
           "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e20%20Kips%20Private%20War%20%5Blow%2C%20360p%5D-20.mp4"
+        },
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e21",
+          "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Crash Of The Moons [low, 360p]-21",
+          "overview": null,
+          "stillURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1.thumbs/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e21%20Crash%20Of%20The%20Moons%20Chap%201%20%5Blow%2C%20360p%5D-21_000649.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1565,
+          "videoFile": {
+            "name": "Rocky Jones, Space Rangers 1954 S01e21 Crash Of The Moons Chap 1 [low, 360p]-21.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 66299503,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e21%20Crash%20Of%20The%20Moons%20Chap%201%20%5Blow%2C%20360p%5D-21.m4v"
+        },
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e22",
+          "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Crash Of The Moons [low, 360p]-22",
+          "overview": null,
+          "stillURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1.thumbs/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e22%20Crash%20Of%20The%20Moons%20Chap%202%20%5Blow%2C%20360p%5D-22_000657.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1579,
+          "videoFile": {
+            "name": "Rocky Jones, Space Rangers 1954 S01e22 Crash Of The Moons Chap 2 [low, 360p]-22.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 63428129,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e22%20Crash%20Of%20The%20Moons%20Chap%202%20%5Blow%2C%20360p%5D-22.m4v"
+        },
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e23",
+          "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Crash Of The Moons [low, 360p]-23",
+          "overview": null,
+          "stillURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1.thumbs/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e23%20Crash%20Of%20The%20Moons%20Chap%203%20%5Blow%2C%20360p%5D-23_000656.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1573,
+          "videoFile": {
+            "name": "Rocky Jones, Space Rangers 1954 S01e23 Crash Of The Moons Chap 3 [low, 360p]-23.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 70312351,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e23%20Crash%20Of%20The%20Moons%20Chap%203%20%5Blow%2C%20360p%5D-23.m4v"
+        },
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e24",
+          "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Blast Off [low, 360p]-24",
+          "overview": null,
+          "stillURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1.thumbs/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e24%20Blast%20Off%20Chap%201%20%5Blow%2C%20360p%5D-24_000573.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1384,
+          "videoFile": {
+            "name": "Rocky Jones, Space Rangers 1954 S01e24 Blast Off Chap 1 [low, 360p]-24.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 86895657,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e24%20Blast%20Off%20Chap%201%20%5Blow%2C%20360p%5D-24.m4v"
+        },
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e25",
+          "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Blast Off [low, 360p]-25",
+          "overview": null,
+          "stillURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1.thumbs/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e25%20Blast%20Off%20Chap%202%20%5Blow%2C%20360p%5D-25_000657.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1587,
+          "videoFile": {
+            "name": "Rocky Jones, Space Rangers 1954 S01e25 Blast Off Chap 2 [low, 360p]-25.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 143517152,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e25%20Blast%20Off%20Chap%202%20%5Blow%2C%20360p%5D-25.m4v"
+        },
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e26",
+          "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Blast Off [low, 360p]-26",
+          "overview": null,
+          "stillURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1.thumbs/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e26%20Blast%20Off%20Chap%203%20%5Blow%2C%20360p%5D-26_000642.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1544,
+          "videoFile": {
+            "name": "Rocky Jones, Space Rangers 1954 S01e26 Blast Off Chap 3 [low, 360p]-26.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 125859210,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e26%20Blast%20Off%20Chap%203%20%5Blow%2C%20360p%5D-26.m4v"
+        },
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e27",
+          "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "The Cold Sun [low, 360p]-27",
+          "overview": null,
+          "stillURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1.thumbs/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e27%20The%20Cold%20Sun%20Chap%201%20%5Blow%2C%20360p%5D-27_000643.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1552,
+          "videoFile": {
+            "name": "Rocky Jones, Space Rangers 1954 S01e27 The Cold Sun Chap 1 [low, 360p]-27.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 71062199,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e27%20The%20Cold%20Sun%20Chap%201%20%5Blow%2C%20360p%5D-27.m4v"
+        },
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e28",
+          "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "The Cold Sun [low, 360p]-28",
+          "overview": null,
+          "stillURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1.thumbs/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e28%20The%20Cold%20Sun%20Chap%202%20%5Blow%2C%20360p%5D-28_000648.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1553,
+          "videoFile": {
+            "name": "Rocky Jones, Space Rangers 1954 S01e28 The Cold Sun Chap 2 [low, 360p]-28.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 65912318,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e28%20The%20Cold%20Sun%20Chap%202%20%5Blow%2C%20360p%5D-28.m4v"
+        },
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e29",
+          "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "The Cold Sun [low, 360p]-29",
+          "overview": null,
+          "stillURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1.thumbs/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e29%20The%20Cold%20Sun%20Chap%203%20%5Blow%2C%20360p%5D-29_001123.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2710,
+          "videoFile": {
+            "name": "Rocky Jones, Space Rangers 1954 S01e29 The Cold Sun Chap 3 [low, 360p]-29.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 202954305,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e29%20The%20Cold%20Sun%20Chap%203%20%5Blow%2C%20360p%5D-29.m4v"
+        },
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e30",
+          "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "Inferno In Space [low, 360p]-30",
+          "overview": null,
+          "stillURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1.thumbs/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e30%20Inferno%20In%20Space%20Chap%201%20%5Blow%2C%20360p%5D-30_000658.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1573,
+          "videoFile": {
+            "name": "Rocky Jones, Space Rangers 1954 S01e30 Inferno In Space Chap 1 [low, 360p]-30.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 60959226,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e30%20Inferno%20In%20Space%20Chap%201%20%5Blow%2C%20360p%5D-30.m4v"
+        },
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e31",
+          "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "Inferno In Space [low, 360p]-31",
+          "overview": null,
+          "stillURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1.thumbs/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e31%20Inferno%20In%20Space%20Chap%202%20%5Blow%2C%20360p%5D-31_000653.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1577,
+          "videoFile": {
+            "name": "Rocky Jones, Space Rangers 1954 S01e31 Inferno In Space Chap 2 [low, 360p]-31.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 60892935,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e31%20Inferno%20In%20Space%20Chap%202%20%5Blow%2C%20360p%5D-31.m4v"
+        },
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e32",
+          "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 32,
+          "title": "Inferno In Space [low, 360p]-32",
+          "overview": null,
+          "stillURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1.thumbs/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e32%20Inferno%20In%20Space%20Chap%203%20%5Blow%2C%20360p%5D-32_000668.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1596,
+          "videoFile": {
+            "name": "Rocky Jones, Space Rangers 1954 S01e32 Inferno In Space Chap 3 [low, 360p]-32.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 61155602,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e32%20Inferno%20In%20Space%20Chap%203%20%5Blow%2C%20360p%5D-32.m4v"
+        },
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e33",
+          "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 33,
+          "title": "Vena And The Darnamo [low, 360p]-33",
+          "overview": null,
+          "stillURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1.thumbs/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e33%20Vena%20And%20The%20Darnamo%20%5Blow%2C%20360p%5D-33_000804.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1939,
+          "videoFile": {
+            "name": "Rocky Jones, Space Rangers 1954 S01e33 Vena And The Darnamo [low, 360p]-33.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 132038485,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e33%20Vena%20And%20The%20Darnamo%20%5Blow%2C%20360p%5D-33.m4v"
+        },
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e34",
+          "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 34,
+          "title": "Out Of This World [low, 360p]-34",
+          "overview": null,
+          "stillURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1.thumbs/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e34%20Out%20Of%20This%20World%20Chap%201%20%5Blow%2C%20360p%5D-34_000657.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1575,
+          "videoFile": {
+            "name": "Rocky Jones, Space Rangers 1954 S01e34 Out Of This World Chap 1 [low, 360p]-34.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 68073329,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e34%20Out%20Of%20This%20World%20Chap%201%20%5Blow%2C%20360p%5D-34.m4v"
+        },
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e35",
+          "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 35,
+          "title": "Out Of This World [low, 360p]-35",
+          "overview": null,
+          "stillURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1.thumbs/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e35%20Out%20Of%20This%20World%20Chap%202%20%5Blow%2C%20360p%5D-35_000657.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1580,
+          "videoFile": {
+            "name": "Rocky Jones, Space Rangers 1954 S01e35 Out Of This World Chap 2 [low, 360p]-35.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 73337044,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e35%20Out%20Of%20This%20World%20Chap%202%20%5Blow%2C%20360p%5D-35.m4v"
+        },
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e36",
+          "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "Out Of This World [low, 360p]-36",
+          "overview": null,
+          "stillURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1.thumbs/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e36%20Out%20Of%20This%20World%20Chap%203%20%5Blow%2C%20360p%5D-36_000653.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1575,
+          "videoFile": {
+            "name": "Rocky Jones, Space Rangers 1954 S01e36 Out Of This World Chap 3 [low, 360p]-36.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 71517633,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e36%20Out%20Of%20This%20World%20Chap%203%20%5Blow%2C%20360p%5D-36.m4v"
+        },
+        {
+          "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e37",
+          "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
+          "seasonNumber": 1,
+          "episodeNumber": 39,
+          "title": "The Trial of Rocky Jones (3)",
+          "overview": null,
+          "stillURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1.thumbs/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e37%20The%20Trial%20Of%20Rocky%20Jones%20Chap%201%20%5Blow%2C%20360p%5D-37_000651.jpg",
+          "airDate": "1954-11-16",
+          "year": 1954,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Rocky Jones, Space Rangers 1954 S01e37 The Trial Of Rocky Jones Chap 1 [low, 360p]-37.m4v",
+            "format": "MPEG4",
+            "sizeBytes": 68012080,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e37%20The%20Trial%20Of%20Rocky%20Jones%20Chap%201%20%5Blow%2C%20360p%5D-37.m4v"
         }
       ]
     },
@@ -61,29 +688,11 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/rockyJonesSpaceRangerRockysOdyssey1954/Rocky_Jones_-_Rockys_Odyssey_II_09_26_1954.ia.mp4"
-        },
-        {
-          "archiveID": "rockyJonesSpaceRangerBeyondTheCurtainOfSpace1954",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "'Rocky Jones, Space Ranger' - Beyond the curtain of space",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/hzehIOwKA7ZWUxKYh74rxNwSkTr.jpg",
-          "airDate": null,
-          "year": 1954,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Beyond_the_curtain_of_space_II_4-17-54.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 150288453,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/rockyJonesSpaceRangerBeyondTheCurtainOfSpace1954/Beyond_the_curtain_of_space_II_4-17-54.ia.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 3,
+  "episodesCount": 35,
   "canonicalEpisodesCount": 39,
   "tvdbID": "70515",
   "artworkSource": "tvdb",

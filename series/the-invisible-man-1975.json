@@ -22,15 +22,16 @@
       "seasonNumber": 1,
       "episodes": [
         {
-          "archiveID": "the-invisible-man-the-complete-series-1975_202505",
+          "archiveID": "the-invisible-man-the-complete-series-1975_202505@s1e00",
+          "sourceID": "the-invisible-man-the-complete-series-1975_202505",
           "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "The Invisible Man",
-          "overview": "Scientist Daniel Westin and his wife Kate are developing a process to teleport matter via laser beams, and accidentally create a means of invisibility. However, after Daniel prematurely tests it on himself, the process goes wrong, trapping him in an invisible state... and foreign powers want the secret of his process.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/59/149363.jpg",
-          "airDate": "1975-05-06",
-          "year": 1975,
-          "runtimeSeconds": 5400,
+          "episodeNumber": 0,
+          "title": "Pilot",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-invisible-man-the-complete-series-1975_202505/the-invisible-man-the-complete-series-1975_202505.thumbs/The%20Invisible%20Man%20S01E00%20-%20Pilot_001704.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 4402,
           "videoFile": {
             "name": "The Invisible Man S01E00 - Pilot.mp4",
             "format": "h.264",
@@ -42,13 +43,13 @@
         {
           "archiveID": "the-invisible-man-complete-series-1958",
           "seasonNumber": 1,
-          "episodeNumber": null,
+          "episodeNumber": 1,
           "title": "The Invisible Man",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/the-invisible-man-complete-series-1958",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1533,
+          "overview": "Scientist Daniel Westin and his wife Kate are developing a process to teleport matter via laser beams, and accidentally create a means of invisibility. However, after Daniel prematurely tests it on himself, the process goes wrong, trapping him in an invisible state... and foreign powers want the secret of his process.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/59/149363.jpg",
+          "airDate": "1975-05-06",
+          "year": 1975,
+          "runtimeSeconds": 5400,
           "videoFile": {
             "name": "The Invisible Man S01E00 - Piolt.mp4",
             "format": "h.264",
@@ -56,11 +57,239 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/the-invisible-man-complete-series-1958/The%20Invisible%20Man%20S01E00%20-%20Piolt.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-the-complete-series-1975_202505@s1e01",
+          "sourceID": "the-invisible-man-the-complete-series-1975_202505",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Klae Resource",
+          "overview": "The U.S. government asks the \"Klae resource\" to find out why a reclusive millionaire is selling high-yield oil refinery equipment to the Arabs, and Daniel infiltrates the man's penthouse in Las Vegas for the answer.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/59/149861.jpg",
+          "airDate": "1975-09-08",
+          "year": 1975,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Invisible Man S01E01 - The Klae Resource.mp4",
+            "format": "h.264",
+            "sizeBytes": 273127500,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-the-complete-series-1975_202505/The%20Invisible%20Man%20S01E01%20-%20The%20Klae%20Resource.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-the-complete-series-1975_202505@s1e02",
+          "sourceID": "the-invisible-man-the-complete-series-1975_202505",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Fine Art of Diplomacy",
+          "overview": "The U.S. government discovers that someone has been stealing paintings from the Capitol and replacing them with forgeries. They know who the culprit is, but need Daniel to go in and get the evidence they need to deal with the matter.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/59/149894.jpg",
+          "airDate": "1975-09-15",
+          "year": 1975,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Invisible Man S01E02 - The Fine Art Of Diplomacy.mp4",
+            "format": "h.264",
+            "sizeBytes": 273940958,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-the-complete-series-1975_202505/The%20Invisible%20Man%20S01E02%20-%20The%20Fine%20Art%20Of%20Diplomacy.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-the-complete-series-1975_202505@s1e03",
+          "sourceID": "the-invisible-man-the-complete-series-1975_202505",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Man of Influence",
+          "overview": "When a spiritualist influences several prominent government officials to oppose an energy bill, the Westins are called in to find out how the spiritualist summons the spirits... and discredit him.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/60/150651.jpg",
+          "airDate": "1975-09-22",
+          "year": 1975,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Invisible Man S01E03 - Man of Influence.mp4",
+            "format": "h.264",
+            "sizeBytes": 272990606,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-the-complete-series-1975_202505/The%20Invisible%20Man%20S01E03%20-%20Man%20of%20Influence.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-the-complete-series-1975_202505@s1e04",
+          "sourceID": "the-invisible-man-the-complete-series-1975_202505",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Eyes Only",
+          "overview": "The NSA asks the Klae Resource to find out how a trusted assistant is smuggling secrets out of the Pentagon... and how her employers kill anyone who interferes.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/60/152402.jpg",
+          "airDate": "1975-09-29",
+          "year": 1975,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Invisible Man S01E04 - Eyes Only.mp4",
+            "format": "h.264",
+            "sizeBytes": 273775849,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-the-complete-series-1975_202505/The%20Invisible%20Man%20S01E04%20-%20Eyes%20Only.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-the-complete-series-1975_202505@s1e05",
+          "sourceID": "the-invisible-man-the-complete-series-1975_202505",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Barnard Wants Out",
+          "overview": "Daniel and Kate infiltrate a scientific conference to help Daniel's mentor Leon Barnard defect back to the States, but the officer in charge threatens Leon's daughter Anna if Leon doesn't stay put.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/61/152544.jpg",
+          "airDate": "1975-10-06",
+          "year": 1975,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Invisible Man S01E05 - Barnard Wants Out.mp4",
+            "format": "h.264",
+            "sizeBytes": 273518660,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-the-complete-series-1975_202505/The%20Invisible%20Man%20S01E05%20-%20Barnard%20Wants%20Out.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-the-complete-series-1975_202505@s1e06",
+          "sourceID": "the-invisible-man-the-complete-series-1975_202505",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Go Directly to Jail",
+          "overview": "A cleaning lady at Klae asks the Westins to find out what is going on with her son Leland, who is in prison in Texas and is going by a different name. Daniel goes in and discovers that Leland is an undercover narcotics agent... and Daniel has blown his cover.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/61/153387.jpg",
+          "airDate": "1975-11-03",
+          "year": 1975,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Invisible Man S01E06 - Go Directly to Jail.mp4",
+            "format": "h.264",
+            "sizeBytes": 272435958,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-the-complete-series-1975_202505/The%20Invisible%20Man%20S01E06%20-%20Go%20Directly%20to%20Jail.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-the-complete-series-1975_202505@s1e07",
+          "sourceID": "the-invisible-man-the-complete-series-1975_202505",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Stop When Red Lights Flash",
+          "overview": "Daniel decides to fight The Man when a crooked small-town judge and deputy set him up for an expensive traffic violation.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/61/154458.jpg",
+          "airDate": "1975-11-24",
+          "year": 1975,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Invisible Man S01E07 - Stop When Red Lights Flash.mp4",
+            "format": "h.264",
+            "sizeBytes": 272550291,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-the-complete-series-1975_202505/The%20Invisible%20Man%20S01E07%20-%20Stop%20When%20Red%20Lights%20Flash.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-the-complete-series-1975_202505@s1e08",
+          "sourceID": "the-invisible-man-the-complete-series-1975_202505",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Pin Money",
+          "overview": "Walter's Aunt Margaret comes to town to win back the money she embezzled by playing poker. The Westins find out about it and decide to help the older woman by first winning her money back in poker, and then putting it back into the bank during a fake robbery.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/61/154551.jpg",
+          "airDate": "1975-12-01",
+          "year": 1975,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Invisible Man S01E08 - Pin Money.mp4",
+            "format": "h.264",
+            "sizeBytes": 271914705,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-the-complete-series-1975_202505/The%20Invisible%20Man%20S01E08%20-%20Pin%20Money.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-the-complete-series-1975_202505@s1e09",
+          "sourceID": "the-invisible-man-the-complete-series-1975_202505",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Klae Dynasty",
+          "overview": "The Klae family--siblings Morgan, Caroline, and Julian--arrive at the corporation to arrange for an upcoming conference. However, Caroline is kidnapped and suspicion falls on Daniel when his fingerprints are found on the getaway van.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/61/154581.jpg",
+          "airDate": "1975-12-08",
+          "year": 1975,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Invisible Man S01E09 - The Klae Dynasty.mp4",
+            "format": "h.264",
+            "sizeBytes": 271393950,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-the-complete-series-1975_202505/The%20Invisible%20Man%20S01E09%20-%20The%20Klae%20Dynasty.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-the-complete-series-1975_202505@s1e10",
+          "sourceID": "the-invisible-man-the-complete-series-1975_202505",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Sight Unseen",
+          "overview": "Daniel goes in undercover to rescue a kidnapped blind girl who is being used as leverage to keep her father from testifying against the Mob.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/62/155437.jpg",
+          "airDate": "1975-12-15",
+          "year": 1975,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Invisible Man S01E10 - Sight Unseen.mp4",
+            "format": "h.264",
+            "sizeBytes": 272511759,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-the-complete-series-1975_202505/The%20Invisible%20Man%20S01E10%20-%20Sight%20Unseen.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-the-complete-series-1975_202505@s1e11",
+          "sourceID": "the-invisible-man-the-complete-series-1975_202505",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Power Play",
+          "overview": "A mental patient, Pike, learns of the Klae Resource from Donald Klae. Using Donald's knowledge of the security system, Pike breaks into Klae and forces Walter and the Westins to reveal the secret of the Klae Resource.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/62/156531.jpg",
+          "airDate": "1976-01-19",
+          "year": 1976,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Invisible Man S01E11 - Power Play.mp4",
+            "format": "h.264",
+            "sizeBytes": 273955833,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-the-complete-series-1975_202505/The%20Invisible%20Man%20S01E11%20-%20Power%20Play.mp4"
+        },
+        {
+          "archiveID": "the-invisible-man-the-complete-series-1975_202505@s1e12",
+          "sourceID": "the-invisible-man-the-complete-series-1975_202505",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "An Attempt to Save Face",
+          "overview": "Plastic surgeon Nick Maggio--the man who developed Daniel's masks--is called in to perform a facelift on a visiting Eastern Bloc dignitary. However, Nick and the Westins are soon swept up in an attempted assassination.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/62/156876.jpg",
+          "airDate": "1976-01-26",
+          "year": 1976,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Invisible Man S01E12 - An Attempt to Save Face.mp4",
+            "format": "h.264",
+            "sizeBytes": 272762615,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-invisible-man-the-complete-series-1975_202505/The%20Invisible%20Man%20S01E12%20-%20An%20Attempt%20to%20Save%20Face.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 2,
+  "episodesCount": 14,
   "canonicalEpisodesCount": 13,
   "tvdbID": "76793",
   "artworkSource": "tvdb",

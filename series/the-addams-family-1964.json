@@ -22,7 +22,84 @@
       "seasonNumber": 1,
       "episodes": [
         {
-          "archiveID": "the-addams-family__season-1",
+          "archiveID": "the-addams-familycomplete@s1e01",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Addams Family Goes to School",
+          "overview": "A truant officer visits the Addams house to find out why Wednesday and Pugsley have never been to school.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/172/430531.jpg",
+          "airDate": "1964-09-18",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S1 E01 - The Addams Family Goes to School.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 426352389,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E01%20-%20The%20Addams%20Family%20Goes%20to%20School.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s1e02",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Morticia and the Psychiatrist",
+          "overview": "Gomez and Morticia seeks help from a child psychiatrist when Pugsley shows signs of normalcy; the doctor advises the couple to cater to Pugsley's childish whims.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/172/430539.jpg",
+          "airDate": "1964-09-25",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S1 E02 - Morticia and the Psychiatrist.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 408455177,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E02%20-%20Morticia%20and%20the%20Psychiatrist.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s1e03",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Fester's Punctured Romance",
+          "overview": "Uncle Fester decides it's time for him to find a mate. Through a column in the local newspaper, he conducts a search and mistakes Miss Carver, a door-to-door cosmetics saleslady, for someone replying to his ad.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/172/430846.jpg",
+          "airDate": "1964-10-02",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S1 E03 - Fester's Punctured Romance.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 458018158,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E03%20-%20Fester%27s%20Punctured%20Romance.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s1e04",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Gomez, the Politician",
+          "overview": "A politician wants to drain the town's bogs.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/172/430972.jpg",
+          "airDate": "1964-10-09",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S1 E04 - Gomez the Politician.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 270076042,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E04%20-%20Gomez%20the%20Politician.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s1e05",
+          "sourceID": "the-addams-familycomplete",
           "seasonNumber": 1,
           "episodeNumber": 5,
           "title": "The Addams Family Tree",
@@ -32,15 +109,244 @@
           "year": 1964,
           "runtimeSeconds": 1800,
           "videoFile": {
-            "name": "The Addams Family -- 1x24 -- Crisis in the Addams Family.mp4",
-            "format": "h.264",
-            "sizeBytes": 154705348,
-            "tier": 2
+            "name": "The Addams Family S1 E05 - The Addams Family Tree.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 474775751,
+            "tier": 1
           },
-          "downloadURL": "https://archive.org/download/the-addams-family__season-1/The%20Addams%20Family%20--%201x24%20--%20Crisis%20in%20the%20Addams%20Family.mp4"
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E05%20-%20The%20Addams%20Family%20Tree.ia.mp4"
         },
         {
-          "archiveID": "the-addams-familycomplete",
+          "archiveID": "the-addams-familycomplete@s1e06",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Morticia Joins the Ladies League",
+          "overview": "An escaped gorilla becomes part of the family, much to the surprise of Morticia's ladies group.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509608.jpg",
+          "airDate": "1964-10-23",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S1 E06 - Morticia Joins the  Ladies League.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 269310905,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E06%20-%20Morticia%20Joins%20the%20%20Ladies%20League.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s1e07",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Halloween with the Addams Family",
+          "overview": "Two bank robbers visit Morticia and Gomez on Halloween. Guest star: Don Rickles.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509609.jpg",
+          "airDate": "1964-10-30",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S1 E07 - Halloween with the Addams Family.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 441706417,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E07%20-%20Halloween%20with%20the%20Addams%20Family.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s1e08",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Green-Eyed Gomez",
+          "overview": "Gomez throws a fit of jealousy when Morticia's former boyfriend visits.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509610.jpg",
+          "airDate": "1964-11-06",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S1 E08 - Green-Eyed Gomez.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 279993517,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E08%20-%20Green-Eyed%20Gomez.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s1e09",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The New Neighbors Meet the Addams Family",
+          "overview": "The family makes a scary impression on new neighbours.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509611.jpg",
+          "airDate": "1964-11-13",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S1 E09 - The New Neighbors  Meet the Addams Family.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 474571975,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E09%20-%20The%20New%20Neighbors%20%20Meet%20the%20Addams%20Family.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s1e10",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Wednesday Leaves Home",
+          "overview": "Wednesday runs away after being scolded for borrowing Uncle Fester's TNT.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509612.jpg",
+          "airDate": "1964-11-20",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S1 E10 - Wednesday Leaves Home.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 250413964,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E10%20-%20Wednesday%20Leaves%20Home.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s1e11",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Addams Family Meet the V.I.P.'s",
+          "overview": "Visitors from another country regret labeling the Addams gang uncultured.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509613.jpg",
+          "airDate": "1964-11-27",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S1 E11 - The Addams Family Meets the VIPs.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 471492998,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E11%20-%20The%20Addams%20Family%20Meets%20the%20VIPs.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s1e12",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Morticia, the Matchmaker",
+          "overview": "Morticia plays matchmaker for her cousin.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509614.jpg",
+          "airDate": "1964-12-04",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S1 E12 - Morticia the Matchmaker.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 273780734,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E12%20-%20Morticia%20the%20Matchmaker.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s1e13",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Lurch Learns to Dance",
+          "overview": "When Lurch refuses the invitation to a annual Ball that arrives in the mail, Morticia and Gomez encourage Lurch to take dance lessons so he can attend for once.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509615.jpg",
+          "airDate": "1964-12-11",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S1 E13 - Lurch Learns to Dance.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 459378597,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E13%20-%20Lurch%20Learns%20to%20Dance.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s1e14",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Art and the Addams Family",
+          "overview": "Gomez recruits an artist to teach Grandmama how to paint abstracts.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509616.jpg",
+          "airDate": "1964-12-18",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S1 E14 - Art and the Addams Family.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 419817731,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E14%20-%20Art%20and%20the%20Addams%20Family.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s1e15",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "The Addams Family Meets a Beatnik",
+          "overview": "An injured beatnik finds refuge in the Addams home.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509617.jpg",
+          "airDate": "1965-01-01",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S1 E15 - The Addams Family Meets a Beatnik.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 445916015,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E15%20-%20The%20Addams%20Family%20Meets%20a%20Beatnik.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s1e16",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "The Addams Family Meets the Undercover Man",
+          "overview": "The family's timid postman does undercover work for the government in the Addams house.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509618.jpg",
+          "airDate": "1965-01-08",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S1 E16 - The Addams Family Meets the Undercover Man.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 369109340,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E16%20-%20The%20Addams%20Family%20Meets%20the%20Undercover%20Man.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s1e17",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Mother Lurch Visits the Addams Family",
+          "overview": "Lurch's mother wants him to be waited on by Morticia and Gomez.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509619.jpg",
+          "airDate": "1965-01-15",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S1 E17 - Mother Lurch Visits.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 440470748,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E17%20-%20Mother%20Lurch%20Visits.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s1e18",
+          "sourceID": "the-addams-familycomplete",
           "seasonNumber": 1,
           "episodeNumber": 18,
           "title": "Uncle Fester's Illness",
@@ -58,7 +364,179 @@
           "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E18%20-%20Uncle%20Festers%20Illness.mp4"
         },
         {
-          "archiveID": "the-addams-family_202510",
+          "archiveID": "the-addams-familycomplete@s1e19",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "The Addams Family Splurges",
+          "overview": "The family tries to raise cash for a lunar trip.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509621.jpg",
+          "airDate": "1965-01-29",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S1 E19 - The Addams Family Splurges.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 427414211,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E19%20-%20The%20Addams%20Family%20Splurges.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s1e20",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Cousin Itt Visits the Addams Family",
+          "overview": "Cousin Itt becomes a zoo exhibit while visiting.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509622.jpg",
+          "airDate": "1965-02-05",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S1 E20 - Cousin Itt Visits.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 274757217,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E20%20-%20Cousin%20Itt%20Visits.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s1e21",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "The Addams Family in Court",
+          "overview": "Grandmama is jailed for running a fortune telling business in the living room.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509623.jpg",
+          "airDate": "1965-02-12",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S1 E21 - The Addams Family in Court.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 398013857,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E21%20-%20The%20Addams%20Family%20in%20Court.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s1e22",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Amnesia in the Addams Family",
+          "overview": "Gomez suffers from amnesia after being hit in the head with Indian clubs.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509624.jpg",
+          "airDate": "1965-02-19",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S1 E22 - Amnesia in the Addams Family.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 422843852,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E22%20-%20Amnesia%20in%20the%20Addams%20Family.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s1e23",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Thing is Missing",
+          "overview": "Gomez spearheads an investigation when Thing disappears.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509625.jpg",
+          "airDate": "1965-03-05",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S1 E23 - Thing Is Missing.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 121598399,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E23%20-%20Thing%20Is%20Missing.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s1e24",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Crisis in the Addams Family",
+          "overview": "Uncle Fester applies for a job at an insurance company that is threatening to cancel the family's policy.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509626.jpg",
+          "airDate": "1965-03-12",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S1 E24 - Crisis in the Addams Family.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 211041205,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E24%20-%20Crisis%20in%20the%20Addams%20Family.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s1e25",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Lurch and His Harpsichord",
+          "overview": "Gomez and Morticia try to interest Lurch in needlepoint and the drums after they donate his harpsichord to a local museum.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509627.jpg",
+          "airDate": "1965-03-19",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S1 E25 - Lurch and His Harpsichord.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 441995214,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E25%20-%20Lurch%20and%20His%20Harpsichord.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s1e26",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Morticia, the Breadwinner",
+          "overview": "Morticia, believing Gomez is financially strapped, thinks of ways to make money.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509628.jpg",
+          "airDate": "1965-03-26",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S1 E26 - Morticia the Breadwinner.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 446009104,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E26%20-%20Morticia%20the%20Breadwinner.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s1e27",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "The Addams Family and the Spacemen",
+          "overview": "An evening picnic results in the family being mistaken for martians.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509629.jpg",
+          "airDate": "1965-04-02",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S1 E27 - The Addams Family and the Spaceman.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 334108542,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E27%20-%20The%20Addams%20Family%20and%20the%20Spaceman.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s1e28",
+          "sourceID": "the-addams-familycomplete",
           "seasonNumber": 1,
           "episodeNumber": 28,
           "title": "My Son, the Chimp",
@@ -73,53 +551,701 @@
             "sizeBytes": 559481480,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/the-addams-family_202510/The%20Addams%20Family%20S1%20E28%20-%20My%20Son%20the%20Chimp.ia.mp4"
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E28%20-%20My%20Son%20the%20Chimp.ia.mp4"
         },
         {
-          "archiveID": "the-addams-family-complete_202606",
+          "archiveID": "the-addams-familycomplete@s1e29",
+          "sourceID": "the-addams-familycomplete",
           "seasonNumber": 1,
-          "episodeNumber": 28,
-          "title": "The Addams Family",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1964,
-          "runtimeSeconds": null,
+          "episodeNumber": 29,
+          "title": "Morticia's Favorite Charity",
+          "overview": "Morticia gathers up the family's art pieces for a charity auction.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509631.jpg",
+          "airDate": "1965-04-16",
+          "year": 1965,
+          "runtimeSeconds": 1800,
           "videoFile": {
-            "name": "The Addams Family S1 E28 - My Son the Chimp.ia.mp4",
+            "name": "The Addams Family S1 E29 - Morticias Favorite Charity.ia.mp4",
             "format": "h.264 IA",
-            "sizeBytes": 559481480,
+            "sizeBytes": 293141119,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/the-addams-family-complete_202606/The%20Addams%20Family%20S1%20E28%20-%20My%20Son%20the%20Chimp.ia.mp4"
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E29%20-%20Morticias%20Favorite%20Charity.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s1e30",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "Progress and the Addams Family",
+          "overview": "City workers plan to demolish the family home to construct a highway.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509632.jpg",
+          "airDate": "1965-04-23",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S1 E30 - Progress and the  Addams Family.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 305395027,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E30%20-%20Progress%20and%20the%20%20Addams%20Family.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s1e31",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "Uncle Fester's Toupee",
+          "overview": "Fester dons a toupee for a pen pal's visit.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509633.jpg",
+          "airDate": "1965-04-30",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S1 E31 - Uncle Festers Toupee.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 289379414,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E31%20-%20Uncle%20Festers%20Toupee.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s1e32",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 1,
+          "episodeNumber": 32,
+          "title": "Cousin Itt and the Vocational Counselor",
+          "overview": "Gomez and Morticia try to convince Cousin Itt that he would be a great marriage counselor.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509634.jpg",
+          "airDate": "1965-05-07",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S1 E32 - Cousin Itt and the Vocational Counselor.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 500476870,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E32%20-%20Cousin%20Itt%20and%20the%20Vocational%20Counselor.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s1e33",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 1,
+          "episodeNumber": 33,
+          "title": "Lurch, the Teenage Idol",
+          "overview": "Teenagers go mad for Lurch's pop recording.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509635.jpg",
+          "airDate": "1965-05-14",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S1 E33 - Lurch, the Teenage Idol.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 503495027,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E33%20-%20Lurch%2C%20the%20Teenage%20Idol.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s1e34",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 1,
+          "episodeNumber": 34,
+          "title": "The Winning of Morticia Addams",
+          "overview": "Family members try to spark an argument between Gomez and Morticia, believing happily married couples fight.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509636.jpg",
+          "airDate": "1965-05-21",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S1 E34 - The Winning of Moricia Addams.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 497720630,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S1%20E34%20-%20The%20Winning%20of%20Moricia%20Addams.ia.mp4"
         }
       ]
     },
     {
-      "seasonNumber": null,
+      "seasonNumber": 2,
       "episodes": [
         {
-          "archiveID": "the-addams-family__season-2",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Addams Family",
-          "overview": null,
-          "stillURL": "https://archive.org/download/archivewatch-covers/the-addams-family__season-2.722808f4.jpg",
-          "airDate": null,
+          "archiveID": "the-addams-familycomplete@s2e01",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "My Fair Cousin Itt",
+          "overview": "A Hollywood director inflates Cousin Itt's ego.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509638.jpg",
+          "airDate": "1965-09-17",
           "year": 1965,
-          "runtimeSeconds": null,
+          "runtimeSeconds": 1800,
           "videoFile": {
-            "name": "The Addams Family -- 2x23 -- Morticia, the Decorator.mp4",
-            "format": "h.264",
-            "sizeBytes": 150994146,
-            "tier": 2
+            "name": "The Addams Family S2 E01 - My Fair Cousin Itt.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 524877790,
+            "tier": 1
           },
-          "downloadURL": "https://archive.org/download/the-addams-family__season-2/The%20Addams%20Family%20--%202x23%20--%20Morticia%2C%20the%20Decorator.mp4"
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S2%20E01%20-%20My%20Fair%20Cousin%20Itt.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s2e02",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "Morticia's Romance (1)",
+          "overview": "On her 13th wedding anniversary, Morticia tells the children how she and Gomez first met.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509639.jpg",
+          "airDate": "1965-09-24",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S2 E02 - Morticias Romance Part 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 543647241,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S2%20E02%20-%20Morticias%20Romance%20Part%201.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s2e03",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Morticia's Romance (2)",
+          "overview": "As plans to marry Ophelia continue, Gomez looks for a way out of the wedding.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509640.jpg",
+          "airDate": "1965-10-01",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S2 E03 - Morticias Romance Part 2.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 490509999,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S2%20E03%20-%20Morticias%20Romance%20Part%202.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s2e04",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "Morticia Meets Royalty",
+          "overview": "Gomez's aunt, a princess, arrives with a surprise for Thing.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509641.jpg",
+          "airDate": "1965-10-08",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S2 E04 - Morticia Meets Royalty.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 513509882,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S2%20E04%20-%20Morticia%20Meets%20Royalty.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s2e05",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Gomez, the People's Choice",
+          "overview": "Low taxes prod angry Gomez into running for mayor.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509642.jpg",
+          "airDate": "1965-10-15",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S2 E05 - Gomez the Peoples Choice.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 470446043,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S2%20E05%20-%20Gomez%20the%20Peoples%20Choice.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s2e06",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Cousin Itt's Problem",
+          "overview": "Uncle Fester whips up a remedy for Cousin Itt's hair-loss problem.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509643.jpg",
+          "airDate": "1965-10-22",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S2 E06 - Cousin Itts Problem.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 511099430,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S2%20E06%20-%20Cousin%20Itts%20Problem.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s2e07",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "Halloween - Addams Style",
+          "overview": "A neighbour tells the children there are no witches.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509644.jpg",
+          "airDate": "1965-10-29",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S2 E07 - Halloween - Addams Style.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 296059311,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S2%20E07%20-%20Halloween%20-%20Addams%20Style.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s2e08",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "Morticia, the Writer",
+          "overview": "Morticia writes a children's book.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509645.jpg",
+          "airDate": "1965-11-05",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S2 E08 - Morticia the Writer.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 505610240,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S2%20E08%20-%20Morticia%20the%20Writer.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s2e09",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Morticia, the Sculptress",
+          "overview": "An art critic shows his disapproval of Morticia's first sculpture.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509646.jpg",
+          "airDate": "1965-11-12",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S2 E09 - Morticia the Sculptress.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 552458461,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S2%20E09%20-%20Morticia%20the%20Sculptress.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s2e10",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "Gomez, the Reluctant Lover",
+          "overview": "Pugsley copies one of his dad's love letters and sends it to his teacher, who visits the Addams home and confesses to Gomez that no man has ever fallen so in love with her. Morticia volunteers to play the jealous wife to raise the teacher's morale.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509647.jpg",
+          "airDate": "1965-11-19",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S2 E10 - Gomez the Reluctant Lover.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 279423706,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S2%20E10%20-%20Gomez%20the%20Reluctant%20Lover.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s2e11",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "Feud in the Addams Family",
+          "overview": "Prompted by Morticia's invitation, Mr and Mrs Henry Courtney visit the Addams house for tea, hoping to meet a number of the social set who turns out to be Gomez's cousin by marriage.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509648.jpg",
+          "airDate": "1965-11-26",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S2 E11 - Feud in the Addams Family.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 306431596,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S2%20E11%20-%20Feud%20in%20the%20Addams%20Family.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s2e12",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "Gomez, the Cat Burglar",
+          "overview": "There is a neighbourhood burglar on the loose, and Morticia has reason to believe it could be Gomez. Morticia decides to probe his subconscious mind for a key to his criminality after she and Uncle Fester discover loot hidden in the storeroom.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509649.jpg",
+          "airDate": "1965-12-03",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S2 E12 - Gomez the Cat Burgler.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 440163743,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S2%20E12%20-%20Gomez%20the%20Cat%20Burgler.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s2e13",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "Portrait of Gomez",
+          "overview": "Morticia's pet plant Cleopatra gobbles up her favourite photo of Gomez from the family album. When the original photographer is found and asked to make a duplicate picture, it is discovered that he is now with the Department of Motor Vehicles.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509650.jpg",
+          "airDate": "1965-12-10",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S2 E13 - Portrait of Gomez.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 459122336,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S2%20E13%20-%20Portrait%20of%20Gomez.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s2e14",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 2,
+          "episodeNumber": 14,
+          "title": "Morticia's Dilemma",
+          "overview": "Gomez plays host to a family friend and his daughter Consuella. Morticia's hospitality changes to horror and shock when Consuella, believing Morticia to be Gomez's sister, reveals that she has been promised in marriage to Gomez.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509651.jpg",
+          "airDate": "1965-12-17",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S2 E14 - Morticias Dilemma.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 281557786,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S2%20E14%20-%20Morticias%20Dilemma.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s2e15",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 2,
+          "episodeNumber": 15,
+          "title": "Christmas with the Addams Family",
+          "overview": "When Wednesday's and Pugsley's faith in Santa Claus is shaken, Uncle Fester is chosen to back up Santa. However, Fester-Santa gets stuck in the chimney, so each of the other adults in the house decides to substitute for him.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509652.jpg",
+          "airDate": "1965-12-24",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S2 E15 - Christmas with the Addams Family.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 459466944,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S2%20E15%20-%20Christmas%20with%20the%20Addams%20Family.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s2e16",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 2,
+          "episodeNumber": 16,
+          "title": "Uncle Fester, Tycoon",
+          "overview": "Fester is so smitten upon receipt of a photo of his love - a bearded carnival lady - that he borrows money to mail her a proposal. Morticia dons a beard and poses as the girl's mother to convince Fester that he will have to work to support a wife.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509653.jpg",
+          "airDate": "1965-12-31",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S2 E16 - Uncle Fester Tycoon.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 287340541,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S2%20E16%20-%20Uncle%20Fester%20Tycoon.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s2e17",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 2,
+          "episodeNumber": 17,
+          "title": "Morticia and Gomez vs. Fester and Grandmama",
+          "overview": "Because she thinks Fester and Grandmama are spoiling the children, Morticia hires a governess to watch them. Insulted, Fester paints a white line down the centre of the Addams house, dividing it in half.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509654.jpg",
+          "airDate": "1966-01-07",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S2 E17 - Morticia and Gomez vs. Fester and Grandmama.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 435244514,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S2%20E17%20-%20Morticia%20and%20Gomez%20vs.%20Fester%20and%20Grandmama.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s2e18",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 2,
+          "episodeNumber": 18,
+          "title": "Fester Goes on a Diet",
+          "overview": "Morticia and Gomez see Fester conferring with TV muscleman Jack LaGrann and think that Fester is planning a television career. However, Uncle Fester confides to Lurch that he has to go on a secret diet because his pen pal is coming for a visit.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509655.jpg",
+          "airDate": "1966-01-14",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S2 E18 - Fester Goes on a Diet.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 431599395,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S2%20E18%20-%20Fester%20Goes%20on%20a%20Diet.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s2e19",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 2,
+          "episodeNumber": 19,
+          "title": "The Great Treasure Hunt",
+          "overview": "Morticia and Gomez find Grandfather Pugsley's treasure map and summon Captain Grimby. They hope to charter his boat for the treasure hunt, but after meeting the Captain, Morticia is careful to keep the nature of the mission secret.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509656.jpg",
+          "airDate": "1966-01-21",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S2 E19 - The Great Treasure Hunt.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 454437355,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S2%20E19%20-%20The%20Great%20Treasure%20Hunt.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s2e20",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 2,
+          "episodeNumber": 20,
+          "title": "Ophelia Finds Romance",
+          "overview": "Ophelia is madly in love with Horatio, the man who has everything, except the truth about Ophelia's relatives. Morticia persuades playboy Cousin Itt to stir the embers of his past romance with Ophelia.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509657.jpg",
+          "airDate": "1966-01-28",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S2 E20 - Ophelia Finds Romaance.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 302264814,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S2%20E20%20-%20Ophelia%20Finds%20Romaance.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s2e21",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 2,
+          "episodeNumber": 21,
+          "title": "Pugsley's Allowance",
+          "overview": "Pugsley shocks his parents when he gives up his new atomic reactor as kid stuff and announces that he wants to find his own job. His first try is as a medical assistant to Dr Bird.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509658.jpg",
+          "airDate": "1966-02-04",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S2 E21 - Pugsleys Allowance.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 278052289,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S2%20E21%20-%20Pugsleys%20Allowance.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s2e22",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 2,
+          "episodeNumber": 22,
+          "title": "Happy Birthday, Grandma Frump",
+          "overview": "Grandma Frump comes to the mistaken conclusion that her daughter, Morticia, and Gomez plan to pack her off to an old folks home. Actually, they plan to send her to a beauty farm.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509659.jpg",
+          "airDate": "1966-02-11",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S2 E22 - Happy Birthday Gra.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 270967903,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S2%20E22%20-%20Happy%20Birthday%20Gra.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s2e23",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 2,
+          "episodeNumber": 23,
+          "title": "Morticia, the Decorator",
+          "overview": "To sell the neighbouring Addams Family an insurance policy, agent Joe Digby allows Morticia to redecorate his home. Morticia gives the Digbys a stuffed vulture as a present.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509660.jpg",
+          "airDate": "1966-02-18",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S2 E23 - Morticia the Decorator.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 274096294,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S2%20E23%20-%20Morticia%20the%20Decorator.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s2e24",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 2,
+          "episodeNumber": 24,
+          "title": "Ophelia Visits Morticia",
+          "overview": "Uncle Fester announces that he is going to join the Peace Corps. Fester decides he's a cinch to be accepted, because Gomez plans to pull strings in Washington on his behalf. The entire family agrees to help him study for the exam.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509661.jpg",
+          "airDate": "1966-02-25",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S2 E24 - Ophelia Visits Morticia.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 278389280,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S2%20E24%20-%20Ophelia%20Visits%20Morticia.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s2e25",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 2,
+          "episodeNumber": 25,
+          "title": "Addams Cum Laude",
+          "overview": "A former truant officer named Sam Hilliard heads a private school where Wednesday and Pugsley are enrolled. When Hilliard breaks under the strain of dealing with the Addams children, Gomez buys the school.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509662.jpg",
+          "airDate": "1966-03-04",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S2 E25 - Addams Cum Laude.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 377877048,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S2%20E25%20-%20Addams%20Cum%20Laude.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s2e26",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 2,
+          "episodeNumber": 26,
+          "title": "Cat Addams",
+          "overview": "A doctor is summoned to examine Kitty Kat, the ailing lion pet of the Addams Family. Morticia soon decides that it is the cringing doctor who needs help, so human members of the family feign illnesses to build his confidence.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509663.jpg",
+          "airDate": "1966-03-11",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S2 E26 - Cat Addams.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 432301061,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S2%20E26%20-%20Cat%20Addams.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s2e27",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 2,
+          "episodeNumber": 27,
+          "title": "Lurch's Little Helper",
+          "overview": "Morticia's concern that Lurch is overworked leads Gomez to the operating table to assemble a custom-built secondary butler. Lurch lets the robot do all the work and then begins to feel that he isn't needed anymore.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509664.jpg",
+          "airDate": "1966-03-18",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S2 E27 - Lurchs Little Helper.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 394660126,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S2%20E27%20-%20Lurchs%20Little%20Helper.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s2e28",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 2,
+          "episodeNumber": 28,
+          "title": "The Addams Policy",
+          "overview": "When Uncle Fester incinerates the family's stuffed bear with his flame thrower, Morticia reports the accident to the insurance company. Mr Henson, the head of the company, sends his assistant, Mr Digby, to handle the case.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509665.jpg",
+          "airDate": "1966-03-25",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S2 E28 - The Addams Policy.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 423760859,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S2%20E28%20-%20The%20Addams%20Policy.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s2e29",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 2,
+          "episodeNumber": 29,
+          "title": "Lurch's Grand Romance",
+          "overview": "Lurch suffers from unrequited love over Tiny Trivia, Morticia's visiting school chum who only has eyes for show business. The entire family decides to try to turn their stolid butler into a new personality.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509666.jpg",
+          "airDate": "1966-04-01",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S2 E29 - Lurchs Grand Romance.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 268889306,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S2%20E29%20-%20Lurchs%20Grand%20Romance.ia.mp4"
+        },
+        {
+          "archiveID": "the-addams-familycomplete@s2e30",
+          "sourceID": "the-addams-familycomplete",
+          "seasonNumber": 2,
+          "episodeNumber": 30,
+          "title": "Ophelia's Career",
+          "overview": "When Ophelia laments that she has been jilted, Morticia suggests a career as an alternative to marriage. She tries chemistry first, then turns to operatic singing, so Cousin Itt is summoned to coach her to stardom.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/203/509667.jpg",
+          "airDate": "1966-04-08",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Addams Family S2 E30 - Ophelias Career.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 477444903,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-addams-familycomplete/The%20Addams%20Family%20S2%20E30%20-%20Ophelias%20Career.ia.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 5,
+  "episodesCount": 64,
   "canonicalEpisodesCount": 64,
   "tvdbID": "77137",
   "artworkSource": "tvdb",

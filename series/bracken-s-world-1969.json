@@ -20,12 +20,222 @@
       "seasonNumber": 1,
       "episodes": [
         {
-          "archiveID": "s-01-e-12-move-in-for-the-close-up",
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s1e01",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Fade In",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1969-09-19",
+          "year": 1969,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S01E01 - Fade In.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 181692021,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S01E01%20-%20Fade%20In.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s1e02",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Panic",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1969-09-26",
+          "year": 1969,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S01E02 - Panic.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 272877239,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S01E02%20-%20Panic.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s1e03",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "King David",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1969-10-03",
+          "year": 1969,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S01E03 - King David.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 235433261,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S01E03%20-%20King%20David.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s1e04",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Don't You Cry for Susannah",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1969-10-10",
+          "year": 1969,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S01E04 - Don't You Cry for Susannah.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 152737414,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S01E04%20-%20Don%27t%20You%20Cry%20for%20Susannah.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s1e05",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Options",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1969-10-17",
+          "year": 1969,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S01E05 - Options.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 176522790,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S01E05%20-%20Options.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s1e06",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Closed Set",
+          "overview": "The promise that Bracken's World put forth of showing the real behind - the scenes activity in Hollywood is further disipated in this melodramatic muddle. It's simply a murder mystery built around a driving director whose demanding energies create a legion of bitter enemies. When he is murdered during the filming of a violent World War II concentration camp sequence, the list of suspects reaches from secretary to stars. John Van Dreelan and Yvonne Wilder are featured.",
+          "stillURL": null,
+          "airDate": "1969-10-24",
+          "year": 1969,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S01E06 - Closed Set.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 233096006,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S01E06%20-%20Closed%20Set.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s1e07",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Sweet Smell of Failure",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1969-10-31",
+          "year": 1969,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S01E07 - The Sweet Smell of Failure.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 175440124,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S01E07%20-%20The%20Sweet%20Smell%20of%20Failure.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s1e08",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Stunt",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1969-11-07",
+          "year": 1969,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S01E08 - The Stunt.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 184174662,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S01E08%20-%20The%20Stunt.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s1e09",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "All the Beautiful Young Girls",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1969-11-14",
+          "year": 1969,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S01E09 - All The Beautiful Young Girls.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 207648718,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S01E09%20-%20All%20The%20Beautiful%20Young%20Girls.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s1e10",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "A Package Deal",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1969-11-28",
+          "year": 1969,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S01E10 - Package Deal.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 225023872,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S01E10%20-%20Package%20Deal.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s1e11",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "It's the Power Structure, Baby",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1969-12-05",
+          "year": 1969,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S01E11 - It's the Power Structure, Baby.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 189795437,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S01E11%20-%20It%27s%20the%20Power%20Structure%2C%20Baby.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s1e12",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
           "seasonNumber": 1,
           "episodeNumber": 12,
           "title": "Move in for a Close-Up",
           "overview": null,
-          "stillURL": "https://archive.org/services/img/s-01-e-12-move-in-for-the-close-up",
+          "stillURL": null,
           "airDate": "1969-12-12",
           "year": 1969,
           "runtimeSeconds": 3600,
@@ -36,11 +246,567 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S01E12%20-%20Move%20In%20for%20the%20Close-Up.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s1e13",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Stop Date",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1969-12-19",
+          "year": 1969,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S01E13 - Stop Date.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 240484978,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S01E13%20-%20Stop%20Date.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s1e14",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Chase Sequence",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1969-12-26",
+          "year": 1969,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S01E14 - The Chase Sequence.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 183867273,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S01E14%20-%20The%20Chase%20Sequence.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s1e15",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Focus on a Gun",
+          "overview": "BRACKEN'S WORLD has one of the most realistic of its personal behind-the-scenes problems. Joe Don Baker stars as a suave member of the Mafia with the money, contact, and aggressiveness to move in circles frequented by young starlets. One of these Is Diane Waring (Laraine Stephens), who falls for him and the line that he is trying to break from the rackets and begin a legitimate business. The romance embarrasses the studio and distresses her family, but she can't seem to break it off.",
+          "stillURL": null,
+          "airDate": "1970-01-02",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S01E15 - Focus on a Gun.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 230322962,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S01E15%20-%20Focus%20on%20a%20Gun.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s1e16",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Money Men",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-01-09",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S01E16 - Money Men.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 167857020,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S01E16%20-%20Money%20Men.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s1e17",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Meanwhile Back at the Studio",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-01-16",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S01E17 - Meanwhile, Back at the Studio.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 192751799,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S01E17%20-%20Meanwhile%2C%20Back%20at%20the%20Studio.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s1e18",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "A Perfect Piece of Casting",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-01-30",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S01E18 - A Perfect Piece of Casting.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 230283346,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S01E18%20-%20A%20Perfect%20Piece%20of%20Casting.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s1e19",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Superstar",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-02-06",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S01E19 - Super-Star.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 223621912,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S01E19%20-%20Super-Star.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s1e20",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Whatever Happened to Happy Endings?",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-02-13",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S01E20 - Whatever Happened to Happy Endings.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 205482446,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S01E20%20-%20Whatever%20Happened%20to%20Happy%20Endings.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s1e21",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Fallen, Fallen is Babylon",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-02-20",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S01E21 - Fallen, Fallen is Babylon.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 180708615,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S01E21%20-%20Fallen%2C%20Fallen%20is%20Babylon.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s1e22",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Papa Never Spanked Me",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-02-27",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S01E22 - Papa Never Spanked Me.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 147454340,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S01E22%20-%20Papa%20Never%20Spanked%20Me.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s1e23",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "A Beginning, a Middle and an End",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-03-06",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S01E23 - A Beginning, A Middle and an End.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 175161402,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S01E23%20-%20A%20Beginning%2C%20A%20Middle%20and%20an%20End.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s1e24",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Diffusion",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-03-13",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S01E24 - Diffusion.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 210130334,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S01E24%20-%20Diffusion.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s1e25",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Day for Night",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-03-20",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S01E25 - Day for Night.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 153536220,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S01E25%20-%20Day%20for%20Night.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s1e26",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "One, Two, Three, Cry",
+          "overview": "Paulette, a rising star at the production company, has been rejected for a role she thought she'd be cast in. She's then advised to enroll in acting classes. Psychoanalysis by a drama coach threatens Paulette's movie career.",
+          "stillURL": null,
+          "airDate": "1970-03-27",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S01E26 - One, Two, Three...Cry.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 268123876,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S01E26%20-%20One%2C%20Two%2C%20Three...Cry.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s2e01",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Love It or Leave It, Change It or Lose It",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-09-18",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S02E01 - Love It or Leave It, Change It or Lose It.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 133892472,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S02E01%20-%20Love%20It%20or%20Leave%20It%2C%20Change%20It%20or%20Lose%20It.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s2e02",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "Murder, Off Camera",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-09-25",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S02E02 - Murder Off-Camera.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 265552706,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S02E02%20-%20Murder%20Off-Camera.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s2e03",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Jenny, Who Bombs Buildings",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-10-02",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S02E03 - Jenny, Who Bombs Buildings.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 261136321,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S02E03%20-%20Jenny%2C%20Who%20Bombs%20Buildings.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s2e04",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "Together Again, for the Last Time",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-10-09",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S02E04 - Together Again, For the Last Time.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 261136321,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S02E04%20-%20Together%20Again%2C%20For%20the%20Last%20Time.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s2e05",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "A Preview in Samarkand",
+          "overview": "Bracken's World has a cleaned-up version of a sex movie, with Susan Charney as a young film editor who uses her brain and body in nearly equal amounts in order to further her career. She begins with Peter Haskell, as Kevin, then eventually progresses to Leslie Nielsen, as Bracken himself.",
+          "stillURL": null,
+          "airDate": "1970-10-16",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S02E05 - Preview In Samarkand.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 170538132,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S02E05%20-%20Preview%20In%20Samarkand.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s2e06",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "The Mary Tree",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-10-23",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S02E06 - The Mary Tree.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 235640295,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S02E06%20-%20The%20Mary%20Tree.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s2e07",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "Hey Gringo, Hey Poncho",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-10-30",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S02E07 - Hey, Gringo...Hey, Pocho.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 171115620,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S02E07%20-%20Hey%2C%20Gringo...Hey%2C%20Pocho.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s2e08",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "A Team of One Legged Acrobats",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-11-06",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S02E08 - A Team of One-Legged Acrobats.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 256552415,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S02E08%20-%20A%20Team%20of%20One-Legged%20Acrobats.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s2e09",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Anonymous Star",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-11-13",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S02E09 - The Anonymous Star.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 180585403,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S02E09%20-%20The%20Anonymous%20Star.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s2e10",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "Infinity",
+          "overview": "A renowned cinematographer conceals an eye injury, using its effects to elevate his art, before ultimately succumbing to blindness.",
+          "stillURL": null,
+          "airDate": "1970-11-20",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S02E10 - Infinity.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 163369957,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S02E10%20-%20Infinity.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s2e11",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "The Nude Scene",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-11-27",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S02E11 - Nude Scene.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 177217420,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S02E11%20-%20Nude%20Scene.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s2e12",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "A Score Without Strings",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-12-04",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S02E12 - A Score Without Strings.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 240219680,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S02E12%20-%20A%20Score%20Without%20Strings.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s2e13",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "Will Freddy's Real Father Please Stand Up?",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-12-11",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S02E13 - Will Freddy's Real Father Please Stand Up.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 249134533,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S02E13%20-%20Will%20Freddy%27s%20Real%20Father%20Please%20Stand%20Up.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@x-s0214-the-country-boy",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 2,
+          "episodeNumber": 14,
+          "title": "The Country Boy",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-12-18",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S0214 - The Country Boy.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 261828130,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S0214%20-%20The%20Country%20Boy.mp4"
+        },
+        {
+          "archiveID": "s-01-e-12-move-in-for-the-close-up@s2e15",
+          "sourceID": "s-01-e-12-move-in-for-the-close-up",
+          "seasonNumber": 2,
+          "episodeNumber": 15,
+          "title": "Miss Isabel Blue",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-12-25",
+          "year": 1970,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Bracken's World (41 of 41)/S02E15 - Miss Isabel Blue.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 260492769,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-12-move-in-for-the-close-up/Bracken%27s%20World%20%2841%20of%2041%29/S02E15%20-%20Miss%20Isabel%20Blue.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 1,
+  "episodesCount": 41,
   "canonicalEpisodesCount": 41,
   "tvdbID": "73160",
   "artworkSource": "tvdb",
@@ -147,8 +913,5 @@
       "order": 16,
       "profilePath": null
     }
-  ],
-  "seriesImdbID": "tt0063877",
-  "canonicalEpisodeCount": 3,
-  "canonicalSeasons": 2
+  ]
 }

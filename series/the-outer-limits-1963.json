@@ -57,22 +57,61 @@
           "downloadURL": "https://archive.org/download/the-outer-limits-1995_202304/The%20Outer%20Limits%20%281995%29/Season%201/The.Outer.Limits.The.New.Series.S01E01-02.DVDRip.XviD-SAiNTS.mp4"
         },
         {
-          "archiveID": "the-outer-limits-s-1e-1-1963-colorized",
+          "archiveID": "the-outer-limits-s-1e-1-1963-colorized@s1e02",
+          "sourceID": "the-outer-limits-s-1e-1-1963-colorized",
           "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "The Outer Limits - Season 1",
-          "overview": "Engineer Allen Maxwell draws power from his brother's radio station to contact an alien explorer in a distant galaxy. However, when the transmission is overloaded, the Being is transported to Earth with disasterous results.",
-          "stillURL": "https://image.tmdb.org/t/p/w500/1mf3GKgYeEIBhsp61uTGmI58NIB.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
+          "episodeNumber": 2,
+          "title": "The Hundred Days of the Dragon",
+          "overview": "An Asian despot successfully infiltrates an imposter for an American Presidential candidate... and the imposter is elected President.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/142/355281.jpg",
+          "airDate": "1963-09-23",
+          "year": 1963,
+          "runtimeSeconds": 3600,
           "videoFile": {
-            "name": "the outer limits-s1e1-1963-colorized.mp4",
+            "name": "the outer limits-s1e2-1963-colorized.mp4",
             "format": "h.264",
-            "sizeBytes": 304879507,
-            "tier": 2
+            "sizeBytes": 289185810,
+            "tier": 1
           },
-          "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the%20outer%20limits-s1e1-1963-colorized.mp4"
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the%20outer%20limits-s1e2-1963-colorized.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-1e-1-1963-colorized@s1e03",
+          "sourceID": "the-outer-limits-s-1e-1-1963-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Architects of Fear",
+          "overview": "A group of scientists choose one of their number to be surgically altered into an alien so that he'll scare the nations of the world into cooperating before the Doomsday Clock strikes midnight.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/216/541877.jpg",
+          "airDate": "1963-09-30",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s1e3-1963-colorized.mp4",
+            "format": "h.264",
+            "sizeBytes": 293170846,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the%20outer%20limits-s1e3-1963-colorized.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-1e-1-1963-colorized@s1e04",
+          "sourceID": "the-outer-limits-s-1e-1-1963-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Man with the Power",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the-outer-limits-s-1e-1-1963-colorized.thumbs/the%20outer%20limits-s1e4-1963-colorized-720p-hd_001074.jpg",
+          "airDate": "1963-10-07",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s1e4-1963-colorized-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 299165632,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the%20outer%20limits-s1e4-1963-colorized-720p-hd.mp4"
         },
         {
           "archiveID": "the-outer-limits-tv-1963-s01e05-the-sixth-finger",
@@ -91,12 +130,582 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/the-outer-limits-tv-1963-s01e05-the-sixth-finger/The%20Outer%20Limits%20TV%201963%20colorized%20s01e05%20The%20Sixth%20Finger.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-1e-1-1963-colorized@s1e06",
+          "sourceID": "the-outer-limits-s-1e-1-1963-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Man Who Was Never Born",
+          "overview": "A mutant from a doomed future travels back in time to the present day, to stop the series of events that lead to his world. However, he falls in the love with the fiancee of the man he intends to kill.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/186/465857.jpg",
+          "airDate": "1963-10-28",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s1e6-1963-colorized-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 294208845,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the%20outer%20limits-s1e6-1963-colorized-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-1e-1-1963-colorized@s1e07",
+          "sourceID": "the-outer-limits-s-1e-1-1963-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "O.B.I.T.",
+          "overview": "A senator conducts a hearing into a murder at a Military Department research center, and soon uncovers a conspiracy intended to demoralize humans and prepare them for alien invasion.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/186/465589.jpg",
+          "airDate": "1963-11-04",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s1e7-1963-colorized-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 302794097,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the%20outer%20limits-s1e7-1963-colorized-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-1e-1-1963-colorized@s1e08",
+          "sourceID": "the-outer-limits-s-1e-1-1963-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Human Factor",
+          "overview": "A psychiatrist at a U.S. military base in Greenland uses an experimental procedure to explore the mind of an unstable soldier... and the two switch minds.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/184/461614.jpg",
+          "airDate": "1963-11-11",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s1e8-1963-colorized-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 293597714,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the%20outer%20limits-s1e8-1963-colorized-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-1e-1-1963-colorized@s1e09",
+          "sourceID": "the-outer-limits-s-1e-1-1963-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Corpus Earthling",
+          "overview": "After he's concussed in a lab accident, surgeon Paul Cameron hears two nearby rocks discussing their plans to conquer Earth.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/141/354990.jpg",
+          "airDate": "1963-11-18",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s1e9-1963-colorized-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 292847635,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the%20outer%20limits-s1e9-1963-colorized-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-1e-1-1963-colorized@s1e10",
+          "sourceID": "the-outer-limits-s-1e-1-1963-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Nightmare",
+          "overview": "In the war between the planets Ebon and Earth, the Ebonites capture several enemy prisoners and put them through a series of grotesque tortures to determine what they know.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/17/44292.jpg",
+          "airDate": "1963-12-02",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s1e10-1963-colorized-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 293900959,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the%20outer%20limits-s1e10-1963-colorized-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-1e-1-1963-colorized@s1e11",
+          "sourceID": "the-outer-limits-s-1e-1-1963-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "It Crawled Out of the Woodwork",
+          "overview": "An unstoppable and insatiable energy cloud is created at a physics center in California... and the director attempts to control it no matter the cost in human life.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/141/354156.jpg",
+          "airDate": "1963-12-09",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s1e11-1963-colorized-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 293395422,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the%20outer%20limits-s1e11-1963-colorized-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-1e-1-1963-colorized@s1e12",
+          "sourceID": "the-outer-limits-s-1e-1-1963-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Borderland",
+          "overview": "A scientist seeks to create a doorway between dimensions, and asks an industrial CEO to finance his experiments and provide the electrical power necessary.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/184/460616.jpg",
+          "airDate": "1963-12-16",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s1e12-1963-colorized-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 302761167,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the%20outer%20limits-s1e12-1963-colorized-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-1e-1-1963-colorized@s1e13",
+          "sourceID": "the-outer-limits-s-1e-1-1963-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Tourist Attraction",
+          "overview": "In South America a U.S businessman and adventurer captures a humanoid ichthyosaur, and the local dictator plans to use it to bring tourists to the area. However, the creature--and a school of creatures like it--have plans of their own.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/184/460637.jpg",
+          "airDate": "1963-12-23",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s1e13-1963-colorized-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 303334116,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the%20outer%20limits-s1e13-1963-colorized-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-1e-1-1963-colorized@s1e14",
+          "sourceID": "the-outer-limits-s-1e-1-1963-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Zanti Misfits",
+          "overview": "Alien beings, the Zanti, send their criminals to Earth because they are morally opposed to killing them. They instruct the U.S.military not to approach the Zanti spacecraft... but a man and woman break through the cordon, risking the destruction of Earth.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/17/44298.jpg",
+          "airDate": "1963-12-30",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s1e14-1963-colorized-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 304838973,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the%20outer%20limits-s1e14-1963-colorized-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-1e-1-1963-colorized@s1e15",
+          "sourceID": "the-outer-limits-s-1e-1-1963-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "The Mice",
+          "overview": "Life inmate Chino Rivera volunteers for a teleportation experiment as scientists make contact with an alien planet ten years away, and whose inhabitants want to exchange high-ranking officials ... once they exchange test subjects to make sure the teleportation process works.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/184/460079.jpg",
+          "airDate": "1964-01-06",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s1e15-1963-colorized-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 302431793,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the%20outer%20limits-s1e15-1963-colorized-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-1e-1-1963-colorized@s1e16",
+          "sourceID": "the-outer-limits-s-1e-1-1963-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Controlled Experiment",
+          "overview": "Two undercover Martians use a time-control device to analyze the quaint human custom of murder.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/139/349024.jpg",
+          "airDate": "1964-01-13",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s1e16-1963-colorized-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 304407810,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the%20outer%20limits-s1e16-1963-colorized-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-1e-1-1963-colorized@s1e17",
+          "sourceID": "the-outer-limits-s-1e-1-1963-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Don't Open Till Doomsday",
+          "overview": "In 1929, a local scientist delivers a mysterious present to newlyweds, with the note \"Don't Open Till Doomsday\" on it. The groom Harvey Jr. disappears shortly thereafter, and his bride Mary waits over 35 years until a new set of newlyweds comes along.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/188/470678.jpg",
+          "airDate": "1964-01-20",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s1e17-1963-colorized-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 292349517,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the%20outer%20limits-s1e17-1963-colorized-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-1e-1-1963-colorized@s1e18",
+          "sourceID": "the-outer-limits-s-1e-1-1963-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "colorized-720p-h",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the-outer-limits-s-1e-1-1963-colorized.thumbs/the%20outer%20limits-s1e18-colorized-720p-hd_001310.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 3034,
+          "videoFile": {
+            "name": "the outer limits-s1e18-colorized-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 293367597,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the%20outer%20limits-s1e18-colorized-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-1e-1-1963-colorized@s1e19",
+          "sourceID": "the-outer-limits-s-1e-1-1963-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "The Invisibles",
+          "overview": "Alien parasites plan the conquest of Earth by attaching themselves to the spinal columns of men in power. They recruit disaffected loners to spread their infection... unaware that one of the loners is a government agent sent to infiltrate them.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/144/360871.jpg",
+          "airDate": "1964-02-03",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s1e19-1963-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 293598617,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the%20outer%20limits-s1e19-1963-colorized-576p-sd.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-1e-1-1963-colorized@s1e20",
+          "sourceID": "the-outer-limits-s-1e-1-1963-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "The Bellero Shield",
+          "overview": "When Judith Bellero's father-in-law refuses to grant her scientist husband--Richard Jr.--control of his company, Judith sees a way to win Richard acclaim by murdering an alien that he accidentally summoned to Earth and claiming that Richard invented the protective shield device it wears.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/65/164393.jpg",
+          "airDate": "1964-02-10",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s1e20-1963-colorized.mp4",
+            "format": "h.264",
+            "sizeBytes": 292478420,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the%20outer%20limits-s1e20-1963-colorized.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-1e-1-1963-colorized@s1e21",
+          "sourceID": "the-outer-limits-s-1e-1-1963-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "The Children of Spider County",
+          "overview": "Four scientists have disappeared, and the Space Security Agency discovers that they all were born in a small town in Spider Country and are extraordinary physical and mental speciments... and a fifth man meeting the same criteria is still there and being held on a murder charge.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/187/467965.jpg",
+          "airDate": "1964-02-17",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s1e21-1963-colorized.mp4",
+            "format": "h.264",
+            "sizeBytes": 290885401,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the%20outer%20limits-s1e21-1963-colorized.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-1e-1-1963-colorized@s1e22",
+          "sourceID": "the-outer-limits-s-1e-1-1963-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Specimen: Unknown",
+          "overview": "A five-man space station crew encounter an outer space plant... which spreads with amazing speed and emits poison spores that slowly kill the people that encounter them.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/187/468003.jpg",
+          "airDate": "1964-02-24",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s1e22-1963-colorized-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 292986298,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the%20outer%20limits-s1e22-1963-colorized-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-1e-1-1963-colorized@s1e23",
+          "sourceID": "the-outer-limits-s-1e-1-1963-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Second Chance",
+          "overview": "An alien from a doomed world converts an amusement park spaceship into a working model and abducts seven people to save his planet.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/188/470607.jpg",
+          "airDate": "1964-03-02",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s1e23-1963-colorized-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 302666750,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the%20outer%20limits-s1e23-1963-colorized-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-1e-1-1963-colorized@s1e24",
+          "sourceID": "the-outer-limits-s-1e-1-1963-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Moonstone",
+          "overview": "A moonbase expedition takes in alien refugees who are faced with opponents of vastly superior power.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/187/468216.jpg",
+          "airDate": "1964-03-09",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s1e24-1963-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 294383424,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the%20outer%20limits-s1e24-1963-colorized-576p-sd.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-1e-1-1963-colorized@s1e25",
+          "sourceID": "the-outer-limits-s-1e-1-1963-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "The Mutant",
+          "overview": "Psychiatrist Evan Marshall is sent to investigate disturbing reports from an expeditionary team on a small planet.. and discovers that one of the team members has mutated into a radioactive humanoid whose touch is fatal and whose telepathy protects him from any attack.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/183/459354.jpg",
+          "airDate": "1964-03-16",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s1e25-1963-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 301929373,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the%20outer%20limits-s1e25-1963-colorized-576p-sd.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-1e-1-1963-colorized@s1e27",
+          "sourceID": "the-outer-limits-s-1e-1-1963-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Fun and Games",
+          "overview": "A crook and a divorced wife are abducted from Earth to participate in a battle of life and death against two aliens. The stakes: the winners' planet will be spared while the other is destroyed as entertainment for the aliens responsible for the game.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/17/44297.jpg",
+          "airDate": "1964-03-30",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s1e27-1963-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 301716808,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the%20outer%20limits-s1e27-1963-colorized-576p-sd.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-1e-1-1963-colorized@s1e28",
+          "sourceID": "the-outer-limits-s-1e-1-1963-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "The Special One",
+          "overview": "A mysterious tutor shows up at the apartment of a mentally-gifted boy and says that he's with the government, but the father soon realizes that things don't add up.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/189/473324.jpg",
+          "airDate": "1964-04-06",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s1e28-1963-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 303176611,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the%20outer%20limits-s1e28-1963-colorized-576p-sd.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-1e-1-1963-colorized@s1e29",
+          "sourceID": "the-outer-limits-s-1e-1-1963-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "A Feasibility Study",
+          "overview": "An alien race teleports away six square blocks of a city in the hopes that they can use the residents as slaves.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/142/356388.jpg",
+          "airDate": "1964-04-13",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s1e29-1963-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 303517200,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the%20outer%20limits-s1e29-1963-colorized-576p-sd.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-1e-1-1963-colorized@s1e30",
+          "sourceID": "the-outer-limits-s-1e-1-1963-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "Production and Decay of Strange Particles",
+          "overview": "Exposing a quasi-stellar sample to nuclear radiation opens a crack between universes, allowing entities from another dimension to enter this world, infuse the suits of the workers, disintegrate their bodies, and animate the suits. Now the beings intend to set off a nuclear explosion to widen the crack.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/141/354365.jpg",
+          "airDate": "1964-04-20",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s1e30-1963-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 299338197,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the%20outer%20limits-s1e30-1963-colorized-576p-sd.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-1e-1-1963-colorized@s1e31",
+          "sourceID": "the-outer-limits-s-1e-1-1963-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "The Chameleon",
+          "overview": "A government assassin is given a unique assignment: undergo alien DNA grafts to \"become\" an alien, infiltrate their ship which crashed on Earth, and find out if they pose a threat.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/141/353874.jpg",
+          "airDate": "1964-04-27",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s1e31-1963-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 302152573,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the%20outer%20limits-s1e31-1963-colorized-576p-sd.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-1e-1-1963-colorized@s1e32",
+          "sourceID": "the-outer-limits-s-1e-1-1963-colorized",
+          "seasonNumber": 1,
+          "episodeNumber": 32,
+          "title": "The Forms of Things Unknown",
+          "overview": "Two women poison their blackmailing lover Andre and then haul the body away. They end up at the mansion of Tone Hobart, a demented scientist who believes that he's found a way to \"tilt\" time and bring the dead back to life.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/184/460120.jpg",
+          "airDate": "1964-05-04",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s1e32-1963-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 301340353,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-1e-1-1963-colorized/the%20outer%20limits-s1e32-1963-colorized-576p-sd.mp4"
         }
       ]
     },
     {
       "seasonNumber": 2,
       "episodes": [
+        {
+          "archiveID": "the-outer-limits-s-2e-3-1964-colorized-576p-sd@s2e01",
+          "sourceID": "the-outer-limits-s-2e-3-1964-colorized-576p-sd",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Soldier",
+          "overview": "A soldier from a future Earth is blasted back through time to the present day and must learn how his new world works. Meanwhile, his opposite number also travels back in time.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/190/475077.jpg",
+          "airDate": "1964-09-19",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s2e1-1964-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 301976309,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-2e-3-1964-colorized-576p-sd/the%20outer%20limits-s2e1-1964-colorized-576p-sd.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-2e-3-1964-colorized-576p-sd@s2e02",
+          "sourceID": "the-outer-limits-s-2e-3-1964-colorized-576p-sd",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "Cold Hands, Warm Heart",
+          "overview": "An astronaut returns from a one-man expedition to Venus with an insatiable craving for heat, and begins transforming into an alien life form.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/190/475120.jpg",
+          "airDate": "1964-09-26",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s2e2-1964-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 301968882,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-2e-3-1964-colorized-576p-sd/the%20outer%20limits-s2e2-1964-colorized-576p-sd.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-2e-3-1964-colorized-576p-sd@s2e03",
+          "sourceID": "the-outer-limits-s-2e-3-1964-colorized-576p-sd",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Behold Eck!",
+          "overview": "After making special pairs of glasses out of meteorite material, an optical scientist sees a two-dimensional energy being that has become trapped in the third dimension. He then tries to help the creature to get home.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/120/300575.jpg",
+          "airDate": "1964-10-03",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s2e3-1964-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 304561707,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-2e-3-1964-colorized-576p-sd/the%20outer%20limits-s2e3-1964-colorized-576p-sd.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-2e-3-1964-colorized-576p-sd@s2e04",
+          "sourceID": "the-outer-limits-s-2e-3-1964-colorized-576p-sd",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "Expanding Human",
+          "overview": "A doctor's experiments with mind altering drugs leads to a changed body and consciousness as he starts using more and more of his brain.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/120/300901.jpg",
+          "airDate": "1964-10-10",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s2e4-1964-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 303190020,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-2e-3-1964-colorized-576p-sd/the%20outer%20limits-s2e4-1964-colorized-576p-sd.mp4"
+        },
         {
           "archiveID": "the-outer-limits-tv-1964-s02e05-demon-with-a-glass-hand",
           "seasonNumber": 2,
@@ -114,6 +723,25 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/the-outer-limits-tv-1964-s02e05-demon-with-a-glass-hand/The%20Outer%20Limits%20TV%201964%20colorized%20s02e05%20Demon%20with%20a%20Glass%20Hand.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-2e-3-1964-colorized-576p-sd@s2e06",
+          "sourceID": "the-outer-limits-s-2e-3-1964-colorized-576p-sd",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Cry of Silence",
+          "overview": "When a couple goes to look at where they will be buying a new farm to move to, they accidentally hit a rock, then start to have encounters with very strange tumbleweeds.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/120/300904.jpg",
+          "airDate": "1964-10-24",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s2e6-1964-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 302022462,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-2e-3-1964-colorized-576p-sd/the%20outer%20limits-s2e6-1964-colorized-576p-sd.mp4"
         },
         {
           "archiveID": "the-outer-limits-tv-1964-s02e07-the-invisible-enemy",
@@ -134,6 +762,25 @@
           "downloadURL": "https://archive.org/download/the-outer-limits-tv-1964-s02e07-the-invisible-enemy/The%20Outer%20Limits%20TV%201964%20colorized%20s02e07%20The%20Invisible%20Enemy.mp4"
         },
         {
+          "archiveID": "the-outer-limits-s-2e-3-1964-colorized-576p-sd@s2e08",
+          "sourceID": "the-outer-limits-s-2e-3-1964-colorized-576p-sd",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "Wolf 359",
+          "overview": "Scientists create a miniature replica of Wolf 359 in the laboratory to test its potential for terraforming, and get unexpected results.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/120/300916.jpg",
+          "airDate": "1964-11-07",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s2e8-1964-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 296657932,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-2e-3-1964-colorized-576p-sd/the%20outer%20limits-s2e8-1964-colorized-576p-sd.mp4"
+        },
+        {
           "archiveID": "the-outer-limits-s02e09-i-robot",
           "seasonNumber": 2,
           "episodeNumber": 9,
@@ -152,7 +799,8 @@
           "downloadURL": "https://archive.org/download/the-outer-limits-s02e09-i-robot/The%20Outer%20Limits%20TV%201964%20colorized%20s02e09%20I%2C%20Robot.mp4"
         },
         {
-          "archiveID": "the-outer-limits-s-2e-3-1964-colorized-576p-sd",
+          "archiveID": "the-outer-limits-s-2e-3-1964-colorized-576p-sd@s2e10",
+          "sourceID": "the-outer-limits-s-2e-3-1964-colorized-576p-sd",
           "seasonNumber": 2,
           "episodeNumber": 10,
           "title": "The Inheritors (1)",
@@ -165,14 +813,147 @@
             "name": "the outer limits-s2e10-1964-colorized-576p-sd.mp4",
             "format": "h.264",
             "sizeBytes": 305354850,
-            "tier": 2
+            "tier": 1
           },
           "downloadURL": "https://archive.org/download/the-outer-limits-s-2e-3-1964-colorized-576p-sd/the%20outer%20limits-s2e10-1964-colorized-576p-sd.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-2e-3-1964-colorized-576p-sd@s2e11",
+          "sourceID": "the-outer-limits-s-2e-3-1964-colorized-576p-sd",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "The Inheritors (2)",
+          "overview": "Minns gathers several handicapped children and the men's project continues, as the government agents try to stop their plans.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/121/302564.jpg",
+          "airDate": "1964-11-28",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s2e11-1964-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 304434358,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-2e-3-1964-colorized-576p-sd/the%20outer%20limits-s2e11-1964-colorized-576p-sd.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-2e-3-1964-colorized-576p-sd@s2e12",
+          "sourceID": "the-outer-limits-s-2e-3-1964-colorized-576p-sd",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "Keeper of the Purple Twilight",
+          "overview": "A alien offers advance knowledge to a scientist in exchange for his various emotions that the alien knows nothing about.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/122/305335.jpg",
+          "airDate": "1964-12-05",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s2e12-1964-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 297927023,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-2e-3-1964-colorized-576p-sd/the%20outer%20limits-s2e12-1964-colorized-576p-sd.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-2e-3-1964-colorized-576p-sd@s2e13",
+          "sourceID": "the-outer-limits-s-2e-3-1964-colorized-576p-sd",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "The Duplicate Man",
+          "overview": "A scientist sends an illegally-created duplicate of himself to destroy a dangerous alien Megasoid on the loose.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/122/305438.jpg",
+          "airDate": "1964-12-19",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s2e13-1964-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 304008376,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-2e-3-1964-colorized-576p-sd/the%20outer%20limits-s2e13-1964-colorized-576p-sd.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-2e-3-1964-colorized-576p-sd@s2e14",
+          "sourceID": "the-outer-limits-s-2e-3-1964-colorized-576p-sd",
+          "seasonNumber": 2,
+          "episodeNumber": 14,
+          "title": "Counterweight",
+          "overview": "Six subjects undertake a simulated space flight to determine if the months in isolation of a real trip to the target planet of Antheon are psychologically and emotionally endurable. They're unaware that someone--or something--in the simulation intends them to fail.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/215/538203.jpg",
+          "airDate": "1964-12-26",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s2e14-1964-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 298171062,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-2e-3-1964-colorized-576p-sd/the%20outer%20limits-s2e14-1964-colorized-576p-sd.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-2e-3-1964-colorized-576p-sd@s2e15",
+          "sourceID": "the-outer-limits-s-2e-3-1964-colorized-576p-sd",
+          "seasonNumber": 2,
+          "episodeNumber": 15,
+          "title": "The Brain of Colonel Barham",
+          "overview": "An experiment to use a human brain to control and direct a future flight to another world is undertaken for a developing space project. Colonel Barham, who has been gravely crippled in the past and is dying of a disease, volunteers for the project to his brain as a merging of human and machine. However things go awry as unexpected consequences of the project occur.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/122/305482.jpg",
+          "airDate": "1965-01-02",
+          "year": 1965,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s2e15-1964-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 296081347,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-2e-3-1964-colorized-576p-sd/the%20outer%20limits-s2e15-1964-colorized-576p-sd.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-2e-3-1964-colorized-576p-sd@s2e16",
+          "sourceID": "the-outer-limits-s-2e-3-1964-colorized-576p-sd",
+          "seasonNumber": 2,
+          "episodeNumber": 16,
+          "title": "The Premonition",
+          "overview": "Air force test pilot Jim Darcy crashes and discovers that everyone is in a time warp except for him and his wife Linda. They investigate the local air force base Jim is stationed out of and discover a terrible event is about to happen that will affect both their lives.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/122/305771.jpg",
+          "airDate": "1965-01-09",
+          "year": 1965,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s2e16-1964-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 298743601,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-2e-3-1964-colorized-576p-sd/the%20outer%20limits-s2e16-1964-colorized-576p-sd.mp4"
+        },
+        {
+          "archiveID": "the-outer-limits-s-2e-3-1964-colorized-576p-sd@s2e17",
+          "sourceID": "the-outer-limits-s-2e-3-1964-colorized-576p-sd",
+          "seasonNumber": 2,
+          "episodeNumber": 17,
+          "title": "The Probe",
+          "overview": "A charter plane crashes in the eye of a hurricane... and the passengers find themselves inside a giant alien space probe.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/216/541213.jpg",
+          "airDate": "1965-01-16",
+          "year": 1965,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the outer limits-s2e17-1964-colorized-576p-sd.mp4",
+            "format": "h.264",
+            "sizeBytes": 303091236,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-outer-limits-s-2e-3-1964-colorized-576p-sd/the%20outer%20limits-s2e17-1964-colorized-576p-sd.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 8,
+  "episodesCount": 49,
   "canonicalEpisodesCount": 49,
   "tvdbID": "71699",
   "artworkSource": "tvdb",

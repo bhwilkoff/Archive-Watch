@@ -129,32 +129,9 @@
           "downloadURL": "https://archive.org/download/Quatermass_II_Episode_6of6_1955/Quatermass_II_Episode_6.mp4"
         }
       ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "quatermass-ii-1955-episode-2-colorized-576p-sd",
-          "seasonNumber": null,
-          "episodeNumber": 6,
-          "title": "Quatermass II - Season 1",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/9dV59VWbfbkTPrkkrnRg5bnAO9c.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "quatermass II-1955-episode6-colorized-576p-sd.mp4",
-            "format": "h.264",
-            "sizeBytes": 198067201,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/quatermass-ii-1955-episode-2-colorized-576p-sd/quatermass%20II-1955-episode6-colorized-576p-sd.mp4"
-        }
-      ]
     }
   ],
-  "episodesCount": 7,
+  "episodesCount": 6,
   "canonicalEpisodesCount": 6,
   "tvdbID": "94421",
   "artworkSource": "tvdb",

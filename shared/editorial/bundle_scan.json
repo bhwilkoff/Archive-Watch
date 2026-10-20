@@ -3079,6 +3079,12 @@
   "reason": "0 numbered of 7",
   "verdict": "single"
  },
+ "16.-the-wrong-lumber-race": {
+  "checkedAt": "2026-10-20",
+  "isize": 6785556691,
+  "reason": "0 numbered of 34",
+  "verdict": "single"
+ },
  "1682BothSidesOfTheQuestion": {
   "checkedAt": "2026-10-18",
   "isize": 1776855954,
@@ -7371,7 +7377,7 @@
  },
  "202729_Portions_of_Twenty_Three_States_in_Two_Parts_P1": {
   "checkedAt": "2026-10-20",
-  "isize": 8457041351,
+  "isize": 8457042111,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -11202,6 +11208,756 @@
   "isize": 2429973988,
   "reason": "1 playable works",
   "verdict": "single"
+ },
+ "ALF-The-Complete-Series": {
+  "checkedAt": "2026-10-20",
+  "files": [
+   {
+    "format": "MPEG4",
+    "length": "1454.53",
+    "name": "Alf/Season 01/ALF - S01E01 - A.L.F SDTV.mp4",
+    "size": "170294217",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1485.42",
+    "name": "Alf/Season 01/ALF - S01E02 - Strangers in the Night SDTV.mp4",
+    "size": "157298724",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1425.43",
+    "name": "Alf/Season 01/ALF - S01E03 - Looking for Lucky SDTV.mp4",
+    "size": "183385420",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1483.26",
+    "name": "Alf/Season 01/ALF - S01E04 - Pennsylvania 6-5000 SDTV.mp4",
+    "size": "158852553",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1484.25",
+    "name": "Alf/Season 01/ALF - S01E05 - Keepin' the Faith SDTV.mp4",
+    "size": "172411719",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1411.63",
+    "name": "Alf/Season 01/ALF - S01E06 - For Your Eyes Only SDTV.mp4",
+    "size": "144081497",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1485.33",
+    "name": "Alf/Season 01/ALF - S01E07 - Help Me, Rhonda SDTV.mp4",
+    "size": "171163303",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1480.62",
+    "name": "Alf/Season 01/ALF - S01E08 - Don't It Make My Brown Eyes Blue SDTV.mp4",
+    "size": "179462031",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1487.16",
+    "name": "Alf/Season 01/ALF - S01E09 - Jump SDTV.mp4",
+    "size": "187285107",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1485.16",
+    "name": "Alf/Season 01/ALF - S01E10 - Baby, You Can Drive My Car SDTV.mp4",
+    "size": "175963045",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1425.2",
+    "name": "Alf/Season 01/ALF - S01E11 - On the Road Again SDTV.mp4",
+    "size": "165268266",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1485.21",
+    "name": "Alf/Season 01/ALF - S01E12 - Oh, Tannerbaum SDTV.mp4",
+    "size": "186601660",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1483.22",
+    "name": "Alf/Season 01/ALF - S01E13 - Mother and Child Reunion SDTV.mp4",
+    "size": "183871346",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1476.01",
+    "name": "Alf/Season 01/ALF - S01E14 - A Little Bit of Soap SDTV.mp4",
+    "size": "150744812",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1485.01",
+    "name": "Alf/Season 01/ALF - S01E15 - I've Got a New Attitude SDTV.mp4",
+    "size": "161125109",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "2892.8",
+    "name": "Alf/Season 01/ALF - S01E16-E17 - Try to Remember SDTV.mp4",
+    "size": "372758392",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1485.61",
+    "name": "Alf/Season 01/ALF - S01E18 - Border Song SDTV.mp4",
+    "size": "171988577",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1485.42",
+    "name": "Alf/Season 01/ALF - S01E19 - Wild Thing SDTV.mp4",
+    "size": "156587386",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1466.45",
+    "name": "Alf/Season 01/ALF - S01E20 - Going Out of My Head Over You SDTV.mp4",
+    "size": "169363426",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1485.57",
+    "name": "Alf/Season 01/ALF - S01E21 - Lookin' Through the Windows SDTV.mp4",
+    "size": "164909533",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1484.69",
+    "name": "Alf/Season 01/ALF - S01E22 - It's Not Easy Being Green SDTV.mp4",
+    "size": "175995970",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1476.12",
+    "name": "Alf/Season 01/ALF - S01E23 - The Gambler SDTV.mp4",
+    "size": "188267087",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1476.08",
+    "name": "Alf/Season 01/ALF - S01E24 - Weird Science SDTV.mp4",
+    "size": "191848007",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1468.28",
+    "name": "Alf/Season 01/ALF - S01E25 - La Cucaracha SDTV.mp4",
+    "size": "154587219",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1476.18",
+    "name": "Alf/Season 01/ALF - S01E26 - Come Fly with Me SDTV.mp4",
+    "size": "172211307",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1467.68",
+    "name": "Alf/Season 02/ALF - S02E01 - Working My Way Back to You SDTV.mp4",
+    "size": "165553880",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1294.04",
+    "name": "Alf/Season 02/ALF - S02E02 - Somewhere Over the Rerun (aka The Ballad of Gilligan's Island) SDTV.mp4",
+    "size": "179367827",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1479.68",
+    "name": "Alf/Season 02/ALF - S02E03 - Take a Look at Me Now SDTV.mp4",
+    "size": "179912126",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1436.64",
+    "name": "Alf/Season 02/ALF - S02E04 - Wedding Bell Blues SDTV.mp4",
+    "size": "132038860",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1456.44",
+    "name": "Alf/Season 02/ALF - S02E05 - Prime Time SDTV.mp4",
+    "size": "159139093",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1447.24",
+    "name": "Alf/Season 02/ALF - S02E06 - Some Enchanted Evening SDTV.mp4",
+    "size": "170982658",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1486.24",
+    "name": "Alf/Season 02/ALF - S02E07 - Oh, Pretty Woman SDTV.mp4",
+    "size": "151651043",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1487.56",
+    "name": "Alf/Season 02/ALF - S02E08 - Something's Wrong with Me SDTV.mp4",
+    "size": "170931803",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1488",
+    "name": "Alf/Season 02/ALF - S02E09 - Night Train SDTV.mp4",
+    "size": "160769388",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1446.92",
+    "name": "Alf/Season 02/ALF - S02E10 - Isn't It Romantic SDTV.mp4",
+    "size": "185313187",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1488.64",
+    "name": "Alf/Season 02/ALF - S02E11 - Hail to the Chief SDTV.mp4",
+    "size": "169418402",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "2912.28",
+    "name": "Alf/Season 02/ALF - S02E12-E13 - ALF's Special Christmas SDTV.mp4",
+    "size": "291913976",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1468.68",
+    "name": "Alf/Season 02/ALF - S02E14 - The Boy Next Door SDTV.mp4",
+    "size": "196501262",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1487.48",
+    "name": "Alf/Season 02/ALF - S02E15 - Can I Get a Witness SDTV.mp4",
+    "size": "170657621",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1489.08",
+    "name": "Alf/Season 02/ALF - S02E16 - We're So Sorry, Uncle Albert SDTV.mp4",
+    "size": "167504918",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1487.04",
+    "name": "Alf/Season 02/ALF - S02E17 - Someone to Watch Over Me (1) SDTV.mp4",
+    "size": "153837332",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1466.68",
+    "name": "Alf/Season 02/ALF - S02E18 - Someone to Watch Over Me (2) SDTV.mp4",
+    "size": "162716008",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1486.28",
+    "name": "Alf/Season 02/ALF - S02E19 - We Gotta Get Out of This Place SDTV.mp4",
+    "size": "157432407",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1467.08",
+    "name": "Alf/Season 02/ALF - S02E20 - You Ain't Nothin' but a Hound Dog SDTV.mp4",
+    "size": "159339893",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1466.68",
+    "name": "Alf/Season 02/ALF - S02E21 - Hit Me with Your Best Shot SDTV.mp4",
+    "size": "165679229",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1487.08",
+    "name": "Alf/Season 02/ALF - S02E22 - Movin' Out SDTV.mp4",
+    "size": "151718407",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1473.28",
+    "name": "Alf/Season 02/ALF - S02E23 - I'm Your Puppet SDTV.mp4",
+    "size": "169455452",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1475.84",
+    "name": "Alf/Season 02/ALF - S02E24 - Tequila SDTV.mp4",
+    "size": "156224449",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1426.28",
+    "name": "Alf/Season 02/ALF - S02E25 - We Are Family SDTV.mp4",
+    "size": "131931599",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1458.84",
+    "name": "Alf/Season 02/ALF - S02E26 - Varsity Drag SDTV.mp4",
+    "size": "156618982",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1458.6",
+    "name": "Alf/Season 03/ALF - S03E01 - Stop in the Name of Love SDTV.mp4",
+    "size": "159205630",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1457.6",
+    "name": "Alf/Season 03/ALF - S03E02 - Stairway to Heaven SDTV.mp4",
+    "size": "172268329",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1457",
+    "name": "Alf/Season 03/ALF - S03E03 - Breaking up is Hard to Do SDTV.mp4",
+    "size": "176581885",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1534.02",
+    "name": "Alf/Season 03/ALF - S03E04 - Tonight, Tonight (1) SDTV.mp4",
+    "size": "165722130",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1439.6",
+    "name": "Alf/Season 03/ALF - S03E05 - Tonight, Tonight (2) SDTV.mp4",
+    "size": "154253140",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1457",
+    "name": "Alf/Season 03/ALF - S03E06 - Promises, Promises SDTV.mp4",
+    "size": "176985799",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1456.02",
+    "name": "Alf/Season 03/ALF - S03E07 - Turkey in the Straw (1) SDTV.mp4",
+    "size": "168330367",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1394.22",
+    "name": "Alf/Season 03/ALF - S03E08 - Turkey in the Straw (2) SDTV.mp4",
+    "size": "145929581",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1453.61",
+    "name": "Alf/Season 03/ALF - S03E09 - Changes SDTV.mp4",
+    "size": "198077275",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1405.61",
+    "name": "Alf/Season 03/ALF - S03E10 - My Back Pages SDTV.mp4",
+    "size": "150875784",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1436.01",
+    "name": "Alf/Season 03/ALF - S03E11 - Alone Again, Naturally SDTV.mp4",
+    "size": "161115052",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1426.03",
+    "name": "Alf/Season 03/ALF - S03E12 - Do You Believe in Magic SDTV.mp4",
+    "size": "164945902",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1405.61",
+    "name": "Alf/Season 03/ALF - S03E13 - Hide Away SDTV.mp4",
+    "size": "153653491",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1396.2",
+    "name": "Alf/Season 03/ALF - S03E14 - Fight Back SDTV.mp4",
+    "size": "163243125",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1424.6",
+    "name": "Alf/Season 03/ALF - S03E15 - Suspicious Minds SDTV.mp4",
+    "size": "149386008",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1416.21",
+    "name": "Alf/Season 03/ALF - S03E16 - Baby Love SDTV.mp4",
+    "size": "173267901",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1446.02",
+    "name": "Alf/Season 03/ALF - S03E17 - Running Scared SDTV.mp4",
+    "size": "151021543",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1406.23",
+    "name": "Alf/Season 03/ALF - S03E18 - Standing in the Shadows of Love SDTV.mp4",
+    "size": "168981898",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1396.2",
+    "name": "Alf/Season 03/ALF - S03E19 - Superstition SDTV.mp4",
+    "size": "149112987",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1445.23",
+    "name": "Alf/Season 03/ALF - S03E20 - Torn Between Two Lovers SDTV.mp4",
+    "size": "143549401",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1396.01",
+    "name": "Alf/Season 03/ALF - S03E21 - Funeral for a Friend SDTV.mp4",
+    "size": "205534746",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1395.61",
+    "name": "Alf/Season 03/ALF - S03E22 - Don't Be Afraid of the Dark SDTV.mp4",
+    "size": "153531588",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1395.61",
+    "name": "Alf/Season 03/ALF - S03E23 - Have You Seen Your Mother, Baby SDTV.mp4",
+    "size": "153100111",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1415.13",
+    "name": "Alf/Season 03/ALF - S03E24 - Like an Old Time Movie SDTV.mp4",
+    "size": "156371115",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1396.63",
+    "name": "Alf/Season 03/ALF - S03E25 - Shake, Rattle and Roll SDTV.mp4",
+    "size": "149570291",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1435.63",
+    "name": "Alf/Season 03/ALF - S03E26 - Having My Baby SDTV.mp4",
+    "size": "151864550",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1394.01",
+    "name": "Alf/Season 04/ALF - S04E01 - Baby, Come Back SDTV.mp4",
+    "size": "152955670",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1412.61",
+    "name": "Alf/Season 04/ALF - S04E02 - Lies SDTV.mp4",
+    "size": "135797271",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1376",
+    "name": "Alf/Season 04/ALF - S04E03 - Wanted - Dead or Alive SDTV.mp4",
+    "size": "154772548",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1413.61",
+    "name": "Alf/Season 04/ALF - S04E04 - We're in the Money SDTV.mp4",
+    "size": "149731821",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1396.63",
+    "name": "Alf/Season 04/ALF - S04E05 - Mind Games SDTV.mp4",
+    "size": "166512934",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1369.64",
+    "name": "Alf/Season 04/ALF - S04E06 - Hooked on a Feeling SDTV.mp4",
+    "size": "156984545",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1375.62",
+    "name": "Alf/Season 04/ALF - S04E07 - He Ain't Heavy, He's Willie's Brother SDTV.mp4",
+    "size": "156199845",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1428.61",
+    "name": "Alf/Season 04/ALF - S04E08 - The First Time Ever I Saw Your Face SDTV.mp4",
+    "size": "170960588",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1428.61",
+    "name": "Alf/Season 04/ALF - S04E09 - Live and Let Die SDTV.mp4",
+    "size": "186832543",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1404.2",
+    "name": "Alf/Season 04/ALF - S04E10 - Break Up to Make Up SDTV.mp4",
+    "size": "154601369",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1368.62",
+    "name": "Alf/Season 04/ALF - S04E11 - Happy Together SDTV.mp4",
+    "size": "143233943",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1376.21",
+    "name": "Alf/Season 04/ALF - S04E12 - Fever SDTV.mp4",
+    "size": "160712818",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1374.61",
+    "name": "Alf/Season 04/ALF - S04E13 - It's My Party SDTV.mp4",
+    "size": "182651131",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1425.62",
+    "name": "Alf/Season 04/ALF - S04E14 - Make 'em Laugh SDTV.mp4",
+    "size": "161237770",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1424.21",
+    "name": "Alf/Season 04/ALF - S04E15 - Love on the Rocks SDTV.mp4",
+    "size": "156071663",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1405.61",
+    "name": "Alf/Season 04/ALF - S04E16 - True Colors SDTV.mp4",
+    "size": "162220431",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1432.62",
+    "name": "Alf/Season 04/ALF - S04E17 - Gimme That Old Time Religion SDTV.mp4",
+    "size": "166199163",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1395.2",
+    "name": "Alf/Season 04/ALF - S04E18 - Future's So Bright, I Gotta Wear Shades SDTV.mp4",
+    "size": "154716280",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1386.6",
+    "name": "Alf/Season 04/ALF - S04E19 - When I'm Sixty-Four SDTV.mp4",
+    "size": "146847426",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1375.38",
+    "name": "Alf/Season 04/ALF - S04E20 - Mr. Sandman SDTV.mp4",
+    "size": "171629410",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1434.2",
+    "name": "Alf/Season 04/ALF - S04E21 - Stayin' Alive SDTV.mp4",
+    "size": "155135154",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1406.23",
+    "name": "Alf/Season 04/ALF - S04E22 - Hungry Like a Wolf SDTV.mp4",
+    "size": "160170327",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1384.21",
+    "name": "Alf/Season 04/ALF - S04E23 - I Gotta Be Me SDTV.mp4",
+    "size": "150707887",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1434.54",
+    "name": "Alf/Season 04/ALF - S04E24 - Consider Me Gone SDTV.mp4",
+    "size": "150082317",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1432.02",
+    "name": "Alf/Specials/ALF - S00E01 - Pilot (Unaired) SDTV.mp4",
+    "size": "125470579",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "5512.6",
+    "name": "Alf/Specials/ALF - S00E02 - Project - ALF SDTV.mp4",
+    "size": "397056498",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "394.58",
+    "name": "Alf/Specials/ALF - S00E04 - Blooper Reel.mp4",
+    "size": "33684400",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "561.06",
+    "name": "Alf/Specials/ALF - S00E05 - Alf Outtakes - In The Trenches 1.mp4",
+    "size": "63674874",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "366.88",
+    "name": "Alf/Specials/ALF - S00E06 - Bloopers.mp4",
+    "size": "46014898",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "431.45",
+    "name": "Alf/Specials/ALF - S00E07 - Outtakes - In the Trenches 1.mp4",
+    "size": "49163666",
+    "source": "original"
+   }
+  ],
+  "isize": 17429498289,
+  "reason": "ok",
+  "verdict": "bundle"
  },
  "ALawmanIsBorn": {
   "checkedAt": "2026-10-18",
@@ -77158,6 +77914,338 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "campwilders01e12acloseshave": {
+  "checkedAt": "2026-10-20",
+  "files": [
+   {
+    "format": "Matroska",
+    "length": "1361.52",
+    "name": "Camp Wilder - S01E01 - Bad Influence.mkv",
+    "size": "610590301",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1361.53",
+    "name": "Camp Wilder - S01E01 - Bad Influence.mp4",
+    "original": "Camp Wilder - S01E01 - Bad Influence.mkv",
+    "size": "141839170",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1384.56",
+    "name": "Camp Wilder - S01E02 - See Spot Go.mkv",
+    "size": "615604261",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1384.57",
+    "name": "Camp Wilder - S01E02 - See Spot Go.mp4",
+    "original": "Camp Wilder - S01E02 - See Spot Go.mkv",
+    "size": "144331018",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1390.05",
+    "name": "Camp Wilder - S01E03 - The First Kiss.mkv",
+    "size": "612481022",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1390.07",
+    "name": "Camp Wilder - S01E03 - The First Kiss.mp4",
+    "original": "Camp Wilder - S01E03 - The First Kiss.mkv",
+    "size": "145231936",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1352.03",
+    "name": "Camp Wilder - S01E04 - Protect and Serve.mkv",
+    "size": "606340413",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1352.06",
+    "name": "Camp Wilder - S01E04 - Protect and Serve.mp4",
+    "original": "Camp Wilder - S01E04 - Protect and Serve.mkv",
+    "size": "141234184",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1349.01",
+    "name": "Camp Wilder - S01E05 - Melissa's Friend.mkv",
+    "size": "598743294",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1349.02",
+    "name": "Camp Wilder - S01E05 - Melissa's Friend.mp4",
+    "original": "Camp Wilder - S01E05 - Melissa's Friend.mkv",
+    "size": "141092337",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1341.02",
+    "name": "Camp Wilder - S01E06 - Sophie's Birthday.mkv",
+    "size": "601690938",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1341.05",
+    "name": "Camp Wilder - S01E06 - Sophie's Birthday.mp4",
+    "original": "Camp Wilder - S01E06 - Sophie's Birthday.mkv",
+    "size": "139867099",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1387.06",
+    "name": "Camp Wilder - S01E07 - Spirit of Friendship.mkv",
+    "size": "618958145",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1387.06",
+    "name": "Camp Wilder - S01E07 - Spirit of Friendship.mp4",
+    "original": "Camp Wilder - S01E07 - Spirit of Friendship.mkv",
+    "size": "144966081",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1374.56",
+    "name": "Camp Wilder - S01E08 - It's A Wonderful Video.mkv",
+    "size": "612279516",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1374.58",
+    "name": "Camp Wilder - S01E08 - It's A Wonderful Video.mp4",
+    "original": "Camp Wilder - S01E08 - It's A Wonderful Video.mkv",
+    "size": "143597198",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1375.55",
+    "name": "Camp Wilder - S01E09 - Something Wilder.mkv",
+    "size": "609627828",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1375.54",
+    "name": "Camp Wilder - S01E09 - Something Wilder.mp4",
+    "original": "Camp Wilder - S01E09 - Something Wilder.mkv",
+    "size": "143770901",
+    "source": "derivative"
+   },
+   {
+    "format": "h.264 IA",
+    "length": "1339.91",
+    "name": "Camp Wilder - S01E10 - Boy Loses Girl.ia.mp4",
+    "original": "Camp Wilder - S01E10 - Boy Loses Girl.mp4",
+    "size": "118762956",
+    "source": "derivative"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1339.91",
+    "name": "Camp Wilder - S01E10 - Boy Loses Girl.mp4",
+    "size": "118762956",
+    "source": "original"
+   },
+   {
+    "format": "Matroska",
+    "length": "1364.51",
+    "name": "Camp Wilder - S01E11 - Jung At Heart.mkv",
+    "size": "607076665",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1364.54",
+    "name": "Camp Wilder - S01E11 - Jung At Heart.mp4",
+    "original": "Camp Wilder - S01E11 - Jung At Heart.mkv",
+    "size": "142688108",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1393.06",
+    "name": "Camp Wilder - S01E12 - A Close Shave.mkv",
+    "size": "625095595",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1393.08",
+    "name": "Camp Wilder - S01E12 - A Close Shave.mp4",
+    "original": "Camp Wilder - S01E12 - A Close Shave.mkv",
+    "size": "145202881",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1372.06",
+    "name": "Camp Wilder - S01E13 - Career Day.mkv",
+    "size": "608198151",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1372.09",
+    "name": "Camp Wilder - S01E13 - Career Day.mp4",
+    "original": "Camp Wilder - S01E13 - Career Day.mkv",
+    "size": "143180093",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1335.01",
+    "name": "Camp Wilder - S01E15 - Bring Up Brody.mkv",
+    "size": "590464038",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1335.03",
+    "name": "Camp Wilder - S01E15 - Bring Up Brody.mp4",
+    "original": "Camp Wilder - S01E15 - Bring Up Brody.mkv",
+    "size": "139624307",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1364.06",
+    "name": "Camp Wilder - S01E16 - Forget-Me-Not.mkv",
+    "size": "613201212",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1364.09",
+    "name": "Camp Wilder - S01E16 - Forget-Me-Not.mp4",
+    "original": "Camp Wilder - S01E16 - Forget-Me-Not.mkv",
+    "size": "142347403",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1386.59",
+    "name": "Camp Wilder - S01E17 - Love Stinks.mkv",
+    "size": "609457224",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1386.62",
+    "name": "Camp Wilder - S01E17 - Love Stinks.mp4",
+    "original": "Camp Wilder - S01E17 - Love Stinks.mkv",
+    "size": "144722301",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1355.55",
+    "name": "Camp Wilder - S01E18 - A Portrait of the Artist as a Young Dorfman.mkv",
+    "size": "608602473",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1355.58",
+    "name": "Camp Wilder - S01E18 - A Portrait of the Artist as a Young Dorfman.mp4",
+    "original": "Camp Wilder - S01E18 - A Portrait of the Artist as a Young Dorfman.mkv",
+    "size": "141820800",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1361.02",
+    "name": "Camp Wilder - S01E19 - That Was Thin, This Is Now.mkv",
+    "size": "609666045",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1361.02",
+    "name": "Camp Wilder - S01E19 - That Was Thin, This Is Now.mp4",
+    "original": "Camp Wilder - S01E19 - That Was Thin, This Is Now.mkv",
+    "size": "142002739",
+    "source": "derivative"
+   },
+   {
+    "name": "campwilders01e12acloseshave.thumbs/Camp Wilder - S01E01 - Bad Influence_000535.jpg"
+   },
+   {
+    "name": "campwilders01e12acloseshave.thumbs/Camp Wilder - S01E02 - See Spot Go_000544.jpg"
+   },
+   {
+    "name": "campwilders01e12acloseshave.thumbs/Camp Wilder - S01E03 - The First Kiss_000547.jpg"
+   },
+   {
+    "name": "campwilders01e12acloseshave.thumbs/Camp Wilder - S01E04 - Protect and Serve_000532.jpg"
+   },
+   {
+    "name": "campwilders01e12acloseshave.thumbs/Camp Wilder - S01E05 - Melissa's Friend_000531.jpg"
+   },
+   {
+    "name": "campwilders01e12acloseshave.thumbs/Camp Wilder - S01E06 - Sophie's Birthday_000527.jpg"
+   },
+   {
+    "name": "campwilders01e12acloseshave.thumbs/Camp Wilder - S01E07 - Spirit of Friendship_000545.jpg"
+   },
+   {
+    "name": "campwilders01e12acloseshave.thumbs/Camp Wilder - S01E08 - It's A Wonderful Video_000541.jpg"
+   },
+   {
+    "name": "campwilders01e12acloseshave.thumbs/Camp Wilder - S01E09 - Something Wilder_000541.jpg"
+   },
+   {
+    "name": "campwilders01e12acloseshave.thumbs/Camp Wilder - S01E10 - Boy Loses Girl_000746.jpg"
+   },
+   {
+    "name": "campwilders01e12acloseshave.thumbs/Camp Wilder - S01E11 - Jung At Heart_000537.jpg"
+   },
+   {
+    "name": "campwilders01e12acloseshave.thumbs/Camp Wilder - S01E12 - A Close Shave_000548.jpg"
+   },
+   {
+    "name": "campwilders01e12acloseshave.thumbs/Camp Wilder - S01E13 - Career Day_000540.jpg"
+   },
+   {
+    "name": "campwilders01e12acloseshave.thumbs/Camp Wilder - S01E15 - Bring Up Brody_000525.jpg"
+   },
+   {
+    "name": "campwilders01e12acloseshave.thumbs/Camp Wilder - S01E16 - Forget-Me-Not_000536.jpg"
+   },
+   {
+    "name": "campwilders01e12acloseshave.thumbs/Camp Wilder - S01E17 - Love Stinks_000545.jpg"
+   },
+   {
+    "name": "campwilders01e12acloseshave.thumbs/Camp Wilder - S01E18 - A Portrait of the Artist as a Young Dorfman_000533.jpg"
+   },
+   {
+    "name": "campwilders01e12acloseshave.thumbs/Camp Wilder - S01E19 - That Was Thin, This Is Now_000535.jpg"
+   }
+  ],
+  "isize": 14345702651,
+  "reason": "ok",
+  "verdict": "bundle"
+ },
  "cancer_1953": {
   "checkedAt": "2026-10-18",
   "isize": 398374733,
@@ -83263,6 +84351,12 @@
   "isize": 4193998307,
   "reason": "ok",
   "verdict": "bundle"
+ },
+ "davisruless02e01sitcom": {
+  "checkedAt": "2026-10-20",
+  "isize": 5249607716,
+  "reason": "0 playable works",
+  "verdict": "single"
  },
  "davy_20210618": {
   "checkedAt": "2026-10-18",
@@ -89602,6 +90696,2112 @@
   "reason": "2 playable works",
   "verdict": "single"
  },
+ "everybody-loves-raymond-complete-series_20251121_0430": {
+  "checkedAt": "2026-10-20",
+  "isize": 12944942610,
+  "reason": "two works share a number",
+  "verdict": "single"
+ },
+ "everybody-loves-raymond-complete-series_202512": {
+  "checkedAt": "2026-10-20",
+  "files": [
+   {
+    "format": "MPEG4",
+    "length": "1289.43",
+    "name": "Everybody Loves Raymond S01E01 - Pilot.mp4",
+    "size": "74858512",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1279.36",
+    "name": "Everybody Loves Raymond S01E02 - I Love You.mp4",
+    "size": "67854251",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1390.89",
+    "name": "Everybody Loves Raymond S01E03 - I Wish I Were Gus.mp4",
+    "size": "60657434",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1390.98",
+    "name": "Everybody Loves Raymond S01E04 Standard Deviation.mp4",
+    "size": "66629737",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1384.19",
+    "name": "Everybody Loves Raymond S01E05 - Look, Don't Touch.mp4",
+    "size": "69818327",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1390.32",
+    "name": "Everybody Loves Raymond S01E06 - Frank, the Writer.mp4",
+    "size": "62454306",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1394.48",
+    "name": "Everybody Loves Raymond S01E07 - Your Place or Mine.mp4",
+    "size": "66267185",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1354.11",
+    "name": "Everybody Loves Raymond S01E08 - In-Laws.mp4",
+    "size": "58529224",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1279.96",
+    "name": "Everybody Loves Raymond S01E09 - Win, Lose or Draw.mp4",
+    "size": "61816878",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1390.89",
+    "name": "Everybody Loves Raymond S01E10 - Turkey or Fish.mp4",
+    "size": "67021424",
+    "source": "original",
+    "title": "Everybody Loves Raymond S01E10 - Captain Nemo"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1390.89",
+    "name": "Everybody Loves Raymond S01E11 - Captain Nemo.mp4",
+    "size": "67077426",
+    "source": "original",
+    "title": "Everybody Loves Raymond S01E11 - Turkey or Fish"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1396.27",
+    "name": "Everybody Loves Raymond S01E12 - The Ball.mp4",
+    "size": "64177687",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1391.31",
+    "name": "Everybody Loves Raymond S01E13 - Debra's Sick.mp4",
+    "size": "70188285",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1289.43",
+    "name": "Everybody Loves Raymond S01E14 - Who's Handsome.mp4",
+    "size": "68137455",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1387.31",
+    "name": "Everybody Loves Raymond S01E15 - The Car.mp4",
+    "size": "61307504",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1391.83",
+    "name": "Everybody Loves Raymond S01E16 - Diamonds.mp4",
+    "size": "54290195",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1394.56",
+    "name": "Everybody Loves Raymond S01E17 - The Game.mp4",
+    "size": "64432334",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1380.57",
+    "name": "Everybody Loves Raymond S01E18 - Recovering Pessimist.mp4",
+    "size": "65617180",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1384.47",
+    "name": "Everybody Loves Raymond S01E19 - The Dog.mp4",
+    "size": "61552731",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1388.86",
+    "name": "Everybody Loves Raymond S01E20 - Neighbors.mp4",
+    "size": "60345848",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1384.36",
+    "name": "Everybody Loves Raymond S01E21 - Fascinatin' Debra.mp4",
+    "size": "64392177",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1285.76",
+    "name": "Everybody Loves Raymond S01E22 - Why Are We Here.mp4",
+    "size": "73745440",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1371.5",
+    "name": "Everybody Loves Raymond S02E01 - Ray's on TV.mp4",
+    "size": "63786493",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1378.73",
+    "name": "Everybody Loves Raymond S02E02 - Father Knows Least.mp4",
+    "size": "68843138",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1288.43",
+    "name": "Everybody Loves Raymond S02E03 - Brother.mp4",
+    "size": "64141476",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1371.22",
+    "name": "Everybody Loves Raymond S02E04 - Mozart.mp4",
+    "size": "69501667",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1294.27",
+    "name": "Everybody Loves Raymond S02E05 -.mp4",
+    "size": "68165568",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1368",
+    "name": "Everybody Loves Raymond S02E06 - Anniversary.mp4",
+    "size": "60359618",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1271.49",
+    "name": "Everybody Loves Raymond S02E07 - Working Late Again.mp4",
+    "size": "63961327",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1272.24",
+    "name": "Everybody Loves Raymond S02E08 - The Children's Book.mp4",
+    "size": "64680651",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1288.47",
+    "name": "Everybody Loves Raymond S02E09 - The Gift.mp4",
+    "size": "61638322",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1273.62",
+    "name": "Everybody Loves Raymond S02E10 - High School.mp4",
+    "size": "67113633",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1377.59",
+    "name": "Everybody Loves Raymond S02E11 - The Letter.mp4",
+    "size": "63758749",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1288.79",
+    "name": "Everybody Loves Raymond S02E12 - All I Want for Christmas.mp4",
+    "size": "71205551",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1290.6",
+    "name": "Everybody Loves Raymond S02E13 - Civil War.mp4",
+    "size": "61962531",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1289.54",
+    "name": "Everybody Loves Raymond S02E14 - Mia Famiglia.mp4",
+    "size": "66299225",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1378.42",
+    "name": "Everybody Loves Raymond S02E15 - Marie's Meatballs.mp4",
+    "size": "56866794",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1289.26",
+    "name": "Everybody Loves Raymond S02E16 - The Checkbook.mp4",
+    "size": "62197756",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1283.03",
+    "name": "Everybody Loves Raymond S02E17 - The Ride-Along.mp4",
+    "size": "60485663",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1288.33",
+    "name": "Everybody Loves Raymond S02E18 - The Family Bed.mp4",
+    "size": "57353349",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1286.42",
+    "name": "Everybody Loves Raymond S02E19 - Good Girls.mp4",
+    "size": "59370853",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1288.38",
+    "name": "Everybody Loves Raymond S02E20 - Ball.mp4",
+    "size": "79150791",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1360.41",
+    "name": "Everybody Loves Raymond S02E21 - Traffic School.mp4",
+    "size": "49888516",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1285.2",
+    "name": "Everybody Loves Raymond S02E22 - Six Feet Under.mp4",
+    "size": "58896053",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1285.55",
+    "name": "Everybody Loves Raymond S02E23 - The Garage Sale.mp4",
+    "size": "68856504",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1288.5",
+    "name": "Everybody Loves Raymond S02E24 - The Wedding (Part 1).mp4",
+    "size": "66726490",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1281.37",
+    "name": "Everybody Loves Raymond S02E25 - The Wedding (Part 2).mp4",
+    "size": "51580168",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1285.54",
+    "name": "Everybody Loves Raymond S03E01 - The Invasion.mp4",
+    "size": "62941232",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1285.59",
+    "name": "Everybody Loves Raymond S03E02 - Driving Frank.mp4",
+    "size": "71038836",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1279.21",
+    "name": "Everybody Loves Raymond S03E03 - The Sitter.mp4",
+    "size": "67547917",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1289.92",
+    "name": "Everybody Loves Raymond S03E04 - Getting Even.mp4",
+    "size": "56799587",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1279.38",
+    "name": "Everybody Loves Raymond S03E05 - The Visit.mp4",
+    "size": "62366576",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1289.47",
+    "name": "Everybody Loves Raymond S03E06 - Halloween Candy.mp4",
+    "size": "63307297",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1279.49",
+    "name": "Everybody Loves Raymond S03E07 - Moving Out.mp4",
+    "size": "61041150",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1283.37",
+    "name": "Everybody Loves Raymond S03E08 - The Article.mp4",
+    "size": "58656167",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1290.5",
+    "name": "Everybody Loves Raymond S03E09 - The Lone Barone.mp4",
+    "size": "62881122",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1266.56",
+    "name": "Everybody Loves Raymond S03E10 - No Fat.mp4",
+    "size": "65235735",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1283.29",
+    "name": "Everybody Loves Raymond S03E11 - The Apartment.mp4",
+    "size": "56060912",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1284.25",
+    "name": "Everybody Loves Raymond S03E12 - The Toaster.mp4",
+    "size": "63558724",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1285.2",
+    "name": "Everybody Loves Raymond S03E13 - Ping Pong.mp4",
+    "size": "61598495",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1346.39",
+    "name": "Everybody Loves Raymond S03E14 - Pants on Fire.mp4",
+    "size": "55343611",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1290.18",
+    "name": "Everybody Loves Raymond S03E15 - Robert's Date.mp4",
+    "size": "62990892",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1290.01",
+    "name": "Everybody Loves Raymond S03E16 - Frank's Tribute.mp4",
+    "size": "56471676",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1289.05",
+    "name": "Everybody Loves Raymond S03E17 - Cruising with Marie.mp4",
+    "size": "56840894",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1290.3",
+    "name": "Everybody Loves Raymond S03E18 - Ray Home Alone.mp4",
+    "size": "47806236",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1269.36",
+    "name": "Everybody Loves Raymond S03E19 - Big Shots.mp4",
+    "size": "52980648",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1290.01",
+    "name": "Everybody Loves Raymond S03E20 - Move Over.mp4",
+    "size": "58522558",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1289.21",
+    "name": "Everybody Loves Raymond S03E21 - The Getaway.mp4",
+    "size": "59452179",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1284.63",
+    "name": "Everybody Loves Raymond S03E22 - Working Girl.mp4",
+    "size": "64366820",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1290.56",
+    "name": "Everybody Loves Raymond S03E23 - Be Nice.mp4",
+    "size": "68442142",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1289.54",
+    "name": "Everybody Loves Raymond S03E24  - Dancing with Debra.mp4",
+    "size": "71171964",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1290.01",
+    "name": "Everybody Loves Raymond S03E25 Robert Moves Back.mp4",
+    "size": "51626303",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1290.88",
+    "name": "Everybody Loves Raymond S03E26 - How They Met.mp4",
+    "size": "59846876",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1354.69",
+    "name": "Everybody Loves Raymond S04E01 - Boob Job.mp4",
+    "size": "50360014",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1289.17",
+    "name": "Everybody Loves Raymond S04E02 - The Can Opener.mp4",
+    "size": "54226992",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1287.16",
+    "name": "Everybody Loves Raymond S04E03 - You Bet.mp4",
+    "size": "49831582",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1356.57",
+    "name": "Everybody Loves Raymond S04E04 - Sex Talk.mp4",
+    "size": "49444329",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1353.28",
+    "name": "Everybody Loves Raymond S04E05 - The Will.mp4",
+    "size": "56234572",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1348.22",
+    "name": "Everybody Loves Raymond S04E06 - The Sister.mp4",
+    "size": "51688954",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1363.46",
+    "name": "Everybody Loves Raymond S04E07 - Cousin Gerard.mp4",
+    "size": "53712298",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1360.09",
+    "name": "Everybody Loves Raymond S04E08 - Debra's Workout.mp4",
+    "size": "62644075",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1358.38",
+    "name": "Everybody Loves Raymond S04E09 - No Thanks.mp4",
+    "size": "59184310",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1357.74",
+    "name": "Everybody Loves Raymond S04E10 - Left Back.mp4",
+    "size": "57241059",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1354.28",
+    "name": "Everybody Loves Raymond S04E11 - The Christmas Picture.mp4",
+    "size": "53133742",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1357.65",
+    "name": "Everybody Loves Raymond S04E12 - What's with Robert.mp4",
+    "size": "54561313",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1345.9",
+    "name": "Everybody Loves Raymond S04E13 - Bully on The Bus.mp4",
+    "size": "60285115",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1344.81",
+    "name": "Everybody Loves Raymond S04E14 - Prodigal Son.mp4",
+    "size": "54394067",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1358.04",
+    "name": "Everybody Loves Raymond S04E15 - Robert's Rodeo.mp4",
+    "size": "50498711",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1353.62",
+    "name": "Everybody Loves Raymond S04E16 - The Tenth Anniversary.mp4",
+    "size": "56346179",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1361.58",
+    "name": "Everybody Loves Raymond S04E17 - Hackidu.mp4",
+    "size": "60950268",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1352.66",
+    "name": "Everybody Loves Raymond S04E18 - Debra Makes Something Good.mp4",
+    "size": "56170019",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1362.01",
+    "name": "Everybody Loves Raymond S04E19 - Marie and Frank's New Friends.mp4",
+    "size": "64591290",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1361.84",
+    "name": "Everybody Loves Raymond S04E20 - Alone Time.mp4",
+    "size": "61928929",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1338.65",
+    "name": "Everybody Loves Raymond S04E21 - Someone's Cranky.mp4",
+    "size": "56822305",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1352.66",
+    "name": "Everybody Loves Raymond S04E22 - Bad Moon Rising.mp4",
+    "size": "60048104",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1343.98",
+    "name": "Everybody Loves Raymond S04E23 - Confronting The Attacker.mp4",
+    "size": "65814823",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1355.07",
+    "name": "Everybody Loves Raymond S04E24 - Robert's Divorce.mp4",
+    "size": "55288818",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1426.94",
+    "name": "Everybody Loves Raymond S05E01 Italy (Part 1).mp4",
+    "size": "77009180",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1291.01",
+    "name": "Everybody Loves Raymond S05E02 - Italy (Part 2).mp4",
+    "size": "90237125",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1355.33",
+    "name": "Everybody Loves Raymond S05E03 - The Wallpaper.mp4",
+    "size": "64209374",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1352.06",
+    "name": "Everybody Loves Raymond S05E04 - Meant to Be.mp4",
+    "size": "57365941",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1354.73",
+    "name": "Everybody Loves Raymond S05E05 - Pet Cemetery.mp4",
+    "size": "59082384",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1357.91",
+    "name": "Everybody Loves Raymond S05E06 - The Author.mp4",
+    "size": "63213865",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1346.43",
+    "name": "Everybody Loves Raymond S05E07 - The Walk to The Door.mp4",
+    "size": "61475386",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1358.49",
+    "name": "Everybody Loves Raymond S05E08 - Young Girl.mp4",
+    "size": "58827820",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1343.72",
+    "name": "Everybody Loves Raymond S05E09 - Fighting In-Laws.mp4",
+    "size": "58035728",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1338.26",
+    "name": "Everybody Loves Raymond S05E10 - The Sneeze.mp4",
+    "size": "65028293",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1358.17",
+    "name": "Everybody Loves Raymond S05E11 - Christmas Present.mp4",
+    "size": "76035180",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1356.69",
+    "name": "Everybody Loves Raymond S05E12 - What Good Are You.mp4",
+    "size": "65042664",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1324.76",
+    "name": "Everybody Loves Raymond S05E13 - Super Bowl.mp4",
+    "size": "63871804",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1358.61",
+    "name": "Everybody Loves Raymond S05E14 - Ray's Journal.mp4",
+    "size": "63080754",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1358.21",
+    "name": "Everybody Loves Raymond S05E15 - Silent Partners.mp4",
+    "size": "60624410",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1350.61",
+    "name": "Everybody Loves Raymond S05E16 - Fairies.mp4",
+    "size": "69204685",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1353.45",
+    "name": "Everybody Loves Raymond S05E17 - Stefania Arrives.mp4",
+    "size": "59195206",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1343.55",
+    "name": "Everybody Loves Raymond S05E18 - Humm Vac.mp4",
+    "size": "68455068",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1355.46",
+    "name": "Everybody Loves Raymond S05E19 - The Canister.mp4",
+    "size": "68073886",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1353.28",
+    "name": "Everybody Loves Raymond S05E20 - Net Worth.mp4",
+    "size": "64835475",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1353.75",
+    "name": "Everybody Loves Raymond S05E21 - Let's Fix Robert.mp4",
+    "size": "69622921",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1349.31",
+    "name": "Everybody Loves Raymond S05E22 - Say Uncle.mp4",
+    "size": "67785851",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1357.95",
+    "name": "Everybody Loves Raymond S05E23 - Separation.mp4",
+    "size": "65752831",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1351.23",
+    "name": "Everybody Loves Raymond S05E24 - Frank Paints The House.mp4",
+    "size": "62610878",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1339.93",
+    "name": "Everybody Loves Raymond S05E25 - Ally's Birth.mp4",
+    "size": "69546017",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1357.12",
+    "name": "Everybody Loves Raymond S06E01 - The Angry Family.mp4",
+    "size": "61507343",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1352.36",
+    "name": "Everybody Loves Raymond S06E02 - No Roll.mp4",
+    "size": "64488547",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1288.17",
+    "name": "Everybody Loves Raymond S06E03 - Odd Man Out.mp4",
+    "size": "63010662",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1287.04",
+    "name": "Everybody Loves Raymond S06E04 - Ray's Ring.mp4",
+    "size": "62273676",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1347.69",
+    "name": "Everybody Loves Raymond S06E05 - Marie's Sculpture.mp4",
+    "size": "67523528",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1350.49",
+    "name": "Everybody Loves Raymond S06E06 - Frank Goes Downstairs.mp4",
+    "size": "58461335",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1290.71",
+    "name": "Everybody Loves Raymond S06E07 - Jealous Robert.mp4",
+    "size": "56693010",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1343.72",
+    "name": "Everybody Loves Raymond S06E08 - It's Supposed to Be Fun.mp4",
+    "size": "71173489",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1354.03",
+    "name": "Everybody Loves Raymond S06E09 Older Women.mp4",
+    "size": "58140860",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1356.74",
+    "name": "Everybody Loves Raymond S06E10 - Raybert.mp4",
+    "size": "54101590",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1353.58",
+    "name": "Everybody Loves Raymond S06E11 - The Kicker.mp4",
+    "size": "61539028",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1362.84",
+    "name": "Everybody Loves Raymond S06E12 - Season's Greetings.mp4",
+    "size": "65182816",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1361.92",
+    "name": "Everybody Loves Raymond S06E13 - Tissues.mp4",
+    "size": "64647940",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1358.29",
+    "name": "Everybody Loves Raymond S06E14 - Snow Day.mp4",
+    "size": "51893420",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1361.84",
+    "name": "Everybody Loves Raymond S06E15 - Cookies.mp4",
+    "size": "69684875",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1346.73",
+    "name": "Everybody Loves Raymond S06E16 - Lucky Suit.mp4",
+    "size": "53562946",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1356.99",
+    "name": "Everybody Loves Raymond S06E17 - The Skit.mp4",
+    "size": "65181643",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1348.52",
+    "name": "Everybody Loves Raymond S06E18 - The Breakup Tape.mp4",
+    "size": "53382081",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1359.79",
+    "name": "Everybody Loves Raymond S06E19 - Talk to Your Daughter.mp4",
+    "size": "59690838",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1343.53",
+    "name": "Everybody Loves Raymond S06E20 - A Vote for Debra.mp4",
+    "size": "59644206",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1361.41",
+    "name": "Everybody Loves Raymond S06E21 - Call Me Mom.mp4",
+    "size": "65799987",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1359.49",
+    "name": "Everybody Loves Raymond S06E22 - Mother's Day.mp4",
+    "size": "64222909",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1362.05",
+    "name": "Everybody Loves Raymond S06E23 - The Bigger Person.mp4",
+    "size": "59824631",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1356.29",
+    "name": "Everybody Loves Raymond S06E24 - The First Time.mp4",
+    "size": "59157430",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1356.57",
+    "name": "Everybody Loves Raymond S07E01 - The Cult.mp4",
+    "size": "71318971",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1345.39",
+    "name": "Everybody Loves Raymond S07E02 - Counseling.mp4",
+    "size": "56329604",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1361.05",
+    "name": "Everybody Loves Raymond S07E03 - Homework.mp4",
+    "size": "58147924",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1350.91",
+    "name": "Everybody Loves Raymond S07E04 - Pet The Bunny.mp4",
+    "size": "56214005",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1358.91",
+    "name": "Everybody Loves Raymond S07E05 - Who Am I.mp4",
+    "size": "59839016",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1361.92",
+    "name": "Everybody Loves Raymond S07E06 - Robert Needs Money.mp4",
+    "size": "51681119",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1360.92",
+    "name": "Everybody Loves Raymond S07E07 - The Sigh.mp4",
+    "size": "56223432",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1349.97",
+    "name": "Everybody Loves Raymond S07E08 - The Annoying Kid.mp4",
+    "size": "64416060",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1344.19",
+    "name": "Everybody Loves Raymond S07E09 - She's The One.mp4",
+    "size": "53856009",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1358.53",
+    "name": "Everybody Loves Raymond S07E10 - Marie's Vision.mp4",
+    "size": "53978198",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1351.45",
+    "name": "Everybody Loves Raymond S07E11 -  The Thought That Counts.mp4",
+    "size": "58744070",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1337.34",
+    "name": "Everybody Loves Raymond S07E12 - Grandpa Steals.mp4",
+    "size": "59652549",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1335.85",
+    "name": "Everybody Loves Raymond S07E13 - Somebody Hates Raymond.mp4",
+    "size": "58381956",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1360.66",
+    "name": "Everybody Loves Raymond S07E14 - Just A Formality.mp4",
+    "size": "54159913",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1345.24",
+    "name": "Everybody Loves Raymond S07E15 - The Disciplinarian.mp4",
+    "size": "63480495",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1361.92",
+    "name": "Everybody Loves Raymond S07E16 - Sweet Charity.mp4",
+    "size": "56907911",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1361.09",
+    "name": "Everybody Loves Raymond S07E17 - Meeting The Parents.mp4",
+    "size": "56101992",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1356.12",
+    "name": "Everybody Loves Raymond S07E18  The Plan.mp4",
+    "size": "65381749",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1349.95",
+    "name": "Everybody Loves Raymond S07E19 - Sleepover at Peggy's.mp4",
+    "size": "57809770",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1351.45",
+    "name": "Everybody Loves Raymond S07E20 - Who's Next.mp4",
+    "size": "57992864",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1354.41",
+    "name": "Everybody Loves Raymond S07E21 - The Shower.mp4",
+    "size": "54022718",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1359.66",
+    "name": "Everybody Loves Raymond S07E22 - Baggage.mp4",
+    "size": "58691891",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1359.25",
+    "name": "Everybody Loves Raymond S07E23 - Bachelor Party.mp4",
+    "size": "62079044",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1950.25",
+    "name": "Everybody Loves Raymond S07E24 - Robert's Wedding.mp4",
+    "size": "74220774",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1353.9",
+    "name": "Everybody Loves Raymond S08E01 - Fun with Debra.mp4",
+    "size": "66888905",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1354.9",
+    "name": "Everybody Loves Raymond S08E02 - Thank You Notes.mp4",
+    "size": "69421454",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1344.36",
+    "name": "Everybody Loves Raymond S08E03 - Home From School.mp4",
+    "size": "60912442",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1350.83",
+    "name": "Everybody Loves Raymond S08E04 - Misery Loves Company.mp4",
+    "size": "51606327",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1361.79",
+    "name": "Everybody Loves Raymond S08E05 - The Contractor.mp4",
+    "size": "59362441",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1350.19",
+    "name": "Everybody Loves Raymond S08E06 - Peter on The Couch.mp4",
+    "size": "52129418",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1352.9",
+    "name": "Everybody Loves Raymond S08E07 - Liars.mp4",
+    "size": "56911269",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1337.9",
+    "name": "Everybody Loves Raymond S08E08 - The Surprise Party.mp4",
+    "size": "59335750",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1355.9",
+    "name": "Everybody Loves Raymond S08E09 - The Bird.mp4",
+    "size": "58626220",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1352.66",
+    "name": "Everybody Loves Raymond S08E10 - Jazz Records.mp4",
+    "size": "64198389",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1361.13",
+    "name": "Everybody Loves Raymond S08E11 - Debra at The Lodge.mp4",
+    "size": "59243140",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1356.91",
+    "name": "Everybody Loves Raymond S08E12 - Slave.mp4",
+    "size": "60607858",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1361.49",
+    "name": "Everybody Loves Raymond S08E13 - Whose Side Are You On.mp4",
+    "size": "56258310",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1354.9",
+    "name": "Everybody Loves Raymond S08E14 - Lateness.mp4",
+    "size": "53385464",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1361.92",
+    "name": "Everybody Loves Raymond S08E15 - Party Dress.mp4",
+    "size": "57993489",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1356.91",
+    "name": "Everybody Loves Raymond S08E16 - Security.mp4",
+    "size": "53320211",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1359.92",
+    "name": "Everybody Loves Raymond S08E17 - The Ingrate.mp4",
+    "size": "58192512",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1353.77",
+    "name": "Everybody Loves Raymond S08E18 - Crazy Chin.mp4",
+    "size": "57906603",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1328.88",
+    "name": "Everybody Loves Raymond S08E19 - The Nice Talk.mp4",
+    "size": "59755529",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1356.91",
+    "name": "Everybody Loves Raymond S08E20 - Blabbermouths.mp4",
+    "size": "53990398",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1355.78",
+    "name": "Everybody Loves Raymond S08E21 - The Model.mp4",
+    "size": "55404315",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1359.92",
+    "name": "Everybody Loves Raymond S08E22 - The Mentor.mp4",
+    "size": "54349927",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1356.91",
+    "name": "Everybody Loves Raymond S08E23 - Golf for It.mp4",
+    "size": "44339215",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1352.28",
+    "name": "Everybody Loves Raymond S09E01 - The Home.mp4",
+    "size": "59979535",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1357.78",
+    "name": "Everybody Loves Raymond S09E02 - Not So Fast.mp4",
+    "size": "56779573",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1358.74",
+    "name": "Everybody Loves Raymond S09E03 - Angry Sex.mp4",
+    "size": "59143060",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1353.71",
+    "name": "Everybody Loves Raymond S09E04 - P.T. & A..mp4",
+    "size": "59088250",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1359.08",
+    "name": "Everybody Loves Raymond S09E05 - Ally's F.mp4",
+    "size": "67038185",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1350.4",
+    "name": "Everybody Loves Raymond S09E06 - Boys' Therapy.mp4",
+    "size": "56859538",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1350.04",
+    "name": "Everybody Loves Raymond S09E07 - Debra's Parents.mp4",
+    "size": "60879211",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1360.92",
+    "name": "Everybody Loves Raymond S09E08 - A Job for Robert.mp4",
+    "size": "61580569",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1354.28",
+    "name": "Everybody Loves Raymond S09E09 - A Date for Peter.mp4",
+    "size": "67219705",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1356.42",
+    "name": "Everybody Loves Raymond S09E10 - Favors.mp4",
+    "size": "71778735",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1350.78",
+    "name": "Everybody Loves Raymond S09E11 - The Faux Pas.mp4",
+    "size": "68157546",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1333.59",
+    "name": "Everybody Loves Raymond S09E12 - Tasteless Frank.mp4",
+    "size": "57933210",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1342.27",
+    "name": "Everybody Loves Raymond S09E13 - Sister-in-Law.mp4",
+    "size": "65570239",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1355.8",
+    "name": "Everybody Loves Raymond S09E14 - The Power of No.mp4",
+    "size": "60597685",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1347.16",
+    "name": "Everybody Loves Raymond S09E15 - Pat's Secret.mp4",
+    "size": "54315174",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1354.11",
+    "name": "Everybody Loves Raymond S09E16 - The Finale.mp4",
+    "size": "61474182",
+    "source": "original"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S01E01 - Pilot_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S01E02 - I Love You_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S01E03 - I Wish I Were Gus_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S01E04 Standard Deviation_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S01E05 - Look, Don't Touch_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S01E06 - Frank, the Writer_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S01E07 - Your Place or Mine_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S01E08 - In-Laws_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S01E09 - Win, Lose or Draw_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S01E10 - Turkey or Fish_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S01E11 - Captain Nemo_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S01E12 - The Ball_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S01E13 - Debra's Sick_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S01E14 - Who's Handsome_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S01E15 - The Car_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S01E16 - Diamonds_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S01E17 - The Game_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S01E18 - Recovering Pessimist_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S01E19 - The Dog_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S01E20 - Neighbors_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S01E21 - Fascinatin' Debra_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S01E22 - Why Are We Here_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S02E01 - Ray's on TV_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S02E02 - Father Knows Least_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S02E03 - Brother_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S02E04 - Mozart_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S02E05 -_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S02E06 - Anniversary_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S02E07 - Working Late Again_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S02E08 - The Children's Book_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S02E09 - The Gift_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S02E10 - High School_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S02E11 - The Letter_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S02E12 - All I Want for Christmas_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S02E13 - Civil War_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S02E14 - Mia Famiglia_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S02E15 - Marie's Meatballs_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S02E16 - The Checkbook_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S02E17 - The Ride-Along_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S02E18 - The Family Bed_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S02E19 - Good Girls_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S02E20 - Ball_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S02E21 - Traffic School_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S02E22 - Six Feet Under_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S02E23 - The Garage Sale_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S02E24 - The Wedding (Part 1)_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S02E25 - The Wedding (Part 2)_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S03E01 - The Invasion_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S03E02 - Driving Frank_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S03E03 - The Sitter_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S03E04 - Getting Even_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S03E05 - The Visit_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S03E06 - Halloween Candy_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S03E07 - Moving Out_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S03E08 - The Article_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S03E09 - The Lone Barone_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S03E10 - No Fat_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S03E11 - The Apartment_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S03E12 - The Toaster_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S03E13 - Ping Pong_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S03E14 - Pants on Fire_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S03E15 - Robert's Date_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S03E16 - Frank's Tribute_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S03E17 - Cruising with Marie_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S03E18 - Ray Home Alone_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S03E19 - Big Shots_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S03E20 - Move Over_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S03E21 - The Getaway_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S03E22 - Working Girl_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S03E23 - Be Nice_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S03E24  - Dancing with Debra_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S03E25 Robert Moves Back_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S03E26 - How They Met_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S04E01 - Boob Job_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S04E02 - The Can Opener_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S04E03 - You Bet_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S04E04 - Sex Talk_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S04E05 - The Will_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S04E06 - The Sister_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S04E07 - Cousin Gerard_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S04E08 - Debra's Workout_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S04E09 - No Thanks_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S04E10 - Left Back_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S04E11 - The Christmas Picture_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S04E12 - What's with Robert_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S04E13 - Bully on The Bus_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S04E14 - Prodigal Son_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S04E15 - Robert's Rodeo_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S04E16 - The Tenth Anniversary_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S04E17 - Hackidu_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S04E18 - Debra Makes Something Good_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S04E19 - Marie and Frank's New Friends_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S04E20 - Alone Time_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S04E21 - Someone's Cranky_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S04E22 - Bad Moon Rising_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S04E23 - Confronting The Attacker_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S04E24 - Robert's Divorce_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S05E01 Italy (Part 1)_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S05E02 - Italy (Part 2)_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S05E03 - The Wallpaper_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S05E04 - Meant to Be_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S05E05 - Pet Cemetery_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S05E06 - The Author_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S05E07 - The Walk to The Door_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S05E08 - Young Girl_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S05E09 - Fighting In-Laws_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S05E10 - The Sneeze_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S05E11 - Christmas Present_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S05E12 - What Good Are You_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S05E13 - Super Bowl_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S05E14 - Ray's Journal_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S05E15 - Silent Partners_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S05E16 - Fairies_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S05E17 - Stefania Arrives_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S05E18 - Humm Vac_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S05E19 - The Canister_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S05E20 - Net Worth_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S05E21 - Let's Fix Robert_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S05E22 - Say Uncle_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S05E23 - Separation_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S05E24 - Frank Paints The House_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S05E25 - Ally's Birth_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S06E01 - The Angry Family_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S06E02 - No Roll_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S06E03 - Odd Man Out_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S06E04 - Ray's Ring_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S06E05 - Marie's Sculpture_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S06E06 - Frank Goes Downstairs_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S06E07 - Jealous Robert_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S06E08 - It's Supposed to Be Fun_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S06E09 Older Women_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S06E10 - Raybert_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S06E11 - The Kicker_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S06E12 - Season's Greetings_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S06E13 - Tissues_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S06E14 - Snow Day_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S06E15 - Cookies_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S06E16 - Lucky Suit_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S06E17 - The Skit_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S06E18 - The Breakup Tape_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S06E19 - Talk to Your Daughter_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S06E20 - A Vote for Debra_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S06E21 - Call Me Mom_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S06E22 - Mother's Day_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S06E23 - The Bigger Person_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S06E24 - The First Time_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S07E01 - The Cult_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S07E02 - Counseling_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S07E03 - Homework_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S07E04 - Pet The Bunny_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S07E05 - Who Am I_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S07E06 - Robert Needs Money_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S07E07 - The Sigh_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S07E08 - The Annoying Kid_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S07E09 - She's The One_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S07E10 - Marie's Vision_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S07E11 -  The Thought That Counts_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S07E12 - Grandpa Steals_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S07E13 - Somebody Hates Raymond_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S07E14 - Just A Formality_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S07E15 - The Disciplinarian_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S07E16 - Sweet Charity_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S07E17 - Meeting The Parents_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S07E18  The Plan_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S07E19 - Sleepover at Peggy's_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S07E20 - Who's Next_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S07E21 - The Shower_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S07E22 - Baggage_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S07E23 - Bachelor Party_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S07E24 - Robert's Wedding_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S08E01 - Fun with Debra_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S08E02 - Thank You Notes_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S08E03 - Home From School_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S08E04 - Misery Loves Company_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S08E05 - The Contractor_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S08E06 - Peter on The Couch_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S08E07 - Liars_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S08E08 - The Surprise Party_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S08E09 - The Bird_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S08E10 - Jazz Records_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S08E11 - Debra at The Lodge_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S08E12 - Slave_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S08E13 - Whose Side Are You On_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S08E14 - Lateness_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S08E15 - Party Dress_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S08E16 - Security_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S08E17 - The Ingrate_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S08E18 - Crazy Chin_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S08E19 - The Nice Talk_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S08E20 - Blabbermouths_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S08E21 - The Model_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S08E22 - The Mentor_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S08E23 - Golf for It_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S09E01 - The Home_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S09E02 - Not So Fast_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S09E03 - Angry Sex_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S09E04 - P.T. & A._000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S09E05 - Ally's F_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S09E06 - Boys' Therapy_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S09E07 - Debra's Parents_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S09E08 - A Job for Robert_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S09E09 - A Date for Peter_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S09E10 - Favors_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S09E11 - The Faux Pas_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S09E12 - Tasteless Frank_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S09E13 - Sister-in-Law_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S09E14 - The Power of No_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S09E15 - Pat's Secret_000001.jpg"
+   },
+   {
+    "name": "everybody-loves-raymond-complete-series_202512.thumbs/Everybody Loves Raymond S09E16 - The Finale_000001.jpg"
+   }
+  ],
+  "isize": 12821604616,
+  "reason": "ok",
+  "verdict": "bundle"
+ },
  "everything-goes-wrong": {
   "checkedAt": "2026-10-18",
   "isize": 5879043270,
@@ -90209,6 +93409,194 @@
    }
   ],
   "isize": 3754790099,
+  "reason": "ok",
+  "verdict": "bundle"
+ },
+ "fawlty_towers_202604": {
+  "checkedAt": "2026-10-20",
+  "files": [
+   {
+    "format": "h.264 IA",
+    "length": "1821.4",
+    "name": "Fawlty Towers/Season 01/S01E01 - A Touch of Class.ia.mp4",
+    "original": "Fawlty Towers/Season 01/S01E01 - A Touch of Class.mp4",
+    "size": "568838864",
+    "source": "derivative"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1821.4",
+    "name": "Fawlty Towers/Season 01/S01E01 - A Touch of Class.mp4",
+    "size": "568838864",
+    "source": "original"
+   },
+   {
+    "format": "h.264 IA",
+    "length": "1694.28",
+    "name": "Fawlty Towers/Season 01/S01E02 - The Builders.ia.mp4",
+    "original": "Fawlty Towers/Season 01/S01E02 - The Builders.mp4",
+    "size": "678491187",
+    "source": "derivative"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1694.28",
+    "name": "Fawlty Towers/Season 01/S01E02 - The Builders.mp4",
+    "size": "678491187",
+    "source": "original"
+   },
+   {
+    "format": "h.264 IA",
+    "length": "2000.53",
+    "name": "Fawlty Towers/Season 01/S01E03 - The Wedding Party.ia.mp4",
+    "original": "Fawlty Towers/Season 01/S01E03 - The Wedding Party.mp4",
+    "size": "685023554",
+    "source": "derivative"
+   },
+   {
+    "format": "MPEG4",
+    "length": "2000.53",
+    "name": "Fawlty Towers/Season 01/S01E03 - The Wedding Party.mp4",
+    "size": "685023554",
+    "source": "original"
+   },
+   {
+    "format": "h.264 IA",
+    "length": "1728.68",
+    "name": "Fawlty Towers/Season 01/S01E04 - The Hotel Inspectors.ia.mp4",
+    "original": "Fawlty Towers/Season 01/S01E04 - The Hotel Inspectors.mp4",
+    "size": "566093359",
+    "source": "derivative"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1728.68",
+    "name": "Fawlty Towers/Season 01/S01E04 - The Hotel Inspectors.mp4",
+    "size": "566093359",
+    "source": "original"
+   },
+   {
+    "format": "h.264 IA",
+    "length": "1717.2",
+    "name": "Fawlty Towers/Season 01/S01E05 - Gourmet Night.ia.mp4",
+    "original": "Fawlty Towers/Season 01/S01E05 - Gourmet Night.mp4",
+    "size": "625983422",
+    "source": "derivative"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1717.2",
+    "name": "Fawlty Towers/Season 01/S01E05 - Gourmet Night.mp4",
+    "size": "625983422",
+    "source": "original"
+   },
+   {
+    "format": "h.264 IA",
+    "length": "1875.4",
+    "name": "Fawlty Towers/Season 01/S01E06 - The Germans.ia.mp4",
+    "original": "Fawlty Towers/Season 01/S01E06 - The Germans.mp4",
+    "size": "692646812",
+    "source": "derivative"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1875.4",
+    "name": "Fawlty Towers/Season 01/S01E06 - The Germans.mp4",
+    "size": "692646812",
+    "source": "original"
+   },
+   {
+    "format": "h.264 IA",
+    "length": "1884.76",
+    "name": "Fawlty Towers/Season 02/S02E01 - Communication Problems.ia.mp4",
+    "original": "Fawlty Towers/Season 02/S02E01 - Communication Problems.mp4",
+    "size": "612479389",
+    "source": "derivative"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1884.76",
+    "name": "Fawlty Towers/Season 02/S02E01 - Communication Problems.mp4",
+    "size": "612479389",
+    "source": "original"
+   },
+   {
+    "format": "h.264 IA",
+    "length": "2178.72",
+    "name": "Fawlty Towers/Season 02/S02E02 - The Psychiatrist.ia.mp4",
+    "original": "Fawlty Towers/Season 02/S02E02 - The Psychiatrist.mp4",
+    "size": "628481953",
+    "source": "derivative"
+   },
+   {
+    "format": "MPEG4",
+    "length": "2178.72",
+    "name": "Fawlty Towers/Season 02/S02E02 - The Psychiatrist.mp4",
+    "size": "628481953",
+    "source": "original"
+   },
+   {
+    "format": "h.264 IA",
+    "length": "1923",
+    "name": "Fawlty Towers/Season 02/S02E03 - Waldorf Salad.ia.mp4",
+    "original": "Fawlty Towers/Season 02/S02E03 - Waldorf Salad.mp4",
+    "size": "567647853",
+    "source": "derivative"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1923",
+    "name": "Fawlty Towers/Season 02/S02E03 - Waldorf Salad.mp4",
+    "size": "567647853",
+    "source": "original"
+   },
+   {
+    "format": "h.264 IA",
+    "length": "1893.28",
+    "name": "Fawlty Towers/Season 02/S02E04 - The Kipper and the Corpse.ia.mp4",
+    "original": "Fawlty Towers/Season 02/S02E04 - The Kipper and the Corpse.mp4",
+    "size": "715259608",
+    "source": "derivative"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1893.28",
+    "name": "Fawlty Towers/Season 02/S02E04 - The Kipper and the Corpse.mp4",
+    "size": "715259608",
+    "source": "original"
+   },
+   {
+    "format": "h.264 IA",
+    "length": "1748",
+    "name": "Fawlty Towers/Season 02/S02E05 - The Anniversary.ia.mp4",
+    "original": "Fawlty Towers/Season 02/S02E05 - The Anniversary.mp4",
+    "size": "423004582",
+    "source": "derivative"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1748",
+    "name": "Fawlty Towers/Season 02/S02E05 - The Anniversary.mp4",
+    "size": "423004582",
+    "source": "original"
+   },
+   {
+    "format": "h.264 IA",
+    "length": "2025.04",
+    "name": "Fawlty Towers/Season 02/S02E06 - Basil the Rat.ia.mp4",
+    "original": "Fawlty Towers/Season 02/S02E06 - Basil the Rat.mp4",
+    "size": "441982601",
+    "source": "derivative"
+   },
+   {
+    "format": "MPEG4",
+    "length": "2025.04",
+    "name": "Fawlty Towers/Season 02/S02E06 - Basil the Rat.mp4",
+    "size": "441982601",
+    "source": "original"
+   }
+  ],
+  "isize": 14426587496,
   "reason": "ok",
   "verdict": "bundle"
  },
@@ -138869,6 +142257,12 @@
   "reason": "2 playable works",
   "verdict": "single"
  },
+ "scrapheap_challenge": {
+  "checkedAt": "2026-10-20",
+  "isize": 132201457652,
+  "reason": "two works share a number",
+  "verdict": "single"
+ },
  "scrooge_ipod": {
   "checkedAt": "2026-10-18",
   "isize": 1837140943,
@@ -163832,6 +167226,2025 @@
    }
   ],
   "isize": 2030123223,
+  "reason": "ok",
+  "verdict": "bundle"
+ },
+ "the-cosby-show-complete-series_202512": {
+  "checkedAt": "2026-10-20",
+  "files": [
+   {
+    "format": "MPEG4",
+    "length": "1303.01",
+    "name": "The Cosby Show S01E01 Pilot Presentation.mp4",
+    "size": "50107590",
+    "source": "original",
+    "title": "The Cosby Show S01E01 Pilot"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.65",
+    "name": "The Cosby Show S01E02 Goodbye Mr Fish.mp4",
+    "size": "61799330",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.51",
+    "name": "The Cosby Show S01E03 Bad Dreams.mp4",
+    "size": "48037592",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.44",
+    "name": "The Cosby Show S01E04 Is That My Boy.mp4",
+    "size": "54244060",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.05",
+    "name": "The Cosby Show S01E05 A Shirt Story.mp4",
+    "size": "64668419",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1311.56",
+    "name": "The Cosby Show S01E06 Breaking With Tradition.mp4",
+    "size": "54009415",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.68",
+    "name": "The Cosby Show S01E07 One More Time.mp4",
+    "size": "62490750",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1311.28",
+    "name": "The Cosby Show S01E08 Play It Again Vanessa.mp4",
+    "size": "56555800",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.61",
+    "name": "The Cosby Show S01E09 How Ugly Is He.mp4",
+    "size": "58156212",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.58",
+    "name": "The Cosby Show S01E10 Bon Jour Sondra.mp4",
+    "size": "59932175",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.72",
+    "name": "The Cosby Show S01E11 You're Not a Mother Night.mp4",
+    "size": "57723118",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.16",
+    "name": "The Cosby Show S01E12 Rudy's Sick.mp4",
+    "size": "65339506",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1307.61",
+    "name": "The Cosby Show S01E13 Father's Day.mp4",
+    "size": "65606085",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1304.64",
+    "name": "The Cosby Show S01E14 Independence Day.mp4",
+    "size": "64398947",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.26",
+    "name": "The Cosby Show S01E15 Physician of the Year.mp4",
+    "size": "55151860",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.96",
+    "name": "The Cosby Show S01E16 Jitterbug Break.mp4",
+    "size": "70288141",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.35",
+    "name": "The Cosby Show S01E17 Theo and the Joint.mp4",
+    "size": "68069824",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.63",
+    "name": "The Cosby Show S01E18 Vanessa's New Class.mp4",
+    "size": "65315470",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.07",
+    "name": "The Cosby Show S01E19 Clair's Case.mp4",
+    "size": "64276527",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1311.56",
+    "name": "The Cosby Show S01E20 Back to the Track Jack.mp4",
+    "size": "68826479",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1305.84",
+    "name": "The Cosby Show S01E21 The Younger Woman.mp4",
+    "size": "58418818",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1311.28",
+    "name": "The Cosby Show S01E22 Slumber Party.mp4",
+    "size": "68343268",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.72",
+    "name": "The Cosby Show S01E23 Mr. Quiet.mp4",
+    "size": "59918214",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.58",
+    "name": "The Cosby Show S01E24 Cliff's Birthday.mp4",
+    "size": "60612504",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1307.98",
+    "name": "The Cosby Show S02E01 First Day of School.mp4",
+    "size": "64010504",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.72",
+    "name": "The Cosby Show S02E02 The Juicer.mp4",
+    "size": "58214583",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1311.65",
+    "name": "The Cosby Show S02E03 Happy Anniversary.mp4",
+    "size": "67506146",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1313.04",
+    "name": "The Cosby Show S02E04 Cliff in Love.mp4",
+    "size": "68320195",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1301.85",
+    "name": "The Cosby Show S02E05 Theo and the Older Woman.mp4",
+    "size": "67963017",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.54",
+    "name": "The Cosby Show S02E06 Halloween.mp4",
+    "size": "72052810",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.98",
+    "name": "The Cosby Show S02E07 Rudy Suits Up.mp4",
+    "size": "71114656",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1303.76",
+    "name": "The Cosby Show S02E08 Denise Drives.mp4",
+    "size": "67707801",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.21",
+    "name": "The Cosby Show S02E09 Clair's Sister.mp4",
+    "size": "70187916",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1311.28",
+    "name": "The Cosby Show S02E10 Clair's Toe.mp4",
+    "size": "62494458",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.02",
+    "name": "The Cosby Show S02E11 Denise's Friend.mp4",
+    "size": "57236615",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1304.45",
+    "name": "The Cosby Show S02E12 Mrs. Westlake.mp4",
+    "size": "59280098",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.21",
+    "name": "The Cosby Show S02E13 The Auction.mp4",
+    "size": "59796156",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.45",
+    "name": "The Cosby Show S02E14 Vanessa's Bad Grade.mp4",
+    "size": "62184277",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.12",
+    "name": "The Cosby Show S02E15 Theo and Cockroach.mp4",
+    "size": "65167535",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.17",
+    "name": "The Cosby Show S02E16 The Dentist.mp4",
+    "size": "59292417",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1307.75",
+    "name": "The Cosby Show S02E17 Play It Again Russell.mp4",
+    "size": "64315994",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1307.47",
+    "name": "The Cosby Show S02E18 A Touch of Wonder.mp4",
+    "size": "66749815",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1307.61",
+    "name": "The Cosby Show S02E19 Full House.mp4",
+    "size": "58182512",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1306.22",
+    "name": "The Cosby Show S02E20 Close to Home.mp4",
+    "size": "60955402",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1307.52",
+    "name": "The Cosby Show S02E21 An Early Spring.mp4",
+    "size": "60419235",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.91",
+    "name": "The Cosby Show S02E22 Theo's Holiday.mp4",
+    "size": "57609947",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.21",
+    "name": "The Cosby Show S02E23 The Card Game.mp4",
+    "size": "52739635",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.51",
+    "name": "The Cosby Show S02E24 Off to the Races.mp4",
+    "size": "63494172",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1307.38",
+    "name": "The Cosby Show S02E25 Denise's Decision.mp4",
+    "size": "59325845",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1307.98",
+    "name": "The Cosby Show S03E01 Bring 'Em Back Alive.mp4",
+    "size": "58784123",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.28",
+    "name": "The Cosby Show S03E02 Food for Thought.mp4",
+    "size": "48503537",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.37",
+    "name": "The Cosby Show S03E03 Golden Anniversary.mp4",
+    "size": "58096102",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.26",
+    "name": "The Cosby Show S03E04 Man Talk.mp4",
+    "size": "57385172",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.65",
+    "name": "The Cosby Show S03E05 Mother May I.mp4",
+    "size": "50330092",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1311.51",
+    "name": "The Cosby Show S03E06 The March.mp4",
+    "size": "53673313",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.42",
+    "name": "The Cosby Show S03E07 Theo's Flight.mp4",
+    "size": "49616248",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.91",
+    "name": "The Cosby Show S03E08 Vanessa's Rich.mp4",
+    "size": "56902755",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.02",
+    "name": "The Cosby Show S03E09 Denise Gets a 'D'.mp4",
+    "size": "49849865",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.81",
+    "name": "The Cosby Show S03E10 A Girl and Her Dog.mp4",
+    "size": "54981994",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.72",
+    "name": "The Cosby Show S03E11 War Stories.mp4",
+    "size": "51655164",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.89",
+    "name": "The Cosby Show S03E12 Cliff in Charge.mp4",
+    "size": "52097872",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.21",
+    "name": "The Cosby Show S03E13 Monster Man Huxtable.mp4",
+    "size": "53740866",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.23",
+    "name": "The Cosby Show S03E14 Rudy Spends the Night.mp4",
+    "size": "56125651",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1311.23",
+    "name": "The Cosby Show S03E15 Say Hello to a Good Buy.mp4",
+    "size": "49895198",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.19",
+    "name": "The Cosby Show S03E16 Denise Gets an Opinion.mp4",
+    "size": "53327713",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.51",
+    "name": "The Cosby Show S03E17 Calling Dr. Huxtable.mp4",
+    "size": "53556724",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.12",
+    "name": "The Cosby Show S03E18 You Only Hurt the One You Love.mp4",
+    "size": "55871866",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1305.61",
+    "name": "The Cosby Show S03E19 The Shower.mp4",
+    "size": "58220656",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.86",
+    "name": "The Cosby Show S03E20 Cliff's 50th Birthday.mp4",
+    "size": "57026241",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309",
+    "name": "The Cosby Show S03E21 I Know That You Know.mp4",
+    "size": "57619295",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.72",
+    "name": "The Cosby Show S03E22 The Andalusian Flu.mp4",
+    "size": "52640036",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.65",
+    "name": "The Cosby Show S03E23 Bald and Beautiful.mp4",
+    "size": "57825227",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.72",
+    "name": "The Cosby Show S03E24 Planning Parent Hood.mp4",
+    "size": "55785186",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.54",
+    "name": "The Cosby Show S03E25 Hillman.mp4",
+    "size": "59666684",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1311.42",
+    "name": "The Cosby Show S04E01 Call of the Wild.mp4",
+    "size": "56555760",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.72",
+    "name": "The Cosby Show S04E02 Theogate.mp4",
+    "size": "50932110",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.21",
+    "name": "The Cosby Show S04E03 It Aint Easy Being Green.mp4",
+    "size": "60078730",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.07",
+    "name": "The Cosby Show S04E04 Cliff's Mistake.mp4",
+    "size": "53865025",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.31",
+    "name": "The Cosby Show S04E05 Shakespeare.mp4",
+    "size": "52105516",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1307.38",
+    "name": "The Cosby Show S04E06 That's Not What I Said.mp4",
+    "size": "51952134",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1306.26",
+    "name": "The Cosby Show S04E07 Autumn Gifts.mp4",
+    "size": "55926325",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309",
+    "name": "The Cosby Show S04E08 Looking Back (Part 1).mp4",
+    "size": "57693410",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.61",
+    "name": "The Cosby Show S04E09 Looking Back (Part 2).mp4",
+    "size": "58139732",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.96",
+    "name": "The Cosby Show S04E10 Where's Rudy.mp4",
+    "size": "63735905",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.31",
+    "name": "The Cosby Show S04E11 Dancemania.mp4",
+    "size": "63729430",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1311.23",
+    "name": "The Cosby Show S04E12 The Locker Room.mp4",
+    "size": "56688601",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1307.61",
+    "name": "The Cosby Show S04E13 The Show Must Go On.mp4",
+    "size": "54995678",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.91",
+    "name": "The Cosby Show S04E14 Bookworm.mp4",
+    "size": "53708572",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1304.68",
+    "name": "The Cosby Show S04E15 Twinkle Twinkle Little Star.mp4",
+    "size": "53579851",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.86",
+    "name": "The Cosby Show S04E16 The Visit.mp4",
+    "size": "55742850",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.26",
+    "name": "The Cosby Show S04E17 The Drum Major.mp4",
+    "size": "57645384",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.65",
+    "name": "The Cosby Show S04E18 Waterworks.mp4",
+    "size": "54230701",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1306.68",
+    "name": "The Cosby Show S04E19 Once Upon a Time.mp4",
+    "size": "49497843",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.67",
+    "name": "The Cosby Show S04E20 Petanque.mp4",
+    "size": "59316724",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.65",
+    "name": "The Cosby Show S04E21 Trust Me.mp4",
+    "size": "56205698",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.81",
+    "name": "The Cosby Show S04E22 Home for the Weekend.mp4",
+    "size": "58114216",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1307.28",
+    "name": "The Cosby Show S04E23 The Prom.mp4",
+    "size": "60894960",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1311.79",
+    "name": "The Cosby Show S04E24 Gone Fishin.mp4",
+    "size": "61657195",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.1",
+    "name": "The Cosby Show S05E01 Together Again and Again.mp4",
+    "size": "59248485",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.28",
+    "name": "The Cosby Show S05E02 The Physical.mp4",
+    "size": "48701843",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1307.15",
+    "name": "The Cosby Show S05E03 Rudy's All-Nighter.mp4",
+    "size": "55010954",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1312.72",
+    "name": "The Cosby Show S05E04 Move It.mp4",
+    "size": "62752372",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.89",
+    "name": "The Cosby Show S05E05 Out of Brooklyn.mp4",
+    "size": "62691877",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.98",
+    "name": "The Cosby Show S05E06 The Birth (Part 1).mp4",
+    "size": "55858033",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.16",
+    "name": "The Cosby Show S05E07 The Birth (Part 2).mp4",
+    "size": "53470969",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1311.19",
+    "name": "The Cosby Show S05E08 Cyranoise de Bergington.mp4",
+    "size": "53569407",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.19",
+    "name": "The Cosby Show S05E09 How Do You Get to Carnegie Hall.mp4",
+    "size": "57259138",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.89",
+    "name": "The Cosby Show S05E10 If the Dress Fits Wear It.mp4",
+    "size": "62857575",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.45",
+    "name": "The Cosby Show S05E11 Is There a Hamster in the House.mp4",
+    "size": "53879796",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1307.42",
+    "name": "The Cosby Show S05E12 Truth or Consequences.mp4",
+    "size": "50471225",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1311.42",
+    "name": "The Cosby Show S05E13 Cliff Babysits.mp4",
+    "size": "62233768",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1307.8",
+    "name": "The Cosby Show S05E14 Mrs. Huxtable Goes to Kindergarten.mp4",
+    "size": "55940625",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.86",
+    "name": "The Cosby Show S05E15 The Lost Weekend.mp4",
+    "size": "66229002",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1311.88",
+    "name": "The Cosby Show S05E16 No Way Baby.mp4",
+    "size": "55859658",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1307.15",
+    "name": "The Cosby Show S05E17 Can I Say Something Please.mp4",
+    "size": "56392835",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.7",
+    "name": "The Cosby Show S05E18 The Dead End Kids Meet Dr. Lotus.mp4",
+    "size": "54228057",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1307.66",
+    "name": "The Cosby Show S05E19 The Boys of Winter.mp4",
+    "size": "62108111",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1311.79",
+    "name": "The Cosby Show S05E20 It Comes and It Goes.mp4",
+    "size": "58263052",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1311.28",
+    "name": "The Cosby Show S05E21 Theo's Women.mp4",
+    "size": "52368397",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1311.51",
+    "name": "The Cosby Show S05E22 Birthday Blues.mp4",
+    "size": "57286686",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.16",
+    "name": "The Cosby Show S05E23 A Room With No View.mp4",
+    "size": "55140468",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.37",
+    "name": "The Cosby Show S05E24 What He Did for Love.mp4",
+    "size": "61061951",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1311.28",
+    "name": "The Cosby Show S05E25 Day of the Locust.mp4",
+    "size": "57670137",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.21",
+    "name": "The Cosby Show S05E26 57 Varieties.mp4",
+    "size": "55253133",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.95",
+    "name": "The Cosby Show S06E01 Denise the Saga Continues.mp4",
+    "size": "58368378",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.37",
+    "name": "The Cosby Show S06E02 Surf's up.mp4",
+    "size": "57546275",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1306.68",
+    "name": "The Cosby Show S06E03 I'm in With the in Crowd.mp4",
+    "size": "58044789",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1303.85",
+    "name": "The Cosby Show S06E04 Denise Kendall Navy Wife.mp4",
+    "size": "51433172",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1306.87",
+    "name": "The Cosby Show S06E05 Theo's Gift.mp4",
+    "size": "53649848",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1338.45",
+    "name": "The Cosby Show S06E06 Denise Kendall Babysitter.mp4",
+    "size": "63128992",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.35",
+    "name": "The Cosby Show S06E07 Shall We Dance.mp4",
+    "size": "63721615",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.12",
+    "name": "The Cosby Show S06E08 The Day the Spores Landed.mp4",
+    "size": "64642489",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.49",
+    "name": "The Cosby Show S06E09 Cliff's Wet Adventure.mp4",
+    "size": "60428602",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1311.09",
+    "name": "The Cosby Show S06E10 Grampy and NuNu Visit the Huxtables.mp4",
+    "size": "59659050",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.51",
+    "name": "The Cosby Show S06E11 Cliff La Dolce.mp4",
+    "size": "55234598",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1306.17",
+    "name": "The Cosby Show S06E12 Getting to Know You.mp4",
+    "size": "57717310",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.44",
+    "name": "The Cosby Show S06E13 Elvin Pays for Dinner.mp4",
+    "size": "57097660",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.72",
+    "name": "The Cosby Show S06E14 Cliff's Nightmare.mp4",
+    "size": "48932369",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.4",
+    "name": "The Cosby Show S06E15 Denise Kendall Singles Counselor.mp4",
+    "size": "59854496",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.31",
+    "name": "The Cosby Show S06E16 The Birthday Party.mp4",
+    "size": "62363139",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1307.7",
+    "name": "The Cosby Show S06E17 Not Everybody Loves the Blues.mp4",
+    "size": "62947082",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1307.84",
+    "name": "The Cosby Show S06E18 Rudy's Walk On the Wild Side.mp4",
+    "size": "59846723",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.02",
+    "name": "The Cosby Show S06E19 Mr Sandman.mp4",
+    "size": "59369873",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.44",
+    "name": "The Cosby Show S06E20 Isn't It Romantic.mp4",
+    "size": "51132565",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1306.31",
+    "name": "The Cosby Show S06E21 Theo's Dirty Laundry.mp4",
+    "size": "54434930",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309",
+    "name": "The Cosby Show S06E22 What's It All About.mp4",
+    "size": "54557086",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.75",
+    "name": "The Cosby Show S06E23 Off to See the Wretched.mp4",
+    "size": "62320584",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.42",
+    "name": "The Cosby Show S06E24 The Moves.mp4",
+    "size": "57060674",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1306.68",
+    "name": "The Cosby Show S06E25 Live and Learn.mp4",
+    "size": "63034157",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.81",
+    "name": "The Cosby Show S06E26 The Storyteller.mp4",
+    "size": "64466911",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1306.45",
+    "name": "The Cosby Show S07E01 Same Time Next Year.mp4",
+    "size": "60459527",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1305.89",
+    "name": "The Cosby Show S07E02 Bird in the Hand.mp4",
+    "size": "58878832",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.05",
+    "name": "The Cosby Show S07E03 The Last Barbecue.mp4",
+    "size": "64092277",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.42",
+    "name": "The Cosby Show S07E04 Period of Adjustment.mp4",
+    "size": "55468993",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.58",
+    "name": "The Cosby Show S07E05 It's All in the Game.mp4",
+    "size": "53970313",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.77",
+    "name": "The Cosby Show S07E06 Getting the Story.mp4",
+    "size": "58657894",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.12",
+    "name": "The Cosby Show S07E07 Just Thinking About It Pt 1.mp4",
+    "size": "59956400",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.51",
+    "name": "The Cosby Show S07E08 Just Thinking About It Pt 2.mp4",
+    "size": "54229160",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1306.63",
+    "name": "The Cosby Show S07E09 The Infantry Has Landed and Theyve Fallen Off the Roof.mp4",
+    "size": "55475297",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1305.8",
+    "name": "The Cosby Show S07E10 You Can Go Home Again.mp4",
+    "size": "58714968",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1305.24",
+    "name": "The Cosby Show S07E11 It's a Boy.mp4",
+    "size": "56110249",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1313.04",
+    "name": "The Cosby Show S07E12 Clair's Liberation.mp4",
+    "size": "61319069",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1305.38",
+    "name": "The Cosby Show S07E13 It's Your Move.mp4",
+    "size": "63457793",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1306.49",
+    "name": "The Cosby Show S07E14 Theo's Final Final.mp4",
+    "size": "55684842",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.07",
+    "name": "The Cosby Show S07E15 Attack of the Killer B's.mp4",
+    "size": "62860831",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.45",
+    "name": "The Cosby Show S07E16 Total Control.mp4",
+    "size": "57248128",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.49",
+    "name": "The Cosby Show S07E17 Adventures in Babysitting.mp4",
+    "size": "54303780",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.67",
+    "name": "The Cosby Show S07E18 27 and Still Cooking.mp4",
+    "size": "60059960",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.82",
+    "name": "The Cosby Show S07E19 Return of the Clairettes.mp4",
+    "size": "56503528",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1311.74",
+    "name": "The Cosby Show S07E20 No More Mr. Nice Guy.mp4",
+    "size": "66212121",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1311.93",
+    "name": "The Cosby Show S07E21 Home Remedies.mp4",
+    "size": "61315489",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1307.52",
+    "name": "The Cosby Show S07E22 Nightmare On Stigwood Avenue.mp4",
+    "size": "48337378",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1312.44",
+    "name": "The Cosby Show S07E23 There's Still No Joy in Mudville.mp4",
+    "size": "59787981",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.42",
+    "name": "The Cosby Show S07E24 Cliff and Jake.mp4",
+    "size": "67436556",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1306.73",
+    "name": "The Cosby Show S07E25 Theo and the Kids (Part 1).mp4",
+    "size": "59318445",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1311.14",
+    "name": "The Cosby Show S07E26 Theo and the Kids (Part 2).mp4",
+    "size": "54794609",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1307.01",
+    "name": "The Cosby Show S08E01 With This Ring.mp4",
+    "size": "49160888",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1306.4",
+    "name": "The Cosby Show S08E02 There's No Place Like Home.mp4",
+    "size": "61881479",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1307.84",
+    "name": "The Cosby Show S08E03 Particles in Motion.mp4",
+    "size": "48782081",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.77",
+    "name": "The Cosby Show S08E04 Pam Applies to College.mp4",
+    "size": "57258970",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1304.68",
+    "name": "The Cosby Show S08E05 Warning a Double-Lit Candle Can Cause a Meltdown.mp4",
+    "size": "63617050",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1311.46",
+    "name": "The Cosby Show S08E06 It's Apparent to Everyone.mp4",
+    "size": "59134809",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1306.4",
+    "name": "The Cosby Show S08E07 The Iceman Bricketh.mp4",
+    "size": "54279283",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1305.38",
+    "name": "The Cosby Show S08E08 Olivia's Field Trip.mp4",
+    "size": "57242639",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.96",
+    "name": "The Cosby Show S08E09 For Men Only.mp4",
+    "size": "51836357",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1306.54",
+    "name": "The Cosby Show S08E10 Olivia Comes Out of the Closet.mp4",
+    "size": "59393045",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1305.71",
+    "name": "The Cosby Show S08E11 Two Is a Crowd.mp4",
+    "size": "60418723",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.72",
+    "name": "The Cosby Show S08E12 Clair's Place.mp4",
+    "size": "56983252",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.63",
+    "name": "The Cosby Show S08E13 Theo's Future.mp4",
+    "size": "59045190",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.68",
+    "name": "The Cosby Show S08E14 The Price Is Wrong.mp4",
+    "size": "63810525",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.49",
+    "name": "The Cosby Show S08E15 Bring Me the Lip Gloss of Deirdre Arpell.mp4",
+    "size": "56919051",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.65",
+    "name": "The Cosby Show S08E16 Eat Drink and Be Wary.mp4",
+    "size": "63062831",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.37",
+    "name": "The Cosby Show S08E17 The Getaway.mp4",
+    "size": "60893507",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1305.84",
+    "name": "The Cosby Show S08E18 Cliff Gets Jilted.mp4",
+    "size": "59813357",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.42",
+    "name": "The Cosby Show S08E19 Cliff and Theo Come Clean.mp4",
+    "size": "55938004",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1309.33",
+    "name": "The Cosby Show S08E20 Clair's Reunion.mp4",
+    "size": "61032465",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.86",
+    "name": "The Cosby Show S08E21 Rudy's Retreat.mp4",
+    "size": "52235521",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.54",
+    "name": "The Cosby Show S08E22 You Can't Stop the Music.mp4",
+    "size": "60351819",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1310.21",
+    "name": "The Cosby Show S08E23 Some Gifts Aren't Deductible.mp4",
+    "size": "57087486",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1308.82",
+    "name": "The Cosby Show S08E24 And So We Commence (Part 1).mp4",
+    "size": "58780421",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1311.84",
+    "name": "The Cosby Show S08E25 And So We Commence (Part 2).mp4",
+    "size": "63128609",
+    "source": "original"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S01E01 Pilot Presentation_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S01E02 Goodbye Mr Fish_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S01E03 Bad Dreams_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S01E04 Is That My Boy_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S01E05 A Shirt Story_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S01E06 Breaking With Tradition_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S01E07 One More Time_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S01E08 Play It Again Vanessa_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S01E09 How Ugly Is He_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S01E10 Bon Jour Sondra_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S01E11 You're Not a Mother Night_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S01E12 Rudy's Sick_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S01E13 Father's Day_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S01E14 Independence Day_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S01E15 Physician of the Year_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S01E16 Jitterbug Break_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S01E17 Theo and the Joint_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S01E18 Vanessa's New Class_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S01E19 Clair's Case_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S01E20 Back to the Track Jack_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S01E21 The Younger Woman_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S01E22 Slumber Party_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S01E23 Mr. Quiet_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S01E24 Cliff's Birthday_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S02E01 First Day of School_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S02E02 The Juicer_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S02E03 Happy Anniversary_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S02E04 Cliff in Love_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S02E05 Theo and the Older Woman_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S02E06 Halloween_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S02E07 Rudy Suits Up_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S02E08 Denise Drives_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S02E09 Clair's Sister_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S02E10 Clair's Toe_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S02E11 Denise's Friend_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S02E12 Mrs. Westlake_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S02E13 The Auction_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S02E14 Vanessa's Bad Grade_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S02E15 Theo and Cockroach_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S02E16 The Dentist_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S02E17 Play It Again Russell_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S02E18 A Touch of Wonder_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S02E19 Full House_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S02E20 Close to Home_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S02E21 An Early Spring_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S02E22 Theo's Holiday_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S02E23 The Card Game_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S02E24 Off to the Races_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S02E25 Denise's Decision_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S03E01 Bring 'Em Back Alive_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S03E02 Food for Thought_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S03E03 Golden Anniversary_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S03E04 Man Talk_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S03E05 Mother May I_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S03E06 The March_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S03E07 Theo's Flight_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S03E08 Vanessa's Rich_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S03E09 Denise Gets a 'D'_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S03E10 A Girl and Her Dog_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S03E11 War Stories_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S03E12 Cliff in Charge_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S03E13 Monster Man Huxtable_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S03E14 Rudy Spends the Night_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S03E15 Say Hello to a Good Buy_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S03E16 Denise Gets an Opinion_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S03E17 Calling Dr. Huxtable_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S03E18 You Only Hurt the One You Love_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S03E19 The Shower_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S03E20 Cliff's 50th Birthday_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S03E21 I Know That You Know_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S03E22 The Andalusian Flu_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S03E23 Bald and Beautiful_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S03E24 Planning Parent Hood_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S03E25 Hillman_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S04E01 Call of the Wild_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S04E02 Theogate_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S04E03 It Aint Easy Being Green_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S04E04 Cliff's Mistake_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S04E05 Shakespeare_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S04E06 That's Not What I Said_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S04E07 Autumn Gifts_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S04E08 Looking Back (Part 1)_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S04E09 Looking Back (Part 2)_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S04E10 Where's Rudy_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S04E11 Dancemania_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S04E12 The Locker Room_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S04E13 The Show Must Go On_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S04E14 Bookworm_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S04E15 Twinkle Twinkle Little Star_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S04E16 The Visit_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S04E17 The Drum Major_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S04E18 Waterworks_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S04E19 Once Upon a Time_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S04E20 Petanque_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S04E21 Trust Me_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S04E22 Home for the Weekend_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S04E23 The Prom_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S04E24 Gone Fishin_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S05E01 Together Again and Again_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S05E02 The Physical_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S05E03 Rudy's All-Nighter_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S05E04 Move It_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S05E05 Out of Brooklyn_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S05E06 The Birth (Part 1)_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S05E07 The Birth (Part 2)_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S05E08 Cyranoise de Bergington_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S05E09 How Do You Get to Carnegie Hall_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S05E10 If the Dress Fits Wear It_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S05E11 Is There a Hamster in the House_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S05E12 Truth or Consequences_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S05E13 Cliff Babysits_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S05E14 Mrs. Huxtable Goes to Kindergarten_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S05E15 The Lost Weekend_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S05E16 No Way Baby_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S05E17 Can I Say Something Please_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S05E18 The Dead End Kids Meet Dr. Lotus_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S05E19 The Boys of Winter_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S05E20 It Comes and It Goes_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S05E21 Theo's Women_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S05E22 Birthday Blues_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S05E23 A Room With No View_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S05E24 What He Did for Love_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S05E25 Day of the Locust_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S05E26 57 Varieties_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S06E01 Denise the Saga Continues_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S06E02 Surf's up_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S06E03 I'm in With the in Crowd_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S06E04 Denise Kendall Navy Wife_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S06E05 Theo's Gift_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S06E06 Denise Kendall Babysitter_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S06E07 Shall We Dance_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S06E08 The Day the Spores Landed_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S06E09 Cliff's Wet Adventure_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S06E10 Grampy and NuNu Visit the Huxtables_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S06E11 Cliff La Dolce_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S06E12 Getting to Know You_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S06E13 Elvin Pays for Dinner_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S06E14 Cliff's Nightmare_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S06E15 Denise Kendall Singles Counselor_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S06E16 The Birthday Party_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S06E17 Not Everybody Loves the Blues_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S06E18 Rudy's Walk On the Wild Side_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S06E19 Mr Sandman_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S06E20 Isn't It Romantic_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S06E21 Theo's Dirty Laundry_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S06E22 What's It All About_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S06E23 Off to See the Wretched_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S06E24 The Moves_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S06E25 Live and Learn_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S06E26 The Storyteller_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S07E01 Same Time Next Year_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S07E02 Bird in the Hand_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S07E03 The Last Barbecue_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S07E04 Period of Adjustment_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S07E05 It's All in the Game_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S07E06 Getting the Story_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S07E07 Just Thinking About It Pt 1_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S07E08 Just Thinking About It Pt 2_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S07E09 The Infantry Has Landed and Theyve Fallen Off the Roof_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S07E10 You Can Go Home Again_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S07E11 It's a Boy_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S07E12 Clair's Liberation_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S07E13 It's Your Move_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S07E14 Theo's Final Final_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S07E15 Attack of the Killer B's_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S07E16 Total Control_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S07E17 Adventures in Babysitting_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S07E18 27 and Still Cooking_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S07E19 Return of the Clairettes_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S07E20 No More Mr. Nice Guy_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S07E21 Home Remedies_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S07E22 Nightmare On Stigwood Avenue_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S07E23 There's Still No Joy in Mudville_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S07E24 Cliff and Jake_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S07E25 Theo and the Kids (Part 1)_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S07E26 Theo and the Kids (Part 2)_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S08E01 With This Ring_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S08E02 There's No Place Like Home_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S08E03 Particles in Motion_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S08E04 Pam Applies to College_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S08E05 Warning a Double-Lit Candle Can Cause a Meltdown_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S08E06 It's Apparent to Everyone_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S08E07 The Iceman Bricketh_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S08E08 Olivia's Field Trip_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S08E09 For Men Only_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S08E10 Olivia Comes Out of the Closet_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S08E11 Two Is a Crowd_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S08E12 Clair's Place_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S08E13 Theo's Future_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S08E14 The Price Is Wrong_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S08E15 Bring Me the Lip Gloss of Deirdre Arpell_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S08E16 Eat Drink and Be Wary_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S08E17 The Getaway_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S08E18 Cliff Gets Jilted_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S08E19 Cliff and Theo Come Clean_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S08E20 Clair's Reunion_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S08E21 Rudy's Retreat_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S08E22 You Can't Stop the Music_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S08E23 Some Gifts Aren't Deductible_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S08E24 And So We Commence (Part 1)_000001.jpg"
+   },
+   {
+    "name": "the-cosby-show-complete-series_202512.thumbs/The Cosby Show S08E25 And So We Commence (Part 2)_000001.jpg"
+   }
+  ],
+  "isize": 11754725860,
   "reason": "ok",
   "verdict": "bundle"
  },
@@ -190553,6 +195966,80 @@
   "checkedAt": "2026-10-18",
   "isize": 1350463241,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "treehouse-tv-2007": {
+  "checkedAt": "2026-10-20",
+  "files": [
+   {
+    "format": "h.264",
+    "length": "3593.52",
+    "name": "Treehouse TV (2007) (Part 1) (1).mp4",
+    "original": "Treehouse TV (2007) (Part 1) (1).mpg",
+    "size": "374640117",
+    "source": "derivative"
+   },
+   {
+    "format": "MPEG2",
+    "length": "3593.52",
+    "name": "Treehouse TV (2007) (Part 1) (1).mpg",
+    "size": "4338659683",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "7603.54",
+    "name": "Treehouse TV (2007) (Part 2).mp4",
+    "original": "Treehouse TV (2007) (Part 2).mpg",
+    "size": "793337595",
+    "source": "derivative"
+   },
+   {
+    "format": "MPEG2",
+    "length": "7603.53",
+    "name": "Treehouse TV (2007) (Part 2).mpg",
+    "size": "9180180325",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "9025.49",
+    "name": "Treehouse TV (2007) (Part 3).mp4",
+    "original": "Treehouse TV (2007) (Part 3).mpg",
+    "size": "942733207",
+    "source": "derivative"
+   },
+   {
+    "format": "MPEG2",
+    "length": "9025.47",
+    "name": "Treehouse TV (2007) (Part 3).mpg",
+    "size": "10896956128",
+    "source": "original"
+   },
+   {
+    "name": "treehouse-tv-2007.thumbs/Treehouse TV (2007) (Part 1) (1)_001194.jpg"
+   },
+   {
+    "name": "treehouse-tv-2007.thumbs/Treehouse TV (2007) (Part 2)_002577.jpg"
+   },
+   {
+    "name": "treehouse-tv-2007.thumbs/Treehouse TV (2007) (Part 3)_003060.jpg"
+   }
+  ],
+  "isize": 26555269926,
+  "reason": "ok",
+  "verdict": "bundle"
+ },
+ "treehouse-tv-2008-part-2": {
+  "checkedAt": "2026-10-20",
+  "isize": 9048459146,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "treehouse-tv-2008-part-5": {
+  "checkedAt": "2026-10-20",
+  "isize": 11967542060,
+  "reason": "2 playable works",
   "verdict": "single"
  },
  "tres-argentinos-en-paris-aka-tres-anclados-en-paris-1938": {

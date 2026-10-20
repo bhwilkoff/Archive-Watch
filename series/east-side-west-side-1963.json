@@ -4,7 +4,7 @@
   "tvmazeID": 40790,
   "title": "East Side/West Side",
   "yearStart": 1963,
-  "yearEnd": 1963,
+  "yearEnd": 1964,
   "overview": "Neil Brock is a young social worker in the slums of New York City; his boss is Frieda Hechlinger; and Jane Foster is the office secretary. This dramatic series features stories about child abuse, drug abuse, rip-offs of the welfare system, crime, etc., i.e., all of the problems of the inner city.",
   "posterURL": "https://artworks.thetvdb.com/banners/posters/77309-1.jpg",
   "backdropURL": null,
@@ -21,13 +21,185 @@
       "seasonNumber": 1,
       "episodes": [
         {
-          "archiveID": "east-side-west-side-s-1-e-01-the-sinner",
+          "archiveID": "east-side-west-side-s-1-e-01-the-sinner@s1e01",
+          "sourceID": "east-side-west-side-s-1-e-01-the-sinner",
           "seasonNumber": 1,
           "episodeNumber": 1,
           "title": "The Sinner",
           "overview": null,
-          "stillURL": "https://archive.org/services/img/east-side-west-side-s-1-e-01-the-sinner",
-          "airDate": null,
+          "stillURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/east-side-west-side-s-1-e-01-the-sinner.thumbs/East%20Side%3AWest%20Side%20-%20S1E01%20The%20Sinner_001327.jpg",
+          "airDate": "1963-09-23",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "East Side:West Side - S1E01 The Sinner.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 331925076,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/East%20Side%3AWest%20Side%20-%20S1E01%20The%20Sinner.ia.mp4"
+        },
+        {
+          "archiveID": "east-side-west-side-s-1-e-01-the-sinner@s1e02",
+          "sourceID": "east-side-west-side-s-1-e-01-the-sinner",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Age of Consent",
+          "overview": null,
+          "stillURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/east-side-west-side-s-1-e-01-the-sinner.thumbs/East%20Side%3AWest%20Side%20-%20S1E02%20Age%20of%20Consent_001337.jpg",
+          "airDate": "1963-09-30",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "East Side:West Side - S1E02 Age of Consent.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 461462340,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/East%20Side%3AWest%20Side%20-%20S1E02%20Age%20of%20Consent.ia.mp4"
+        },
+        {
+          "archiveID": "east-side-west-side-s-1-e-01-the-sinner@s1e03",
+          "sourceID": "east-side-west-side-s-1-e-01-the-sinner",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "You Can't Beat the System",
+          "overview": null,
+          "stillURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/east-side-west-side-s-1-e-01-the-sinner.thumbs/East%20Side%3AWest%20Side%20-%20S1E03%20You%20Can%27t%20Beat%20the%20System_001327.jpg",
+          "airDate": "1963-10-07",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "East Side:West Side - S1E03 You Can't Beat the System.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 467867178,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/East%20Side%3AWest%20Side%20-%20S1E03%20You%20Can%27t%20Beat%20the%20System.ia.mp4"
+        },
+        {
+          "archiveID": "east-side-west-side-s-1-e-01-the-sinner@s1e04",
+          "sourceID": "east-side-west-side-s-1-e-01-the-sinner",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Something for the Girls",
+          "overview": null,
+          "stillURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/east-side-west-side-s-1-e-01-the-sinner.thumbs/East%20Side%3AWest%20Side%20-%20S1E04%20Something%20for%20the%20Girls_001352.jpg",
+          "airDate": "1963-10-14",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "East Side:West Side - S1E04 Something for the Girls.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 502755890,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/East%20Side%3AWest%20Side%20-%20S1E04%20Something%20for%20the%20Girls.ia.mp4"
+        },
+        {
+          "archiveID": "east-side-west-side-s-1-e-01-the-sinner@s1e05",
+          "sourceID": "east-side-west-side-s-1-e-01-the-sinner",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "I Before E Except After C",
+          "overview": null,
+          "stillURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/east-side-west-side-s-1-e-01-the-sinner.thumbs/East%20Side%3AWest%20Side%20-%20S1E05%20I%20Before%20E%20Except%20after%20C_001332.jpg",
+          "airDate": "1963-10-21",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "East Side:West Side - S1E05 I Before E Except after C.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 400278035,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/East%20Side%3AWest%20Side%20-%20S1E05%20I%20Before%20E%20Except%20after%20C.ia.mp4"
+        },
+        {
+          "archiveID": "east-side-west-side-s-1-e-01-the-sinner@s1e06",
+          "sourceID": "east-side-west-side-s-1-e-01-the-sinner",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "No Wings at All",
+          "overview": null,
+          "stillURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/east-side-west-side-s-1-e-01-the-sinner.thumbs/East%20Side%3AWest%20Side%20-%20S1E06%20No%20Wings%20at%20All_001303.jpg",
+          "airDate": "1963-10-28",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "East Side:West Side - S1E06 No Wings at All.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 472018663,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/East%20Side%3AWest%20Side%20-%20S1E06%20No%20Wings%20at%20All.ia.mp4"
+        },
+        {
+          "archiveID": "east-side-west-side-s-1-e-01-the-sinner@s1e07",
+          "sourceID": "east-side-west-side-s-1-e-01-the-sinner",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Who Do You Kill",
+          "overview": null,
+          "stillURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/east-side-west-side-s-1-e-01-the-sinner.thumbs/East%20Side%3AWest%20Side%20-%20S1E07%20Who%20do%20you%20Kill_001163.jpg",
+          "airDate": "1963-11-04",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "East Side:West Side - S1E07 Who do you Kill.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 410465717,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/East%20Side%3AWest%20Side%20-%20S1E07%20Who%20do%20you%20Kill.ia.mp4"
+        },
+        {
+          "archiveID": "east-side-west-side-s-1-e-01-the-sinner@s1e08",
+          "sourceID": "east-side-west-side-s-1-e-01-the-sinner",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Go Fight City Hall",
+          "overview": null,
+          "stillURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/east-side-west-side-s-1-e-01-the-sinner.thumbs/East%20Side%3AWest%20Side%20-%20S1E08%20Go%20Fight%20City%20Hall_001361.jpg",
+          "airDate": "1963-11-11",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "East Side:West Side - S1E08 Go Fight City Hall.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 457432988,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/East%20Side%3AWest%20Side%20-%20S1E08%20Go%20Fight%20City%20Hall.ia.mp4"
+        },
+        {
+          "archiveID": "east-side-west-side-s-1-e-01-the-sinner@s1e09",
+          "sourceID": "east-side-west-side-s-1-e-01-the-sinner",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Not Bad for Openers",
+          "overview": null,
+          "stillURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/east-side-west-side-s-1-e-01-the-sinner.thumbs/East%20Side%3AWest%20Side%20-%20S1E09%20Not%20Bad%20for%20Openers_001273.jpg",
+          "airDate": "1963-11-18",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "East Side:West Side - S1E09 Not Bad for Openers.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 503903714,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/East%20Side%3AWest%20Side%20-%20S1E09%20Not%20Bad%20for%20Openers.ia.mp4"
+        },
+        {
+          "archiveID": "east-side-west-side-s-1-e-01-the-sinner@s1e10",
+          "sourceID": "east-side-west-side-s-1-e-01-the-sinner",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "No Hiding Place",
+          "overview": null,
+          "stillURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/east-side-west-side-s-1-e-01-the-sinner.thumbs/East%20Side%3AWest%20Side%20-%20S1E10%20No%20Hiding%20Place_001309.jpg",
+          "airDate": "1963-12-02",
           "year": 1963,
           "runtimeSeconds": 3600,
           "videoFile": {
@@ -37,11 +209,315 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/East%20Side%3AWest%20Side%20-%20S1E10%20No%20Hiding%20Place.ia.mp4"
+        },
+        {
+          "archiveID": "east-side-west-side-s-1-e-01-the-sinner@s1e11",
+          "sourceID": "east-side-west-side-s-1-e-01-the-sinner",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Where's Harry?",
+          "overview": null,
+          "stillURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/east-side-west-side-s-1-e-01-the-sinner.thumbs/East%20Side%3AWest%20Side%20-%20S1E11%20Where%27s%20Harry_001300.jpg",
+          "airDate": "1963-12-09",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "East Side:West Side - S1E11 Where's Harry.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 467853813,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/East%20Side%3AWest%20Side%20-%20S1E11%20Where%27s%20Harry.ia.mp4"
+        },
+        {
+          "archiveID": "east-side-west-side-s-1-e-01-the-sinner@s1e12",
+          "sourceID": "east-side-west-side-s-1-e-01-the-sinner",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "My Child on Monday Morning",
+          "overview": null,
+          "stillURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/east-side-west-side-s-1-e-01-the-sinner.thumbs/East%20Side%3AWest%20Side%20-%20S1E12%20My%20Child%20on%20Monday%20Morning_001308.jpg",
+          "airDate": "1963-12-16",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "East Side:West Side - S1E12 My Child on Monday Morning.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 536069390,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/East%20Side%3AWest%20Side%20-%20S1E12%20My%20Child%20on%20Monday%20Morning.ia.mp4"
+        },
+        {
+          "archiveID": "east-side-west-side-s-1-e-01-the-sinner@s1e13",
+          "sourceID": "east-side-west-side-s-1-e-01-the-sinner",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Creeps Live Here",
+          "overview": null,
+          "stillURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/east-side-west-side-s-1-e-01-the-sinner.thumbs/East%20Side%3AWest%20Side%20-%20S1E13%20Creeps%20Live%20Here_001306.jpg",
+          "airDate": "1963-12-23",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "East Side:West Side - S1E13 Creeps Live Here.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 414368846,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/East%20Side%3AWest%20Side%20-%20S1E13%20Creeps%20Live%20Here.ia.mp4"
+        },
+        {
+          "archiveID": "east-side-west-side-s-1-e-01-the-sinner@s1e14",
+          "sourceID": "east-side-west-side-s-1-e-01-the-sinner",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The $5.98 Dress",
+          "overview": null,
+          "stillURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/east-side-west-side-s-1-e-01-the-sinner.thumbs/East%20Side%3AWest%20Side%20-%20S1E14%20The%20%245%2098%20Dress_001356.jpg",
+          "airDate": "1964-01-13",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "East Side:West Side - S1E14 The $5 98 Dress.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 425483826,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/East%20Side%3AWest%20Side%20-%20S1E14%20The%20%245%2098%20Dress.ia.mp4"
+        },
+        {
+          "archiveID": "east-side-west-side-s-1-e-01-the-sinner@s1e15",
+          "sourceID": "east-side-west-side-s-1-e-01-the-sinner",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "The Beatnik and the Politician",
+          "overview": null,
+          "stillURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/east-side-west-side-s-1-e-01-the-sinner.thumbs/East%20Side%3AWest%20Side%20-%20S1E15%20The%20Beatnik%20and%20the%20Politician_001316.jpg",
+          "airDate": "1964-01-20",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "East Side:West Side - S1E15 The Beatnik and the Politician.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 501526329,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/East%20Side%3AWest%20Side%20-%20S1E15%20The%20Beatnik%20and%20the%20Politician.ia.mp4"
+        },
+        {
+          "archiveID": "east-side-west-side-s-1-e-01-the-sinner@s1e16",
+          "sourceID": "east-side-west-side-s-1-e-01-the-sinner",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "One Drink at a Time",
+          "overview": null,
+          "stillURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/east-side-west-side-s-1-e-01-the-sinner.thumbs/East%20Side%3AWest%20Side%20-%20S1E16%20One%20Drink%20at%20a%20Time_001319.jpg",
+          "airDate": "1964-01-27",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "East Side:West Side - S1E16 One Drink at a Time.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 532663130,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/East%20Side%3AWest%20Side%20-%20S1E16%20One%20Drink%20at%20a%20Time.ia.mp4"
+        },
+        {
+          "archiveID": "east-side-west-side-s-1-e-01-the-sinner@s1e17",
+          "sourceID": "east-side-west-side-s-1-e-01-the-sinner",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "It's War, Man",
+          "overview": null,
+          "stillURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/east-side-west-side-s-1-e-01-the-sinner.thumbs/East%20Side%3AWest%20Side%20-%20S1E17%20It%27s%20a%20War%20Man_001355.jpg",
+          "airDate": "1964-02-10",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "East Side:West Side - S1E17 It's a War Man.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 497630450,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/East%20Side%3AWest%20Side%20-%20S1E17%20It%27s%20a%20War%20Man.ia.mp4"
+        },
+        {
+          "archiveID": "east-side-west-side-s-1-e-01-the-sinner@s1e18",
+          "sourceID": "east-side-west-side-s-1-e-01-the-sinner",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Don't Grow Old",
+          "overview": null,
+          "stillURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/east-side-west-side-s-1-e-01-the-sinner.thumbs/East%20Side%3AWest%20Side%20-%20S1E18%20Don%27t%20Grow%20Old_001322.jpg",
+          "airDate": "1964-02-17",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "East Side:West Side - S1E18 Don't Grow Old.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 509672267,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/East%20Side%3AWest%20Side%20-%20S1E18%20Don%27t%20Grow%20Old.ia.mp4"
+        },
+        {
+          "archiveID": "east-side-west-side-s-1-e-01-the-sinner@s1e19",
+          "sourceID": "east-side-west-side-s-1-e-01-the-sinner",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "The Street",
+          "overview": null,
+          "stillURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/east-side-west-side-s-1-e-01-the-sinner.thumbs/East%20Side%3AWest%20Side%20-%20S1E19%20The%20Street_001343.jpg",
+          "airDate": "1964-02-24",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "East Side:West Side - S1E19 The Street.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 513785418,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/East%20Side%3AWest%20Side%20-%20S1E19%20The%20Street.ia.mp4"
+        },
+        {
+          "archiveID": "east-side-west-side-s-1-e-01-the-sinner@s1e20",
+          "sourceID": "east-side-west-side-s-1-e-01-the-sinner",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "If Your Grandmother Had Wheels",
+          "overview": null,
+          "stillURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/east-side-west-side-s-1-e-01-the-sinner.thumbs/East%20Side%3AWest%20Side%20-%20S1E20%20If%20Your%20Grandmother%20had%20Wheels_001293.jpg",
+          "airDate": "1964-03-02",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "East Side:West Side - S1E20 If Your Grandmother had Wheels.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 429530368,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/East%20Side%3AWest%20Side%20-%20S1E20%20If%20Your%20Grandmother%20had%20Wheels.ia.mp4"
+        },
+        {
+          "archiveID": "east-side-west-side-s-1-e-01-the-sinner@s1e21",
+          "sourceID": "east-side-west-side-s-1-e-01-the-sinner",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "The Passion of the Nickel Player",
+          "overview": null,
+          "stillURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/east-side-west-side-s-1-e-01-the-sinner.thumbs/East%20Side%3AWest%20Side%20-%20S1E21%20Passion%20of%20the%20Nickel%20Player_001374.jpg",
+          "airDate": "1964-03-09",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "East Side:West Side - S1E21 Passion of the Nickel Player.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 514211000,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/East%20Side%3AWest%20Side%20-%20S1E21%20Passion%20of%20the%20Nickel%20Player.ia.mp4"
+        },
+        {
+          "archiveID": "east-side-west-side-s-1-e-01-the-sinner@s1e22",
+          "sourceID": "east-side-west-side-s-1-e-01-the-sinner",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Take Sides with the Sun",
+          "overview": null,
+          "stillURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/east-side-west-side-s-1-e-01-the-sinner.thumbs/East%20Side%3AWest%20Side%20-%20S1E22%20Take%20Sides%20with%20the%20Sun_001334.jpg",
+          "airDate": "1964-03-16",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "East Side:West Side - S1E22 Take Sides with the Sun.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 413066857,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/East%20Side%3AWest%20Side%20-%20S1E22%20Take%20Sides%20with%20the%20Sun.ia.mp4"
+        },
+        {
+          "archiveID": "east-side-west-side-s-1-e-01-the-sinner@s1e23",
+          "sourceID": "east-side-west-side-s-1-e-01-the-sinner",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "The Name of the Game",
+          "overview": null,
+          "stillURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/east-side-west-side-s-1-e-01-the-sinner.thumbs/East%20Side%3AWest%20Side%20-%20S1E23%20The%20Name%20of%20the%20Game_001296.jpg",
+          "airDate": "1964-03-23",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "East Side:West Side - S1E23 The Name of the Game.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 470866961,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/East%20Side%3AWest%20Side%20-%20S1E23%20The%20Name%20of%20the%20Game.ia.mp4"
+        },
+        {
+          "archiveID": "east-side-west-side-s-1-e-01-the-sinner@s1e24",
+          "sourceID": "east-side-west-side-s-1-e-01-the-sinner",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Nothing But the Half Truth",
+          "overview": null,
+          "stillURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/east-side-west-side-s-1-e-01-the-sinner.thumbs/East%20Side%3AWest%20Side%20-%20S1E24Nothing%20but%20the%20Half%20Truth_001318.jpg",
+          "airDate": "1964-03-30",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "East Side:West Side - S1E24Nothing but the Half Truth.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 429445885,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/East%20Side%3AWest%20Side%20-%20S1E24Nothing%20but%20the%20Half%20Truth.ia.mp4"
+        },
+        {
+          "archiveID": "east-side-west-side-s-1-e-01-the-sinner@s1e26",
+          "sourceID": "east-side-west-side-s-1-e-01-the-sinner",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "The Givers",
+          "overview": null,
+          "stillURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/east-side-west-side-s-1-e-01-the-sinner.thumbs/East%20Side%3AWest%20Side%20-%20S1E26%20The%20Givers_001350.jpg",
+          "airDate": "1964-04-13",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "East Side:West Side - S1E26 The Givers.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 470470626,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/East%20Side%3AWest%20Side%20-%20S1E26%20The%20Givers.ia.mp4"
+        },
+        {
+          "archiveID": "east-side-west-side-s-1-e-01-the-sinner@s1e25",
+          "sourceID": "east-side-west-side-s-1-e-01-the-sinner",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Here Today",
+          "overview": null,
+          "stillURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/east-side-west-side-s-1-e-01-the-sinner.thumbs/East%20Side%3AWest%20Side%20-%20S1E25%20Here%20Today_001317.jpg",
+          "airDate": "1964-04-27",
+          "year": 1964,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "East Side:West Side - S1E25 Here Today.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 454445763,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/east-side-west-side-s-1-e-01-the-sinner/East%20Side%3AWest%20Side%20-%20S1E25%20Here%20Today.ia.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 1,
+  "episodesCount": 26,
   "canonicalEpisodesCount": 26,
   "tvdbID": "77309",
   "artworkSource": "tvdb",
@@ -76,8 +552,5 @@
       "order": 4,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/271617/photo/62f7f55df3bcc.jpg"
     }
-  ],
-  "seriesImdbID": "tt0056753",
-  "canonicalEpisodeCount": 25,
-  "canonicalSeasons": 1
+  ]
 }

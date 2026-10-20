@@ -21,12 +21,13 @@
       "seasonNumber": 1,
       "episodes": [
         {
-          "archiveID": "thenewadventuresofgilligans1",
+          "archiveID": "thenewadventuresofgilligans1@s1e01",
+          "sourceID": "thenewadventuresofgilligans1",
           "seasonNumber": 1,
           "episodeNumber": 1,
           "title": "Off Limits",
           "overview": null,
-          "stillURL": null,
+          "stillURL": "https://archive.org/download/thenewadventuresofgilligans1/thenewadventuresofgilligans1.thumbs/S01E01-%20Off%20Limits_000603.jpg",
           "airDate": "1974-09-07",
           "year": 1974,
           "runtimeSeconds": 1800,
@@ -37,6 +38,291 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/thenewadventuresofgilligans1/S01E01-%20Off%20Limits.ia.mp4"
+        },
+        {
+          "archiveID": "thenewadventuresofgilligans1@s1e02",
+          "sourceID": "thenewadventuresofgilligans1",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Looney Moon",
+          "overview": null,
+          "stillURL": "https://archive.org/download/thenewadventuresofgilligans1/thenewadventuresofgilligans1.thumbs/S01E02-%20Looney%20Moon_000528.jpg",
+          "airDate": "1974-09-14",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E02- Looney Moon.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 99182077,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/thenewadventuresofgilligans1/S01E02-%20Looney%20Moon.ia.mp4"
+        },
+        {
+          "archiveID": "thenewadventuresofgilligans1@s1e03",
+          "sourceID": "thenewadventuresofgilligans1",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Raven Mad",
+          "overview": null,
+          "stillURL": "https://archive.org/download/thenewadventuresofgilligans1/thenewadventuresofgilligans1.thumbs/S01E03-%20Raven%20Mad_000608.jpg",
+          "airDate": "1974-09-21",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E03- Raven Mad.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 91692698,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/thenewadventuresofgilligans1/S01E03-%20Raven%20Mad.ia.mp4"
+        },
+        {
+          "archiveID": "thenewadventuresofgilligans1@s1e04",
+          "sourceID": "thenewadventuresofgilligans1",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Father of His Island",
+          "overview": null,
+          "stillURL": "https://archive.org/download/thenewadventuresofgilligans1/thenewadventuresofgilligans1.thumbs/S01E04-%20Father%20of%20His%20Island_000608.jpg",
+          "airDate": "1974-09-28",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E04- Father of His Island.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 84814841,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/thenewadventuresofgilligans1/S01E04-%20Father%20of%20His%20Island.ia.mp4"
+        },
+        {
+          "archiveID": "thenewadventuresofgilligans1@s1e05",
+          "sourceID": "thenewadventuresofgilligans1",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Wrong Way Robot",
+          "overview": null,
+          "stillURL": "https://archive.org/download/thenewadventuresofgilligans1/thenewadventuresofgilligans1.thumbs/S01E05-%20Wrong%20Way%20Robot%20Yeah%2C%20Would%20You%20Want%20Your%20Sister%20to%20Marry%20On_000606.jpg",
+          "airDate": "1974-10-05",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E05- Wrong Way Robot Yeah, Would You Want Your Sister to Marry On.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 87038352,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/thenewadventuresofgilligans1/S01E05-%20Wrong%20Way%20Robot%20Yeah%2C%20Would%20You%20Want%20Your%20Sister%20to%20Marry%20On.ia.mp4"
+        },
+        {
+          "archiveID": "thenewadventuresofgilligans1@s1e06",
+          "sourceID": "thenewadventuresofgilligans1",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Opening Night",
+          "overview": null,
+          "stillURL": "https://archive.org/download/thenewadventuresofgilligans1/thenewadventuresofgilligans1.thumbs/S01E06-%20Opening%20Night_000608.jpg",
+          "airDate": "1974-10-12",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E06- Opening Night.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 84069416,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/thenewadventuresofgilligans1/S01E06-%20Opening%20Night.ia.mp4"
+        },
+        {
+          "archiveID": "thenewadventuresofgilligans1@s1e07",
+          "sourceID": "thenewadventuresofgilligans1",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Lollipop Casserole",
+          "overview": null,
+          "stillURL": "https://archive.org/download/thenewadventuresofgilligans1/thenewadventuresofgilligans1.thumbs/S01E07-%20Lollipop%20Casserole_000527.jpg",
+          "airDate": "1974-10-19",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E07- Lollipop Casserole.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 96953052,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/thenewadventuresofgilligans1/S01E07-%20Lollipop%20Casserole.ia.mp4"
+        },
+        {
+          "archiveID": "thenewadventuresofgilligans1@s1e09",
+          "sourceID": "thenewadventuresofgilligans1",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Loners",
+          "overview": null,
+          "stillURL": "https://archive.org/download/thenewadventuresofgilligans1/thenewadventuresofgilligans1.thumbs/S01E09-%20The%20Loners_000608.jpg",
+          "airDate": "1974-10-26",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E09- The Loners.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 87214215,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/thenewadventuresofgilligans1/S01E09-%20The%20Loners.ia.mp4"
+        },
+        {
+          "archiveID": "thenewadventuresofgilligans1@s1e08",
+          "sourceID": "thenewadventuresofgilligans1",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Ego Trip",
+          "overview": null,
+          "stillURL": "https://archive.org/download/thenewadventuresofgilligans1/thenewadventuresofgilligans1.thumbs/S01E08-%20The%20Ego%20Trip%20Kon%20Tacky_000606.jpg",
+          "airDate": "1974-11-02",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E08- The Ego Trip Kon Tacky.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 90126387,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/thenewadventuresofgilligans1/S01E08-%20The%20Ego%20Trip%20Kon%20Tacky.ia.mp4"
+        },
+        {
+          "archiveID": "thenewadventuresofgilligans1@s1e10",
+          "sourceID": "thenewadventuresofgilligans1",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Olympiad",
+          "overview": null,
+          "stillURL": "https://archive.org/download/thenewadventuresofgilligans1/thenewadventuresofgilligans1.thumbs/S01E10-%20The%20Olympiad_000533.jpg",
+          "airDate": "1974-11-09",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E10- The Olympiad.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 99073409,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/thenewadventuresofgilligans1/S01E10-%20The%20Olympiad.ia.mp4"
+        },
+        {
+          "archiveID": "thenewadventuresofgilligans1@s1e11",
+          "sourceID": "thenewadventuresofgilligans1",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Their Own Image",
+          "overview": null,
+          "stillURL": "https://archive.org/download/thenewadventuresofgilligans1/thenewadventuresofgilligans1.thumbs/S01E11-%20In%20Their%20Own%20Image_000606.jpg",
+          "airDate": "1974-11-16",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E11- In Their Own Image.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 88870488,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/thenewadventuresofgilligans1/S01E11-%20In%20Their%20Own%20Image.ia.mp4"
+        },
+        {
+          "archiveID": "thenewadventuresofgilligans1@s1e12",
+          "sourceID": "thenewadventuresofgilligans1",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Disappearing Act",
+          "overview": null,
+          "stillURL": "https://archive.org/download/thenewadventuresofgilligans1/thenewadventuresofgilligans1.thumbs/S01E12-%20The%20Disappearing%20Act_000530.jpg",
+          "airDate": "1974-11-23",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E12- The Disappearing Act.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 88167228,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/thenewadventuresofgilligans1/S01E12-%20The%20Disappearing%20Act.ia.mp4"
+        },
+        {
+          "archiveID": "thenewadventuresofgilligans1@s1e13",
+          "sourceID": "thenewadventuresofgilligans1",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "A Sinking Feeling",
+          "overview": null,
+          "stillURL": "https://archive.org/download/thenewadventuresofgilligans1/thenewadventuresofgilligans1.thumbs/S01E13-%20A%20Sinking%20Feeling_000533.jpg",
+          "airDate": "1974-11-30",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E13- A Sinking Feeling.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 99418014,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/thenewadventuresofgilligans1/S01E13-%20A%20Sinking%20Feeling.ia.mp4"
+        },
+        {
+          "archiveID": "thenewadventuresofgilligans1@s1e14",
+          "sourceID": "thenewadventuresofgilligans1",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Reluctant Hero",
+          "overview": null,
+          "stillURL": "https://archive.org/download/thenewadventuresofgilligans1/thenewadventuresofgilligans1.thumbs/S01E14-%20The%20Reluctant%20Hero_000608.jpg",
+          "airDate": "1974-12-07",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E14- The Reluctant Hero.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 88776300,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/thenewadventuresofgilligans1/S01E14-%20The%20Reluctant%20Hero.ia.mp4"
+        },
+        {
+          "archiveID": "thenewadventuresofgilligans1@s1e15",
+          "sourceID": "thenewadventuresofgilligans1",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "The Same Old Dream",
+          "overview": null,
+          "stillURL": "https://archive.org/download/thenewadventuresofgilligans1/thenewadventuresofgilligans1.thumbs/S01E15-%20The%20Same%20Old%20Dream_000533.jpg",
+          "airDate": "1974-12-14",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E15- The Same Old Dream.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 93866688,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/thenewadventuresofgilligans1/S01E15-%20The%20Same%20Old%20Dream.ia.mp4"
+        },
+        {
+          "archiveID": "thenewadventuresofgilligans1@s1e16",
+          "sourceID": "thenewadventuresofgilligans1",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "The Sputtering Eagle",
+          "overview": null,
+          "stillURL": "https://archive.org/download/thenewadventuresofgilligans1/thenewadventuresofgilligans1.thumbs/S01E16-%20The%20Sputtering%20Eagle_000605.jpg",
+          "airDate": "1974-12-21",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E16- The Sputtering Eagle.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 94992613,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/thenewadventuresofgilligans1/S01E16-%20The%20Sputtering%20Eagle.ia.mp4"
         }
       ]
     },
@@ -44,12 +330,146 @@
       "seasonNumber": 2,
       "episodes": [
         {
-          "archiveID": "thenewadventuresofgilliganseason2",
+          "archiveID": "thenewadventuresofgilliganseason2@s2e01",
+          "sourceID": "thenewadventuresofgilliganseason2",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Super Gilligan",
+          "overview": null,
+          "stillURL": "https://archive.org/download/thenewadventuresofgilliganseason2/thenewadventuresofgilliganseason2.thumbs/S02E01-%20Super%20Gilligan_000534.jpg",
+          "airDate": "1975-08-29",
+          "year": 1975,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E01- Super Gilligan.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 92553839,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/thenewadventuresofgilliganseason2/S02E01-%20Super%20Gilligan.ia.mp4"
+        },
+        {
+          "archiveID": "thenewadventuresofgilliganseason2@s2e02",
+          "sourceID": "thenewadventuresofgilliganseason2",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "Marooned Again",
+          "overview": null,
+          "stillURL": "https://archive.org/download/thenewadventuresofgilliganseason2/thenewadventuresofgilliganseason2.thumbs/S02E02-%20Marooned%20Again_000535.jpg",
+          "airDate": "1975-09-06",
+          "year": 1975,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E02- Marooned Again.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 92903586,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/thenewadventuresofgilliganseason2/S02E02-%20Marooned%20Again.ia.mp4"
+        },
+        {
+          "archiveID": "thenewadventuresofgilliganseason2@s2e03",
+          "sourceID": "thenewadventuresofgilliganseason2",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Live and Let Live",
+          "overview": null,
+          "stillURL": "https://archive.org/download/thenewadventuresofgilliganseason2/thenewadventuresofgilliganseason2.thumbs/S02E03-%20Live%20and%20Let%20Live_000535.jpg",
+          "airDate": "1975-09-13",
+          "year": 1975,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E03- Live and Let Live.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 93889231,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/thenewadventuresofgilliganseason2/S02E03-%20Live%20and%20Let%20Live.ia.mp4"
+        },
+        {
+          "archiveID": "thenewadventuresofgilliganseason2@s2e04",
+          "sourceID": "thenewadventuresofgilliganseason2",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "Wheels on Parade",
+          "overview": null,
+          "stillURL": "https://archive.org/download/thenewadventuresofgilliganseason2/thenewadventuresofgilliganseason2.thumbs/S02E04-%20Wheels%20on%20Parade_000475.jpg",
+          "airDate": "1975-09-20",
+          "year": 1975,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E04- Wheels on Parade.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 100325610,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/thenewadventuresofgilliganseason2/S02E04-%20Wheels%20on%20Parade.ia.mp4"
+        },
+        {
+          "archiveID": "thenewadventuresofgilliganseason2@s2e05",
+          "sourceID": "thenewadventuresofgilliganseason2",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "The Movie Makers",
+          "overview": null,
+          "stillURL": "https://archive.org/download/thenewadventuresofgilliganseason2/thenewadventuresofgilliganseason2.thumbs/S02E05-%20The%20Movie%20Makers_000474.jpg",
+          "airDate": "1975-09-27",
+          "year": 1975,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E05- The Movie Makers.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 98182507,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/thenewadventuresofgilliganseason2/S02E05-%20The%20Movie%20Makers.ia.mp4"
+        },
+        {
+          "archiveID": "thenewadventuresofgilliganseason2@s2e06",
+          "sourceID": "thenewadventuresofgilliganseason2",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Silence is Leaden",
+          "overview": null,
+          "stillURL": "https://archive.org/download/thenewadventuresofgilliganseason2/thenewadventuresofgilliganseason2.thumbs/S02E06-%20Silence%20is%20Leaden_000474.jpg",
+          "airDate": "1975-10-04",
+          "year": 1975,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E06- Silence is Leaden.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 100923634,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/thenewadventuresofgilliganseason2/S02E06-%20Silence%20is%20Leaden.ia.mp4"
+        },
+        {
+          "archiveID": "thenewadventuresofgilliganseason2@s2e07",
+          "sourceID": "thenewadventuresofgilliganseason2",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "The Great Train Robbery",
+          "overview": null,
+          "stillURL": "https://archive.org/download/thenewadventuresofgilliganseason2/thenewadventuresofgilliganseason2.thumbs/S02E07-%20The%20Great%20Train%20Robbery_000475.jpg",
+          "airDate": "1975-10-11",
+          "year": 1975,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E07- The Great Train Robbery.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 101187000,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/thenewadventuresofgilliganseason2/S02E07-%20The%20Great%20Train%20Robbery.ia.mp4"
+        },
+        {
+          "archiveID": "thenewadventuresofgilliganseason2@s2e08",
+          "sourceID": "thenewadventuresofgilliganseason2",
           "seasonNumber": 2,
           "episodeNumber": 8,
           "title": "Moderation",
           "overview": null,
-          "stillURL": null,
+          "stillURL": "https://archive.org/download/thenewadventuresofgilliganseason2/thenewadventuresofgilliganseason2.thumbs/S02E08-%20Moderation_000475.jpg",
           "airDate": "1975-10-18",
           "year": 1975,
           "runtimeSeconds": 1800,
@@ -64,7 +484,7 @@
       ]
     }
   ],
-  "episodesCount": 2,
+  "episodesCount": 24,
   "canonicalEpisodesCount": 24,
   "tvdbID": "73523",
   "artworkSource": "tvdb",

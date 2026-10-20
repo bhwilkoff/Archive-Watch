@@ -42,25 +42,90 @@
       ]
     },
     {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "theavengers2x12thebigthinker",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "The Big Thinker",
+          "overview": "A powerful computer used to target incoming missiles continually breaks down. When one of scientists who developed the machine is found dead inside it, Steed and Cathy are asked to investigate.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/584/1462438.jpg",
+          "airDate": "1962-12-15",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Avengers - 2x12 - The Big Thinker.mp4",
+            "format": "h.264",
+            "sizeBytes": 324409909,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theavengers2x12thebigthinker/The%20Avengers%20-%202x12%20-%20The%20Big%20Thinker.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "theavengers3x01briefformurder",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "Brief for Murder",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/theavengers3x01briefformurder",
+          "airDate": "1963-09-28",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Avengers - 3X01 - Brief For Murder.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 135846472,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theavengers3x01briefformurder/The%20Avengers%20-%203X01%20-%20Brief%20For%20Murder.mp4"
+        },
+        {
+          "archiveID": "theavengers3x12dontlookbehindyou",
+          "seasonNumber": 3,
+          "episodeNumber": 12,
+          "title": "Don't Look Behind You",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/theavengers3x12dontlookbehindyou",
+          "airDate": "1963-12-14",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Avengers - 3X12 - Don't Look Behind You.mp4",
+            "format": "h.264",
+            "sizeBytes": 324067874,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/theavengers3x12dontlookbehindyou/The%20Avengers%20-%203X12%20-%20Don%27t%20Look%20Behind%20You.mp4"
+        }
+      ]
+    },
+    {
       "seasonNumber": 4,
       "episodes": [
         {
-          "archiveID": "the-avengers-s-4e-1",
+          "archiveID": "the-avengers-s-4e-1@s4e01",
+          "sourceID": "the-avengers-s-4e-1",
           "seasonNumber": 4,
-          "episodeNumber": 2,
-          "title": "The Gravediggers",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/fQ4GHecDFEAmJcwc10zUrdIDLFd.jpg",
-          "airDate": "1965-10-09",
+          "episodeNumber": 1,
+          "title": "The Town of No Return",
+          "overview": "Steed and Emma find a hidden army at a coastal village while investigating the disappearance of agents.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/385/963146.jpg",
+          "airDate": "1965-10-02",
           "year": 1965,
           "runtimeSeconds": 3600,
           "videoFile": {
-            "name": "the avengers s4e2.mp4",
+            "name": "the avengers s4e1.mp4",
             "format": "h.264",
-            "sizeBytes": 431304534,
-            "tier": 2
+            "sizeBytes": 301951654,
+            "tier": 1
           },
-          "downloadURL": "https://archive.org/download/the-avengers-s-4e-1/the%20avengers%20s4e2.mp4"
+          "downloadURL": "https://archive.org/download/the-avengers-s-4e-1/the%20avengers%20s4e1.mp4"
         },
         {
           "archiveID": "theavengerss04e02thegravediggers9october1965",
@@ -69,7 +134,7 @@
           "title": "The Gravediggers",
           "overview": null,
           "stillURL": "https://archive.org/services/img/theavengerss04e02thegravediggers9october1965",
-          "airDate": null,
+          "airDate": "1965-10-09",
           "year": 1965,
           "runtimeSeconds": 3600,
           "videoFile": {
@@ -79,6 +144,118 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/theavengerss04e02thegravediggers9october1965/The%20Avengers%20S04E02%20The%20Gravediggers%209%20October%201965.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-4e-1@s4e03",
+          "sourceID": "the-avengers-s-4e-1",
+          "seasonNumber": 4,
+          "episodeNumber": 3,
+          "title": "The Cybernauts",
+          "overview": "Electronics company CEOs are being killed one by one, by someone with superhuman strength. Emma and Steed track the killer to an automated electronic factory and a wheelchair-bound genius.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/178/445707.jpg",
+          "airDate": "1965-10-16",
+          "year": 1965,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers s4e3.mp4",
+            "format": "h.264",
+            "sizeBytes": 302580402,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-4e-1/the%20avengers%20s4e3.mp4"
+        },
+        {
+          "archiveID": "the-avengers-death-at-bargain-prices-1965",
+          "seasonNumber": 4,
+          "episodeNumber": 4,
+          "title": "Death at Bargain Prices",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-avengers-death-at-bargain-prices-1965",
+          "airDate": "1965-10-23",
+          "year": 1965,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "TheAvengers-DeathAtBargainPrices-1965-deinter-720p.mp4",
+            "format": "h.264",
+            "sizeBytes": 308000408,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-death-at-bargain-prices-1965/TheAvengers-DeathAtBargainPrices-1965-deinter-720p.mp4"
+        },
+        {
+          "archiveID": "the-avengers-castle-de-ath-1965",
+          "seasonNumber": 4,
+          "episodeNumber": 5,
+          "title": "Castle De'ath",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-avengers-castle-de-ath-1965",
+          "airDate": "1965-10-30",
+          "year": 1965,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "TheAvengers-CastleDe'Ath-1965-deinter-720p.mp4",
+            "format": "h.264",
+            "sizeBytes": 310291258,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-castle-de-ath-1965/TheAvengers-CastleDe%27Ath-1965-deinter-720p.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-4e-1@s4e06",
+          "sourceID": "the-avengers-s-4e-1",
+          "seasonNumber": 4,
+          "episodeNumber": 6,
+          "title": "The Master Minds",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-4e-1/the-avengers-s-4e-1.thumbs/the%20avengers%20s4e6_001120.jpg",
+          "airDate": "1965-11-06",
+          "year": 1965,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers s4e6.mp4",
+            "format": "h.264",
+            "sizeBytes": 300348050,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-4e-1/the%20avengers%20s4e6.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-4e-1@s4e07",
+          "sourceID": "the-avengers-s-4e-1",
+          "seasonNumber": 4,
+          "episodeNumber": 7,
+          "title": "The Murder Market",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-4e-1/the-avengers-s-4e-1.thumbs/the%20avengers%20s4e7_001185.jpg",
+          "airDate": "1965-11-13",
+          "year": 1965,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers s4e7.mp4",
+            "format": "h.264",
+            "sizeBytes": 301588541,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-4e-1/the%20avengers%20s4e7.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-4e-1@s4e08",
+          "sourceID": "the-avengers-s-4e-1",
+          "seasonNumber": 4,
+          "episodeNumber": 8,
+          "title": "A Surfeit of H2O",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-4e-1/the-avengers-s-4e-1.thumbs/the%20avengers%20s4e8_001178.jpg",
+          "airDate": "1965-11-20",
+          "year": 1965,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers s4e8.mp4",
+            "format": "h.264",
+            "sizeBytes": 300673646,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-4e-1/the%20avengers%20s4e8.mp4"
         },
         {
           "archiveID": "the.avengers.1965.s04e09.the.hour.that.never.was",
@@ -99,6 +276,63 @@
           "downloadURL": "https://archive.org/download/the.avengers.1965.s04e09.the.hour.that.never.was/The.Avengers.1965.S04E09.The.Hour.That.Never.Was.mp4"
         },
         {
+          "archiveID": "the-avengers-s-4e-1@s4e10",
+          "sourceID": "the-avengers-s-4e-1",
+          "seasonNumber": 4,
+          "episodeNumber": 10,
+          "title": "Dial a Deadly Number",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-4e-1/the-avengers-s-4e-1.thumbs/the%20avengers%20s4e10_001246.jpg",
+          "airDate": "1965-12-04",
+          "year": 1965,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers s4e10.mp4",
+            "format": "h.264",
+            "sizeBytes": 302434755,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-4e-1/the%20avengers%20s4e10.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-4e-1@s4e11",
+          "sourceID": "the-avengers-s-4e-1",
+          "seasonNumber": 4,
+          "episodeNumber": 11,
+          "title": "Man-Eater of Surrey Green",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-4e-1/the-avengers-s-4e-1.thumbs/the%20avengers%20s4e11_001270.jpg",
+          "airDate": "1965-12-11",
+          "year": 1965,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers s4e11.mp4",
+            "format": "h.264",
+            "sizeBytes": 301889353,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-4e-1/the%20avengers%20s4e11.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-4e-1@s4e12",
+          "sourceID": "the-avengers-s-4e-1",
+          "seasonNumber": 4,
+          "episodeNumber": 12,
+          "title": "Two's a Crowd",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-4e-1/the-avengers-s-4e-1.thumbs/the%20avengers%20s4e12_001259.jpg",
+          "airDate": "1965-12-18",
+          "year": 1965,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers s4e12.mp4",
+            "format": "h.264",
+            "sizeBytes": 305827043,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-4e-1/the%20avengers%20s4e12.mp4"
+        },
+        {
           "archiveID": "theavengerss04e13toomanychristmastrees25december1965",
           "seasonNumber": 4,
           "episodeNumber": 13,
@@ -117,6 +351,139 @@
           "downloadURL": "https://archive.org/download/theavengerss04e13toomanychristmastrees25december1965/The_Avengers_-_S04E13_-_Too_Many_Christmas_Trees_%2825_December_1965%29.mp4"
         },
         {
+          "archiveID": "the-avengers-s-4e-1@s4e14",
+          "sourceID": "the-avengers-s-4e-1",
+          "seasonNumber": 4,
+          "episodeNumber": 14,
+          "title": "Silent Dust",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-4e-1/the-avengers-s-4e-1.thumbs/the%20avengers%20s4e14_001328.jpg",
+          "airDate": "1966-01-01",
+          "year": 1966,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers s4e14.mp4",
+            "format": "h.264",
+            "sizeBytes": 302103169,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-4e-1/the%20avengers%20s4e14.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-4e-1@s4e15",
+          "sourceID": "the-avengers-s-4e-1",
+          "seasonNumber": 4,
+          "episodeNumber": 15,
+          "title": "Room Without a View",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-4e-1/the-avengers-s-4e-1.thumbs/the%20avengers%20s4e15_001244.jpg",
+          "airDate": "1966-01-08",
+          "year": 1966,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers s4e15.mp4",
+            "format": "h.264",
+            "sizeBytes": 303269788,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-4e-1/the%20avengers%20s4e15.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-4e-1@s4e16",
+          "sourceID": "the-avengers-s-4e-1",
+          "seasonNumber": 4,
+          "episodeNumber": 16,
+          "title": "Small Game for Big Hunters",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-4e-1/the-avengers-s-4e-1.thumbs/the%20avengers%20s4e16_001360.jpg",
+          "airDate": "1966-01-15",
+          "year": 1966,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers s4e16.mp4",
+            "format": "h.264",
+            "sizeBytes": 298061984,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-4e-1/the%20avengers%20s4e16.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-4e-1@s4e17",
+          "sourceID": "the-avengers-s-4e-1",
+          "seasonNumber": 4,
+          "episodeNumber": 17,
+          "title": "The Girl from Auntie",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-4e-1/the-avengers-s-4e-1.thumbs/the%20avengers%20s4e17_001278.jpg",
+          "airDate": "1966-01-22",
+          "year": 1966,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers s4e17.mp4",
+            "format": "h.264",
+            "sizeBytes": 303199613,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-4e-1/the%20avengers%20s4e17.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-4e-1@s4e18",
+          "sourceID": "the-avengers-s-4e-1",
+          "seasonNumber": 4,
+          "episodeNumber": 18,
+          "title": "The Thirteenth Hole",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-4e-1/the-avengers-s-4e-1.thumbs/the%20avengers%20s4e18_001332.jpg",
+          "airDate": "1966-01-29",
+          "year": 1966,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers s4e18.mp4",
+            "format": "h.264",
+            "sizeBytes": 297828470,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-4e-1/the%20avengers%20s4e18.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-4e-1@s4e19",
+          "sourceID": "the-avengers-s-4e-1",
+          "seasonNumber": 4,
+          "episodeNumber": 19,
+          "title": "Quick-Quick Slow Death",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-4e-1/the-avengers-s-4e-1.thumbs/the%20avengers%20s4e19_001438.jpg",
+          "airDate": "1966-02-05",
+          "year": 1966,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers s4e19.mp4",
+            "format": "h.264",
+            "sizeBytes": 301091483,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-4e-1/the%20avengers%20s4e19.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-4e-1@s4e20",
+          "sourceID": "the-avengers-s-4e-1",
+          "seasonNumber": 4,
+          "episodeNumber": 20,
+          "title": "The Danger Makers",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-4e-1/the-avengers-s-4e-1.thumbs/the%20avengers%20s4e20_001448.jpg",
+          "airDate": "1966-02-12",
+          "year": 1966,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers s4e20.mp4",
+            "format": "h.264",
+            "sizeBytes": 302684307,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-4e-1/the%20avengers%20s4e20.mp4"
+        },
+        {
           "archiveID": "the.avengers.1966.s04e21.a.touch.of.brimstone_202001",
           "seasonNumber": 4,
           "episodeNumber": 21,
@@ -133,12 +500,183 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/the.avengers.1966.s04e21.a.touch.of.brimstone_202001/The.Avengers.1966.S04E21.A.Touch.of.Brimstone.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-4e-1@s4e22",
+          "sourceID": "the-avengers-s-4e-1",
+          "seasonNumber": 4,
+          "episodeNumber": 22,
+          "title": "What the Butler Saw",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-4e-1/the-avengers-s-4e-1.thumbs/the%20avengers%20s4e22_001428.jpg",
+          "airDate": "1966-02-26",
+          "year": 1966,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers s4e22.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 407707092,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-4e-1/the%20avengers%20s4e22.ia.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-4e-1@s4e23",
+          "sourceID": "the-avengers-s-4e-1",
+          "seasonNumber": 4,
+          "episodeNumber": 23,
+          "title": "The House That Jack Built",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-4e-1/the-avengers-s-4e-1.thumbs/the%20avengers%20s4e23_001430.jpg",
+          "airDate": "1966-03-05",
+          "year": 1966,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers s4e23.mp4",
+            "format": "h.264",
+            "sizeBytes": 304075294,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-4e-1/the%20avengers%20s4e23.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-4e-1@s4e24",
+          "sourceID": "the-avengers-s-4e-1",
+          "seasonNumber": 4,
+          "episodeNumber": 24,
+          "title": "A Sense of History",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-4e-1/the-avengers-s-4e-1.thumbs/the%20avengers%20s4e24_001564.jpg",
+          "airDate": "1966-03-12",
+          "year": 1966,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers s4e24.mp4",
+            "format": "h.264",
+            "sizeBytes": 306575895,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-4e-1/the%20avengers%20s4e24.mp4"
         }
       ]
     },
     {
       "seasonNumber": 5,
       "episodes": [
+        {
+          "archiveID": "the-avengers-s-5e-1-restored-720p-hd@s5e01",
+          "sourceID": "the-avengers-s-5e-1-restored-720p-hd",
+          "seasonNumber": 5,
+          "episodeNumber": 1,
+          "title": "From Venus with Love",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the-avengers-s-5e-1-restored-720p-hd.thumbs/the%20avengers-s5e1-restored-720p-hd_001074.jpg",
+          "airDate": "1967-01-14",
+          "year": 1967,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers-s5e1-restored-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 300755273,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the%20avengers-s5e1-restored-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-5e-1-restored-720p-hd@s5e02",
+          "sourceID": "the-avengers-s-5e-1-restored-720p-hd",
+          "seasonNumber": 5,
+          "episodeNumber": 2,
+          "title": "The Fear Merchants",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the-avengers-s-5e-1-restored-720p-hd.thumbs/the%20avengers-s5e2-restored-720p-hd_001074.jpg",
+          "airDate": "1967-01-21",
+          "year": 1967,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers-s5e2-restored-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 300885619,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the%20avengers-s5e2-restored-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-5e-1-restored-720p-hd@s5e03",
+          "sourceID": "the-avengers-s-5e-1-restored-720p-hd",
+          "seasonNumber": 5,
+          "episodeNumber": 3,
+          "title": "Escape in Time",
+          "overview": "In which Steed visits the barber — and Emma has a close shave...Diabolical masterminds and criminals have been disappearing, eluding the law and leaving no traces behind them. When agent Paxton also vanishes, and is later found dead, shot by an Elizabethan bullet, Steed and Mrs Peel find themselves apparently involved in an outrageous scheme to travel back through Time. Information that an evil dictator, Josino, is considering a quick escape leads Steed and Emma to Mackidockie Mews, an upper-class street in 1960s London where the dictator is due to meet an accomplice.",
+          "stillURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the-avengers-s-5e-1-restored-720p-hd.thumbs/the%20avengers-s5e3-restored-720p-hd_001074.jpg",
+          "airDate": "1967-01-28",
+          "year": 1967,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers-s5e3-restored-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 300614944,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the%20avengers-s5e3-restored-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-5e-1-restored-720p-hd@s5e04",
+          "sourceID": "the-avengers-s-5e-1-restored-720p-hd",
+          "seasonNumber": 5,
+          "episodeNumber": 4,
+          "title": "The See-Through Man",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the-avengers-s-5e-1-restored-720p-hd.thumbs/the%20avengers-s5e4-restored-720p-hd_001074.jpg",
+          "airDate": "1967-02-04",
+          "year": 1967,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers-s5e4-restored-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 299377139,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the%20avengers-s5e4-restored-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-5e-1-restored-720p-hd@s5e05",
+          "sourceID": "the-avengers-s-5e-1-restored-720p-hd",
+          "seasonNumber": 5,
+          "episodeNumber": 5,
+          "title": "The Bird Who Knew Too Much",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the-avengers-s-5e-1-restored-720p-hd.thumbs/the%20avengers-s5e5-restored-720p-hd_001074.jpg",
+          "airDate": "1967-02-11",
+          "year": 1967,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers-s5e5-restored-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 300232719,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the%20avengers-s5e5-restored-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-5e-1-restored-720p-hd@s5e06",
+          "sourceID": "the-avengers-s-5e-1-restored-720p-hd",
+          "seasonNumber": 5,
+          "episodeNumber": 6,
+          "title": "The Winged Avenger",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the-avengers-s-5e-1-restored-720p-hd.thumbs/the%20avengers-s5e6-restored-720p-hd_001118.jpg",
+          "airDate": "1967-02-18",
+          "year": 1967,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers-s5e6-restored-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 301200858,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the%20avengers-s5e6-restored-720p-hd.mp4"
+        },
         {
           "archiveID": "the.avengers.s05e07.the.living.dead",
           "seasonNumber": 5,
@@ -156,6 +694,44 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/the.avengers.s05e07.the.living.dead/The.Avengers.S05E07.The.Living.Dead.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-5e-1-restored-720p-hd@s5e08",
+          "sourceID": "the-avengers-s-5e-1-restored-720p-hd",
+          "seasonNumber": 5,
+          "episodeNumber": 8,
+          "title": "The Hidden Tiger",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the-avengers-s-5e-1-restored-720p-hd.thumbs/the%20avengers-s5e8-restored-720p-hd_001168.jpg",
+          "airDate": "1967-03-04",
+          "year": 1967,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers-s5e8-restored-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 300217463,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the%20avengers-s5e8-restored-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-5e-1-restored-720p-hd@s5e09",
+          "sourceID": "the-avengers-s-5e-1-restored-720p-hd",
+          "seasonNumber": 5,
+          "episodeNumber": 9,
+          "title": "The Correct Way to Kill",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the-avengers-s-5e-1-restored-720p-hd.thumbs/the%20avengers-s5e9-restored-720p-hd_001266.jpg",
+          "airDate": "1967-03-11",
+          "year": 1967,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers-s5e9-restored-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 300685632,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the%20avengers-s5e9-restored-720p-hd.mp4"
         },
         {
           "archiveID": "the.avengers.s05e10.never.never.say.die",
@@ -176,12 +752,32 @@
           "downloadURL": "https://archive.org/download/the.avengers.s05e10.never.never.say.die/The.Avengers.S05E10.Never.Never.Say.Die.mp4"
         },
         {
-          "archiveID": "the-avengers-s-5e-1-restored-720p-hd",
+          "archiveID": "the-avengers-s-5e-1-restored-720p-hd@s5e11",
+          "sourceID": "the-avengers-s-5e-1-restored-720p-hd",
+          "seasonNumber": 5,
+          "episodeNumber": 11,
+          "title": "Epic",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the-avengers-s-5e-1-restored-720p-hd.thumbs/the%20avengers-s5e11-restored-720p-hd_001256.jpg",
+          "airDate": "1967-04-01",
+          "year": 1967,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers-s5e11-restored-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 299789026,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the%20avengers-s5e11-restored-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-5e-1-restored-720p-hd@s5e12",
+          "sourceID": "the-avengers-s-5e-1-restored-720p-hd",
           "seasonNumber": 5,
           "episodeNumber": 12,
           "title": "The Superlative Seven",
           "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/fQ4GHecDFEAmJcwc10zUrdIDLFd.jpg",
+          "stillURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the-avengers-s-5e-1-restored-720p-hd.thumbs/the%20avengers-s5e12restored-720p-hd_001236.jpg",
           "airDate": "1967-04-08",
           "year": 1967,
           "runtimeSeconds": 3600,
@@ -189,109 +785,266 @@
             "name": "the avengers-s5e12restored-720p-hd.ia.mp4",
             "format": "h.264 IA",
             "sizeBytes": 360714400,
-            "tier": 2
+            "tier": 1
           },
           "downloadURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the%20avengers-s5e12restored-720p-hd.ia.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-5e-1-restored-720p-hd@s5e13",
+          "sourceID": "the-avengers-s-5e-1-restored-720p-hd",
+          "seasonNumber": 5,
+          "episodeNumber": 13,
+          "title": "A Funny Thing Happened on the Way to the Station",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the-avengers-s-5e-1-restored-720p-hd.thumbs/the%20avengers-s5e13-restored-720p-hd_001208.jpg",
+          "airDate": "1967-04-15",
+          "year": 1967,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers-s5e13-restored-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 300394850,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the%20avengers-s5e13-restored-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-5e-1-restored-720p-hd@s5e14",
+          "sourceID": "the-avengers-s-5e-1-restored-720p-hd",
+          "seasonNumber": 5,
+          "episodeNumber": 14,
+          "title": "Something Nasty in the Nursery",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the-avengers-s-5e-1-restored-720p-hd.thumbs/the%20avengers-s5e14-restored-720p-hd_001320.jpg",
+          "airDate": "1967-04-22",
+          "year": 1967,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers-s5e14-restored-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 299891700,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the%20avengers-s5e14-restored-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-5e-1-restored-720p-hd@s5e15",
+          "sourceID": "the-avengers-s-5e-1-restored-720p-hd",
+          "seasonNumber": 5,
+          "episodeNumber": 15,
+          "title": "The Joker",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the-avengers-s-5e-1-restored-720p-hd.thumbs/the%20avengers-s5e15-restored-720p-hd_001220.jpg",
+          "airDate": "1967-04-29",
+          "year": 1967,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers-s5e15-restored-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 298226902,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the%20avengers-s5e15-restored-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-5e-1-restored-720p-hd@s5e16",
+          "sourceID": "the-avengers-s-5e-1-restored-720p-hd",
+          "seasonNumber": 5,
+          "episodeNumber": 16,
+          "title": "Who's Who???",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the-avengers-s-5e-1-restored-720p-hd.thumbs/the%20avengers-s5e16-restored-720p-hd_001350.jpg",
+          "airDate": "1967-05-06",
+          "year": 1967,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers-s5e16-restored-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 296126137,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the%20avengers-s5e16-restored-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-5e-1-restored-720p-hd@s5e17",
+          "sourceID": "the-avengers-s-5e-1-restored-720p-hd",
+          "seasonNumber": 5,
+          "episodeNumber": 17,
+          "title": "Return of the Cybernauts",
+          "overview": "Someone has recreated the Cybernauts and is using one to get revenge on the agents who killed their original creator Armstrong: Emma and Steed.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/178/445836.jpg",
+          "airDate": "1967-09-30",
+          "year": 1967,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers-s5e17-restored-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 297654893,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the%20avengers-s5e17-restored-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-5e-1-restored-720p-hd@s5e18",
+          "sourceID": "the-avengers-s-5e-1-restored-720p-hd",
+          "seasonNumber": 5,
+          "episodeNumber": 18,
+          "title": "Death's Door",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the-avengers-s-5e-1-restored-720p-hd.thumbs/the%20avengers-s5e18-restored-720p-hd_001490.jpg",
+          "airDate": "1967-10-07",
+          "year": 1967,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers-s5e18-restored-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 297135940,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the%20avengers-s5e18-restored-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-5e-1-restored-720p-hd@s5e19",
+          "sourceID": "the-avengers-s-5e-1-restored-720p-hd",
+          "seasonNumber": 5,
+          "episodeNumber": 19,
+          "title": "The 50,000 Pound Breakfast",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the-avengers-s-5e-1-restored-720p-hd.thumbs/the%20avengers-s5e19-restored-720p-hd_001416.jpg",
+          "airDate": "1967-10-14",
+          "year": 1967,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers-s5e19-restored-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 296789454,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the%20avengers-s5e19-restored-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-5e-1-restored-720p-hd@s5e20",
+          "sourceID": "the-avengers-s-5e-1-restored-720p-hd",
+          "seasonNumber": 5,
+          "episodeNumber": 20,
+          "title": "Dead Man's Treasure",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the-avengers-s-5e-1-restored-720p-hd.thumbs/the%20avengers-s5e20-restored-720p-hd_001418.jpg",
+          "airDate": "1967-10-21",
+          "year": 1967,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers-s5e20-restored-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 296029890,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the%20avengers-s5e20-restored-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-5e-1-restored-720p-hd@s5e21",
+          "sourceID": "the-avengers-s-5e-1-restored-720p-hd",
+          "seasonNumber": 5,
+          "episodeNumber": 21,
+          "title": "You Have Just Been Murdered",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the-avengers-s-5e-1-restored-720p-hd.thumbs/the%20avengers-s5e21-restored-720p-hd_001308.jpg",
+          "airDate": "1967-10-28",
+          "year": 1967,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers-s5e21-restored-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 297947869,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the%20avengers-s5e21-restored-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-5e-1-restored-720p-hd@s5e22",
+          "sourceID": "the-avengers-s-5e-1-restored-720p-hd",
+          "seasonNumber": 5,
+          "episodeNumber": 22,
+          "title": "The Positive Negative Man",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the-avengers-s-5e-1-restored-720p-hd.thumbs/the%20avengers-s5e22-restored-720p-hd_001400.jpg",
+          "airDate": "1967-11-04",
+          "year": 1967,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers-s5e22-restored-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 296317103,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the%20avengers-s5e22-restored-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-5e-1-restored-720p-hd@s5e23",
+          "sourceID": "the-avengers-s-5e-1-restored-720p-hd",
+          "seasonNumber": 5,
+          "episodeNumber": 23,
+          "title": "Murdersville",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the-avengers-s-5e-1-restored-720p-hd.thumbs/the%20avengers-s5e23-restored-720p-hd_001410.jpg",
+          "airDate": "1967-11-11",
+          "year": 1967,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers-s5e23-restored-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 297121214,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the%20avengers-s5e23-restored-720p-hd.mp4"
+        },
+        {
+          "archiveID": "the-avengers-s-5e-1-restored-720p-hd@s5e24",
+          "sourceID": "the-avengers-s-5e-1-restored-720p-hd",
+          "seasonNumber": 5,
+          "episodeNumber": 24,
+          "title": "Mission: Highly Improbable",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the-avengers-s-5e-1-restored-720p-hd.thumbs/the%20avengers-s5e24-restored-720p-hd_001518.jpg",
+          "airDate": "1967-11-18",
+          "year": 1967,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "the avengers-s5e24-restored-720p-hd.mp4",
+            "format": "h.264",
+            "sizeBytes": 295612690,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the%20avengers-s5e24-restored-720p-hd.mp4"
         }
       ]
     },
     {
-      "seasonNumber": null,
+      "seasonNumber": 6,
       "episodes": [
         {
-          "archiveID": "theavengers2x12thebigthinker",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Avengers 2x 12 The Big Thinker",
+          "archiveID": "the-avengers-s-5e-1-restored-720p-hd@s6e01",
+          "sourceID": "the-avengers-s-5e-1-restored-720p-hd",
+          "seasonNumber": 6,
+          "episodeNumber": 1,
+          "title": "restored-576p-s",
           "overview": null,
-          "stillURL": "https://archive.org/services/img/theavengers2x12thebigthinker",
+          "stillURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the-avengers-s-5e-1-restored-720p-hd.thumbs/the%20avengers-s6e1-restored-576p-sd_001532.jpg",
           "airDate": null,
-          "year": 1963,
-          "runtimeSeconds": 3117,
+          "year": null,
+          "runtimeSeconds": 3112,
           "videoFile": {
-            "name": "The Avengers - 2x12 - The Big Thinker.mp4",
+            "name": "the avengers-s6e1-restored-576p-sd.mp4",
             "format": "h.264",
-            "sizeBytes": 324409909,
+            "sizeBytes": 299713508,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/theavengers2x12thebigthinker/The%20Avengers%20-%202x12%20-%20The%20Big%20Thinker.mp4"
-        },
-        {
-          "archiveID": "theavengers3x01briefformurder",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Avengers 3 X 01 Brief For Murder",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/theavengers3x01briefformurder",
-          "airDate": null,
-          "year": 1963,
-          "runtimeSeconds": 3165,
-          "videoFile": {
-            "name": "The Avengers - 3X01 - Brief For Murder.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 135846472,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/theavengers3x01briefformurder/The%20Avengers%20-%203X01%20-%20Brief%20For%20Murder.mp4"
-        },
-        {
-          "archiveID": "theavengers3x12dontlookbehindyou",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Avengers 3 X 12 Don't Look Behind You",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/theavengers3x12dontlookbehindyou",
-          "airDate": null,
-          "year": 1964,
-          "runtimeSeconds": 3113,
-          "videoFile": {
-            "name": "The Avengers - 3X12 - Don't Look Behind You.mp4",
-            "format": "h.264",
-            "sizeBytes": 324067874,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/theavengers3x12dontlookbehindyou/The%20Avengers%20-%203X12%20-%20Don%27t%20Look%20Behind%20You.mp4"
-        },
-        {
-          "archiveID": "the-avengers-castle-de-ath-1965",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Avengers Castle De'ath 1965",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/the-avengers-castle-de-ath-1965",
-          "airDate": null,
-          "year": 1965,
-          "runtimeSeconds": 3130,
-          "videoFile": {
-            "name": "TheAvengers-CastleDe'Ath-1965-deinter-720p.mp4",
-            "format": "h.264",
-            "sizeBytes": 310291258,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-avengers-castle-de-ath-1965/TheAvengers-CastleDe%27Ath-1965-deinter-720p.mp4"
-        },
-        {
-          "archiveID": "the-avengers-death-at-bargain-prices-1965",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Avengers Death At Bargain Prices 1965",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/the-avengers-death-at-bargain-prices-1965",
-          "airDate": null,
-          "year": 1965,
-          "runtimeSeconds": 3101,
-          "videoFile": {
-            "name": "TheAvengers-DeathAtBargainPrices-1965-deinter-720p.mp4",
-            "format": "h.264",
-            "sizeBytes": 308000408,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-avengers-death-at-bargain-prices-1965/TheAvengers-DeathAtBargainPrices-1965-deinter-720p.mp4"
+          "downloadURL": "https://archive.org/download/the-avengers-s-5e-1-restored-720p-hd/the%20avengers-s6e1-restored-576p-sd.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 14,
+  "episodesCount": 53,
   "canonicalEpisodesCount": 161,
   "tvdbID": "71020",
   "artworkSource": "tvdb",

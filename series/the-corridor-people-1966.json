@@ -22,12 +22,70 @@
       "seasonNumber": 1,
       "episodes": [
         {
-          "archiveID": "the-corridor-people-s-01-e-04-victim-as-black",
+          "archiveID": "the-corridor-people-s-01-e-04-victim-as-black@s1e01",
+          "sourceID": "the-corridor-people-s-01-e-04-victim-as-black",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Victim as Birdwatcher",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-corridor-people-s-01-e-04-victim-as-black/the-corridor-people-s-01-e-04-victim-as-black.thumbs/The%20Corridor%20People%20S01E01%20-%20Victim%20as%20Birdwatcher_000962.jpg",
+          "airDate": "1966-08-26",
+          "year": 1966,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Corridor People S01E01 - Victim as Birdwatcher.mp4",
+            "format": "h.264",
+            "sizeBytes": 264054413,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-corridor-people-s-01-e-04-victim-as-black/The%20Corridor%20People%20S01E01%20-%20Victim%20as%20Birdwatcher.mp4"
+        },
+        {
+          "archiveID": "the-corridor-people-s-01-e-04-victim-as-black@s1e02",
+          "sourceID": "the-corridor-people-s-01-e-04-victim-as-black",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Victim as Whitebait",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-corridor-people-s-01-e-04-victim-as-black/the-corridor-people-s-01-e-04-victim-as-black.thumbs/The%20Corridor%20People%20S01E02%20-%20Victim%20as%20Whitebaitr_000957.jpg",
+          "airDate": "1966-09-02",
+          "year": 1966,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Corridor People S01E02 - Victim as Whitebaitr.mp4",
+            "format": "h.264",
+            "sizeBytes": 262004202,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-corridor-people-s-01-e-04-victim-as-black/The%20Corridor%20People%20S01E02%20-%20Victim%20as%20Whitebaitr.mp4"
+        },
+        {
+          "archiveID": "the-corridor-people-s-01-e-04-victim-as-black@s1e03",
+          "sourceID": "the-corridor-people-s-01-e-04-victim-as-black",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Victim as Red",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-corridor-people-s-01-e-04-victim-as-black/the-corridor-people-s-01-e-04-victim-as-black.thumbs/The%20Corridor%20People%20S01E03%20-%20Victim%20as%20Red_000956.jpg",
+          "airDate": "1966-09-09",
+          "year": 1966,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "The Corridor People S01E03 - Victim as Red.mp4",
+            "format": "h.264",
+            "sizeBytes": 264489674,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-corridor-people-s-01-e-04-victim-as-black/The%20Corridor%20People%20S01E03%20-%20Victim%20as%20Red.mp4"
+        },
+        {
+          "archiveID": "the-corridor-people-s-01-e-04-victim-as-black@s1e04",
+          "sourceID": "the-corridor-people-s-01-e-04-victim-as-black",
           "seasonNumber": 1,
           "episodeNumber": 4,
           "title": "Victim as Black",
           "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/maF3OuQQpSDg0BrX5wXV1IzJC67.jpg",
+          "stillURL": "https://archive.org/download/the-corridor-people-s-01-e-04-victim-as-black/the-corridor-people-s-01-e-04-victim-as-black.thumbs/The%20Corridor%20People%20S01E04%20-%20Victim%20as%20Black_000955.jpg",
           "airDate": "1966-09-16",
           "year": 1966,
           "runtimeSeconds": 3600,
@@ -35,14 +93,14 @@
             "name": "The Corridor People S01E04 - Victim as Black.mp4",
             "format": "h.264",
             "sizeBytes": 266464843,
-            "tier": 2
+            "tier": 1
           },
           "downloadURL": "https://archive.org/download/the-corridor-people-s-01-e-04-victim-as-black/The%20Corridor%20People%20S01E04%20-%20Victim%20as%20Black.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 1,
+  "episodesCount": 4,
   "canonicalEpisodesCount": 4,
   "tvdbID": "78411",
   "artworkSource": "tvdb",

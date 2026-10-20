@@ -21,12 +21,450 @@
       "seasonNumber": 1,
       "episodes": [
         {
-          "archiveID": "allsfair",
+          "archiveID": "allsfair@s1e01",
+          "sourceID": "allsfair",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Strange Bedfellows",
+          "overview": null,
+          "stillURL": "https://archive.org/download/allsfair/allsfair.thumbs/S01E01-%20Strange%20Bedfellows_000765.jpg",
+          "airDate": "1976-09-20",
+          "year": 1976,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E01- Strange Bedfellows.mp4",
+            "format": "h.264",
+            "sizeBytes": 149624677,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/allsfair/S01E01-%20Strange%20Bedfellows.mp4"
+        },
+        {
+          "archiveID": "allsfair@s1e02",
+          "sourceID": "allsfair",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Jealousy",
+          "overview": null,
+          "stillURL": "https://archive.org/download/allsfair/allsfair.thumbs/S01E02-%20Jealousy_000743.jpg",
+          "airDate": "1976-09-27",
+          "year": 1976,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E02- Jealousy.mp4",
+            "format": "h.264",
+            "sizeBytes": 145522222,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/allsfair/S01E02-%20Jealousy.mp4"
+        },
+        {
+          "archiveID": "allsfair@s1e03",
+          "sourceID": "allsfair",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "A Perfect Evening",
+          "overview": null,
+          "stillURL": "https://archive.org/download/allsfair/allsfair.thumbs/S01E03-%20A%20Perfect%20Evening_000745.jpg",
+          "airDate": "1976-10-04",
+          "year": 1976,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E03- A Perfect Evening.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 66478019,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/allsfair/S01E03-%20A%20Perfect%20Evening.mp4"
+        },
+        {
+          "archiveID": "allsfair@s1e04",
+          "sourceID": "allsfair",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Living Together",
+          "overview": null,
+          "stillURL": "https://archive.org/download/allsfair/allsfair.thumbs/S01E04-%20Living%20Together_000742.jpg",
+          "airDate": "1976-10-18",
+          "year": 1976,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E04- Living Together.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 61095153,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/allsfair/S01E04-%20Living%20Together.mp4"
+        },
+        {
+          "archiveID": "allsfair@s1e05",
+          "sourceID": "allsfair",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Discovery Day",
+          "overview": null,
+          "stillURL": "https://archive.org/download/allsfair/allsfair.thumbs/S01E05-%20Discovery%20Day_000745.jpg",
+          "airDate": "1976-10-25",
+          "year": 1976,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E05- Discovery Day.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 58518188,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/allsfair/S01E05-%20Discovery%20Day.mp4"
+        },
+        {
+          "archiveID": "allsfair@s1e06",
+          "sourceID": "allsfair",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Election Eve",
+          "overview": null,
+          "stillURL": "https://archive.org/download/allsfair/allsfair.thumbs/S01E06-%20Election%20Eve_000742.jpg",
+          "airDate": "1976-11-01",
+          "year": 1976,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E06- Election Eve.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 65186538,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/allsfair/S01E06-%20Election%20Eve.mp4"
+        },
+        {
+          "archiveID": "allsfair@s1e07",
+          "sourceID": "allsfair",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Gang Leader",
+          "overview": null,
+          "stillURL": "https://archive.org/download/allsfair/allsfair.thumbs/S01E07-%20The%20Gang%20Leader_000742.jpg",
+          "airDate": "1976-11-08",
+          "year": 1976,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E07- The Gang Leader.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 68052214,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/allsfair/S01E07-%20The%20Gang%20Leader.mp4"
+        },
+        {
+          "archiveID": "allsfair@s1e08",
+          "sourceID": "allsfair",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Happy Anniversary: Part 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/allsfair/allsfair.thumbs/S01E08-%20Happy%20Anniversary%20%28Part%201%29_000742.jpg",
+          "airDate": "1976-11-15",
+          "year": 1976,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E08- Happy Anniversary (Part 1).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 68022166,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/allsfair/S01E08-%20Happy%20Anniversary%20%28Part%201%29.mp4"
+        },
+        {
+          "archiveID": "allsfair@s1e09",
+          "sourceID": "allsfair",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Happy Anniversary: Part 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/allsfair/allsfair.thumbs/S01E09-%20Happy%20Anniversary%20%28Part%202%29_000752.jpg",
+          "airDate": "1976-11-22",
+          "year": 1976,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "09.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 115415180,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/allsfair/09.ia.mp4"
+        },
+        {
+          "archiveID": "allsfair@s1e10",
+          "sourceID": "allsfair",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Weekend",
+          "overview": null,
+          "stillURL": "https://archive.org/download/allsfair/allsfair.thumbs/S01E10-%20The%20Weekend_000744.jpg",
+          "airDate": "1976-11-29",
+          "year": 1976,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "10.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 113174221,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/allsfair/10.ia.mp4"
+        },
+        {
+          "archiveID": "allsfair@s1e11",
+          "sourceID": "allsfair",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Leak",
+          "overview": null,
+          "stillURL": "https://archive.org/download/allsfair/allsfair.thumbs/S01E11-%20The%20Leak_000746.jpg",
+          "airDate": "1976-12-13",
+          "year": 1976,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "11.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 123464571,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/allsfair/11.ia.mp4"
+        },
+        {
+          "archiveID": "allsfair@s1e12",
+          "sourceID": "allsfair",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "True Confessions",
+          "overview": null,
+          "stillURL": "https://archive.org/download/allsfair/allsfair.thumbs/S01E12-%20True%20Confessions_000754.jpg",
+          "airDate": "1976-12-20",
+          "year": 1976,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "12.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 109633081,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/allsfair/12.ia.mp4"
+        },
+        {
+          "archiveID": "allsfair@s1e13",
+          "sourceID": "allsfair",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Love and Marriage: Part 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/allsfair/allsfair.thumbs/S01E13-%20Love%20and%20Marriage%20%28Part%201%29_000741.jpg",
+          "airDate": "1977-01-03",
+          "year": 1977,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "13.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 140482038,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/allsfair/13.ia.mp4"
+        },
+        {
+          "archiveID": "allsfair@s1e14",
+          "sourceID": "allsfair",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Love and Marriage: Part 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/allsfair/allsfair.thumbs/S01E14-%20Love%20and%20Marriage%20%28Part%202%29_000745.jpg",
+          "airDate": "1977-01-17",
+          "year": 1977,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "14.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 135471874,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/allsfair/14.ia.mp4"
+        },
+        {
+          "archiveID": "allsfair@s1e15",
+          "sourceID": "allsfair",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Lucy's Job Offer",
+          "overview": null,
+          "stillURL": "https://archive.org/download/allsfair/allsfair.thumbs/S01E15-%20Lucy%27s%20Job%20Offer_000746.jpg",
+          "airDate": "1977-02-07",
+          "year": 1977,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "15.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 146163473,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/allsfair/15.ia.mp4"
+        },
+        {
+          "archiveID": "allsfair@s1e16",
+          "sourceID": "allsfair",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "President Requests: Part 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/allsfair/allsfair.thumbs/S01E16-%20President%20Requests%20%28Part%201%29_000752.jpg",
+          "airDate": "1977-02-14",
+          "year": 1977,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "16.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 105731568,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/allsfair/16.ia.mp4"
+        },
+        {
+          "archiveID": "allsfair@s1e17",
+          "sourceID": "allsfair",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "President Requests: Part 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/allsfair/allsfair.thumbs/S01E17-%20President%20Requests%20%28Part%202%29_000757.jpg",
+          "airDate": "1977-02-21",
+          "year": 1977,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "17.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 101247693,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/allsfair/17.ia.mp4"
+        },
+        {
+          "archiveID": "allsfair@s1e18",
+          "sourceID": "allsfair",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "In Name Only",
+          "overview": null,
+          "stillURL": "https://archive.org/download/allsfair/allsfair.thumbs/S01E18-%20In%20Name%20Only_000746.jpg",
+          "airDate": "1977-02-28",
+          "year": 1977,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "18.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 112948643,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/allsfair/18.ia.mp4"
+        },
+        {
+          "archiveID": "allsfair@s1e19",
+          "sourceID": "allsfair",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Save the Yak",
+          "overview": null,
+          "stillURL": "https://archive.org/download/allsfair/allsfair.thumbs/S01E19-%20Save%20the%20Yak_000741.jpg",
+          "airDate": "1977-03-07",
+          "year": 1977,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "19.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 111989765,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/allsfair/19.ia.mp4"
+        },
+        {
+          "archiveID": "allsfair@s1e20",
+          "sourceID": "allsfair",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Remembrance",
+          "overview": null,
+          "stillURL": "https://archive.org/download/allsfair/allsfair.thumbs/S01E20-%20Remembrance_000757.jpg",
+          "airDate": "1977-03-14",
+          "year": 1977,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "20.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 112237561,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/allsfair/20.ia.mp4"
+        },
+        {
+          "archiveID": "allsfair@s1e21",
+          "sourceID": "allsfair",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "The Dick and Vanessa Show",
+          "overview": null,
+          "stillURL": "https://archive.org/download/allsfair/allsfair.thumbs/S01E21-%20The%20Dick%20and%20Vanessa%20Show_000740.jpg",
+          "airDate": "1977-03-28",
+          "year": 1977,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "21.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 130607463,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/allsfair/21.ia.mp4"
+        },
+        {
+          "archiveID": "allsfair@s1e22",
+          "sourceID": "allsfair",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "The Jailbirds: Part 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/allsfair/allsfair.thumbs/S01E22-%20The%20Jailbirds%20%28Part%201%29_000746.jpg",
+          "airDate": "1977-04-23",
+          "year": 1977,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "22.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 147546695,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/allsfair/22.ia.mp4"
+        },
+        {
+          "archiveID": "allsfair@s1e23",
+          "sourceID": "allsfair",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "The Jailbirds: Part 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/allsfair/allsfair.thumbs/S01E23-%20The%20Jailbirds%20%28Part%202%29_000742.jpg",
+          "airDate": "1977-04-30",
+          "year": 1977,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E23- The Jailbirds (Part 2).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 72969278,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/allsfair/S01E23-%20The%20Jailbirds%20%28Part%202%29.mp4"
+        },
+        {
+          "archiveID": "allsfair@s1e24",
+          "sourceID": "allsfair",
           "seasonNumber": 1,
           "episodeNumber": 24,
           "title": "Charley's Father",
           "overview": null,
-          "stillURL": "https://archive.org/download/archivewatch-covers/allsfair.e5e0f0c1.jpg",
+          "stillURL": "https://archive.org/download/allsfair/allsfair.thumbs/S01E24-%20Charley%27s%20Father_000681.jpg",
           "airDate": "1977-05-30",
           "year": 1977,
           "runtimeSeconds": 1800,
@@ -41,7 +479,7 @@
       ]
     }
   ],
-  "episodesCount": 1,
+  "episodesCount": 24,
   "canonicalEpisodesCount": 24,
   "tvdbID": "387708",
   "artworkSource": "tvdb",
@@ -94,8 +532,5 @@
       "order": 7,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/253571/photo/613bf1d162019.jpg"
     }
-  ],
-  "seriesImdbID": "tt0073956",
-  "canonicalEpisodeCount": 6,
-  "canonicalSeasons": 1
+  ]
 }

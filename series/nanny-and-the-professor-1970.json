@@ -21,12 +21,203 @@
       "seasonNumber": 1,
       "episodes": [
         {
-          "archiveID": "NannyandtheProfessorSeason1",
+          "archiveID": "NannyandtheProfessorSeason1@s1e01",
+          "sourceID": "NannyandtheProfessorSeason1",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Nanny Will Do",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/154/385137.jpg",
+          "airDate": "1970-01-21",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E01- Nanny Will Do.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 121804897,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason1/S01E01-%20Nanny%20Will%20Do.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason1@s1e02",
+          "sourceID": "NannyandtheProfessorSeason1",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Wiblet Will Get You If You Don't Watch Out",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason1/NannyandtheProfessorSeason1.thumbs/S01E02-%20The%20Wiblet%20Will%20Get%20You%20if%20You%20Don%27t%20Watch%20Out_000532.jpg",
+          "airDate": "1970-01-28",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E02- The Wiblet Will Get You if You Don't Watch Out.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 121221007,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason1/S01E02-%20The%20Wiblet%20Will%20Get%20You%20if%20You%20Don%27t%20Watch%20Out.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason1@s1e03",
+          "sourceID": "NannyandtheProfessorSeason1",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The New Butch",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason1/NannyandtheProfessorSeason1.thumbs/S01E03-%20The%20New%20Butch_000532.jpg",
+          "airDate": "1970-02-04",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E03- The New Butch.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 121143114,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason1/S01E03-%20The%20New%20Butch.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason1@s1e04",
+          "sourceID": "NannyandtheProfessorSeason1",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Scientific Approach",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason1/NannyandtheProfessorSeason1.thumbs/S01E04-%20The%20Scientific%20Approach_000532.jpg",
+          "airDate": "1970-03-11",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E04- The Scientific Approach.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 121360722,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason1/S01E04-%20The%20Scientific%20Approach.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason1@s1e05",
+          "sourceID": "NannyandtheProfessorSeason1",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Astronomers",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason1/NannyandtheProfessorSeason1.thumbs/S01E05-%20The%20Astronomers_000532.jpg",
+          "airDate": "1970-02-18",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E05- The Astronomers.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 121688289,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason1/S01E05-%20The%20Astronomers.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason1@s1e06",
+          "sourceID": "NannyandtheProfessorSeason1",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Spring, Sweet Spring",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason1/NannyandtheProfessorSeason1.thumbs/S01E06-%20Spring%20Sweet%20Spring_000532.jpg",
+          "airDate": "1970-02-25",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E06- Spring Sweet Spring.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 120738272,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason1/S01E06-%20Spring%20Sweet%20Spring.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason1@s1e07",
+          "sourceID": "NannyandtheProfessorSeason1",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Nanny on Wheels",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason1/NannyandtheProfessorSeason1.thumbs/S01E07-%20Nanny%20on%20Wheels_000532.jpg",
+          "airDate": "1970-03-04",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E07- Nanny on Wheels.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 121741983,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason1/S01E07-%20Nanny%20on%20Wheels.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason1@s1e08",
+          "sourceID": "NannyandtheProfessorSeason1",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Strictly for the Birds",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason1/NannyandtheProfessorSeason1.thumbs/S01E08-%20Strictly%20For%20The%20Birds_000532.jpg",
+          "airDate": "1970-03-11",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E08- Strictly For The Birds.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 121284094,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason1/S01E08-%20Strictly%20For%20The%20Birds.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason1@s1e09",
+          "sourceID": "NannyandtheProfessorSeason1",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Tyrannosaurus Tibia",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason1/NannyandtheProfessorSeason1.thumbs/S01E09-%20The%20Tyrannosaurus%20Tibia_000532.jpg",
+          "airDate": "1970-03-18",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E09- The Tyrannosaurus Tibia.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 121108228,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason1/S01E09-%20The%20Tyrannosaurus%20Tibia.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason1@s1e10",
+          "sourceID": "NannyandtheProfessorSeason1",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "I Think That I Shall Never See a Tree",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason1/NannyandtheProfessorSeason1.thumbs/S01E10-%20I%20Think%20That%20I%20%20Shall%20Never%20See%20a%20Tree_000532.jpg",
+          "airDate": "1970-03-25",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E10- I Think That I  Shall Never See a Tree.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 121386667,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason1/S01E10-%20I%20Think%20That%20I%20%20Shall%20Never%20See%20a%20Tree.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason1@s1e11",
+          "sourceID": "NannyandtheProfessorSeason1",
           "seasonNumber": 1,
           "episodeNumber": 11,
           "title": "The Games Families Play",
           "overview": null,
-          "stillURL": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason1/NannyandtheProfessorSeason1.thumbs/S01E11-%20The%20Games%20Families%20Play_000532.jpg",
           "airDate": "1970-04-01",
           "year": 1970,
           "runtimeSeconds": 1800,
@@ -37,6 +228,82 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason1/S01E11-%20The%20Games%20Families%20Play.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason1@s1e12",
+          "sourceID": "NannyandtheProfessorSeason1",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "An Element of Risk",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason1/NannyandtheProfessorSeason1.thumbs/S01E12-%20An%20Element%20of%20Risk_000532.jpg",
+          "airDate": "1970-04-08",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E12- An Element of Risk.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 121508955,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason1/S01E12-%20An%20Element%20of%20Risk.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason1@s1e13",
+          "sourceID": "NannyandtheProfessorSeason1",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "The Philosopher's Stone",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason1/NannyandtheProfessorSeason1.thumbs/S01E13-%20The%20Philosopher%27s%20Stone_000532.jpg",
+          "airDate": "1970-04-15",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E13- The Philosopher's Stone.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 121273666,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason1/S01E13-%20The%20Philosopher%27s%20Stone.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason1@s1e14",
+          "sourceID": "NannyandtheProfessorSeason1",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "A Fowl Episode",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason1/NannyandtheProfessorSeason1.thumbs/S01E14-%20A%20Fowl%20Episode_000532.jpg",
+          "airDate": "1970-04-22",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E14- A Fowl Episode.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 121445349,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason1/S01E14-%20A%20Fowl%20Episode.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason1@s1e15",
+          "sourceID": "NannyandtheProfessorSeason1",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Nanny and the Smoke-Filled Room",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason1/NannyandtheProfessorSeason1.thumbs/S01E15-%20Nanny%20%20And%20The%20Smoke-Filled%20Room_000525.jpg",
+          "airDate": "1970-04-29",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E15- Nanny  And The Smoke-Filled Room.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 119821290,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason1/S01E15-%20Nanny%20%20And%20The%20Smoke-Filled%20Room.mp4"
         }
       ]
     },
@@ -44,12 +311,355 @@
       "seasonNumber": 2,
       "episodes": [
         {
-          "archiveID": "NannyandtheProfessorSeason2",
+          "archiveID": "NannyandtheProfessorSeason2@s2e01",
+          "sourceID": "NannyandtheProfessorSeason2",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "The Human Element",
+          "overview": "It's Nanny vs. the computer as the series begins its second season. Her belief in the human mystique is put to the test when the professor arranges a computer match for a pal and a computerized race for Nanny's vintage car.",
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason2/NannyandtheProfessorSeason2.thumbs/S02E01-%20The%20Human%20Element_000480.jpg",
+          "airDate": "1970-09-25",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E01- The Human Element.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 120197778,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason2/S02E01-%20The%20Human%20Element.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason2@s2e02",
+          "sourceID": "NannyandtheProfessorSeason2",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "The Haunted House",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason2/NannyandtheProfessorSeason2.thumbs/S02E02-%20The%20Haunted%20House_000504.jpg",
+          "airDate": "1970-10-02",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E02- The Haunted House.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 120154565,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason2/S02E02-%20The%20Haunted%20House.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason2@s2e03",
+          "sourceID": "NannyandtheProfessorSeason2",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Star Bright",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason2/NannyandtheProfessorSeason2.thumbs/S02E03-%20Star%20Bright_000480.jpg",
+          "airDate": "1970-10-09",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E03- Star Bright.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 120835203,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason2/S02E03-%20Star%20Bright.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason2@s2e04",
+          "sourceID": "NannyandtheProfessorSeason2",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "E. S. Putt",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason2/NannyandtheProfessorSeason2.thumbs/S02E04-%20E.%20S.%20Putt_000488.jpg",
+          "airDate": "1970-10-16",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E04- E. S. Putt.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 120975285,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason2/S02E04-%20E.%20S.%20Putt.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason2@s2e05",
+          "sourceID": "NannyandtheProfessorSeason2",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Back to Nature",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason2/NannyandtheProfessorSeason2.thumbs/S02E05-%20Back%20to%20Nature_000488.jpg",
+          "airDate": "1970-10-23",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E05- Back to Nature.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 121111492,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason2/S02E05-%20Back%20to%20Nature.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason2@s2e06",
+          "sourceID": "NannyandtheProfessorSeason2",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "A Letter for Nanny",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason2/NannyandtheProfessorSeason2.thumbs/S02E06-%20A%20Letter%20For%20Nanny_000488.jpg",
+          "airDate": "1970-10-30",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E06- A Letter For Nanny.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 121686398,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason2/S02E06-%20A%20Letter%20For%20Nanny.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason2@s2e07",
+          "sourceID": "NannyandtheProfessorSeason2",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "The Great Broadcast of 1936",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason2/NannyandtheProfessorSeason2.thumbs/S02E07-%20The%20Great%20Broadcast%20of%201936_000420.jpg",
+          "airDate": "1970-11-06",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E07- The Great Broadcast of 1936.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 107640786,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason2/S02E07-%20The%20Great%20Broadcast%20of%201936.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason2@s2e08",
+          "sourceID": "NannyandtheProfessorSeason2",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "The Masculine-Feminine Mystique",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason2/NannyandtheProfessorSeason2.thumbs/S02E08-%20The%20Masculine%20Feminine%20Mystique_000488.jpg",
+          "airDate": "1970-11-13",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E08- The Masculine Feminine Mystique.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 121424487,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason2/S02E08-%20The%20Masculine%20Feminine%20Mystique.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason2@s2e09",
+          "sourceID": "NannyandtheProfessorSeason2",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "The India Queen",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason2/NannyandtheProfessorSeason2.thumbs/S02E09-%20The%20India%20Queen_000480.jpg",
+          "airDate": "1970-11-20",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E09- The India Queen.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 120213869,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason2/S02E09-%20The%20India%20Queen.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason2@s2e10",
+          "sourceID": "NannyandtheProfessorSeason2",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "The Visitor",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason2/NannyandtheProfessorSeason2.thumbs/S02E10-%20The%20Visitor_000488.jpg",
+          "airDate": "1970-12-04",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E10- The Visitor.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 121197435,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason2/S02E10-%20The%20Visitor.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason2@s2e11",
+          "sourceID": "NannyandtheProfessorSeason2",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "My Son, the Sitter",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason2/NannyandtheProfessorSeason2.thumbs/S02E11-%20My%20Son%2C%20The%20Sitter_000508.jpg",
+          "airDate": "1970-12-11",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E11- My Son, The Sitter.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 121382388,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason2/S02E11-%20My%20Son%2C%20The%20Sitter.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason2@s2e12",
+          "sourceID": "NannyandtheProfessorSeason2",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "From Butch, with Love",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason2/NannyandtheProfessorSeason2.thumbs/S02E12-%20From%20Butch%2C%20With%20Love_000480.jpg",
+          "airDate": "1970-12-18",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E12- From Butch, With Love.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 120331836,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason2/S02E12-%20From%20Butch%2C%20With%20Love.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason2@s2e13",
+          "sourceID": "NannyandtheProfessorSeason2",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "The Humanization of Herbert T. Peabody",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason2/NannyandtheProfessorSeason2.thumbs/S02E13-%20The%20Humanization%20of%20Herbert%20T.%20Peabody_000504.jpg",
+          "airDate": "1970-12-25",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E13- The Humanization of Herbert T. Peabody.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 120783968,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason2/S02E13-%20The%20Humanization%20of%20Herbert%20T.%20Peabody.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason2@s2e14",
+          "sourceID": "NannyandtheProfessorSeason2",
+          "seasonNumber": 2,
+          "episodeNumber": 14,
+          "title": "A Diller, a Dollar",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason2/NannyandtheProfessorSeason2.thumbs/S02E14-%20A%20Diller%2C%20a%20Dollar_000508.jpg",
+          "airDate": "1971-01-08",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E14- A Diller, a Dollar.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 121467642,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason2/S02E14-%20A%20Diller%2C%20a%20Dollar.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason2@s2e15",
+          "sourceID": "NannyandtheProfessorSeason2",
+          "seasonNumber": 2,
+          "episodeNumber": 15,
+          "title": "Separate Rooms",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason2/NannyandtheProfessorSeason2.thumbs/S02E15-%20Separate%20Rooms_000508.jpg",
+          "airDate": "1971-01-15",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E15- Separate Rooms.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 121494837,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason2/S02E15-%20Separate%20Rooms.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason2@s2e16",
+          "sourceID": "NannyandtheProfessorSeason2",
+          "seasonNumber": 2,
+          "episodeNumber": 16,
+          "title": "The Human Fly",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason2/NannyandtheProfessorSeason2.thumbs/S02E16-%20The%20Human%20Fly_000508.jpg",
+          "airDate": "1971-01-22",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E16- The Human Fly.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 121502547,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason2/S02E16-%20The%20Human%20Fly.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason2@s2e17",
+          "sourceID": "NannyandtheProfessorSeason2",
+          "seasonNumber": 2,
+          "episodeNumber": 17,
+          "title": "The Man Who Came to Pasta",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason2/NannyandtheProfessorSeason2.thumbs/S02E17-%20The%20Man%20Who%20Came%20to%20Pasta_000508.jpg",
+          "airDate": "1971-01-29",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E17- The Man Who Came to Pasta.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 120916590,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason2/S02E17-%20The%20Man%20Who%20Came%20to%20Pasta.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason2@s2e18",
+          "sourceID": "NannyandtheProfessorSeason2",
+          "seasonNumber": 2,
+          "episodeNumber": 18,
+          "title": "The Art of Relationships",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason2/NannyandtheProfessorSeason2.thumbs/S02E18-%20The%20Art%20of%20Relationships_000508.jpg",
+          "airDate": "1971-02-05",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E18- The Art of Relationships.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 121721529,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason2/S02E18-%20The%20Art%20of%20Relationships.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason2@s2e19",
+          "sourceID": "NannyandtheProfessorSeason2",
           "seasonNumber": 2,
           "episodeNumber": 19,
           "title": "The Balloon Ladies",
           "overview": null,
-          "stillURL": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason2/NannyandtheProfessorSeason2.thumbs/S02E19-%20The%20Balloon%20Ladies_000512.jpg",
           "airDate": "1971-02-12",
           "year": 1971,
           "runtimeSeconds": 1800,
@@ -60,6 +670,101 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason2/S02E19-%20The%20Balloon%20Ladies.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason2@s2e20",
+          "sourceID": "NannyandtheProfessorSeason2",
+          "seasonNumber": 2,
+          "episodeNumber": 20,
+          "title": "The Prodigy",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason2/NannyandtheProfessorSeason2.thumbs/S02E20-%20The%20Prodigy_000496.jpg",
+          "airDate": "1971-02-19",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E20- The Prodigy.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 119199094,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason2/S02E20-%20The%20Prodigy.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason2@s2e21",
+          "sourceID": "NannyandtheProfessorSeason2",
+          "seasonNumber": 2,
+          "episodeNumber": 21,
+          "title": "How Many Candles?",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason2/NannyandtheProfessorSeason2.thumbs/S02E21-%20How%20Many%20Candles_000448.jpg",
+          "airDate": "1971-02-26",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E21- How Many Candles.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 107274939,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason2/S02E21-%20How%20Many%20Candles.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason2@s2e22",
+          "sourceID": "NannyandtheProfessorSeason2",
+          "seasonNumber": 2,
+          "episodeNumber": 22,
+          "title": "The Unknown Factor",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason2/NannyandtheProfessorSeason2.thumbs/S02E22-%20The%20Unknown%20Factor_000508.jpg",
+          "airDate": "1971-03-05",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E22- The Unknown Factor.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 121289055,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason2/S02E22-%20The%20Unknown%20Factor.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason2@s2e23",
+          "sourceID": "NannyandtheProfessorSeason2",
+          "seasonNumber": 2,
+          "episodeNumber": 23,
+          "title": "Kid Stuff",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason2/NannyandtheProfessorSeason2.thumbs/S02E23-%20Kid%20Stuff_000508.jpg",
+          "airDate": "1971-03-12",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E23- Kid Stuff.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 121545257,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason2/S02E23-%20Kid%20Stuff.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason2@s2e24",
+          "sourceID": "NannyandtheProfessorSeason2",
+          "seasonNumber": 2,
+          "episodeNumber": 24,
+          "title": "The Communication Gap",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason2/NannyandtheProfessorSeason2.thumbs/S02E24-%20The%20Communication%20Gap_000448.jpg",
+          "airDate": "1971-03-26",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S02E24- The Communication Gap.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 108037819,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason2/S02E24-%20The%20Communication%20Gap.mp4"
         }
       ]
     },
@@ -67,12 +772,32 @@
       "seasonNumber": 3,
       "episodes": [
         {
-          "archiveID": "NannyandtheProfessorSeason3",
+          "archiveID": "NannyandtheProfessorSeason3@s3e01",
+          "sourceID": "NannyandtheProfessorSeason3",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "Oh, What a Tangled Web",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason3/NannyandtheProfessorSeason3.thumbs/S03E01-%20Oh%2C%20What%20a%20Tangled%20Web_000469.jpg",
+          "airDate": "1971-09-13",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S03E01- Oh, What a Tangled Web.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 107160411,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason3/S03E01-%20Oh%2C%20What%20a%20Tangled%20Web.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason3@s3e02",
+          "sourceID": "NannyandtheProfessorSeason3",
           "seasonNumber": 3,
           "episodeNumber": 2,
           "title": "The Flower Children",
           "overview": null,
-          "stillURL": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason3/NannyandtheProfessorSeason3.thumbs/S03E02-%20The%20Flower%20Children_000469.jpg",
           "airDate": "1971-09-20",
           "year": 1971,
           "runtimeSeconds": 1800,
@@ -83,11 +808,258 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason3/S03E02-%20The%20Flower%20Children.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason3@s3e03",
+          "sourceID": "NannyandtheProfessorSeason3",
+          "seasonNumber": 3,
+          "episodeNumber": 3,
+          "title": "Sunday's Hero",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason3/NannyandtheProfessorSeason3.thumbs/S03E03-%20Sunday%27s%20Hero_000469.jpg",
+          "airDate": "1971-09-27",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S03E03- Sunday's Hero.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 85187213,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason3/S03E03-%20Sunday%27s%20Hero.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason3@s3e04",
+          "sourceID": "NannyandtheProfessorSeason3",
+          "seasonNumber": 3,
+          "episodeNumber": 4,
+          "title": "South Sea Island Sweetheart",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason3/NannyandtheProfessorSeason3.thumbs/S03E04-%20South%20Sea%20Island%20Sweetheart_000546.jpg",
+          "airDate": "1971-10-04",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S03E04- South Sea Island Sweetheart.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 98720585,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason3/S03E04-%20South%20Sea%20Island%20Sweetheart.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason3@s3e05",
+          "sourceID": "NannyandtheProfessorSeason3",
+          "seasonNumber": 3,
+          "episodeNumber": 5,
+          "title": "Aunt Henrietta's Premonition",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason3/NannyandtheProfessorSeason3.thumbs/S03E05-%20Aunt%20Henrietta%27s%20Premonition_000469.jpg",
+          "airDate": "1971-10-11",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S03E05- Aunt Henrietta's Premonition.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 107701809,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason3/S03E05-%20Aunt%20Henrietta%27s%20Premonition.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason3@s3e06",
+          "sourceID": "NannyandtheProfessorSeason3",
+          "seasonNumber": 3,
+          "episodeNumber": 6,
+          "title": "Cholmondeley Featherstonehaugh",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason3/NannyandtheProfessorSeason3.thumbs/S03E06-%20Cholmondeley%20Featherstonehaugh_000469.jpg",
+          "airDate": "1971-10-18",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S03E06- Cholmondeley Featherstonehaugh.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 85124369,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason3/S03E06-%20Cholmondeley%20Featherstonehaugh.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason3@s3e07",
+          "sourceID": "NannyandtheProfessorSeason3",
+          "seasonNumber": 3,
+          "episodeNumber": 7,
+          "title": "Aunt Henrietta and the Jinx",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason3/NannyandtheProfessorSeason3.thumbs/S03E07-%20Aunt%20Henrietta%20And%20The%20Jinx_000469.jpg",
+          "airDate": "1971-11-15",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S03E07- Aunt Henrietta And The Jinx.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 84707285,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason3/S03E07-%20Aunt%20Henrietta%20And%20The%20Jinx.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason3@s3e08",
+          "sourceID": "NannyandtheProfessorSeason3",
+          "seasonNumber": 3,
+          "episodeNumber": 8,
+          "title": "Nanny and Her Witch's Brew",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason3/NannyandtheProfessorSeason3.thumbs/S03E08-%20Nanny%20And%20Her%20Witch%27s%20Brew_000469.jpg",
+          "airDate": "1971-11-01",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S03E08- Nanny And Her Witch's Brew.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 84797370,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason3/S03E08-%20Nanny%20And%20Her%20Witch%27s%20Brew.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason3@s3e09",
+          "sourceID": "NannyandtheProfessorSeason3",
+          "seasonNumber": 3,
+          "episodeNumber": 9,
+          "title": "The Conversion of Brother Ben",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason3/NannyandtheProfessorSeason3.thumbs/S03E09-%20The%20Conversion%20of%20Brother%20Ben_000469.jpg",
+          "airDate": "1971-11-08",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S03E09- The Conversion of Brother Ben.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 84108437,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason3/S03E09-%20The%20Conversion%20of%20Brother%20Ben.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason3@s3e10",
+          "sourceID": "NannyandtheProfessorSeason3",
+          "seasonNumber": 3,
+          "episodeNumber": 10,
+          "title": "Aunt Henrietta and the Poltergeist",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason3/NannyandtheProfessorSeason3.thumbs/S03E10-%20Aunt%20Henrietta%20And%20The%20Poltergeist_000476.jpg",
+          "airDate": "1971-10-25",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S03E10- Aunt Henrietta And The Poltergeist.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 85369994,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason3/S03E10-%20Aunt%20Henrietta%20And%20The%20Poltergeist.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason3@s3e11",
+          "sourceID": "NannyandtheProfessorSeason3",
+          "seasonNumber": 3,
+          "episodeNumber": 11,
+          "title": "Professor Pygmalion Plays Golf",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason3/NannyandtheProfessorSeason3.thumbs/S03E11-%20Professor%20Pygmalion%20Plays%20Golf_000469.jpg",
+          "airDate": "1971-11-23",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S03E11- Professor Pygmalion Plays Golf.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 85588087,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason3/S03E11-%20Professor%20Pygmalion%20Plays%20Golf.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason3@s3e12",
+          "sourceID": "NannyandtheProfessorSeason3",
+          "seasonNumber": 3,
+          "episodeNumber": 12,
+          "title": "The Great Debate",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason3/NannyandtheProfessorSeason3.thumbs/S03E12-%20The%20Great%20Debate_000469.jpg",
+          "airDate": "1971-11-29",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S03E12- The Great Debate.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 84701001,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason3/S03E12-%20The%20Great%20Debate.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason3@s3e13",
+          "sourceID": "NannyandtheProfessorSeason3",
+          "seasonNumber": 3,
+          "episodeNumber": 13,
+          "title": "One for the Road",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason3/NannyandtheProfessorSeason3.thumbs/S03E13-%20One%20For%20The%20Road_000469.jpg",
+          "airDate": "1971-12-06",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S03E13- One For The Road.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 84705671,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason3/S03E13-%20One%20For%20The%20Road.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason3@s3e14",
+          "sourceID": "NannyandtheProfessorSeason3",
+          "seasonNumber": 3,
+          "episodeNumber": 14,
+          "title": "Good-bye, Arabella, Hello",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason3/NannyandtheProfessorSeason3.thumbs/S03E14-%20Good-bye%2C%20Arabella%2C%20Hello_000469.jpg",
+          "airDate": "1971-12-13",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S03E14- Good-bye, Arabella, Hello.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 85083316,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason3/S03E14-%20Good-bye%2C%20Arabella%2C%20Hello.mp4"
+        },
+        {
+          "archiveID": "NannyandtheProfessorSeason3@s3e15",
+          "sourceID": "NannyandtheProfessorSeason3",
+          "seasonNumber": 3,
+          "episodeNumber": 15,
+          "title": "Whatever Happened to Felicity?",
+          "overview": null,
+          "stillURL": "https://archive.org/download/NannyandtheProfessorSeason3/NannyandtheProfessorSeason3.thumbs/S03E15-%20Whatever%20Happened%20to%20Felicity_000469.jpg",
+          "airDate": "1971-12-27",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S03E15- Whatever Happened to Felicity.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 85801655,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/NannyandtheProfessorSeason3/S03E15-%20Whatever%20Happened%20to%20Felicity.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 3,
+  "episodesCount": 54,
   "canonicalEpisodesCount": 54,
   "tvdbID": "71044",
   "artworkSource": "tvdb",

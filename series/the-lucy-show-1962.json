@@ -20,7 +20,521 @@
       "seasonNumber": 1,
       "episodes": [
         {
-          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s1e01",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Lucy Waits Up for Chris",
+          "overview": "Lucy causes a family crisis when she waits up for Chris, who is out on a date.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1376243.jpg",
+          "airDate": "1962-10-01",
+          "year": 1962,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E01 - Lucy Waits Up for Chris.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 460053406,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%201/S01E01%20-%20Lucy%20Waits%20Up%20for%20Chris.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s1e02",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Lucy Digs Up a Date",
+          "overview": "Lucy tries to get a date with her son Jerry's new teacher, so she looks at his driver license—and doesn't put it back.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1376244.jpg",
+          "airDate": "1962-10-08",
+          "year": 1962,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E02 - Lucy Digs Up a Date.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 429077517,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%201/S01E02%20-%20Lucy%20Digs%20Up%20a%20Date.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s1e03",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Lucy Is a Referee",
+          "overview": "Lucy becomes a referee at a football game. After her incompetence gets both teams disqualified, she scrambles to make it up to them.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1376256.jpg",
+          "airDate": "1962-10-15",
+          "year": 1962,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E03 - Lucy Is a Referee.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 732357982,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%201/S01E03%20-%20Lucy%20Is%20a%20Referee.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s1e04",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Lucy Misplaces $2,000",
+          "overview": "After her banker, Mr. Barnsdahl, says his bank never makes a mistake and Lucy ends up with $2,000 after a mistake, she tries to keep it to play a joke, but the kids unknowingly take it to the park.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1376260.jpg",
+          "airDate": "1962-10-22",
+          "year": 1962,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E04 - Lucy Misplaces $2,000.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 552889043,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%201/S01E04%20-%20Lucy%20Misplaces%20%242%2C000.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s1e05",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Lucy Buys a Sheep",
+          "overview": "After Viv's son, Sherman, gives Lucy an idea, she buys a sheep to keep the lawn tidy, and has to keep it in the house when it starts snowing.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1376261.jpg",
+          "airDate": "1962-10-29",
+          "year": 1962,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E05 - Lucy Buys a Sheep.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 380714001,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%201/S01E05%20-%20Lucy%20Buys%20a%20Sheep.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s1e06",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Lucy Becomes an Astronaut",
+          "overview": "Lucy and Viv go into a space simulator for 24 hours and Lucy says she's ready for NASA to call her to go to space, so Viv plays a prank on her.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1376263.jpg",
+          "airDate": "1962-11-05",
+          "year": 1962,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E06 - Lucy Becomes an Astronaut.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 511369229,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%201/S01E06%20-%20Lucy%20Becomes%20an%20Astronaut.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s1e07",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Lucy Is a Kangaroo for a Day",
+          "overview": "In order to get Jerry a bike for his birthday, Lucy takes a temporary job as a secretary. However, when her dress is destroyed, she is forced to deliver papers in a kangaroo costume.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1376264.jpg",
+          "airDate": "1962-11-12",
+          "year": 1962,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E07 - Lucy Is a Kangaroo for a Day.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 530905330,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%201/S01E07%20-%20Lucy%20Is%20a%20Kangaroo%20for%20a%20Day.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s1e08",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Lucy, the Music Lover",
+          "overview": "Lucy goes on a date to the opera with a man interested in music. Problems arise when Viv takes a liking to him.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1376269.jpg",
+          "airDate": "1962-11-19",
+          "year": 1962,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E08 - Lucy the Music Lover.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 461776496,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%201/S01E08%20-%20Lucy%20the%20Music%20Lover.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s1e09",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Lucy Puts Up a TV Antenna",
+          "overview": "After a boring night without TV (because the antenna fell down), Lucy tries to save a little money by putting up a new antenna with Viv.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1376277.jpg",
+          "airDate": "1962-11-26",
+          "year": 1962,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E09 - Lucy Puts Up a TV Antenna.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 647398643,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%201/S01E09%20-%20Lucy%20Puts%20Up%20a%20TV%20Antenna.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s1e10",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Vivian Sues Lucy",
+          "overview": "Vivian falls and twists her ankle when the kids leave a mess in the house. Lucy is afraid she'll sue, so she tries to trick Viv into signing a paper that says she won't sue. When Viv finds out, Lucy must contend to her every need.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1376279.jpg",
+          "airDate": "1962-12-03",
+          "year": 1962,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E10 - Vivian Sues Lucy.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 662479435,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%201/S01E10%20-%20Vivian%20Sues%20Lucy.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s1e11",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Lucy Builds a Rumpus Room",
+          "overview": "Lucy and Viv decide to build a rumpus room after having conflicting dates at the house.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1376282.jpg",
+          "airDate": "1962-12-10",
+          "year": 1962,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E11 - Lucy Builds a Rumpus Room.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 662226624,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%201/S01E11%20-%20Lucy%20Builds%20a%20Rumpus%20Room.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s1e12",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Lucy and Her Electric Mattress",
+          "overview": "Lucy buys Viv an electric mattress, but when Viv comes home early, the two must sleep in Jerry and Sherman's bunk beds.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1376861.jpg",
+          "airDate": "1962-12-17",
+          "year": 1962,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E12 - Lucy and Her Electric Mattress.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 674492914,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%201/S01E12%20-%20Lucy%20and%20Her%20Electric%20Mattress.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s1e13",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Together for Christmas",
+          "overview": "Lucy and Viv decide to celebrate Christmas together. However, problems arise when they realize each other's traditions are different.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1376866.jpg",
+          "airDate": "1962-12-24",
+          "year": 1962,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E13 - Together for Christmas.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 684908996,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%201/S01E13%20-%20Together%20for%20Christmas.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s1e14",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Chris's New Year's Eve Party",
+          "overview": "Chris throws a New Year's Eve party and doesn't want Lucy and Viv there, but needs them to come to the rescue when the party becomes a flop.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1376874.jpg",
+          "airDate": "1962-12-31",
+          "year": 1962,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E14 - Chris' New Year's Eve Party.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 594482372,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%201/S01E14%20-%20Chris%27%20New%20Year%27s%20Eve%20Party.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s1e15",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Lucy's Sister Pays a Visit",
+          "overview": "Lucy's sister has eloped, but Lucy wants her to have a formal ceremony right in the house. Things get tipsy when the nervous groom spikes the punch with champagne and the girls drink it.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1376878.jpg",
+          "airDate": "1963-01-07",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E15 - Lucy's Sister Pays a Visit.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 593890726,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%201/S01E15%20-%20Lucy%27s%20Sister%20Pays%20a%20Visit.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s1e16",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Lucy and Viv Are Volunteer Firemen",
+          "overview": "Lucy and Viv decide to become volunteer firemen.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1376879.jpg",
+          "airDate": "1963-01-14",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E16 - Lucy and Viv Are Volunteer Firemen.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 647582104,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%201/S01E16%20-%20Lucy%20and%20Viv%20Are%20Volunteer%20Firemen.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s1e17",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Lucy Becomes a Reporter",
+          "overview": "Lucy becomes a reporter, but is fired, and must have Viv get her job back by interviewing an old flame of Viv's, and important businessman.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1376889.jpg",
+          "airDate": "1963-01-21",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E17 - Lucy Becomes a Reporter.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 621675745,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%201/S01E17%20-%20Lucy%20Becomes%20a%20Reporter.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s1e18",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Lucy and Viv Put in a Shower",
+          "overview": "Tired of Chris hogging the bathroom every morning, Lucy and Viv decide to trick Harry & Eddie into building a shower in the boys' room. When the plumber Harry and Eddie secretly hired quits (after Lucy insults him), Lucy & Viv must finish the shower- but they accidentally get trapped in the shower while it's filling up with water.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1376896.jpg",
+          "airDate": "1963-01-28",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E18 - Lucy and Viv Put in a Shower.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 713122838,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%201/S01E18%20-%20Lucy%20and%20Viv%20Put%20in%20a%20Shower.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s1e19",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Lucy's Barbershop Quartet",
+          "overview": "Lucy tries to join Viv's Quartet and hires a singing tutor to teach her how to sing.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1376898.jpg",
+          "airDate": "1963-02-04",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E19 - Lucy's Barbershop Quartet.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 640633501,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%201/S01E19%20-%20Lucy%27s%20Barbershop%20Quartet.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s1e20",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Lucy and Viv Become Tycoons",
+          "overview": "Lucy and Viv decide to market Viv's homemade Carmel Corn, but they break zoning laws.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1376915.jpg",
+          "airDate": "1963-02-11",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E20 - Lucy and Viv Become Tycoons.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 688396750,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%201/S01E20%20-%20Lucy%20and%20Viv%20Become%20Tycoons.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s1e21",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "No More Double Dates",
+          "overview": "Viv and Lucy don't want to go on Double Dates anymore, but both of them secretly still want to.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1376925.jpg",
+          "airDate": "1963-02-18",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E21 - No More Double Dates.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 430886482,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%201/S01E21%20-%20No%20More%20Double%20Dates.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s1e22",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Lucy and Viv Learn Judo",
+          "overview": "To protect themselves better, Lucy and Viv take judo lessons, but problems arise when Jerry and Sherman start fighting.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1376926.jpg",
+          "airDate": "1963-02-25",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E22 - Lucy and Viv Learn Judo.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 644041147,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%201/S01E22%20-%20Lucy%20and%20Viv%20Learn%20Judo.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s1e23",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Lucy Is a Soda Jerk",
+          "overview": "Chris takes on a job of Soda Jerk to buy a uniform and Lucy takes over her shift during a parade.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1376929.jpg",
+          "airDate": "1963-03-04",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E23 - Lucy Is a Soda Jerk.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 666020128,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%201/S01E23%20-%20Lucy%20Is%20a%20Soda%20Jerk.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s1e24",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Lucy Drives a Dump Truck",
+          "overview": "Lucy foolishly collects 34 tons (68,000 lbs.) of paper, but must deliver it to the next town.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1377304.jpg",
+          "airDate": "1963-03-11",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E24 - Lucy Drives a Dump Truck.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 571300873,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%201/S01E24%20-%20Lucy%20Drives%20a%20Dump%20Truck.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s1e25",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Lucy Visits the White House",
+          "overview": "Lucy and her children's scout group build a sugar cube replica of the White House which they were going to present to President John F. Kennedy. However, the replica is crushed and Lucy scrambles at the various locations the train stops at to build another.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1377331.jpg",
+          "airDate": "1963-03-25",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E25 - Lucy Visits the White House.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 522576269,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%201/S01E25%20-%20Lucy%20Visits%20the%20White%20House.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s1e26",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Lucy and Viv Take Up Chemistry",
+          "overview": "To freshen up their skills, Lucy and Viv take Chemistry classes at Night School, but Lucy tries to develop eternal youth and Viv decides to play a prank on her.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1377358.jpg",
+          "airDate": "1963-04-01",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E26 - Lucy and Viv Take Up Chemistry.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 627480503,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%201/S01E26%20-%20Lucy%20and%20Viv%20Take%20Up%20Chemistry.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s1e27",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Lucy Is a Chaperone",
+          "overview": "Lucy and Viv chaperone Chris' school trip, but Chris becomes embarrassed by them.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1377373.jpg",
+          "airDate": "1963-04-08",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E27 - Lucy Is a Chaperone.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 623212261,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%201/S01E27%20-%20Lucy%20Is%20a%20Chaperone.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s1e28",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
           "seasonNumber": 1,
           "episodeNumber": 28,
           "title": "Lucy and the Little League",
@@ -33,14 +547,2471 @@
             "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E28 - Lucy and the Little League.ia.mp4",
             "format": "h.264 IA",
             "sizeBytes": 750135401,
-            "tier": 2
+            "tier": 1
           },
           "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%201/S01E28%20-%20Lucy%20and%20the%20Little%20League.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s1e29",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "Lucy and the Runaway Butterfly",
+          "overview": "Lucy lets go of Jerry's butterfly and tries to catch it.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1377401.jpg",
+          "airDate": "1963-04-22",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E29 - Lucy and the Runaway Butterfly.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 682362023,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%201/S01E29%20-%20Lucy%20and%20the%20Runaway%20Butterfly.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s1e30",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "Lucy Buys a Boat",
+          "overview": "Lucy and Viv buy a boat and become stranded in the lake while riding it.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1377404.jpg",
+          "airDate": "1963-04-29",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 1/S01E30 - Lucy Buys a Boat.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 716842838,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%201/S01E30%20-%20Lucy%20Buys%20a%20Boat.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s2e01",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Lucy Plays Cleopatra",
+          "overview": "The Danfield Volunteer firefighters put on a play of Cleopatra, but Lucy calls a firedrill and ditches and ends up getting the lead.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1377405.jpg",
+          "airDate": "1963-09-30",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 2/S02E01 - Lucy Plays Cleopatra.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 407219935,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%202/S02E01%20-%20Lucy%20Plays%20Cleopatra.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s2e02",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "Kiddie Parties, Inc.",
+          "overview": "Lucy and Viv go into business planning and entertaining at children's birthday parties.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1377406.jpg",
+          "airDate": "1963-10-07",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 2/S02E02 - Kiddie Parties Inc..ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 420694262,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%202/S02E02%20-%20Kiddie%20Parties%20Inc..ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s2e03",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Lucy and Viv Play Softball",
+          "overview": "Lucy and Viv join a charity softball tournament, but Lucy is not very good.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1377408.jpg",
+          "airDate": "1963-10-14",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 2/S02E03 - Lucy and Viv Play Softball.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 416117087,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%202/S02E03%20-%20Lucy%20and%20Viv%20Play%20Softball.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s2e04",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "Lucy Gets Locked in the Vault",
+          "overview": "While trying to make a good impression on the new banker, Mr. Mooney, Lucy gets the both of them locked in the bank vault. Part 1 of 2.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1377410.jpg",
+          "airDate": "1963-10-21",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 2/S02E04 - Lucy Gets Locked in the Vault.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 323509328,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%202/S02E04%20-%20Lucy%20Gets%20Locked%20in%20the%20Vault.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s2e05",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Lucy and the Safe Cracker",
+          "overview": "Lucy accidentally locks up Mr. Mooney in his vault again. Part 2 of 2.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1377415.jpg",
+          "airDate": "1963-10-28",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 2/S02E05 - Lucy and the Safe Cracker.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 323547656,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%202/S02E05%20-%20Lucy%20and%20the%20Safe%20Cracker.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s2e06",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Lucy Goes Duck Hunting",
+          "overview": "Lucy lies to her boyfriend about being a skilled duck hunter, so her \"skills\" are put to the test on a duck hunting trip.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1377421.jpg",
+          "airDate": "1963-11-07",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 2/S02E06 - Lucy Goes Duck Hunting.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 430685090,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%202/S02E06%20-%20Lucy%20Goes%20Duck%20Hunting.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s2e07",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "Lucy and the Bank Scandal",
+          "overview": "Lucy suspects Mr. Mooney of embezzling money from the bank.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1377426.jpg",
+          "airDate": "1963-11-11",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 2/S02E07 - Lucy and the Bank Scandal.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 338681934,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%202/S02E07%20-%20Lucy%20and%20the%20Bank%20Scandal.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s2e08",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "Lucy Decides to Redecorate",
+          "overview": "Lucy and Viv decide to redecorate the house, but end up driving the car into the living room.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1377432.jpg",
+          "airDate": "1963-11-18",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 2/S02E08 - Lucy Decides to Redecorate.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 320152925,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%202/S02E08%20-%20Lucy%20Decides%20to%20Redecorate.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s2e09",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Lucy Puts Out a Fire at the Bank",
+          "overview": "Lucy starts a fire at the bank to demonstrate her firefighting skills.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1377446.jpg",
+          "airDate": "1963-12-02",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 2/S02E09 - Lucy Puts Out a Fire at the Bank.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 410278388,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%202/S02E09%20-%20Lucy%20Puts%20Out%20a%20Fire%20at%20the%20Bank.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s2e10",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "Lucy and the Military Academy",
+          "overview": "Lucy sneaks into a military academy dressed as a cadet to see Jerry.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1377448.jpg",
+          "airDate": "1963-12-09",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 2/S02E10 - Lucy and the Military Academy.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 366845899,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%202/S02E10%20-%20Lucy%20and%20the%20Military%20Academy.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s2e11",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "Lucy's College Reunion",
+          "overview": "Lucy and Viv relive an old tradition at their college reunion - stealing the statue of the school's founder.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1377452.jpg",
+          "airDate": "1963-12-16",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 2/S02E11 - Lucy's College Reunion.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 374050952,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%202/S02E11%20-%20Lucy%27s%20College%20Reunion.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s2e12",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "The Loophole in the Lease",
+          "overview": "Viv tries to use a loophole in the lease to take possession of the house after Sherman causes a lot of damage by leaving the water running.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1377472.jpg",
+          "airDate": "1963-12-23",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 2/S02E12 - The Loophole in the Lease.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 329023422,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%202/S02E12%20-%20The%20Loophole%20in%20the%20Lease.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s2e13",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "Lucy Conducts the Symphony",
+          "overview": "Lucy fills in for Viv's cousin Harold in a symphony concert when Lucy's attempts to calm his nerves with hypnotism work too well.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1377473.jpg",
+          "airDate": "1963-12-30",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 2/S02E13 - Lucy Conducts the Symphony.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 324055430,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%202/S02E13%20-%20Lucy%20Conducts%20the%20Symphony.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s2e14",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 2,
+          "episodeNumber": 14,
+          "title": "Lucy Plays Florence Nightingale",
+          "overview": "Lucy tries to get Mr. Mooney, who's in the hospital with a broken leg, to sign a check so she can buy Chris a dress for her first formal dance.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/550/1377490.jpg",
+          "airDate": "1964-01-06",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 2/S02E14 - Lucy Plays Florence Nightingale.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 353683743,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%202/S02E14%20-%20Lucy%20Plays%20Florence%20Nightingale.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s2e15",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 2,
+          "episodeNumber": 15,
+          "title": "Lucy Goes to Art Class",
+          "overview": "Lucy and Viv enroll in an art class when they fall for the same man in an art store.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1377510.jpg",
+          "airDate": "1964-01-13",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 2/S02E15 - Lucy Goes to Art Class.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 334284086,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%202/S02E15%20-%20Lucy%20Goes%20to%20Art%20Class.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s2e16",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 2,
+          "episodeNumber": 16,
+          "title": "Chris Goes Steady",
+          "overview": "Chris announces that she's going steady with Mr. Mooney's son Ted.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1377517.jpg",
+          "airDate": "1964-01-20",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 2/S02E16 - Chris Goes Steady.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 364272385,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%202/S02E16%20-%20Chris%20Goes%20Steady.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s2e17",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 2,
+          "episodeNumber": 17,
+          "title": "Lucy Takes Up Golf",
+          "overview": "Lucy lies about her expertise in playing golf to date Gary. In reality, she hasn't any idea of how the game is played. But a few lessons later and she is ready to be his partner in a big tournament.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1377521.jpg",
+          "airDate": "1964-01-27",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 2/S02E17 - Lucy Takes Up Golf.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 410719432,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%202/S02E17%20-%20Lucy%20Takes%20Up%20Golf.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s2e18",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 2,
+          "episodeNumber": 18,
+          "title": "Lucy Teaches Ethel Merman to Sing",
+          "overview": "When Lucy makes a promise to have Ethel Merman sing at Jerry's Cub Scout charity show, she has no idea that the Broadway legend is living in Danfield under a different name. Part 1 of 2.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1377524.jpg",
+          "airDate": "1964-02-03",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 2/S02E18 - Lucy Teaches Ethel Merman to Sing.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 305475607,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%202/S02E18%20-%20Lucy%20Teaches%20Ethel%20Merman%20to%20Sing.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s2e19",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 2,
+          "episodeNumber": 19,
+          "title": "Ethel Merman and the Boy Scout Show",
+          "overview": "Ethel Merman, under the name Agnes Schmidlapp, comes up with act for Lucy, Viv and Mr. Mooney to perform in the Cub Scout charity show. Part 2 of 2.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1377525.jpg",
+          "airDate": "1964-02-10",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 2/S02E19 - Ethel Merman and the Boy Scout Show.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 354358805,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%202/S02E19%20-%20Ethel%20Merman%20and%20the%20Boy%20Scout%20Show.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s2e20",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 2,
+          "episodeNumber": 20,
+          "title": "Lucy and Viv Open a Restaurant",
+          "overview": "Lucy talks Viv into buying a restaurant with her life savings.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1377526.jpg",
+          "airDate": "1964-02-17",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 2/S02E20 - Lucy and Viv Open a Restaurant.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 403461324,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%202/S02E20%20-%20Lucy%20and%20Viv%20Open%20a%20Restaurant.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s2e21",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 2,
+          "episodeNumber": 21,
+          "title": "Lucy Takes a Job at the Bank",
+          "overview": "Lucy gets a job at the bank to buy Jerry a tuba.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1377527.jpg",
+          "airDate": "1964-02-24",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 2/S02E21 - Lucy Takes a Job at the Bank.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 366479762,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%202/S02E21%20-%20Lucy%20Takes%20a%20Job%20at%20the%20Bank.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s2e22",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 2,
+          "episodeNumber": 22,
+          "title": "Viv Moves Out",
+          "overview": "Viv moves out following an argument with Lucy.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1377528.jpg",
+          "airDate": "1964-03-02",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 2/S02E22 - Viv Moves Out.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 359819103,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%202/S02E22%20-%20Viv%20Moves%20Out.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s2e23",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 2,
+          "episodeNumber": 23,
+          "title": "Lucy Is Her Own Lawyer",
+          "overview": "Lucy takes Mr. Mooney to court to stop his dog's barking.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1377529.jpg",
+          "airDate": "1964-03-09",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 2/S02E23 - Lucy Is Her Own Lawyer.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 290065060,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%202/S02E23%20-%20Lucy%20Is%20Her%20Own%20Lawyer.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s2e24",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 2,
+          "episodeNumber": 24,
+          "title": "Lucy Meets a Millionaire",
+          "overview": "Lucy meets an Italian millionaire who doesn't speak English.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1377530.jpg",
+          "airDate": "1964-03-16",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 2/S02E24 - Lucy Meets a Millionaire.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 294304654,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%202/S02E24%20-%20Lucy%20Meets%20a%20Millionaire.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s2e25",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 2,
+          "episodeNumber": 25,
+          "title": "Lucy Goes into Politics",
+          "overview": "Lucy and Viv help Mr. Mooney campaign for the position of city comptroller.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1377531.jpg",
+          "airDate": "1964-03-23",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 2/S02E25 - Lucy Goes Into Politics.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 428990998,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%202/S02E25%20-%20Lucy%20Goes%20Into%20Politics.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s2e26",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 2,
+          "episodeNumber": 26,
+          "title": "Lucy and the Scout Trip",
+          "overview": "Lucy, Viv and Mr. Mooney lead a scout trip in the woods.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1377534.jpg",
+          "airDate": "1964-03-30",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 2/S02E26 - Lucy and the Scout Trip.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 575219955,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%202/S02E26%20-%20Lucy%20and%20the%20Scout%20Trip.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s2e27",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 2,
+          "episodeNumber": 27,
+          "title": "Lucy Is a Process Server",
+          "overview": "Lucy is hired as a process server and Mr. Mooney is the first to get a subpoena from her.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1377535.jpg",
+          "airDate": "1964-04-20",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 2/S02E27 - Lucy Is a Process Server.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 306972748,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%202/S02E27%20-%20Lucy%20Is%20a%20Process%20Server.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s2e28",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 2,
+          "episodeNumber": 28,
+          "title": "Lucy Enters a Baking Contest",
+          "overview": "Lucy competes with Viv in a baking contest.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1377536.jpg",
+          "airDate": "1964-04-27",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 2/S02E28 - Lucy Enters a Baking Contest.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 350238241,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%202/S02E28%20-%20Lucy%20Enters%20a%20Baking%20Contest.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s3e01",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "Lucy, the Good Skate",
+          "overview": "After meeting a cute bachelor at a sporting goods store, Lucy buys a pair of skates too small for her feet. When her feet swell, she plans to keep a date by wearing the skates.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1377537.jpg",
+          "airDate": "1964-09-21",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 3/S03E01 - Lucy and the Good Skate.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 327091159,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%203/S03E01%20-%20Lucy%20and%20the%20Good%20Skate.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s3e02",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 3,
+          "episodeNumber": 2,
+          "title": "Lucy and the Plumber",
+          "overview": "Lucy's plumber bears a striking resemblance to Jack Benny. She decides to enter him in a local talent contest.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1377845.jpg",
+          "airDate": "1964-09-28",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 3/S03E02 - Lucy and the Plumber.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 324009379,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%203/S03E02%20-%20Lucy%20and%20the%20Plumber.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s3e03",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 3,
+          "episodeNumber": 3,
+          "title": "Lucy and Winter Sports",
+          "overview": "Lucy lies to her athletic boyfriend about being good at winter sports.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1377846.jpg",
+          "airDate": "1964-10-05",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 3/S03E03 - Lucy and the Winter Sports.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 309020164,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%203/S03E03%20-%20Lucy%20and%20the%20Winter%20Sports.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s3e04",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 3,
+          "episodeNumber": 4,
+          "title": "Lucy Gets Amnesia",
+          "overview": "Lucy takes a blow to the head while trying to get her childhood sweetheart to reveal her pet name for him.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1377848.jpg",
+          "airDate": "1964-10-12",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 3/S03E04 - Lucy Gets Amnesia.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 272581440,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%203/S03E04%20-%20Lucy%20Gets%20Amnesia.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s3e05",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 3,
+          "episodeNumber": 5,
+          "title": "Lucy and the Great Bank Robbery",
+          "overview": "Lucy rents Viv's room to a pair of bank robbers.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1377850.jpg",
+          "airDate": "1964-10-19",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 3/S03E05 - Lucy and the Great Bank Robbery.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 320309644,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%203/S03E05%20-%20Lucy%20and%20the%20Great%20Bank%20Robbery.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s3e06",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 3,
+          "episodeNumber": 6,
+          "title": "Lucy, the Camp Cook",
+          "overview": "Lucy and Viv volunteer as cooks for their sons' camping trip.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1377851.jpg",
+          "airDate": "1964-10-25",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 3/S03E06 - Lucy the Camp Cook.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 294099208,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%203/S03E06%20-%20Lucy%20the%20Camp%20Cook.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s3e07",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 3,
+          "episodeNumber": 7,
+          "title": "Lucy, the Meter Maid",
+          "overview": "Lucy becomes a meter maid and gives Viv the first parking ticket, which leads them both to court.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1377853.jpg",
+          "airDate": "1964-11-02",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 3/S03E07 - Lucy the Meter Maid.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 275290211,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%203/S03E07%20-%20Lucy%20the%20Meter%20Maid.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s3e08",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 3,
+          "episodeNumber": 8,
+          "title": "Lucy Makes a Pinch",
+          "overview": "Lucy accompanies a detective on a stakeout to catch a lovers-lane bandit.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1377855.jpg",
+          "airDate": "1964-11-09",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 3/S03E08 - Lucy Makes a Pinch.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 270340374,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%203/S03E08%20-%20Lucy%20Makes%20a%20Pinch.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s3e09",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 3,
+          "episodeNumber": 9,
+          "title": "Lucy Becomes a Father",
+          "overview": "Lucy joins Jerry on a father-and-son camping trip.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378045.jpg",
+          "airDate": "1964-11-16",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 3/S03E09 - Lucy Becomes a Father.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 359374374,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%203/S03E09%20-%20Lucy%20Becomes%20a%20Father.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s3e10",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 3,
+          "episodeNumber": 10,
+          "title": "Lucy's Contact Lenses",
+          "overview": "Lucy loses a contact lens in a cake for the bank's bake sale.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378054.jpg",
+          "airDate": "1964-11-23",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 3/S03E10 - Lucy's Contact Lenses.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 359085229,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%203/S03E10%20-%20Lucy%27s%20Contact%20Lenses.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s3e11",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 3,
+          "episodeNumber": 11,
+          "title": "Lucy Gets Her Maid",
+          "overview": "Lucy works as a maid in order to afford one of her own.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378056.jpg",
+          "airDate": "1964-11-30",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 3/S03E11 - Lucy Gets Her Maid.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 303438486,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%203/S03E11%20-%20Lucy%20Gets%20Her%20Maid.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s3e12",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 3,
+          "episodeNumber": 12,
+          "title": "Lucy Gets the Bird",
+          "overview": "Lucy and Viv take care of Mooney's beloved pet parakeet which they, of course, lose.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378058.jpg",
+          "airDate": "1964-12-07",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 3/S03E12 - Lucy Gets the Bird.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 310561330,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%203/S03E12%20-%20Lucy%20Gets%20the%20Bird.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s3e13",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 3,
+          "episodeNumber": 13,
+          "title": "Lucy, the Coin Collector",
+          "overview": "Lucy and Viv start collecting coins when Jerry finds a penny worth 50 cents. When they finally find a valuable coin, they promptly drop it down the sewer.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378063.jpg",
+          "airDate": "1964-12-14",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 3/S03E13 - Lucy the Coin Collector.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 363641603,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%203/S03E13%20-%20Lucy%20the%20Coin%20Collector.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s3e14",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 3,
+          "episodeNumber": 14,
+          "title": "Lucy and the Missing Stamp",
+          "overview": "Mooney's rare postage stamp goes missing while Lucy tries to sell him a vacuum cleaner.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378086.jpg",
+          "airDate": "1964-12-21",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 3/S03E14 - Lucy and the Missing Stamp.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 336045934,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%203/S03E14%20-%20Lucy%20and%20the%20Missing%20Stamp.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s3e15",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 3,
+          "episodeNumber": 15,
+          "title": "Lucy Meets Danny Kaye",
+          "overview": "Lucy tries to get tickets to The Danny Kaye Show.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378092.jpg",
+          "airDate": "1964-12-28",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 3/S03E15 - Lucy Meets Danny Kaye.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 320228042,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%203/S03E15%20-%20Lucy%20Meets%20Danny%20Kaye.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s3e16",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 3,
+          "episodeNumber": 16,
+          "title": "Lucy and the Ceramic Cat",
+          "overview": "Lucy accidentally breaks the ceramic cat Mooney bought for his wife's birthday.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378093.jpg",
+          "airDate": "1965-01-11",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 3/S03E16 - Lucy and the Ceramic Cat.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 343047250,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%203/S03E16%20-%20Lucy%20and%20the%20Ceramic%20Cat.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s3e17",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 3,
+          "episodeNumber": 17,
+          "title": "Lucy Goes to Vegas",
+          "overview": "Lucy and Viv win a trip to Las Vegas, but they're low on spending money.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378097.jpg",
+          "airDate": "1965-01-18",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 3/S03E17 - Lucy Goes to Vegas.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 385548266,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%203/S03E17%20-%20Lucy%20Goes%20to%20Vegas.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s3e18",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 3,
+          "episodeNumber": 18,
+          "title": "Lucy and the Monsters",
+          "overview": "Lucy has nightmares after watching a monster movie.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378107.jpg",
+          "airDate": "1965-01-25",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 3/S03E18 - Lucy and the Monsters.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 291845298,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%203/S03E18%20-%20Lucy%20and%20the%20Monsters.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s3e19",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 3,
+          "episodeNumber": 19,
+          "title": "Lucy and the Countess",
+          "overview": "Lucy's old school friend is now a countess, but she's poor.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378108.jpg",
+          "airDate": "1965-02-01",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 3/S03E19 - Lucy and the Countess.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 313411954,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%203/S03E19%20-%20Lucy%20and%20the%20Countess.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s3e20",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 3,
+          "episodeNumber": 20,
+          "title": "My Fair Lucy",
+          "overview": "Lucy and the Countess hatch a scheme to finance a charm school.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378109.jpg",
+          "airDate": "1965-02-08",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 3/S03E20 - My Fair Lucy.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 377091177,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%203/S03E20%20-%20My%20Fair%20Lucy.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s3e21",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 3,
+          "episodeNumber": 21,
+          "title": "Lucy and the Countess Lose Weight",
+          "overview": "Mooney enlists Lucy and the Countess to publicize a fat farm by taking its reducing course.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378110.jpg",
+          "airDate": "1965-02-15",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 3/S03E21 - Lucy and the Countess Lose Weight.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 436568176,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%203/S03E21%20-%20Lucy%20and%20the%20Countess%20Lose%20Weight.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s3e22",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 3,
+          "episodeNumber": 22,
+          "title": "Lucy and the Old Mansion",
+          "overview": "The Countess moves to an old mansion to entertain foreign visitors.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378111.jpg",
+          "airDate": "1965-03-01",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 3/S03E22 - Lucy and the Old Mansion.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 360254580,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%203/S03E22%20-%20Lucy%20and%20the%20Old%20Mansion.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s3e23",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 3,
+          "episodeNumber": 23,
+          "title": "Lucy and Arthur Godfrey",
+          "overview": "Lucy and Viv persuade Arthur Godfrey to appear in a musical presented by the Danfield Community Players.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378112.jpg",
+          "airDate": "1965-03-08",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 3/S03E23 - Lucy and Arthur Godfrey.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 382919393,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%203/S03E23%20-%20Lucy%20and%20Arthur%20Godfrey.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s3e24",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 3,
+          "episodeNumber": 24,
+          "title": "Lucy and the Beauty Doctor",
+          "overview": "A hidden TV camera catches Lucy's visit to a beauty shop.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378120.jpg",
+          "airDate": "1965-03-22",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 3/S03E24 - Lucy and the Beauty Doctor.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 382445299,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%203/S03E24%20-%20Lucy%20and%20the%20Beauty%20Doctor.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s3e25",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 3,
+          "episodeNumber": 25,
+          "title": "Lucy, the Stockholder",
+          "overview": "Lucy spends her tax refund on stock in the bank.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378113.jpg",
+          "airDate": "1965-03-29",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 3/S03E25 - Lucy the Stockholder.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 287839685,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%203/S03E25%20-%20Lucy%20the%20Stockholder.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s3e26",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 3,
+          "episodeNumber": 26,
+          "title": "Lucy, the Disc Jockey",
+          "overview": "Lucy becomes a disc jockey after winning a local radio station's mystery-sound contest.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378122.jpg",
+          "airDate": "1965-04-12",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 3/S03E26 - Lucy the Disc Jockey.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 304014397,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%203/S03E26%20-%20Lucy%20the%20Disc%20Jockey.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s4e01",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 4,
+          "episodeNumber": 1,
+          "title": "Lucy at Marineland",
+          "overview": "Lucy moves to Los Angeles. Hijinks ensue when she and Mr. Mooney, who has also moved, go to Marineland to see Jimmy Piersall.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378172.jpg",
+          "airDate": "1965-09-13",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 4/S04E01 - Lucy at Marineland.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 529238038,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%204/S04E01%20-%20Lucy%20at%20Marineland.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s4e02",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 4,
+          "episodeNumber": 2,
+          "title": "Lucy and the Golden Greek",
+          "overview": "Lucy is set up on a blind date with a shy fellow who becomes a dancing Lothario thanks to the music playing in the Greek restaurant where they're dining.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378186.jpg",
+          "airDate": "1965-09-20",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 4/S04E02 - Lucy and the Golden Greek.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 442779246,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%204/S04E02%20-%20Lucy%20and%20the%20Golden%20Greek.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s4e03",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 4,
+          "episodeNumber": 3,
+          "title": "Lucy in the Music World",
+          "overview": "Lucy gets a job at a record company.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378187.jpg",
+          "airDate": "1965-09-27",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 4/S04E03 - Lucy in the Music World.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 381193234,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%204/S04E03%20-%20Lucy%20in%20the%20Music%20World.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s4e04",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 4,
+          "episodeNumber": 4,
+          "title": "Lucy and Joan",
+          "overview": "Lucy and her neighbor Joan plan a surprise birthday party for a handsome neighbor.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378188.jpg",
+          "airDate": "1965-10-11",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 4/S04E04 - Lucy and Joan.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 442060476,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%204/S04E04%20-%20Lucy%20and%20Joan.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s4e05",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 4,
+          "episodeNumber": 5,
+          "title": "Lucy, the Stunt Man",
+          "overview": "Lucy substitutes for a stuntman in order to earn money for a new refrigerator.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378189.jpg",
+          "airDate": "1965-10-18",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 4/S04E05 - Lucy the Stunt Man.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 404052578,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%204/S04E05%20-%20Lucy%20the%20Stunt%20Man.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s4e06",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 4,
+          "episodeNumber": 6,
+          "title": "Lucy and the Countess Have a Horse Guest",
+          "overview": "The Countess is left with a race horse in her late husband's will.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378190.jpg",
+          "airDate": "1965-10-25",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 4/S04E06 - Lucy and the Countess Have a Horse Guest.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 394919005,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%204/S04E06%20-%20Lucy%20and%20the%20Countess%20Have%20a%20Horse%20Guest.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s4e07",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 4,
+          "episodeNumber": 7,
+          "title": "Lucy Helps Danny Thomas",
+          "overview": "Lucy takes a job as Mr. Mooney's secretary, and then creates chaos during rehearsals for a TV special starring Danny Thomas.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378191.jpg",
+          "airDate": "1965-11-01",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 4/S04E07 - Lucy Helps Danny Thomas.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 523804902,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%204/S04E07%20-%20Lucy%20Helps%20Danny%20Thomas.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s4e08",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 4,
+          "episodeNumber": 8,
+          "title": "Lucy Helps the Countess",
+          "overview": "When the Countess gets a real-estate license, Lucy helps her sell a high-rise apartment to Mooney. Things take a turn when all three get locked in without a key.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378173.jpg",
+          "airDate": "1965-11-08",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 4/S04E08 - Lucy Helps the Countess.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 375748138,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%204/S04E08%20-%20Lucy%20Helps%20the%20Countess.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s4e09",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 4,
+          "episodeNumber": 9,
+          "title": "Lucy and the Sleeping Beauty",
+          "overview": "Lucy falls for a construction superintendent who uses karate whenever he's awakened.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378174.jpg",
+          "airDate": "1965-11-15",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 4/S04E09 - Lucy and the Sleeping Beauty.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 383167209,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%204/S04E09%20-%20Lucy%20and%20the%20Sleeping%20Beauty.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s4e10",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 4,
+          "episodeNumber": 10,
+          "title": "Lucy, the Undercover Agent",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378192.jpg",
+          "airDate": "1965-11-22",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 4/S04E10 - Lucy and the Undercover Agent.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 436496459,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%204/S04E10%20-%20Lucy%20and%20the%20Undercover%20Agent.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s4e11",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 4,
+          "episodeNumber": 11,
+          "title": "Lucy and the Return of the Iron Man",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378175.jpg",
+          "airDate": "1965-11-29",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 4/S04E11 - Lucy and the Return of Iron Man.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 486791671,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%204/S04E11%20-%20Lucy%20and%20the%20Return%20of%20Iron%20Man.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s4e12",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 4,
+          "episodeNumber": 12,
+          "title": "Lucy Saves Milton Berle",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378176.jpg",
+          "airDate": "1965-12-06",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 4/S04E12 - Lucy Saves Milton Berle.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 429086663,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%204/S04E12%20-%20Lucy%20Saves%20Milton%20Berle.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s4e13",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 4,
+          "episodeNumber": 13,
+          "title": "Lucy, the Choirmaster",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378177.jpg",
+          "airDate": "1965-12-13",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 4/S04E13 - Lucy the Choirmaster.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 488288387,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%204/S04E13%20-%20Lucy%20the%20Choirmaster.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s4e14",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 4,
+          "episodeNumber": 14,
+          "title": "Lucy Discovers Wayne Newton",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378178.jpg",
+          "airDate": "1965-12-27",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 4/S04E14 - Lucy Discovers Wayne Newton.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 389545518,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%204/S04E14%20-%20Lucy%20Discovers%20Wayne%20Newton.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s4e15",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 4,
+          "episodeNumber": 15,
+          "title": "Lucy, the Rain Goddess",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378193.jpg",
+          "airDate": "1966-01-03",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 4/S04E15 - Lucy the Rain Goddess.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 538374329,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%204/S04E15%20-%20Lucy%20the%20Rain%20Goddess.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s4e16",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 4,
+          "episodeNumber": 16,
+          "title": "Lucy and Art Linkletter",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378194.jpg",
+          "airDate": "1966-01-10",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 4/S04E16 - Lucy and Art Linkletter.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 333845246,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%204/S04E16%20-%20Lucy%20and%20Art%20Linkletter.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s4e17",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 4,
+          "episodeNumber": 17,
+          "title": "Lucy Bags a Bargain",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378179.jpg",
+          "airDate": "1966-01-17",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 4/S04E17 - Lucy Bags a Bargain.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 426423186,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%204/S04E17%20-%20Lucy%20Bags%20a%20Bargain.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s4e18",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 4,
+          "episodeNumber": 18,
+          "title": "Lucy Meets Mickey Rooney",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378195.jpg",
+          "airDate": "1966-01-24",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 4/S04E18 - Lucy Meets Mickey Rooney.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 400498446,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%204/S04E18%20-%20Lucy%20Meets%20Mickey%20Rooney.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s4e19",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 4,
+          "episodeNumber": 19,
+          "title": "Lucy and the Soap Opera",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378180.jpg",
+          "airDate": "1966-01-31",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 4/S04E19 - Lucy and the Soap Opera.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 421967006,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%204/S04E19%20-%20Lucy%20and%20the%20Soap%20Opera.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s4e20",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 4,
+          "episodeNumber": 20,
+          "title": "Lucy Goes to a Hollywood Premiere",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378181.jpg",
+          "airDate": "1966-02-07",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 4/S04E20 - Lucy Goes to a Hollywood Premiere.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 468667111,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%204/S04E20%20-%20Lucy%20Goes%20to%20a%20Hollywood%20Premiere.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s4e21",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 4,
+          "episodeNumber": 21,
+          "title": "Lucy Dates Dean Martin",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378196.jpg",
+          "airDate": "1966-02-14",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 4/S04E21 - Lucy Dates Dean Martin.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 354889519,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%204/S04E21%20-%20Lucy%20Dates%20Dean%20Martin.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s4e22",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 4,
+          "episodeNumber": 22,
+          "title": "Lucy and Bob Crane",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378182.jpg",
+          "airDate": "1966-02-21",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 4/S04E22 - Lucy and Bob Crane.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 391287449,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%204/S04E22%20-%20Lucy%20and%20Bob%20Crane.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s4e23",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 4,
+          "episodeNumber": 23,
+          "title": "Lucy, the Robot",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378197.jpg",
+          "airDate": "1966-02-28",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 4/S04E23 - Lucy the Robot.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 378131164,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%204/S04E23%20-%20Lucy%20the%20Robot.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s4e24",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 4,
+          "episodeNumber": 24,
+          "title": "Lucy and Clint Walker",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378183.jpg",
+          "airDate": "1966-03-07",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 4/S04E24 - Lucy and Clint Walker.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 478709738,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%204/S04E24%20-%20Lucy%20and%20Clint%20Walker.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s4e25",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 4,
+          "episodeNumber": 25,
+          "title": "Lucy, the Gun Moll",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378184.jpg",
+          "airDate": "1966-03-14",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 4/S04E25 - Lucy the Gun Moll.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 372682011,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%204/S04E25%20-%20Lucy%20the%20Gun%20Moll.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s4e26",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 4,
+          "episodeNumber": 26,
+          "title": "Lucy, the Superwoman",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/551/1378198.jpg",
+          "airDate": "1966-03-21",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 4/S04E26 - Lucy the Superwoman.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 375317894,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%204/S04E26%20-%20Lucy%20the%20Superwoman.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 5,
+      "episodes": [
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s5e01",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 5,
+          "episodeNumber": 1,
+          "title": "Lucy and George Burns",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1966-09-12",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 5/S05E01 - Lucy with George Burns.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 375162619,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%205/S05E01%20-%20Lucy%20with%20George%20Burns.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s5e02",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 5,
+          "episodeNumber": 2,
+          "title": "Lucy and the Submarine",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1966-09-19",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 5/S05E02 - Lucy and the Submarine.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 457331208,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%205/S05E02%20-%20Lucy%20and%20the%20Submarine.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s5e03",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 5,
+          "episodeNumber": 3,
+          "title": "Lucy, the Bean Queen",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1966-09-26",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 5/S05E03 - Lucy the Bean Queen.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 444344131,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%205/S05E03%20-%20Lucy%20the%20Bean%20Queen.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s5e04",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 5,
+          "episodeNumber": 4,
+          "title": "Lucy and Paul Winchell",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1966-10-03",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 5/S05E04 - Lucy and Paul Winchell.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 404961721,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%205/S05E04%20-%20Lucy%20and%20Paul%20Winchell.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s5e05",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 5,
+          "episodeNumber": 5,
+          "title": "Lucy and the Ring-a-Ding-Ding",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1966-10-10",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 5/S05E05 - Lucy and the Ring-a-Ding Ring.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 538735322,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%205/S05E05%20-%20Lucy%20and%20the%20Ring-a-Ding%20Ring.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s5e06",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 5,
+          "episodeNumber": 6,
+          "title": "Lucy Goes to London",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1966-10-17",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 5/S05E06 - Lucy Flies to London.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 392245508,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%205/S05E06%20-%20Lucy%20Flies%20to%20London.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s5e07",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 5,
+          "episodeNumber": 7,
+          "title": "Lucy Gets a Roommate",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1966-10-31",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 5/S05E07 - Lucy Gets a Roommate.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 461825297,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%205/S05E07%20-%20Lucy%20Gets%20a%20Roommate.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s5e08",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 5,
+          "episodeNumber": 8,
+          "title": "Lucy and Carol in Palm Springs",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1966-11-07",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 5/S05E08 - Lucy and Carol in Palm Springs.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 505866527,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%205/S05E08%20-%20Lucy%20and%20Carol%20in%20Palm%20Springs.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s5e09",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 5,
+          "episodeNumber": 9,
+          "title": "Lucy Gets Caught Up in the Draft",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1966-11-14",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 5/S05E09 - Lucy Gets Caught Up in the Draft.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 476611250,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%205/S05E09%20-%20Lucy%20Gets%20Caught%20Up%20in%20the%20Draft.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s5e10",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 5,
+          "episodeNumber": 10,
+          "title": "Lucy and John Wayne",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1966-11-21",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 5/S05E10 - Lucy and John Wayne.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 455016444,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%205/S05E10%20-%20Lucy%20and%20John%20Wayne.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s5e11",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 5,
+          "episodeNumber": 11,
+          "title": "Lucy and Pat Collins",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1966-11-28",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 5/S05E11 - Lucy and Pat Collins.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 377977872,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%205/S05E11%20-%20Lucy%20and%20Pat%20Collins.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s5e12",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 5,
+          "episodeNumber": 12,
+          "title": "Lucy and the Monkey",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1966-12-05",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 5/S05E12 - Lucy and the Monkey.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 412965233,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%205/S05E12%20-%20Lucy%20and%20the%20Monkey.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s5e13",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 5,
+          "episodeNumber": 13,
+          "title": "Lucy and Phil Silvers",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1538,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 5/S05E13 - Lucy and Phil Silvers.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 432105675,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%205/S05E13%20-%20Lucy%20and%20Phil%20Silvers.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s5e14",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 5,
+          "episodeNumber": 14,
+          "title": "Lucy's Substitute Secretary",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-01-02",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 5/S05E14 - Lucy's Substitute Secretary.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 453290298,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%205/S05E14%20-%20Lucy%27s%20Substitute%20Secretary.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s5e15",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 5,
+          "episodeNumber": 15,
+          "title": "Viv Visits Lucy",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-01-09",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 5/S05E15 - Viv Visits Lucy.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 448693170,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%205/S05E15%20-%20Viv%20Visits%20Lucy.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s5e16",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 5,
+          "episodeNumber": 16,
+          "title": "Lucy, the Baby Sitter",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-01-16",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 5/S05E16 - Lucy the Babysitter.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 418167233,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%205/S05E16%20-%20Lucy%20the%20Babysitter.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s5e17",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 5,
+          "episodeNumber": 17,
+          "title": "Main Street U.S.A.",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-01-23",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 5/S05E17 - Main Street U.S.A..ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 421879238,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%205/S05E17%20-%20Main%20Street%20U.S.A..ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s5e18",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 5,
+          "episodeNumber": 18,
+          "title": "Lucy Puts Main Street on the Map",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-01-30",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 5/S05E18 - Lucy Puts Main Street on the Map.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 491646833,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%205/S05E18%20-%20Lucy%20Puts%20Main%20Street%20on%20the%20Map.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s5e19",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 5,
+          "episodeNumber": 19,
+          "title": "Lucy Meets the Law",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-02-13",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 5/S05E19 - Lucy Meets the Law.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 355490787,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%205/S05E19%20-%20Lucy%20Meets%20the%20Law.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s5e20",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 5,
+          "episodeNumber": 20,
+          "title": "Lucy, the Fight Manager",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-02-20",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 5/S05E20 - Lucy the Fight Manager.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 391574944,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%205/S05E20%20-%20Lucy%20the%20Fight%20Manager.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s5e21",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 5,
+          "episodeNumber": 21,
+          "title": "Lucy and Tennessee Ernie Ford",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-02-27",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 5/S05E21 - Lucy and Tennessee Ernie Ford.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 586487096,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%205/S05E21%20-%20Lucy%20and%20Tennessee%20Ernie%20Ford.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s5e22",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 5,
+          "episodeNumber": 22,
+          "title": "Lucy Meets Sheldon Leonard",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-03-06",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 5/S05E22 - Lucy Meets Sheldon Leonard.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 404500340,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%205/S05E22%20-%20Lucy%20Meets%20Sheldon%20Leonard.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 6,
+      "episodes": [
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s6e01",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 6,
+          "episodeNumber": 1,
+          "title": "Lucy Meets the Berles",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-09-11",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 6/S06E01 - Lucy Meets the Berles.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 485527418,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%206/S06E01%20-%20Lucy%20Meets%20the%20Berles.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s6e02",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 6,
+          "episodeNumber": 2,
+          "title": "Lucy Gets Trapped",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-09-18",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 6/S06E02 - Lucy Gets Trapped.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 552331449,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%206/S06E02%20-%20Lucy%20Gets%20Trapped.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s6e03",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 6,
+          "episodeNumber": 3,
+          "title": "Lucy and the French Movie Star",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-09-25",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 6/S06E03 - Lucy and the French Movie Star.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 434696926,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%206/S06E03%20-%20Lucy%20and%20the%20French%20Movie%20Star.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s6e04",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 6,
+          "episodeNumber": 4,
+          "title": "Lucy, the Starmaker",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-10-02",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 6/S06E04 - Lucy and the Starmaker.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 430632074,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%206/S06E04%20-%20Lucy%20and%20the%20Starmaker.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s6e05",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 6,
+          "episodeNumber": 5,
+          "title": "Lucy Gets Her Diploma",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-10-09",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 6/S06E05 - Lucy Gets Her Diploma.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 419476112,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%206/S06E05%20-%20Lucy%20Gets%20Her%20Diploma.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s6e06",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 6,
+          "episodeNumber": 6,
+          "title": "Lucy and Jack Benny's Account",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-10-16",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 6/S06E06 - Lucy Gets Jack Benny's Account.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 395248146,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%206/S06E06%20-%20Lucy%20Gets%20Jack%20Benny%27s%20Account.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s6e07",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 6,
+          "episodeNumber": 7,
+          "title": "Little Old Lucy",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-10-23",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 6/S06E07 - Little Old Lucy.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 398836022,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%206/S06E07%20-%20Little%20Old%20Lucy.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s6e08",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 6,
+          "episodeNumber": 8,
+          "title": "Lucy and Robert Goulet",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-10-30",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 6/S06E08 - Lucy and Robert Goulet.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 472320572,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%206/S06E08%20-%20Lucy%20and%20Robert%20Goulet.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s6e09",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 6,
+          "episodeNumber": 9,
+          "title": "Lucy Gets Mooney Fired",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-11-06",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 6/S06E09 - Lucy Gets Mooney Fired.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 423544123,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%206/S06E09%20-%20Lucy%20Gets%20Mooney%20Fired.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s6e10",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 6,
+          "episodeNumber": 10,
+          "title": "Lucy's Mystery Guest",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-11-13",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 6/S06E10 - Lucy's Mystery Guest.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 426957135,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%206/S06E10%20-%20Lucy%27s%20Mystery%20Guest.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s6e11",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 6,
+          "episodeNumber": 11,
+          "title": "Lucy, the Philanthropist",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-11-20",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 6/S06E11 - Lucy the Philanthropist.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 436684557,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%206/S06E11%20-%20Lucy%20the%20Philanthropist.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s6e12",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 6,
+          "episodeNumber": 12,
+          "title": "Lucy Sues Mooney",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-11-27",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 6/S06E12 - Lucy Sues Mooney.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 396124168,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%206/S06E12%20-%20Lucy%20Sues%20Mooney.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s6e16",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 6,
+          "episodeNumber": 13,
+          "title": "Lucy and the Pool Hustler",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-12-04",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 6/S06E16 - Lucy and the Pool Hustler.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 489655331,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%206/S06E16%20-%20Lucy%20and%20the%20Pool%20Hustler.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s6e13",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 6,
+          "episodeNumber": 14,
+          "title": "Lucy and Carol Burnett (1)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-12-11",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 6/S06E13 - Lucy and Carol Burnett Part 1.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 401677607,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%206/S06E13%20-%20Lucy%20and%20Carol%20Burnett%20Part%201.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s6e14",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 6,
+          "episodeNumber": 15,
+          "title": "Lucy and Carol Burnett (2)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-12-18",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 6/S06E14 - Lucy and Carol Burnett Part 2.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 512429970,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%206/S06E14%20-%20Lucy%20and%20Carol%20Burnett%20Part%202.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s6e15",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 6,
+          "episodeNumber": 16,
+          "title": "Lucy and Viv Reminisce",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1968-01-01",
+          "year": 1968,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 6/S06E15 - Lucy and Viv Reminisce.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 608530501,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%206/S06E15%20-%20Lucy%20and%20Viv%20Reminisce.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s6e17",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 6,
+          "episodeNumber": 17,
+          "title": "Lucy Gets Involved",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1968-01-15",
+          "year": 1968,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 6/S06E17 - Lucy Gets Involved.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 388253382,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%206/S06E17%20-%20Lucy%20Gets%20Involved.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s6e18",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 6,
+          "episodeNumber": 18,
+          "title": "Mooney's Other Wife",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1968-01-22",
+          "year": 1968,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 6/S06E18 - Mooney's Other Wife.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 390788393,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%206/S06E18%20-%20Mooney%27s%20Other%20Wife.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s6e19",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 6,
+          "episodeNumber": 19,
+          "title": "Lucy and the Stolen Stole",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1968-01-29",
+          "year": 1968,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 6/S06E19 - Lucy and the Stolen Stole.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 403987401,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%206/S06E19%20-%20Lucy%20and%20the%20Stolen%20Stole.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s6e20",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 6,
+          "episodeNumber": 20,
+          "title": "Lucy and Phil Harris",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1968-02-05",
+          "year": 1968,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 6/S06E20 - Lucy and Phil Harris.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 339251207,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%206/S06E20%20-%20Lucy%20and%20Phil%20Harris.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s6e21",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 6,
+          "episodeNumber": 21,
+          "title": "Lucy Helps Ken Barry",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1968-02-19",
+          "year": 1968,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 6/S06E21 - Lucy Helps Ken Berry.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 412751118,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%206/S06E21%20-%20Lucy%20Helps%20Ken%20Berry.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s6e22",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 6,
+          "episodeNumber": 22,
+          "title": "Lucy and the Lost Star",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1968-02-26",
+          "year": 1968,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 6/S06E22 - Lucy and the Lost Star.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 460828122,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%206/S06E22%20-%20Lucy%20and%20the%20Lost%20Star.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s6e23",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 6,
+          "episodeNumber": 23,
+          "title": "Lucy and Sid Caesar",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1968-03-04",
+          "year": 1968,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 6/S06E23 - Lucy and Sid Caesar.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 374512866,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%206/S06E23%20-%20Lucy%20and%20Sid%20Caesar.ia.mp4"
+        },
+        {
+          "archiveID": "the-lucy-show-the-complete-series-1962-1968-DVD@s6e24",
+          "sourceID": "the-lucy-show-the-complete-series-1962-1968-DVD",
+          "seasonNumber": 6,
+          "episodeNumber": 24,
+          "title": "Lucy and The Boss of the Year Award",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1968-03-11",
+          "year": 1968,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lucy Show (The Complete Series) [1962 - 1968]/Season 6/S06E24 - Lucy and the 'Boss of the Year' Award.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 422966540,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-lucy-show-the-complete-series-1962-1968-DVD/The%20Lucy%20Show%20%28The%20Complete%20Series%29%20%5B1962%20-%201968%5D/Season%206/S06E24%20-%20Lucy%20and%20the%20%27Boss%20of%20the%20Year%27%20Award.ia.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 1,
+  "episodesCount": 156,
   "canonicalEpisodesCount": 156,
   "tvdbID": "70695",
   "artworkSource": "tvdb",

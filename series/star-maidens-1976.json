@@ -20,7 +20,160 @@
       "seasonNumber": 1,
       "episodes": [
         {
-          "archiveID": "star-maidens-complete-series-1976",
+          "archiveID": "star-maidens-complete-series-1976@s1e01",
+          "sourceID": "star-maidens-complete-series-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Escape to Paradise",
+          "overview": "In the distant Proxima Centauri star system, lies the planet Medusa, which is ruled by the female members of its society, and women enjoy a life of luxury and power while the men are resigned to carry out domestic chores and menial labour.When a burning comet passes too close, the planet is shifted off its axis and sent hurtling through space, where it eventually settles outside Earth's solar system.When two male servants named Adam and Shem learn of a world where males are considered equal to females, they decide to steal the spaceship belonging to Adam's mistress, Supreme Councillor Flavia, and escape to utopia on Earth.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/516/1292110.jpg",
+          "airDate": "1976-09-01",
+          "year": 1976,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Star Maidens S01E01 - Escape to Paradise.mp4",
+            "format": "h.264",
+            "sizeBytes": 137736752,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/star-maidens-complete-series-1976/Star%20Maidens%20S01E01%20-%20Escape%20to%20Paradise.mp4"
+        },
+        {
+          "archiveID": "star-maidens-complete-series-1976@s1e02",
+          "sourceID": "star-maidens-complete-series-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Nemesis",
+          "overview": "When Professor Evans of the Astronomical Institute detects the arrival of the Medusan spaceship Nemesis on Earth, his assistants, Rudi Schmidt and Liz Becker set off to investigate the ship, but while inside the vessel, Rudi accidentally activates a device and is blinded. Meanwhile, the escapees Adam and Shem explore their new surroundings in an attempt to find sanctuary from their Medusan oppressors. Having failed with their earlier attempt to make contact to a herd of cows, the two men discover that the dominant life-form also has a humanoid form – and females.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/516/1292291.jpg",
+          "airDate": "1976-09-08",
+          "year": 1976,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Star Maidens S01E02 - Nemesis.mp4",
+            "format": "h.264",
+            "sizeBytes": 140317201,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/star-maidens-complete-series-1976/Star%20Maidens%20S01E02%20-%20Nemesis.mp4"
+        },
+        {
+          "archiveID": "star-maidens-complete-series-1976@s1e03",
+          "sourceID": "star-maidens-complete-series-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Nightmare Cannon",
+          "overview": "While on the run from their Medusan pursuers, Adam and Shem take over a castle. Fulvia and Octavia demand that the authorities on Earth hand over their escaped servants, but are surprised to learn that the policemen on our world refuse to submit to their every whim. Undetered by this, the two Medusan leaders take Professor Evans' assistants, Liz and Rudi, as hostages. They then prepare to unleash the full force of a fear-inducing Medusan weapon known as the Nightmare Cannon upon Adam and Shem.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/516/1292302.jpg",
+          "airDate": "1976-09-15",
+          "year": 1976,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Star Maidens S01E03 - The Nightmare Cannon.mp4",
+            "format": "h.264",
+            "sizeBytes": 139623634,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/star-maidens-complete-series-1976/Star%20Maidens%20S01E03%20-%20The%20Nightmare%20Cannon.mp4"
+        },
+        {
+          "archiveID": "star-maidens-complete-series-1976@s1e04",
+          "sourceID": "star-maidens-complete-series-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Proton Storm",
+          "overview": "Octavia takes the damaged Nemesis ship back into space to have repairs carried out on it, taking Liz and Rudi with her as hostages. In exchange for the lives of the two humans, Fulvia demands that Adam and Shem return home with her, but the two Medusan men refuse, unless they can return to their homeworld as equals with the females. Liz and Rudi arrive on Medusa, were Rudi is put to work, while Liz is introduced to a life of luxury.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/516/1292314.jpg",
+          "airDate": "1976-09-22",
+          "year": 1976,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Star Maidens S01E04 - The Proton Storm.mp4",
+            "format": "h.264",
+            "sizeBytes": 138691210,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/star-maidens-complete-series-1976/Star%20Maidens%20S01E04%20-%20The%20Proton%20Storm.mp4"
+        },
+        {
+          "archiveID": "star-maidens-complete-series-1976@s1e05",
+          "sourceID": "star-maidens-complete-series-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Kidnap",
+          "overview": "Two foreign scientists decide to take advantage of Fulvia's superior alien knowledge, by getting her drunk on champagne and then taking her to a country mansion, where they will connect her to a computer brain that will steal all her advanced scientific secrets. Meanwhile, her former servant Adam becomes jealous over the attention given to her, and decides to stage a rescue mission.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/516/1292383.jpg",
+          "airDate": "1976-09-29",
+          "year": 1976,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Star Maidens S01E05 - Kidnap.mp4",
+            "format": "h.264",
+            "sizeBytes": 142674312,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/star-maidens-complete-series-1976/Star%20Maidens%20S01E05%20-%20Kidnap.mp4"
+        },
+        {
+          "archiveID": "star-maidens-complete-series-1976@s1e06",
+          "sourceID": "star-maidens-complete-series-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Trial",
+          "overview": "Earth hostage Dr Rudi Schmidt is forced to perform menial work, on the surface and in the city, but rebels - and other Medusan men join him. He is caught and handed over to Liz to supervise.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/516/1292400.jpg",
+          "airDate": "1976-10-06",
+          "year": 1976,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Star Maidens S01E06 - The Trial.mp4",
+            "format": "h.264",
+            "sizeBytes": 135907330,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/star-maidens-complete-series-1976/Star%20Maidens%20S01E06%20-%20The%20Trial.mp4"
+        },
+        {
+          "archiveID": "star-maidens-complete-series-1976@s1e07",
+          "sourceID": "star-maidens-complete-series-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Test for Love",
+          "overview": "Although Liz is ideally suited to captain a Medusan spacecraft, her attitude to men isn't appreciated. Octavia has her tested to find out why she doesn't find Medusan men attractive.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/516/1292405.jpg",
+          "airDate": "1976-10-13",
+          "year": 1976,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Star Maidens S01E07 - Test for Love.mp4",
+            "format": "h.264",
+            "sizeBytes": 137610506,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/star-maidens-complete-series-1976/Star%20Maidens%20S01E07%20-%20Test%20for%20Love.mp4"
+        },
+        {
+          "archiveID": "star-maidens-complete-series-1976@s1e08",
+          "sourceID": "star-maidens-complete-series-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Perfect Couple",
+          "overview": "Adam and Shem hatch a plot that should convince Fulvia to release the human hostages while still allowing the refugee Medusans to remain on earth. It involves Fulvia and Adam setting up home as a couple. What could possibly go wrong?",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/516/1292417.jpg",
+          "airDate": "1976-10-20",
+          "year": 1976,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Star Maidens S01E08 - The Perfect Couple.mp4",
+            "format": "h.264",
+            "sizeBytes": 143552096,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/star-maidens-complete-series-1976/Star%20Maidens%20S01E08%20-%20The%20Perfect%20Couple.mp4"
+        },
+        {
+          "archiveID": "star-maidens-complete-series-1976@s1e09",
+          "sourceID": "star-maidens-complete-series-1976",
           "seasonNumber": 1,
           "episodeNumber": 9,
           "title": "What Have They Done to the Rain?",
@@ -33,14 +186,90 @@
             "name": "Star Maidens S01E09 - What Have They Done to the Rain.mp4",
             "format": "h.264",
             "sizeBytes": 145137801,
-            "tier": 2
+            "tier": 1
           },
           "downloadURL": "https://archive.org/download/star-maidens-complete-series-1976/Star%20Maidens%20S01E09%20-%20What%20Have%20They%20Done%20to%20the%20Rain.mp4"
+        },
+        {
+          "archiveID": "star-maidens-complete-series-1976@s1e10",
+          "sourceID": "star-maidens-complete-series-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The End of Time",
+          "overview": "After President Clara falls victim to a mysterious illness. Liz determines that the cause is a cold virus that she herself brought to Medusa from Earth. Octavia travels to Earth to bring back Professor Evans in an attempt to save the President's life.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/516/1292427.jpg",
+          "airDate": "1976-11-03",
+          "year": 1976,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Star Maidens S01E10 - The End of Time.mp4",
+            "format": "h.264",
+            "sizeBytes": 139242608,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/star-maidens-complete-series-1976/Star%20Maidens%20S01E10%20-%20The%20End%20of%20Time.mp4"
+        },
+        {
+          "archiveID": "star-maidens-complete-series-1976@s1e11",
+          "sourceID": "star-maidens-complete-series-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Hideout",
+          "overview": "Convicts Adam and Shem are exposed after Fulvia pressures the media to warn people to look out for them. Adam and Shem hide out in an empty apartment. When the law catches up with them, Adam tries to make a run for it but is caught. Shem narrowly escapes with the help of a girl.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/516/1292438.jpg",
+          "airDate": "1976-11-17",
+          "year": 1976,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Star Maidens S01E11 - Hideout.mp4",
+            "format": "h.264",
+            "sizeBytes": 139113882,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/star-maidens-complete-series-1976/Star%20Maidens%20S01E11%20-%20Hideout.mp4"
+        },
+        {
+          "archiveID": "star-maidens-complete-series-1976@s1e12",
+          "sourceID": "star-maidens-complete-series-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Creatures of the Mind",
+          "overview": "At Octavia's request, Liz and Rudi investigate the abandoned records section. While Rudi searches for a way off Medusa: what Liz finds is far more sinister and distressing, an ancient experiment to create artificial life.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/516/1292444.jpg",
+          "airDate": "1976-11-24",
+          "year": 1976,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Star Maidens S01E12 - Creatures of the Mind.mp4",
+            "format": "h.264",
+            "sizeBytes": 139965830,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/star-maidens-complete-series-1976/Star%20Maidens%20S01E12%20-%20Creatures%20of%20the%20Mind.mp4"
+        },
+        {
+          "archiveID": "star-maidens-complete-series-1976@s1e13",
+          "sourceID": "star-maidens-complete-series-1976",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "The Enemy",
+          "overview": "Agreement now reached on the exchange of hostages, the two ships head off from earth and Medusa. But a deadly ancient enemy of the Medusans has found them. The ships have no weapons: can Rudi come up with a plan to save them all?",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/516/1292449.jpg",
+          "airDate": "1976-12-01",
+          "year": 1976,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Star Maidens S01E13 - The Enemy.mp4",
+            "format": "h.264",
+            "sizeBytes": 139625851,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/star-maidens-complete-series-1976/Star%20Maidens%20S01E13%20-%20The%20Enemy.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 1,
+  "episodesCount": 13,
   "canonicalEpisodesCount": 13,
   "tvdbID": "78209",
   "artworkSource": "tvdb",
@@ -81,8 +310,5 @@
       "order": 5,
       "profilePath": "https://artworks.thetvdb.com/banners/person/290684/5fe43417b1009.jpg"
     }
-  ],
-  "seriesImdbID": "tt0074061",
-  "canonicalEpisodeCount": 13,
-  "canonicalSeasons": 1
+  ]
 }

@@ -20,13 +20,223 @@
       "seasonNumber": 1,
       "episodes": [
         {
-          "archiveID": "511_20251109",
+          "archiveID": "511_20251109@s1e00",
+          "sourceID": "511_20251109",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Lucas Tanner",
+          "overview": null,
+          "stillURL": "https://archive.org/download/511_20251109/511_20251109.thumbs/Lucas%20Tanner%20S01E00%20Lucas%20Tanner_001994.jpg",
+          "airDate": "1974-05-08",
+          "year": 1974,
+          "runtimeSeconds": 5400,
+          "videoFile": {
+            "name": "Lucas Tanner S01E00 Lucas Tanner.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 189916519,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/511_20251109/Lucas%20Tanner%20S01E00%20Lucas%20Tanner.mp4"
+        },
+        {
+          "archiveID": "511_20251109@s1e01",
+          "sourceID": "511_20251109",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "A Matter of Love",
+          "overview": null,
+          "stillURL": "https://archive.org/download/511_20251109/511_20251109.thumbs/Lucas%20Tanner%20S01E01%20A%20Matter%20of%20Love_001195.jpg",
+          "airDate": "1974-09-11",
+          "year": 1974,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Lucas Tanner S01E01 A Matter of Love.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 137627618,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/511_20251109/Lucas%20Tanner%20S01E01%20A%20Matter%20of%20Love.mp4"
+        },
+        {
+          "archiveID": "511_20251109@s1e02",
+          "sourceID": "511_20251109",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Instant Replay",
+          "overview": null,
+          "stillURL": "https://archive.org/download/511_20251109/511_20251109.thumbs/Lucas%20Tanner%20S01E02%20Instant%20Replay_001204.jpg",
+          "airDate": "1974-09-18",
+          "year": 1974,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Lucas Tanner S01E02 Instant Replay.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 143243702,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/511_20251109/Lucas%20Tanner%20S01E02%20Instant%20Replay.mp4"
+        },
+        {
+          "archiveID": "511_20251109@s1e03",
+          "sourceID": "511_20251109",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Thirteen Going on Twenty",
+          "overview": null,
+          "stillURL": "https://archive.org/download/511_20251109/511_20251109.thumbs/Lucas%20Tanner%20S01E03%20Thirteen%20Going%20on%20Twenty_001206.jpg",
+          "airDate": "1974-10-02",
+          "year": 1974,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Lucas Tanner S01E03 Thirteen Going on Twenty.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 123141341,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/511_20251109/Lucas%20Tanner%20S01E03%20Thirteen%20Going%20on%20Twenty.mp4"
+        },
+        {
+          "archiveID": "511_20251109@s1e04",
+          "sourceID": "511_20251109",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Winners and Losers",
+          "overview": null,
+          "stillURL": "https://archive.org/download/511_20251109/511_20251109.thumbs/Lucas%20Tanner%20S01E04%20Winners%20and%20Losers_001211.jpg",
+          "airDate": "1974-10-09",
+          "year": 1974,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Lucas Tanner S01E04 Winners and Losers.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 142501692,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/511_20251109/Lucas%20Tanner%20S01E04%20Winners%20and%20Losers.mp4"
+        },
+        {
+          "archiveID": "511_20251109@s1e05",
+          "sourceID": "511_20251109",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "A Question of Privacy",
+          "overview": null,
+          "stillURL": "https://archive.org/download/511_20251109/511_20251109.thumbs/Lucas%20Tanner%20S01E05%20A%20Question%20of%20Privacy_001211.jpg",
+          "airDate": "1974-10-16",
+          "year": 1974,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Lucas Tanner S01E05 A Question of Privacy.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 132196936,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/511_20251109/Lucas%20Tanner%20S01E05%20A%20Question%20of%20Privacy.mp4"
+        },
+        {
+          "archiveID": "511_20251109@s1e06",
+          "sourceID": "511_20251109",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Three Letter Word",
+          "overview": null,
+          "stillURL": "https://archive.org/download/511_20251109/511_20251109.thumbs/Lucas%20Tanner%20S01E06%20Three%20Letter%20Word_001219.jpg",
+          "airDate": "1974-10-23",
+          "year": 1974,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Lucas Tanner S01E06 Three Letter Word.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 146599166,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/511_20251109/Lucas%20Tanner%20S01E06%20Three%20Letter%20Word.mp4"
+        },
+        {
+          "archiveID": "511_20251109@s1e07",
+          "sourceID": "511_20251109",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "By the Numbers",
+          "overview": null,
+          "stillURL": "https://archive.org/download/511_20251109/511_20251109.thumbs/Lucas%20Tanner%20S01E07%20By%20the%20Numbers_001206.jpg",
+          "airDate": "1974-11-06",
+          "year": 1974,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Lucas Tanner S01E07 By the Numbers.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 120246595,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/511_20251109/Lucas%20Tanner%20S01E07%20By%20the%20Numbers.mp4"
+        },
+        {
+          "archiveID": "511_20251109@s1e08",
+          "sourceID": "511_20251109",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Echoes",
+          "overview": null,
+          "stillURL": "https://archive.org/download/511_20251109/511_20251109.thumbs/Lucas%20Tanner%20S01E08%20Echos_001206.jpg",
+          "airDate": "1974-11-13",
+          "year": 1974,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Lucas Tanner S01E08 Echos.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 112151595,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/511_20251109/Lucas%20Tanner%20S01E08%20Echos.mp4"
+        },
+        {
+          "archiveID": "511_20251109@s1e09",
+          "sourceID": "511_20251109",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Look the Other Way",
+          "overview": null,
+          "stillURL": "https://archive.org/download/511_20251109/511_20251109.thumbs/Lucas%20Tanner%20S01E09%20Look%20the%20Other%20Way_001206.jpg",
+          "airDate": "1974-11-20",
+          "year": 1974,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Lucas Tanner S01E09 Look the Other Way.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 110727556,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/511_20251109/Lucas%20Tanner%20S01E09%20Look%20the%20Other%20Way.mp4"
+        },
+        {
+          "archiveID": "511_20251109@s1e10",
+          "sourceID": "511_20251109",
           "seasonNumber": 1,
           "episodeNumber": 11,
           "title": "Cheers",
           "overview": null,
-          "stillURL": "https://archive.org/services/img/511_20251109",
+          "stillURL": "https://archive.org/download/511_20251109/511_20251109.thumbs/Lucas%20Tanner%20S01E10%20Cheers_001211.jpg",
           "airDate": "1974-12-04",
+          "year": 1974,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Lucas Tanner S01E10 Cheers.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 109604707,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/511_20251109/Lucas%20Tanner%20S01E10%20Cheers.mp4"
+        },
+        {
+          "archiveID": "511_20251109@s1e11",
+          "sourceID": "511_20251109",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Merry Gentlemen",
+          "overview": null,
+          "stillURL": "https://archive.org/download/511_20251109/511_20251109.thumbs/Lucas%20Tanner%20S01E11%20Merry%20Gentlemen_001201.jpg",
+          "airDate": "1974-12-25",
           "year": 1974,
           "runtimeSeconds": 3600,
           "videoFile": {
@@ -38,27 +248,218 @@
           "downloadURL": "https://archive.org/download/511_20251109/Lucas%20Tanner%20S01E11%20Merry%20Gentlemen.mp4"
         },
         {
-          "archiveID": "Lucas-Tanner-1974-Series",
+          "archiveID": "511_20251109@s1e12",
+          "sourceID": "511_20251109",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Bonus Baby",
+          "overview": null,
+          "stillURL": "https://archive.org/download/511_20251109/511_20251109.thumbs/Lucas%20Tanner%20S01E12%20Bonus%20Baby_001211.jpg",
+          "airDate": "1975-01-08",
+          "year": 1975,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Lucas Tanner S01E12 Bonus Baby.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 135601182,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/511_20251109/Lucas%20Tanner%20S01E12%20Bonus%20Baby.mp4"
+        },
+        {
+          "archiveID": "511_20251109@s1e13",
+          "sourceID": "511_20251109",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Pay the Man the Two Dollars",
+          "overview": "Lucas gets a new job and a new boss.",
+          "stillURL": "https://archive.org/download/511_20251109/511_20251109.thumbs/Lucas%20Tanner%20S01E13%20Pay%20the%20Two%20Dollars_001206.jpg",
+          "airDate": "1975-01-15",
+          "year": 1975,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Lucas Tanner S01E13 Pay the Two Dollars.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 122848464,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/511_20251109/Lucas%20Tanner%20S01E13%20Pay%20the%20Two%20Dollars.mp4"
+        },
+        {
+          "archiveID": "511_20251109@s1e14",
+          "sourceID": "511_20251109",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Those Who Cannot, Teach?",
+          "overview": null,
+          "stillURL": "https://archive.org/download/511_20251109/511_20251109.thumbs/Lucas%20Tanner%20S01E14%20Those%20Who%20Cannot%2C%20Teach_001211.jpg",
+          "airDate": "1975-01-22",
+          "year": 1975,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Lucas Tanner S01E14 Those Who Cannot, Teach.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 102268428,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/511_20251109/Lucas%20Tanner%20S01E14%20Those%20Who%20Cannot%2C%20Teach.mp4"
+        },
+        {
+          "archiveID": "511_20251109@s1e15",
+          "sourceID": "511_20251109",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "What's Wrong with Bobby?",
+          "overview": null,
+          "stillURL": "https://archive.org/download/511_20251109/511_20251109.thumbs/Lucas%20Tanner%20S01E15%20What%27s%20Wrong%20with%20Bobbie_001201.jpg",
+          "airDate": "1975-01-29",
+          "year": 1975,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Lucas Tanner S01E15 What's Wrong with Bobbie.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 108568692,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/511_20251109/Lucas%20Tanner%20S01E15%20What%27s%20Wrong%20with%20Bobbie.mp4"
+        },
+        {
+          "archiveID": "511_20251109@s1e16",
+          "sourceID": "511_20251109",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Collision",
+          "overview": "Four recently orphaned children face the prospect of being separated un- less Lucas can find foster parents who have the means to support them all.",
+          "stillURL": "https://archive.org/download/511_20251109/511_20251109.thumbs/Lucas%20Tanner%20S01E16%20Collision_001206.jpg",
+          "airDate": "1975-02-05",
+          "year": 1975,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Lucas Tanner S01E16 Collision.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 98762363,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/511_20251109/Lucas%20Tanner%20S01E16%20Collision.mp4"
+        },
+        {
+          "archiveID": "511_20251109@s1e17",
+          "sourceID": "511_20251109",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Why Not a Happy Ending?",
+          "overview": null,
+          "stillURL": "https://archive.org/download/511_20251109/511_20251109.thumbs/Lucas%20Tanner%20S01E17%20Why%20Not%20a%20Happy%20Ending_001201.jpg",
+          "airDate": "1975-02-12",
+          "year": 1975,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Lucas Tanner S01E17 Why Not a Happy Ending.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 101958435,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/511_20251109/Lucas%20Tanner%20S01E17%20Why%20Not%20a%20Happy%20Ending.mp4"
+        },
+        {
+          "archiveID": "511_20251109@s1e18",
+          "sourceID": "511_20251109",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Shattered",
+          "overview": null,
+          "stillURL": "https://archive.org/download/511_20251109/511_20251109.thumbs/Lucas%20Tanner%20S01E18%20Shattered_001202.jpg",
+          "airDate": "1975-02-19",
+          "year": 1975,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Lucas Tanner S01E18 Shattered.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 107994881,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/511_20251109/Lucas%20Tanner%20S01E18%20Shattered.mp4"
+        },
+        {
+          "archiveID": "511_20251109@s1e19",
+          "sourceID": "511_20251109",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "The Noise of a Quiet Weekend",
+          "overview": null,
+          "stillURL": "https://archive.org/download/511_20251109/511_20251109.thumbs/Lucas%20Tanner%20S01E19%20The%20Noise%20of%20a%20Quiet%20Weekend_001201.jpg",
+          "airDate": "1975-02-26",
+          "year": 1975,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Lucas Tanner S01E19 The Noise of a Quiet Weekend.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 125082121,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/511_20251109/Lucas%20Tanner%20S01E19%20The%20Noise%20of%20a%20Quiet%20Weekend.mp4"
+        },
+        {
+          "archiveID": "511_20251109@s1e20",
+          "sourceID": "511_20251109",
           "seasonNumber": 1,
           "episodeNumber": 21,
           "title": "Requiem for a Son",
           "overview": null,
-          "stillURL": "https://archive.org/services/img/Lucas-Tanner-1974-Series",
+          "stillURL": "https://archive.org/download/511_20251109/511_20251109.thumbs/Lucas%20Tanner%20S01E20%20Requiem%20for%20a%20Son_001215.jpg",
           "airDate": "1975-03-12",
           "year": 1975,
           "runtimeSeconds": 3600,
           "videoFile": {
-            "name": "Lucas Tanner (23 of 23)/S01E21 - A Touch of Bribery.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 268815662,
+            "name": "Lucas Tanner S01E20 Requiem for a Son.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 107363540,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/Lucas-Tanner-1974-Series/Lucas%20Tanner%20%2823%20of%2023%29/S01E21%20-%20A%20Touch%20of%20Bribery.ia.mp4"
+          "downloadURL": "https://archive.org/download/511_20251109/Lucas%20Tanner%20S01E20%20Requiem%20for%20a%20Son.mp4"
+        },
+        {
+          "archiveID": "511_20251109@s1e21",
+          "sourceID": "511_20251109",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "A Touch of Bribery",
+          "overview": null,
+          "stillURL": "https://archive.org/download/511_20251109/511_20251109.thumbs/Lucas%20Tanner%20S01E21%20A%20Touch%20of%20Bribery_001204.jpg",
+          "airDate": "1975-04-03",
+          "year": 1975,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Lucas Tanner S01E21 A Touch of Bribery.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 108691489,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/511_20251109/Lucas%20Tanner%20S01E21%20A%20Touch%20of%20Bribery.mp4"
+        },
+        {
+          "archiveID": "511_20251109@s1e22",
+          "sourceID": "511_20251109",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "One to One",
+          "overview": null,
+          "stillURL": "https://archive.org/download/511_20251109/511_20251109.thumbs/Lucas%20Tanner%20S01E22%20One%20to%20One_001206.jpg",
+          "airDate": "1975-04-09",
+          "year": 1975,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Lucas Tanner S01E22 One to One.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 107062512,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/511_20251109/Lucas%20Tanner%20S01E22%20One%20to%20One.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 2,
+  "episodesCount": 23,
   "canonicalEpisodesCount": 23,
   "tvdbID": "76558",
   "artworkSource": "tvdb",

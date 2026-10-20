@@ -17,15 +17,230 @@
   "creator": null,
   "seasons": [
     {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "not-on-your-nellie-complete-series-1974@s1e01",
+          "sourceID": "not-on-your-nellie-complete-series-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "on Your Nellie Nellie Comes To Town",
+          "overview": null,
+          "stillURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/not-on-your-nellie-complete-series-1974.thumbs/Not%20on%20Your%20Nellie%20S01E01%20Nellie%20Comes%20To%20Town_000639.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1571,
+          "videoFile": {
+            "name": "Not on Your Nellie S01E01 Nellie Comes To Town.mp4",
+            "format": "h.264",
+            "sizeBytes": 147262400,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/Not%20on%20Your%20Nellie%20S01E01%20Nellie%20Comes%20To%20Town.mp4"
+        },
+        {
+          "archiveID": "not-on-your-nellie-complete-series-1974@s1e02",
+          "sourceID": "not-on-your-nellie-complete-series-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Something in the Night",
+          "overview": null,
+          "stillURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/not-on-your-nellie-complete-series-1974.thumbs/Not%20on%20Your%20Nellie%20S01E02%20Something%20In%20The%20Night_000544.jpg",
+          "airDate": "1974-03-22",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Not on Your Nellie S01E02 Something In The Night.mp4",
+            "format": "h.264",
+            "sizeBytes": 145146456,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/Not%20on%20Your%20Nellie%20S01E02%20Something%20In%20The%20Night.mp4"
+        },
+        {
+          "archiveID": "not-on-your-nellie-complete-series-1974@s1e03",
+          "sourceID": "not-on-your-nellie-complete-series-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Anniversary Present",
+          "overview": null,
+          "stillURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/not-on-your-nellie-complete-series-1974.thumbs/Not%20on%20Your%20Nellie%20S01E03%20The%20Anniversary%20Present_000504.jpg",
+          "airDate": "1974-03-29",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Not on Your Nellie S01E03 The Anniversary Present.mp4",
+            "format": "h.264",
+            "sizeBytes": 135460723,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/Not%20on%20Your%20Nellie%20S01E03%20The%20Anniversary%20Present.mp4"
+        },
+        {
+          "archiveID": "not-on-your-nellie-complete-series-1974@s1e04",
+          "sourceID": "not-on-your-nellie-complete-series-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Restless Spirit",
+          "overview": null,
+          "stillURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/not-on-your-nellie-complete-series-1974.thumbs/Not%20on%20Your%20Nellie%20S01E04%20The%20Restless%20Spirit_000596.jpg",
+          "airDate": "1974-04-05",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Not on Your Nellie S01E04 The Restless Spirit.mp4",
+            "format": "h.264",
+            "sizeBytes": 136718218,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/Not%20on%20Your%20Nellie%20S01E04%20The%20Restless%20Spirit.mp4"
+        },
+        {
+          "archiveID": "not-on-your-nellie-complete-series-1974@s1e05",
+          "sourceID": "not-on-your-nellie-complete-series-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "on Your Nellie The Apartment",
+          "overview": null,
+          "stillURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/not-on-your-nellie-complete-series-1974.thumbs/Not%20on%20Your%20Nellie%20S01E05%20The%20Apartment_000618.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1518,
+          "videoFile": {
+            "name": "Not on Your Nellie S01E05 The Apartment.mp4",
+            "format": "h.264",
+            "sizeBytes": 142800731,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/Not%20on%20Your%20Nellie%20S01E05%20The%20Apartment.mp4"
+        },
+        {
+          "archiveID": "not-on-your-nellie-complete-series-1974@s1e06",
+          "sourceID": "not-on-your-nellie-complete-series-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Bring on the Dancing Girls",
+          "overview": null,
+          "stillURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/not-on-your-nellie-complete-series-1974.thumbs/Not%20on%20Your%20Nellie%20S01E06%20Bring%20On%20The%20Dancing%20Girls_000597.jpg",
+          "airDate": "1974-04-19",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Not on Your Nellie S01E06 Bring On The Dancing Girls.mp4",
+            "format": "h.264",
+            "sizeBytes": 137280977,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/Not%20on%20Your%20Nellie%20S01E06%20Bring%20On%20The%20Dancing%20Girls.mp4"
+        },
+        {
+          "archiveID": "not-on-your-nellie-complete-series-1974@s1e07",
+          "sourceID": "not-on-your-nellie-complete-series-1974",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Wind of Change",
+          "overview": null,
+          "stillURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/not-on-your-nellie-complete-series-1974.thumbs/Not%20on%20Your%20Nellie%20S01E07%20The%20Wind%20Of%20Change_000595.jpg",
+          "airDate": "1974-04-26",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Not on Your Nellie S01E07 The Wind Of Change.mp4",
+            "format": "h.264",
+            "sizeBytes": 137572183,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/Not%20on%20Your%20Nellie%20S01E07%20The%20Wind%20Of%20Change.mp4"
+        }
+      ]
+    },
+    {
       "seasonNumber": 2,
       "episodes": [
         {
-          "archiveID": "not-on-your-nellie-complete-series-1974",
+          "archiveID": "not-on-your-nellie-complete-series-1974@s2e01",
+          "sourceID": "not-on-your-nellie-complete-series-1974",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Brief Encounter",
+          "overview": null,
+          "stillURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/not-on-your-nellie-complete-series-1974.thumbs/Not%20on%20Your%20Nellie%20S02E01%20Brief%20Encounter_000624.jpg",
+          "airDate": "1975-01-24",
+          "year": 1975,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Not on Your Nellie S02E01 Brief Encounter.mp4",
+            "format": "h.264",
+            "sizeBytes": 142919830,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/Not%20on%20Your%20Nellie%20S02E01%20Brief%20Encounter.mp4"
+        },
+        {
+          "archiveID": "not-on-your-nellie-complete-series-1974@s2e02",
+          "sourceID": "not-on-your-nellie-complete-series-1974",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "High Society",
+          "overview": null,
+          "stillURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/not-on-your-nellie-complete-series-1974.thumbs/Not%20on%20Your%20Nellie%20S02E02%20High%20Society_000630.jpg",
+          "airDate": "1975-01-31",
+          "year": 1975,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Not on Your Nellie S02E02 High Society.mp4",
+            "format": "h.264",
+            "sizeBytes": 144461208,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/Not%20on%20Your%20Nellie%20S02E02%20High%20Society.mp4"
+        },
+        {
+          "archiveID": "not-on-your-nellie-complete-series-1974@s2e04",
+          "sourceID": "not-on-your-nellie-complete-series-1974",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Requiem for a Heavyweight",
+          "overview": null,
+          "stillURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/not-on-your-nellie-complete-series-1974.thumbs/Not%20on%20Your%20Nellie%20S02E04%20Requiem%20For%20A%20Heavyweight_000618.jpg",
+          "airDate": "1975-02-07",
+          "year": 1975,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Not on Your Nellie S02E04 Requiem For A Heavyweight.mp4",
+            "format": "h.264",
+            "sizeBytes": 141241666,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/Not%20on%20Your%20Nellie%20S02E04%20Requiem%20For%20A%20Heavyweight.mp4"
+        },
+        {
+          "archiveID": "not-on-your-nellie-complete-series-1974@s2e03",
+          "sourceID": "not-on-your-nellie-complete-series-1974",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "Do Unto Others",
+          "overview": null,
+          "stillURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/not-on-your-nellie-complete-series-1974.thumbs/Not%20on%20Your%20Nellie%20S02E03%20Do%20Unto%20Others_000608.jpg",
+          "airDate": "1975-02-14",
+          "year": 1975,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Not on Your Nellie S02E03 Do Unto Others.mp4",
+            "format": "h.264",
+            "sizeBytes": 140444750,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/Not%20on%20Your%20Nellie%20S02E03%20Do%20Unto%20Others.mp4"
+        },
+        {
+          "archiveID": "not-on-your-nellie-complete-series-1974@s2e05",
+          "sourceID": "not-on-your-nellie-complete-series-1974",
           "seasonNumber": 2,
           "episodeNumber": 5,
           "title": "The Lady with the Lamp",
           "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/153/382880.jpg",
+          "stillURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/not-on-your-nellie-complete-series-1974.thumbs/Not%20on%20Your%20Nellie%20S02E05%20The%20Lady%20with%20the%20Lamp_000641.jpg",
           "airDate": "1975-02-21",
           "year": 1975,
           "runtimeSeconds": 1800,
@@ -33,9 +248,109 @@
             "name": "Not on Your Nellie S02E05 The Lady with the Lamp.mp4",
             "format": "h.264",
             "sizeBytes": 147893332,
-            "tier": 2
+            "tier": 1
           },
           "downloadURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/Not%20on%20Your%20Nellie%20S02E05%20The%20Lady%20with%20the%20Lamp.mp4"
+        },
+        {
+          "archiveID": "not-on-your-nellie-complete-series-1974@s2e06",
+          "sourceID": "not-on-your-nellie-complete-series-1974",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Feeling the Draught",
+          "overview": null,
+          "stillURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/not-on-your-nellie-complete-series-1974.thumbs/Not%20on%20Your%20Nellie%20S02E06%20Feeling%20The%20Draught_000635.jpg",
+          "airDate": "1975-02-28",
+          "year": 1975,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Not on Your Nellie S02E06 Feeling The Draught.mp4",
+            "format": "h.264",
+            "sizeBytes": 145895570,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/Not%20on%20Your%20Nellie%20S02E06%20Feeling%20The%20Draught.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "not-on-your-nellie-complete-series-1974@s3e01",
+          "sourceID": "not-on-your-nellie-complete-series-1974",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "Be Prepared",
+          "overview": null,
+          "stillURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/not-on-your-nellie-complete-series-1974.thumbs/Not%20on%20Your%20Nellie%20S03E01%20Be%20Prepared_000644.jpg",
+          "airDate": "1975-08-08",
+          "year": 1975,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Not on Your Nellie S03E01 Be Prepared.mp4",
+            "format": "h.264",
+            "sizeBytes": 147765921,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/Not%20on%20Your%20Nellie%20S03E01%20Be%20Prepared.mp4"
+        },
+        {
+          "archiveID": "not-on-your-nellie-complete-series-1974@s3e02",
+          "sourceID": "not-on-your-nellie-complete-series-1974",
+          "seasonNumber": 3,
+          "episodeNumber": 2,
+          "title": "A-Haunting We Will Go",
+          "overview": null,
+          "stillURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/not-on-your-nellie-complete-series-1974.thumbs/Not%20On%20Your%20Nellie%20S03E02%20A-Haunting%20We%20Will%20Go_000619.jpg",
+          "airDate": "1975-08-15",
+          "year": 1975,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Not On Your Nellie S03E02 A-Haunting We Will Go.mp4",
+            "format": "h.264",
+            "sizeBytes": 142339276,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/Not%20On%20Your%20Nellie%20S03E02%20A-Haunting%20We%20Will%20Go.mp4"
+        },
+        {
+          "archiveID": "not-on-your-nellie-complete-series-1974@s3e03",
+          "sourceID": "not-on-your-nellie-complete-series-1974",
+          "seasonNumber": 3,
+          "episodeNumber": 3,
+          "title": "The French Correction",
+          "overview": null,
+          "stillURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/not-on-your-nellie-complete-series-1974.thumbs/Not%20on%20Your%20Nellie%20S03E03%20The%20French%20Correction_000612.jpg",
+          "airDate": "1975-08-22",
+          "year": 1975,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Not on Your Nellie S03E03 The French Correction.mp4",
+            "format": "h.264",
+            "sizeBytes": 139697604,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/Not%20on%20Your%20Nellie%20S03E03%20The%20French%20Correction.mp4"
+        },
+        {
+          "archiveID": "not-on-your-nellie-complete-series-1974@s3e04",
+          "sourceID": "not-on-your-nellie-complete-series-1974",
+          "seasonNumber": 3,
+          "episodeNumber": 4,
+          "title": "Called to the Bar",
+          "overview": null,
+          "stillURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/not-on-your-nellie-complete-series-1974.thumbs/Not%20on%20Your%20Nellie%20S03E04%20Called%20To%20The%20Bar_000607.jpg",
+          "airDate": "1975-08-29",
+          "year": 1975,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Not on Your Nellie S03E04 Called To The Bar.mp4",
+            "format": "h.264",
+            "sizeBytes": 140271001,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/not-on-your-nellie-complete-series-1974/Not%20on%20Your%20Nellie%20S03E04%20Called%20To%20The%20Bar.mp4"
         }
       ]
     },
@@ -63,7 +378,7 @@
       ]
     }
   ],
-  "episodesCount": 2,
+  "episodesCount": 18,
   "canonicalEpisodesCount": 17,
   "tvdbID": "78288",
   "artworkSource": "tvdb",

@@ -17,15 +17,1090 @@
   "creator": null,
   "seasons": [
     {
+      "seasonNumber": 0,
+      "episodes": [
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s0e00",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 0,
+          "episodeNumber": 0,
+          "title": "Pilot",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1742,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S00E00 - Pilot.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 220131176,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S00E00%20-%20Pilot.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e01",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The French Teacher",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1963-09-18",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E01 - The French Teacher.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 323160370,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E01%20-%20The%20French%20Teacher.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e02",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Genius",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1963-09-25",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E02 - The Genius.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 323398784,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E02%20-%20The%20Genius.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e03",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Elopement",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1963-10-02",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E03 - The Elopement.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 322306758,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E03%20-%20The%20Elopement.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e04",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "House Guest",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1963-10-09",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E04 - The House Guest.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 320617259,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E04%20-%20The%20House%20Guest.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e05",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Birds and the Bees Bit",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1963-10-16",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E05 - The Birds and the Bees Bit.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 323440516,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E05%20-%20The%20Birds%20and%20the%20Bees%20Bit.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e06",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Slumber Party",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1963-10-23",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E06 - The Slumber Party.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 320633270,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E06%20-%20The%20Slumber%20Party.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e07",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Babysitters",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1963-10-30",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E07 - The Babysitters.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 316288113,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E07%20-%20The%20Babysitters.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e08",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Conquering Hero",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1963-11-06",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E08 - The Conquering Hero.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 323134764,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E08%20-%20The%20Conquering%20Hero.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e09",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The President",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1963-11-13",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E09 - The President.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 321358018,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E09%20-%20The%20President.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e10",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Double Date",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1963-11-20",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E10 - Double Date.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 321681902,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E10%20-%20Double%20Date.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e11",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Actress",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1963-11-27",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E11 - The Actress.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 321884353,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E11%20-%20The%20Actress.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e12",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "How to Be Popular",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1963-12-04",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E12 - How to be Popular.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 309809824,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E12%20-%20How%20to%20be%20Popular.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e13",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "The Song Writers",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1963-12-11",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E13 - The Songwriters.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 319201192,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E13%20-%20The%20Songwriters.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e14",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Princess Cathy",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1963-12-18",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E14 - The Princess Cathy.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 321329206,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E14%20-%20The%20Princess%20Cathy.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e15",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Christmas Present",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1963-12-25",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E15 - The Christmas Present.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 320364280,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E15%20-%20The%20Christmas%20Present.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e16",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Auld Lang Syne",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-01-01",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E16 - Auld Lang Syne.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 322392213,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E16%20-%20Auld%20Lang%20Syne.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e17",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Horoscope",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-01-08",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E17 - Horoscope.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 322941425,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E17%20-%20Horoscope.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e18",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "The Tycoons",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-01-15",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E18 - The Tycoons.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 319184844,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E18%20-%20The%20Tycoons.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e19",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Author! Author!",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-01-22",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E19 - Author! Author!.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 321826820,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E19%20-%20Author%21%20Author%21.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e20",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "The Continental",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-01-29",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E20 - The Continental.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 322534380,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E20%20-%20The%20Continental.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e21",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Let 'Em Eat Cake",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-02-05",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E21 - Let 'Em Eat Cake.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 323414432,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E21%20-%20Let%20%27Em%20Eat%20Cake.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e22",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Going Steady",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-02-12",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E22 - Going Steady.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 323424320,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E22%20-%20Going%20Steady.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e23",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Are Mothers People?",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-02-19",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E23 - Are Mothers People.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 322021870,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E23%20-%20Are%20Mothers%20People.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e24",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "The Con Artist",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-02-26",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E24 - The Con Artist.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 321507740,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E24%20-%20The%20Con%20Artist.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e25",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "The Perfect Teenager",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-03-04",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E25 - The Perfect Teenager.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 323168031,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E25%20-%20The%20Perfect%20Teenager.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e26",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Chip Off the Old Block",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-02-11",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E26 - Chip off the Old Block.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 319517158,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E26%20-%20Chip%20off%20the%20Old%20Block.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e27",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "The Wedding Anniversary Caper",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-03-18",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E27 - The Wedding Anniversary Caper.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 81336537,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E27%20-%20The%20Wedding%20Anniversary%20Caper.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e28",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "Pen Pals",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-03-25",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E28 - Pen Pals.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 319951463,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E28%20-%20Pen%20Pals.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e30",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "A Slight Case of Disaster",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-04-08",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E30 - A Slight Case of Disaster.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 322487527,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E30%20-%20A%20Slight%20Case%20of%20Disaster.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e29",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "The Friendship Bit",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-04-01",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E29 - The Friendship Bit.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 322016034,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E29%20-%20The%20Friendship%20Bit.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e31",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "Patty, the Foster Mother",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-04-15",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E31 - Patty the Foster Mother.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 321476227,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E31%20-%20Patty%20the%20Foster%20Mother.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e32",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 32,
+          "title": "Drop Out",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-04-22",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E32 - The Drop Out.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 322227919,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E32%20-%20The%20Drop%20Out.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e33",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 33,
+          "title": "Leave It to Patty",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-04-29",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E33 - Leave It to Patty.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 322186982,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E33%20-%20Leave%20It%20to%20Patty.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e34",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 34,
+          "title": "The Little Dictator",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-05-06",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E34 - The Little Dictator.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 319384341,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E34%20-%20The%20Little%20Dictator.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e35",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 35,
+          "title": "The Working Girl",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-05-13",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E35 - The Working Girl.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 322447329,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E35%20-%20The%20Working%20Girl.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s1e36",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "The Cousins",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-05-20",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 1/S01E36 - The Cousins.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 81885049,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%201/S01E36%20-%20The%20Cousins.mp4"
+        }
+      ]
+    },
+    {
       "seasonNumber": 2,
       "episodes": [
         {
-          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e01",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "The Green-Eyed Monster",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-09-16",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E01 - The Green Eyed Monster.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 324442928,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E01%20-%20The%20Green%20Eyed%20Monster.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e02",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "Practice Makes Perfect",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-09-23",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E02 - Practice Makes Perfect.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 324329231,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E02%20-%20Practice%20Makes%20Perfect.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e03",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "Simon Says",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-09-30",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E03 - Simon Says.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 322798045,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E03%20-%20Simon%20Says.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e04",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "Patty, the Organizer",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-10-07",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E04 - Patty the Organizer.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 322274467,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E04%20-%20Patty%20the%20Organizer.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e05",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Patty, the Pioneer",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-10-14",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E05 - Patty the Pioneer.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 324861873,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E05%20-%20Patty%20the%20Pioneer.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e06",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "The Boy Next Door",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-10-21",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E06 - The Boy Next Door.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 322423242,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E06%20-%20The%20Boy%20Next%20Door.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e07",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "Patty, the People's Voice",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-10-28",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E07 - Patty the People's Voice.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 320331704,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E07%20-%20Patty%20the%20People%27s%20Voice.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e08",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "The Greatest Psychologist in the World",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-11-04",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E08 - The Greatest Psychologist in the World.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 324710146,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E08%20-%20The%20Greatest%20Psychologist%20in%20the%20World.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e09",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Patty and the Peace Corps",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-11-11",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E09 - Patty and the Peace Corps.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 324198232,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E09%20-%20Patty%20and%20the%20Peace%20Corps.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e10",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "How to Succeed in Romance",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-11-18",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E10 - How to Succeed in Romance.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 73878377,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E10%20-%20How%20to%20Succeed%20in%20Romance.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e11",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "Block That Statue",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-11-25",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E11 - Block That Statue.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 321444098,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E11%20-%20Block%20That%20Statue.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e12",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "This Little Patty Went to Market",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-12-02",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E12 - This Little Patty Went to Market.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 321906125,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E12%20-%20This%20Little%20Patty%20Went%20to%20Market.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e13",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "Best Date in Town",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-12-09",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E13 - The Best Date in Town.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 324504806,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E13%20-%20The%20Best%20Date%20in%20Town.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e14",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 14,
+          "title": "Can Do Patty",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-12-16",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E14 - Can Do Patty.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 324489946,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E14%20-%20Can%20Do%20Patty.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e15",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 15,
+          "title": "Hi, Society",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-12-23",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E15 - Hi Society.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 324225292,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E15%20-%20Hi%20Society.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e16",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 16,
+          "title": "Patty, the Witness",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1964-12-30",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E16 - Patty the Witness.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 323410351,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E16%20-%20Patty%20the%20Witness.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e17",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 17,
+          "title": "Every Girl Should Be Married",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-01-06",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E17 - Every Girl Should be Married.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 324935069,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E17%20-%20Every%20Girl%20Should%20be%20Married.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e18",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 18,
+          "title": "The Perfect Hostess",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-01-13",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E18 - The Perfect Hostess.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 321131148,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E18%20-%20The%20Perfect%20Hostess.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e19",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 19,
+          "title": "Patty Meets a Celebrity",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-01-20",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E19 - Patty Meets a Celebrity.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 323409563,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E19%20-%20Patty%20Meets%20a%20Celebrity.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e20",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
           "seasonNumber": 2,
           "episodeNumber": 20,
           "title": "The Raffle",
           "overview": null,
-          "stillURL": "https://archive.org/download/archivewatch-covers/the-patty-duke-show-the-complete-series-1963-1966.239330aa.jpg",
+          "stillURL": null,
           "airDate": "1965-01-27",
           "year": 1965,
           "runtimeSeconds": 1800,
@@ -33,14 +1108,931 @@
             "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E20 - The Raffle.ia.mp4",
             "format": "h.264 IA",
             "sizeBytes": 324937383,
-            "tier": 2
+            "tier": 1
           },
           "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E20%20-%20The%20Raffle.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e21",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 21,
+          "title": "Patty and the Newspaper Game",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-02-03",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E21 - Patty and the Newspaper Game.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 321656987,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E21%20-%20Patty%20and%20the%20Newspaper%20Game.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e22",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 22,
+          "title": "Little Brother Is Watching You",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-02-10",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E22 - Little Brother is Watching You.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 317326276,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E22%20-%20Little%20Brother%20is%20Watching%20You.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e23",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 23,
+          "title": "Patty Pits Wits -- Two Brits Hits",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-02-17",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E23 - Patty Pits Wits, Two Brits Hits.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 322952921,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E23%20-%20Patty%20Pits%20Wits%2C%20Two%20Brits%20Hits.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e24",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 24,
+          "title": "It Takes a Heap of Livin",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-02-24",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E24 - It Takes a Heap of Livin'.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 323903372,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E24%20-%20It%20Takes%20a%20Heap%20of%20Livin%27.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e25",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 25,
+          "title": "Will the Real Sammy Davis, Please Hang Up?",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-03-03",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E25 - Will the Real Sammy Davis Please Hang Up.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 324669779,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E25%20-%20Will%20the%20Real%20Sammy%20Davis%20Please%20Hang%20Up.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e26",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 26,
+          "title": "Don't Monkey with Mendel",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-03-10",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E26 - Don't Monkey with Mendel.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 321378193,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E26%20-%20Don%27t%20Monkey%20with%20Mendel.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e27",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 27,
+          "title": "Patty, the Practical Joker",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-03-17",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E27 - Patty the Practical Joker.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 322789634,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E27%20-%20Patty%20the%20Practical%20Joker.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e28",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 28,
+          "title": "Patty, the Master Builder",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-03-24",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E28 - Patty the Master Builder.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 322859403,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E28%20-%20Patty%20the%20Master%20Builder.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e29",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 29,
+          "title": "Patty and the Cut-Rate Casanova",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-03-31",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E29 - Patty and the Cut Rate Casanova.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 323493905,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E29%20-%20Patty%20and%20the%20Cut%20Rate%20Casanova.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e30",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 30,
+          "title": "The Daughter Bit",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-04-07",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E30 - The Daughter Bit.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 324019098,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E30%20-%20The%20Daughter%20Bit.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e31",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 31,
+          "title": "Cathy, the Rebel",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-04-14",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E31 - Cathy the Rebel.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 321480145,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E31%20-%20Cathy%20the%20Rebel.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e32",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 32,
+          "title": "Patty the Folk Singer",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-04-21",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E32 - Patty the Folk Singer.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 323083482,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E32%20-%20Patty%20the%20Folk%20Singer.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e33",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 33,
+          "title": "What's Cooking, Cousin?",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-04-28",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E33 - What's Cooking Cousin.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 323872517,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E33%20-%20What%27s%20Cooking%20Cousin.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e34",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 34,
+          "title": "Take Me Out to the Ball Game",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-05-05",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E34 - Take Me Out to the Ball Game.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 322592172,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E34%20-%20Take%20Me%20Out%20to%20the%20Ball%20Game.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e35",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 35,
+          "title": "My Cousin the Heroine",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-05-12",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E35 - My Cousin the Heroine.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 324055555,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E35%20-%20My%20Cousin%20the%20Heroine.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s2e36",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 2,
+          "episodeNumber": 36,
+          "title": "Patty, the Chatterbox",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-05-19",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 2/S02E36 - Patty the Chatterbox.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 322016570,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%202/S02E36%20-%20Patty%20the%20Chatterbox.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s3e01",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "A Foggy Day in Brooklyn Heights",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-09-15",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 3/S03E01 - A Foggy Day in Brooklyn Heights.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 318419783,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%203/S03E01%20-%20A%20Foggy%20Day%20in%20Brooklyn%20Heights.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s3e02",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 3,
+          "episodeNumber": 2,
+          "title": "Operation: Tonsils",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-09-22",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 3/S03E02 - Operation Tonsils.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 319995838,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%203/S03E02%20-%20Operation%20Tonsils.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s3e03",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 3,
+          "episodeNumber": 3,
+          "title": "Partying Is Such Sweet Sorrow",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-09-29",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 3/S03E03 - Partying is Such Sweet Sorrow.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 319081025,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%203/S03E03%20-%20Partying%20is%20Such%20Sweet%20Sorrow.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s3e04",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 3,
+          "episodeNumber": 4,
+          "title": "The Guest",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-10-06",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 3/S03E04 - The Guest.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 319826643,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%203/S03E04%20-%20The%20Guest.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s3e05",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 3,
+          "episodeNumber": 5,
+          "title": "Our Daughter the Artist",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-10-13",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 3/S03E05 - Our Daughter the Artist.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 318531226,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%203/S03E05%20-%20Our%20Daughter%20the%20Artist.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s3e06",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 3,
+          "episodeNumber": 6,
+          "title": "Patty's Private Pygmalion",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-10-20",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 3/S03E06 - Patty's Private Pygmalion.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 319897455,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%203/S03E06%20-%20Patty%27s%20Private%20Pygmalion.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s3e07",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 3,
+          "episodeNumber": 7,
+          "title": "The Girl from N.E.P.H.E.W.",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-10-27",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 3/S03E07 - The Girl from N.E.P.H.E.W..ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 320987811,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%203/S03E07%20-%20The%20Girl%20from%20N.E.P.H.E.W..ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s3e08",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 3,
+          "episodeNumber": 8,
+          "title": "I'll Be Suing You",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-11-03",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 3/S03E08 - I'll Be Suing You.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 64661029,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%203/S03E08%20-%20I%27ll%20Be%20Suing%20You.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s3e09",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 3,
+          "episodeNumber": 9,
+          "title": "Patty and the Eternal Triangle",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-11-10",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 3/S03E09 - Patty and the Eternal Triangle.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 321235445,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%203/S03E09%20-%20Patty%20and%20the%20Eternal%20Triangle.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s3e10",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 3,
+          "episodeNumber": 10,
+          "title": "Sick in Bed",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-11-17",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 3/S03E10 - Sick in Bed.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 317740215,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%203/S03E10%20-%20Sick%20in%20Bed.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s3e11",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 3,
+          "episodeNumber": 11,
+          "title": "Ross, the Peacemaker",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-11-24",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 3/S03E11 - Ross the Peacemaker.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 321069944,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%203/S03E11%20-%20Ross%20the%20Peacemaker.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s3e12",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 3,
+          "episodeNumber": 12,
+          "title": "Patty, the Candy Striper",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-12-01",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 3/S03E12 - Patty the Candy Striper.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 320272406,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%203/S03E12%20-%20Patty%20the%20Candy%20Striper.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s3e13",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 3,
+          "episodeNumber": 13,
+          "title": "Patty Meets the Great Outdoors",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-12-08",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 3/S03E13 - Patty Meets the Great Outdoors.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 320464133,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%203/S03E13%20-%20Patty%20Meets%20the%20Great%20Outdoors.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s3e14",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 3,
+          "episodeNumber": 14,
+          "title": "Cathy Leaves Home -- But Not Really",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-12-15",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 3/S03E14 - Cathy Leaves Home But Not Really.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 320912227,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%203/S03E14%20-%20Cathy%20Leaves%20Home%20But%20Not%20Really.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s3e15",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 3,
+          "episodeNumber": 15,
+          "title": "The History Paper Caper",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-12-22",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 3/S03E15 - The History Paper Caper.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 319453925,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%203/S03E15%20-%20The%20History%20Paper%20Caper.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s3e16",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 3,
+          "episodeNumber": 16,
+          "title": "A Very Phon-y Situation",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1965-12-29",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 3/S03E16 - A Very Phone-y Situation.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 319093589,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%203/S03E16%20-%20A%20Very%20Phone-y%20Situation.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s3e17",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 3,
+          "episodeNumber": 17,
+          "title": "Ross Runs Away -- But Not Far",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1966-01-05",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 3/S03E17 - Ross Runs Away, But Not Far.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 320480211,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%203/S03E17%20-%20Ross%20Runs%20Away%2C%20But%20Not%20Far.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s3e18",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 3,
+          "episodeNumber": 18,
+          "title": "Poppo's Birthday",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1966-01-12",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 3/S03E18 - Poppo's Birthday.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 319962460,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%203/S03E18%20-%20Poppo%27s%20Birthday.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s3e19",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 3,
+          "episodeNumber": 19,
+          "title": "Anywhere I Hang My Horn Is Home",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1966-01-19",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 3/S03E19 - Anywhere I Hang My Horn is Home.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 319801607,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%203/S03E19%20-%20Anywhere%20I%20Hang%20My%20Horn%20is%20Home.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s3e20",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 3,
+          "episodeNumber": 20,
+          "title": "The Greatest Speaker in the Whole Wide World",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1966-01-26",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 3/S03E20 - The Greatest Speaker in the Whole Wide World.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 53245884,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%203/S03E20%20-%20The%20Greatest%20Speaker%20in%20the%20Whole%20Wide%20World.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s3e21",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 3,
+          "episodeNumber": 21,
+          "title": "Big Sister Is Watching",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1966-02-02",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 3/S03E21 - Big Sister is Watching.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 318771343,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%203/S03E21%20-%20Big%20Sister%20is%20Watching.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s3e22",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 3,
+          "episodeNumber": 22,
+          "title": "Patty Leads a Dog's Life",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1966-02-09",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 3/S03E22 - Patty Leads a Dog's Life.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 320039258,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%203/S03E22%20-%20Patty%20Leads%20a%20Dog%27s%20Life.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s3e23",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 3,
+          "episodeNumber": 23,
+          "title": "Too Young and Foolish to Go Steady",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1966-02-16",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 3/S03E23 - Too Young and Foolish to Go Steady.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 319537001,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%203/S03E23%20-%20Too%20Young%20and%20Foolish%20to%20Go%20Steady.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s3e24",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 3,
+          "episodeNumber": 24,
+          "title": "Patty, the Diplomat",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1966-02-23",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 3/S03E24 - Patty the Diplomat.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 319269819,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%203/S03E24%20-%20Patty%20the%20Diplomat.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s3e25",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 3,
+          "episodeNumber": 25,
+          "title": "Do You Trust Your Daughter",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1966-03-02",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 3/S03E25 - Do You Trust Your Daughter.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 317513573,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%203/S03E25%20-%20Do%20You%20Trust%20Your%20Daughter.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s3e26",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 3,
+          "episodeNumber": 26,
+          "title": "A Visit from Uncle Jed",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1966-03-09",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 3/S03E26 - A Visit from Uncle Jed.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 79116952,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%203/S03E26%20-%20A%20Visit%20from%20Uncle%20Jed.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s3e28",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 3,
+          "episodeNumber": 27,
+          "title": "Don't Bank on It",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1966-03-23",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 3/S03E28 - Don't Bank on It.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 323023211,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%203/S03E28%20-%20Don%27t%20Bank%20on%20It.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s3e29",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 3,
+          "episodeNumber": 28,
+          "title": "Three Little Kittens",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1966-04-06",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 3/S03E29 - Three Little Kittens.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 77608722,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%203/S03E29%20-%20Three%20Little%20Kittens.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s3e30",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 3,
+          "episodeNumber": 29,
+          "title": "Fiancee for a Day",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1966-04-13",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 3/S03E30 - Fiancee for a Day.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 319108720,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%203/S03E30%20-%20Fiancee%20for%20a%20Day.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s3e31",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 3,
+          "episodeNumber": 30,
+          "title": "The Invisible Boy",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1966-04-20",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 3/S03E31 - The Invisible Boy.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 69184901,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%203/S03E31%20-%20The%20Invisible%20Boy.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s3e32",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 3,
+          "episodeNumber": 31,
+          "title": "Do a Brother a Favor",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1966-04-27",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 3/S03E32 - Do a Brother a Favor.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 320851092,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%203/S03E32%20-%20Do%20a%20Brother%20a%20Favor.ia.mp4"
+        },
+        {
+          "archiveID": "the-patty-duke-show-the-complete-series-1963-1966@s3e27",
+          "sourceID": "the-patty-duke-show-the-complete-series-1963-1966",
+          "seasonNumber": 3,
+          "episodeNumber": 32,
+          "title": "Patty, the Psychic",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1966-05-04",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Patty Duke Show (The Complete Series) [1963 - 1966]/Season 3/S03E27 - Patty the Psychic.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 73173314,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-patty-duke-show-the-complete-series-1963-1966/The%20Patty%20Duke%20Show%20%28The%20Complete%20Series%29%20%5B1963%20-%201966%5D/Season%203/S03E27%20-%20Patty%20the%20Psychic.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 1,
+  "episodesCount": 105,
   "canonicalEpisodesCount": 104,
   "tvdbID": "72265",
   "artworkSource": "tvdb",

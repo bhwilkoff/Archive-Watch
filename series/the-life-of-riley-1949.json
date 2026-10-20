@@ -20,12 +20,184 @@
       "seasonNumber": 1,
       "episodes": [
         {
-          "archiveID": "the-life-of-riley",
+          "archiveID": "the-life-of-riley@s1e01",
+          "sourceID": "the-life-of-riley",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Tonsils",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-life-of-riley/the-life-of-riley.thumbs/The%20Life%20of%20Riley%20S01%20E01%20Tonsils_000478.jpg",
+          "airDate": "1949-10-04",
+          "year": 1949,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Life of Riley S01 E01 Tonsils.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 56231554,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-life-of-riley/The%20Life%20of%20Riley%20S01%20E01%20Tonsils.ia.mp4"
+        },
+        {
+          "archiveID": "the-life-of-riley@s1e02",
+          "sourceID": "the-life-of-riley",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Babs and Simon Step Out",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-life-of-riley/the-life-of-riley.thumbs/The%20Life%20of%20Riley%20S01%20E02%20Babs%20and%20Simon%20Step%20Out_000479.jpg",
+          "airDate": "1949-10-11",
+          "year": 1949,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Life of Riley S01 E02 Babs and Simon Step Out.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 57519483,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-life-of-riley/The%20Life%20of%20Riley%20S01%20E02%20Babs%20and%20Simon%20Step%20Out.ia.mp4"
+        },
+        {
+          "archiveID": "the-life-of-riley@s1e03",
+          "sourceID": "the-life-of-riley",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Egbert's Chemistry Set",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-life-of-riley/the-life-of-riley.thumbs/The%20Life%20of%20Riley%20S01%20E03%20Egberts%20Chemistry%20Set_000476.jpg",
+          "airDate": "1949-10-18",
+          "year": 1949,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Life of Riley S01 E03 Egberts Chemistry Set.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 58755508,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-life-of-riley/The%20Life%20of%20Riley%20S01%20E03%20Egberts%20Chemistry%20Set.ia.mp4"
+        },
+        {
+          "archiveID": "the-life-of-riley@s1e04",
+          "sourceID": "the-life-of-riley",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The French Professor",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-life-of-riley/the-life-of-riley.thumbs/The%20Life%20Of%20Riley%20S01%20E04%20The%20French%20Professor_000482.jpg",
+          "airDate": "1949-10-25",
+          "year": 1949,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Life Of Riley S01 E04 The French Professor.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 61802566,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-life-of-riley/The%20Life%20Of%20Riley%20S01%20E04%20The%20French%20Professor.ia.mp4"
+        },
+        {
+          "archiveID": "the-life-of-riley@s1e05",
+          "sourceID": "the-life-of-riley",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Nervous Breakdown",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-life-of-riley/the-life-of-riley.thumbs/The%20Life%20of%20Riley%20S01%20E05%20Nervous%20Breakdown_000478.jpg",
+          "airDate": "1949-11-01",
+          "year": 1949,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Life of Riley S01 E05 Nervous Breakdown.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 57010862,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-life-of-riley/The%20Life%20of%20Riley%20S01%20E05%20Nervous%20Breakdown.ia.mp4"
+        },
+        {
+          "archiveID": "the-life-of-riley@s1e06",
+          "sourceID": "the-life-of-riley",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Assistant Manager",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-life-of-riley/the-life-of-riley.thumbs/The%20Life%20of%20Riley%20S01%20E06%20Assistant%20Manager_000478.jpg",
+          "airDate": "1949-11-08",
+          "year": 1949,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Life of Riley S01 E06 Assistant Manager.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 57113794,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-life-of-riley/The%20Life%20of%20Riley%20S01%20E06%20Assistant%20Manager.ia.mp4"
+        },
+        {
+          "archiveID": "the-life-of-riley@s1e07",
+          "sourceID": "the-life-of-riley",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Riley's Birthday Gift",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-life-of-riley/the-life-of-riley.thumbs/The%20Life%20of%20Riley%20S01%20E07%20Riley%27s%20Birthday%20Gift_000480.jpg",
+          "airDate": "1949-11-15",
+          "year": 1949,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Life of Riley S01 E07 Riley's Birthday Gift.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 59316512,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-life-of-riley/The%20Life%20of%20Riley%20S01%20E07%20Riley%27s%20Birthday%20Gift.ia.mp4"
+        },
+        {
+          "archiveID": "the-life-of-riley@s1e08",
+          "sourceID": "the-life-of-riley",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Riley, Gillis, and Vanderhopper, Inc.",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-life-of-riley/the-life-of-riley.thumbs/The%20Life%20of%20Riley%20S01%20E08%20Riley%2C%20Gillis%20and%20Vanderhopper%2C%20Inc._000479.jpg",
+          "airDate": "1949-11-22",
+          "year": 1949,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Life of Riley S01 E08 Riley, Gillis and Vanderhopper, Inc..ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 59694743,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-life-of-riley/The%20Life%20of%20Riley%20S01%20E08%20Riley%2C%20Gillis%20and%20Vanderhopper%2C%20Inc..ia.mp4"
+        },
+        {
+          "archiveID": "the-life-of-riley@s1e09",
+          "sourceID": "the-life-of-riley",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Junior Falls for Teacher",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-life-of-riley/the-life-of-riley.thumbs/The%20Life%20of%20Riley%20S01%20E09%20Junior%20Falls%20For%20Teacher_000476.jpg",
+          "airDate": "1949-11-29",
+          "year": 1949,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Life of Riley S01 E09 Junior Falls For Teacher.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 57016366,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-life-of-riley/The%20Life%20of%20Riley%20S01%20E09%20Junior%20Falls%20For%20Teacher.ia.mp4"
+        },
+        {
+          "archiveID": "the-life-of-riley@s1e10",
+          "sourceID": "the-life-of-riley",
           "seasonNumber": 1,
           "episodeNumber": 10,
           "title": "Night School",
           "overview": null,
-          "stillURL": "https://m.media-amazon.com/images/M/MV5BYzNkNmJjYWEtOTFlOC00ZjUxLTk0NWYtZDk1Mzc5YjI4ZTFhXkEyXkFqcGdeQXVyMDUyOTUyNQ@@._V1_SX300.jpg",
+          "stillURL": "https://archive.org/download/the-life-of-riley/the-life-of-riley.thumbs/The%20Life%20Of%20Riley%20S01%20E10%20Night%20School_000482.jpg",
           "airDate": "1949-12-06",
           "year": 1949,
           "runtimeSeconds": 1800,
@@ -36,11 +208,315 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/the-life-of-riley/The%20Life%20Of%20Riley%20S01%20E10%20Night%20School.ia.mp4"
+        },
+        {
+          "archiveID": "the-life-of-riley@s1e11",
+          "sourceID": "the-life-of-riley",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Prom Dress",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-life-of-riley/the-life-of-riley.thumbs/The%20Life%20Of%20Riley%20S01%20E11%20Prom%20Dress_000479.jpg",
+          "airDate": "1949-12-13",
+          "year": 1949,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Life Of Riley S01 E11 Prom Dress.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 59038333,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-life-of-riley/The%20Life%20Of%20Riley%20S01%20E11%20Prom%20Dress.ia.mp4"
+        },
+        {
+          "archiveID": "the-life-of-riley@s1e12",
+          "sourceID": "the-life-of-riley",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Junior's Birthday Party",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-life-of-riley/the-life-of-riley.thumbs/The%20Life%20Of%20Riley%20S01%20E12%20Junior%27s%20Birthday%20Party_000479.jpg",
+          "airDate": "1949-12-20",
+          "year": 1949,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Life Of Riley S01 E12 Junior's Birthday Party.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 59236454,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-life-of-riley/The%20Life%20Of%20Riley%20S01%20E12%20Junior%27s%20Birthday%20Party.ia.mp4"
+        },
+        {
+          "archiveID": "the-life-of-riley@s1e13",
+          "sourceID": "the-life-of-riley",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "of Riley The Boarder",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-life-of-riley/the-life-of-riley.thumbs/The%20Life%20of%20Riley%20S01%20E13%20The%20Boarder_000479.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1350,
+          "videoFile": {
+            "name": "The Life of Riley S01 E13 The Boarder.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 60176792,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-life-of-riley/The%20Life%20of%20Riley%20S01%20E13%20The%20Boarder.ia.mp4"
+        },
+        {
+          "archiveID": "the-life-of-riley@s1e14",
+          "sourceID": "the-life-of-riley",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Peg's Birthday",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-life-of-riley/the-life-of-riley.thumbs/The%20Life%20Of%20Riley%20S01%20E14%20Pegs%20Birthday_000459.jpg",
+          "airDate": "1950-01-03",
+          "year": 1950,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Life Of Riley S01 E14 Pegs Birthday.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 40496643,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-life-of-riley/The%20Life%20Of%20Riley%20S01%20E14%20Pegs%20Birthday.ia.mp4"
+        },
+        {
+          "archiveID": "the-life-of-riley@s1e15",
+          "sourceID": "the-life-of-riley",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Junior Drops Out",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-life-of-riley/the-life-of-riley.thumbs/The%20Life%20Of%20Riley%20S01%20E15%20Junior%20Drops%20Out_000476.jpg",
+          "airDate": "1950-01-10",
+          "year": 1950,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Life Of Riley S01 E15 Junior Drops Out.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 60003417,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-life-of-riley/The%20Life%20Of%20Riley%20S01%20E15%20Junior%20Drops%20Out.ia.mp4"
+        },
+        {
+          "archiveID": "the-life-of-riley@s1e16",
+          "sourceID": "the-life-of-riley",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Of Riley Riley's Firstborn",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-life-of-riley/the-life-of-riley.thumbs/The%20Life%20Of%20Riley%20S01%20E16%20Riley%27s%20Firstborn_000388.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1096,
+          "videoFile": {
+            "name": "The Life Of Riley S01 E16 Riley's Firstborn.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 46717632,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-life-of-riley/The%20Life%20Of%20Riley%20S01%20E16%20Riley%27s%20Firstborn.ia.mp4"
+        },
+        {
+          "archiveID": "the-life-of-riley@s1e17",
+          "sourceID": "the-life-of-riley",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Insurance",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-life-of-riley/the-life-of-riley.thumbs/The%20Life%20Of%20Riley%20S01%20E17%20Insurance_000476.jpg",
+          "airDate": "1950-01-24",
+          "year": 1950,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Life Of Riley S01 E17 Insurance.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 60386433,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-life-of-riley/The%20Life%20Of%20Riley%20S01%20E17%20Insurance.ia.mp4"
+        },
+        {
+          "archiveID": "the-life-of-riley@s1e18",
+          "sourceID": "the-life-of-riley",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Of Riley The Gambler",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-life-of-riley/the-life-of-riley.thumbs/The%20Life%20Of%20Riley%20S01%20E18%20The%20Gambler_000479.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1351,
+          "videoFile": {
+            "name": "The Life Of Riley S01 E18 The Gambler.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 59174427,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-life-of-riley/The%20Life%20Of%20Riley%20S01%20E18%20The%20Gambler.ia.mp4"
+        },
+        {
+          "archiveID": "the-life-of-riley@s1e19",
+          "sourceID": "the-life-of-riley",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Acting Lessons",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-life-of-riley/the-life-of-riley.thumbs/The%20Life%20Of%20Riley%20S01%20E19%20Acting%20Lessons_000478.jpg",
+          "airDate": "1950-02-07",
+          "year": 1950,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Life Of Riley S01 E19 Acting Lessons.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 59797283,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-life-of-riley/The%20Life%20Of%20Riley%20S01%20E19%20Acting%20Lessons.ia.mp4"
+        },
+        {
+          "archiveID": "the-life-of-riley@s1e20",
+          "sourceID": "the-life-of-riley",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Valentine's Day",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-life-of-riley/the-life-of-riley.thumbs/The%20Life%20Of%20Riley%20S01%20E20%20Valentine%27s%20Day_000479.jpg",
+          "airDate": "1950-02-14",
+          "year": 1950,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Life Of Riley S01 E20 Valentine's Day.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 57579112,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-life-of-riley/The%20Life%20Of%20Riley%20S01%20E20%20Valentine%27s%20Day.ia.mp4"
+        },
+        {
+          "archiveID": "the-life-of-riley@s1e21",
+          "sourceID": "the-life-of-riley",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Home Sweet Home",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-life-of-riley/the-life-of-riley.thumbs/The%20Life%20Of%20Riley%20S01%20E21%20Home%20Sweet%20Home_000479.jpg",
+          "airDate": "1950-02-21",
+          "year": 1950,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Life Of Riley S01 E21 Home Sweet Home.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 60570906,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-life-of-riley/The%20Life%20Of%20Riley%20S01%20E21%20Home%20Sweet%20Home.ia.mp4"
+        },
+        {
+          "archiveID": "the-life-of-riley@s1e22",
+          "sourceID": "the-life-of-riley",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "South American Job",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-life-of-riley/the-life-of-riley.thumbs/The%20Life%20Of%20Riley%20S01%20E22%20South%20American%20Job_000479.jpg",
+          "airDate": "1950-02-28",
+          "year": 1950,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Life Of Riley S01 E22 South American Job.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 60388970,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-life-of-riley/The%20Life%20Of%20Riley%20S01%20E22%20South%20American%20Job.ia.mp4"
+        },
+        {
+          "archiveID": "the-life-of-riley@s1e23",
+          "sourceID": "the-life-of-riley",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Of Riley Riley's Quarrel",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-life-of-riley/the-life-of-riley.thumbs/The%20Life%20Of%20Riley%20S01%20E23%20Riley%27s%20Quarrel_000476.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1339,
+          "videoFile": {
+            "name": "The Life Of Riley S01 E23 Riley's Quarrel.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 60180040,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-life-of-riley/The%20Life%20Of%20Riley%20S01%20E23%20Riley%27s%20Quarrel.ia.mp4"
+        },
+        {
+          "archiveID": "the-life-of-riley@s1e24",
+          "sourceID": "the-life-of-riley",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Junior and the Bully",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-life-of-riley/the-life-of-riley.thumbs/The%20Life%20Of%20Riley%20S01%20E24%20Junior%20and%20the%20Bully_000475.jpg",
+          "airDate": "1950-03-14",
+          "year": 1950,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Life Of Riley S01 E24 Junior and the Bully.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 60525114,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-life-of-riley/The%20Life%20Of%20Riley%20S01%20E24%20Junior%20and%20the%20Bully.ia.mp4"
+        },
+        {
+          "archiveID": "the-life-of-riley@s1e25",
+          "sourceID": "the-life-of-riley",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "The Banned Book",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-life-of-riley/the-life-of-riley.thumbs/The%20Life%20Of%20Riley%20S01%20E25%20The%20Banned%20Book_000479.jpg",
+          "airDate": "1950-03-21",
+          "year": 1950,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Life Of Riley S01 E25 The Banned Book.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 59282801,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-life-of-riley/The%20Life%20Of%20Riley%20S01%20E25%20The%20Banned%20Book.ia.mp4"
+        },
+        {
+          "archiveID": "the-life-of-riley@s1e26",
+          "sourceID": "the-life-of-riley",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Five Dollar Bill",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-life-of-riley/the-life-of-riley.thumbs/The%20Life%20of%20Riley%20S01%20E26%20Five%20Dollar%20Bill_000479.jpg",
+          "airDate": "1950-03-28",
+          "year": 1950,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Life of Riley S01 E26 Five Dollar Bill.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 61220766,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-life-of-riley/The%20Life%20of%20Riley%20S01%20E26%20Five%20Dollar%20Bill.ia.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 1,
+  "episodesCount": 26,
   "canonicalEpisodesCount": 26,
   "tvdbID": "75736",
   "artworkSource": "tvdb",

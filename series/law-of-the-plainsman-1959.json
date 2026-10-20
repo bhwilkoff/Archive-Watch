@@ -20,6 +20,25 @@
       "seasonNumber": 1,
       "episodes": [
         {
+          "archiveID": "s-01-e-28-lotp-jebs-daughters@s1e01",
+          "sourceID": "s-01-e-28-lotp-jebs-daughters",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Prairie Incident",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/s-01-e-28-lotp-jebs-daughters.thumbs/S01E01%20LOTP%20Prairie%20Incident_000596.jpg",
+          "airDate": "1959-10-01",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E01 LOTP Prairie Incident.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 302888602,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/S01E01%20LOTP%20Prairie%20Incident.ia.mp4"
+        },
+        {
           "archiveID": "law-of-the-plainsman-tv-1959-s01e02-full-circle",
           "seasonNumber": 1,
           "episodeNumber": 2,
@@ -38,12 +57,89 @@
           "downloadURL": "https://archive.org/download/law-of-the-plainsman-tv-1959-s01e02-full-circle/Law%20of%20the%20Plainsman%20TV%201959%20colorized%20s01e02%20Full%20Circle.mp4"
         },
         {
-          "archiveID": "s-01-e-28-lotp-jebs-daughters",
+          "archiveID": "s-01-e-28-lotp-jebs-daughters@s1e02",
+          "sourceID": "s-01-e-28-lotp-jebs-daughters",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "LOTP Full Circle",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/s-01-e-28-lotp-jebs-daughters.thumbs/S01E02%20LOTP%20Full%20Circle_000593.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1517,
+          "videoFile": {
+            "name": "S01E02 LOTP Full Circle.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 253497311,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/S01E02%20LOTP%20Full%20Circle.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-28-lotp-jebs-daughters@s1e03",
+          "sourceID": "s-01-e-28-lotp-jebs-daughters",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "A Matter Of Life And Death",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/s-01-e-28-lotp-jebs-daughters.thumbs/S01E03%20LOTP%20A%20Matter%20Of%20Life%20And%20Death_000591.jpg",
+          "airDate": "1959-10-15",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E03 LOTP A Matter Of Life And Death.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 199714660,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/S01E03%20LOTP%20A%20Matter%20Of%20Life%20And%20Death.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-28-lotp-jebs-daughters@s1e04",
+          "sourceID": "s-01-e-28-lotp-jebs-daughters",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Hostiles",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/s-01-e-28-lotp-jebs-daughters.thumbs/S01E04%20LOTP%20The%20Hostiles_000597.jpg",
+          "airDate": "1959-10-22",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E04 LOTP The Hostiles.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 263749683,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/S01E04%20LOTP%20The%20Hostiles.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-28-lotp-jebs-daughters@s1e05",
+          "sourceID": "s-01-e-28-lotp-jebs-daughters",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Passenger To Mescalero",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/s-01-e-28-lotp-jebs-daughters.thumbs/S01E05%20LOTP%20Passenger%20To%20Mescalero_000594.jpg",
+          "airDate": "1959-10-29",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E05 LOTP Passenger To Mescalero.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 276795295,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/S01E05%20LOTP%20Passenger%20To%20Mescalero.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-28-lotp-jebs-daughters@s1e06",
+          "sourceID": "s-01-e-28-lotp-jebs-daughters",
           "seasonNumber": 1,
           "episodeNumber": 6,
           "title": "Blood Trails",
           "overview": null,
-          "stillURL": "https://archive.org/download/archivewatch-covers/s-01-e-28-lotp-jebs-daughters.6fe563f7.jpg",
+          "stillURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/s-01-e-28-lotp-jebs-daughters.thumbs/S01E06%20LOTP%20Blood%20Trails_000610.jpg",
           "airDate": "1959-11-05",
           "year": 1959,
           "runtimeSeconds": 1800,
@@ -51,14 +147,470 @@
             "name": "S01E06 LOTP Blood Trails.ia.mp4",
             "format": "h.264 IA",
             "sizeBytes": 332817740,
-            "tier": 2
+            "tier": 1
           },
           "downloadURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/S01E06%20LOTP%20Blood%20Trails.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-28-lotp-jebs-daughters@s1e07",
+          "sourceID": "s-01-e-28-lotp-jebs-daughters",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Desperate Decision",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/s-01-e-28-lotp-jebs-daughters.thumbs/S01E07%20LOTP%20Desperate%20Decision_000593.jpg",
+          "airDate": "1959-11-12",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E07 LOTP Desperate Decision.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 278443781,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/S01E07%20LOTP%20Desperate%20Decision.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-28-lotp-jebs-daughters@s1e08",
+          "sourceID": "s-01-e-28-lotp-jebs-daughters",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Appointment In Santa Fe",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/s-01-e-28-lotp-jebs-daughters.thumbs/S01E08%20LOTP%20Appointment%20In%20Santa%20Fe_000598.jpg",
+          "airDate": "1959-11-19",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E08 LOTP Appointment In Santa Fe.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 176721687,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/S01E08%20LOTP%20Appointment%20In%20Santa%20Fe.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-28-lotp-jebs-daughters@s1e09",
+          "sourceID": "s-01-e-28-lotp-jebs-daughters",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "LOTP The Gibbet",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/s-01-e-28-lotp-jebs-daughters.thumbs/S01E09%20LOTP%20The%20Gibbet_000592.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1511,
+          "videoFile": {
+            "name": "S01E09 LOTP The Gibbet.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 225608961,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/S01E09%20LOTP%20The%20Gibbet.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-28-lotp-jebs-daughters@s1e10",
+          "sourceID": "s-01-e-28-lotp-jebs-daughters",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "LOTP The Dude",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/s-01-e-28-lotp-jebs-daughters.thumbs/S01E10%20LOTP%20The%20Dude_000594.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1518,
+          "videoFile": {
+            "name": "S01E10 LOTP The Dude.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 313037824,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/S01E10%20LOTP%20The%20Dude.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-28-lotp-jebs-daughters@s1e11",
+          "sourceID": "s-01-e-28-lotp-jebs-daughters",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Innocents",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/s-01-e-28-lotp-jebs-daughters.thumbs/S01E11%20LOTP%20The%20Innocents_000594.jpg",
+          "airDate": "1959-12-10",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E11 LOTP The Innocents.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 290949294,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/S01E11%20LOTP%20The%20Innocents.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-28-lotp-jebs-daughters@s1e12",
+          "sourceID": "s-01-e-28-lotp-jebs-daughters",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "LOTP Clear Title",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/s-01-e-28-lotp-jebs-daughters.thumbs/S01E12%20LOTP%20Clear%20Title_000593.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1516,
+          "videoFile": {
+            "name": "S01E12 LOTP Clear Title.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 259398232,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/S01E12%20LOTP%20Clear%20Title.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-28-lotp-jebs-daughters@s1e13",
+          "sourceID": "s-01-e-28-lotp-jebs-daughters",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "LOTP Toll Road",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/s-01-e-28-lotp-jebs-daughters.thumbs/S01E13%20LOTP%20Toll%20Road_000603.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1521,
+          "videoFile": {
+            "name": "S01E13 LOTP Toll Road.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 268319664,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/S01E13%20LOTP%20Toll%20Road.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-28-lotp-jebs-daughters@s1e14",
+          "sourceID": "s-01-e-28-lotp-jebs-daughters",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Calculated Risk",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/s-01-e-28-lotp-jebs-daughters.thumbs/S01E14%20LOTP%20Calulated%20Risk_000598.jpg",
+          "airDate": "1959-12-31",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E14 LOTP Calulated Risk.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 227169391,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/S01E14%20LOTP%20Calulated%20Risk.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-28-lotp-jebs-daughters@s1e15",
+          "sourceID": "s-01-e-28-lotp-jebs-daughters",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "LOTP Fear",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/s-01-e-28-lotp-jebs-daughters.thumbs/S01E15%20LOTP%20Fear_000596.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1519,
+          "videoFile": {
+            "name": "S01E15 LOTP Fear.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 175003290,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/S01E15%20LOTP%20Fear.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-28-lotp-jebs-daughters@s1e16",
+          "sourceID": "s-01-e-28-lotp-jebs-daughters",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "LOTP Endurance",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/s-01-e-28-lotp-jebs-daughters.thumbs/S01E16%20LOTP%20Endurance_000593.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1511,
+          "videoFile": {
+            "name": "S01E16 LOTP Endurance.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 144772117,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/S01E16%20LOTP%20Endurance.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-28-lotp-jebs-daughters@s1e17",
+          "sourceID": "s-01-e-28-lotp-jebs-daughters",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "LOTP The Comet",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/s-01-e-28-lotp-jebs-daughters.thumbs/S01E17%20LOTP%20The%20Comet_000592.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1519,
+          "videoFile": {
+            "name": "S01E17 LOTP The Comet.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 219234983,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/S01E17%20LOTP%20The%20Comet.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-28-lotp-jebs-daughters@s1e18",
+          "sourceID": "s-01-e-28-lotp-jebs-daughters",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "The Rawhiders",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/s-01-e-28-lotp-jebs-daughters.thumbs/S01E18%20LOTP%20The%20Rawhiders_000596.jpg",
+          "airDate": "1960-01-28",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E18 LOTP The Rawhiders.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 288134040,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/S01E18%20LOTP%20The%20Rawhiders.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-28-lotp-jebs-daughters@s1e19",
+          "sourceID": "s-01-e-28-lotp-jebs-daughters",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "The Imposter",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/s-01-e-28-lotp-jebs-daughters.thumbs/S01E19%20LOTP%20The%20Imposter_000593.jpg",
+          "airDate": "1960-02-04",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E19 LOTP The Imposter.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 246922224,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/S01E19%20LOTP%20The%20Imposter.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-28-lotp-jebs-daughters@s1e20",
+          "sourceID": "s-01-e-28-lotp-jebs-daughters",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Common Ground",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/s-01-e-28-lotp-jebs-daughters.thumbs/S01E20%20LOTP%20Common%20Ground_000600.jpg",
+          "airDate": "1960-02-11",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E20 LOTP Common Ground.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 292020895,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/S01E20%20LOTP%20Common%20Ground.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-28-lotp-jebs-daughters@s1e21",
+          "sourceID": "s-01-e-28-lotp-jebs-daughters",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "The Matriarch",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/s-01-e-28-lotp-jebs-daughters.thumbs/S01E21%20LOTP%20The%20Matriarch_000593.jpg",
+          "airDate": "1960-02-18",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E21 LOTP The Matriarch.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 145071068,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/S01E21%20LOTP%20The%20Matriarch.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-28-lotp-jebs-daughters@s1e22",
+          "sourceID": "s-01-e-28-lotp-jebs-daughters",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "A Question Of Courage",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/s-01-e-28-lotp-jebs-daughters.thumbs/S01E22%20LOTP%20A%20Question%20Of%20Courage_000593.jpg",
+          "airDate": "1960-02-25",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E22 LOTP A Question Of Courage.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 249977130,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/S01E22%20LOTP%20A%20Question%20Of%20Courage.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-28-lotp-jebs-daughters@s1e23",
+          "sourceID": "s-01-e-28-lotp-jebs-daughters",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Dangerous Barriers",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/s-01-e-28-lotp-jebs-daughters.thumbs/S01E23%20LOTP%20Dangerous%20Barriers_000592.jpg",
+          "airDate": "1960-03-10",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E23 LOTP Dangerous Barriers.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 214534337,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/S01E23%20LOTP%20Dangerous%20Barriers.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-28-lotp-jebs-daughters@s1e24",
+          "sourceID": "s-01-e-28-lotp-jebs-daughters",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "The Show-Off",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/s-01-e-28-lotp-jebs-daughters.thumbs/S01E24%20LOTP%20The%20Show%20Off_000592.jpg",
+          "airDate": "1960-03-17",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E24 LOTP The Show Off.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 215495703,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/S01E24%20LOTP%20The%20Show%20Off.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-28-lotp-jebs-daughters@s1e25",
+          "sourceID": "s-01-e-28-lotp-jebs-daughters",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Rabbit's Fang",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/s-01-e-28-lotp-jebs-daughters.thumbs/S01E25%20LOTP%20Rabbit%27s%20Fang_000592.jpg",
+          "airDate": "1960-03-24",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E25 LOTP Rabbit's Fang.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 144404275,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/S01E25%20LOTP%20Rabbit%27s%20Fang.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-28-lotp-jebs-daughters@s1e26",
+          "sourceID": "s-01-e-28-lotp-jebs-daughters",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "LOTP Stella",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/s-01-e-28-lotp-jebs-daughters.thumbs/S01E26%20LOTP%20Stella_000589.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1504,
+          "videoFile": {
+            "name": "S01E26 LOTP Stella.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 144019660,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/S01E26%20LOTP%20Stella.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-28-lotp-jebs-daughters@s1e27",
+          "sourceID": "s-01-e-28-lotp-jebs-daughters",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "LOTP Amnesty",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/s-01-e-28-lotp-jebs-daughters.thumbs/S01E27%20LOTP%20Amnesty_000605.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1541,
+          "videoFile": {
+            "name": "S01E27 LOTP Amnesty.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 147776378,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/S01E27%20LOTP%20Amnesty.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-28-lotp-jebs-daughters@s1e28",
+          "sourceID": "s-01-e-28-lotp-jebs-daughters",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "Jeb's Daughter",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/s-01-e-28-lotp-jebs-daughters.thumbs/S01E28%20LOTP%20Jeb%27s%20Daughters_000590.jpg",
+          "airDate": "1960-04-14",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E28 LOTP Jeb's Daughters.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 144643031,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/S01E28%20LOTP%20Jeb%27s%20Daughters.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-28-lotp-jebs-daughters@s1e29",
+          "sourceID": "s-01-e-28-lotp-jebs-daughters",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "Cavern Of The Wind",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/s-01-e-28-lotp-jebs-daughters.thumbs/S01E29%20LOTP%20Cavern%20of%20the%20Wind_000594.jpg",
+          "airDate": "1960-04-21",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E29 LOTP Cavern of the Wind.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 144278763,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/S01E29%20LOTP%20Cavern%20of%20the%20Wind.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-28-lotp-jebs-daughters@s1e30",
+          "sourceID": "s-01-e-28-lotp-jebs-daughters",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "Trojan Horse",
+          "overview": null,
+          "stillURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/s-01-e-28-lotp-jebs-daughters.thumbs/S01E30%20LOTP%20Trojan%20Horse_000594.jpg",
+          "airDate": "1960-05-05",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E30 LOTP Trojan Horse.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 143972005,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-28-lotp-jebs-daughters/S01E30%20LOTP%20Trojan%20Horse.ia.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 2,
+  "episodesCount": 31,
   "canonicalEpisodesCount": 30,
   "tvdbID": "78445",
   "artworkSource": "tvdb",

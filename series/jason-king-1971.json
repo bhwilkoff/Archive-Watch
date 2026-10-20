@@ -22,12 +22,127 @@
       "seasonNumber": 1,
       "episodes": [
         {
-          "archiveID": "jason-king-the-complete-series-1971",
+          "archiveID": "jason-king-the-complete-series-1971@s1e01",
+          "sourceID": "jason-king-the-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Wanna Buy a Television Series?",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jason-king-the-complete-series-1971/jason-king-the-complete-series-1971.thumbs/Jason%20King%20S01E01%20-%20Wanna%20Buy%20A%20Television%20Series_001337.jpg",
+          "airDate": "1971-09-15",
+          "year": 1971,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Jason King S01E01 - Wanna Buy A Television Series.mp4",
+            "format": "h.264",
+            "sizeBytes": 286014633,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jason-king-the-complete-series-1971/Jason%20King%20S01E01%20-%20Wanna%20Buy%20A%20Television%20Series.mp4"
+        },
+        {
+          "archiveID": "jason-king-the-complete-series-1971@s1e02",
+          "sourceID": "jason-king-the-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "A Page Before Dying",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jason-king-the-complete-series-1971/jason-king-the-complete-series-1971.thumbs/Jason%20King%20S01E02%20-%20A%20Page%20Before%20Dying_001340.jpg",
+          "airDate": "1971-09-22",
+          "year": 1971,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Jason King S01E02 - A Page Before Dying.mp4",
+            "format": "h.264",
+            "sizeBytes": 284633357,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jason-king-the-complete-series-1971/Jason%20King%20S01E02%20-%20A%20Page%20Before%20Dying.mp4"
+        },
+        {
+          "archiveID": "jason-king-the-complete-series-1971@s1e03",
+          "sourceID": "jason-king-the-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Buried in the Cold, Cold Ground",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jason-king-the-complete-series-1971/jason-king-the-complete-series-1971.thumbs/Jason%20King%20S01E03%20-%20Buried%20In%20The%20Cold%20Cold%20Ground_001330.jpg",
+          "airDate": "1971-10-06",
+          "year": 1971,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Jason King S01E03 - Buried In The Cold Cold Ground.mp4",
+            "format": "h.264",
+            "sizeBytes": 282159453,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jason-king-the-complete-series-1971/Jason%20King%20S01E03%20-%20Buried%20In%20The%20Cold%20Cold%20Ground.mp4"
+        },
+        {
+          "archiveID": "jason-king-the-complete-series-1971@s1e04",
+          "sourceID": "jason-king-the-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "A Deadly Line in Digits",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jason-king-the-complete-series-1971/jason-king-the-complete-series-1971.thumbs/Jason%20King%20S01E04%20-%20Deadly%20Line%20In%20Digits_001335.jpg",
+          "airDate": "1971-10-13",
+          "year": 1971,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Jason King S01E04 - Deadly Line In Digits.mp4",
+            "format": "h.264",
+            "sizeBytes": 282656806,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jason-king-the-complete-series-1971/Jason%20King%20S01E04%20-%20Deadly%20Line%20In%20Digits.mp4"
+        },
+        {
+          "archiveID": "jason-king-the-complete-series-1971@s1e05",
+          "sourceID": "jason-king-the-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Variations on a Theme",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jason-king-the-complete-series-1971/jason-king-the-complete-series-1971.thumbs/Jason%20King%20S01E05%20-%20Variations%20On%20A%20Theme_001336.jpg",
+          "airDate": "1971-10-20",
+          "year": 1971,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Jason King S01E05 - Variations On A Theme.mp4",
+            "format": "h.264",
+            "sizeBytes": 282656185,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jason-king-the-complete-series-1971/Jason%20King%20S01E05%20-%20Variations%20On%20A%20Theme.mp4"
+        },
+        {
+          "archiveID": "jason-king-the-complete-series-1971@s1e06",
+          "sourceID": "jason-king-the-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Easy As ABC",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jason-king-the-complete-series-1971/jason-king-the-complete-series-1971.thumbs/Jason%20King%20S01E06%20-%20Easy%20As%20ABC_001342.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 3003,
+          "videoFile": {
+            "name": "Jason King S01E06 - Easy As ABC.mp4",
+            "format": "h.264",
+            "sizeBytes": 283433555,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jason-king-the-complete-series-1971/Jason%20King%20S01E06%20-%20Easy%20As%20ABC.mp4"
+        },
+        {
+          "archiveID": "jason-king-the-complete-series-1971@s1e07",
+          "sourceID": "jason-king-the-complete-series-1971",
           "seasonNumber": 1,
           "episodeNumber": 7,
           "title": "To Russia with...Panache",
           "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/wTSMq9q69gq6T3YZXGNpMXgMFp8.jpg",
+          "stillURL": "https://archive.org/download/jason-king-the-complete-series-1971/jason-king-the-complete-series-1971.thumbs/Jason%20King%20S01E07%20-%20Russia%20With%20Panache_001352.jpg",
           "airDate": "1971-11-17",
           "year": 1971,
           "runtimeSeconds": 3600,
@@ -35,14 +150,356 @@
             "name": "Jason King S01E07 - Russia With Panache.mp4",
             "format": "h.264",
             "sizeBytes": 286962584,
-            "tier": 2
+            "tier": 1
           },
           "downloadURL": "https://archive.org/download/jason-king-the-complete-series-1971/Jason%20King%20S01E07%20-%20Russia%20With%20Panache.mp4"
+        },
+        {
+          "archiveID": "jason-king-the-complete-series-1971@s1e08",
+          "sourceID": "jason-king-the-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "A Red Red Rose Forever",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jason-king-the-complete-series-1971/jason-king-the-complete-series-1971.thumbs/Jason%20King%20S01E08%20-%20A%20Red%20Red%20Rose%20Forever_001333.jpg",
+          "airDate": "1971-12-01",
+          "year": 1971,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Jason King S01E08 - A Red Red Rose Forever.mp4",
+            "format": "h.264",
+            "sizeBytes": 282217390,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jason-king-the-complete-series-1971/Jason%20King%20S01E08%20-%20A%20Red%20Red%20Rose%20Forever.mp4"
+        },
+        {
+          "archiveID": "jason-king-the-complete-series-1971@s1e09",
+          "sourceID": "jason-king-the-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "All That Glisters...Part Two",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jason-king-the-complete-series-1971/jason-king-the-complete-series-1971.thumbs/Jason%20King%20S01E09%20-%20All%20That%20Glisters%20-%20Pt-01_001341.jpg",
+          "airDate": "1971-12-15",
+          "year": 1971,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Jason King S01E09 - All That Glisters - Pt-01.mp4",
+            "format": "h.264",
+            "sizeBytes": 283887176,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jason-king-the-complete-series-1971/Jason%20King%20S01E09%20-%20All%20That%20Glisters%20-%20Pt-01.mp4"
+        },
+        {
+          "archiveID": "jason-king-the-complete-series-1971@s1e11",
+          "sourceID": "jason-king-the-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Flamingoes Only Fly on Tuesdays",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jason-king-the-complete-series-1971/jason-king-the-complete-series-1971.thumbs/Jason%20King%20S01E11%20-%20Flamingos%20Only%20Fly%20On%20Tuesdays_001333.jpg",
+          "airDate": "1971-12-29",
+          "year": 1971,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Jason King S01E11 - Flamingos Only Fly On Tuesdays.mp4",
+            "format": "h.264",
+            "sizeBytes": 282052694,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jason-king-the-complete-series-1971/Jason%20King%20S01E11%20-%20Flamingos%20Only%20Fly%20On%20Tuesdays.mp4"
+        },
+        {
+          "archiveID": "jason-king-the-complete-series-1971@s1e12",
+          "sourceID": "jason-king-the-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Toki",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jason-king-the-complete-series-1971/jason-king-the-complete-series-1971.thumbs/Jason%20King%20S01E12%20-%20Toki_001340.jpg",
+          "airDate": "1972-01-05",
+          "year": 1972,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Jason King S01E12 - Toki.mp4",
+            "format": "h.264",
+            "sizeBytes": 283260229,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jason-king-the-complete-series-1971/Jason%20King%20S01E12%20-%20Toki.mp4"
+        },
+        {
+          "archiveID": "jason-king-the-complete-series-1971@s1e13",
+          "sourceID": "jason-king-the-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "The Constance Missal",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jason-king-the-complete-series-1971/jason-king-the-complete-series-1971.thumbs/Jason%20King%20S01E13%20-%20The%20Constance%20Missal_001351.jpg",
+          "airDate": "1972-01-12",
+          "year": 1972,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Jason King S01E13 - The Constance Missal.mp4",
+            "format": "h.264",
+            "sizeBytes": 286922550,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jason-king-the-complete-series-1971/Jason%20King%20S01E13%20-%20The%20Constance%20Missal.mp4"
+        },
+        {
+          "archiveID": "jason-king-the-complete-series-1971@s1e14",
+          "sourceID": "jason-king-the-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Uneasy Lies the Head",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jason-king-the-complete-series-1971/jason-king-the-complete-series-1971.thumbs/Jason%20King%20S01E14%20-%20Uneasy%20Lies%20The%20Head_001329.jpg",
+          "airDate": "1972-01-19",
+          "year": 1972,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Jason King S01E14 - Uneasy Lies The Head.mp4",
+            "format": "h.264",
+            "sizeBytes": 230610088,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jason-king-the-complete-series-1971/Jason%20King%20S01E14%20-%20Uneasy%20Lies%20The%20Head.mp4"
+        },
+        {
+          "archiveID": "jason-king-the-complete-series-1971@s1e15",
+          "sourceID": "jason-king-the-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Nadine",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jason-king-the-complete-series-1971/jason-king-the-complete-series-1971.thumbs/Jason%20King%20S01E15%20-%20Nadine_001323.jpg",
+          "airDate": "1972-02-02",
+          "year": 1972,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Jason King S01E15 - Nadine.mp4",
+            "format": "h.264",
+            "sizeBytes": 280879915,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jason-king-the-complete-series-1971/Jason%20King%20S01E15%20-%20Nadine.mp4"
+        },
+        {
+          "archiveID": "jason-king-the-complete-series-1971@s1e16",
+          "sourceID": "jason-king-the-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "A Kiss for a Beautiful Killer",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jason-king-the-complete-series-1971/jason-king-the-complete-series-1971.thumbs/Jason%20King%20S01E16%20-%20A%20Kiss%20For%20A%20Beautiful%20Killer_001329.jpg",
+          "airDate": "1972-02-09",
+          "year": 1972,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Jason King S01E16 - A Kiss For A Beautiful Killer.mp4",
+            "format": "h.264",
+            "sizeBytes": 281920974,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jason-king-the-complete-series-1971/Jason%20King%20S01E16%20-%20A%20Kiss%20For%20A%20Beautiful%20Killer.mp4"
+        },
+        {
+          "archiveID": "jason-king-the-complete-series-1971@s1e17",
+          "sourceID": "jason-king-the-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "If It's Got to Go - It's Got to Go",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jason-king-the-complete-series-1971/jason-king-the-complete-series-1971.thumbs/Jason%20King%20S01E17%20-%20If%20Its%20Got%20To%20Go%20Its%20Got%20To%20Go_001335.jpg",
+          "airDate": "1972-02-16",
+          "year": 1972,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Jason King S01E17 - If Its Got To Go Its Got To Go.mp4",
+            "format": "h.264",
+            "sizeBytes": 283955382,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jason-king-the-complete-series-1971/Jason%20King%20S01E17%20-%20If%20Its%20Got%20To%20Go%20Its%20Got%20To%20Go.mp4"
+        },
+        {
+          "archiveID": "jason-king-the-complete-series-1971@s1e18",
+          "sourceID": "jason-king-the-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "A Thin Band of Air",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jason-king-the-complete-series-1971/jason-king-the-complete-series-1971.thumbs/Jason%20King%20S01E18%20-%20A%20Thin%20Band%20of%20Air_001336.jpg",
+          "airDate": "1972-03-03",
+          "year": 1972,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Jason King S01E18 - A Thin Band of Air.mp4",
+            "format": "h.264",
+            "sizeBytes": 284200006,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jason-king-the-complete-series-1971/Jason%20King%20S01E18%20-%20A%20Thin%20Band%20of%20Air.mp4"
+        },
+        {
+          "archiveID": "jason-king-the-complete-series-1971@s1e19",
+          "sourceID": "jason-king-the-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "It's Too Bad About Auntie",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jason-king-the-complete-series-1971/jason-king-the-complete-series-1971.thumbs/Jason%20King%20S01E19%20-%20Its%20Too%20Bad%20About%20Auntie_001344.jpg",
+          "airDate": "1972-03-10",
+          "year": 1972,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Jason King S01E19 - Its Too Bad About Auntie.mp4",
+            "format": "h.264",
+            "sizeBytes": 285469596,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jason-king-the-complete-series-1971/Jason%20King%20S01E19%20-%20Its%20Too%20Bad%20About%20Auntie.mp4"
+        },
+        {
+          "archiveID": "jason-king-the-complete-series-1971@s1e20",
+          "sourceID": "jason-king-the-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "The Stones of Venice",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jason-king-the-complete-series-1971/jason-king-the-complete-series-1971.thumbs/Jason%20King%20S01E20%20-%20The%20Stones%20of%20Venice_001317.jpg",
+          "airDate": "1972-03-17",
+          "year": 1972,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Jason King S01E20 - The Stones of Venice.mp4",
+            "format": "h.264",
+            "sizeBytes": 282557002,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jason-king-the-complete-series-1971/Jason%20King%20S01E20%20-%20The%20Stones%20of%20Venice.mp4"
+        },
+        {
+          "archiveID": "jason-king-the-complete-series-1971@s1e21",
+          "sourceID": "jason-king-the-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "A Royal Flush",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jason-king-the-complete-series-1971/jason-king-the-complete-series-1971.thumbs/Jason%20King%20S01E21%20-%20Royal%20Flush_001342.jpg",
+          "airDate": "1972-03-24",
+          "year": 1972,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Jason King S01E21 - Royal Flush.mp4",
+            "format": "h.264",
+            "sizeBytes": 284717578,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jason-king-the-complete-series-1971/Jason%20King%20S01E21%20-%20Royal%20Flush.mp4"
+        },
+        {
+          "archiveID": "jason-king-the-complete-series-1971@s1e22",
+          "sourceID": "jason-king-the-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Every Picture Tells a Story",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jason-king-the-complete-series-1971/jason-king-the-complete-series-1971.thumbs/Jason%20King%20S01E22%20-%20Every%20Picture%20Tells%20A%20Story_001343.jpg",
+          "airDate": "1972-03-31",
+          "year": 1972,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Jason King S01E22 - Every Picture Tells A Story.mp4",
+            "format": "h.264",
+            "sizeBytes": 283335208,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jason-king-the-complete-series-1971/Jason%20King%20S01E22%20-%20Every%20Picture%20Tells%20A%20Story.mp4"
+        },
+        {
+          "archiveID": "jason-king-the-complete-series-1971@s1e23",
+          "sourceID": "jason-king-the-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Chapter One: The Company I Keep",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jason-king-the-complete-series-1971/jason-king-the-complete-series-1971.thumbs/Jason%20King%20S01E23%20-%20Chapter%20One%20-%20The%20Company%20I%20Keep_001337.jpg",
+          "airDate": "1972-04-07",
+          "year": 1972,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Jason King S01E23 - Chapter One - The Company I Keep.mp4",
+            "format": "h.264",
+            "sizeBytes": 283124622,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jason-king-the-complete-series-1971/Jason%20King%20S01E23%20-%20Chapter%20One%20-%20The%20Company%20I%20Keep.mp4"
+        },
+        {
+          "archiveID": "jason-king-the-complete-series-1971@s1e24",
+          "sourceID": "jason-king-the-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Zenia",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jason-king-the-complete-series-1971/jason-king-the-complete-series-1971.thumbs/Jason%20King%20S01E24%20-%20Zenia_001336.jpg",
+          "airDate": "1972-04-14",
+          "year": 1972,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Jason King S01E24 - Zenia.mp4",
+            "format": "h.264",
+            "sizeBytes": 284320740,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jason-king-the-complete-series-1971/Jason%20King%20S01E24%20-%20Zenia.mp4"
+        },
+        {
+          "archiveID": "jason-king-the-complete-series-1971@s1e25",
+          "sourceID": "jason-king-the-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "An Author in Search of Two Characters",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jason-king-the-complete-series-1971/jason-king-the-complete-series-1971.thumbs/Jason%20King%20S01E25%20-%20Author%20in%20Search%20of%20Two%20Characters_001343.jpg",
+          "airDate": "1972-04-21",
+          "year": 1972,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Jason King S01E25 - Author in Search of Two Characters.mp4",
+            "format": "h.264",
+            "sizeBytes": 284274033,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jason-king-the-complete-series-1971/Jason%20King%20S01E25%20-%20Author%20in%20Search%20of%20Two%20Characters.mp4"
+        },
+        {
+          "archiveID": "jason-king-the-complete-series-1971@s1e26",
+          "sourceID": "jason-king-the-complete-series-1971",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "That Isn't Me, It's Somebody Else",
+          "overview": null,
+          "stillURL": "https://archive.org/download/jason-king-the-complete-series-1971/jason-king-the-complete-series-1971.thumbs/Jason%20King%20S01E26%20-%20Isnt%20Me%20%20Its%20Somebody%20Else_001339.jpg",
+          "airDate": "1972-04-28",
+          "year": 1972,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Jason King S01E26 - Isnt Me  Its Somebody Else.mp4",
+            "format": "h.264",
+            "sizeBytes": 284247035,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/jason-king-the-complete-series-1971/Jason%20King%20S01E26%20-%20Isnt%20Me%20%20Its%20Somebody%20Else.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 1,
+  "episodesCount": 25,
   "canonicalEpisodesCount": 26,
   "tvdbID": "75127",
   "artworkSource": "tvdb",
@@ -53,8 +510,5 @@
       "order": 0,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/283131/photo/631bc424946c8.jpg"
     }
-  ],
-  "seriesImdbID": "tt0066672",
-  "canonicalEpisodeCount": 25,
-  "canonicalSeasons": 1
+  ]
 }

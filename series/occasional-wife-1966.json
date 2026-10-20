@@ -20,38 +20,53 @@
       "seasonNumber": 1,
       "episodes": [
         {
-          "archiveID": "s-01-e-30-so-little-time",
+          "archiveID": "s-01-e-30-so-little-time@s1e01",
+          "sourceID": "s-01-e-30-so-little-time",
           "seasonNumber": 1,
-          "episodeNumber": 30,
-          "title": "So Little Time",
+          "episodeNumber": 1,
+          "title": "Pilot Episode",
           "overview": null,
-          "stillURL": "https://archive.org/download/archivewatch-covers/s-01-e-30-so-little-time.0034dd22.jpg",
-          "airDate": "1967-05-09",
-          "year": 1967,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1501,
+          "videoFile": {
+            "name": "Occasional Wife/S01E01 - Pilot Episode.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 145642728,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-30-so-little-time/Occasional%20Wife/S01E01%20-%20Pilot%20Episode.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-30-so-little-time@s1e02",
+          "sourceID": "s-01-e-30-so-little-time",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Occasional Trouble",
+          "overview": "Disaster strikes when Peter's mother sees Greta kissing another man.",
+          "stillURL": null,
+          "airDate": "1966-09-20",
+          "year": 1966,
           "runtimeSeconds": 1800,
           "videoFile": {
-            "name": "Occasional Wife/S01E30 - So Little Time.ia.mp4",
+            "name": "Occasional Wife/S01E02 - OCCASIONAL TROUBLE.ia.mp4",
             "format": "h.264 IA",
-            "sizeBytes": 274601429,
-            "tier": 2
+            "sizeBytes": 146184261,
+            "tier": 1
           },
-          "downloadURL": "https://archive.org/download/s-01-e-30-so-little-time/Occasional%20Wife/S01E30%20-%20So%20Little%20Time.ia.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
+          "downloadURL": "https://archive.org/download/s-01-e-30-so-little-time/Occasional%20Wife/S01E02%20-%20OCCASIONAL%20TROUBLE.ia.mp4"
+        },
         {
           "archiveID": "1x03TheRivalry",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Occasional Wife 1x03 The Rivalry",
-          "overview": "Spendng the weekend at the home of a wealthy client becomes a contest as Peter and his rival vie for favor.",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "The Rivalry",
+          "overview": "At his boss's estate, Peter's part-time wife is full-time trouble.",
           "stillURL": "https://archive.org/services/img/1x03TheRivalry",
-          "airDate": null,
+          "airDate": "1966-09-27",
           "year": 1966,
-          "runtimeSeconds": 1446,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "1x03 The Rivalry .mp4",
             "format": "MPEG4",
@@ -59,11 +74,524 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/1x03TheRivalry/1x03%20The%20Rivalry%20.mp4"
+        },
+        {
+          "archiveID": "s-01-e-30-so-little-time@s1e04",
+          "sourceID": "s-01-e-30-so-little-time",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "He Who Burns Bridges",
+          "overview": "Peter tries to retrieve his resignation: the job he lined up has just evaporated.",
+          "stillURL": null,
+          "airDate": "1966-10-04",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Occasional Wife/S01E04 - HE WHO BURNS BRIDGES.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 147679185,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-30-so-little-time/Occasional%20Wife/S01E04%20-%20HE%20WHO%20BURNS%20BRIDGES.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-30-so-little-time@s1e05",
+          "sourceID": "s-01-e-30-so-little-time",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "I Do, We Don't",
+          "overview": "Peter's mother arranges to have the couple reenact their \"wedding\".",
+          "stillURL": null,
+          "airDate": "1966-10-11",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Occasional Wife/S01E05 - I Do, We Don't.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 150961825,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-30-so-little-time/Occasional%20Wife/S01E05%20-%20I%20Do%2C%20We%20Don%27t.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-30-so-little-time@s1e06",
+          "sourceID": "s-01-e-30-so-little-time",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Promotion",
+          "overview": "Peter's promotion causes a near calamity for the occasional couple.",
+          "stillURL": null,
+          "airDate": "1966-10-18",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Occasional Wife/S01E06 - The Promotion.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 151893709,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-30-so-little-time/Occasional%20Wife/S01E06%20-%20The%20Promotion.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-30-so-little-time@s1e07",
+          "sourceID": "s-01-e-30-so-little-time",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "No Cookie for Dessert",
+          "overview": "A precocious 8-year-old causes Peter to break a date.",
+          "stillURL": null,
+          "airDate": "1966-10-25",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Occasional Wife/S01E07 - No Cookie For Deserrt.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 160071333,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-30-so-little-time/Occasional%20Wife/S01E07%20-%20No%20Cookie%20For%20Deserrt.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-30-so-little-time@s1e08",
+          "sourceID": "s-01-e-30-so-little-time",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Danger! Woman at Work",
+          "overview": "Greta's new job creates problems for the occasional couple.",
+          "stillURL": null,
+          "airDate": "1966-11-01",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Occasional Wife/S01E08 - Danger, Woman At Work.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 139696615,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-30-so-little-time/Occasional%20Wife/S01E08%20-%20Danger%2C%20Woman%20At%20Work.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-30-so-little-time@s1e09",
+          "sourceID": "s-01-e-30-so-little-time",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "A Friend of the Family",
+          "overview": "The victims of Peter's lies learn the truth in a crowded elevator.",
+          "stillURL": null,
+          "airDate": "1966-11-15",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Occasional Wife/S01E09 - A Friend of the Family.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 148013826,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-30-so-little-time/Occasional%20Wife/S01E09%20-%20A%20Friend%20of%20the%20Family.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-30-so-little-time@s1e10",
+          "sourceID": "s-01-e-30-so-little-time",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Marriage Counselor",
+          "overview": "Peter's uncle agrees to play a part in Peter's double life.",
+          "stillURL": null,
+          "airDate": "1966-11-22",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Occasional Wife/S01E10 - Marriage Counselor.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 147442515,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-30-so-little-time/Occasional%20Wife/S01E10%20-%20Marriage%20Counselor.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-30-so-little-time@s1e11",
+          "sourceID": "s-01-e-30-so-little-time",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "No Talent Scouts",
+          "overview": "Peter tries to get a client's no-talent daughter into show business.",
+          "stillURL": null,
+          "airDate": "1966-11-29",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Occasional Wife/S01E11 - No Talent Scouts.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 147976194,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-30-so-little-time/Occasional%20Wife/S01E11%20-%20No%20Talent%20Scouts.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-30-so-little-time@s1e12",
+          "sourceID": "s-01-e-30-so-little-time",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "That's How They Got Capone",
+          "overview": "The occasional couple's secret is threatened by their tax return.",
+          "stillURL": null,
+          "airDate": "1966-12-06",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Occasional Wife/S01E12 - That's How They Got Capone.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 147517802,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-30-so-little-time/Occasional%20Wife/S01E12%20-%20That%27s%20How%20They%20Got%20Capone.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-30-so-little-time@s1e13",
+          "sourceID": "s-01-e-30-so-little-time",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "GP Loves UU",
+          "overview": "A count has won Greta's heart---and perhaps ruined her bogus marriage.",
+          "stillURL": null,
+          "airDate": "1966-12-13",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Occasional Wife/S01E13 - GP Loves UU.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 147559628,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-30-so-little-time/Occasional%20Wife/S01E13%20-%20GP%20Loves%20UU.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-30-so-little-time@s1e14",
+          "sourceID": "s-01-e-30-so-little-time",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Miss Greta Regrets",
+          "overview": "A visit by Greta's parents traps the occasional couple.",
+          "stillURL": null,
+          "airDate": "1966-12-20",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Occasional Wife/S01E14 - Miss Greta Regrets.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 138392870,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-30-so-little-time/Occasional%20Wife/S01E14%20-%20Miss%20Greta%20Regrets.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-30-so-little-time@s1e15",
+          "sourceID": "s-01-e-30-so-little-time",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Peter by Moonlight",
+          "overview": "Greta's money-making scheme turns Peter's apartment into a garment center.",
+          "stillURL": null,
+          "airDate": "1966-12-27",
+          "year": 1966,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Occasional Wife/S01E15 - Peter By Moonlight.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 139552128,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-30-so-little-time/Occasional%20Wife/S01E15%20-%20Peter%20By%20Moonlight.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-30-so-little-time@s1e16",
+          "sourceID": "s-01-e-30-so-little-time",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Alias Peter Patterson",
+          "overview": "Problems arise when Bernie's sister falls in love with Peter.",
+          "stillURL": null,
+          "airDate": "1967-01-03",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Occasional Wife/S01E16 - Alias Peter Patterson.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 138830494,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-30-so-little-time/Occasional%20Wife/S01E16%20-%20Alias%20Peter%20Patterson.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-30-so-little-time@s1e17",
+          "sourceID": "s-01-e-30-so-little-time",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Fair Play for Gypsies",
+          "overview": "Peter tries to help his boss, who has incurred the wrath of a gypsy.",
+          "stillURL": null,
+          "airDate": "1967-01-17",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Occasional Wife/S01E17 - Fair Play for Gypsies.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 140740381,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-30-so-little-time/Occasional%20Wife/S01E17%20-%20Fair%20Play%20for%20Gypsies.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-30-so-little-time@s1e18",
+          "sourceID": "s-01-e-30-so-little-time",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "A Couple of Home-Cooked Meals",
+          "overview": "The apartment fire escape gets a workout during a fake fire drill.",
+          "stillURL": null,
+          "airDate": "1967-01-24",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Occasional Wife/S01E18 - A Couple of Home-Cooked Meals.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 136391217,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-30-so-little-time/Occasional%20Wife/S01E18%20-%20A%20Couple%20of%20Home-Cooked%20Meals.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-30-so-little-time@s1e19",
+          "sourceID": "s-01-e-30-so-little-time",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "One Plus One Equals Too Many",
+          "overview": "Greta is furious: Peter has plans to replace the occasional wife.",
+          "stillURL": null,
+          "airDate": "1967-01-31",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Occasional Wife/S01E19 - One Plus One Equals Too Many.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 139589247,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-30-so-little-time/Occasional%20Wife/S01E19%20-%20One%20Plus%20One%20Equals%20Too%20Many.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-30-so-little-time@s1e20",
+          "sourceID": "s-01-e-30-so-little-time",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Kangaroo Kandidates",
+          "overview": "The occasional couple competes for membership in Brahms's club.",
+          "stillURL": null,
+          "airDate": "1967-02-07",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Occasional Wife/S01E20 - Kangaroo Kandidates.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 139591664,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-30-so-little-time/Occasional%20Wife/S01E20%20-%20Kangaroo%20Kandidates.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-30-so-little-time@s1e21",
+          "sourceID": "s-01-e-30-so-little-time",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "The New Secretary",
+          "overview": "Peter tries to convince a client that he's not a bigamist.",
+          "stillURL": null,
+          "airDate": "1967-02-14",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Occasional Wife/S01E21 - The New Secretary.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 144138705,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-30-so-little-time/Occasional%20Wife/S01E21%20-%20The%20New%20Secretary.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-30-so-little-time@s1e22",
+          "sourceID": "s-01-e-30-so-little-time",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "The Business Trip",
+          "overview": "On a business trip, the occasional couple have hotel-room problems.",
+          "stillURL": null,
+          "airDate": "1967-02-21",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Occasional Wife/S01E22 - The Business Trip.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 140404636,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-30-so-little-time/Occasional%20Wife/S01E22%20-%20The%20Business%20Trip.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-30-so-little-time@s1e23",
+          "sourceID": "s-01-e-30-so-little-time",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Engagement, Christopher Style",
+          "overview": "In a moment of madness, Peter gets engaged.",
+          "stillURL": null,
+          "airDate": "1967-02-28",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Occasional Wife/S01E23 - Engagement, Christopher Style.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 155710791,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-30-so-little-time/Occasional%20Wife/S01E23%20-%20Engagement%2C%20Christopher%20Style.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-30-so-little-time@s1e24",
+          "sourceID": "s-01-e-30-so-little-time",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Instant Fatherhood",
+          "overview": "Peter learns that he is the foster father of a teen-age Italian girl.",
+          "stillURL": null,
+          "airDate": "1967-03-21",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Occasional Wife/S01E24 - Instant Fatherhood.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 140084887,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-30-so-little-time/Occasional%20Wife/S01E24%20-%20Instant%20Fatherhood.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-30-so-little-time@s1e25",
+          "sourceID": "s-01-e-30-so-little-time",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "The Soft Spot",
+          "overview": "Peter's rival is out to get him when the management experts arrive.",
+          "stillURL": null,
+          "airDate": "1967-03-28",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Occasional Wife/S01E25 - The Soft Spot.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 139613390,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-30-so-little-time/Occasional%20Wife/S01E25%20-%20The%20Soft%20Spot.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-30-so-little-time@s1e26",
+          "sourceID": "s-01-e-30-so-little-time",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "The Secret Powdered Milk Affair",
+          "overview": "A security check of Brahms's employees threatens Peter and Greta.",
+          "stillURL": null,
+          "airDate": "1967-04-04",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Occasional Wife/S01E26 - The Secret Powedered Milk Affair.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 126314163,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-30-so-little-time/Occasional%20Wife/S01E26%20-%20The%20Secret%20Powedered%20Milk%20Affair.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-30-so-little-time@s1e27",
+          "sourceID": "s-01-e-30-so-little-time",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "My Occasional Brother's Keeper",
+          "overview": "A scheming milkman tries to blackmail the occasional couple.",
+          "stillURL": null,
+          "airDate": "1967-04-11",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Occasional Wife/S01E27 - My Occasional Brother's Keeper.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 136194373,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-30-so-little-time/Occasional%20Wife/S01E27%20-%20My%20Occasional%20Brother%27s%20Keeper.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-30-so-little-time@s1e28",
+          "sourceID": "s-01-e-30-so-little-time",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "An Affair to Forget",
+          "overview": "Bernie sees Peter's boss and Greta together---and imagines the worst.",
+          "stillURL": null,
+          "airDate": "1967-04-18",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Occasional Wife/S01E28 - An Affair to Forget.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 138485383,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-30-so-little-time/Occasional%20Wife/S01E28%20-%20An%20Affair%20to%20Forget.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-30-so-little-time@s1e29",
+          "sourceID": "s-01-e-30-so-little-time",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "Oil Be Seeing You",
+          "overview": "Peter and his boss try to make a slick deal with a big oilman.",
+          "stillURL": null,
+          "airDate": "1967-04-25",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Occasional Wife/S01E29 - Oil, Be Seeing You.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 261641502,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-30-so-little-time/Occasional%20Wife/S01E29%20-%20Oil%2C%20Be%20Seeing%20You.ia.mp4"
+        },
+        {
+          "archiveID": "s-01-e-30-so-little-time@s1e30",
+          "sourceID": "s-01-e-30-so-little-time",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "So Little Time",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-05-09",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Occasional Wife/S01E30 - So Little Time.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 274601429,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s-01-e-30-so-little-time/Occasional%20Wife/S01E30%20-%20So%20Little%20Time.ia.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 2,
+  "episodesCount": 30,
   "canonicalEpisodesCount": 30,
   "tvdbID": "77930",
   "artworkSource": "tvdb",

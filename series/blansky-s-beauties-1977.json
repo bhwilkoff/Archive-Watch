@@ -20,12 +20,146 @@
       "seasonNumber": 1,
       "episodes": [
         {
-          "archiveID": "blanskysbeauties",
+          "archiveID": "blanskysbeauties@s1e01",
+          "sourceID": "blanskysbeauties",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Blansky's Biking Beauty",
+          "overview": null,
+          "stillURL": "https://archive.org/download/blanskysbeauties/blanskysbeauties.thumbs/S01E01_000475.jpg",
+          "airDate": "1977-02-12",
+          "year": 1977,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E01.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 63660740,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/blanskysbeauties/S01E01.mp4"
+        },
+        {
+          "archiveID": "blanskysbeauties@s1e02",
+          "sourceID": "blanskysbeauties",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Blansky for the Defense",
+          "overview": null,
+          "stillURL": "https://archive.org/download/blanskysbeauties/blanskysbeauties.thumbs/S01E02_000474.jpg",
+          "airDate": "1977-02-19",
+          "year": 1977,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E02.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 59295640,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/blanskysbeauties/S01E02.mp4"
+        },
+        {
+          "archiveID": "blanskysbeauties@s1e03",
+          "sourceID": "blanskysbeauties",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Nancy's Cover-Up",
+          "overview": "Nancy threatens to quit her hotel job staging Las Vegas Extravaganzas when she is ordered to have her showgirls perform topless.",
+          "stillURL": "https://archive.org/download/blanskysbeauties/blanskysbeauties.thumbs/S01E03_000474.jpg",
+          "airDate": "1977-02-26",
+          "year": 1977,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E03.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 60921758,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/blanskysbeauties/S01E03.mp4"
+        },
+        {
+          "archiveID": "blanskysbeauties@s1e04",
+          "sourceID": "blanskysbeauties",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Nancy's Magic Moment",
+          "overview": null,
+          "stillURL": "https://archive.org/download/blanskysbeauties/blanskysbeauties.thumbs/S01E04_000476.jpg",
+          "airDate": "1977-03-12",
+          "year": 1977,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E04.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 63110814,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/blanskysbeauties/S01E04.mp4"
+        },
+        {
+          "archiveID": "blanskysbeauties@s1e05",
+          "sourceID": "blanskysbeauties",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Nancy Goes Sheik",
+          "overview": null,
+          "stillURL": "https://archive.org/download/blanskysbeauties/blanskysbeauties.thumbs/S01E05_000534.jpg",
+          "airDate": "1977-03-19",
+          "year": 1977,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E05.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 98893697,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/blanskysbeauties/S01E05.mp4"
+        },
+        {
+          "archiveID": "blanskysbeauties@s1e08",
+          "sourceID": "blanskysbeauties",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Nancy Remembers Laverne",
+          "overview": null,
+          "stillURL": "https://archive.org/download/blanskysbeauties/blanskysbeauties.thumbs/S01E08_000535.jpg",
+          "airDate": "1977-04-09",
+          "year": 1977,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E08.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 72360519,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/blanskysbeauties/S01E08.mp4"
+        },
+        {
+          "archiveID": "blanskysbeauties@s1e09",
+          "sourceID": "blanskysbeauties",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Nancy Meets Pa Bates",
+          "overview": null,
+          "stillURL": "https://archive.org/download/blanskysbeauties/blanskysbeauties.thumbs/S01E09_000537.jpg",
+          "airDate": "1977-04-16",
+          "year": 1977,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E09.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 73748197,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/blanskysbeauties/S01E09.mp4"
+        },
+        {
+          "archiveID": "blanskysbeauties@s1e10",
+          "sourceID": "blanskysbeauties",
           "seasonNumber": 1,
           "episodeNumber": 10,
           "title": "My Nephew's Debut",
           "overview": null,
-          "stillURL": "https://archive.org/download/archivewatch-covers/blanskysbeauties.78a1f877.jpg",
+          "stillURL": "https://archive.org/download/blanskysbeauties/blanskysbeauties.thumbs/S01E10_000475.jpg",
           "airDate": "1977-04-30",
           "year": 1977,
           "runtimeSeconds": 1800,
@@ -36,11 +170,30 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/blanskysbeauties/S01E10.ia.mp4"
+        },
+        {
+          "archiveID": "blanskysbeauties@s1e12",
+          "sourceID": "blanskysbeauties",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "To Nancy with Love",
+          "overview": null,
+          "stillURL": "https://archive.org/download/blanskysbeauties/blanskysbeauties.thumbs/S01E12_000594.jpg",
+          "airDate": "1977-06-07",
+          "year": 1977,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S01E12.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 74245744,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/blanskysbeauties/S01E12.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 1,
+  "episodesCount": 9,
   "canonicalEpisodesCount": 13,
   "tvdbID": "77636",
   "artworkSource": "tvdb",
@@ -141,8 +294,5 @@
       "order": 15,
       "profilePath": null
     }
-  ],
-  "seriesImdbID": "tt0075484",
-  "canonicalEpisodeCount": 2,
-  "canonicalSeasons": 1
+  ]
 }

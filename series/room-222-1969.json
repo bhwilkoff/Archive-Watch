@@ -21,12 +21,260 @@
       "seasonNumber": 1,
       "episodes": [
         {
-          "archiveID": "Room-222-Season-1",
+          "archiveID": "Room-222-Season-1@s1e01",
+          "sourceID": "Room-222-Season-1",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Richie's Story",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1969-09-17",
+          "year": 1969,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Season 1/S01E01 - Richie's Story.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 61087951,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-1/Season%201/S01E01%20-%20Richie%27s%20Story.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-1@s1e02",
+          "sourceID": "Room-222-Season-1",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Naked Came We Into the World",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1969-09-24",
+          "year": 1969,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Season 1/S01E02 - Naked Came We Into the World.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 58868603,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-1/Season%201/S01E02%20-%20Naked%20Came%20We%20Into%20the%20World.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-1@s1e03",
+          "sourceID": "Room-222-Season-1",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Funny Boy",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1969-10-01",
+          "year": 1969,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Season 1/S01E03 - Funny Boy.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 151288448,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-1/Season%201/S01E03%20-%20Funny%20Boy.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-1@s1e04",
+          "sourceID": "Room-222-Season-1",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Coat",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1969-10-08",
+          "year": 1969,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Season 1/S01E04 - The Coat.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 136752496,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-1/Season%201/S01E04%20-%20The%20Coat.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-1@s1e05",
+          "sourceID": "Room-222-Season-1",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Flu",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1969-10-15",
+          "year": 1969,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Season 1/S01E05 - The Flu.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 143646658,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-1/Season%201/S01E05%20-%20The%20Flu.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-1@s1e06",
+          "sourceID": "Room-222-Season-1",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "First We'll Eat, Then We'll Strike",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1969-10-22",
+          "year": 1969,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Season 1/S01E06 - First We'll Eat, Then We'll Strike.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 152531075,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-1/Season%201/S01E06%20-%20First%20We%27ll%20Eat%2C%20Then%20We%27ll%20Strike.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-1@s1e07",
+          "sourceID": "Room-222-Season-1",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Teacher's Dropping Out",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1969-10-29",
+          "year": 1969,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Season 1/S01E07 - Teacher's Dropping Out.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 93242744,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-1/Season%201/S01E07%20-%20Teacher%27s%20Dropping%20Out.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-1@s1e08",
+          "sourceID": "Room-222-Season-1",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Our Teacher is Obsolete",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1969-11-05",
+          "year": 1969,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Season 1/S01E08 - Our Teacher Is Obsolete.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 83245928,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-1/Season%201/S01E08%20-%20Our%20Teacher%20Is%20Obsolete.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-1@s1e09",
+          "sourceID": "Room-222-Season-1",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Triple Date",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1969-11-12",
+          "year": 1969,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Season 1/S01E09 - Triple Date.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 95334429,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-1/Season%201/S01E09%20-%20Triple%20Date.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-1@s1e10",
+          "sourceID": "Room-222-Season-1",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Fathers and Sons",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1969-11-19",
+          "year": 1969,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Season 1/S01E10 - Fathers and Sons.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 98237114,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-1/Season%201/S01E10%20-%20Fathers%20and%20Sons.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-1@s1e11",
+          "sourceID": "Room-222-Season-1",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Alice in Blunderland",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1969-11-26",
+          "year": 1969,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Season 1/S01E11 - Alice in Blunderland.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 104676639,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-1/Season%201/S01E11%20-%20Alice%20in%20Blunderland.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-1@s1e12",
+          "sourceID": "Room-222-Season-1",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Clothes Make the Boy",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1969-12-03",
+          "year": 1969,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Season 1/S01E12 - Clothes Make the Boy.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 91357157,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-1/Season%201/S01E12%20-%20Clothes%20Make%20the%20Boy.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-1@s1e13",
+          "sourceID": "Room-222-Season-1",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Seventeen Going On Twenty-Eight",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1969-12-10",
+          "year": 1969,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Season 1/S01E13 - Seventeen Going on Twenty-Eight.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 96494732,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-1/Season%201/S01E13%20-%20Seventeen%20Going%20on%20Twenty-Eight.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-1@s1e14",
+          "sourceID": "Room-222-Season-1",
           "seasonNumber": 1,
           "episodeNumber": 14,
           "title": "The Exchange Teacher",
           "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/gcAILcFjcpa6YQkMuwYhXBk2pog.jpg",
+          "stillURL": null,
           "airDate": "1969-12-17",
           "year": 1969,
           "runtimeSeconds": 1800,
@@ -34,9 +282,237 @@
             "name": "Season 1/S01E14 - The Exchange Teacher.ia.mp4",
             "format": "h.264 IA",
             "sizeBytes": 152630172,
-            "tier": 2
+            "tier": 1
           },
           "downloadURL": "https://archive.org/download/Room-222-Season-1/Season%201/S01E14%20-%20The%20Exchange%20Teacher.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-1@s1e15",
+          "sourceID": "Room-222-Season-1",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "El Genio",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1969-12-24",
+          "year": 1969,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Season 1/S01E15 - El Genio.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 149331414,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-1/Season%201/S01E15%20-%20El%20Genio.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-1@s1e16",
+          "sourceID": "Room-222-Season-1",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Arizona State Loves You",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1969-12-31",
+          "year": 1969,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Season 1/S01E16 - Arizona State Loves You.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 149885089,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-1/Season%201/S01E16%20-%20Arizona%20State%20Loves%20You.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-1@s1e17",
+          "sourceID": "Room-222-Season-1",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Operation Sandpile",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-01-07",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Season 1/S01E17 - Operation Sandpile.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 152197291,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-1/Season%201/S01E17%20-%20Operation%20Sandpile.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-1@s1e18",
+          "sourceID": "Room-222-Season-1",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Play it Loose",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-01-14",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Season 1/S01E18 - Play it Loose.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 142570469,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-1/Season%201/S01E18%20-%20Play%20it%20Loose.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-1@s1e19",
+          "sourceID": "Room-222-Season-1",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Goodbye, Mr. Hip",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-01-21",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Season 1/S01E19 - Goodbye,  Mr. Hip.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 119284622,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-1/Season%201/S01E19%20-%20Goodbye%2C%20%20Mr.%20Hip.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-1@s1e20",
+          "sourceID": "Room-222-Season-1",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Once Upon a Time There Was Air You Couldn't See",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-01-28",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Season 1/S01E20 - Once Upon a Time There Was Air You Couldn't See.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 113081510,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-1/Season%201/S01E20%20-%20Once%20Upon%20a%20Time%20There%20Was%20Air%20You%20Couldn%27t%20See.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-1@s1e21",
+          "sourceID": "Room-222-Season-1",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "The Whole World Can Hear You",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-02-11",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Season 1/S01E21 - The Whole World Can Hear You.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 150957569,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-1/Season%201/S01E21%20-%20The%20Whole%20World%20Can%20Hear%20You.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-1@s1e22",
+          "sourceID": "Room-222-Season-1",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Ralph",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-02-18",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Season 1/S01E22 - Ralph.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 131347009,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-1/Season%201/S01E22%20-%20Ralph.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-1@s1e23",
+          "sourceID": "Room-222-Season-1",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "I Love You Charlie, I Love You Abbie",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-02-25",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Season 1/S01E23 - I Love you Charlie, I Love You Abby.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 131644955,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-1/Season%201/S01E23%20-%20I%20Love%20you%20Charlie%2C%20I%20Love%20You%20Abby.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-1@s1e24",
+          "sourceID": "Room-222-Season-1",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "The New Boy",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-03-04",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Season 1/S01E24 - The New Boy.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 151145057,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-1/Season%201/S01E24%20-%20The%20New%20Boy.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-1@s1e25",
+          "sourceID": "Room-222-Season-1",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Funny Money",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-03-11",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Season 1/S01E25 - Funny Money.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 116872351,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-1/Season%201/S01E25%20-%20Funny%20Money.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-1@s1e26",
+          "sourceID": "Room-222-Season-1",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Just Between Friends",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-03-18",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Season 1/S01E26 - Just Between Friends.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 80080873,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-1/Season%201/S01E26%20-%20Just%20Between%20Friends.mp4"
         }
       ]
     },
@@ -44,12 +520,127 @@
       "seasonNumber": 2,
       "episodes": [
         {
-          "archiveID": "Room-222-Season-2",
+          "archiveID": "Room-222-Season-2@s2e01",
+          "sourceID": "Room-222-Season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Write On, Brother",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-09-23",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Room 222 Season 2/S02E01 - Write On Brother.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 309011557,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-2/Room%20222%20Season%202/S02E01%20-%20Write%20On%20Brother.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-2@s2e02",
+          "sourceID": "Room-222-Season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "The Laughing Majority",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-09-30",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Room 222 Season 2/S02E02 - The Laughing Majority.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 307009059,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-2/Room%20222%20Season%202/S02E02%20-%20The%20Laughing%20Majority.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-2@s2e03",
+          "sourceID": "Room-222-Season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "The Lincoln Story",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-10-07",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Room 222 Season 2/S02E03 - The Lincoln Story.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 308703731,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-2/Room%20222%20Season%202/S02E03%20-%20The%20Lincoln%20Story.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-2@s2e04",
+          "sourceID": "Room-222-Season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "Adam's Lib",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-10-14",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Room 222 Season 2/S02E04 - Adam's Lib.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 307915176,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-2/Room%20222%20Season%202/S02E04%20-%20Adam%27s%20Lib.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-2@s2e05",
+          "sourceID": "Room-222-Season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Choose One: And They Lived (Happily/Unhappily) Ever After",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-10-21",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Room 222 Season 2/S02E05 - Choose One & The Lived Happily Unhappily Ever After.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 309351486,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-2/Room%20222%20Season%202/S02E05%20-%20Choose%20One%20%26%20The%20Lived%20Happily%20Unhappily%20Ever%20After.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-2@s2e06",
+          "sourceID": "Room-222-Season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Captain of the Team",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-10-28",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Room 222 Season 2/S02E06 - Captain of the Team.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 311676644,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-2/Room%20222%20Season%202/S02E06%20-%20Captain%20of%20the%20Team.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-2@s2e07",
+          "sourceID": "Room-222-Season-2",
           "seasonNumber": 2,
           "episodeNumber": 7,
           "title": "Only a Rose",
           "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/gcAILcFjcpa6YQkMuwYhXBk2pog.jpg",
+          "stillURL": null,
           "airDate": "1970-11-04",
           "year": 1970,
           "runtimeSeconds": 1800,
@@ -57,9 +648,370 @@
             "name": "Room 222 Season 2/S02E07 - Only A Rose.ia.mp4",
             "format": "h.264 IA",
             "sizeBytes": 314107143,
-            "tier": 2
+            "tier": 1
           },
           "downloadURL": "https://archive.org/download/Room-222-Season-2/Room%20222%20Season%202/S02E07%20-%20Only%20A%20Rose.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-2@s2e08",
+          "sourceID": "Room-222-Season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "The Fuzz That Grooved",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-11-11",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Room 222 Season 2/S02E08 - The Fuzz That Grooved.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 311353123,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-2/Room%20222%20Season%202/S02E08%20-%20The%20Fuzz%20That%20Grooved.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-2@s2e09",
+          "sourceID": "Room-222-Season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Half Way",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-11-18",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Room 222 Season 2/S02E09 - Half Way.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 310656300,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-2/Room%20222%20Season%202/S02E09%20-%20Half%20Way.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-2@s2e10",
+          "sourceID": "Room-222-Season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "Dreams of Glory",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-11-25",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Room 222 Season 2/S02E10 - Dreams of Glory.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 298849104,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-2/Room%20222%20Season%202/S02E10%20-%20Dreams%20of%20Glory.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-2@s2e11",
+          "sourceID": "Room-222-Season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "The Valedictorion",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-12-02",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Room 222 Season 2/S02E11 - The Valediction.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 310761027,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-2/Room%20222%20Season%202/S02E11%20-%20The%20Valediction.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-2@s2e12",
+          "sourceID": "Room-222-Season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "Mel Wertz and the Nickel-Plated Toothpick",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-12-16",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Room 222 Season 2/S02E12 - Mel Wertz and the Nickel-Plated Toothpick.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 310157373,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-2/Room%20222%20Season%202/S02E12%20-%20Mel%20Wertz%20and%20the%20Nickel-Plated%20Toothpick.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-2@s2e13",
+          "sourceID": "Room-222-Season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "What Would We Do Without Bobbie?",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1970-12-23",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Room 222 Season 2/S02E13 - What Would We Do Without Bobbie.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 310153331,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-2/Room%20222%20Season%202/S02E13%20-%20What%20Would%20We%20Do%20Without%20Bobbie.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-2@s2e14",
+          "sourceID": "Room-222-Season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 14,
+          "title": "Cheating",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1971-01-06",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Room 222 Season 2/S02E14 - Cheating.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 310676002,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-2/Room%20222%20Season%202/S02E14%20-%20Cheating.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-2@s2e15",
+          "sourceID": "Room-222-Season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 15,
+          "title": "How About That Cherry Tree",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1971-01-13",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Room 222 Season 2/S02E15 - Now, About That Cherry Tree.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 310184704,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-2/Room%20222%20Season%202/S02E15%20-%20Now%2C%20About%20That%20Cherry%20Tree.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-2@s2e16",
+          "sourceID": "Room-222-Season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 16,
+          "title": "Mr. Bomberg",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1971-01-20",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Room 222 Season 2/S02E16 - Mr. Bomberg.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 310542770,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-2/Room%20222%20Season%202/S02E16%20-%20Mr.%20Bomberg.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-2@s2e17",
+          "sourceID": "Room-222-Season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 17,
+          "title": "The Long Honeymoon",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1971-01-27",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Room 222 Season 2/S02E17 - The Long Honeymoon.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 298795633,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-2/Room%20222%20Season%202/S02E17%20-%20The%20Long%20Honeymoon.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-2@s2e18",
+          "sourceID": "Room-222-Season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 18,
+          "title": "Opportunity Room",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1971-02-03",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Room 222 Season 2/S02E18 - Opportunity Room.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 310409460,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-2/Room%20222%20Season%202/S02E18%20-%20Opportunity%20Room.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-2@s2e19",
+          "sourceID": "Room-222-Season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 19,
+          "title": "The Last Full Moon",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1971-02-10",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Room 222 Season 2/S02E19 - The Last Full Moon.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 311808356,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-2/Room%20222%20Season%202/S02E19%20-%20The%20Last%20Full%20Moon.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-2@s2e20",
+          "sourceID": "Room-222-Season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 20,
+          "title": "Hip Hip Hooray",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1971-02-17",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Room 222 Season 2/S02E20 - Hip Hip Hooray.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 298101611,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-2/Room%20222%20Season%202/S02E20%20-%20Hip%20Hip%20Hooray.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-2@s2e21",
+          "sourceID": "Room-222-Season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 21,
+          "title": "Paul Revere Rides Again",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1971-03-03",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Room 222 Season 2/S02E21 - Paul Revere Rides Again.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 310719573,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-2/Room%20222%20Season%202/S02E21%20-%20Paul%20Revere%20Rides%20Again.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-2@s2e22",
+          "sourceID": "Room-222-Season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 22,
+          "title": "I Hate You, Silas Marner",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1971-03-10",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Room 222 Season 2/S02E22 - I Hate You, Silas Marner.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 310695821,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-2/Room%20222%20Season%202/S02E22%20-%20I%20Hate%20You%2C%20Silas%20Marner.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-2@s2e23",
+          "sourceID": "Room-222-Season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 23,
+          "title": "You Can Take a Big Boy Out of the Country but...",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1971-03-17",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Room 222 Season 2/S02E23 - You Can Take the Boy Out of the Country, But....ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 310463071,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-2/Room%20222%20Season%202/S02E23%20-%20You%20Can%20Take%20the%20Boy%20Out%20of%20the%20Country%2C%20But....ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-2@s2e24",
+          "sourceID": "Room-222-Season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 24,
+          "title": "If It's Not Here, Where is It?",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1971-03-24",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Room 222 Season 2/S02E24 - If It's Not Here, Where Is It.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 298765124,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-2/Room%20222%20Season%202/S02E24%20-%20If%20It%27s%20Not%20Here%2C%20Where%20Is%20It.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-2@s2e25",
+          "sourceID": "Room-222-Season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 25,
+          "title": "Laura Fay, You're Okay!",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1971-03-31",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Room 222 Season 2/S02E25 - Laura Fay, You're Okay!.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 311140179,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-2/Room%20222%20Season%202/S02E25%20-%20Laura%20Fay%2C%20You%27re%20Okay%21.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-2@s2e26",
+          "sourceID": "Room-222-Season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 26,
+          "title": "A Sort of Loving",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1971-04-07",
+          "year": 1971,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Room 222 Season 2/S02E26 - A Sort of Loving.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 306169922,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-2/Room%20222%20Season%202/S02E26%20-%20A%20Sort%20of%20Loving.ia.mp4"
         }
       ]
     },
@@ -67,12 +1019,32 @@
       "seasonNumber": 4,
       "episodes": [
         {
-          "archiveID": "Room-222-Season-4",
+          "archiveID": "Room-222-Season-4@s4e01",
+          "sourceID": "Room-222-Season-4",
+          "seasonNumber": 4,
+          "episodeNumber": 1,
+          "title": "A Little Flyer Than Most",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-4/Room-222-Season-4.thumbs/S04E01%20-%20A%20Little%20Flyer%20Than%20Most_000003.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2488,
+          "videoFile": {
+            "name": "S04E01 - A Little Flyer Than Most.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 206624107,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-4/S04E01%20-%20A%20Little%20Flyer%20Than%20Most.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-4@s4e02",
+          "sourceID": "Room-222-Season-4",
           "seasonNumber": 4,
           "episodeNumber": 2,
           "title": "I Wonder if January 15 Will Ever Come Again?",
           "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/gcAILcFjcpa6YQkMuwYhXBk2pog.jpg",
+          "stillURL": "https://archive.org/download/Room-222-Season-4/Room-222-Season-4.thumbs/S04E02%20-%20Wonder%20if%20January%2015%20Will%20Ever%20Come%20Again_000003.jpg",
           "airDate": "1972-09-22",
           "year": 1972,
           "runtimeSeconds": 1800,
@@ -80,9 +1052,408 @@
             "name": "S04E02 - Wonder if January 15 Will Ever Come Again.ia.mp4",
             "format": "h.264 IA",
             "sizeBytes": 209102632,
-            "tier": 2
+            "tier": 1
           },
           "downloadURL": "https://archive.org/download/Room-222-Season-4/S04E02%20-%20Wonder%20if%20January%2015%20Will%20Ever%20Come%20Again.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-4@s4e03",
+          "sourceID": "Room-222-Season-4",
+          "seasonNumber": 4,
+          "episodeNumber": 3,
+          "title": "Just Call Me Mr. Sahigmetsu",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-4/Room-222-Season-4.thumbs/S04E03%20-%20Just%20Call%20Me%20Mr.%20Shigematsu_000003.jpg",
+          "airDate": "1972-09-29",
+          "year": 1972,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S04E03 - Just Call Me Mr. Shigematsu.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 208604422,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-4/S04E03%20-%20Just%20Call%20Me%20Mr.%20Shigematsu.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-4@s4e04",
+          "sourceID": "Room-222-Season-4",
+          "seasonNumber": 4,
+          "episodeNumber": 4,
+          "title": "And He's Not Even Lovable",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-4/Room-222-Season-4.thumbs/S04E04%20-%20And%20He%27s%20Not%20Even%20Lovable_000003.jpg",
+          "airDate": "1972-10-06",
+          "year": 1972,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S04E04 - And He's Not Even Lovable.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 206976608,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-4/S04E04%20-%20And%20He%27s%20Not%20Even%20Lovable.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-4@s4e05",
+          "sourceID": "Room-222-Season-4",
+          "seasonNumber": 4,
+          "episodeNumber": 5,
+          "title": "Hands Across the Sea",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-4/Room-222-Season-4.thumbs/S04E05%20-%20Hands%20Across%20the%20Sea_000003.jpg",
+          "airDate": "1972-10-13",
+          "year": 1972,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S04E05 - Hands Across the Sea.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 208189508,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-4/S04E05%20-%20Hands%20Across%20the%20Sea.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-4@s4e06",
+          "sourceID": "Room-222-Season-4",
+          "seasonNumber": 4,
+          "episodeNumber": 6,
+          "title": "The Imposter",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-4/Room-222-Season-4.thumbs/S04E06%20-%20The%20Imposter_000003.jpg",
+          "airDate": "1972-10-20",
+          "year": 1972,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S04E06 - The Imposter.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 208447554,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-4/S04E06%20-%20The%20Imposter.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-4@s4e07",
+          "sourceID": "Room-222-Season-4",
+          "seasonNumber": 4,
+          "episodeNumber": 7,
+          "title": "Lift, Thrust, and Drag",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-4/Room-222-Season-4.thumbs/S04E07%20-%20Lift%2C%20Thrust%2C%20and%20Drag_000003.jpg",
+          "airDate": "1972-10-27",
+          "year": 1972,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S04E07 - Lift, Thrust, and Drag.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 206746768,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-4/S04E07%20-%20Lift%2C%20Thrust%2C%20and%20Drag.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-4@s4e08",
+          "sourceID": "Room-222-Season-4",
+          "seasonNumber": 4,
+          "episodeNumber": 8,
+          "title": "You Don't Know Me, He Said",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-4/Room-222-Season-4.thumbs/S04E08%20-%20You%20Don%27t%20Know%20Me%2C%20He%20Said_000003.jpg",
+          "airDate": "1972-11-03",
+          "year": 1972,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S04E08 - You Don't Know Me, He Said.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 207975945,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-4/S04E08%20-%20You%20Don%27t%20Know%20Me%2C%20He%20Said.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-4@s4e09",
+          "sourceID": "Room-222-Season-4",
+          "seasonNumber": 4,
+          "episodeNumber": 9,
+          "title": "Walt Whitman Goes Bananas",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-4/Room-222-Season-4.thumbs/S04E09%20-%20Walt%20Whitman%20Goes%20Bananas_000003.jpg",
+          "airDate": "1972-11-10",
+          "year": 1972,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S04E09 - Walt Whitman Goes Bananas.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 206559826,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-4/S04E09%20-%20Walt%20Whitman%20Goes%20Bananas.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-4@s4e10",
+          "sourceID": "Room-222-Season-4",
+          "seasonNumber": 4,
+          "episodeNumber": 10,
+          "title": "Bleep",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-4/Room-222-Season-4.thumbs/S04E10%20-%20Bleep_000003.jpg",
+          "airDate": "1972-11-17",
+          "year": 1972,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S04E10 - Bleep.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 207958363,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-4/S04E10%20-%20Bleep.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-4@s4e11",
+          "sourceID": "Room-222-Season-4",
+          "seasonNumber": 4,
+          "episodeNumber": 11,
+          "title": "Shoestring Catch",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-4/Room-222-Season-4.thumbs/S04E11%20-%20Shoestring%20Catch_000003.jpg",
+          "airDate": "1972-11-24",
+          "year": 1972,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S04E11 - Shoestring Catch.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 208061050,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-4/S04E11%20-%20Shoestring%20Catch.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-4@s4e12",
+          "sourceID": "Room-222-Season-4",
+          "seasonNumber": 4,
+          "episodeNumber": 12,
+          "title": "Elizabeth Brown is Failing",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-4/Room-222-Season-4.thumbs/S04E12%20-%20Elizabeth%20Brown%20is%20Failing_000003.jpg",
+          "airDate": "1972-12-01",
+          "year": 1972,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S04E12 - Elizabeth Brown is Failing.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 207219346,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-4/S04E12%20-%20Elizabeth%20Brown%20is%20Failing.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-4@s4e13",
+          "sourceID": "Room-222-Season-4",
+          "seasonNumber": 4,
+          "episodeNumber": 13,
+          "title": "Mr. Wrong",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-4/Room-222-Season-4.thumbs/S04E13%20-%20Mr.%20Wrong_000003.jpg",
+          "airDate": "1972-12-08",
+          "year": 1972,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S04E13 - Mr. Wrong.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 206944168,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-4/S04E13%20-%20Mr.%20Wrong.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-4@s4e14",
+          "sourceID": "Room-222-Season-4",
+          "seasonNumber": 4,
+          "episodeNumber": 14,
+          "title": "The Nichols Girl",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-4/Room-222-Season-4.thumbs/S04E14%20-%20The%20Nichols%20Girl_000003.jpg",
+          "airDate": "1972-12-22",
+          "year": 1972,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S04E14 - The Nichols Girl.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 208679925,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-4/S04E14%20-%20The%20Nichols%20Girl.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-4@s4e15",
+          "sourceID": "Room-222-Season-4",
+          "seasonNumber": 4,
+          "episodeNumber": 15,
+          "title": "Pardon Me, Your Apathy is Showing",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-4/Room-222-Season-4.thumbs/S04E15%20-%20Pardon%20Me%2C%20Your%20Apathy%20is%20Showing_000003.jpg",
+          "airDate": "1973-01-05",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S04E15 - Pardon Me, Your Apathy is Showing.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 207655622,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-4/S04E15%20-%20Pardon%20Me%2C%20Your%20Apathy%20is%20Showing.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-4@s4e16",
+          "sourceID": "Room-222-Season-4",
+          "seasonNumber": 4,
+          "episodeNumber": 16,
+          "title": "Rights of Others",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-4/Room-222-Season-4.thumbs/S04E16%20-%20Rights%20of%20others_000003.jpg",
+          "airDate": "1973-01-12",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S04E16 - Rights of others.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 207114440,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-4/S04E16%20-%20Rights%20of%20others.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-4@s4e17",
+          "sourceID": "Room-222-Season-4",
+          "seasonNumber": 4,
+          "episodeNumber": 17,
+          "title": "Man, If You're So Smart...",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-4/Room-222-Season-4.thumbs/S04E17%20-%20Man%2C%20If%20You%27re%20So%20Smart_000003.jpg",
+          "airDate": "1973-01-19",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S04E17 - Man, If You're So Smart.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 207948890,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-4/S04E17%20-%20Man%2C%20If%20You%27re%20So%20Smart.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-4@s4e18",
+          "sourceID": "Room-222-Season-4",
+          "seasonNumber": 4,
+          "episodeNumber": 18,
+          "title": "The Hand That Feeds",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-4/Room-222-Season-4.thumbs/S04E18%20-%20The%20Hand%20That%20Feeds_000003.jpg",
+          "airDate": "1973-02-02",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S04E18 - The Hand That Feeds.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 206496401,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-4/S04E18%20-%20The%20Hand%20That%20Feeds.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-4@s4e19",
+          "sourceID": "Room-222-Season-4",
+          "seasonNumber": 4,
+          "episodeNumber": 19,
+          "title": "Fifteen Years and What Do You Get?",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-4/Room-222-Season-4.thumbs/S04E19%20-%20Fifteen%20Years%20and%20What%20Do%20You%20Get_000003.jpg",
+          "airDate": "1973-02-09",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S04E19 - Fifteen Years and What Do You Get.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 208991661,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-4/S04E19%20-%20Fifteen%20Years%20and%20What%20Do%20You%20Get.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-4@s4e20",
+          "sourceID": "Room-222-Season-4",
+          "seasonNumber": 4,
+          "episodeNumber": 20,
+          "title": "Someone Special",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-4/Room-222-Season-4.thumbs/S04E20%20-%20Someone%20Special_000003.jpg",
+          "airDate": "1973-02-16",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S04E20 - Someone Special.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 207574483,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-4/S04E20%20-%20Someone%20Special.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-4@s4e21",
+          "sourceID": "Room-222-Season-4",
+          "seasonNumber": 4,
+          "episodeNumber": 21,
+          "title": "A Hairy Escape",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-4/Room-222-Season-4.thumbs/S04E21%20-%20A%20Hairy%20Escape_000003.jpg",
+          "airDate": "1973-02-23",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S04E21 - A Hairy Escape.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 205830486,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-4/S04E21%20-%20A%20Hairy%20Escape.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-4@s4e22",
+          "sourceID": "Room-222-Season-4",
+          "seasonNumber": 4,
+          "episodeNumber": 22,
+          "title": "The Noon Goon",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-4/Room-222-Season-4.thumbs/S04E22%20-%20The%20Noon%20Goon_000003.jpg",
+          "airDate": "1973-03-02",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S04E22 - The Noon Goon.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 207043801,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-4/S04E22%20-%20The%20Noon%20Goon.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-4@s4e23",
+          "sourceID": "Room-222-Season-4",
+          "seasonNumber": 4,
+          "episodeNumber": 23,
+          "title": "To Go with the Bubbles",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-4/Room-222-Season-4.thumbs/S04E23%20-%20To%20Go%20With%20the%20Bubbles_000003.jpg",
+          "airDate": "1973-03-09",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S04E23 - To Go With the Bubbles.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 206471164,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-4/S04E23%20-%20To%20Go%20With%20the%20Bubbles.ia.mp4"
         }
       ]
     },
@@ -90,12 +1461,222 @@
       "seasonNumber": 5,
       "episodes": [
         {
-          "archiveID": "Room-222-Season-5",
+          "archiveID": "Room-222-Season-5@s5e01",
+          "sourceID": "Room-222-Season-5",
+          "seasonNumber": 5,
+          "episodeNumber": 1,
+          "title": "I've Got the Hammer, If You've Got the Thumb",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-5/Room-222-Season-5.thumbs/S05E01%20-%20I%27ve%20Got%20the%20Hammer%20if%20You%27ve%20Got%20the%20Thumb_000004.jpg",
+          "airDate": "1973-09-14",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S05E01 - I've Got the Hammer if You've Got the Thumb.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 208917046,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-5/S05E01%20-%20I%27ve%20Got%20the%20Hammer%20if%20You%27ve%20Got%20the%20Thumb.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-5@s5e02",
+          "sourceID": "Room-222-Season-5",
+          "seasonNumber": 5,
+          "episodeNumber": 2,
+          "title": "Of Smoke-Filled Rooms",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-5/Room-222-Season-5.thumbs/S05E02%20-%20Of%20Smoke%20Filled%20Rooms_000004.jpg",
+          "airDate": "1973-09-21",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S05E02 - Of Smoke Filled Rooms.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 206038537,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-5/S05E02%20-%20Of%20Smoke%20Filled%20Rooms.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-5@s5e03",
+          "sourceID": "Room-222-Season-5",
+          "seasonNumber": 5,
+          "episodeNumber": 3,
+          "title": "Can Nun Be One Too Many?",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-5/Room-222-Season-5.thumbs/S05E03%20-%20Can%20Nun%20Be%20One%20Too%20Many_000004.jpg",
+          "airDate": "1973-09-28",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S05E03 - Can Nun Be One Too Many.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 206152176,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-5/S05E03%20-%20Can%20Nun%20Be%20One%20Too%20Many.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-5@s5e04",
+          "sourceID": "Room-222-Season-5",
+          "seasonNumber": 5,
+          "episodeNumber": 4,
+          "title": "No Island is an Island",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-5/Room-222-Season-5.thumbs/S05E04%20-%20No%20Island%20Is%20An%20Island_000004.jpg",
+          "airDate": "1973-10-05",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S05E04 - No Island Is An Island.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 207609412,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-5/S05E04%20-%20No%20Island%20Is%20An%20Island.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-5@s5e05",
+          "sourceID": "Room-222-Season-5",
+          "seasonNumber": 5,
+          "episodeNumber": 5,
+          "title": "Twenty-Five Words or Less",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-5/Room-222-Season-5.thumbs/S05E05%20-%20Twenty-Five%20Words%20or%20Less_000004.jpg",
+          "airDate": "1973-10-26",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S05E05 - Twenty-Five Words or Less.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 206002486,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-5/S05E05%20-%20Twenty-Five%20Words%20or%20Less.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-5@s5e06",
+          "sourceID": "Room-222-Season-5",
+          "seasonNumber": 5,
+          "episodeNumber": 6,
+          "title": "Pete's Protege",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-5/Room-222-Season-5.thumbs/S05E06%20-%20Pete%27s%20Protege_000006.jpg",
+          "airDate": "1973-11-02",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S05E06 - Pete's Protege.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 197931158,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-5/S05E06%20-%20Pete%27s%20Protege.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-5@s5e07",
+          "sourceID": "Room-222-Season-5",
+          "seasonNumber": 5,
+          "episodeNumber": 7,
+          "title": "Love is a Many Splintered Thing",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-5/Room-222-Season-5.thumbs/S05E07%20-%20Love%20Is%20A%20Many%20Splintered%20Thing_000006.jpg",
+          "airDate": "1973-11-09",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S05E07 - Love Is A Many Splintered Thing.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 197833162,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-5/S05E07%20-%20Love%20Is%20A%20Many%20Splintered%20Thing.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-5@s5e08",
+          "sourceID": "Room-222-Season-5",
+          "seasonNumber": 5,
+          "episodeNumber": 8,
+          "title": "Pi in the Sky",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-5/Room-222-Season-5.thumbs/S05E08%20-%20Pi%20in%20the%20Sky_000004.jpg",
+          "airDate": "1973-11-16",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S05E08 - Pi in the Sky.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 206768062,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-5/S05E08%20-%20Pi%20in%20the%20Sky.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-5@s5e09",
+          "sourceID": "Room-222-Season-5",
+          "seasonNumber": 5,
+          "episodeNumber": 9,
+          "title": "Mismatch Maker",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-5/Room-222-Season-5.thumbs/S05E09%20-%20Mismatch%20Maker_000004.jpg",
+          "airDate": "1973-11-30",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S05E09 - Mismatch Maker.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 207441122,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-5/S05E09%20-%20Mismatch%20Maker.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-5@s5e10",
+          "sourceID": "Room-222-Season-5",
+          "seasonNumber": 5,
+          "episodeNumber": 10,
+          "title": "Here's to the Boy Most Likely",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-5/Room-222-Season-5.thumbs/S05E10%20-%20Here%27s%20to%20the%20Boy%20Mostly%20Likely_000004.jpg",
+          "airDate": "1973-12-07",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S05E10 - Here's to the Boy Mostly Likely.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 208800655,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-5/S05E10%20-%20Here%27s%20to%20the%20Boy%20Mostly%20Likely.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-5@s5e11",
+          "sourceID": "Room-222-Season-5",
+          "seasonNumber": 5,
+          "episodeNumber": 11,
+          "title": "El Greco to Jason",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-5/Room-222-Season-5.thumbs/S05E11%20-%20El%20Greco%20to%20Jason_000006.jpg",
+          "airDate": "1973-12-21",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S05E11 - El Greco to Jason.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 196266146,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-5/S05E11%20-%20El%20Greco%20to%20Jason.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-5@s5e12",
+          "sourceID": "Room-222-Season-5",
           "seasonNumber": 5,
           "episodeNumber": 12,
           "title": "MPG",
           "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/gcAILcFjcpa6YQkMuwYhXBk2pog.jpg",
+          "stillURL": "https://archive.org/download/Room-222-Season-5/Room-222-Season-5.thumbs/S05E12%20-%20MPG_000004.jpg",
           "airDate": "1973-12-28",
           "year": 1973,
           "runtimeSeconds": 1800,
@@ -103,14 +1684,71 @@
             "name": "S05E12 - MPG.ia.mp4",
             "format": "h.264 IA",
             "sizeBytes": 209372094,
-            "tier": 2
+            "tier": 1
           },
           "downloadURL": "https://archive.org/download/Room-222-Season-5/S05E12%20-%20MPG.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-5@s5e13",
+          "sourceID": "Room-222-Season-5",
+          "seasonNumber": 5,
+          "episodeNumber": 13,
+          "title": "I Didn't Raise My Girl to Be a Soldier",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-5/Room-222-Season-5.thumbs/S05E13%20-%20I%20Didn%27t%20Raise%20My%20Girl%20to%20Be%20A%20Soldier_000006.jpg",
+          "airDate": "1974-01-04",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S05E13 - I Didn't Raise My Girl to Be A Soldier.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 198929216,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-5/S05E13%20-%20I%20Didn%27t%20Raise%20My%20Girl%20to%20Be%20A%20Soldier.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-5@s5e14",
+          "sourceID": "Room-222-Season-5",
+          "seasonNumber": 5,
+          "episodeNumber": 14,
+          "title": "Cry, Uncle",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-5/Room-222-Season-5.thumbs/S05E14%20-%20Cry%20Uncle_000006.jpg",
+          "airDate": "1974-01-11",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "S05E14 - Cry Uncle.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 199496490,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-5/S05E14%20-%20Cry%20Uncle.ia.mp4"
+        },
+        {
+          "archiveID": "Room-222-Season-5@s5e15",
+          "sourceID": "Room-222-Season-5",
+          "seasonNumber": 5,
+          "episodeNumber": 15,
+          "title": "Jason and Big Mo",
+          "overview": null,
+          "stillURL": "https://archive.org/download/Room-222-Season-5/Room-222-Season-5.thumbs/S05E15%20-%20Jason%20and%20Big%20Mo_000006.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2488,
+          "videoFile": {
+            "name": "S05E15 - Jason and Big Mo.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 196569858,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Room-222-Season-5/S05E15%20-%20Jason%20and%20Big%20Mo.ia.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 4,
+  "episodesCount": 90,
   "canonicalEpisodesCount": 112,
   "tvdbID": "73081",
   "artworkSource": "tvdb",

@@ -21,12 +21,374 @@
       "seasonNumber": 2,
       "episodes": [
         {
-          "archiveID": "the-felony-squad-1967-season-2",
+          "archiveID": "the-felony-squad-1967-season-2@s2e01",
+          "sourceID": "the-felony-squad-1967-season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Let Him Die!",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-08-31",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Felony.Squad.Season.2 (26 of 26)/S02E01 - Let Him Die.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 71706762,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-felony-squad-1967-season-2/Felony.Squad.Season.2%20%2826%20of%2026%29/S02E01%20-%20Let%20Him%20Die.mp4"
+        },
+        {
+          "archiveID": "the-felony-squad-1967-season-2@s2e02",
+          "sourceID": "the-felony-squad-1967-season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "The Counterfeit Cop",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-09-05",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Felony.Squad.Season.2 (26 of 26)/S02E02 - The Counterfeit Cop.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 84866451,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-felony-squad-1967-season-2/Felony.Squad.Season.2%20%2826%20of%2026%29/S02E02%20-%20The%20Counterfeit%20Cop.mp4"
+        },
+        {
+          "archiveID": "the-felony-squad-1967-season-2@s2e03",
+          "sourceID": "the-felony-squad-1967-season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "A Most Proper Killing",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-09-14",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Felony.Squad.Season.2 (26 of 26)/S02E03 - A Most Proper Killing.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 67756270,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-felony-squad-1967-season-2/Felony.Squad.Season.2%20%2826%20of%2026%29/S02E03%20-%20A%20Most%20Proper%20Killing.mp4"
+        },
+        {
+          "archiveID": "the-felony-squad-1967-season-2@s2e04",
+          "sourceID": "the-felony-squad-1967-season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "The 30-Gram Kill",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-09-20",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Felony.Squad.Season.2 (26 of 26)/S02E04 - The 30-Gram Kill.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 64556095,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-felony-squad-1967-season-2/Felony.Squad.Season.2%20%2826%20of%2026%29/S02E04%20-%20The%2030-Gram%20Kill.mp4"
+        },
+        {
+          "archiveID": "the-felony-squad-1967-season-2@s2e05",
+          "sourceID": "the-felony-squad-1967-season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "The Death Bag",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-09-26",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Felony.Squad.Season.2 (26 of 26)/S02E05 - The Death Bag.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 81303454,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-felony-squad-1967-season-2/Felony.Squad.Season.2%20%2826%20of%2026%29/S02E05%20-%20The%20Death%20Bag.mp4"
+        },
+        {
+          "archiveID": "the-felony-squad-1967-season-2@s2e06",
+          "sourceID": "the-felony-squad-1967-season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "The Deadly Junkman",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-10-03",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Felony.Squad.Season.2 (26 of 26)/S02E06 - The Deadly Junkman.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 83256872,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-felony-squad-1967-season-2/Felony.Squad.Season.2%20%2826%20of%2026%29/S02E06%20-%20The%20Deadly%20Junkman.mp4"
+        },
+        {
+          "archiveID": "the-felony-squad-1967-season-2@s2e07",
+          "sourceID": "the-felony-squad-1967-season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "The Pat Hand of Death",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-10-19",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Felony.Squad.Season.2 (26 of 26)/S02E07 - The Pat Hand of Death.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 68222066,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-felony-squad-1967-season-2/Felony.Squad.Season.2%20%2826%20of%2026%29/S02E07%20-%20The%20Pat%20Hand%20of%20Death.mp4"
+        },
+        {
+          "archiveID": "the-felony-squad-1967-season-2@s2e08",
+          "sourceID": "the-felony-squad-1967-season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "Hit and Run, Run, Run",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-10-26",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Felony.Squad.Season.2 (26 of 26)/S02E08 - Hit, and Run, Run, Run.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 75175848,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-felony-squad-1967-season-2/Felony.Squad.Season.2%20%2826%20of%2026%29/S02E08%20-%20Hit%2C%20and%20Run%2C%20Run%2C%20Run.mp4"
+        },
+        {
+          "archiveID": "the-felony-squad-1967-season-2@s2e09",
+          "sourceID": "the-felony-squad-1967-season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "Time of Trial",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-11-01",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Felony.Squad.Season.2 (26 of 26)/S02E09 - Time of Trial.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 312297560,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-felony-squad-1967-season-2/Felony.Squad.Season.2%20%2826%20of%2026%29/S02E09%20-%20Time%20of%20Trial.ia.mp4"
+        },
+        {
+          "archiveID": "the-felony-squad-1967-season-2@s2e10",
+          "sourceID": "the-felony-squad-1967-season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "Who'll Take Care of Joey?",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-11-08",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Felony.Squad.Season.2 (26 of 26)/S02E10 - Who'll Take Care of Joey.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 317447663,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-felony-squad-1967-season-2/Felony.Squad.Season.2%20%2826%20of%2026%29/S02E10%20-%20Who%27ll%20Take%20Care%20of%20Joey.ia.mp4"
+        },
+        {
+          "archiveID": "the-felony-squad-1967-season-2@s2e11",
+          "sourceID": "the-felony-squad-1967-season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "My Mommy Got Lost",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-11-15",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Felony.Squad.Season.2 (26 of 26)/S02E11 - My Mommy Got Lost.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 310899036,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-felony-squad-1967-season-2/Felony.Squad.Season.2%20%2826%20of%2026%29/S02E11%20-%20My%20Mommy%20Got%20Lost.ia.mp4"
+        },
+        {
+          "archiveID": "the-felony-squad-1967-season-2@s2e12",
+          "sourceID": "the-felony-squad-1967-season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "Ordeal by Terror",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-11-24",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Felony.Squad.Season.2 (26 of 26)/S02E12 - Ordeal by Terror.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 71518827,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-felony-squad-1967-season-2/Felony.Squad.Season.2%20%2826%20of%2026%29/S02E12%20-%20Ordeal%20by%20Terror.mp4"
+        },
+        {
+          "archiveID": "the-felony-squad-1967-season-2@s2e13",
+          "sourceID": "the-felony-squad-1967-season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "An Arrangement with Death (1)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-12-01",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Felony.Squad.Season.2 (26 of 26)/S02E13 - An Arrangement with Death (Part 1).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 65668281,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-felony-squad-1967-season-2/Felony.Squad.Season.2%20%2826%20of%2026%29/S02E13%20-%20An%20Arrangement%20with%20Death%20%28Part%201%29.mp4"
+        },
+        {
+          "archiveID": "the-felony-squad-1967-season-2@s2e14",
+          "sourceID": "the-felony-squad-1967-season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 14,
+          "title": "An Arrangement with Death (2)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-12-07",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Felony.Squad.Season.2 (26 of 26)/S02E14 - An Arrangement with Death (Part 2).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 70285376,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-felony-squad-1967-season-2/Felony.Squad.Season.2%20%2826%20of%2026%29/S02E14%20-%20An%20Arrangement%20with%20Death%20%28Part%202%29.mp4"
+        },
+        {
+          "archiveID": "the-felony-squad-1967-season-2@s2e15",
+          "sourceID": "the-felony-squad-1967-season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 15,
+          "title": "No Sad Songs for Charlie",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-12-14",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Felony.Squad.Season.2 (26 of 26)/S02E15 - No Sad Songs for Charlie.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 66315989,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-felony-squad-1967-season-2/Felony.Squad.Season.2%20%2826%20of%2026%29/S02E15%20-%20No%20Sad%20Songs%20for%20Charlie.mp4"
+        },
+        {
+          "archiveID": "the-felony-squad-1967-season-2@s2e16",
+          "sourceID": "the-felony-squad-1967-season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 16,
+          "title": "Bed of Strangers",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-12-21",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Felony.Squad.Season.2 (26 of 26)/S02E16 - Bed of Strangers.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 68332254,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-felony-squad-1967-season-2/Felony.Squad.Season.2%20%2826%20of%2026%29/S02E16%20-%20Bed%20of%20Strangers.mp4"
+        },
+        {
+          "archiveID": "the-felony-squad-1967-season-2@s2e17",
+          "sourceID": "the-felony-squad-1967-season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 17,
+          "title": "Killing, Country Style",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1967-12-28",
+          "year": 1967,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Felony.Squad.Season.2 (26 of 26)/S02E17 - Killing, Country Style.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 314355887,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-felony-squad-1967-season-2/Felony.Squad.Season.2%20%2826%20of%2026%29/S02E17%20-%20Killing%2C%20Country%20Style.ia.mp4"
+        },
+        {
+          "archiveID": "the-felony-squad-1967-season-2@s2e18",
+          "sourceID": "the-felony-squad-1967-season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 18,
+          "title": "The Flip Side of Fear (1)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1968-01-04",
+          "year": 1968,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Felony.Squad.Season.2 (26 of 26)/S02E18 - The Flip Side of Fear (Part 1).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 67795422,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-felony-squad-1967-season-2/Felony.Squad.Season.2%20%2826%20of%2026%29/S02E18%20-%20The%20Flip%20Side%20of%20Fear%20%28Part%201%29.mp4"
+        },
+        {
+          "archiveID": "the-felony-squad-1967-season-2@s2e19",
+          "sourceID": "the-felony-squad-1967-season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 19,
+          "title": "The Flip Side of Fear (2)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1968-01-11",
+          "year": 1968,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Felony.Squad.Season.2 (26 of 26)/S02E19 - The Flip Side of Fear (Part 2).mp4",
+            "format": "MPEG4",
+            "sizeBytes": 58520119,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-felony-squad-1967-season-2/Felony.Squad.Season.2%20%2826%20of%2026%29/S02E19%20-%20The%20Flip%20Side%20of%20Fear%20%28Part%202%29.mp4"
+        },
+        {
+          "archiveID": "the-felony-squad-1967-season-2@s2e20",
+          "sourceID": "the-felony-squad-1967-season-2",
           "seasonNumber": 2,
           "episodeNumber": 20,
           "title": "The Love Victim",
           "overview": null,
-          "stillURL": "https://archive.org/download/archivewatch-covers/the-felony-squad-1967-season-2.0ba7ebe5.jpg",
+          "stillURL": null,
           "airDate": "1968-01-25",
           "year": 1968,
           "runtimeSeconds": 1800,
@@ -34,14 +396,128 @@
             "name": "Felony.Squad.Season.2 (26 of 26)/S02E20 - The Love Victim.ia.mp4",
             "format": "h.264 IA",
             "sizeBytes": 329144634,
-            "tier": 2
+            "tier": 1
           },
           "downloadURL": "https://archive.org/download/the-felony-squad-1967-season-2/Felony.Squad.Season.2%20%2826%20of%2026%29/S02E20%20-%20The%20Love%20Victim.ia.mp4"
+        },
+        {
+          "archiveID": "the-felony-squad-1967-season-2@s2e21",
+          "sourceID": "the-felony-squad-1967-season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 21,
+          "title": "The Deadly Abductors",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1968-02-01",
+          "year": 1968,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Felony.Squad.Season.2 (26 of 26)/S02E21 - The Deadly Abductors.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 64049215,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-felony-squad-1967-season-2/Felony.Squad.Season.2%20%2826%20of%2026%29/S02E21%20-%20The%20Deadly%20Abductors.mp4"
+        },
+        {
+          "archiveID": "the-felony-squad-1967-season-2@s2e22",
+          "sourceID": "the-felony-squad-1967-season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 22,
+          "title": "Nightmare on a Dead-End Street",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1968-02-12",
+          "year": 1968,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Felony.Squad.Season.2 (26 of 26)/S02E22 - Nightmare on a Dead End Street.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 336383129,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-felony-squad-1967-season-2/Felony.Squad.Season.2%20%2826%20of%2026%29/S02E22%20-%20Nightmare%20on%20a%20Dead%20End%20Street.mp4"
+        },
+        {
+          "archiveID": "the-felony-squad-1967-season-2@s2e23",
+          "sourceID": "the-felony-squad-1967-season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 23,
+          "title": "Epitaph for a Cop",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1968-02-15",
+          "year": 1968,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Felony.Squad.Season.2 (26 of 26)/S02E23 - Epitaph for a Cop.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 72432807,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-felony-squad-1967-season-2/Felony.Squad.Season.2%20%2826%20of%2026%29/S02E23%20-%20Epitaph%20for%20a%20Cop.mp4"
+        },
+        {
+          "archiveID": "the-felony-squad-1967-season-2@s2e24",
+          "sourceID": "the-felony-squad-1967-season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 24,
+          "title": "Man on Fire",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1968-02-20",
+          "year": 1968,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Felony.Squad.Season.2 (26 of 26)/S02E24 - Man on Fire.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 78390380,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-felony-squad-1967-season-2/Felony.Squad.Season.2%20%2826%20of%2026%29/S02E24%20-%20Man%20on%20Fire.mp4"
+        },
+        {
+          "archiveID": "the-felony-squad-1967-season-2@s2e25",
+          "sourceID": "the-felony-squad-1967-season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 25,
+          "title": "Image of Evil",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1968-02-29",
+          "year": 1968,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Felony.Squad.Season.2 (26 of 26)/S02E25 - Image of Evil.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 263811247,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-felony-squad-1967-season-2/Felony.Squad.Season.2%20%2826%20of%2026%29/S02E25%20-%20Image%20of%20Evil.mp4"
+        },
+        {
+          "archiveID": "the-felony-squad-1967-season-2@s2e26",
+          "sourceID": "the-felony-squad-1967-season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 26,
+          "title": "The Human Target",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1968-03-07",
+          "year": 1968,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Felony.Squad.Season.2 (26 of 26)/S02E26 - The Human Target.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 195546361,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-felony-squad-1967-season-2/Felony.Squad.Season.2%20%2826%20of%2026%29/S02E26%20-%20The%20Human%20Target.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 1,
+  "episodesCount": 26,
   "canonicalEpisodesCount": 73,
   "tvdbID": "76482",
   "artworkSource": "tvdb",

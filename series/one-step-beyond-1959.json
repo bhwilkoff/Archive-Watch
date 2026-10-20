@@ -21,6 +21,25 @@
       "seasonNumber": 1,
       "episodes": [
         {
+          "archiveID": "one-step-beyond-season-1-1959@s1e00",
+          "sourceID": "one-step-beyond-season-1-1959",
+          "seasonNumber": 1,
+          "episodeNumber": 0,
+          "title": "One Step Beyond - - Newland Series Promo",
+          "overview": null,
+          "stillURL": "https://archive.org/download/one-step-beyond-season-1-1959/one-step-beyond-season-1-1959.thumbs/One%20Step%20Beyond%20-%20s01e00%20-%20Newland%20Series%20Promo_000090.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 242,
+          "videoFile": {
+            "name": "One Step Beyond - s01e00 - Newland Series Promo.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 24130816,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/one-step-beyond-season-1-1959/One%20Step%20Beyond%20-%20s01e00%20-%20Newland%20Series%20Promo.ia.mp4"
+        },
+        {
           "archiveID": "S1E1THEBRIDEPOSSESSED",
           "seasonNumber": 1,
           "episodeNumber": 1,
@@ -75,6 +94,25 @@
           "downloadURL": "https://archive.org/download/S1E3EMERGENCYONLY/S1E3%20-%20%20EMERGENCY%20ONLY.mp4"
         },
         {
+          "archiveID": "one-step-beyond-season-1-1959@s1e04",
+          "sourceID": "one-step-beyond-season-1-1959",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "One Step Beyond - - The Dark Room",
+          "overview": null,
+          "stillURL": "https://archive.org/download/one-step-beyond-season-1-1959/one-step-beyond-season-1-1959.thumbs/One%20Step%20Beyond%20-%20s01e04%20-%20The%20Dark%20Room_000745.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1509,
+          "videoFile": {
+            "name": "One Step Beyond - s01e04 - The Dark Room.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 153396495,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/one-step-beyond-season-1-1959/One%20Step%20Beyond%20-%20s01e04%20-%20The%20Dark%20Room.ia.mp4"
+        },
+        {
           "archiveID": "S1E4THEDARKROOM",
           "seasonNumber": 1,
           "episodeNumber": 4,
@@ -91,6 +129,25 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/S1E4THEDARKROOM/S1E4%20-%20THE%20DARK%20ROOM.mp4"
+        },
+        {
+          "archiveID": "one-step-beyond-season-1-1959@s1e05",
+          "sourceID": "one-step-beyond-season-1-1959",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "One Step Beyond - - 12 Hours to Live",
+          "overview": null,
+          "stillURL": "https://archive.org/download/one-step-beyond-season-1-1959/one-step-beyond-season-1-1959.thumbs/One%20Step%20Beyond%20-%20s01e05%20-%2012%20Hours%20to%20Live_000723.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1463,
+          "videoFile": {
+            "name": "One Step Beyond - s01e05 - 12 Hours to Live.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 81023530,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/one-step-beyond-season-1-1959/One%20Step%20Beyond%20-%20s01e05%20-%2012%20Hours%20to%20Live.ia.mp4"
         },
         {
           "archiveID": "S1E512HOURSTOLIVE",
@@ -129,6 +186,25 @@
           "downloadURL": "https://archive.org/download/S1E6Epilogue_201804/S1E6%20-%20Epilogue.mp4"
         },
         {
+          "archiveID": "one-step-beyond-season-1-1959@s1e07",
+          "sourceID": "one-step-beyond-season-1-1959",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "One Step Beyond - - The Dream",
+          "overview": null,
+          "stillURL": "https://archive.org/download/one-step-beyond-season-1-1959/one-step-beyond-season-1-1959.thumbs/One%20Step%20Beyond%20-%20s01e07%20-%20The%20Dream_000742.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1504,
+          "videoFile": {
+            "name": "One Step Beyond - s01e07 - The Dream.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 80183403,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/one-step-beyond-season-1-1959/One%20Step%20Beyond%20-%20s01e07%20-%20The%20Dream.ia.mp4"
+        },
+        {
           "archiveID": "OneStepBeyondTheDream",
           "seasonNumber": 1,
           "episodeNumber": 7,
@@ -147,31 +223,13 @@
           "downloadURL": "https://archive.org/download/OneStepBeyondTheDream/OneStepBeyondTheDream.ia.mp4"
         },
         {
-          "archiveID": "one-step-beyond-season-1-1959",
-          "seasonNumber": 1,
-          "episodeNumber": 8,
-          "title": "Premonition",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/c0IHtUsTGy2XbAEPuPScwqDdcEB.jpg",
-          "airDate": "1959-03-10",
-          "year": 1959,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "One Step Beyond - s01e08 - Premonition.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 202178122,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/one-step-beyond-season-1-1959/One%20Step%20Beyond%20-%20s01e08%20-%20Premonition.ia.mp4"
-        },
-        {
           "archiveID": "S1E8PREMONITION",
           "seasonNumber": 1,
           "episodeNumber": 8,
           "title": "Premonition",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w300/ca85g0R6nR8cfxWrGswRtbuyccs.jpg",
-          "airDate": null,
+          "airDate": "1959-03-10",
           "year": 1959,
           "runtimeSeconds": 1800,
           "videoFile": {
@@ -199,6 +257,25 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/S1E9THEDEADPARTOFTHEHOUSE_201804/S1E9%20-%20THE%20DEAD%20PART%20OF%20THE%20HOUSE.mp4"
+        },
+        {
+          "archiveID": "one-step-beyond-season-1-1959@s1e10",
+          "sourceID": "one-step-beyond-season-1-1959",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "One Step Beyond - - The Vision",
+          "overview": null,
+          "stillURL": "https://archive.org/download/one-step-beyond-season-1-1959/one-step-beyond-season-1-1959.thumbs/One%20Step%20Beyond%20-%20s01e10%20-%20The%20Vision_000751.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1526,
+          "videoFile": {
+            "name": "One Step Beyond - s01e10 - The Vision.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 45882387,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/one-step-beyond-season-1-1959/One%20Step%20Beyond%20-%20s01e10%20-%20The%20Vision.mp4"
         },
         {
           "archiveID": "S1E10THEVISION",
@@ -255,6 +332,44 @@
           "downloadURL": "https://archive.org/download/S1E12THERETURNOFMITCHELLCAMPION/S1E12%20-%20THE%20RETURN%20OF%20MITCHELL%20CAMPION.mp4"
         },
         {
+          "archiveID": "one-step-beyond-season-1-1959@s1e13",
+          "sourceID": "one-step-beyond-season-1-1959",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "One Step Beyond - - The Navigator",
+          "overview": null,
+          "stillURL": "https://archive.org/download/one-step-beyond-season-1-1959/one-step-beyond-season-1-1959.thumbs/One%20Step%20Beyond%20-%20s01e13%20-%20The%20Navigator_000752.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1527,
+          "videoFile": {
+            "name": "One Step Beyond - s01e13 - The Navigator.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 68294589,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/one-step-beyond-season-1-1959/One%20Step%20Beyond%20-%20s01e13%20-%20The%20Navigator.ia.mp4"
+        },
+        {
+          "archiveID": "one-step-beyond-season-1-1959@s1e14",
+          "sourceID": "one-step-beyond-season-1-1959",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "One Step Beyond - - The Secret",
+          "overview": null,
+          "stillURL": "https://archive.org/download/one-step-beyond-season-1-1959/one-step-beyond-season-1-1959.thumbs/One%20Step%20Beyond%20-%20s01e14%20-%20The%20Secret_000614.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1495,
+          "videoFile": {
+            "name": "One Step Beyond - s01e14 - The Secret.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 70307369,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/one-step-beyond-season-1-1959/One%20Step%20Beyond%20-%20s01e14%20-%20The%20Secret.ia.mp4"
+        },
+        {
           "archiveID": "S1E14THESECRET",
           "seasonNumber": 1,
           "episodeNumber": 14,
@@ -271,6 +386,25 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/S1E14THESECRET/S1E14%20-%20THE%20SECRET.mp4"
+        },
+        {
+          "archiveID": "one-step-beyond-season-1-1959@s1e15",
+          "sourceID": "one-step-beyond-season-1-1959",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "One Step Beyond - - The Aerialist",
+          "overview": null,
+          "stillURL": "https://archive.org/download/one-step-beyond-season-1-1959/one-step-beyond-season-1-1959.thumbs/One%20Step%20Beyond%20-%20s01e15%20-%20The%20Aerialist_000723.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1465,
+          "videoFile": {
+            "name": "One Step Beyond - s01e15 - The Aerialist.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 57653205,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/one-step-beyond-season-1-1959/One%20Step%20Beyond%20-%20s01e15%20-%20The%20Aerialist.mp4"
         },
         {
           "archiveID": "S1E15THEAERIALIST",
@@ -415,6 +549,25 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/S1E22THERIDDLE/S1E22%20-%20THE%20RIDDLE.mp4"
+        },
+        {
+          "archiveID": "one-step-beyond-season-1-1959@s1e22",
+          "sourceID": "one-step-beyond-season-1-1959",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "▶ One Step Beyond - - The Riddle",
+          "overview": null,
+          "stillURL": "https://archive.org/download/one-step-beyond-season-1-1959/one-step-beyond-season-1-1959.thumbs/%E2%96%B6%20One%20Step%20Beyond%20-%20s01e22%20-%20The%20Riddle_000742.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1502,
+          "videoFile": {
+            "name": "▶ One Step Beyond - s01e22 - The Riddle.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 76929765,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/one-step-beyond-season-1-1959/%E2%96%B6%20One%20Step%20Beyond%20-%20s01e22%20-%20The%20Riddle.mp4"
         }
       ]
     },
@@ -764,6 +917,44 @@
           "downloadURL": "https://archive.org/download/S2E19CALLFROMTOMORROW/S2E19%20-%20CALL%20FROM%20TOMORROW.mp4"
         },
         {
+          "archiveID": "one-step-beyond-season-2@s2e20",
+          "sourceID": "one-step-beyond-season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 20,
+          "title": "Who Are You?",
+          "overview": null,
+          "stillURL": "https://archive.org/download/one-step-beyond-season-2/one-step-beyond-season-2.thumbs/One%20Step%20Beyond%20-%20s02e20%20-%20Who%20are%20You_000742.jpg",
+          "airDate": "1960-02-02",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "One Step Beyond - s02e20 - Who are You.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 113762001,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/one-step-beyond-season-2/One%20Step%20Beyond%20-%20s02e20%20-%20Who%20are%20You.ia.mp4"
+        },
+        {
+          "archiveID": "one-step-beyond-season-2@s2e21",
+          "sourceID": "one-step-beyond-season-2",
+          "seasonNumber": 2,
+          "episodeNumber": 21,
+          "title": "The Day the World Wept: The Lincoln Story",
+          "overview": null,
+          "stillURL": "https://archive.org/download/one-step-beyond-season-2/one-step-beyond-season-2.thumbs/One%20Step%20Beyond%20-%20s02e21%20-%20The%20Day%20the%20World%20Wept_000681.jpg",
+          "airDate": "1960-02-09",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "One Step Beyond - s02e21 - The Day the World Wept.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 61482759,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/one-step-beyond-season-2/One%20Step%20Beyond%20-%20s02e21%20-%20The%20Day%20the%20World%20Wept.ia.mp4"
+        },
+        {
           "archiveID": "S2E22THELOVERS",
           "seasonNumber": 2,
           "episodeNumber": 22,
@@ -1014,24 +1205,6 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/S2E35CONTACT/S2E35%20-%20CONTACT.mp4"
-        },
-        {
-          "archiveID": "one-step-beyond-season-2",
-          "seasonNumber": 2,
-          "episodeNumber": 35,
-          "title": "One Step Beyond - Season 2",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/c0IHtUsTGy2XbAEPuPScwqDdcEB.jpg",
-          "airDate": null,
-          "year": 1959,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "One Step Beyond - s02e35 - Contact.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 259098137,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/one-step-beyond-season-2/One%20Step%20Beyond%20-%20s02e35%20-%20Contact.ia.mp4"
         },
         {
           "archiveID": "S2E36THELONELYROOM",
@@ -1615,31 +1788,13 @@
           "downloadURL": "https://archive.org/download/S3E28THEAVENGERS/S3E28%20-%20THE%20AVENGERS.mp4"
         },
         {
-          "archiveID": "one-step-beyond-season-3",
-          "seasonNumber": 3,
-          "episodeNumber": 29,
-          "title": "The Prisoner",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/c0IHtUsTGy2XbAEPuPScwqDdcEB.jpg",
-          "airDate": "1961-05-02",
-          "year": 1961,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "One Step Beyond - s03e29 - The Prisoner.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 381633939,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/one-step-beyond-season-3/One%20Step%20Beyond%20-%20s03e29%20-%20The%20Prisoner.ia.mp4"
-        },
-        {
           "archiveID": "S3E29THEPRISONER",
           "seasonNumber": 3,
           "episodeNumber": 29,
           "title": "The Prisoner",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w300/vNPdX6eWFH4bTQPL64dZmYQ65Gl.jpg",
-          "airDate": null,
+          "airDate": "1961-05-02",
           "year": 1961,
           "runtimeSeconds": 1800,
           "videoFile": {
@@ -1703,12 +1858,107 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/S3E32THEVILLA/S3E32%20-%20THE%20VILLA.mp4"
+        },
+        {
+          "archiveID": "one-step-beyond-season-3@s3e33",
+          "sourceID": "one-step-beyond-season-3",
+          "seasonNumber": 3,
+          "episodeNumber": 33,
+          "title": "Midnight",
+          "overview": null,
+          "stillURL": "https://archive.org/download/one-step-beyond-season-3/one-step-beyond-season-3.thumbs/One%20Step%20Beyond%20-%20s03e33%20-%20Midnight_000725.jpg",
+          "airDate": "1961-06-13",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "One Step Beyond - s03e33 - Midnight.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 85194526,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/one-step-beyond-season-3/One%20Step%20Beyond%20-%20s03e33%20-%20Midnight.ia.mp4"
+        },
+        {
+          "archiveID": "one-step-beyond-season-3@s3e34",
+          "sourceID": "one-step-beyond-season-3",
+          "seasonNumber": 3,
+          "episodeNumber": 34,
+          "title": "The Tiger",
+          "overview": null,
+          "stillURL": "https://archive.org/download/one-step-beyond-season-3/one-step-beyond-season-3.thumbs/One%20Step%20Beyond%20-%20s03e34%20-%20The%20Tiger_000731.jpg",
+          "airDate": "1961-06-20",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "One Step Beyond - s03e34 - The Tiger.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 51918857,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/one-step-beyond-season-3/One%20Step%20Beyond%20-%20s03e34%20-%20The%20Tiger.mp4"
+        },
+        {
+          "archiveID": "one-step-beyond-season-3@s3e35",
+          "sourceID": "one-step-beyond-season-3",
+          "seasonNumber": 3,
+          "episodeNumber": 35,
+          "title": "Nightmare",
+          "overview": null,
+          "stillURL": "https://archive.org/download/one-step-beyond-season-3/one-step-beyond-season-3.thumbs/One%20Step%20Beyond%20-%20s03e35%20-%20Nightmare_000719.jpg",
+          "airDate": "1961-06-27",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "One Step Beyond - s03e35 - Nightmare.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 357685723,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/one-step-beyond-season-3/One%20Step%20Beyond%20-%20s03e35%20-%20Nightmare.ia.mp4"
+        },
+        {
+          "archiveID": "one-step-beyond-season-3@s3e36",
+          "sourceID": "one-step-beyond-season-3",
+          "seasonNumber": 3,
+          "episodeNumber": 36,
+          "title": "Eyewitness",
+          "overview": null,
+          "stillURL": "https://archive.org/download/one-step-beyond-season-3/one-step-beyond-season-3.thumbs/One%20Step%20Beyond%20-%20s03e36%20-%20Eye%20Witness_000734.jpg",
+          "airDate": "1961-07-04",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "One Step Beyond - s03e36 - Eye Witness.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 179497575,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/one-step-beyond-season-3/One%20Step%20Beyond%20-%20s03e36%20-%20Eye%20Witness.ia.mp4"
         }
       ]
     },
     {
       "seasonNumber": null,
       "episodes": [
+        {
+          "archiveID": "one-step-beyond-season-1-1959@x-00-one-step-beyond-intro",
+          "sourceID": "one-step-beyond-season-1-1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "00-One-Step-Beyond-intro",
+          "overview": null,
+          "stillURL": "https://archive.org/download/one-step-beyond-season-1-1959/one-step-beyond-season-1-1959.thumbs/00-One-Step-Beyond-intro_000125.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 266,
+          "videoFile": {
+            "name": "00-One-Step-Beyond-intro.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 24618607,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/one-step-beyond-season-1-1959/00-One-Step-Beyond-intro.ia.mp4"
+        },
         {
           "archiveID": "OSB-TheBridePossessed",
           "seasonNumber": null,
@@ -1748,7 +1998,7 @@
       ]
     }
   ],
-  "episodesCount": 95,
+  "episodesCount": 108,
   "canonicalEpisodesCount": 97,
   "tvdbID": "76479",
   "artworkSource": "tvdb",

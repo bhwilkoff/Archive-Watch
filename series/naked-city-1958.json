@@ -4,7 +4,7 @@
   "tvmazeID": 14401,
   "title": "Naked City",
   "yearStart": 1958,
-  "yearEnd": 1961,
+  "yearEnd": 1963,
   "overview": "Naked City was inspired by the 1948 motion picture The Naked City. Filmed on location in New York City, the series centered on the detectives of NYPD's 65th Precinct.",
   "posterURL": "https://artworks.thetvdb.com/banners/posters/76686-1.jpg",
   "backdropURL": null,
@@ -39,22 +39,2622 @@
           "downloadURL": "https://archive.org/download/naked-city-tv-1958-colorized-s-01e-01-meridian/Naked%20City%20TV%201958%20colorized%20s01e01%20%22Meridian%22.mp4"
         },
         {
-          "archiveID": "naked-city-s-01-e-01-meridian",
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e02",
+          "sourceID": "naked-city-s-01-e-01-meridian",
           "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Meridian",
+          "episodeNumber": 2,
+          "title": "Nickel Ride",
+          "overview": "Lt.Muldoon reluctantly takes on the task to tell the veteran Captain of the Staten Island ferry, it might be time to retire. At the same time armed robbers are completing a heist of an armored car on the same ferry.",
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E02%20Nickel%20Ride_000879.jpg",
+          "airDate": "1958-10-07",
+          "year": 1958,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Naked City S01E02 Nickel Ride.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 168984853,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E02%20Nickel%20Ride.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e03",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Line of Duty",
+          "overview": "Dt.Halloran kills a robber who is just about to shoot him. However lingering feelings of guilt having him approach the man's family to see the type of man he was.",
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E03%20Line%20of%20Duty_000883.jpg",
+          "airDate": "1958-10-14",
+          "year": 1958,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Naked City S01E03 Line of Duty.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 140965035,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E03%20Line%20of%20Duty.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e04",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Sidewalk Fisherman",
+          "overview": "Gino makes a living by fishing coins out of sidewalk grates tries to adopt a young orphaned boy",
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E04%20Sidewalk%20Fisherman_000882.jpg",
+          "airDate": "1958-10-21",
+          "year": 1958,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Naked City S01E04 Sidewalk Fisherman.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 171248853,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E04%20Sidewalk%20Fisherman.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e05",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Violent Circle",
+          "overview": "Dt.Halloran goes undercover as a mental ward patient trying to identify the murderer of a patient who witnessed a gang killing",
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E05%20The%20Violent%20Circle_000883.jpg",
+          "airDate": "1958-10-28",
+          "year": 1958,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Naked City S01E05 The Violent Circle.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 147986901,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E05%20The%20Violent%20Circle.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e06",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Stakeout",
+          "overview": "A young Detective attempts to prove something after lying about the circumstances of his partners death during a stakeout.",
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E06%20Stakeout_000876.jpg",
+          "airDate": "1958-11-04",
+          "year": 1958,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Naked City S01E06 Stakeout.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 119788644,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E06%20Stakeout.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e07",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "No More Rumbles",
           "overview": null,
-          "stillURL": "https://archive.org/services/img/naked-city-s-01-e-01-meridian",
-          "airDate": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E07%20No%20More%20Rumbles_000879.jpg",
+          "airDate": "1958-11-11",
+          "year": 1958,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Naked City S01E07 No More Rumbles.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 176498848,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E07%20No%20More%20Rumbles.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e08",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Belvedere Tower",
+          "overview": "A thief assaults milkmen and steals their uniforms to gain access to wealthy people's apartments while their out of town.",
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E08%20Belvedere%20Tower_000878.jpg",
+          "airDate": "1958-11-18",
+          "year": 1958,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Naked City S01E08 Belvedere Tower.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 173222965,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E08%20Belvedere%20Tower.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e09",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Bird Guard",
+          "overview": "After mobster Dapper Eddie Higgins is gunned down at his barber, Dt.Halloran finds the victims fiancee in a lighthouse. She may be holding papers incriminating the killers.",
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E09%20The%20Bird%20Guard_000880.jpg",
+          "airDate": "1958-11-25",
+          "year": 1958,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Naked City S01E09 The Bird Guard.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 178536052,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E09%20The%20Bird%20Guard.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e10",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "The Other Face of Goodness",
+          "overview": "NYC police hunt a killer who strangles married, physically-challenged women with a coat hanger in their own homes.After dozens of false confessions...a man is arrested..",
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E10%20The%20Other%20Face%20of%20Goodness_000878.jpg",
+          "airDate": "1958-12-02",
+          "year": 1958,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Naked City S01E10 The Other Face of Goodness.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 198143863,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E10%20The%20Other%20Face%20of%20Goodness.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e11",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Lady Bug, Lady Bug",
+          "overview": "A wealthy Industrialist refuses to give in to an extortionists demands or cooperate with police , resulting in the life of his son being threatened.",
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E11%20Lady%20Bug%2C%20Lady%20Bug_000880.jpg",
+          "airDate": "1958-12-09",
+          "year": 1958,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Naked City S01E11 Lady Bug, Lady Bug.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 145757395,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E11%20Lady%20Bug%2C%20Lady%20Bug.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e12",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Susquehanna 4-7598",
+          "overview": "Carol Thomas ,a young woman fresh to New York seemingly hears a woman being murdered on her newly installed phone line. With the police doubtful Carol plays Detective....",
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E12%20Susquehanna%204-7598_000882.jpg",
+          "airDate": "1958-12-16",
+          "year": 1958,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Naked City S01E12 Susquehanna 4-7598.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 145783541,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E12%20Susquehanna%204-7598.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e13",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "And a Merry Christmas to the Force on Patrol",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E13%20And%20a%20Merry%20Christmas%20to%20the%20Force%20on%20Patrol_000879.jpg",
+          "airDate": "1958-12-23",
+          "year": 1958,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Naked City S01E13 And a Merry Christmas to the Force on Patrol.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 150023272,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E13%20And%20a%20Merry%20Christmas%20to%20the%20Force%20on%20Patrol.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e14",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Explosive Heart",
+          "overview": "The millionaire father finds his daughters husband out for revenge after he writes the man out of the family fortune.The husband plans to blow up the father's boat.",
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E14%20The%20Explosive%20Heart_000885.jpg",
+          "airDate": "1958-12-30",
+          "year": 1958,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Naked City S01E14 The Explosive Heart.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 155946000,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E14%20The%20Explosive%20Heart.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e15",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "The Manhole",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E15%20The%20Manhole_000875.jpg",
+          "airDate": "1959-01-06",
+          "year": 1959,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S01E15 The Manhole.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 118249359,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E15%20The%20Manhole.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e16",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Even Crows Sing Good",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E16%20Even%20Crows%20Sing%20Good_000883.jpg",
+          "airDate": "1959-01-13",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Naked City S01E16 Even Crows Sing Good.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 127933489,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E16%20Even%20Crows%20Sing%20Good.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e17",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Burst of Passion",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E17%20Burst%20of%20Passion_000875.jpg",
+          "airDate": "1959-01-20",
+          "year": 1959,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S01E17 Burst of Passion.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 128199127,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E17%20Burst%20of%20Passion.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e18",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Goodbye, My Lady Love",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E18%20Goodbye%2C%20My%20Lady%20Love_000876.jpg",
+          "airDate": "1959-01-27",
+          "year": 1959,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S01E18 Goodbye, My Lady Love.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 175140274,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E18%20Goodbye%2C%20My%20Lady%20Love.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e19",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "The Shield",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E19%20The%20Shield_000881.jpg",
+          "airDate": "1959-02-03",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Naked City S01E19 The Shield.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 123595061,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E19%20The%20Shield.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e20",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "One to Get Lost",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E20%20One%20to%20Get%20Lost_000883.jpg",
+          "airDate": "1959-02-10",
+          "year": 1959,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S01E20 One to Get Lost.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 187074254,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E20%20One%20to%20Get%20Lost.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e21",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Hey, Teach!",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E21%20Hey%2C%20Teach%21_000881.jpg",
+          "airDate": "1959-02-17",
+          "year": 1959,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S01E21 Hey, Teach!.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 137093491,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E21%20Hey%2C%20Teach%21.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e22",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Ticker Tape",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E22%20Ticker%20Tape_000883.jpg",
+          "airDate": "1959-02-24",
+          "year": 1959,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S01E22 Ticker Tape.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 218247710,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E22%20Ticker%20Tape.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e23",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Fire Island",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E23%20Fire%20Island_000875.jpg",
+          "airDate": "1959-03-03",
+          "year": 1959,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S01E23 Fire Island.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 206466070,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E23%20Fire%20Island.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e24",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Ten Cent Dreams",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E24%20Ten%20Cent%20Dreams_000882.jpg",
+          "airDate": "1959-03-10",
+          "year": 1959,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S01E24 Ten Cent Dreams.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 177189396,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E24%20Ten%20Cent%20Dreams.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e25",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "The Bumper",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E25%20The%20Bumper_000877.jpg",
+          "airDate": "1959-03-17",
+          "year": 1959,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S01E25 The Bumper.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 164283403,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E25%20The%20Bumper.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e26",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "A Running of Bulls",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E26%20A%20Running%20of%20Bulls_000876.jpg",
+          "airDate": "1959-03-24",
+          "year": 1959,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S01E26 A Running of Bulls.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 144540323,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E26%20A%20Running%20of%20Bulls.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e27",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Fallen Star",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E27%20Fallen%20Star_000883.jpg",
+          "airDate": "1959-03-31",
+          "year": 1959,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S01E27 Fallen Star.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 162031799,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E27%20Fallen%20Star.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e28",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "Beyond Truth",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E28%20Beyond%20Truth_000881.jpg",
+          "airDate": "1959-04-07",
+          "year": 1959,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S01E28 Beyond Truth.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 138804889,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E28%20Beyond%20Truth.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e29",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "Baker's Dozen",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E29%20Baker%27s%20Dozen_000881.jpg",
+          "airDate": "1959-04-14",
+          "year": 1959,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S01E29 Baker's Dozen.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 131814172,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E29%20Baker%27s%20Dozen.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e30",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "The Rebirth",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E30%20The%20Rebirth_000878.jpg",
+          "airDate": "1959-04-21",
+          "year": 1959,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S01E30 The Rebirth.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 189953735,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E30%20The%20Rebirth.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e31",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "Four Sweet Corners",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E31%20Four%20Sweet%20Corners_000876.jpg",
+          "airDate": "1959-04-28",
+          "year": 1959,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S01E31 Four Sweet Corners.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 133073200,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E31%20Four%20Sweet%20Corners.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e32",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 32,
+          "title": "The Sandman",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E32%20The%20Sandman_000876.jpg",
+          "airDate": "1959-05-05",
+          "year": 1959,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S01E32 The Sandman.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 387955517,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E32%20The%20Sandman.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e33",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 33,
+          "title": "Turn of Events",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E33%20Turn%20of%20Events_000877.jpg",
+          "airDate": "1959-05-12",
+          "year": 1959,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S01E33 Turn of Events.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 317614731,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E33%20Turn%20of%20Events.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e34",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 34,
+          "title": "A Little Piece of the Action",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E34%20A%20Little%20Piece%20of%20the%20Action_000876.jpg",
+          "airDate": "1959-05-19",
+          "year": 1959,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S01E34 A Little Piece of the Action.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 221587385,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E34%20A%20Little%20Piece%20of%20the%20Action.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e35",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 35,
+          "title": "The Bloodhounds",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E35%20The%20Bloodhounds_000878.jpg",
+          "airDate": "1959-05-26",
+          "year": 1959,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S01E35 The Bloodhounds.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 175081367,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E35%20The%20Bloodhounds.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e36",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "The Scorpion Sting",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E36%20The%20Scorpion%20Sting_000877.jpg",
+          "airDate": "1959-06-02",
+          "year": 1959,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S01E36 The Scorpion Sting.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 132476623,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E36%20The%20Scorpion%20Sting.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e37",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 37,
+          "title": "Saw My Baby There",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E37%20Saw%20My%20Baby%20There_000876.jpg",
+          "airDate": "1959-06-09",
+          "year": 1959,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S01E37 Saw My Baby There.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 161074055,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E37%20Saw%20My%20Baby%20There.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e38",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 38,
+          "title": "The Canvas Bullet",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E38%20The%20Canvas%20Bullet_000876.jpg",
+          "airDate": "1959-06-16",
+          "year": 1959,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S01E38 The Canvas Bullet.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 165770059,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E38%20The%20Canvas%20Bullet.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s1e39",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 1,
+          "episodeNumber": 39,
+          "title": "A Wood of Thorns",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S01E39%20A%20Wood%20of%20Thorns_000883.jpg",
+          "airDate": "1959-06-23",
+          "year": 1959,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S01E39 A Wood of Thorns.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 155080793,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S01E39%20A%20Wood%20of%20Thorns.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s2e01",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "A Death of Princes",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S02E01%20A%20Death%20of%20Princes_002260.jpg",
+          "airDate": "1960-10-12",
+          "year": 1960,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S02E01 A Death of Princes.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 358351053,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S02E01%20A%20Death%20of%20Princes.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s2e02",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "The Pedigree Sheet",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S02E02%20The%20Pedigree%20Sheet_002250.jpg",
+          "airDate": "1960-10-19",
+          "year": 1960,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S02E02 The Pedigree Sheet.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 388691970,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S02E02%20The%20Pedigree%20Sheet.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s2e03",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "A Succession of Heartbeats",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S02E03%20A%20Succession%20of%20Heartbeats_002258.jpg",
+          "airDate": "1960-10-26",
+          "year": 1960,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S02E03 A Succession of Heartbeats.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 550695673,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S02E03%20A%20Succession%20of%20Heartbeats.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s2e04",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "Down the Long Night",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S02E04%20Down%20the%20Long%20Night_002254.jpg",
+          "airDate": "1960-11-02",
           "year": 1960,
           "runtimeSeconds": 3600,
           "videoFile": {
             "name": "Naked City S02E04 Down the Long Night.mp4",
             "format": "MPEG4",
             "sizeBytes": 625479634,
-            "tier": 2
+            "tier": 1
           },
           "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S02E04%20Down%20the%20Long%20Night.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s2e05",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "To Walk in Silence",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S02E05%20To%20Walk%20In%20Silence_002251.jpg",
+          "airDate": "1960-11-09",
+          "year": 1960,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S02E05 To Walk In Silence.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 271632074,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S02E05%20To%20Walk%20In%20Silence.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s2e06",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Killer with a Kiss",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S02E06%20Killer%20with%20A%20Kiss_002256.jpg",
+          "airDate": "1960-11-16",
+          "year": 1960,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S02E06 Killer with A Kiss.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 384442700,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S02E06%20Killer%20with%20A%20Kiss.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s2e07",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "Debt of Honor",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S02E07%20Debt%20of%20Honor_002251.jpg",
+          "airDate": "1960-11-23",
+          "year": 1960,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S02E07 Debt of Honor.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 302386998,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S02E07%20Debt%20of%20Honor.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s2e08",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 2,
+          "episodeNumber": 8,
+          "title": "The Human Trap",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S02E08%20The%20Human%20Trap_002235.jpg",
+          "airDate": "1960-11-30",
+          "year": 1960,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S02E08 The Human Trap.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 384643827,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S02E08%20The%20Human%20Trap.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s2e09",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "The Man Who Bit the Diamond in Half",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S02E09%20The%20Man%20Who%20Bit%20the%20Diamond%20In%20Half_002232.jpg",
+          "airDate": "1960-12-14",
+          "year": 1960,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S02E09 The Man Who Bit the Diamond In Half.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 373995042,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S02E09%20The%20Man%20Who%20Bit%20the%20Diamond%20In%20Half.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s2e10",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 2,
+          "episodeNumber": 10,
+          "title": "Bullets Cost Too Much",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S02E10%20Bullets%20Cost%20Too%20Much_002237.jpg",
+          "airDate": "1961-01-04",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S02E10 Bullets Cost Too Much.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 428619906,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S02E10%20Bullets%20Cost%20Too%20Much.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s2e11",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "Murder Is a Face I Know",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S02E11%20Murder%20Is%20a%20Face%20I%20Know_002235.jpg",
+          "airDate": "1961-01-11",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S02E11 Murder Is a Face I Know.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 291918404,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S02E11%20Murder%20Is%20a%20Face%20I%20Know.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s2e12",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "Landscape with Dead Figures",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S02E12%20Landscape%20with%20Dead%20Figures_002237.jpg",
+          "airDate": "1961-01-18",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S02E12 Landscape with Dead Figures.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 371141487,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S02E12%20Landscape%20with%20Dead%20Figures.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s2e13",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 2,
+          "episodeNumber": 13,
+          "title": "A Hole in the City",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S02E13%20A%20Hole%20in%20the%20City_002239.jpg",
+          "airDate": "1961-02-01",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S02E13 A Hole in the City.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 268856073,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S02E13%20A%20Hole%20in%20the%20City.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s2e14",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 2,
+          "episodeNumber": 14,
+          "title": "The Well-Dressed Termite",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S02E14%20The%20Well-Dressed%20Termite_002229.jpg",
+          "airDate": "1961-02-08",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S02E14 The Well-Dressed Termite.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 345245271,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S02E14%20The%20Well-Dressed%20Termite.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s2e15",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 2,
+          "episodeNumber": 15,
+          "title": "The Day It Rained Mink",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S02E15%20The%20Day%20It%20Rained%20Mink_002232.jpg",
+          "airDate": "1961-02-15",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S02E15 The Day It Rained Mink.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 344088460,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S02E15%20The%20Day%20It%20Rained%20Mink.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s2e16",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 2,
+          "episodeNumber": 16,
+          "title": "Button in the Haystack",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S02E16%20Button%20in%20the%20Haystack_002226.jpg",
+          "airDate": "1961-02-22",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S02E16 Button in the Haystack.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 279953623,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S02E16%20Button%20in%20the%20Haystack.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s2e17",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 2,
+          "episodeNumber": 17,
+          "title": "Shoes for Vinnie Winford",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S02E17%20Shoes%20for%20Vinnie%20Winford_002242.jpg",
+          "airDate": "1961-03-01",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S02E17 Shoes for Vinnie Winford.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 253309147,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S02E17%20Shoes%20for%20Vinnie%20Winford.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s2e18",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 2,
+          "episodeNumber": 18,
+          "title": "The Deadly Guinea Pig",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S02E18%20The%20Deadly%20Guinea%20Pig_002229.jpg",
+          "airDate": "1961-03-08",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S02E18 The Deadly Guinea Pig.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 369024216,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S02E18%20The%20Deadly%20Guinea%20Pig.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s2e19",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 2,
+          "episodeNumber": 19,
+          "title": "Vengeance Is a Wheel",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S02E19%20Vengeance%20Is%20a%20Wheel_002234.jpg",
+          "airDate": "1961-03-15",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S02E19 Vengeance Is a Wheel.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 224116707,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S02E19%20Vengeance%20Is%20a%20Wheel.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s2e20",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 2,
+          "episodeNumber": 20,
+          "title": "The Fault in Our Stars",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S02E20%20The%20Fault%20in%20Our%20Stars_002240.jpg",
+          "airDate": "1961-03-22",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S02E20 The Fault in Our Stars.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 302038319,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S02E20%20The%20Fault%20in%20Our%20Stars.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s2e21",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 2,
+          "episodeNumber": 21,
+          "title": "Tombstone for a Derelict",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S02E21%20Tombstone%20for%20a%20Derelict_002240.jpg",
+          "airDate": "1961-04-05",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S02E21 Tombstone for a Derelict.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 348414555,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S02E21%20Tombstone%20for%20a%20Derelict.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s2e22",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 2,
+          "episodeNumber": 22,
+          "title": "A Memory of Crying",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S02E22%20A%20Memory%20of%20Crying_002235.jpg",
+          "airDate": "1961-04-12",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S02E22 A Memory of Crying.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 307895207,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S02E22%20A%20Memory%20of%20Crying.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s2e23",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 2,
+          "episodeNumber": 23,
+          "title": "New York to L.A.",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S02E23%20New%20York%20to%20L.A._002238.jpg",
+          "airDate": "1961-04-19",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S02E23 New York to L.A..mp4",
+            "format": "MPEG4",
+            "sizeBytes": 269050616,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S02E23%20New%20York%20to%20L.A..mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s2e24",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 2,
+          "episodeNumber": 24,
+          "title": "A Very Cautious Boy",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S02E24%20A%20Very%20Cautious%20Boy_002205.jpg",
+          "airDate": "1961-04-26",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S02E24 A Very Cautious Boy.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 402447389,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S02E24%20A%20Very%20Cautious%20Boy.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s2e25",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 2,
+          "episodeNumber": 25,
+          "title": "An Economy of Death",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S02E25%20An%20Economy%20of%20Death_002231.jpg",
+          "airDate": "1961-05-03",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S02E25 An Economy of Death.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 408102720,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S02E25%20An%20Economy%20of%20Death.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s2e26",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 2,
+          "episodeNumber": 26,
+          "title": "C3H5(NO3)3",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S02E26%20C3H5%28NO3%293_002230.jpg",
+          "airDate": "1961-05-10",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S02E26 C3H5(NO3)3.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 348221208,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S02E26%20C3H5%28NO3%293.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s2e27",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 2,
+          "episodeNumber": 27,
+          "title": "Make-Believe Man",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S02E27%20Make-Believe%20Man_002242.jpg",
+          "airDate": "1961-05-17",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S02E27 Make-Believe Man.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 368457644,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S02E27%20Make-Believe%20Man.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s2e28",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 2,
+          "episodeNumber": 28,
+          "title": "To Dream Without Sleep",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S02E28%20To%20Dream%20Without%20Sleep_002231.jpg",
+          "airDate": "1961-05-24",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S02E28 To Dream Without Sleep.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 368403431,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S02E28%20To%20Dream%20Without%20Sleep.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s2e29",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 2,
+          "episodeNumber": 29,
+          "title": "A Kettle of Precious Fish",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S02E29%20A%20Kettle%20of%20Precious%20Fish_002226.jpg",
+          "airDate": "1961-05-31",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S02E29 A Kettle of Precious Fish.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 373785603,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S02E29%20A%20Kettle%20of%20Precious%20Fish.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s2e30",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 2,
+          "episodeNumber": 30,
+          "title": "Sweet Prince of Delancey Street",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S02E30%20Sweet%20Prince%20of%20Delancey%20Street_002232.jpg",
+          "airDate": "1961-06-07",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S02E30 Sweet Prince of Delancey Street.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 455007883,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S02E30%20Sweet%20Prince%20of%20Delancey%20Street.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s2e31",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 2,
+          "episodeNumber": 31,
+          "title": "The Day the Island Almost Sank",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S02E31%20The%20Day%20the%20Island%20Almost%20Sank_002237.jpg",
+          "airDate": "1961-06-14",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S02E31 The Day the Island Almost Sank.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 400909240,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S02E31%20The%20Day%20the%20Island%20Almost%20Sank.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s2e32",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 2,
+          "episodeNumber": 32,
+          "title": "Take and Put",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S02E32%20Take%20and%20Put_002239.jpg",
+          "airDate": "1961-06-21",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S02E32 Take and Put.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 366730777,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S02E32%20Take%20and%20Put.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s3e01",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "Take Off Your Hat When a Funeral Passes",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S03E01%20Take%20Off%20Your%20Hat%20When%20a%20Funeral%20Passes_000001.jpg",
+          "airDate": "1961-09-27",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S03E01 Take Off Your Hat When a Funeral Passes.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 404555984,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S03E01%20Take%20Off%20Your%20Hat%20When%20a%20Funeral%20Passes.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s3e02",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 3,
+          "episodeNumber": 2,
+          "title": "Dead on the Field of Honor",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S03E02%20Dead%20on%20the%20Field%20of%20Honor_000001.jpg",
+          "airDate": "1961-10-04",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S03E02 Dead on the Field of Honor.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 490592399,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S03E02%20Dead%20on%20the%20Field%20of%20Honor.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s3e03",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 3,
+          "episodeNumber": 3,
+          "title": "The Corpse Ran Down Mulberry Street",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S03E03%20The%20Corpse%20Ran%20Down%20Mulberry%20Street_000001.jpg",
+          "airDate": "1961-10-11",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S03E03 The Corpse Ran Down Mulberry Street.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 379436006,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S03E03%20The%20Corpse%20Ran%20Down%20Mulberry%20Street.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s3e04",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 3,
+          "episodeNumber": 4,
+          "title": "The Fingers of Henri Tourelle",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S03E04%20The%20Fingers%20of%20Henri%20Tourelle_000001.jpg",
+          "airDate": "1961-10-18",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S03E04 The Fingers of Henri Tourelle.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 358593432,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S03E04%20The%20Fingers%20of%20Henri%20Tourelle.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s3e05",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 3,
+          "episodeNumber": 5,
+          "title": "A Wednesday Night Story",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S03E05%20A%20Wednesday%20Night%20Story_000001.jpg",
+          "airDate": "1961-11-01",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S03E05 A Wednesday Night Story.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 402806984,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S03E05%20A%20Wednesday%20Night%20Story.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s3e06",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 3,
+          "episodeNumber": 6,
+          "title": "The Tragic Success of Alfred Tiloff",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S03E06%20The%20Tragic%20Success%20of%20Alfred%20Tiloff_000001.jpg",
+          "airDate": "1961-11-08",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S03E06 The Tragic Success of Alfred Tiloff.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 367643069,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S03E06%20The%20Tragic%20Success%20of%20Alfred%20Tiloff.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s3e07",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 3,
+          "episodeNumber": 7,
+          "title": "Which Is Joseph Creeley?",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S03E07%20Which%20Is%20Joseph%20Creeley_000001.jpg",
+          "airDate": "1961-11-15",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S03E07 Which Is Joseph Creeley.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 277673083,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S03E07%20Which%20Is%20Joseph%20Creeley.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s3e08",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 3,
+          "episodeNumber": 8,
+          "title": "Show Me the Way to Go Home",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S03E08%20Show%20Me%20the%20Way%20to%20Go%20Home_000001.jpg",
+          "airDate": "1961-11-22",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S03E08 Show Me the Way to Go Home.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 347682233,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S03E08%20Show%20Me%20the%20Way%20to%20Go%20Home.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s3e09",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 3,
+          "episodeNumber": 9,
+          "title": "The Hot Minerva",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S03E09%20The%20Hot%20Minerva_000001.jpg",
+          "airDate": "1961-11-29",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S03E09 The Hot Minerva.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 347785854,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S03E09%20The%20Hot%20Minerva.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s3e10",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 3,
+          "episodeNumber": 10,
+          "title": "Requiem for a Sunday Afternoon",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S03E10%20Requiem%20for%20a%20Sunday%20Afternoon_000001.jpg",
+          "airDate": "1961-12-06",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S03E10 Requiem for a Sunday Afternoon.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 357905312,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S03E10%20Requiem%20for%20a%20Sunday%20Afternoon.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s3e11",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 3,
+          "episodeNumber": 11,
+          "title": "Ooftus Goofus",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S03E11%20Ooftus%20Goofus_000001.jpg",
+          "airDate": "1961-12-13",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S03E11 Ooftus Goofus.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 330628406,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S03E11%20Ooftus%20Goofus.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s3e12",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 3,
+          "episodeNumber": 12,
+          "title": "Bridge Party",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S03E12%20Bridge%20Party_000001.jpg",
+          "airDate": "1961-12-27",
+          "year": 1961,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S03E12 Bridge Party.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 386261249,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S03E12%20Bridge%20Party.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s3e13",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 3,
+          "episodeNumber": 13,
+          "title": "The Face of the Enemy",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S03E13%20The%20Face%20of%20the%20Enemy_000001.jpg",
+          "airDate": "1962-01-03",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S03E13 The Face of the Enemy.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 322400777,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S03E13%20The%20Face%20of%20the%20Enemy.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s3e14",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 3,
+          "episodeNumber": 14,
+          "title": "Portrait of a Painter",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S03E14%20Portrait%20of%20a%20Painter_000001.jpg",
+          "airDate": "1962-01-10",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S03E14 Portrait of a Painter.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 281022603,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S03E14%20Portrait%20of%20a%20Painter.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s3e15",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 3,
+          "episodeNumber": 15,
+          "title": "The Night the Saints Lost Their Halos",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S03E15%20The%20Night%20the%20Saints%20Lost%20Their%20Halos_000001.jpg",
+          "airDate": "1962-01-17",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S03E15 The Night the Saints Lost Their Halos.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 302468681,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S03E15%20The%20Night%20the%20Saints%20Lost%20Their%20Halos.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s3e16",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 3,
+          "episodeNumber": 16,
+          "title": "The Contract",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S03E16%20The%20Contract_000001.jpg",
+          "airDate": "1962-01-24",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S03E16 The Contract.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 332515599,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S03E16%20The%20Contract.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s3e17",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 3,
+          "episodeNumber": 17,
+          "title": "One of the Most Important Men in the Whole World",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S03E17%20One%20of%20the%20Most%20Important%20Men%20in%20the%20Whole%20World_000001.jpg",
+          "airDate": "1962-01-31",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S03E17 One of the Most Important Men in the Whole World.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 462245494,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S03E17%20One%20of%20the%20Most%20Important%20Men%20in%20the%20Whole%20World.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s3e18",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 3,
+          "episodeNumber": 18,
+          "title": "A Case Study of Two Savages",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S03E18%20A%20Case%20Study%20of%20Two%20Savages_000001.jpg",
+          "airDate": "1962-02-07",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S03E18 A Case Study of Two Savages.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 310394824,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S03E18%20A%20Case%20Study%20of%20Two%20Savages.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s3e19",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 3,
+          "episodeNumber": 19,
+          "title": "Let Me Die Before I Wake",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S03E19%20Let%20Me%20Die%20Before%20I%20Wake_000001.jpg",
+          "airDate": "1962-02-14",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S03E19 Let Me Die Before I Wake.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 321804484,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S03E19%20Let%20Me%20Die%20Before%20I%20Wake.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s3e20",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 3,
+          "episodeNumber": 20,
+          "title": "To Walk Like a Lion",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S03E20%20To%20Walk%20Like%20a%20Lion_000001.jpg",
+          "airDate": "1962-02-28",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S03E20 To Walk Like a Lion.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 227231158,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S03E20%20To%20Walk%20Like%20a%20Lion.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s3e21",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 3,
+          "episodeNumber": 21,
+          "title": "Today the Man Who Kills Ants Is Coming",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S03E21%20Today%20the%20Man%20Who%20Kills%20Ants%20Is%20Coming_000001.jpg",
+          "airDate": "1962-03-07",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S03E21 Today the Man Who Kills Ants Is Coming.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 218795143,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S03E21%20Today%20the%20Man%20Who%20Kills%20Ants%20Is%20Coming.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s3e22",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 3,
+          "episodeNumber": 22,
+          "title": "A Run for the Money",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S03E22%20A%20Run%20for%20the%20Money_000001.jpg",
+          "airDate": "1962-03-14",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S03E22 A Run for the Money.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 364714539,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S03E22%20A%20Run%20for%20the%20Money.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s3e23",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 3,
+          "episodeNumber": 23,
+          "title": "The One Marked Hot Gives Cold",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S03E23%20The%20One%20Marked%20Hot%20Gives%20Cold_000001.jpg",
+          "airDate": "1962-03-21",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S03E23 The One Marked Hot Gives Cold.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 301803738,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S03E23%20The%20One%20Marked%20Hot%20Gives%20Cold.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s3e24",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 3,
+          "episodeNumber": 24,
+          "title": "Without Stick or Sword",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S03E24%20Without%20Stick%20or%20Sword_000001.jpg",
+          "airDate": "1962-03-28",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S03E24 Without Stick or Sword.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 399973538,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S03E24%20Without%20Stick%20or%20Sword.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s3e25",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 3,
+          "episodeNumber": 25,
+          "title": "Lament for a Dead Indian",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S03E25%20Lament%20for%20a%20Dead%20Indian_000001.jpg",
+          "airDate": "1962-04-11",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S03E25 Lament for a Dead Indian.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 420268519,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S03E25%20Lament%20for%20a%20Dead%20Indian.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s3e26",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 3,
+          "episodeNumber": 26,
+          "title": "The Sweetly Smiling Face of Truth",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S03E26%20The%20Sweetly%20Smiling%20Face%20of%20Truth_000001.jpg",
+          "airDate": "1962-04-25",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S03E26 The Sweetly Smiling Face of Truth.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 276335800,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S03E26%20The%20Sweetly%20Smiling%20Face%20of%20Truth.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s3e27",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 3,
+          "episodeNumber": 27,
+          "title": "...And If Any Are Frozen, Warm Them...",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S03E27%20...And%20If%20Any%20Are%20Frozen%2C%20Warm%20Them..._000001.jpg",
+          "airDate": "1962-05-09",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S03E27 ...And If Any Are Frozen, Warm Them....mp4",
+            "format": "MPEG4",
+            "sizeBytes": 343419601,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S03E27%20...And%20If%20Any%20Are%20Frozen%2C%20Warm%20Them....mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s3e28",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 3,
+          "episodeNumber": 28,
+          "title": "Strike a Statue",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S03E28%20Strike%20a%20Statue_000001.jpg",
+          "airDate": "1962-05-16",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S03E28 Strike a Statue.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 422195501,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S03E28%20Strike%20a%20Statue.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s3e29",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 3,
+          "episodeNumber": 29,
+          "title": "The Multiplicity of Herbert Konish",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S03E29%20The%20Multiplicity%20of%20Herbert%20Konish_000001.jpg",
+          "airDate": "1962-05-23",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S03E29 The Multiplicity of Herbert Konish.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 313399987,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S03E29%20The%20Multiplicity%20of%20Herbert%20Konish.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s3e30",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 3,
+          "episodeNumber": 30,
+          "title": "The King of Venus Will Take Care of You",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S03E30%20The%20King%20of%20Venus%20Will%20Take%20Care%20of%20You_000001.jpg",
+          "airDate": "1962-05-20",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S03E30 The King of Venus Will Take Care of You.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 394961510,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S03E30%20The%20King%20of%20Venus%20Will%20Take%20Care%20of%20You.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s3e31",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 3,
+          "episodeNumber": 31,
+          "title": "The Rydecker Case",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S03E31%20The%20Rydecker%20Case_000001.jpg",
+          "airDate": "1962-06-06",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S03E31 The Rydecker Case.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 331991978,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S03E31%20The%20Rydecker%20Case.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s3e32",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 3,
+          "episodeNumber": 32,
+          "title": "Memory of a Red Trolley Car",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S03E32%20Memory%20of%20a%20Red%20Trolley%20Car_000001.jpg",
+          "airDate": "1962-06-13",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S03E32 Memory of a Red Trolley Car.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 330564238,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S03E32%20Memory%20of%20a%20Red%20Trolley%20Car.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s3e33",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 3,
+          "episodeNumber": 33,
+          "title": "Goodbye Mama, Hello Auntie Maud",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S03E33%20Goodbye%20Mama%2C%20Hello%20Auntie%20Maud_000001.jpg",
+          "airDate": "1962-06-20",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S03E33 Goodbye Mama, Hello Auntie Maud.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 431688479,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S03E33%20Goodbye%20Mama%2C%20Hello%20Auntie%20Maud.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e01",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 1,
+          "title": "Hold for Gloria Christmas",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E01%20Hold%20for%20Gloria%20Christmas_000001.jpg",
+          "airDate": "1962-09-19",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E01 Hold for Gloria Christmas.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 281494120,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E01%20Hold%20for%20Gloria%20Christmas.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e02",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 2,
+          "title": "Idylls of a Running Back",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E02%20Idylls%20of%20a%20Running%20Back_000001.jpg",
+          "airDate": "1962-09-26",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E02 Idylls of a Running Back.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 273725182,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E02%20Idylls%20of%20a%20Running%20Back.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e03",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 3,
+          "title": "Daughter, Am I in My Father's House?",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E03%20Daughter%2C%20Am%20I%20in%20My%20Father%27s%20House_000001.jpg",
+          "airDate": "1962-10-03",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E03 Daughter, Am I in My Father's House.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 346796244,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E03%20Daughter%2C%20Am%20I%20in%20My%20Father%27s%20House.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e04",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 4,
+          "title": "And By the Sweat of Thy Brow...",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E04%20And%20By%20the%20Sweat%20of%20Thy%20Brow..._000001.jpg",
+          "airDate": "1962-10-10",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E04 And By the Sweat of Thy Brow....mp4",
+            "format": "MPEG4",
+            "sizeBytes": 225838035,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E04%20And%20By%20the%20Sweat%20of%20Thy%20Brow....mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e05",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 5,
+          "title": "Kill Me While I'm Young So I Can Die Happy",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E05%20Kill%20Me%20While%20I%27m%20Young%20So%20I%20Can%20Die%20Happy_000001.jpg",
+          "airDate": "1962-10-17",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E05 Kill Me While I'm Young So I Can Die Happy.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 253986068,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E05%20Kill%20Me%20While%20I%27m%20Young%20So%20I%20Can%20Die%20Happy.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e06",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 6,
+          "title": "Five Cranks for Winter... Ten Cranks for Spring",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E06%20Five%20Cranks%20for%20Winter...%20Ten%20Cranks%20for%20Spring_000001.jpg",
+          "airDate": "1962-10-24",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E06 Five Cranks for Winter... Ten Cranks for Spring.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 265925698,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E06%20Five%20Cranks%20for%20Winter...%20Ten%20Cranks%20for%20Spring.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e07",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 7,
+          "title": "Go Fight City Hall",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E07%20Go%20Fight%20City%20Hall_000001.jpg",
+          "airDate": "1962-10-31",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E07 Go Fight City Hall.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 236462346,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E07%20Go%20Fight%20City%20Hall.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e08",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 8,
+          "title": "Torment Him Much and Hold Him Long",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E08%20Torment%20Him%20Much%20and%20Hold%20Him%20Long_000001.jpg",
+          "airDate": "1962-11-07",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E08 Torment Him Much and Hold Him Long.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 267360665,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E08%20Torment%20Him%20Much%20and%20Hold%20Him%20Long.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e09",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 9,
+          "title": "Make It Fifty Dollars and Add Love to Nona",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E09%20Make%20It%20Fifty%20Dollars%20and%20Add%20Love%20to%20Nona_000001.jpg",
+          "airDate": "1962-11-14",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E09 Make It Fifty Dollars and Add Love to Nona.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 470582208,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E09%20Make%20It%20Fifty%20Dollars%20and%20Add%20Love%20to%20Nona.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e10",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 10,
+          "title": "A Horse Has a Big Head -- Let Him Worry!",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E10%20A%20Horse%20Has%20a%20Big%20Head%20--%20Let%20Him%20Worry%21_000001.jpg",
+          "airDate": "1962-11-21",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E10 A Horse Has a Big Head -- Let Him Worry!.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 215233329,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E10%20A%20Horse%20Has%20a%20Big%20Head%20--%20Let%20Him%20Worry%21.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e11",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 11,
+          "title": "Dust Devil on a Quiet Street",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E11%20Dust%20Devil%20on%20a%20Quiet%20Street_000001.jpg",
+          "airDate": "1962-11-28",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E11 Dust Devil on a Quiet Street.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 200388684,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E11%20Dust%20Devil%20on%20a%20Quiet%20Street.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e12",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 12,
+          "title": "The Virtues of Madame Douvay",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E12%20The%20Virtues%20of%20Madame%20Douvay_000001.jpg",
+          "airDate": "1962-12-05",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E12 The Virtues of Madame Douvay.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 219781491,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E12%20The%20Virtues%20of%20Madame%20Douvay.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e13",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 13,
+          "title": "King Stanislaus and the Knights of the Round Stable",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E13%20King%20Stanislaus%20and%20the%20Knights%20of%20the%20Round%20Stable_000001.jpg",
+          "airDate": "1962-12-12",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E13 King Stanislaus and the Knights of the Round Stable.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 283424857,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E13%20King%20Stanislaus%20and%20the%20Knights%20of%20the%20Round%20Stable.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e14",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 14,
+          "title": "Spectre of the Rose Street Gang",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E14%20Spectre%20of%20the%20Rose%20Street%20Gang_000001.jpg",
+          "airDate": "1962-12-19",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E14 Spectre of the Rose Street Gang.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 206022224,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E14%20Spectre%20of%20the%20Rose%20Street%20Gang.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e15",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 15,
+          "title": "Don't Knock It Till You've Tried It",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E15%20Don%27t%20Knock%20It%20Till%20You%27ve%20Tried%20It_000001.jpg",
+          "airDate": "1962-12-26",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E15 Don't Knock It Till You've Tried It.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 244053194,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E15%20Don%27t%20Knock%20It%20Till%20You%27ve%20Tried%20It.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e16",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 16,
+          "title": "Her Life in Moving Pictures",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E16%20Her%20Life%20in%20Moving%20Pictures_000001.jpg",
+          "airDate": "1963-01-02",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E16 Her Life in Moving Pictures.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 188886442,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E16%20Her%20Life%20in%20Moving%20Pictures.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e17",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 17,
+          "title": "Robin Hood and Clarence Darrow, They Went Out with Bow and Arrow",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E17%20Robin%20Hood%20and%20Clarence%20Darrow%2C%20They%20Went%20Out%20with%20Bow%20and%20Arrow_000001.jpg",
+          "airDate": "1962-01-09",
+          "year": 1962,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E17 Robin Hood and Clarence Darrow, They Went Out with Bow and Arrow.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 227861488,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E17%20Robin%20Hood%20and%20Clarence%20Darrow%2C%20They%20Went%20Out%20with%20Bow%20and%20Arrow.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e18",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 18,
+          "title": "The Apple Falls Not Far from the Tree",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E18%20The%20Apple%20Falls%20Not%20Far%20from%20the%20Tree_000001.jpg",
+          "airDate": "1963-01-23",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E18 The Apple Falls Not Far from the Tree.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 213765285,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E18%20The%20Apple%20Falls%20Not%20Far%20from%20the%20Tree.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e19",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 19,
+          "title": "Beyond This Place There Be Dragons",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E19%20Beyond%20This%20Place%20There%20Be%20Dragons_000001.jpg",
+          "airDate": "1963-01-30",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E19 Beyond This Place There Be Dragons.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 308097823,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E19%20Beyond%20This%20Place%20There%20Be%20Dragons.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e20",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 20,
+          "title": "A Man Without a Skin",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E20%20A%20Man%20Without%20a%20Skin_000001.jpg",
+          "airDate": "1963-02-06",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E20 A Man Without a Skin.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 294710808,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E20%20A%20Man%20Without%20a%20Skin.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e21",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 21,
+          "title": "Prime of Life",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E21%20Prime%20of%20Life_000001.jpg",
+          "airDate": "1963-02-13",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E21 Prime of Life.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 222070826,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E21%20Prime%20of%20Life.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e22",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 22,
+          "title": "Bringing Far Places Together",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E22%20Bringing%20Far%20Places%20Together_000001.jpg",
+          "airDate": "1963-02-20",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E22 Bringing Far Places Together.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 352637965,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E22%20Bringing%20Far%20Places%20Together.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e23",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 23,
+          "title": "The Highest of Prizes",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E23%20The%20Highest%20of%20Prizes_000001.jpg",
+          "airDate": "1963-02-27",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E23 The Highest of Prizes.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 251713497,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E23%20The%20Highest%20of%20Prizes.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e24",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 24,
+          "title": "Alive and Still a Second Lieutenant",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E24%20Alive%20and%20Still%20a%20Second%20Lieutenant_000001.jpg",
+          "airDate": "1963-03-06",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E24 Alive and Still a Second Lieutenant.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 289990631,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E24%20Alive%20and%20Still%20a%20Second%20Lieutenant.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e25",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 25,
+          "title": "Stop the Parade, a Baby Is Crying!",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E25%20Stop%20the%20Parade%2C%20a%20Baby%20Is%20Crying%21_000001.jpg",
+          "airDate": "1963-03-20",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E25 Stop the Parade, a Baby Is Crying!.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 328004323,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E25%20Stop%20the%20Parade%2C%20a%20Baby%20Is%20Crying%21.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e26",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 26,
+          "title": "On the Battlefront, Every Minute Is Important",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E26%20On%20the%20Battlefront%2C%20Every%20Minute%20Is%20Important_000001.jpg",
+          "airDate": "1963-03-27",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E26 On the Battlefront, Every Minute Is Important.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 222746820,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E26%20On%20the%20Battlefront%2C%20Every%20Minute%20Is%20Important.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e27",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 27,
+          "title": "Howard Running Bear Is a Turtle",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E27%20Howard%20Running%20Bear%20Is%20a%20Turtle_000001.jpg",
+          "airDate": "1963-04-03",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E27 Howard Running Bear Is a Turtle.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 305267194,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E27%20Howard%20Running%20Bear%20Is%20a%20Turtle.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e28",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 28,
+          "title": "No Naked Ladies in Front of Giovanni's House!",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E28%20No%20Naked%20Ladies%20in%20Front%20of%20Giovanni%27s%20House%21_000001.jpg",
+          "airDate": "1963-04-17",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E28 No Naked Ladies in Front of Giovanni's House!.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 233239408,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E28%20No%20Naked%20Ladies%20in%20Front%20of%20Giovanni%27s%20House%21.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e29",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 29,
+          "title": "Carrier",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E29%20Carrier_000001.jpg",
+          "airDate": "1963-04-24",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E29 Carrier.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 323914273,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E29%20Carrier.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e30",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 30,
+          "title": "Color Schemes Like Never Before",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E30%20Color%20Schemes%20Like%20Never%20Before_000001.jpg",
+          "airDate": "1963-05-01",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E30 Color Schemes Like Never Before.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 311592862,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E30%20Color%20Schemes%20Like%20Never%20Before.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e31",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 31,
+          "title": "The S.S. American Dream",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E31%20The%20S.S.%20American%20Dream_000001.jpg",
+          "airDate": "1963-05-08",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E31 The S.S. American Dream.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 210366363,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E31%20The%20S.S.%20American%20Dream.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e32",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 32,
+          "title": "One, Two, Three, Rita Rakahowski",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E32%20One%2C%20Two%2C%20Three%2C%20Rita%20Rakahowski_000001.jpg",
+          "airDate": "1963-05-15",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E32 One, Two, Three, Rita Rakahowski.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 249785175,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E32%20One%2C%20Two%2C%20Three%2C%20Rita%20Rakahowski.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e33",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 33,
+          "title": "Golden Lads and Girls",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E33%20Golden%20Lads%20and%20Girls_000001.jpg",
+          "airDate": "1963-05-22",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E33 Golden Lads and Girls.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 230692916,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E33%20Golden%20Lads%20and%20Girls.mp4"
+        },
+        {
+          "archiveID": "naked-city-s-01-e-01-meridian@s4e34",
+          "sourceID": "naked-city-s-01-e-01-meridian",
+          "seasonNumber": 4,
+          "episodeNumber": 34,
+          "title": "Barefoot on a Bed of Coals",
+          "overview": null,
+          "stillURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/naked-city-s-01-e-01-meridian.thumbs/Naked%20City%20S04E34%20Barefoot%20on%20a%20Bed%20of%20Coals_000001.jpg",
+          "airDate": "1963-05-29",
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Naked City S04E34 Barefoot on a Bed of Coals.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 243036935,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/naked-city-s-01-e-01-meridian/Naked%20City%20S04E34%20Barefoot%20on%20a%20Bed%20of%20Coals.mp4"
         }
       ]
     },
@@ -82,7 +2682,7 @@
       ]
     }
   ],
-  "episodesCount": 3,
+  "episodesCount": 139,
   "canonicalEpisodesCount": 138,
   "tvdbID": "76686",
   "artworkSource": "tvdb",

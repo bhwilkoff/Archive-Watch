@@ -20,15 +20,16 @@
       "seasonNumber": 0,
       "episodes": [
         {
-          "archiveID": "Steptoe_and_Son",
+          "archiveID": "Steptoe_and_Son@s0e01",
+          "sourceID": "Steptoe_and_Son",
           "seasonNumber": 0,
           "episodeNumber": 1,
-          "title": "Steptoe and Son",
+          "title": "Christmas Special The Party",
           "overview": null,
           "stillURL": null,
           "airDate": null,
-          "year": 1962,
-          "runtimeSeconds": null,
+          "year": null,
+          "runtimeSeconds": 2578,
           "videoFile": {
             "name": "Steptoe & Son/X-Mas Specials/S00E01 - Christmas Special The Party.ia.mp4",
             "format": "h.264 IA",
@@ -36,6 +37,25 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/X-Mas%20Specials/S00E01%20-%20Christmas%20Special%20The%20Party.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s0e02",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 0,
+          "episodeNumber": 2,
+          "title": "Christmas Special A Perfect Christmas (Season 8)",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2530,
+          "videoFile": {
+            "name": "Steptoe & Son/X-Mas Specials/S00E02 - Christmas Special A Perfect Christmas (Season 8).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 786602872,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/X-Mas%20Specials/S00E02%20-%20Christmas%20Special%20A%20Perfect%20Christmas%20%28Season%208%29.ia.mp4"
         }
       ]
     },
@@ -131,11 +151,996 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/SteptoeAndSon1x05/Steptoe%20And%20Son_%20S1E5%20-%20The%20Holiday.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s1e06",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Holiday",
+          "overview": "Classic rag and bone men comedy. Harold has holiday plans, and they don't involve Albert or the annual trip to Bognor Regis. Albert attempts to change his son's mind by using emotional blackmail.",
+          "stillURL": null,
+          "airDate": "1962-07-12",
+          "year": 1962,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 01/S01E06 - The Holiday.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 404166314,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2001/S01E06%20-%20The%20Holiday.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "Steptoe_and_Son@s2e01",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Wallah-Wallah Catsmeat",
+          "overview": "Hercules the horse is sick and the Steptoes' business is under threat. Fellow totters rally around and Albert and Harold hatch a plan to profit.",
+          "stillURL": null,
+          "airDate": "1963-01-03",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 02/S02E01 - Wallah-Wallah Catsmeat.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 919815805,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2002/S02E01%20-%20Wallah-Wallah%20Catsmeat.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s2e02",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "The Bath",
+          "overview": "Albert's habit of having a bath in the front room is ruining his son's love life. Harold has had enough and decides to build a proper bathroom but Albert is not happy.",
+          "stillURL": null,
+          "airDate": "1963-01-10",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 02/S02E02 - The Bath.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 766487327,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2002/S02E02%20-%20The%20Bath.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s2e03",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 2,
+          "episodeNumber": 3,
+          "title": "The Stepmother",
+          "overview": "Albert decides to get married again but, despite the qualities of his future stepmother, Harold does everything to put a stop to it.",
+          "stillURL": null,
+          "airDate": "1963-01-17",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 02/S02E03 - The Stepmother.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 834289860,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2002/S02E03%20-%20The%20Stepmother.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s2e04",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "Sixty-Five Today",
+          "overview": "Harold takes Albert on a big night out in the West End to celebrate his birthday. But with no beer and horrible food, the night soon turns into a disaster.",
+          "stillURL": null,
+          "airDate": "1963-01-24",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 02/S02E04 - Sixty-Five Today.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 844575263,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2002/S02E04%20-%20Sixty-Five%20Today.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s2e05",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "A Musical Evening",
+          "overview": "Harold has acquired a collection of classical music records and plans a cultural evening. Albert hates it so much he takes some drastic action.",
+          "stillURL": null,
+          "airDate": "1963-01-31",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 02/S02E05 - A Musical Evening.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 540454634,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2002/S02E05%20-%20A%20Musical%20Evening.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s2e06",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Full House",
+          "overview": "Harold has arranged a poker game with a few friends. Albert is morally outraged by the idea of gambling. However, he sees Harold is being cheated by his 'friends' and decides to help.",
+          "stillURL": null,
+          "airDate": "1963-02-07",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 02/S02E06 - Full House.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 698209875,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2002/S02E06%20-%20Full%20House.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s2e07",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "Is That Your Horse Outside?",
+          "overview": "While out on his rounds Harold falls for a wealthy married woman. Albert is unimpressed and tries to talk Harold out of making a fool of himself.",
+          "stillURL": null,
+          "airDate": "1963-02-14",
+          "year": 1963,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 02/S02E07 - Is That Your Horse Outside.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1016964588,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2002/S02E07%20-%20Is%20That%20Your%20Horse%20Outside.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "Steptoe_and_Son@s3e01",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "Homes Fit for Heroes",
+          "overview": "Harold makes plans to sail around the world with a group of young adventurers, but he has to solve the problem of what to do with Albert. He decides to put his father into an old people's home.",
+          "stillURL": null,
+          "airDate": "1964-01-07",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 03/S03E01 - Homes Fit For Heroes.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 684216338,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2003/S03E01%20-%20Homes%20Fit%20For%20Heroes.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s3e02",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 3,
+          "episodeNumber": 2,
+          "title": "The Wooden Overcoats",
+          "overview": "Harold buys a job lot of coffins and stores them in the living room. Albert, who's very superstitious, strongly objects. He moves into the stable to sleep until they have been moved, leaving Harold alone in the house at night.",
+          "stillURL": null,
+          "airDate": "1964-01-14",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 03/S03E02 - The Wooden Overcoats.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 445467022,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2003/S03E02%20-%20The%20Wooden%20Overcoats.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s3e03",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 3,
+          "episodeNumber": 3,
+          "title": "The Lead Man Cometh",
+          "overview": "Cash flow problems cause Harold to buy some lead at a knockdown price from a stranger who visits the yard. Panic sets in when the police pay a visit.",
+          "stillURL": null,
+          "airDate": "1964-01-21",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 03/S03E03 - The Lead Man Cometh.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 281799112,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2003/S03E03%20-%20The%20Lead%20Man%20Cometh.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s3e04",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 3,
+          "episodeNumber": 4,
+          "title": "Steptoe a La Cart",
+          "overview": "Harold meets a French au pair on his rounds and starts dating her. When he brings her round to meet his father, a revelation from Albert's past means Harold's relationship with Monique may be too close for comfort.",
+          "stillURL": null,
+          "airDate": "1964-01-28",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 03/S03E04 - Steptoe a La Cart.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 286067171,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2003/S03E04%20-%20Steptoe%20a%20La%20Cart.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s3e05",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 3,
+          "episodeNumber": 5,
+          "title": "Sunday for Seven Days",
+          "overview": "Harry and Albert plan an evening at the movies, but can't agree on what movie to see.",
+          "stillURL": null,
+          "airDate": "1964-02-04",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 03/S03E05 - Sunday For Seven Days.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 446621475,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2003/S03E05%20-%20Sunday%20For%20Seven%20Days.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s3e06",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 3,
+          "episodeNumber": 6,
+          "title": "The Bonds That Bind Us",
+          "overview": "When the Steptoes receive an unexpected windfall, life is suddenly filled with exciting possibilities.",
+          "stillURL": null,
+          "airDate": "1964-02-11",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 03/S03E06 - The Bonds That Bind Us.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 274680811,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2003/S03E06%20-%20The%20Bonds%20That%20Bind%20Us.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s3e07",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 3,
+          "episodeNumber": 7,
+          "title": "The Lodger",
+          "overview": "In an attempt to bring in some money, Albert decides to advertise for a lodger, but Harold threatens to leave as soon as the lodger shows up.",
+          "stillURL": null,
+          "airDate": "1964-02-18",
+          "year": 1964,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 03/S03E07 - The Lodger.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 381310675,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2003/S03E07%20-%20The%20Lodger.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "Steptoe_and_Son@s4e01",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 4,
+          "episodeNumber": 1,
+          "title": "And Afterwards at...",
+          "overview": "Harold finally gets to the altar with Albert as his best man, but at the last moment his bride, changes her mindLater back at the house Harold rows with the family, when they want their presents back and he throws them out.",
+          "stillURL": null,
+          "airDate": "1965-10-04",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 04/S04E01 - And Afterwards At.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 495476372,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2004/S04E01%20-%20And%20Afterwards%20At.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s4e02",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 4,
+          "episodeNumber": 2,
+          "title": "Crossed Swords",
+          "overview": "Albert gets locked in the outhouse while Harold finds a rare piece of porcelain.",
+          "stillURL": null,
+          "airDate": "1965-10-11",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 04/S04E02 - Crossed Swords.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 711402420,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2004/S04E02%20-%20Crossed%20Swords.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s4e03",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 4,
+          "episodeNumber": 3,
+          "title": "Those Magnificent Men and Their Heating Machines",
+          "overview": "Harold decides that he wants central heating for the house and plans to install the system himself.",
+          "stillURL": null,
+          "airDate": "1965-10-18",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 04/S04E03 - Those Magnificent Men and Their Heating Machines.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 386445323,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2004/S04E03%20-%20Those%20Magnificent%20Men%20and%20Their%20Heating%20Machines.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s4e04",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 4,
+          "episodeNumber": 4,
+          "title": "The Siege of Steptoe Street",
+          "overview": "When a summons is delivered from the local butcher, the Steptoes barricade themselves in the house.",
+          "stillURL": null,
+          "airDate": "1965-10-25",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 04/S04E04 - The Siege of Steptoe Street.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 411620550,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2004/S04E04%20-%20The%20Siege%20of%20Steptoe%20Street.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s4e05",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 4,
+          "episodeNumber": 5,
+          "title": "A Box in Town",
+          "overview": "Harold decides to rent his own apartment so he can have some privacy, leaving Albert on his own.",
+          "stillURL": null,
+          "airDate": "1965-11-01",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 04/S04E05 - A Box in Town.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 523252826,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2004/S04E05%20-%20A%20Box%20in%20Town.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s4e06",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 4,
+          "episodeNumber": 6,
+          "title": "My Old Man's a Tory",
+          "overview": "Harold advances his political ambitions by hosting a labor party meeting at home, but his father Albert, a Tory supporter, attempts to disrupt it.",
+          "stillURL": null,
+          "airDate": "1965-11-08",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 04/S04E06 - My Old Man's a Tory.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 235810824,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2004/S04E06%20-%20My%20Old%20Man%27s%20a%20Tory.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s4e07",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 4,
+          "episodeNumber": 7,
+          "title": "Pilgrim's Progress",
+          "overview": "Harold takes Albert on a trip to France to visit the old battlefields; on the flight, Albert can't keep his opinions to himself.",
+          "stillURL": null,
+          "airDate": "1965-11-15",
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 04/S04E07 - Pilgrim's Progress.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 368497086,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2004/S04E07%20-%20Pilgrim%27s%20Progress.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 5,
+      "episodes": [
+        {
+          "archiveID": "Steptoe_and_Son@s5e01",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 5,
+          "episodeNumber": 1,
+          "title": "A Death in the Family",
+          "overview": "Harold has to break the sad news to Albert that Hercules the horse is dead; Albert may have a heart after all.",
+          "stillURL": null,
+          "airDate": "1970-03-06",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 05/S05E01 - A Death In the Family.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 331409010,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2005/S05E01%20-%20A%20Death%20In%20the%20Family.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s5e02",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 5,
+          "episodeNumber": 2,
+          "title": "A Winter's Tale",
+          "overview": "Harold prepares for a fortnight's skiing party without Albert; maybe fate will smile upon him just this once.",
+          "stillURL": null,
+          "airDate": "1970-03-13",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 05/S05E02 - A Winter's Tale.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 298513702,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2005/S05E02%20-%20A%20Winter%27s%20Tale.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s5e03",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 5,
+          "episodeNumber": 3,
+          "title": "Any Old Iron?",
+          "overview": "Albert is concerned about a dealer's interest in Harold, which he believes may not be purely professional.",
+          "stillURL": null,
+          "airDate": "1970-03-20",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 05/S05E03 - Any Old Iron.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 280941919,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2005/S05E03%20-%20Any%20Old%20Iron.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s5e04",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 5,
+          "episodeNumber": 4,
+          "title": "Steptoe and Son - and Son!",
+          "overview": "Harold believes that he is about to become a father, but Albert is slightly more suspicious of the mother's virtuous nature.",
+          "stillURL": null,
+          "airDate": "1970-03-27",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 05/S05E04 - Steptoe and Son - and Son.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 284447111,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2005/S05E04%20-%20Steptoe%20and%20Son%20-%20and%20Son.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s5e05",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 5,
+          "episodeNumber": 5,
+          "title": "The Colour Problem",
+          "overview": "Harold wants to get himself a flashy new car to impress the dolly birds; Albert, on the other hand, is slightly more interested in one of those nice new color televisions",
+          "stillURL": null,
+          "airDate": "1970-04-03",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 05/S05E05 - The Colour Problem.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 342006955,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2005/S05E05%20-%20The%20Colour%20Problem.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s5e06",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 5,
+          "episodeNumber": 6,
+          "title": "T.B. or Not T.B.?",
+          "overview": "The pair gets into a tizzy over a TB test following a mix up with the results.",
+          "stillURL": null,
+          "airDate": "1970-04-10",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 05/S05E06 - T.B. or not T.B..ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 272441797,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2005/S05E06%20-%20T.B.%20or%20not%20T.B..ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s5e07",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 5,
+          "episodeNumber": 7,
+          "title": "Men of Property",
+          "overview": "The rag and bone men discover that Monopoly and life are not quite the same thing when they try to buy their yard.",
+          "stillURL": null,
+          "airDate": "1970-04-17",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 05/S05E07 - Men of Property.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 319711902,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2005/S05E07%20-%20Men%20of%20Property.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 6,
+      "episodes": [
+        {
+          "archiveID": "Steptoe_and_Son@s6e01",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 6,
+          "episodeNumber": 1,
+          "title": "Robbery with Violence",
+          "overview": "Albert accidentally destroys Harold's collection of china, then fabricates a story about a robbery and the police and the press get involved.",
+          "stillURL": null,
+          "airDate": "1970-11-02",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 06/S06E01 - Robbery with Violence.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 329205202,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2006/S06E01%20-%20Robbery%20with%20Violence.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s6e02",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 6,
+          "episodeNumber": 2,
+          "title": "Come Dancing",
+          "overview": "When Harold meets a woman who loves ballroom dancing, he discovers that although he can't dance a step, his father used to trip the light fantastic with some aplomb.",
+          "stillURL": null,
+          "airDate": "1970-11-09",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 06/S06E02 - Come Dancing.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 590184325,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2006/S06E02%20-%20Come%20Dancing.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s6e03",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 6,
+          "episodeNumber": 3,
+          "title": "Two's Company",
+          "overview": "Albert brings his fiancee home to meet Harold, not realizing that the two of them were in love many years ago and still are.",
+          "stillURL": null,
+          "airDate": "1970-11-16",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 06/S06E03 - Two's Company.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 292753930,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2006/S06E03%20-%20Two%27s%20Company.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s6e04",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 6,
+          "episodeNumber": 4,
+          "title": "Tea for Two",
+          "overview": "The local Conservative party wants Albert to entertain Ted Heath at the yard as a stunt for a bi election; Staunch Labourite Harold vows to do everything to sabotage it.",
+          "stillURL": null,
+          "airDate": "1970-11-23",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 06/S06E04 - Tea for Two.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 313509024,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2006/S06E04%20-%20Tea%20for%20Two.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s6e05",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 6,
+          "episodeNumber": 5,
+          "title": "Without Prejudice",
+          "overview": "Harold and Albert decide to move from their house under the Shepherd's Bush flyover to take up residence in a more salubrious suburb of London.",
+          "stillURL": null,
+          "airDate": "1970-11-30",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 06/S06E05 - Without Prejudice.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 358397438,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2006/S06E05%20-%20Without%20Prejudice.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s6e06",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 6,
+          "episodeNumber": 6,
+          "title": "Pot Black",
+          "overview": "Harold is determined to beat Albert at snooker and buys a table so that he can do so; unfortunately, it's slightly too large for their room.",
+          "stillURL": null,
+          "airDate": "1970-12-07",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 06/S06E06 - Pot Black.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 370951458,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2006/S06E06%20-%20Pot%20Black.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s6e07",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 6,
+          "episodeNumber": 7,
+          "title": "The Three Feathers",
+          "overview": "Harold thinks he has struck antique gold when he buys a 19th century commode, but Albert isn't so sure.",
+          "stillURL": null,
+          "airDate": "1970-12-14",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 06/S06E07 - The Three Feathers.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 328916740,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2006/S06E07%20-%20The%20Three%20Feathers.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s6e08",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 6,
+          "episodeNumber": 8,
+          "title": "Cuckoo in the Nest",
+          "overview": "Harold's long lost brother turns up from Australia and stands to inherit half of the business, but he may not be who he claims to be.",
+          "stillURL": null,
+          "airDate": "1970-12-21",
+          "year": 1970,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 06/S06E08 - Cuckoo in the Nest.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 584756248,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2006/S06E08%20-%20Cuckoo%20in%20the%20Nest.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 7,
+      "episodes": [
+        {
+          "archiveID": "Steptoe_and_Son@s7e01",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 7,
+          "episodeNumber": 1,
+          "title": "Men of Letters",
+          "overview": "Albert and Harold are inspired to take of journalism after a game of Scrabble.",
+          "stillURL": null,
+          "airDate": "1972-02-21",
+          "year": 1972,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 07/S07E01 - Men of Letters.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 510693380,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2007/S07E01%20-%20Men%20of%20Letters.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s7e02",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 7,
+          "episodeNumber": 2,
+          "title": "A Star is Born",
+          "overview": "When Harold is invited to appear in a local amateur dramatics festival under the tutelage of renowned director Rupert Faines-Muir, he reckons he's on the way to stardom; unsurprisingly, Albert is not convinced.",
+          "stillURL": null,
+          "airDate": "1972-02-28",
+          "year": 1972,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 07/S07E02 - A Star is Born.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 474646535,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2007/S07E02%20-%20A%20Star%20is%20Born.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s7e03",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 7,
+          "episodeNumber": 3,
+          "title": "Oh, What a Beautiful Mourning",
+          "overview": "When one of Albert's 16 siblings passes away, a family feud ensues following the reading of the will; Wily old Albert has a few tricks up his sleeve though.",
+          "stillURL": null,
+          "airDate": "1972-03-06",
+          "year": 1972,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 07/S07E03 - Oh What a Beautiful Mourning.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 442854576,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2007/S07E03%20-%20Oh%20What%20a%20Beautiful%20Mourning.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s7e04",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 7,
+          "episodeNumber": 4,
+          "title": "Live Now, P.A.Y.E. Later",
+          "overview": "Albert has never made a contribution to the welfare state but is still intent upon making a claim.",
+          "stillURL": null,
+          "airDate": "1972-03-13",
+          "year": 1972,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 07/S07E04 - Live Now P.A.Y.E. Later.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 575012456,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2007/S07E04%20-%20Live%20Now%20P.A.Y.E.%20Later.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s7e05",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 7,
+          "episodeNumber": 5,
+          "title": "Loathe Story",
+          "overview": "Harold seeks psychiatric help when his stress level reaches a dangerous all time high; during a bout of sleepwalking, he tries to strangle Albert.",
+          "stillURL": null,
+          "airDate": "1972-03-20",
+          "year": 1972,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 07/S07E05 - Loathe Story.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 365506366,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2007/S07E05%20-%20Loathe%20Story.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s7e06",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 7,
+          "episodeNumber": 6,
+          "title": "Divided We Stand",
+          "overview": "Harold takes drastic measures to get some privacy from Albert by dividing the house up.",
+          "stillURL": null,
+          "airDate": "1972-03-27",
+          "year": 1972,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 07/S07E06 - Divided We Stand.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 609837450,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2007/S07E06%20-%20Divided%20We%20Stand.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s7e07",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 7,
+          "episodeNumber": 7,
+          "title": "The Desperate Hours",
+          "overview": "There's no electricity, no gas, no food, no booze and no cigarettes; two unwelcome visitors drop by the yard direct from the Scrubbs; the two jail breakers soon realize they've picked the wrong house.",
+          "stillURL": null,
+          "airDate": "1972-04-03",
+          "year": 1972,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 07/S07E07 - The Desperate Hours.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 483703006,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2007/S07E07%20-%20The%20Desperate%20Hours.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 8,
+      "episodes": [
+        {
+          "archiveID": "Steptoe_and_Son@s8e01",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 8,
+          "episodeNumber": 1,
+          "title": "Back in Fashion",
+          "overview": "Much to Harold's amusement, Albert hoards old clothes; a fashion photographer turns up looking for an original shooting location.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/96/240117.jpg",
+          "airDate": "1974-09-04",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 08/S08E01 - Back in Fashion.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 570356642,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2008/S08E01%20-%20Back%20in%20Fashion.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s8e03",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 8,
+          "episodeNumber": 2,
+          "title": "And So to Bed",
+          "overview": "Harold's love life is going through a tricky phase, so he doesn't need Albert to be a wet blanket.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/96/240118.jpg",
+          "airDate": "1974-09-11",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 08/S08E03 - And So To Bed.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 545881181,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2008/S08E03%20-%20And%20So%20To%20Bed.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s8e02",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 8,
+          "episodeNumber": 3,
+          "title": "Porn Yesterday",
+          "overview": "Harold brings home a `what-the-butler-saw' machine but one of the stars seems strangely familiar; for the local vicar it seems to be a chance to make some money.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/96/240119.jpg",
+          "airDate": "1974-09-18",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 08/S08E02 - Porn Yesterday.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 444915967,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2008/S08E02%20-%20Porn%20Yesterday.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s8e04",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 8,
+          "episodeNumber": 4,
+          "title": "The Seven Steptoerai",
+          "overview": "Albert's martial arts friends save the day.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/96/240120.jpg",
+          "airDate": "1974-09-25",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 08/S08E04 - The Seven Steptoerai.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 606551403,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2008/S08E04%20-%20The%20Seven%20Steptoerai.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s8e05",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 8,
+          "episodeNumber": 5,
+          "title": "Upstairs, Downstairs, Upstairs, Downstairs",
+          "overview": "Harold's life becomes hell when Albert throws out his back.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/96/240121.jpg",
+          "airDate": "1974-10-03",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 08/S08E05 - Upstairs Downstairs Upstairs Downstairs.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 431855425,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2008/S08E05%20-%20Upstairs%20Downstairs%20Upstairs%20Downstairs.ia.mp4"
+        },
+        {
+          "archiveID": "Steptoe_and_Son@s8e06",
+          "sourceID": "Steptoe_and_Son",
+          "seasonNumber": 8,
+          "episodeNumber": 6,
+          "title": "Seance in a Wet Rag and Bone Yard",
+          "overview": "Albert tries to get in touch with the other side to try to contact his wife, and Harold of course thinks it's all a con.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/96/240122.jpg",
+          "airDate": "1974-10-10",
+          "year": 1974,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 08/S08E06 - Seance in a Wet Rag and Bone Yard.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 368397005,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2008/S08E06%20-%20Seance%20in%20a%20Wet%20Rag%20and%20Bone%20Yard.ia.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 6,
+  "episodesCount": 57,
   "canonicalEpisodesCount": 55,
   "tvdbID": "76607",
   "artworkSource": "tvdb",

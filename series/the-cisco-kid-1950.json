@@ -22,38 +22,647 @@
       "seasonNumber": 1,
       "episodes": [
         {
-          "archiveID": "cisco-kid-s-01-e-08-convict-story",
+          "archiveID": "cisco-kid-s-01-e-08-convict-story@s1e03",
+          "sourceID": "cisco-kid-s-01-e-08-convict-story",
           "seasonNumber": 1,
-          "episodeNumber": 8,
-          "title": "Medicine Flats",
+          "episodeNumber": 1,
+          "title": "Boomerang",
           "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/11/29903.jpg",
-          "airDate": "1950-10-17",
+          "stillURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/cisco-kid-s-01-e-08-convict-story.thumbs/Cisco%20Kid_S01E03_Boomerang_000800.jpg",
+          "airDate": "1950-09-05",
+          "year": 1950,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Cisco Kid_S01E03_Boomerang.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 391261421,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E03_Boomerang.ia.mp4"
+        },
+        {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story@s1e02",
+          "sourceID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Big Switch",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/cisco-kid-s-01-e-08-convict-story.thumbs/Cisco%20Kid_S01E02_Big%20Switch_000814.jpg",
+          "airDate": "1950-09-26",
+          "year": 1950,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Cisco Kid_S01E02_Big Switch.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 398311607,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E02_Big%20Switch.ia.mp4"
+        },
+        {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story@s1e05",
+          "sourceID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Cattle Rustling",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/cisco-kid-s-01-e-08-convict-story.thumbs/Cisco%20Kid_S01E05_Cattle%20Rustling_000821.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1508,
+          "videoFile": {
+            "name": "Cisco Kid_S01E05_Cattle Rustling.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 402424096,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E05_Cattle%20Rustling.ia.mp4"
+        },
+        {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story@s1e08",
+          "sourceID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Convict Story",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/cisco-kid-s-01-e-08-convict-story.thumbs/Cisco%20Kid_S01E08_Convict%20Story_000873.jpg",
+          "airDate": "1950-10-03",
           "year": 1950,
           "runtimeSeconds": 1800,
           "videoFile": {
             "name": "Cisco Kid_S01E08_Convict Story.ia.mp4",
             "format": "h.264 IA",
             "sizeBytes": 427612364,
-            "tier": 2
+            "tier": 1
           },
           "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E08_Convict%20Story.ia.mp4"
+        },
+        {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story@s1e20",
+          "sourceID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Oil Land",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/cisco-kid-s-01-e-08-convict-story.thumbs/Cisco%20Kid_S01E20_Oil%20Land_000822.jpg",
+          "airDate": "1950-10-10",
+          "year": 1950,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Cisco Kid_S01E20_Oil Land.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 403230532,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E20_Oil%20Land.ia.mp4"
+        },
+        {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story@s1e06",
+          "sourceID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Chain Lightning",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/cisco-kid-s-01-e-08-convict-story.thumbs/Cisco%20Kid_S01E06_Chain%20Lightning_000820.jpg",
+          "airDate": "1950-10-14",
+          "year": 1950,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Cisco Kid_S01E06_Chain Lightning.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 400636961,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E06_Chain%20Lightning.ia.mp4"
+        },
+        {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story@s1e17",
+          "sourceID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Medicine Flats",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/cisco-kid-s-01-e-08-convict-story.thumbs/Cisco%20Kid_S01E17_Medicine%20Flats_000802.jpg",
+          "airDate": "1950-10-17",
+          "year": 1950,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Cisco Kid_S01E17_Medicine Flats.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 393746490,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E17_Medicine%20Flats.ia.mp4"
+        },
+        {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story@s1e27",
+          "sourceID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Railroad Land Rush",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/cisco-kid-s-01-e-08-convict-story.thumbs/Cisco%20Kid_S01E27_Railroad%20Land%20Rush_000811.jpg",
+          "airDate": "1950-10-28",
+          "year": 1950,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Cisco Kid_S01E27_Railroad Land Rush.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 397398319,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E27_Railroad%20Land%20Rush.ia.mp4"
+        },
+        {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story@s1e28",
+          "sourceID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Renegade Son",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/cisco-kid-s-01-e-08-convict-story.thumbs/Cisco%20Kid_S01E28_Renegade%20Son_000822.jpg",
+          "airDate": "1950-11-21",
+          "year": 1950,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Cisco Kid_S01E28_Renegade Son.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 403039392,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E28_Renegade%20Son.ia.mp4"
+        },
+        {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story@s1e16",
+          "sourceID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Lynching Story",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/cisco-kid-s-01-e-08-convict-story.thumbs/Cisco%20Kid_S01E16_Lynching%20Story_000815.jpg",
+          "airDate": "1950-12-12",
+          "year": 1950,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Cisco Kid_S01E16_Lynching Story.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 400248845,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E16_Lynching%20Story.ia.mp4"
+        },
+        {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story@s1e19",
+          "sourceID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Newspaper Crusaders",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/cisco-kid-s-01-e-08-convict-story.thumbs/Cisco%20Kid_S01E19_Newspaper%20Crusaders_000818.jpg",
+          "airDate": "1950-12-19",
+          "year": 1950,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Cisco Kid_S01E19_Newspaper Crusaders.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 401025226,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E19_Newspaper%20Crusaders.ia.mp4"
+        },
+        {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story@s1e09",
+          "sourceID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Dog Story",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/cisco-kid-s-01-e-08-convict-story.thumbs/Cisco%20Kid_S01E09_Dog%20Story_000807.jpg",
+          "airDate": "1950-12-26",
+          "year": 1950,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Cisco Kid_S01E09_Dog Story.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 395536612,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E09_Dog%20Story.ia.mp4"
+        },
+        {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story@s1e07",
+          "sourceID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Confession for Money",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/cisco-kid-s-01-e-08-convict-story.thumbs/Cisco%20Kid_S01E07_Confession%20for%20Money_000816.jpg",
+          "airDate": "1951-01-02",
+          "year": 1951,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Cisco Kid_S01E07_Confession for Money.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 400679628,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E07_Confession%20for%20Money.ia.mp4"
+        },
+        {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story@s1e13",
+          "sourceID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Haven for Heavies",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/cisco-kid-s-01-e-08-convict-story.thumbs/Cisco%20Kid_S01E13_Haven%20for%20Heavies_000815.jpg",
+          "airDate": "1951-01-13",
+          "year": 1951,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Cisco Kid_S01E13_Haven for Heavies.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 399674103,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E13_Haven%20for%20Heavies.ia.mp4"
+        },
+        {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story@s1e21",
+          "sourceID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Old Bum",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/cisco-kid-s-01-e-08-convict-story.thumbs/Cisco%20Kid_S01E21_Old%20Bum_000803.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1475,
+          "videoFile": {
+            "name": "Cisco Kid_S01E21_Old Bum.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 393707270,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E21_Old%20Bum.ia.mp4"
+        },
+        {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story@s1e22",
+          "sourceID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "Pancho Hostage",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/cisco-kid-s-01-e-08-convict-story.thumbs/Cisco%20Kid_S01E22_Pancho%20held%20Hostage_000809.jpg",
+          "airDate": "1951-01-16",
+          "year": 1951,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Cisco Kid_S01E22_Pancho held Hostage.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 397071636,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E22_Pancho%20held%20Hostage.ia.mp4"
+        },
+        {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story@s1e10",
+          "sourceID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Freight Line Feud",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/cisco-kid-s-01-e-08-convict-story.thumbs/Cisco%20Kid_S01E10_Freight%20Land%20Feud_000816.jpg",
+          "airDate": "1951-01-27",
+          "year": 1951,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Cisco Kid_S01E10_Freight Land Feud.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 400554925,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E10_Freight%20Land%20Feud.ia.mp4"
+        },
+        {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story@s1e24",
+          "sourceID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Phoney Sheriff",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/cisco-kid-s-01-e-08-convict-story.thumbs/Cisco%20Kid_S01E24_Phoney%20Sheriff_000806.jpg",
+          "airDate": "1951-02-06",
+          "year": 1951,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Cisco Kid_S01E24_Phoney Sheriff.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 395236022,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E24_Phoney%20Sheriff.ia.mp4"
+        },
+        {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story@s1e30",
+          "sourceID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Uncle Disinherits Niece",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/cisco-kid-s-01-e-08-convict-story.thumbs/Cisco%20Kid_S01E30_Uncle%20Disinherits%20Niece_000817.jpg",
+          "airDate": "1951-02-13",
+          "year": 1951,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Cisco Kid_S01E30_Uncle Disinherits Niece.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 400402825,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E30_Uncle%20Disinherits%20Niece.ia.mp4"
+        },
+        {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story@s1e32",
+          "sourceID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "Water Rights",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/cisco-kid-s-01-e-08-convict-story.thumbs/Cisco%20Kid_S01E32_Water%20Rights_000815.jpg",
+          "airDate": "1951-02-20",
+          "year": 1951,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Cisco Kid_S01E32_Water Rights.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 400004187,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E32_Water%20Rights.ia.mp4"
+        },
+        {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story@s1e33",
+          "sourceID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": 1,
+          "episodeNumber": 33,
+          "title": "Will",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/cisco-kid-s-01-e-08-convict-story.thumbs/Cisco%20Kid_S01E33_Will_000798.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1465,
+          "videoFile": {
+            "name": "Cisco Kid_S01E33_Will.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 391210239,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E33_Will.ia.mp4"
         }
       ]
     },
     {
-      "seasonNumber": null,
+      "seasonNumber": 2,
       "episodes": [
         {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story@s1e23",
+          "sourceID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "Performance Bond",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/cisco-kid-s-01-e-08-convict-story.thumbs/Cisco%20Kid_S01E23_Performance%20Bond_000806.jpg",
+          "airDate": "1951-09-03",
+          "year": 1951,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Cisco Kid_S01E23_Performance Bond.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 395240247,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E23_Performance%20Bond.ia.mp4"
+        },
+        {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story@s1e29",
+          "sourceID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "Stolen Bonds",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/cisco-kid-s-01-e-08-convict-story.thumbs/Cisco%20Kid_S01E29_Stolen%20Bonds_000796.jpg",
+          "airDate": "1951-09-10",
+          "year": 1951,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Cisco Kid_S01E29_Stolen Bonds.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 390342080,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E29_Stolen%20Bonds.ia.mp4"
+        },
+        {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story@s1e18",
+          "sourceID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Medicine Man Show",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/cisco-kid-s-01-e-08-convict-story.thumbs/Cisco%20Kid_S01E18_Medicine%20Man%20Show_000862.jpg",
+          "airDate": "1951-10-08",
+          "year": 1951,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Cisco Kid_S01E18_Medicine Man Show.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 422485556,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E18_Medicine%20Man%20Show.ia.mp4"
+        },
+        {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story@s1e11",
+          "sourceID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": 2,
+          "episodeNumber": 7,
+          "title": "Ghost Story",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/cisco-kid-s-01-e-08-convict-story.thumbs/Cisco%20Kid_S01E11_Ghost%20Story_000863.jpg",
+          "airDate": "1951-10-15",
+          "year": 1951,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Cisco Kid_S01E11_Ghost Story.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 422569330,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E11_Ghost%20Story.ia.mp4"
+        },
+        {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story@s1e01",
+          "sourceID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "The Bates Story",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/cisco-kid-s-01-e-08-convict-story.thumbs/Cisco%20Kid_S01E01_Bates%20Story_000865.jpg",
+          "airDate": "1951-11-12",
+          "year": 1951,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Cisco Kid_S01E01_Bates Story.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 423859417,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E01_Bates%20Story.ia.mp4"
+        },
+        {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story@s1e31",
+          "sourceID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": 2,
+          "episodeNumber": 14,
+          "title": "Vigilante Story",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/cisco-kid-s-01-e-08-convict-story.thumbs/Cisco%20Kid_S01E31_Vigilante%20Story_000867.jpg",
+          "airDate": "1951-12-04",
+          "year": 1951,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Cisco Kid_S01E31_Vigilante Story.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 424943371,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E31_Vigilante%20Story.ia.mp4"
+        },
+        {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story@s1e14",
+          "sourceID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": 2,
+          "episodeNumber": 15,
+          "title": "Hidden Valley",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/cisco-kid-s-01-e-08-convict-story.thumbs/Cisco%20Kid_S01E14_Hidden%20Valley_000860.jpg",
+          "airDate": "1951-12-11",
+          "year": 1951,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Cisco Kid_S01E14_Hidden Valley.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 421192837,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E14_Hidden%20Valley.ia.mp4"
+        },
+        {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story@s1e25",
+          "sourceID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": 2,
+          "episodeNumber": 21,
+          "title": "Quarter Horse",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/cisco-kid-s-01-e-08-convict-story.thumbs/Cisco%20Kid_S01E25_Quarter%20Horse_000818.jpg",
+          "airDate": "1952-01-29",
+          "year": 1952,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Cisco Kid_S01E25_Quarter Horse.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 400517701,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E25_Quarter%20Horse.ia.mp4"
+        },
+        {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story@s1e15",
+          "sourceID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": 2,
+          "episodeNumber": 22,
+          "title": "Jewelry Holdup",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/cisco-kid-s-01-e-08-convict-story.thumbs/Cisco%20Kid_S01E15_Jewelry%20Hold%20Up_000818.jpg",
+          "airDate": "1952-02-05",
+          "year": 1952,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Cisco Kid_S01E15_Jewelry Hold Up.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 400742160,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E15_Jewelry%20Hold%20Up.ia.mp4"
+        },
+        {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story@s1e12",
+          "sourceID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": 2,
+          "episodeNumber": 23,
+          "title": "Ghost Town",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/cisco-kid-s-01-e-08-convict-story.thumbs/Cisco%20Kid_S01E12_Ghost%20Town_000821.jpg",
+          "airDate": "1952-02-12",
+          "year": 1952,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Cisco Kid_S01E12_Ghost Town.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 403083774,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E12_Ghost%20Town.ia.mp4"
+        },
+        {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story@s1e26",
+          "sourceID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": 2,
+          "episodeNumber": 24,
+          "title": "Quicksilver Murder",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/cisco-kid-s-01-e-08-convict-story.thumbs/Cisco%20Kid_S01E26_Quicksilver%20Murder_000863.jpg",
+          "airDate": "1952-02-12",
+          "year": 1952,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Cisco Kid_S01E26_Quicksilver Murder.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 422237967,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E26_Quicksilver%20Murder.ia.mp4"
+        },
+        {
+          "archiveID": "cisco-kid-s-01-e-08-convict-story@s1e04",
+          "sourceID": "cisco-kid-s-01-e-08-convict-story",
+          "seasonNumber": 2,
+          "episodeNumber": 25,
+          "title": "Buried Treasure",
+          "overview": null,
+          "stillURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/cisco-kid-s-01-e-08-convict-story.thumbs/Cisco%20Kid_S01E04_Buried%20Treasure_000804.jpg",
+          "airDate": "1952-02-19",
+          "year": 1952,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Cisco Kid_S01E04_Buried Treasure.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 394096377,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/cisco-kid-s-01-e-08-convict-story/Cisco%20Kid_S01E04_Buried%20Treasure.ia.mp4"
+        },
+        {
           "archiveID": "CiscoKidSpanishDagger512kb_201509",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Cisco Kid Spanish Dagger 512kb",
+          "seasonNumber": 2,
+          "episodeNumber": 26,
+          "title": "Spanish Dagger",
           "overview": null,
           "stillURL": "https://archive.org/services/img/CiscoKidSpanishDagger512kb_201509",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1574,
+          "airDate": "1952-02-19",
+          "year": 1952,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "CiscoKid-SpanishDagger_512kb.mp4",
             "format": "512Kb MPEG4",
@@ -65,7 +674,7 @@
       ]
     }
   ],
-  "episodesCount": 2,
+  "episodesCount": 34,
   "canonicalEpisodesCount": 156,
   "tvdbID": "77404",
   "artworkSource": "tvdb",

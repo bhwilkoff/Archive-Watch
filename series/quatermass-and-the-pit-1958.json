@@ -40,7 +40,7 @@
           "downloadURL": "https://archive.org/download/QuatermassAndThePit-EpisodeOne/QuatermassAndThePit-Episode1.mp4"
         },
         {
-          "archiveID": "quatermass-and-the-pit-1958-part-2-the-ghosts",
+          "archiveID": "QuatermassAndThePit-EpisodeTwo",
           "seasonNumber": 1,
           "episodeNumber": 2,
           "title": "The Ghosts",
@@ -50,12 +50,12 @@
           "year": 1958,
           "runtimeSeconds": 1800,
           "videoFile": {
-            "name": "Quatermass and the Pit [1958] Part 2 - The Ghosts.mp4",
+            "name": "QuatermassAndThePit-Episode2.mp4",
             "format": "h.264",
-            "sizeBytes": 212309730,
+            "sizeBytes": 211833078,
             "tier": 2
           },
-          "downloadURL": "https://archive.org/download/quatermass-and-the-pit-1958-part-2-the-ghosts/Quatermass%20and%20the%20Pit%20%5B1958%5D%20Part%202%20-%20The%20Ghosts.mp4"
+          "downloadURL": "https://archive.org/download/QuatermassAndThePit-EpisodeTwo/QuatermassAndThePit-Episode2.mp4"
         },
         {
           "archiveID": "QuatermassAndThePit-Episode3",
@@ -135,22 +135,23 @@
       "seasonNumber": null,
       "episodes": [
         {
-          "archiveID": "QuatermassAndThePit-EpisodeTwo",
+          "archiveID": "quatermass-and-the-pit-1958-part-2-the-ghosts@e03",
+          "sourceID": "quatermass-and-the-pit-1958-part-2-the-ghosts",
           "seasonNumber": null,
-          "episodeNumber": 2,
-          "title": "Quatermass and the Pit - Episode Two",
+          "episodeNumber": 3,
+          "title": "Imps and Demons",
           "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/mtcmZEcsFiczV4mcmOQ2yYWMm06.jpg",
+          "stillURL": "https://archive.org/download/quatermass-and-the-pit-1958-part-2-the-ghosts/quatermass-and-the-pit-1958-part-2-the-ghosts.thumbs/Quatermass%20and%20the%20Pit%20%5B1958%5D%20Part%203%20-%20Imps%20and%20Demons_000663.jpg",
           "airDate": null,
-          "year": 1958,
-          "runtimeSeconds": 2201,
+          "year": null,
+          "runtimeSeconds": 1873,
           "videoFile": {
-            "name": "QuatermassAndThePit-Episode2.mp4",
+            "name": "Quatermass and the Pit [1958] Part 3 - Imps and Demons.mp4",
             "format": "h.264",
-            "sizeBytes": 211833078,
-            "tier": 2
+            "sizeBytes": 180366402,
+            "tier": 1
           },
-          "downloadURL": "https://archive.org/download/QuatermassAndThePit-EpisodeTwo/QuatermassAndThePit-Episode2.mp4"
+          "downloadURL": "https://archive.org/download/quatermass-and-the-pit-1958-part-2-the-ghosts/Quatermass%20and%20the%20Pit%20%5B1958%5D%20Part%203%20-%20Imps%20and%20Demons.mp4"
         }
       ]
     }

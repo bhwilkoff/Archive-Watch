@@ -40,12 +40,32 @@
           "downloadURL": "https://archive.org/download/the-scarlet-pimpernel-s-01-e-01-the-hostage/The%20Scarlet%20Pimpernel%20-%20S01E01%20-%20The%20Hostage.mp4"
         },
         {
-          "archiveID": "the-scarlet-pimpernel",
+          "archiveID": "the-scarlet-pimpernel@s1e02",
+          "sourceID": "the-scarlet-pimpernel",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Sir Percy's Wager",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-scarlet-pimpernel/the-scarlet-pimpernel.thumbs/The%20Scarlet%20Pimpernel%20S01%20E02%20Sir%20Percy%E2%80%99s%20Wager_000555.jpg",
+          "airDate": "1955-10-05",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Scarlet Pimpernel S01 E02 Sir Percy’s Wager.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 151809871,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-scarlet-pimpernel/The%20Scarlet%20Pimpernel%20S01%20E02%20Sir%20Percy%E2%80%99s%20Wager.ia.mp4"
+        },
+        {
+          "archiveID": "the-scarlet-pimpernel@s1e03",
+          "sourceID": "the-scarlet-pimpernel",
           "seasonNumber": 1,
           "episodeNumber": 3,
           "title": "The Princess",
           "overview": null,
-          "stillURL": "https://m.media-amazon.com/images/M/MV5BNThmNGMzYjctOWM2OC00MjBhLWJmMGQtNzI1ZmY3Y2I3ZDY4XkEyXkFqcGdeQXVyMjUxODE0MDY@._V1_SX300.jpg",
+          "stillURL": "https://archive.org/download/the-scarlet-pimpernel/the-scarlet-pimpernel.thumbs/The%20Scarlet%20Pimpernel%20S01%20E03%20The%20Princess_000561.jpg",
           "airDate": "1955-10-12",
           "year": 1955,
           "runtimeSeconds": 1800,
@@ -56,11 +76,296 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/the-scarlet-pimpernel/The%20Scarlet%20Pimpernel%20S01%20E03%20The%20Princess.ia.mp4"
+        },
+        {
+          "archiveID": "the-scarlet-pimpernel@s1e04",
+          "sourceID": "the-scarlet-pimpernel",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "A Tale of Two Pigtails",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-scarlet-pimpernel/the-scarlet-pimpernel.thumbs/The%20Scarlet%20Pimpernel%20S01%20E04%20A%20Tale%20of%20Two%20Pigtails_000555.jpg",
+          "airDate": "1955-10-19",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Scarlet Pimpernel S01 E04 A Tale of Two Pigtails.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 160002316,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-scarlet-pimpernel/The%20Scarlet%20Pimpernel%20S01%20E04%20A%20Tale%20of%20Two%20Pigtails.ia.mp4"
+        },
+        {
+          "archiveID": "the-scarlet-pimpernel@s1e05",
+          "sourceID": "the-scarlet-pimpernel",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Lady in Distress",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-scarlet-pimpernel/the-scarlet-pimpernel.thumbs/The%20Scarlet%20Pimpernel%20S01%20E05%20The%20Lady%20in%20Distress_000561.jpg",
+          "airDate": "1955-10-26",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Scarlet Pimpernel S01 E05 The Lady in Distress.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 151182748,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-scarlet-pimpernel/The%20Scarlet%20Pimpernel%20S01%20E05%20The%20Lady%20in%20Distress.ia.mp4"
+        },
+        {
+          "archiveID": "the-scarlet-pimpernel@s1e06",
+          "sourceID": "the-scarlet-pimpernel",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Something Remembered",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-scarlet-pimpernel/the-scarlet-pimpernel.thumbs/The%20Scarlet%20Pimpernel%20S01%20E06%20Something%20Remembered_000566.jpg",
+          "airDate": "1955-11-02",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Scarlet Pimpernel S01 E06 Something Remembered.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 154946590,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-scarlet-pimpernel/The%20Scarlet%20Pimpernel%20S01%20E06%20Something%20Remembered.ia.mp4"
+        },
+        {
+          "archiveID": "the-scarlet-pimpernel@s1e07",
+          "sourceID": "the-scarlet-pimpernel",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Elusive Chauvelin",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-scarlet-pimpernel/the-scarlet-pimpernel.thumbs/The%20Scarlet%20Pimpernel%20S01%20E07%20Elusive%20Chauvelin_000557.jpg",
+          "airDate": "1955-11-09",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Scarlet Pimpernel S01 E07 Elusive Chauvelin.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 157632704,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-scarlet-pimpernel/The%20Scarlet%20Pimpernel%20S01%20E07%20Elusive%20Chauvelin.ia.mp4"
+        },
+        {
+          "archiveID": "the-scarlet-pimpernel@s1e08",
+          "sourceID": "the-scarlet-pimpernel",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Sword of Justice",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-scarlet-pimpernel/the-scarlet-pimpernel.thumbs/The%20Scarlet%20Pimpernel%20S01%20E08%20The%20Sword%20of%20Justice_000550.jpg",
+          "airDate": "1955-11-16",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Scarlet Pimpernel S01 E08 The Sword of Justice.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 150076840,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-scarlet-pimpernel/The%20Scarlet%20Pimpernel%20S01%20E08%20The%20Sword%20of%20Justice.ia.mp4"
+        },
+        {
+          "archiveID": "the-scarlet-pimpernel@s1e09",
+          "sourceID": "the-scarlet-pimpernel",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Thanksgiving Day",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-scarlet-pimpernel/the-scarlet-pimpernel.thumbs/The%20Scarlet%20Pimpernel%20S01%20E09%20Thanksgiving%20Day_000561.jpg",
+          "airDate": "1955-11-22",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Scarlet Pimpernel S01 E09 Thanksgiving Day.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 135070093,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-scarlet-pimpernel/The%20Scarlet%20Pimpernel%20S01%20E09%20Thanksgiving%20Day.ia.mp4"
+        },
+        {
+          "archiveID": "the-scarlet-pimpernel@s1e10",
+          "sourceID": "the-scarlet-pimpernel",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Sir Andrew's Fate",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-scarlet-pimpernel/the-scarlet-pimpernel.thumbs/The%20Scarlet%20Pimpernel%20S01%20E10%20Sir%20Andrew%E2%80%99s%20Fate_000555.jpg",
+          "airDate": "1955-12-06",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Scarlet Pimpernel S01 E10 Sir Andrew’s Fate.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 151561565,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-scarlet-pimpernel/The%20Scarlet%20Pimpernel%20S01%20E10%20Sir%20Andrew%E2%80%99s%20Fate.ia.mp4"
+        },
+        {
+          "archiveID": "the-scarlet-pimpernel@s1e11",
+          "sourceID": "the-scarlet-pimpernel",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Ambassador's Lady",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-scarlet-pimpernel/the-scarlet-pimpernel.thumbs/The%20Scarlet%20Pimpernel%20S01%20E11%20The%20Ambassador%E2%80%99s%20Lady_000550.jpg",
+          "airDate": "1955-12-13",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Scarlet Pimpernel S01 E11 The Ambassador’s Lady.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 156491606,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-scarlet-pimpernel/The%20Scarlet%20Pimpernel%20S01%20E11%20The%20Ambassador%E2%80%99s%20Lady.ia.mp4"
+        },
+        {
+          "archiveID": "the-scarlet-pimpernel@s1e12",
+          "sourceID": "the-scarlet-pimpernel",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Christmas Present",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-scarlet-pimpernel/the-scarlet-pimpernel.thumbs/The%20Scarlet%20Pimpernel%20S01%20E12%20The%20Christmas%20Present_000555.jpg",
+          "airDate": "1955-12-20",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Scarlet Pimpernel S01 E12 The Christmas Present.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 157332069,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-scarlet-pimpernel/The%20Scarlet%20Pimpernel%20S01%20E12%20The%20Christmas%20Present.ia.mp4"
+        },
+        {
+          "archiveID": "the-scarlet-pimpernel@s1e13",
+          "sourceID": "the-scarlet-pimpernel",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "The Flower Woman",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-scarlet-pimpernel/the-scarlet-pimpernel.thumbs/The%20Scarlet%20Pimpernel%20S01%20E13%20The%20Flower%20Woman_000561.jpg",
+          "airDate": "1955-12-27",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Scarlet Pimpernel S01 E13 The Flower Woman.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 159436132,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-scarlet-pimpernel/The%20Scarlet%20Pimpernel%20S01%20E13%20The%20Flower%20Woman.ia.mp4"
+        },
+        {
+          "archiveID": "the-scarlet-pimpernel@s1e14",
+          "sourceID": "the-scarlet-pimpernel",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Imaginary Invalids",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-scarlet-pimpernel/the-scarlet-pimpernel.thumbs/The%20Scarlet%20Pimpernel%20S01%20E14%20The%20Imaginary%20Invalids_000561.jpg",
+          "airDate": "1956-01-10",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Scarlet Pimpernel S01 E14 The Imaginary Invalids.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 154510475,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-scarlet-pimpernel/The%20Scarlet%20Pimpernel%20S01%20E14%20The%20Imaginary%20Invalids.ia.mp4"
+        },
+        {
+          "archiveID": "the-scarlet-pimpernel@s1e15",
+          "sourceID": "the-scarlet-pimpernel",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Antoine and Antoinette",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-scarlet-pimpernel/the-scarlet-pimpernel.thumbs/The%20Scarlet%20Pimpernel%20S01%20E15%20Antoine%20and%20Antoinette_000556.jpg",
+          "airDate": "1956-01-24",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Scarlet Pimpernel S01 E15 Antoine and Antoinette.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 155964916,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-scarlet-pimpernel/The%20Scarlet%20Pimpernel%20S01%20E15%20Antoine%20and%20Antoinette.ia.mp4"
+        },
+        {
+          "archiveID": "the-scarlet-pimpernel@s1e16",
+          "sourceID": "the-scarlet-pimpernel",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "The Winged Madonna",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-scarlet-pimpernel/the-scarlet-pimpernel.thumbs/The%20Scarlet%20Pimpernel%20S01%20E16%20The%20Winged%20Madonna_000556.jpg",
+          "airDate": "1956-02-07",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Scarlet Pimpernel S01 E16 The Winged Madonna.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 147810698,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-scarlet-pimpernel/The%20Scarlet%20Pimpernel%20S01%20E16%20The%20Winged%20Madonna.ia.mp4"
+        },
+        {
+          "archiveID": "the-scarlet-pimpernel@s1e17",
+          "sourceID": "the-scarlet-pimpernel",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Gentlemen of the Road",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-scarlet-pimpernel/the-scarlet-pimpernel.thumbs/The%20Scarlet%20Pimpernel%20S01%20E17%20Gentlemen%20of%20the%20Road_000557.jpg",
+          "airDate": "1956-06-15",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Scarlet Pimpernel S01 E17 Gentlemen of the Road.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 95560763,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-scarlet-pimpernel/The%20Scarlet%20Pimpernel%20S01%20E17%20Gentlemen%20of%20the%20Road.ia.mp4"
+        },
+        {
+          "archiveID": "the-scarlet-pimpernel@s1e18",
+          "sourceID": "the-scarlet-pimpernel",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "The Farmer's Boy",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-scarlet-pimpernel/the-scarlet-pimpernel.thumbs/The%20Scarlet%20Pimpernel%20S01%20E18%20The%20Farmer%E2%80%99s%20Boy_000553.jpg",
+          "airDate": "1956-06-22",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Scarlet Pimpernel S01 E18 The Farmer’s Boy.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 155438299,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-scarlet-pimpernel/The%20Scarlet%20Pimpernel%20S01%20E18%20The%20Farmer%E2%80%99s%20Boy.ia.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 2,
+  "episodesCount": 18,
   "canonicalEpisodesCount": 18,
   "cast": [
     {

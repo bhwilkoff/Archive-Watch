@@ -21,7 +21,7 @@
       "seasonNumber": 1,
       "episodes": [
         {
-          "archiveID": "movieslock-up-season-1-of-2-tv-series-1959-xvid-avi",
+          "archiveID": "LockUpStakeOut",
           "seasonNumber": 1,
           "episodeNumber": 1,
           "title": "Stake Out",
@@ -31,30 +31,12 @@
           "year": 1959,
           "runtimeSeconds": 1800,
           "videoFile": {
-            "name": "Lock Up - S01E01 - Stake Out.mp4",
-            "format": "h.264",
-            "sizeBytes": 168365892,
+            "name": "LockUp-stakeOut.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 155901052,
             "tier": 2
           },
-          "downloadURL": "https://archive.org/download/movieslock-up-season-1-of-2-tv-series-1959-xvid-avi/Lock%20Up%20-%20S01E01%20-%20Stake%20Out.mp4"
-        },
-        {
-          "archiveID": "lock-up-season-1-of-2-tv-series-1959-mkv",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "Stake Out",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-          "airDate": null,
-          "year": 1959,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": " Lock Up - S01E01 - Stakeout.mp4",
-            "format": "h.264",
-            "sizeBytes": 168437341,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/lock-up-season-1-of-2-tv-series-1959-mkv/%20Lock%20Up%20-%20S01E01%20-%20Stakeout.mp4"
+          "downloadURL": "https://archive.org/download/LockUpStakeOut/LockUp-stakeOut.ia.mp4"
         },
         {
           "archiveID": "LockUpTheHarryConnorsStory",
@@ -93,6 +75,63 @@
           "downloadURL": "https://archive.org/download/LockUpChangeOfHeart/LockUp-changeOfHeart.mp4"
         },
         {
+          "archiveID": "movieslock-up-season-1-of-2-tv-series-1959-xvid-avi@s1e04",
+          "sourceID": "movieslock-up-season-1-of-2-tv-series-1959-xvid-avi",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Failure",
+          "overview": null,
+          "stillURL": "https://archive.org/download/movieslock-up-season-1-of-2-tv-series-1959-xvid-avi/movieslock-up-season-1-of-2-tv-series-1959-xvid-avi.thumbs/Lock%20Up%20-%20S01E04%20-%20Failure_000569.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1568,
+          "videoFile": {
+            "name": "Lock Up - S01E04 - Failure.mp4",
+            "format": "h.264",
+            "sizeBytes": 163352880,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/movieslock-up-season-1-of-2-tv-series-1959-xvid-avi/Lock%20Up%20-%20S01E04%20-%20Failure.mp4"
+        },
+        {
+          "archiveID": "lock-up-season-1-of-2-tv-series-1959-mkv@s1e04",
+          "sourceID": "lock-up-season-1-of-2-tv-series-1959-mkv",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Failure",
+          "overview": null,
+          "stillURL": "https://archive.org/download/lock-up-season-1-of-2-tv-series-1959-mkv/lock-up-season-1-of-2-tv-series-1959-mkv.thumbs/%20Lock%20Up%20-%20S01E04%20-%20The%20Failure_000651.jpg",
+          "airDate": "1959-10-17",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": " Lock Up - S01E04 - The Failure.mp4",
+            "format": "h.264",
+            "sizeBytes": 163218344,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/lock-up-season-1-of-2-tv-series-1959-mkv/%20Lock%20Up%20-%20S01E04%20-%20The%20Failure.mp4"
+        },
+        {
+          "archiveID": "lock-up-season-1-of-2-tv-series-1959-mkv@s1e05",
+          "sourceID": "lock-up-season-1-of-2-tv-series-1959-mkv",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "End of the World",
+          "overview": null,
+          "stillURL": "https://archive.org/download/lock-up-season-1-of-2-tv-series-1959-mkv/lock-up-season-1-of-2-tv-series-1959-mkv.thumbs/%20Lock%20Up%20-%20S01E05%20-%20End%20of%20The%20World_000656.jpg",
+          "airDate": "1959-10-25",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": " Lock Up - S01E05 - End of The World.mp4",
+            "format": "h.264",
+            "sizeBytes": 163195194,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/lock-up-season-1-of-2-tv-series-1959-mkv/%20Lock%20Up%20-%20S01E05%20-%20End%20of%20The%20World.mp4"
+        },
+        {
           "archiveID": "LockUpShadowOfAGiant",
           "seasonNumber": 1,
           "episodeNumber": 6,
@@ -129,6 +168,25 @@
           "downloadURL": "https://archive.org/download/Lock-upPresumptionOfGuilt/Lock-up-presumptionOfGuilt.mp4"
         },
         {
+          "archiveID": "movieslock-up-season-1-of-2-tv-series-1959-xvid-avi@s1e08",
+          "sourceID": "movieslock-up-season-1-of-2-tv-series-1959-xvid-avi",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Angry Men",
+          "overview": null,
+          "stillURL": "https://archive.org/download/movieslock-up-season-1-of-2-tv-series-1959-xvid-avi/movieslock-up-season-1-of-2-tv-series-1959-xvid-avi.thumbs/Lock%20Up%20-%20S01E08%20-%20Angry%20Men_000567.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1557,
+          "videoFile": {
+            "name": "Lock Up - S01E08 - Angry Men.mp4",
+            "format": "h.264",
+            "sizeBytes": 162274829,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/movieslock-up-season-1-of-2-tv-series-1959-xvid-avi/Lock%20Up%20-%20S01E08%20-%20Angry%20Men.mp4"
+        },
+        {
           "archiveID": "LockUpTheAngryMen",
           "seasonNumber": 1,
           "episodeNumber": 8,
@@ -145,6 +203,42 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/LockUpTheAngryMen/Lock-up-theAngryMen.mp4"
+        },
+        {
+          "archiveID": "Lock-upWritOfTerror",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Writ of Terror",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1959-11-21",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Lock-up-writOfTerror.mp4",
+            "format": "h.264",
+            "sizeBytes": 143382333,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Lock-upWritOfTerror/Lock-up-writOfTerror.mp4"
+        },
+        {
+          "archiveID": "Lock-upMusicToMurderBy",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Music to Murder By",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1959-11-28",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Lock-up-musicToMurderBy.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 113620176,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Lock-upMusicToMurderBy/Lock-up-musicToMurderBy.ia.mp4"
         },
         {
           "archiveID": "LockUpWithMaliceForOne",
@@ -219,6 +313,24 @@
           "downloadURL": "https://archive.org/download/Lock-upTheDrop/LockUp-theDrop.mp4"
         },
         {
+          "archiveID": "LockUpManlyArtOfTheMurder",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "The Manly Art of Murder",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-01-02",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-theManlyArtOfMurder.mp4",
+            "format": "h.264",
+            "sizeBytes": 144709287,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpManlyArtOfTheMurder/LockUp-theManlyArtOfMurder.mp4"
+        },
+        {
           "archiveID": "LockUpHisFathersFootsteps",
           "seasonNumber": 1,
           "episodeNumber": 17,
@@ -237,6 +349,44 @@
           "downloadURL": "https://archive.org/download/LockUpHisFathersFootsteps/LockUp-hisFathersFootsteps.ia.mp4"
         },
         {
+          "archiveID": "movieslock-up-season-1-of-2-tv-series-1959-xvid-avi@s1e18",
+          "sourceID": "movieslock-up-season-1-of-2-tv-series-1959-xvid-avi",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Price of Charity",
+          "overview": null,
+          "stillURL": "https://archive.org/download/movieslock-up-season-1-of-2-tv-series-1959-xvid-avi/movieslock-up-season-1-of-2-tv-series-1959-xvid-avi.thumbs/Lock%20Up%20-%20S01E18%20-%20Price%20of%20Charity_000522.jpg",
+          "airDate": "1960-01-23",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Lock Up - S01E18 - Price of Charity.mp4",
+            "format": "h.264",
+            "sizeBytes": 149427747,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/movieslock-up-season-1-of-2-tv-series-1959-xvid-avi/Lock%20Up%20-%20S01E18%20-%20Price%20of%20Charity.mp4"
+        },
+        {
+          "archiveID": "lock-up-season-1-of-2-tv-series-1959-mkv@s1e18",
+          "sourceID": "lock-up-season-1-of-2-tv-series-1959-mkv",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "The Case of Corporal Newman",
+          "overview": null,
+          "stillURL": "https://archive.org/download/lock-up-season-1-of-2-tv-series-1959-mkv/lock-up-season-1-of-2-tv-series-1959-mkv.thumbs/%20Lock%20Up%20-%20S01E18%20-%20The%20Case%20of%20Corporal%20Newman_000600.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1435,
+          "videoFile": {
+            "name": " Lock Up - S01E18 - The Case of Corporal Newman.mp4",
+            "format": "h.264",
+            "sizeBytes": 149574617,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/lock-up-season-1-of-2-tv-series-1959-mkv/%20Lock%20Up%20-%20S01E18%20-%20The%20Case%20of%20Corporal%20Newman.mp4"
+        },
+        {
           "archiveID": "LockUpNeverBetTheOdds",
           "seasonNumber": 1,
           "episodeNumber": 19,
@@ -253,6 +403,44 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/LockUpNeverBetTheOdds/LockUp-neverBetTheOdds.mp4"
+        },
+        {
+          "archiveID": "movieslock-up-season-1-of-2-tv-series-1959-xvid-avi@s1e20",
+          "sourceID": "movieslock-up-season-1-of-2-tv-series-1959-xvid-avi",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "Case of Fred Crotty",
+          "overview": null,
+          "stillURL": "https://archive.org/download/movieslock-up-season-1-of-2-tv-series-1959-xvid-avi/movieslock-up-season-1-of-2-tv-series-1959-xvid-avi.thumbs/Lock%20Up%20-%20S01E20%20-%20Case%20of%20Fred%20Crotty_000573.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1558,
+          "videoFile": {
+            "name": "Lock Up - S01E20 - Case of Fred Crotty.mp4",
+            "format": "h.264",
+            "sizeBytes": 162408577,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/movieslock-up-season-1-of-2-tv-series-1959-xvid-avi/Lock%20Up%20-%20S01E20%20-%20Case%20of%20Fred%20Crotty.mp4"
+        },
+        {
+          "archiveID": "lock-up-season-1-of-2-tv-series-1959-mkv@s1e20",
+          "sourceID": "lock-up-season-1-of-2-tv-series-1959-mkv",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "The Case of Frank Corry",
+          "overview": null,
+          "stillURL": "https://archive.org/download/lock-up-season-1-of-2-tv-series-1959-mkv/lock-up-season-1-of-2-tv-series-1959-mkv.thumbs/%20Lock%20Up%20-%20S01E20%20-%20The%20Case%20of%20Frank%20Corry_000652.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1558,
+          "videoFile": {
+            "name": " Lock Up - S01E20 - The Case of Frank Corry.mp4",
+            "format": "h.264",
+            "sizeBytes": 162472500,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/lock-up-season-1-of-2-tv-series-1959-mkv/%20Lock%20Up%20-%20S01E20%20-%20The%20Case%20of%20Frank%20Corry.mp4"
         },
         {
           "archiveID": "LockUpDeadMansShoes",
@@ -309,6 +497,44 @@
           "downloadURL": "https://archive.org/download/LockUpMurderPlaysItCool/LockUp-murderPlaysItCool.mp4"
         },
         {
+          "archiveID": "lock-up-season-1-of-2-tv-series-1959-mkv@s1e24",
+          "sourceID": "lock-up-season-1-of-2-tv-series-1959-mkv",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Election Day",
+          "overview": null,
+          "stillURL": "https://archive.org/download/lock-up-season-1-of-2-tv-series-1959-mkv/lock-up-season-1-of-2-tv-series-1959-mkv.thumbs/%20Lock%20Up%20-%20S01E24%20-%20Election%20Day_000553.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1334,
+          "videoFile": {
+            "name": " Lock Up - S01E24 - Election Day.mp4",
+            "format": "h.264",
+            "sizeBytes": 138689741,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/lock-up-season-1-of-2-tv-series-1959-mkv/%20Lock%20Up%20-%20S01E24%20-%20Election%20Day.mp4"
+        },
+        {
+          "archiveID": "movieslock-up-season-1-of-2-tv-series-1959-xvid-avi@s1e24",
+          "sourceID": "movieslock-up-season-1-of-2-tv-series-1959-xvid-avi",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Election Night",
+          "overview": null,
+          "stillURL": "https://archive.org/download/movieslock-up-season-1-of-2-tv-series-1959-xvid-avi/movieslock-up-season-1-of-2-tv-series-1959-xvid-avi.thumbs/Lock%20Up%20-%20S01E24%20-%20Election%20Night_000491.jpg",
+          "airDate": "1960-03-05",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Lock Up - S01E24 - Election Night.mp4",
+            "format": "h.264",
+            "sizeBytes": 138824654,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/movieslock-up-season-1-of-2-tv-series-1959-xvid-avi/Lock%20Up%20-%20S01E24%20-%20Election%20Night.mp4"
+        },
+        {
           "archiveID": "LockUpPokerClub",
           "seasonNumber": 1,
           "episodeNumber": 25,
@@ -363,6 +589,24 @@
           "downloadURL": "https://archive.org/download/LockUpMurderIsAGamble/LockUp-murderIsAGamble.ia.mp4"
         },
         {
+          "archiveID": "LockUpDeathAndTexas",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "Death and Taxes",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-04-02",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-deathAndTexas.mp4",
+            "format": "h.264",
+            "sizeBytes": 132931062,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpDeathAndTexas/LockUp-deathAndTexas.mp4"
+        },
+        {
           "archiveID": "LockUpTheLocket",
           "seasonNumber": 1,
           "episodeNumber": 29,
@@ -415,6 +659,44 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/LockUpFirstPrizeForMurder/LockUp-firstPrizeForMurder.mp4"
+        },
+        {
+          "archiveID": "movieslock-up-season-1-of-2-tv-series-1959-xvid-avi@s1e32",
+          "sourceID": "movieslock-up-season-1-of-2-tv-series-1959-xvid-avi",
+          "seasonNumber": 1,
+          "episodeNumber": 32,
+          "title": "Case Of Lt Weston",
+          "overview": null,
+          "stillURL": "https://archive.org/download/movieslock-up-season-1-of-2-tv-series-1959-xvid-avi/movieslock-up-season-1-of-2-tv-series-1959-xvid-avi.thumbs/Lock%20Up%20-%20S01E32%20-%20Case%20Of%20Lt%20Weston_000525.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1428,
+          "videoFile": {
+            "name": "Lock Up - S01E32 - Case Of Lt Weston.mp4",
+            "format": "h.264",
+            "sizeBytes": 149002061,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/movieslock-up-season-1-of-2-tv-series-1959-xvid-avi/Lock%20Up%20-%20S01E32%20-%20Case%20Of%20Lt%20Weston.mp4"
+        },
+        {
+          "archiveID": "lock-up-season-1-of-2-tv-series-1959-mkv@s1e32",
+          "sourceID": "lock-up-season-1-of-2-tv-series-1959-mkv",
+          "seasonNumber": 1,
+          "episodeNumber": 32,
+          "title": "The Case of Detective Weston",
+          "overview": null,
+          "stillURL": "https://archive.org/download/lock-up-season-1-of-2-tv-series-1959-mkv/lock-up-season-1-of-2-tv-series-1959-mkv.thumbs/%20Lock%20Up%20-%20S01E32%20-%20The%20Case%20of%20Detective%20Weston_000594.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1428,
+          "videoFile": {
+            "name": " Lock Up - S01E32 - The Case of Detective Weston.mp4",
+            "format": "h.264",
+            "sizeBytes": 149005144,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/lock-up-season-1-of-2-tv-series-1959-mkv/%20Lock%20Up%20-%20S01E32%20-%20The%20Case%20of%20Detective%20Weston.mp4"
         },
         {
           "archiveID": "LockUpSocietyMatron",
@@ -489,6 +771,24 @@
           "downloadURL": "https://archive.org/download/LockUpSoShallYeReap/LockUp-soShallYeReap.mp4"
         },
         {
+          "archiveID": "LockUpSentencedToDeath",
+          "seasonNumber": 1,
+          "episodeNumber": 37,
+          "title": "Sentenced to Die",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-06-04",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-sentencedToDeath.mp4",
+            "format": "h.264",
+            "sizeBytes": 145534526,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpSentencedToDeath/LockUp-sentencedToDeath.mp4"
+        },
+        {
           "archiveID": "LockUpTheVoiceOfDoom",
           "seasonNumber": 1,
           "episodeNumber": 38,
@@ -530,6 +830,44 @@
       "seasonNumber": 2,
       "episodes": [
         {
+          "archiveID": "lock-up-season-2-of-2-tv-series-1959-mkv@s2e01",
+          "sourceID": "lock-up-season-2-of-2-tv-series-1959-mkv",
+          "seasonNumber": 2,
+          "episodeNumber": 1,
+          "title": "The Case of JoeSlade",
+          "overview": null,
+          "stillURL": "https://archive.org/download/lock-up-season-2-of-2-tv-series-1959-mkv/lock-up-season-2-of-2-tv-series-1959-mkv.thumbs/Lock%20Up%20-%20S02E01%20-%20The%20Case%20of%20JoeSlade_000647.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1554,
+          "videoFile": {
+            "name": "Lock Up - S02E01 - The Case of JoeSlade.mp4",
+            "format": "h.264",
+            "sizeBytes": 161775574,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/lock-up-season-2-of-2-tv-series-1959-mkv/Lock%20Up%20-%20S02E01%20-%20The%20Case%20of%20JoeSlade.mp4"
+        },
+        {
+          "archiveID": "lock-up-season-2-of-2-tv-series-1959-mkv@s2e02",
+          "sourceID": "lock-up-season-2-of-2-tv-series-1959-mkv",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "The Case of Dan Gray",
+          "overview": null,
+          "stillURL": "https://archive.org/download/lock-up-season-2-of-2-tv-series-1959-mkv/lock-up-season-2-of-2-tv-series-1959-mkv.thumbs/Lock%20Up%20-%20S02E02%20-%20The%20Case%20of%20Dan%20Gray_000597.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1434,
+          "videoFile": {
+            "name": "Lock Up - S02E02 - The Case of Dan Gray.mp4",
+            "format": "h.264",
+            "sizeBytes": 149514515,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/lock-up-season-2-of-2-tv-series-1959-mkv/Lock%20Up%20-%20S02E02%20-%20The%20Case%20of%20Dan%20Gray.mp4"
+        },
+        {
           "archiveID": "LockUpTheSkidRowStory",
           "seasonNumber": 2,
           "episodeNumber": 3,
@@ -564,6 +902,25 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/LockUpFlyingHigh/LockUp-flyingHigh.ia.mp4"
+        },
+        {
+          "archiveID": "lock-up-season-2-of-2-tv-series-1959-mkv@s2e05",
+          "sourceID": "lock-up-season-2-of-2-tv-series-1959-mkv",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Beau and Arrow Case",
+          "overview": null,
+          "stillURL": "https://archive.org/download/lock-up-season-2-of-2-tv-series-1959-mkv/lock-up-season-2-of-2-tv-series-1959-mkv.thumbs/Lock%20Up%20-%20S02E05%20-%20The%20Beau%20and%20Arrow%20Case_000652.jpg",
+          "airDate": "1960-10-22",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Lock Up - S02E05 - The Beau and Arrow Case.mp4",
+            "format": "h.264",
+            "sizeBytes": 163403138,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/lock-up-season-2-of-2-tv-series-1959-mkv/Lock%20Up%20-%20S02E05%20-%20The%20Beau%20and%20Arrow%20Case.mp4"
         },
         {
           "archiveID": "LockUpTheFrameUp",
@@ -692,6 +1049,62 @@
           "downloadURL": "https://archive.org/download/LockUpNumberPlease/LockUp-numberPlease.mp4"
         },
         {
+          "archiveID": "lock-up-season-2-of-2-tv-series-1959-mkv@s2e12",
+          "sourceID": "lock-up-season-2-of-2-tv-series-1959-mkv",
+          "seasonNumber": 2,
+          "episodeNumber": 12,
+          "title": "The Case of Alexis George",
+          "overview": null,
+          "stillURL": "https://archive.org/download/lock-up-season-2-of-2-tv-series-1959-mkv/lock-up-season-2-of-2-tv-series-1959-mkv.thumbs/Lock%20Up%20-%20S02E12%20-%20The%20Case%20of%20Alexis%20George_000648.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1556,
+          "videoFile": {
+            "name": "Lock Up - S02E12 - The Case of Alexis George.mp4",
+            "format": "h.264",
+            "sizeBytes": 162255282,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/lock-up-season-2-of-2-tv-series-1959-mkv/Lock%20Up%20-%20S02E12%20-%20The%20Case%20of%20Alexis%20George.mp4"
+        },
+        {
+          "archiveID": "LockUpConcreteCoffincorrectEpisode",
+          "seasonNumber": 2,
+          "episodeNumber": 14,
+          "title": "Concrete Coffin",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": "1960-12-17",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-theConcreteCoffin.mp4",
+            "format": "h.264",
+            "sizeBytes": 163375322,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpConcreteCoffincorrectEpisode/LockUp-theConcreteCoffin.mp4"
+        },
+        {
+          "archiveID": "lock-up-season-2-of-2-tv-series-1959-mkv@s2e14",
+          "sourceID": "lock-up-season-2-of-2-tv-series-1959-mkv",
+          "seasonNumber": 2,
+          "episodeNumber": 15,
+          "title": "Compulsive Killer",
+          "overview": null,
+          "stillURL": "https://archive.org/download/lock-up-season-2-of-2-tv-series-1959-mkv/lock-up-season-2-of-2-tv-series-1959-mkv.thumbs/Lock%20Up%20-%20S02E14%20-%20Compulsive%20Killer_000655.jpg",
+          "airDate": "1960-12-24",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Lock Up - S02E14 - Compulsive Killer.mp4",
+            "format": "h.264",
+            "sizeBytes": 163609395,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/lock-up-season-2-of-2-tv-series-1959-mkv/Lock%20Up%20-%20S02E14%20-%20Compulsive%20Killer.mp4"
+        },
+        {
           "archiveID": "LockUpGirlsWanted",
           "seasonNumber": 2,
           "episodeNumber": 16,
@@ -800,7 +1213,7 @@
           "downloadURL": "https://archive.org/download/LockUpTheFrenchAffair/LockUp-aFrenchAffair.mp4"
         },
         {
-          "archiveID": "lock-up-season-2-of-2-tv-series-1959-mkv",
+          "archiveID": "LockUpEndOfATitan",
           "seasonNumber": 2,
           "episodeNumber": 22,
           "title": "End of Titan",
@@ -810,12 +1223,12 @@
           "year": 1961,
           "runtimeSeconds": 1800,
           "videoFile": {
-            "name": "Lock Up - S02E22 - End of a Titan.mp4",
+            "name": "LockUp-endOfATitan.mp4",
             "format": "h.264",
-            "sizeBytes": 165810326,
+            "sizeBytes": 159068547,
             "tier": 2
           },
-          "downloadURL": "https://archive.org/download/lock-up-season-2-of-2-tv-series-1959-mkv/Lock%20Up%20-%20S02E22%20-%20End%20of%20a%20Titan.mp4"
+          "downloadURL": "https://archive.org/download/LockUpEndOfATitan/LockUp-endOfATitan.mp4"
         },
         {
           "archiveID": "LockupFugitiveFromFear",
@@ -942,6 +1355,25 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/LockUpJungleCompound/LockUp-jungleCompound.mp4"
+        },
+        {
+          "archiveID": "lock-up-season-2-of-2-tv-series-1959-mkv@s2e30",
+          "sourceID": "lock-up-season-2-of-2-tv-series-1959-mkv",
+          "seasonNumber": 2,
+          "episodeNumber": 30,
+          "title": "The Case of Willie Butterfly",
+          "overview": null,
+          "stillURL": "https://archive.org/download/lock-up-season-2-of-2-tv-series-1959-mkv/lock-up-season-2-of-2-tv-series-1959-mkv.thumbs/Lock%20Up%20-%20S02E30%20-%20The%20Case%20of%20Willie%20Butterfly_000652.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1568,
+          "videoFile": {
+            "name": "Lock Up - S02E30 - The Case of Willie Butterfly.mp4",
+            "format": "h.264",
+            "sizeBytes": 163197918,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/lock-up-season-2-of-2-tv-series-1959-mkv/Lock%20Up%20-%20S02E30%20-%20The%20Case%20of%20Willie%20Butterfly.mp4"
         },
         {
           "archiveID": "LockUpTheWildcatter",
@@ -1086,48 +1518,31 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/LockUpTheIntruder/LockUp-theIntruder.mp4"
+        },
+        {
+          "archiveID": "lock-up-season-2-of-2-tv-series-1959-mkv@s2e39",
+          "sourceID": "lock-up-season-2-of-2-tv-series-1959-mkv",
+          "seasonNumber": 2,
+          "episodeNumber": 39,
+          "title": "The Case of Nan Havens",
+          "overview": null,
+          "stillURL": "https://archive.org/download/lock-up-season-2-of-2-tv-series-1959-mkv/lock-up-season-2-of-2-tv-series-1959-mkv.thumbs/Lock%20Up%20-%20S02E39%20-%20The%20Case%20of%20Nan%20Havens_000650.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1565,
+          "videoFile": {
+            "name": "Lock Up - S02E39 - The Case of Nan Havens.mp4",
+            "format": "h.264",
+            "sizeBytes": 162772138,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/lock-up-season-2-of-2-tv-series-1959-mkv/Lock%20Up%20-%20S02E39%20-%20The%20Case%20of%20Nan%20Havens.mp4"
         }
       ]
     },
     {
       "seasonNumber": null,
       "episodes": [
-        {
-          "archiveID": "LockUpConcreteCoffincorrectEpisode",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Lock Up: Concrete Coffin",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1574,
-          "videoFile": {
-            "name": "LockUp-theConcreteCoffin.mp4",
-            "format": "h.264",
-            "sizeBytes": 163375322,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/LockUpConcreteCoffincorrectEpisode/LockUp-theConcreteCoffin.mp4"
-        },
-        {
-          "archiveID": "LockUpDeathAndTexas",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Lock Up: Death and Texas",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1337,
-          "videoFile": {
-            "name": "LockUp-deathAndTexas.mp4",
-            "format": "h.264",
-            "sizeBytes": 132931062,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/LockUpDeathAndTexas/LockUp-deathAndTexas.mp4"
-        },
         {
           "archiveID": "LockUpElectionDay",
           "seasonNumber": null,
@@ -1145,60 +1560,6 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/LockUpElectionDay/LockUp-electionDay.mp4"
-        },
-        {
-          "archiveID": "LockUpEndOfATitan",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Lock Up: End of a Titan",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1591,
-          "videoFile": {
-            "name": "LockUp-endOfATitan.mp4",
-            "format": "h.264",
-            "sizeBytes": 159068547,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/LockUpEndOfATitan/LockUp-endOfATitan.mp4"
-        },
-        {
-          "archiveID": "LockUpManlyArtOfTheMurder",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Lock Up: Manly Art of the Murder",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1429,
-          "videoFile": {
-            "name": "LockUp-theManlyArtOfMurder.mp4",
-            "format": "h.264",
-            "sizeBytes": 144709287,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/LockUpManlyArtOfTheMurder/LockUp-theManlyArtOfMurder.mp4"
-        },
-        {
-          "archiveID": "LockUpSentencedToDeath",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Lock Up: Sentenced to Death",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1429,
-          "videoFile": {
-            "name": "LockUp-sentencedToDeath.mp4",
-            "format": "h.264",
-            "sizeBytes": 145534526,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/LockUpSentencedToDeath/LockUp-sentencedToDeath.mp4"
         },
         {
           "archiveID": "LockUpTheCaseOfAlexisGeorge",
@@ -1327,60 +1688,6 @@
           "downloadURL": "https://archive.org/download/LockUpTheCaseOfWillieButterlfly/LockUp-theCaseOfWillieButterfly.mp4"
         },
         {
-          "archiveID": "Lock-upWritOfTerror",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Lock-Up: Writ of Terror",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1422,
-          "videoFile": {
-            "name": "Lock-up-writOfTerror.mp4",
-            "format": "h.264",
-            "sizeBytes": 143382333,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Lock-upWritOfTerror/Lock-up-writOfTerror.mp4"
-        },
-        {
-          "archiveID": "Lock-upMusicToMurderBy",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Lock-up: Music to Murder By",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1165,
-          "videoFile": {
-            "name": "Lock-up-musicToMurderBy.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 113620176,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Lock-upMusicToMurderBy/Lock-up-musicToMurderBy.ia.mp4"
-        },
-        {
-          "archiveID": "LockUpStakeOut",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Stake Out",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-          "airDate": null,
-          "year": 1959,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "LockUp-stakeOut.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 155901052,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/LockUpStakeOut/LockUp-stakeOut.ia.mp4"
-        },
-        {
           "archiveID": "LockUpTheCaseOfDanGray",
           "seasonNumber": null,
           "episodeNumber": null,
@@ -1401,7 +1708,7 @@
       ]
     }
   ],
-  "episodesCount": 76,
+  "episodesCount": 92,
   "canonicalEpisodesCount": 78,
   "tvdbID": "70464",
   "artworkSource": "tvdb",

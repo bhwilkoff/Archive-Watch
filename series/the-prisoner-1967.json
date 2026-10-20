@@ -22,6 +22,234 @@
       "seasonNumber": 1,
       "episodes": [
         {
+          "archiveID": "the-prisoner@s1e00",
+          "sourceID": "the-prisoner",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Arrival",
+          "overview": "A British secret agent resigns from his job and prepares to go on holiday. However, when he wakes up, he finds himself in the Village: a mysterious place on the coast where retired agents are sent to spend the rest of their lives... whether they want to or not.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/354/887084.jpg",
+          "airDate": "1967-10-01",
+          "year": 1967,
+          "runtimeSeconds": 3000,
+          "videoFile": {
+            "name": "The.Prisoner.S01E00.Arrival.mp4",
+            "format": "h.264",
+            "sizeBytes": 297472444,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-prisoner/The.Prisoner.S01E00.Arrival.mp4"
+        },
+        {
+          "archiveID": "the-prisoner@s1e01",
+          "sourceID": "the-prisoner",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Chimes of Big Ben",
+          "overview": "Number Six has a new next door neighbour, Nadia. She befriends Number Six and tells him that The Village is situated on the Baltic. To cover their plans of escape Number Six enters The Village arts and crafts exhibition competition. His entry entitled \"Escape\" is the inspiration for their plan to get back to London.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/354/887085.jpg",
+          "airDate": "1967-10-08",
+          "year": 1967,
+          "runtimeSeconds": 3000,
+          "videoFile": {
+            "name": "The.Prisoner.S01E01.The.Chimes.Of.Big.Ben.mp4",
+            "format": "h.264",
+            "sizeBytes": 292924864,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-prisoner/The.Prisoner.S01E01.The.Chimes.Of.Big.Ben.mp4"
+        },
+        {
+          "archiveID": "the-prisoner@s1e02",
+          "sourceID": "the-prisoner",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "A. B. and C.",
+          "overview": "The new Number Two uses a new wonder drug to tap into Number Six's subconscious to try to discover why he resigned. Over a period of three nights he encounters A, B and C in separate circumstances. Unknown to Number Two, Number Six has realised what has happened and gets his dreams to prove that he was not selling out.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/354/887086.jpg",
+          "airDate": "1967-10-15",
+          "year": 1967,
+          "runtimeSeconds": 3000,
+          "videoFile": {
+            "name": "The.Prisoner.S01E02.A.B.And.C.mp4",
+            "format": "h.264",
+            "sizeBytes": 294042279,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-prisoner/The.Prisoner.S01E02.A.B.And.C.mp4"
+        },
+        {
+          "archiveID": "the-prisoner@s1e03",
+          "sourceID": "the-prisoner",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Free for All",
+          "overview": "It's election time in The Village. A new Number Two needs to be elected and Number Six is persuaded to stand. While attending a meeting of the outgoing council meeting, Number Six angers Number Two who decides that Number Six must undergo \"The Test\". Number Six sets out on his election campaign with many promises to his voters but his aim is to discover who Number One is.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/354/887087.jpg",
+          "airDate": "1967-10-22",
+          "year": 1967,
+          "runtimeSeconds": 3000,
+          "videoFile": {
+            "name": "The.Prisoner.S01E03.Free.For.All.mp4",
+            "format": "h.264",
+            "sizeBytes": 293306984,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-prisoner/The.Prisoner.S01E03.Free.For.All.mp4"
+        },
+        {
+          "archiveID": "the-prisoner@s1e05",
+          "sourceID": "the-prisoner",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Prisoner. The General",
+          "overview": null,
+          "stillURL": "https://archive.org/download/the-prisoner/the-prisoner.thumbs/The.Prisoner.S01E05.The.General_000955.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2895,
+          "videoFile": {
+            "name": "The.Prisoner.S01E05.The.General.mp4",
+            "format": "h.264",
+            "sizeBytes": 294560176,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-prisoner/The.Prisoner.S01E05.The.General.mp4"
+        },
+        {
+          "archiveID": "the-prisoner@s1e04",
+          "sourceID": "the-prisoner",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Schizoid Man",
+          "overview": "Number Six awakes one morning in a different Village and discovers things have changed. He has a new appearance, has become left-handed and has a different taste in foods. He is no longer Number Six but now Number Twelve. A doppelganger of Number Six has been brought to The Village in an attempt to crack him. A bruised fingernail is the only clue that can help the real Number Six.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/354/887088.jpg",
+          "airDate": "1967-10-29",
+          "year": 1967,
+          "runtimeSeconds": 3000,
+          "videoFile": {
+            "name": "The.Prisoner.S01E04.The.Schizoid.Man.mp4",
+            "format": "h.264",
+            "sizeBytes": 293704699,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-prisoner/The.Prisoner.S01E04.The.Schizoid.Man.mp4"
+        },
+        {
+          "archiveID": "the-prisoner-complete-series-1967@s1e05",
+          "sourceID": "the-prisoner-complete-series-1967",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The General",
+          "overview": "\"Speedlearn\" is a subliminal process for educating the population of The Village, developed by a Professor with the aid of an unseen \"General\". However, the Professor realises that his creation has the ability to be abused by Number Two and with the help of Number Six intends to destroy the General. After their attempt fails Number Two takes Number Six to meet the General.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/354/887089.jpg",
+          "airDate": "1967-11-05",
+          "year": 1967,
+          "runtimeSeconds": 3000,
+          "videoFile": {
+            "name": "The Prisoner S01E05 - The General.mp4",
+            "format": "h.264",
+            "sizeBytes": 284692436,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-prisoner-complete-series-1967/The%20Prisoner%20S01E05%20-%20The%20General.mp4"
+        },
+        {
+          "archiveID": "the-prisoner@s1e06",
+          "sourceID": "the-prisoner",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Many Happy Returns",
+          "overview": "Number Six awakes to a deserted Village. He realises that he has the perfect opportunity to escape his captors. He builds a raft and sets sail away from The Village. During his voyage he comes across some gunrunners who steal his remaining supplies and leave him to drown. He is eventually washed up on the south coast of England. He manages to get back to London to find a \"Mrs Butterworth\" living in his house. The next day is Number Six's birthday and Mrs Butterworth has a surprise planned for him.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/354/887090.jpg",
+          "airDate": "1967-11-12",
+          "year": 1967,
+          "runtimeSeconds": 3000,
+          "videoFile": {
+            "name": "The.Prisoner.S01E06.Many.Happy.Returns.mp4",
+            "format": "h.264",
+            "sizeBytes": 295768491,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-prisoner/The.Prisoner.S01E06.Many.Happy.Returns.mp4"
+        },
+        {
+          "archiveID": "the-prisoner@s1e07",
+          "sourceID": "the-prisoner",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Dance of the Dead",
+          "overview": "Number Six discovers a dead man washed up on The Village beach. He finds a wallet and a radio set in the dead man's jacket. He hides the body in a cave and later tries the radio. Number Six later returns to the body with a life-belt and sets it afloat with a rescue note, although he is watched by a former colleague, Dutton. Number Two has been using Dutton to obtain information on Number Six but soon thinks Dutton is expendable. Number Six receives an invitation to The Village carnival where he meets Peter Pan and Little Bo-Peep.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/354/887091.jpg",
+          "airDate": "1967-11-26",
+          "year": 1967,
+          "runtimeSeconds": 3000,
+          "videoFile": {
+            "name": "The.Prisoner.S01E07.Dance.Of.The.Dead.mp4",
+            "format": "h.264",
+            "sizeBytes": 292325270,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-prisoner/The.Prisoner.S01E07.Dance.Of.The.Dead.mp4"
+        },
+        {
+          "archiveID": "the-prisoner@s1e08",
+          "sourceID": "the-prisoner",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Checkmate",
+          "overview": "Number Six takes the position of Queen's Pawn in a human game of chess. An illegal move by the Rook leads to his withdrawal and he is taken to The Village hospital. Number Two brainwashes the Queen to fall in love with Number Six who discovers the locket the Queen wears around her neck is in fact a radio transmitter to track him. The transmitter is useful to Number Six and he manages to borrow the locket which he intends to use with the Rook in his latest escape bid.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/354/887092.jpg",
+          "airDate": "1967-12-03",
+          "year": 1967,
+          "runtimeSeconds": 3000,
+          "videoFile": {
+            "name": "The.Prisoner.S01E08.Checkmate.mp4",
+            "format": "h.264",
+            "sizeBytes": 289129303,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-prisoner/The.Prisoner.S01E08.Checkmate.mp4"
+        },
+        {
+          "archiveID": "the-prisoner@s1e09",
+          "sourceID": "the-prisoner",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Hammer Into Anvil",
+          "overview": "When a young woman is driven to her death by Number Two, Number Six swears his revenge. Number Two tells Number Six that he is going to hammer him so Number Six decides to turn the tables. He plans to make Number Two think that he is an agent called D6 and that he reports to a superior X.0.4. Number Six sets out on a campaign to break Number Two.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/354/887093.jpg",
+          "airDate": "1967-12-10",
+          "year": 1967,
+          "runtimeSeconds": 3000,
+          "videoFile": {
+            "name": "The.Prisoner.S01E09.Hammer.Into.Anvil.mp4",
+            "format": "h.264",
+            "sizeBytes": 296367689,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-prisoner/The.Prisoner.S01E09.Hammer.Into.Anvil.mp4"
+        },
+        {
+          "archiveID": "the-prisoner@s1e10",
+          "sourceID": "the-prisoner",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "It's Your Funeral",
+          "overview": "The Prisoner is tricked into discovering an assassination plot - but who is going to be killed? Number Two knows that Number Six is the only man in The Village capable of stopping a murder so he attempts to discredit him. After Number Six finds out about the plot he goes to warn Number Two who records the warning and doctors the tape. After a new Number Two arrives in The Village, Number Six realises that the intended target is not who he first thought.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/354/887094.jpg",
+          "airDate": "1967-12-17",
+          "year": 1967,
+          "runtimeSeconds": 3000,
+          "videoFile": {
+            "name": "The.Prisoner.S01E10.It's.Your.Funeral.mp4",
+            "format": "h.264",
+            "sizeBytes": 290861244,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-prisoner/The.Prisoner.S01E10.It%27s.Your.Funeral.mp4"
+        },
+        {
           "archiveID": "the.prisoner.s01.e12.a.change.of.mind",
           "seasonNumber": 1,
           "episodeNumber": 12,
@@ -40,7 +268,8 @@
           "downloadURL": "https://archive.org/download/the.prisoner.s01.e12.a.change.of.mind/The.Prisoner.S01E12.A.Change.Of.Mind.ia.mp4"
         },
         {
-          "archiveID": "the-prisoner-complete-series-1967",
+          "archiveID": "the-prisoner@s1e12",
+          "sourceID": "the-prisoner",
           "seasonNumber": 1,
           "episodeNumber": 13,
           "title": "Do Not Forsake Me Oh My Darling",
@@ -50,12 +279,88 @@
           "year": 1968,
           "runtimeSeconds": 3000,
           "videoFile": {
-            "name": "The Prisoner S01E13 - Living in Harmony.mp4",
+            "name": "The.Prisoner.S01E12.Do.Not.Forsake.Me.Oh.My.Darling.mp4",
             "format": "h.264",
-            "sizeBytes": 288086549,
-            "tier": 2
+            "sizeBytes": 294165789,
+            "tier": 1
           },
-          "downloadURL": "https://archive.org/download/the-prisoner-complete-series-1967/The%20Prisoner%20S01E13%20-%20Living%20in%20Harmony.mp4"
+          "downloadURL": "https://archive.org/download/the-prisoner/The.Prisoner.S01E12.Do.Not.Forsake.Me.Oh.My.Darling.mp4"
+        },
+        {
+          "archiveID": "the-prisoner@s1e13",
+          "sourceID": "the-prisoner",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "Living in Harmony",
+          "overview": "The Prisoner finds himself a stranger in a Western town called \"Harmony\". He reluctantly takes on the job of the Sheriff in order to release a young saloon woman. As Sheriff he refuses to carry a gun until a killing spree forces him to take one up. After a gun fight with the Kid, The Prisoner wants to resign from his post but The Judge refuses to let him.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/354/887097.jpg",
+          "airDate": "1968-01-14",
+          "year": 1968,
+          "runtimeSeconds": 3000,
+          "videoFile": {
+            "name": "The.Prisoner.S01E13.Living.In.Harmony.mp4",
+            "format": "h.264",
+            "sizeBytes": 297512341,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-prisoner/The.Prisoner.S01E13.Living.In.Harmony.mp4"
+        },
+        {
+          "archiveID": "the-prisoner@s1e14",
+          "sourceID": "the-prisoner",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "The Girl Who Was Death",
+          "overview": "The Prisoner is back in his old job as he tries to track down the murderer of Colonel Hawke-Englishe, who was looking for a crazy scientist called Schnipps. The scientist's daughter Sonia, who calls herself Death, protects her father and sets many deadly traps for Number Six. Sonia eventually leads him to her father who has plans to destroy London with his super-rocket.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/354/887098.jpg",
+          "airDate": "1968-01-21",
+          "year": 1968,
+          "runtimeSeconds": 3000,
+          "videoFile": {
+            "name": "The.Prisoner.S01E14.The.Girl.Who.Was.Death.mp4",
+            "format": "h.264",
+            "sizeBytes": 296369466,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-prisoner/The.Prisoner.S01E14.The.Girl.Who.Was.Death.mp4"
+        },
+        {
+          "archiveID": "the-prisoner@s1e15",
+          "sourceID": "the-prisoner",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Once Upon a Time",
+          "overview": "After all previous attempts to break Number Six have failed, Number Two decides the only way to obtain the information wanted is by using a system known as \"Degree Absolute\". A battle that will leave one of them dead. If Number Six wins, he will have survived the ultimate test and meet Number One.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/354/887099.jpg",
+          "airDate": "1968-01-28",
+          "year": 1968,
+          "runtimeSeconds": 3000,
+          "videoFile": {
+            "name": "The.Prisoner.S01E15.Once.Upon.A.Time.mp4",
+            "format": "h.264",
+            "sizeBytes": 291865028,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-prisoner/The.Prisoner.S01E15.Once.Upon.A.Time.mp4"
+        },
+        {
+          "archiveID": "the-prisoner@s1e16",
+          "sourceID": "the-prisoner",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Fall Out",
+          "overview": "The Prisoner is presented to the President of the Assembly. He watches the trials of Number Forty Eight and the resuscitated Number Two. It is now his chance to finally meet Number One. As chaos breaks out, The Prisoner leaves The Village and heads for London.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/354/887100.jpg",
+          "airDate": "1968-02-04",
+          "year": 1968,
+          "runtimeSeconds": 3000,
+          "videoFile": {
+            "name": "The.Prisoner.S01E16.Fall.Out.mp4",
+            "format": "h.264",
+            "sizeBytes": 295499120,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-prisoner/The.Prisoner.S01E16.Fall.Out.mp4"
         }
       ]
     },
@@ -63,15 +368,16 @@
       "seasonNumber": null,
       "episodes": [
         {
-          "archiveID": "the-prisoner",
+          "archiveID": "the-prisoner@x-the-prisoner-extra-don-t-knock-y",
+          "sourceID": "the-prisoner",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Prisoner",
+          "title": "Prisoner Extra Don't Knock Yourself Out",
           "overview": null,
-          "stillURL": null,
+          "stillURL": "https://archive.org/download/the-prisoner/the-prisoner.thumbs/The.Prisoner.Extra.Don%27t.Knock.Yourself.Out_002242.jpg",
           "airDate": null,
-          "year": 1967,
-          "runtimeSeconds": null,
+          "year": null,
+          "runtimeSeconds": 5677,
           "videoFile": {
             "name": "The.Prisoner.Extra.Don't.Knock.Yourself.Out.mp4",
             "format": "h.264",
@@ -101,7 +407,7 @@
       ]
     }
   ],
-  "episodesCount": 4,
+  "episodesCount": 20,
   "canonicalEpisodesCount": 17,
   "tvdbID": "74805",
   "artworkSource": "tvdb",
