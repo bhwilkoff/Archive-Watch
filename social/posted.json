@@ -2869,6 +2869,66 @@
    "kind": "silent-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-10-21T19:18:57.411304+00:00",
+   "id": "silent-the-sign-of-the-cross",
+   "title": "The Sign of the Cross",
+   "slot": "double-bill",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3myfujixpfd2r",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-21T19:18:57.411304+00:00",
+   "id": "silent-the-sign-of-the-cross",
+   "title": "The Sign of the Cross",
+   "slot": "double-bill",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117480512241883239",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-21T19:18:57.411304+00:00",
+   "id": "silent-the-sign-of-the-cross",
+   "title": "The Sign of the Cross",
+   "slot": "double-bill",
+   "platform": "threads",
+   "url": "https://www.threads.com/@archivewatchapp/post/DexJJujIAv6",
+   "format": "card",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-21T19:18:57.411304+00:00",
+   "id": "silent-the-sign-of-the-cross",
+   "title": "The Sign of the Cross",
+   "slot": "double-bill",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DexJOaOoFRb/",
+   "format": "card",
+   "kind": "silent-film",
+   "mediaId": "117480511853178542",
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-21T19:18:57.411304+00:00",
+   "id": "silent-the-sign-of-the-cross",
+   "title": "The Sign of the Cross",
+   "slot": "double-bill",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=7im4Hc8yy3o",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }

@@ -3759,6 +3759,68 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxwqx5yvmz2m",
+   "platform": "bluesky",
+   "id": "silent-mabel-at-the-wheel",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-15T19:05:00.056750+00:00",
+   "sampled": "2026-10-21T19:20:09.195549+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117446483816137881",
+   "platform": "mastodon",
+   "id": "silent-mabel-at-the-wheel",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-15T19:05:00.056750+00:00",
+   "sampled": "2026-10-21T19:20:09.195549+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mydddtxxzq2u",
+   "platform": "bluesky",
+   "id": "therecklessmoment1949",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-20T19:06:05.374294+00:00",
+   "sampled": "2026-10-21T19:20:09.195549+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117474799924468415",
+   "platform": "mastodon",
+   "id": "therecklessmoment1949",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-20T19:06:05.374294+00:00",
+   "sampled": "2026-10-21T19:20:09.195549+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }
