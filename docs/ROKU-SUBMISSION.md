@@ -235,6 +235,17 @@ someone opens App Behavior Analysis and presses **Run analysis**. The 1.0.77
 package sat for an hour waiting on a queue it had never joined. After the
 upload: static analysis, then App Behavior Analysis -> Run analysis -> "queued".
 
+**A first App Behavior Analysis can fail on the lab, not the package** (2026-10-21,
+1.0.79). On a Roku Ultra 4800X, the deep link to `TheGeneral720p1926` reached Detail
+and the player never left `stop` for 120 s; Deep Linking, Content Play and
+Screensaver all failed from that one cause. The deep-link code was unchanged
+from 1.0.78, and the same cold link played on the Stick 4K, where the console
+logged `AWDEEP autoplay` then `AWPLAY state=playing`. Re-uploading the same
+.pkg and pressing Run analysis again passed 4/4, on a different device (Ultra
+4660RW, 15.3.4). Before changing code for this result, replay
+`launch/dev?contentID=TheGeneral720p1926&mediatype=movie` cold with the console
+on port 8085; if it plays, re-run the analysis.
+
 **From 2026-10-01 a package needs `rsg_version=1.3` and a minimum firmware of
 15.1** (found 2026-10-19, 1.0.78). Static analysis reports a manifest without
 1.3 as an ERROR, and the firmware list starts at v15.1.0 b1. The field's own

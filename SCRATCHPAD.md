@@ -788,8 +788,9 @@ Fire TV vc69 committed by the owner the same evening (edit ddbb4b85..., in
 Amazon review).
 Roku 1.0.79 packaged on the Stick 4K and uploaded 2026-10-21 (min firmware
 v15.1.0 b1); static analysis 0 errors, 11 warnings (InitClientCertificates
-deprecated x10, AppDialog beacons); App Behavior Analysis queued.
-**Open**: Roku 1.0.79 Schedule publishing (owner) once the analysis passes.
+deprecated x10, AppDialog beacons). App Behavior Analysis failed 3/4 on its first
+run (the lab's player never started; ROKU-SUBMISSION.md), then passed 4/4 on a re-run.
+**Open**: Roku 1.0.79 Schedule publishing (owner).
 
 ### 2026-10-08 — iPhone Duo, the new App Store assets, and screenshots for every Apple platform
 
