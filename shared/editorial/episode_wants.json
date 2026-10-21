@@ -1,11 +1,11 @@
 {
   "schema": 1,
-  "updated_at": "2026-10-20T09:11:34Z",
+  "updated_at": "2026-10-21T09:38:47Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
     "total": 19108,
-    "wanted": 18880,
-    "fulfilled": 228,
+    "wanted": 18853,
+    "fulfilled": 255,
     "series_with_gaps": 384
   },
   "wants": [
@@ -145017,8 +145017,9 @@
       "episode": 7,
       "title": "The Regulators",
       "episodeImdbID": "tt0535463",
-      "status": "wanted",
-      "added_at": "2026-10-13T11:28:57Z"
+      "status": "fulfilled",
+      "added_at": "2026-10-13T11:28:57Z",
+      "fulfilled_at": "2026-10-21T09:38:47Z"
     },
     {
       "seriesID": "the-californians-1957",
@@ -174404,8 +174405,9 @@
       "episode": 15,
       "title": "Day of the Hunter",
       "episodeImdbID": "tt0686603",
-      "status": "wanted",
-      "added_at": "2026-09-27T09:47:41Z"
+      "status": "fulfilled",
+      "added_at": "2026-09-27T09:47:41Z",
+      "fulfilled_at": "2026-10-21T09:38:47Z"
     },
     {
       "seriesID": "the-rifleman-1958",
@@ -174414,8 +174416,9 @@
       "episode": 16,
       "title": "Mail Order Groom",
       "episodeImdbID": "tt0686632",
-      "status": "wanted",
-      "added_at": "2026-09-27T09:47:41Z"
+      "status": "fulfilled",
+      "added_at": "2026-09-27T09:47:41Z",
+      "fulfilled_at": "2026-10-21T09:38:47Z"
     },
     {
       "seriesID": "the-rifleman-1958",
@@ -175554,8 +175557,9 @@
       "episode": 5,
       "title": "The Train Robbery",
       "episodeImdbID": "tt0690982",
-      "status": "wanted",
-      "added_at": "2026-10-07T10:48:25Z"
+      "status": "fulfilled",
+      "added_at": "2026-10-07T10:48:25Z",
+      "fulfilled_at": "2026-10-21T09:38:47Z"
     },
     {
       "seriesID": "the-roy-rogers-show-1951",
@@ -175564,8 +175568,9 @@
       "episode": 7,
       "title": "The Outlaw's Girl",
       "episodeImdbID": "tt0690974",
-      "status": "wanted",
-      "added_at": "2026-10-07T10:48:25Z"
+      "status": "fulfilled",
+      "added_at": "2026-10-07T10:48:25Z",
+      "fulfilled_at": "2026-10-21T09:38:47Z"
     },
     {
       "seriesID": "the-roy-rogers-show-1951",
@@ -175614,8 +175619,9 @@
       "episode": 21,
       "title": "Doublecrosser",
       "episodeImdbID": "tt0690910",
-      "status": "wanted",
-      "added_at": "2026-10-07T10:48:25Z"
+      "status": "fulfilled",
+      "added_at": "2026-10-07T10:48:25Z",
+      "fulfilled_at": "2026-10-21T09:38:47Z"
     },
     {
       "seriesID": "the-roy-rogers-show-1951",
@@ -175624,8 +175630,9 @@
       "episode": 22,
       "title": "Carnival Killer",
       "episodeImdbID": "tt0690903",
-      "status": "wanted",
-      "added_at": "2026-10-07T10:48:25Z"
+      "status": "fulfilled",
+      "added_at": "2026-10-07T10:48:25Z",
+      "fulfilled_at": "2026-10-21T09:38:47Z"
     },
     {
       "seriesID": "the-roy-rogers-show-1951",
@@ -175914,8 +175921,9 @@
       "episode": 15,
       "title": "The Horse Mixup",
       "episodeImdbID": "tt0690965",
-      "status": "wanted",
-      "added_at": "2026-10-07T10:48:25Z"
+      "status": "fulfilled",
+      "added_at": "2026-10-07T10:48:25Z",
+      "fulfilled_at": "2026-10-21T09:38:47Z"
     },
     {
       "seriesID": "the-roy-rogers-show-1951",
@@ -175984,8 +175992,9 @@
       "episode": 10,
       "title": "Junior Outlaw",
       "episodeImdbID": "tt0690932",
-      "status": "wanted",
-      "added_at": "2026-10-07T10:48:25Z"
+      "status": "fulfilled",
+      "added_at": "2026-10-07T10:48:25Z",
+      "fulfilled_at": "2026-10-21T09:38:47Z"
     },
     {
       "seriesID": "the-roy-rogers-show-1951",
@@ -177015,8 +177024,9 @@
       "episode": 2,
       "title": "Eddie Albert, Eva Gabor, The Turtles",
       "episodeImdbID": "tt1052310",
-      "status": "wanted",
-      "added_at": "2026-06-20T07:57:19Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-20T07:57:19Z",
+      "fulfilled_at": "2026-10-21T09:38:47Z"
     },
     {
       "seriesID": "the-smothers-brothers-comedy-hour-1967",
@@ -177185,8 +177195,9 @@
       "episode": 10,
       "title": "Episode #2.10",
       "episodeImdbID": "tt1053056",
-      "status": "wanted",
-      "added_at": "2026-06-20T07:57:19Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-20T07:57:19Z",
+      "fulfilled_at": "2026-10-21T09:38:47Z"
     },
     {
       "seriesID": "the-smothers-brothers-comedy-hour-1967",
@@ -177195,8 +177206,9 @@
       "episode": 11,
       "title": "Episode #2.11",
       "episodeImdbID": "tt1058427",
-      "status": "wanted",
-      "added_at": "2026-06-20T07:57:19Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-20T07:57:19Z",
+      "fulfilled_at": "2026-10-21T09:38:47Z"
     },
     {
       "seriesID": "the-smothers-brothers-comedy-hour-1967",
@@ -177205,8 +177217,9 @@
       "episode": 12,
       "title": "Episode #2.12",
       "episodeImdbID": "tt1058428",
-      "status": "wanted",
-      "added_at": "2026-06-20T07:57:19Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-20T07:57:19Z",
+      "fulfilled_at": "2026-10-21T09:38:47Z"
     },
     {
       "seriesID": "the-smothers-brothers-comedy-hour-1967",
@@ -177225,8 +177238,9 @@
       "episode": 14,
       "title": "Episode #2.14",
       "episodeImdbID": "tt0703325",
-      "status": "wanted",
-      "added_at": "2026-06-20T07:57:19Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-20T07:57:19Z",
+      "fulfilled_at": "2026-10-21T09:38:47Z"
     },
     {
       "seriesID": "the-smothers-brothers-comedy-hour-1967",
@@ -177255,8 +177269,9 @@
       "episode": 17,
       "title": "Episode #2.17",
       "episodeImdbID": "tt0762514",
-      "status": "wanted",
-      "added_at": "2026-06-20T07:57:19Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-20T07:57:19Z",
+      "fulfilled_at": "2026-10-21T09:38:47Z"
     },
     {
       "seriesID": "the-smothers-brothers-comedy-hour-1967",
@@ -177265,8 +177280,9 @@
       "episode": 18,
       "title": "Episode #2.18",
       "episodeImdbID": "tt0703327",
-      "status": "wanted",
-      "added_at": "2026-06-20T07:57:19Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-20T07:57:19Z",
+      "fulfilled_at": "2026-10-21T09:38:47Z"
     },
     {
       "seriesID": "the-smothers-brothers-comedy-hour-1967",
@@ -177285,8 +177301,9 @@
       "episode": 20,
       "title": "Episode #2.20",
       "episodeImdbID": "tt1058432",
-      "status": "wanted",
-      "added_at": "2026-06-20T07:57:19Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-20T07:57:19Z",
+      "fulfilled_at": "2026-10-21T09:38:47Z"
     },
     {
       "seriesID": "the-smothers-brothers-comedy-hour-1967",
@@ -177305,8 +177322,9 @@
       "episode": 22,
       "title": "Episode #2.22",
       "episodeImdbID": "tt1058434",
-      "status": "wanted",
-      "added_at": "2026-06-20T07:57:19Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-20T07:57:19Z",
+      "fulfilled_at": "2026-10-21T09:38:47Z"
     },
     {
       "seriesID": "the-smothers-brothers-comedy-hour-1967",
@@ -177325,8 +177343,9 @@
       "episode": 24,
       "title": "Episode #2.24",
       "episodeImdbID": "tt1058435",
-      "status": "wanted",
-      "added_at": "2026-06-20T07:57:19Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-20T07:57:19Z",
+      "fulfilled_at": "2026-10-21T09:38:47Z"
     },
     {
       "seriesID": "the-smothers-brothers-comedy-hour-1967",
@@ -177335,8 +177354,9 @@
       "episode": 25,
       "title": "Episode #2.25",
       "episodeImdbID": "tt1058436",
-      "status": "wanted",
-      "added_at": "2026-06-20T07:57:19Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-20T07:57:19Z",
+      "fulfilled_at": "2026-10-21T09:38:47Z"
     },
     {
       "seriesID": "the-smothers-brothers-comedy-hour-1967",
@@ -177435,8 +177455,9 @@
       "episode": 10,
       "title": "Episode #3.10",
       "episodeImdbID": "tt1059076",
-      "status": "wanted",
-      "added_at": "2026-06-20T07:57:19Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-20T07:57:19Z",
+      "fulfilled_at": "2026-10-21T09:38:47Z"
     },
     {
       "seriesID": "the-smothers-brothers-comedy-hour-1967",
@@ -177485,8 +177506,9 @@
       "episode": 15,
       "title": "Ray Charles, Jackie Mason",
       "episodeImdbID": "tt1059684",
-      "status": "wanted",
-      "added_at": "2026-06-20T07:57:19Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-20T07:57:19Z",
+      "fulfilled_at": "2026-10-21T09:38:47Z"
     },
     {
       "seriesID": "the-smothers-brothers-comedy-hour-1967",
@@ -177525,8 +177547,9 @@
       "episode": 20,
       "title": "Episode #3.20",
       "episodeImdbID": "tt1059688",
-      "status": "wanted",
-      "added_at": "2026-06-20T07:57:19Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-20T07:57:19Z",
+      "fulfilled_at": "2026-10-21T09:38:47Z"
     },
     {
       "seriesID": "the-smothers-brothers-comedy-hour-1967",
@@ -177555,8 +177578,9 @@
       "episode": 23,
       "title": "Episode #3.23",
       "episodeImdbID": "tt1064051",
-      "status": "wanted",
-      "added_at": "2026-06-20T07:57:19Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-20T07:57:19Z",
+      "fulfilled_at": "2026-10-21T09:38:47Z"
     },
     {
       "seriesID": "the-smothers-brothers-comedy-hour-1967",
@@ -177565,8 +177589,9 @@
       "episode": 24,
       "title": "Episode #3.24",
       "episodeImdbID": "tt5789138",
-      "status": "wanted",
-      "added_at": "2026-06-20T07:57:19Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-20T07:57:19Z",
+      "fulfilled_at": "2026-10-21T09:38:47Z"
     },
     {
       "seriesID": "the-smothers-brothers-comedy-hour-1967",
@@ -177575,8 +177600,9 @@
       "episode": 25,
       "title": "Episode #3.25",
       "episodeImdbID": "tt1064052",
-      "status": "wanted",
-      "added_at": "2026-06-20T07:57:19Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-20T07:57:19Z",
+      "fulfilled_at": "2026-10-21T09:38:47Z"
     },
     {
       "seriesID": "the-smothers-brothers-comedy-hour-1967",
@@ -177585,8 +177611,9 @@
       "episode": 26,
       "title": "Episode #3.26",
       "episodeImdbID": "tt1064053",
-      "status": "wanted",
-      "added_at": "2026-06-20T07:57:19Z"
+      "status": "fulfilled",
+      "added_at": "2026-06-20T07:57:19Z",
+      "fulfilled_at": "2026-10-21T09:38:47Z"
     },
     {
       "seriesID": "the-smothers-brothers-comedy-hour-1967",

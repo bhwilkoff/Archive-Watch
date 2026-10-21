@@ -4,7 +4,7 @@
   "tvmazeID": 3877,
   "title": "The Rifleman",
   "yearStart": 1958,
-  "yearEnd": 1963,
+  "yearEnd": 1958,
   "overview": "Lucas McCain is an ex-soldier who loses his wife after the birth of one son, Mark. Lucas and Mark move to North Fork and attempt to make a living as farmers. However, outlaws and criminals ride into North Fork regularly, and Lucas' past comes back to haunt him from time to time. Inevitably, Lucas has to pick up his rifle and uses his marksmanship skills to deal with trouble.",
   "posterURL": "https://artworks.thetvdb.com/banners/posters/72089-2.jpg",
   "backdropURL": null,
@@ -38,11 +38,70 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/the-rifleman-tv-1958-colorized-s01e01-the-sharpshooter/The%20Rifleman%20TV%201958%20colorized%20s01e01%20The%20Sharpshooter.mp4"
+        },
+        {
+          "archiveID": "the-rifleman-tv-1958-s01e04-the-marshal",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Rifleman TV 1958 colorized s01e04 The Marshal",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-rifleman-tv-1958-s01e04-the-marshal",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1538,
+          "videoFile": {
+            "name": "The Rifleman TV 1958 colorized s01e04 The Marshal.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 161129269,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-rifleman-tv-1958-s01e04-the-marshal/The%20Rifleman%20TV%201958%20colorized%20s01e04%20The%20Marshal.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "The_Rifleman_-_Day_Of_The_Hunter",
+          "seasonNumber": 2,
+          "episodeNumber": 15,
+          "title": "The Rifleman - Day Of The Hunter",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/The_Rifleman_-_Day_Of_The_Hunter",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1529,
+          "videoFile": {
+            "name": "The_Rifleman_-_Day_Of_The_Hunter_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 111050233,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/The_Rifleman_-_Day_Of_The_Hunter/The_Rifleman_-_Day_Of_The_Hunter_512kb.mp4"
+        },
+        {
+          "archiveID": "TheRifleman-MailOrderGroom",
+          "seasonNumber": 2,
+          "episodeNumber": 16,
+          "title": "The Rifleman - Mail Order Groom",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheRifleman-MailOrderGroom",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1451,
+          "videoFile": {
+            "name": "The_Rifleman_-_Mail_Order_Groom_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 105491445,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheRifleman-MailOrderGroom/The_Rifleman_-_Mail_Order_Groom_512kb.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 1,
+  "episodesCount": 4,
   "canonicalEpisodesCount": 168,
   "tvdbID": "72089",
   "artworkSource": "tvdb",
@@ -65,5 +124,8 @@
       "order": 2,
       "profilePath": "https://artworks.thetvdb.com/banners/actors/14676.jpg"
     }
-  ]
+  ],
+  "seriesImdbID": "tt0051308",
+  "canonicalEpisodeCount": 121,
+  "canonicalSeasons": 5
 }
