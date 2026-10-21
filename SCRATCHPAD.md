@@ -786,8 +786,10 @@ v1.46.15 -> 1.46.16 (2140).
   ids) sideloaded and compiles on the Roku 2 XD floor. Apple builds need nothing.
 Fire TV vc69 committed by the owner the same evening (edit ddbb4b85..., in
 Amazon review).
-**Open**: Roku 1.0.79 waits for 1.0.78 to go live
-(2026-10-20 5 PM PT), then package + upload + Schedule publishing (owner).
+Roku 1.0.79 packaged on the Stick 4K and uploaded 2026-10-21 (min firmware
+v15.1.0 b1); static analysis 0 errors, 11 warnings (InitClientCertificates
+deprecated x10, AppDialog beacons); App Behavior Analysis queued.
+**Open**: Roku 1.0.79 Schedule publishing (owner) once the analysis passes.
 
 ### 2026-10-08 — iPhone Duo, the new App Store assets, and screenshots for every Apple platform
 
