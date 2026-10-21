@@ -784,9 +784,9 @@ v1.46.15 -> 1.46.16 (2140).
 - **Builds**: Android vc69 (1.46.16) built in CI, its R8 release APK smoke-run on
   the Pixel, promoted to Play production. Roku 1.0.79 (versions picker splits `@`
   ids) sideloaded and compiles on the Roku 2 XD floor. Apple builds need nothing.
-**Open**: Amazon edit is OPEN with vc69 uploaded; committing it needs release
-notes (`tools/submit-amazon.py --apk <apk> --notes "..." --commit`), refused by
-this session's permission check. Roku 1.0.79 waits for 1.0.78 to go live
+Fire TV vc69 committed by the owner the same evening (edit ddbb4b85..., in
+Amazon review).
+**Open**: Roku 1.0.79 waits for 1.0.78 to go live
 (2026-10-20 5 PM PT), then package + upload + Schedule publishing (owner).
 
 ### 2026-10-08 — iPhone Duo, the new App Store assets, and screenshots for every Apple platform
