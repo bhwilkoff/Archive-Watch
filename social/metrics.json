@@ -3853,6 +3853,68 @@
     "replies": 0,
     "quotes": 1
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxzalu34hc2z",
+   "platform": "bluesky",
+   "id": "TheWomanInGreen_894",
+   "slot": "one-line",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-16T18:50:24.521933+00:00",
+   "sampled": "2026-10-22T19:53:13.594162+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117452088376643765",
+   "platform": "mastodon",
+   "id": "TheWomanInGreen_894",
+   "slot": "one-line",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-16T18:50:24.521933+00:00",
+   "sampled": "2026-10-22T19:53:13.594162+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3myfujixpfd2r",
+   "platform": "bluesky",
+   "id": "silent-the-sign-of-the-cross",
+   "slot": "double-bill",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-21T19:18:57.411304+00:00",
+   "sampled": "2026-10-22T19:53:13.594162+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117480512241883239",
+   "platform": "mastodon",
+   "id": "silent-the-sign-of-the-cross",
+   "slot": "double-bill",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-21T19:18:57.411304+00:00",
+   "sampled": "2026-10-22T19:53:13.594162+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }
