@@ -57,6 +57,16 @@ because the loop was stopped mid-stride for a Claude update.
 
 ### Open owner items (nothing else is blocked)
 
+0-NEW-2026-10-22. **TWO ARCHIVE.ORG DEFECTS, FOUND, NOT FIXED** (measured 2026-10-17
+   while probing archive.org's audio collections; not owner items, an agent's
+   to fix). (a) `discover_archive_collections.scrape_query` stops with a bare
+   `return` on a failed response and `archive_lib.adv_search` returns `[]`, so
+   a throttled call reads as "nothing found" (ENGINEERING-PROCESS §1, absence
+   is not evidence). (b) archive.org storage nodes answered ranged GETs on MP3
+   with `access-control-allow-origin: *` (3/3), which contradicts
+   `docs/CATALOG-CONTRACT.md` (no CORS, measured 2026-06-09 for video).
+   Re-measure an MP4 before amending the contract.
+
 0-NEW-2026-10-08. **1.46.0 IS IN REVIEW (iOS, macOS, tvOS)** with the new header,
    search asset and screenshots. Still open, nothing blocked: the closed-Duo
    screenshots wait in the Asset Library for the first store build made with
