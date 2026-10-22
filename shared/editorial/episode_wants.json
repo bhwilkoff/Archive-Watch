@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-10-21T09:38:47Z",
+  "updated_at": "2026-10-22T09:33:54Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 19108,
-    "wanted": 18853,
-    "fulfilled": 255,
-    "series_with_gaps": 384
+    "total": 19156,
+    "wanted": 18894,
+    "fulfilled": 262,
+    "series_with_gaps": 385
   },
   "wants": [
     {
@@ -80848,6 +80848,486 @@
       "added_at": "2026-06-19T09:23:32Z"
     },
     {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 5,
+      "title": "Javêru no giwaku",
+      "episodeImdbID": "tt4490558",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 6,
+      "title": "Kozetto no tanjôbi",
+      "episodeImdbID": "tt4490568",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 7,
+      "title": "Maigo no Eponînu",
+      "episodeImdbID": "tt4490580",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 8,
+      "title": "Okâsan no sukâto",
+      "episodeImdbID": "tt4490582",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 9,
+      "title": "Tenarudie no warudakumi",
+      "episodeImdbID": "tt4490588",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 10,
+      "title": "Mayoi no Madorênu",
+      "episodeImdbID": "tt4490590",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 11,
+      "title": "Sanpurisu no uso",
+      "episodeImdbID": "tt4490598",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 12,
+      "title": "Hitoribotchi no Kozetto",
+      "episodeImdbID": "tt4490600",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 13,
+      "title": "Jan Varujan to Kozetto",
+      "episodeImdbID": "tt4490620",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 14,
+      "title": "Futarikiri no tabi",
+      "episodeImdbID": "tt4490622",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 15,
+      "title": "Futari no kizuna",
+      "episodeImdbID": "tt4490624",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 16,
+      "title": "Pari no Gorubô yashiki",
+      "episodeImdbID": "tt4490626",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 17,
+      "title": "Semari kuru Javêru",
+      "episodeImdbID": "tt4490640",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 18,
+      "title": "Wasureteita saikai",
+      "episodeImdbID": "tt4490642",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 19,
+      "title": "Azukerareta Kozetto",
+      "episodeImdbID": "tt4490650",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 20,
+      "title": "Shûdôin no hibi",
+      "episodeImdbID": "tt4490660",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 21,
+      "title": "Mariusu Ponmerushî",
+      "episodeImdbID": "tt4490692",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 22,
+      "title": "Sorezore no tabidachi",
+      "episodeImdbID": "tt4490698",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 23,
+      "title": "Pari no sora no shita de",
+      "episodeImdbID": "tt4490702",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 24,
+      "title": "Ryukusanbûru no deai",
+      "episodeImdbID": "tt4490712",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 25,
+      "title": "Todokanu omoi",
+      "episodeImdbID": "tt4490720",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 26,
+      "title": "Pari no surechigai",
+      "episodeImdbID": "tt4490736",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 27,
+      "title": "Tobidashita onna no ko",
+      "episodeImdbID": "tt4490742",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 28,
+      "title": "Hirowareta tegami",
+      "episodeImdbID": "tt4490744",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 29,
+      "title": "Tenarudie no wana",
+      "episodeImdbID": "tt4490746",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 30,
+      "title": "Nokosareta koin",
+      "episodeImdbID": "tt4490748",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 31,
+      "title": "Odayaka-na Puryume-dôri",
+      "episodeImdbID": "tt4490752",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 32,
+      "title": "Ano hi no omokage",
+      "episodeImdbID": "tt4490756",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 33,
+      "title": "Akirame kaketa saikai",
+      "episodeImdbID": "tt4490760",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 34,
+      "title": "Zô no naka no kodomo-tachi",
+      "episodeImdbID": "tt4490772",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 35,
+      "title": "Patoron Minetto no datsugoku",
+      "episodeImdbID": "tt4490780",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 36,
+      "title": "Yameru miyako Pari",
+      "episodeImdbID": "tt4490796",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 37,
+      "title": "Mariusu no gosan",
+      "episodeImdbID": "tt4491318",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 38,
+      "title": "Kozetto to Eponînu",
+      "episodeImdbID": "tt4491322",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 39,
+      "title": "Sen-happyaku-sanjûni-nen rokugatsu go-nichi",
+      "episodeImdbID": "tt4491324",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 40,
+      "title": "Kakumei no yoru",
+      "episodeImdbID": "tt4491326",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 41,
+      "title": "Eponînu no koi",
+      "episodeImdbID": "tt4491328",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 42,
+      "title": "Mariusu kara no tegami",
+      "episodeImdbID": "tt4491330",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 43,
+      "title": "Gavurôshu no negai",
+      "episodeImdbID": "tt4491336",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 44,
+      "title": "Mirai e no tomoshibi",
+      "episodeImdbID": "tt4491342",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 45,
+      "title": "Pari no gesuidô",
+      "episodeImdbID": "tt4491344",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 46,
+      "title": "Javêru no seigi",
+      "episodeImdbID": "tt4491350",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 47,
+      "title": "Kokoro no kizuna",
+      "episodeImdbID": "tt4491356",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 48,
+      "title": "Kozetto to Mariusu",
+      "episodeImdbID": "tt4491366",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 49,
+      "title": "Watashi no okâsan",
+      "episodeImdbID": "tt4491370",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 50,
+      "title": "Eien no ringu",
+      "episodeImdbID": "tt4491382",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 51,
+      "title": "Akasareta shinjitsu",
+      "episodeImdbID": "tt4491386",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
+      "seriesID": "les-miserables-1925",
+      "seriesTitle": "Les Miserables",
+      "season": 1,
+      "episode": 52,
+      "title": "Gin no shokudai",
+      "episodeImdbID": "tt4491390",
+      "status": "wanted",
+      "added_at": "2026-10-22T09:09:53Z"
+    },
+    {
       "seriesID": "life-of-riley-2009",
       "seriesTitle": "Life of Riley",
       "season": 1,
@@ -88809,8 +89289,9 @@
       "episode": 8,
       "title": "This Is It, Michael Shayne",
       "episodeImdbID": "tt0647267",
-      "status": "wanted",
-      "added_at": "2026-10-08T11:10:33Z"
+      "status": "fulfilled",
+      "added_at": "2026-10-08T11:10:33Z",
+      "fulfilled_at": "2026-10-22T09:33:54Z"
     },
     {
       "seriesID": "michael-shayne-1960",
@@ -88819,8 +89300,9 @@
       "episode": 10,
       "title": "Murder Plays Charades",
       "episodeImdbID": "tt0647250",
-      "status": "wanted",
-      "added_at": "2026-10-08T11:10:33Z"
+      "status": "fulfilled",
+      "added_at": "2026-10-08T11:10:33Z",
+      "fulfilled_at": "2026-10-22T09:33:54Z"
     },
     {
       "seriesID": "michael-shayne-1960",
@@ -88829,8 +89311,9 @@
       "episode": 11,
       "title": "Murder and the Wanton Bride",
       "episodeImdbID": "tt0647252",
-      "status": "wanted",
-      "added_at": "2026-10-08T11:10:33Z"
+      "status": "fulfilled",
+      "added_at": "2026-10-08T11:10:33Z",
+      "fulfilled_at": "2026-10-22T09:33:54Z"
     },
     {
       "seriesID": "michael-shayne-1960",
@@ -88859,8 +89342,9 @@
       "episode": 15,
       "title": "Spotlight on a Corpse",
       "episodeImdbID": "tt0647257",
-      "status": "wanted",
-      "added_at": "2026-10-08T11:10:33Z"
+      "status": "fulfilled",
+      "added_at": "2026-10-08T11:10:33Z",
+      "fulfilled_at": "2026-10-22T09:33:54Z"
     },
     {
       "seriesID": "michael-shayne-1960",
@@ -88879,8 +89363,9 @@
       "episode": 17,
       "title": "The Badge",
       "episodeImdbID": "tt0647260",
-      "status": "wanted",
-      "added_at": "2026-10-08T11:10:33Z"
+      "status": "fulfilled",
+      "added_at": "2026-10-08T11:10:33Z",
+      "fulfilled_at": "2026-10-22T09:33:54Z"
     },
     {
       "seriesID": "michael-shayne-1960",
@@ -88889,8 +89374,9 @@
       "episode": 18,
       "title": "The Heiress",
       "episodeImdbID": "tt0647263",
-      "status": "wanted",
-      "added_at": "2026-10-08T11:10:33Z"
+      "status": "fulfilled",
+      "added_at": "2026-10-08T11:10:33Z",
+      "fulfilled_at": "2026-10-22T09:33:54Z"
     },
     {
       "seriesID": "michael-shayne-1960",
@@ -88919,8 +89405,9 @@
       "episode": 22,
       "title": "Murder at the Convention",
       "episodeImdbID": "tt0647253",
-      "status": "wanted",
-      "added_at": "2026-10-08T11:10:33Z"
+      "status": "fulfilled",
+      "added_at": "2026-10-08T11:10:33Z",
+      "fulfilled_at": "2026-10-22T09:33:54Z"
     },
     {
       "seriesID": "michael-shayne-1960",

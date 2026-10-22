@@ -39,6 +39,60 @@
           "downloadURL": "https://archive.org/download/michael-shayne-tv-1960-colorized-s01e06-shoot-the-works/Michael%20Shayne%20TV%201960%20colorized%20s01e06%20Shoot%20the%20Works.mp4"
         },
         {
+          "archiveID": "MichaelShayneThisIsItMichaelShayne",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Michael Shayne This Is It Michael Shayne",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MichaelShayneThisIsItMichaelShayne",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3243,
+          "videoFile": {
+            "name": "MichaelShayne-thisIsItMichaelShayne.mp4",
+            "format": "h.264",
+            "sizeBytes": 337782508,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/MichaelShayneThisIsItMichaelShayne/MichaelShayne-thisIsItMichaelShayne.mp4"
+        },
+        {
+          "archiveID": "MichaelShayneMurderPlaysCharades",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Michael Shayne Murder Plays Charades",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MichaelShayneMurderPlaysCharades",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 3448,
+          "videoFile": {
+            "name": "Michael Shayne-Murder Plays Charades.mp4",
+            "format": "h.264",
+            "sizeBytes": 358657736,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/MichaelShayneMurderPlaysCharades/Michael%20Shayne-Murder%20Plays%20Charades.mp4"
+        },
+        {
+          "archiveID": "MichaelShayneMurderAndTheWantonBride",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Michael Shayne: Murder and the Wanton Bride",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MichaelShayneMurderAndTheWantonBride",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 3070,
+          "videoFile": {
+            "name": "MichaelShayne-murderAndTheWantonBride.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 315764828,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/MichaelShayneMurderAndTheWantonBride/MichaelShayne-murderAndTheWantonBride.ia.mp4"
+        },
+        {
           "archiveID": "michael-shayne-tv-1960-s01e13-murder-in-wonderland",
           "seasonNumber": 1,
           "episodeNumber": 13,
@@ -55,11 +109,83 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/michael-shayne-tv-1960-s01e13-murder-in-wonderland/Michael%20Shayne%20TV%201960%20colorized%20s01e13%20Murder%20in%20Wonderland.mp4"
+        },
+        {
+          "archiveID": "MichaelShayneSpotlightOnACorpse",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Michael Shayne: Spotlight on a Corpse",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MichaelShayneSpotlightOnACorpse",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 3234,
+          "videoFile": {
+            "name": "MichaelShayne-spotlightOnACorpse.mp4",
+            "format": "h.264",
+            "sizeBytes": 336885033,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/MichaelShayneSpotlightOnACorpse/MichaelShayne-spotlightOnACorpse.mp4"
+        },
+        {
+          "archiveID": "MichaelShayneTheBadge",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Michael Shayne The Badge",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MichaelShayneTheBadge",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 3382,
+          "videoFile": {
+            "name": "Michael Shayne-The Badge.mp4",
+            "format": "h.264",
+            "sizeBytes": 352848789,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/MichaelShayneTheBadge/Michael%20Shayne-The%20Badge.mp4"
+        },
+        {
+          "archiveID": "MichaelShayneTheHeiress",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Michael Shayne The Heiress",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MichaelShayneTheHeiress",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 3244,
+          "videoFile": {
+            "name": "Michael Shayne-The Heiress.mp4",
+            "format": "h.264",
+            "sizeBytes": 338640732,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/MichaelShayneTheHeiress/Michael%20Shayne-The%20Heiress.mp4"
+        },
+        {
+          "archiveID": "MichaelShayneMurderAtTheConvention",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Michael Shayne Murder At The Convention",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/MichaelShayneMurderAtTheConvention",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 3224,
+          "videoFile": {
+            "name": "Michael Shayne-Murder at the Convention.mp4",
+            "format": "h.264",
+            "sizeBytes": 336354800,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/MichaelShayneMurderAtTheConvention/Michael%20Shayne-Murder%20at%20the%20Convention.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 2,
+  "episodesCount": 9,
   "canonicalEpisodesCount": 32,
   "tvdbID": "77474",
   "artworkSource": "tvdb",
@@ -100,5 +226,8 @@
       "order": 5,
       "profilePath": null
     }
-  ]
+  ],
+  "seriesImdbID": "tt0053521",
+  "canonicalEpisodeCount": 20,
+  "canonicalSeasons": 1
 }
