@@ -3821,6 +3821,38 @@
     "reposts": 0,
     "replies": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxxfl7elrb2q",
+   "platform": "bluesky",
+   "id": "morocco-30-1538596735589",
+   "slot": "one-line",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-16T01:14:11.829651+00:00",
+   "sampled": "2026-10-22T01:32:49.902963+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mydz32ljik2r",
+   "platform": "bluesky",
+   "id": "silent-down-on-the-farm",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-21T01:34:56.694348+00:00",
+   "sampled": "2026-10-22T01:32:49.902963+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 1
+   }
   }
  ]
 }
