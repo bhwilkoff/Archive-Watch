@@ -3915,6 +3915,38 @@
     "reposts": 0,
     "replies": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mxzwhdhaoe2m",
+   "platform": "bluesky",
+   "id": "OurGangJubiloJr.1924",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-17T01:21:34.218345+00:00",
+   "sampled": "2026-10-23T01:30:57.444764+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mygjfqgte62r",
+   "platform": "bluesky",
+   "id": "all-wet-1927",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-22T01:32:39.422515+00:00",
+   "sampled": "2026-10-23T01:30:57.444764+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }
