@@ -3013,6 +3013,54 @@
    "kind": "commercial",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-10-23T19:41:37.520323+00:00",
+   "id": "quality-street_1927",
+   "title": "Quality Street",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mykwpv74jx25",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-23T19:41:37.520323+00:00",
+   "id": "quality-street_1927",
+   "title": "Quality Street",
+   "slot": "now-showing",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117491926040489163",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-23T19:41:37.520323+00:00",
+   "id": "quality-street_1927",
+   "title": "Quality Street",
+   "slot": "now-showing",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/De2VViHj1L6/",
+   "format": "card",
+   "kind": "silent-film",
+   "mediaId": "117491925610288738",
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-23T19:41:37.520323+00:00",
+   "id": "quality-street_1927",
+   "title": "Quality Street",
+   "slot": "now-showing",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=xL4Z4AA1fW4",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }

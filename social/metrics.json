@@ -3947,6 +3947,68 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3my3o4ddcbb2x",
+   "platform": "bluesky",
+   "id": "YheAirRace",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-17T17:57:31.513922+00:00",
+   "sampled": "2026-10-23T19:42:11.721779+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117457542997385336",
+   "platform": "mastodon",
+   "id": "YheAirRace",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-17T17:57:31.513922+00:00",
+   "sampled": "2026-10-23T19:42:11.721779+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3myigt6ncem2u",
+   "platform": "bluesky",
+   "id": "Algiers_868",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-22T19:51:48.603010+00:00",
+   "sampled": "2026-10-23T19:42:11.721779+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117486304309209326",
+   "platform": "mastodon",
+   "id": "Algiers_868",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-22T19:51:48.603010+00:00",
+   "sampled": "2026-10-23T19:42:11.721779+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }
