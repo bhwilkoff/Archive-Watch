@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-10-22T09:33:54Z",
+  "updated_at": "2026-10-23T09:03:20Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 19156,
-    "wanted": 18894,
+    "total": 19159,
+    "wanted": 18897,
     "fulfilled": 262,
-    "series_with_gaps": 385
+    "series_with_gaps": 386
   },
   "wants": [
     {
@@ -152064,6 +152064,36 @@
       "episodeImdbID": "tt0546950",
       "status": "wanted",
       "added_at": "2026-06-02T08:32:33Z"
+    },
+    {
+      "seriesID": "the-cousteau-odyssey-1977",
+      "seriesTitle": "The Cousteau Odyssey",
+      "season": 1,
+      "episode": 2,
+      "title": "The Nile: Part 2",
+      "episodeImdbID": "tt0781275",
+      "status": "wanted",
+      "added_at": "2026-10-23T09:03:20Z"
+    },
+    {
+      "seriesID": "the-cousteau-odyssey-1977",
+      "seriesTitle": "The Cousteau Odyssey",
+      "season": 1,
+      "episode": 7,
+      "title": "Calypso's Search for the Britannic",
+      "episodeImdbID": "tt1515597",
+      "status": "wanted",
+      "added_at": "2026-10-23T09:03:20Z"
+    },
+    {
+      "seriesID": "the-cousteau-odyssey-1977",
+      "seriesTitle": "The Cousteau Odyssey",
+      "season": 1,
+      "episode": 11,
+      "title": "Lost Relics of the Sea",
+      "episodeImdbID": "tt1515598",
+      "status": "wanted",
+      "added_at": "2026-10-23T09:03:20Z"
     },
     {
       "seriesID": "the-demon-headmaster-1996",
