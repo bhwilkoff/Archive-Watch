@@ -4041,6 +4041,68 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3my66tcvs4p2q",
+   "platform": "bluesky",
+   "id": "gov.ntis.ava18577vnb1",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-18T18:01:57.906180+00:00",
+   "sampled": "2026-10-24T18:03:39.003728+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117463226009205041",
+   "platform": "mastodon",
+   "id": "gov.ntis.ava18577vnb1",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-18T18:01:57.906180+00:00",
+   "sampled": "2026-10-24T18:03:39.003728+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mykwpv74jx25",
+   "platform": "bluesky",
+   "id": "quality-street_1927",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-23T19:41:37.520323+00:00",
+   "sampled": "2026-10-24T18:03:39.003728+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117491926040489163",
+   "platform": "mastodon",
+   "id": "quality-street_1927",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-23T19:41:37.520323+00:00",
+   "sampled": "2026-10-24T18:03:39.003728+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }
