@@ -3061,6 +3061,18 @@
    "kind": "silent-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-10-24T01:36:39.391803+00:00",
+   "id": "NightTide1961_4",
+   "title": "Night Tide",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mylkksrnof2k",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }

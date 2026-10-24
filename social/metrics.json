@@ -4009,6 +4009,38 @@
     "reposts": 0,
     "replies": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3my4essfm522m",
+   "platform": "bluesky",
+   "id": "rpsoundofastone",
+   "slot": "from-the-vaults",
+   "format": "card",
+   "window": "7d",
+   "posted": "2026-10-18T00:43:59.598812+00:00",
+   "sampled": "2026-10-24T01:36:53.310261+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3myizrbqyxf25",
+   "platform": "bluesky",
+   "id": "tatsachen.-1930.-web.-1080p",
+   "slot": "one-line",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-23T01:30:41.792616+00:00",
+   "sampled": "2026-10-24T01:36:53.310261+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }
