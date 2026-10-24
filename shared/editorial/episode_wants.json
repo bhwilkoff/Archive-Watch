@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-10-23T09:03:20Z",
+  "updated_at": "2026-10-24T08:51:46Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 19159,
-    "wanted": 18897,
+    "total": 19160,
+    "wanted": 18898,
     "fulfilled": 262,
-    "series_with_gaps": 386
+    "series_with_gaps": 387
   },
   "wants": [
     {
@@ -46651,6 +46651,16 @@
       "episodeImdbID": "tt0565892",
       "status": "wanted",
       "added_at": "2026-06-13T07:56:51Z"
+    },
+    {
+      "seriesID": "drifters-1929",
+      "seriesTitle": "Drifters",
+      "season": 1,
+      "episode": 15,
+      "title": "OVA: The Outlandish Knight",
+      "episodeImdbID": "tt9383866",
+      "status": "wanted",
+      "added_at": "2026-10-24T08:51:46Z"
     },
     {
       "seriesID": "dusty-s-trail-1973",
