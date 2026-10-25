@@ -3,8 +3,8 @@
   "seriesID": "the-californians-1957",
   "tvmazeID": 26277,
   "title": "The Californians",
-  "yearStart": 1958,
-  "yearEnd": 1958,
+  "yearStart": 1957,
+  "yearEnd": 1959,
   "overview": "In 1850s California at the height of the gold rush, the people of San Francisco try to bring some order to their wild city. In season 1, a crusading reporter and a storekeeper form a group of vigilantes. In season 2, the action shifts to the new city marshal as he organizes a police force.",
   "posterURL": "https://artworks.thetvdb.com/banners/v4/series/77412/posters/64fced51d8453.jpg",
   "backdropURL": null,
@@ -23,12 +23,12 @@
           "archiveID": "the-californians-tv-1957-colorized-s01e07-the-regulators",
           "seasonNumber": 1,
           "episodeNumber": 7,
-          "title": "The Californians TV 1957 colorized s01e07 The Regulators",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/the-californians-tv-1957-colorized-s01e07-the-regulators",
-          "airDate": null,
-          "year": 1958,
-          "runtimeSeconds": 1485,
+          "title": "The Regulators",
+          "overview": "To silence witnesses against their boss, outlaws kidnap McGivern's wife, Martha.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/354/885396.jpg",
+          "airDate": "1957-11-05",
+          "year": 1957,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "The Californians TV 1957 colorized s01e07 The Regulators.mp4",
             "format": "MPEG4",
@@ -111,8 +111,5 @@
       "order": 7,
       "profilePath": null
     }
-  ],
-  "seriesImdbID": "tt0050002",
-  "canonicalEpisodeCount": 69,
-  "canonicalSeasons": 2
+  ]
 }

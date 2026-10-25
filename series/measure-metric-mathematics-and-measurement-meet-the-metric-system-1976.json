@@ -1,0 +1,236 @@
+{
+  "version": 2,
+  "seriesID": "measure-metric-mathematics-and-measurement-meet-the-metric-system-1976",
+  "sourceID": "measure_metric",
+  "tvmazeID": null,
+  "title": "Measure Metric Mathematics and Measurement Meet the Metric System",
+  "yearStart": 1976,
+  "yearEnd": null,
+  "overview": "Measure Metric ★ Mathematics and Measurement - Meet the Metric System … and the Metric System always wins. As Seen in Canada, on TV Ontario … and perhaps elsewhere? Measure Metric Measure Metric is an AIT production, produced and filmed at TVOntario (then Ontario Educational Communications Authority) in 1976. William Davidson (\"Adventures in Rainbow Country\") was the series writer. The series included eleven fourteen-minute episodes, each one about a different aspect of measurement using the metric system. It shows how measurement can be applied to a variety of real-life situations. TV Ontario 1976 I noticed something in Episode #7 \" Area 3: Barbara Finds the Formula \". So, SOME of this course MAY apply … South of the US/Canadian border! Bear in mind Metric is simpler because it scales decimally. ... (See, you CAN give back something ... ) . _. It was an AIT production, produced and filmed at TVO (then OECA) in 1976. William Davidson (\"Adventures in Rainbow Country\") was the series writer. The introductory show was called \"The Greatest Measurement Show on Earth\" and featured a singing sideshow barker, Bob O'Shea (played by Nick Nichols) and a clown, Lord Longfellow (played by Mark Parr). In 1976 the Metric System was fairly new to Canada. Canada quickly embraced the Metric system and as a result the show became more-or-less obsolete as metric became more commonplace. In the US where they still haven't adopted the metric system, the show still airs in classrooms. The series also had a teacher's guide which listed the programs with suggested activities for teachers to do with their students. It also lists some of the actors and production staff for the shows. The show is no longer listed in the AIT catalogue, but some of the state run educational networks in the US still carry it. In Episode One \"The Greatest Measurement Show On Earth\" Smiling Bob O'Shea stresses the need and importance of measurement and introduces characters from the subsequent MeasureMetric programs. GOALS: Student will realize: The need to measure in order to communicate, the importance of measurement in everyday activities, the need for standard units to communicate measurements to others, and that measuring instruments or devices are necessary for making precise measurements. A carnival baker provides a colorful introduction to the importance of: 1) measurement in everyday activities, 2) the need for standard units to communicate measurements to others, and 3) the importance of standard measuring instruments for making precise measurements. This series introduces the use of the metric system as a process of the measurement of length, area, volume, mass, temperature and time. An effective tool for introducing basic concepts of metric measurement and motivating students to see the many practical applications for these measuring techniques and processes. These videos are all to be used only for free, personal, educational purposes. ___________________________________________________________________________________",
+  "posterURL": "https://archive.org/services/img/measure_metric",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "measure_metric@e01",
+          "sourceID": "measure_metric",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Episode 1",
+          "overview": null,
+          "stillURL": "https://archive.org/download/measure_metric/measure_metric.thumbs/measure_metric_01_000330.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 870,
+          "videoFile": {
+            "name": "measure_metric_01.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 192527025,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/measure_metric/measure_metric_01.mp4"
+        },
+        {
+          "archiveID": "measure_metric@e02",
+          "sourceID": "measure_metric",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Episode 2",
+          "overview": null,
+          "stillURL": "https://archive.org/download/measure_metric/measure_metric.thumbs/measure_metric_02_000328.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 870,
+          "videoFile": {
+            "name": "measure_metric_02.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 206616158,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/measure_metric/measure_metric_02.mp4"
+        },
+        {
+          "archiveID": "measure_metric@e03",
+          "sourceID": "measure_metric",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Episode 3",
+          "overview": null,
+          "stillURL": "https://archive.org/download/measure_metric/measure_metric.thumbs/measure_metric_03_000330.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 878,
+          "videoFile": {
+            "name": "measure_metric_03.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 184808056,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/measure_metric/measure_metric_03.mp4"
+        },
+        {
+          "archiveID": "measure_metric@e04",
+          "sourceID": "measure_metric",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Episode 4",
+          "overview": null,
+          "stillURL": "https://archive.org/download/measure_metric/measure_metric.thumbs/measure_metric_04_000300.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 874,
+          "videoFile": {
+            "name": "measure_metric_04.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 179263854,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/measure_metric/measure_metric_04.mp4"
+        },
+        {
+          "archiveID": "measure_metric@e05",
+          "sourceID": "measure_metric",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Episode 5",
+          "overview": null,
+          "stillURL": "https://archive.org/download/measure_metric/measure_metric.thumbs/measure_metric_05_000327.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 885,
+          "videoFile": {
+            "name": "measure_metric_05.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 178475807,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/measure_metric/measure_metric_05.mp4"
+        },
+        {
+          "archiveID": "measure_metric@e06",
+          "sourceID": "measure_metric",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Episode 6",
+          "overview": null,
+          "stillURL": "https://archive.org/download/measure_metric/measure_metric.thumbs/measure_metric_06_000325.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 884,
+          "videoFile": {
+            "name": "measure_metric_06.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 165885591,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/measure_metric/measure_metric_06.mp4"
+        },
+        {
+          "archiveID": "measure_metric@e07",
+          "sourceID": "measure_metric",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Episode 7",
+          "overview": null,
+          "stillURL": "https://archive.org/download/measure_metric/measure_metric.thumbs/measure_metric_07_000327.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 880,
+          "videoFile": {
+            "name": "measure_metric_07.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 186130663,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/measure_metric/measure_metric_07.mp4"
+        },
+        {
+          "archiveID": "measure_metric@e08",
+          "sourceID": "measure_metric",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Episode 8",
+          "overview": null,
+          "stillURL": "https://archive.org/download/measure_metric/measure_metric.thumbs/measure_metric_08_000335.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 884,
+          "videoFile": {
+            "name": "measure_metric_08.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 159805281,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/measure_metric/measure_metric_08.mp4"
+        },
+        {
+          "archiveID": "measure_metric@e09",
+          "sourceID": "measure_metric",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Episode 9",
+          "overview": null,
+          "stillURL": "https://archive.org/download/measure_metric/measure_metric.thumbs/measure_metric_09_000332.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 871,
+          "videoFile": {
+            "name": "measure_metric_09.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 168217899,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/measure_metric/measure_metric_09.mp4"
+        },
+        {
+          "archiveID": "measure_metric@e10",
+          "sourceID": "measure_metric",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Episode 10",
+          "overview": null,
+          "stillURL": "https://archive.org/download/measure_metric/measure_metric.thumbs/measure_metric_10_000297.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 871,
+          "videoFile": {
+            "name": "measure_metric_10.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 169483157,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/measure_metric/measure_metric_10.mp4"
+        },
+        {
+          "archiveID": "measure_metric@e11",
+          "sourceID": "measure_metric",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Episode 11",
+          "overview": null,
+          "stillURL": "https://archive.org/download/measure_metric/measure_metric.thumbs/measure_metric_11_000301.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 871,
+          "videoFile": {
+            "name": "measure_metric_11.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 157018096,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/measure_metric/measure_metric_11.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 11,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

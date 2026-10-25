@@ -1,275 +1,272 @@
 {
-  "version": 2,
-  "seriesID": "belle-et-s-bastien-1965",
-  "tvmazeID": 34749,
-  "title": "Belle et Sébastien",
-  "yearStart": 1965,
-  "yearEnd": 1970,
-  "overview": "Rescued in a cottage during a snowstorm by Caesar, the old shepherd, Sebastian whose mother has just died giving him birth will grow with the two grandchildren of Caesar, Jean and Angelina, also orphans. Belle, a large white dog, breed Pyrenean mountain dog was born the same day as Sebastian. Six years later, Sébastien and Belle will meet. Belle escaped from a kennel and while she is hunted down by the villagers, Sebastien saves her life, they become inseparable and will live together many adventures.",
-  "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/144/362228.jpg",
-  "backdropURL": null,
-  "genres": [],
-  "networks": [
-    "ORTF"
-  ],
-  "creator": null,
-  "seasons": [
+ "version": 2,
+ "seriesID": "belle-et-s-bastien-1965",
+ "tvmazeID": 34749,
+ "title": "Belle et Sébastien",
+ "yearStart": 1965,
+ "yearEnd": 1970,
+ "overview": "Rescued in a cottage during a snowstorm by Caesar, the old shepherd, Sebastian whose mother has just died giving him birth will grow with the two grandchildren of Caesar, Jean and Angelina, also orphans. Belle, a large white dog, breed Pyrenean mountain dog was born the same day as Sebastian. Six years later, Sébastien and Belle will meet. Belle escaped from a kennel and while she is hunted down by the villagers, Sebastien saves her life, they become inseparable and will live together many adventures.",
+ "posterURL": "https://static.tvmaze.com/uploads/images/original_untouched/144/362228.jpg",
+ "backdropURL": null,
+ "genres": [],
+ "networks": [
+  "ORTF"
+ ],
+ "creator": null,
+ "seasons": [
+  {
+   "seasonNumber": 1,
+   "episodes": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "belle-et-sebastien@s1e01",
-          "sourceID": "belle-et-sebastien",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "La rencontre",
-          "overview": null,
-          "stillURL": "https://archive.org/download/belle-et-sebastien/belle-et-sebastien.thumbs/Belle_et_S%C3%A9bastien_-_S01E01_-_La_Rencontre.FR_000543.jpg",
-          "airDate": "1965-09-26",
-          "year": 1965,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Belle_et_Sébastien_-_S01E01_-_La_Rencontre.FR.mp4",
-            "format": "h.264",
-            "sizeBytes": 150262898,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/belle-et-sebastien/Belle_et_S%C3%A9bastien_-_S01E01_-_La_Rencontre.FR.mp4"
-        },
-        {
-          "archiveID": "belle-et-sebastien@s1e02",
-          "sourceID": "belle-et-sebastien",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "Le refuge du Grand Baou",
-          "overview": null,
-          "stillURL": "https://archive.org/download/belle-et-sebastien/belle-et-sebastien.thumbs/Belle_et_S%C3%A9bastien_-_S01E02_-_Le_Refuge_du_Grand-Baou.FR_000547.jpg",
-          "airDate": "1965-10-03",
-          "year": 1965,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Belle_et_Sébastien_-_S01E02_-_Le_Refuge_du_Grand-Baou.FR.mp4",
-            "format": "h.264",
-            "sizeBytes": 151416514,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/belle-et-sebastien/Belle_et_S%C3%A9bastien_-_S01E02_-_Le_Refuge_du_Grand-Baou.FR.mp4"
-        },
-        {
-          "archiveID": "belle-et-sebastien@s1e03",
-          "sourceID": "belle-et-sebastien",
-          "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "La battue",
-          "overview": null,
-          "stillURL": "https://archive.org/download/belle-et-sebastien/belle-et-sebastien.thumbs/Belle_et_S%C3%A9bastien_-_S01E03_-_La_Battue.FR_000551.jpg",
-          "airDate": "1965-10-10",
-          "year": 1965,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Belle_et_Sébastien_-_S01E03_-_La_Battue.FR.mp4",
-            "format": "h.264",
-            "sizeBytes": 154946579,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/belle-et-sebastien/Belle_et_S%C3%A9bastien_-_S01E03_-_La_Battue.FR.mp4"
-        },
-        {
-          "archiveID": "belle-et-sebastien@s1e04",
-          "sourceID": "belle-et-sebastien",
-          "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "L'étranger",
-          "overview": null,
-          "stillURL": "https://archive.org/download/belle-et-sebastien/belle-et-sebastien.thumbs/Belle_et_S%C3%A9bastien_-_S01E04_-_L%27%C3%A9tranger.FR_000564.jpg",
-          "airDate": "1965-10-17",
-          "year": 1965,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Belle_et_Sébastien_-_S01E04_-_L'étranger.FR.mp4",
-            "format": "h.264",
-            "sizeBytes": 156940392,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/belle-et-sebastien/Belle_et_S%C3%A9bastien_-_S01E04_-_L%27%C3%A9tranger.FR.mp4"
-        },
-        {
-          "archiveID": "belle-et-sebastien@s1e05",
-          "sourceID": "belle-et-sebastien",
-          "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "La valise de Norbert",
-          "overview": null,
-          "stillURL": "https://archive.org/download/belle-et-sebastien/belle-et-sebastien.thumbs/Belle_et_S%C3%A9bastien_-_S01E05_-_La_Valise_De_Norbert.FR_000551.jpg",
-          "airDate": "1965-10-24",
-          "year": 1965,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Belle_et_Sébastien_-_S01E05_-_La_Valise_De_Norbert.FR.mp4",
-            "format": "h.264",
-            "sizeBytes": 153363857,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/belle-et-sebastien/Belle_et_S%C3%A9bastien_-_S01E05_-_La_Valise_De_Norbert.FR.mp4"
-        },
-        {
-          "archiveID": "belle-et-sebastien@s1e06",
-          "sourceID": "belle-et-sebastien",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "La patrouille de douane",
-          "overview": null,
-          "stillURL": "https://archive.org/download/belle-et-sebastien/belle-et-sebastien.thumbs/Belle_et_S%C3%A9bastien_-_S01E06_-_La_Patrouille_De_Douane.FR_000552.jpg",
-          "airDate": "1965-10-31",
-          "year": 1965,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Belle_et_Sébastien_-_S01E06_-_La_Patrouille_De_Douane.FR.mp4",
-            "format": "h.264",
-            "sizeBytes": 153669387,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/belle-et-sebastien/Belle_et_S%C3%A9bastien_-_S01E06_-_La_Patrouille_De_Douane.FR.mp4"
-        },
-        {
-          "archiveID": "belle-et-sebastien@s1e07",
-          "sourceID": "belle-et-sebastien",
-          "seasonNumber": 1,
-          "episodeNumber": 7,
-          "title": "La piste du grand défilé",
-          "overview": null,
-          "stillURL": "https://archive.org/download/belle-et-sebastien/belle-et-sebastien.thumbs/Belle_et_S%C3%A9bastien_-_S01E07_-_La_Piste_Du_Grand_D%C3%A9fil%C3%A9.FR_000540.jpg",
-          "airDate": "1965-11-07",
-          "year": 1965,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Belle_et_Sébastien_-_S01E07_-_La_Piste_Du_Grand_Défilé.FR.mp4",
-            "format": "h.264",
-            "sizeBytes": 152224171,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/belle-et-sebastien/Belle_et_S%C3%A9bastien_-_S01E07_-_La_Piste_Du_Grand_D%C3%A9fil%C3%A9.FR.mp4"
-        },
-        {
-          "archiveID": "belle-et-sebastien@s1e08",
-          "sourceID": "belle-et-sebastien",
-          "seasonNumber": 1,
-          "episodeNumber": 8,
-          "title": "La veillée de Noël",
-          "overview": null,
-          "stillURL": "https://archive.org/download/belle-et-sebastien/belle-et-sebastien.thumbs/Belle_et_S%C3%A9bastien_-_S01E08_-_La_Veille_De_No%C3%ABl.FR_000553.jpg",
-          "airDate": "1965-11-14",
-          "year": 1965,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Belle_et_Sébastien_-_S01E08_-_La_Veille_De_Noël.FR.mp4",
-            "format": "h.264",
-            "sizeBytes": 155647184,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/belle-et-sebastien/Belle_et_S%C3%A9bastien_-_S01E08_-_La_Veille_De_No%C3%ABl.FR.mp4"
-        },
-        {
-          "archiveID": "belle-et-sebastien@s1e09",
-          "sourceID": "belle-et-sebastien",
-          "seasonNumber": 1,
-          "episodeNumber": 9,
-          "title": "Le jour de Noël",
-          "overview": null,
-          "stillURL": "https://archive.org/download/belle-et-sebastien/belle-et-sebastien.thumbs/Belle_et_S%C3%A9bastien_-_S01E09_-_Le_Jour_De_No%C3%ABl.FR_000560.jpg",
-          "airDate": "1965-11-21",
-          "year": 1965,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Belle_et_Sébastien_-_S01E09_-_Le_Jour_De_Noël.FR.mp4",
-            "format": "h.264",
-            "sizeBytes": 156308853,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/belle-et-sebastien/Belle_et_S%C3%A9bastien_-_S01E09_-_Le_Jour_De_No%C3%ABl.FR.mp4"
-        },
-        {
-          "archiveID": "belle-et-sebastien@s1e10",
-          "sourceID": "belle-et-sebastien",
-          "seasonNumber": 1,
-          "episodeNumber": 10,
-          "title": "L'incendie",
-          "overview": null,
-          "stillURL": "https://archive.org/download/belle-et-sebastien/belle-et-sebastien.thumbs/Belle_et_S%C3%A9bastien_-_S01E10_-_L%27incendie.FR_000561.jpg",
-          "airDate": "1965-11-28",
-          "year": 1965,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Belle_et_Sébastien_-_S01E10_-_L'incendie.FR.mp4",
-            "format": "h.264",
-            "sizeBytes": 155858106,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/belle-et-sebastien/Belle_et_S%C3%A9bastien_-_S01E10_-_L%27incendie.FR.mp4"
-        },
-        {
-          "archiveID": "belle-et-sebastien@s1e11",
-          "sourceID": "belle-et-sebastien",
-          "seasonNumber": 1,
-          "episodeNumber": 11,
-          "title": "L'avalanche",
-          "overview": null,
-          "stillURL": "https://archive.org/download/belle-et-sebastien/belle-et-sebastien.thumbs/Belle_et_S%C3%A9bastien_-_S01E11_-_L%27avalanche.FR_000519.jpg",
-          "airDate": "1965-12-05",
-          "year": 1965,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Belle_et_Sébastien_-_S01E11_-_L'avalanche.FR.mp4",
-            "format": "h.264",
-            "sizeBytes": 146150107,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/belle-et-sebastien/Belle_et_S%C3%A9bastien_-_S01E11_-_L%27avalanche.FR.mp4"
-        },
-        {
-          "archiveID": "belle-et-sebastien@s1e12",
-          "sourceID": "belle-et-sebastien",
-          "seasonNumber": 1,
-          "episodeNumber": 12,
-          "title": "L'enquête",
-          "overview": null,
-          "stillURL": "https://archive.org/download/belle-et-sebastien/belle-et-sebastien.thumbs/Belle_et_S%C3%A9bastien_-_S01E12_-_L%27enqu%C3%AAte.FR_000551.jpg",
-          "airDate": "1965-12-12",
-          "year": 1965,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Belle_et_Sébastien_-_S01E12_-_L'enquête.FR.mp4",
-            "format": "h.264",
-            "sizeBytes": 155149357,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/belle-et-sebastien/Belle_et_S%C3%A9bastien_-_S01E12_-_L%27enqu%C3%AAte.FR.mp4"
-        },
-        {
-          "archiveID": "belle-et-sebastien@s1e13",
-          "sourceID": "belle-et-sebastien",
-          "seasonNumber": 1,
-          "episodeNumber": 13,
-          "title": "La preuve",
-          "overview": null,
-          "stillURL": "https://archive.org/download/belle-et-sebastien/belle-et-sebastien.thumbs/Belle_et_S%C3%A9bastien_-_S01E13_-_La_Preuve.FR_000528.jpg",
-          "airDate": "1965-12-19",
-          "year": 1965,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Belle_et_Sébastien_-_S01E13_-_La_Preuve.FR.mp4",
-            "format": "h.264",
-            "sizeBytes": 148508568,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/belle-et-sebastien/Belle_et_S%C3%A9bastien_-_S01E13_-_La_Preuve.FR.mp4"
-        }
-      ]
+     "archiveID": "belle-et-sebastien@s1e01",
+     "sourceID": "belle-et-sebastien",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "La rencontre",
+     "overview": null,
+     "stillURL": "https://archive.org/download/belle-et-sebastien/belle-et-sebastien.thumbs/Belle_et_S%C3%A9bastien_-_S01E01_-_La_Rencontre.FR_000543.jpg",
+     "airDate": "1965-09-26",
+     "year": 1965,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Belle_et_Sébastien_-_S01E01_-_La_Rencontre.FR.mp4",
+      "format": "h.264",
+      "sizeBytes": 150262898,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/belle-et-sebastien/Belle_et_S%C3%A9bastien_-_S01E01_-_La_Rencontre.FR.mp4"
+    },
+    {
+     "archiveID": "belle-et-sebastien@s1e02",
+     "sourceID": "belle-et-sebastien",
+     "seasonNumber": 1,
+     "episodeNumber": 2,
+     "title": "Le refuge du Grand Baou",
+     "overview": null,
+     "stillURL": "https://archive.org/download/belle-et-sebastien/belle-et-sebastien.thumbs/Belle_et_S%C3%A9bastien_-_S01E02_-_Le_Refuge_du_Grand-Baou.FR_000547.jpg",
+     "airDate": "1965-10-03",
+     "year": 1965,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Belle_et_Sébastien_-_S01E02_-_Le_Refuge_du_Grand-Baou.FR.mp4",
+      "format": "h.264",
+      "sizeBytes": 151416514,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/belle-et-sebastien/Belle_et_S%C3%A9bastien_-_S01E02_-_Le_Refuge_du_Grand-Baou.FR.mp4"
+    },
+    {
+     "archiveID": "belle-et-sebastien@s1e03",
+     "sourceID": "belle-et-sebastien",
+     "seasonNumber": 1,
+     "episodeNumber": 3,
+     "title": "La battue",
+     "overview": null,
+     "stillURL": "https://archive.org/download/belle-et-sebastien/belle-et-sebastien.thumbs/Belle_et_S%C3%A9bastien_-_S01E03_-_La_Battue.FR_000551.jpg",
+     "airDate": "1965-10-10",
+     "year": 1965,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Belle_et_Sébastien_-_S01E03_-_La_Battue.FR.mp4",
+      "format": "h.264",
+      "sizeBytes": 154946579,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/belle-et-sebastien/Belle_et_S%C3%A9bastien_-_S01E03_-_La_Battue.FR.mp4"
+    },
+    {
+     "archiveID": "belle-et-sebastien@s1e04",
+     "sourceID": "belle-et-sebastien",
+     "seasonNumber": 1,
+     "episodeNumber": 4,
+     "title": "L'étranger",
+     "overview": null,
+     "stillURL": "https://archive.org/download/belle-et-sebastien/belle-et-sebastien.thumbs/Belle_et_S%C3%A9bastien_-_S01E04_-_L%27%C3%A9tranger.FR_000564.jpg",
+     "airDate": "1965-10-17",
+     "year": 1965,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Belle_et_Sébastien_-_S01E04_-_L'étranger.FR.mp4",
+      "format": "h.264",
+      "sizeBytes": 156940392,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/belle-et-sebastien/Belle_et_S%C3%A9bastien_-_S01E04_-_L%27%C3%A9tranger.FR.mp4"
+    },
+    {
+     "archiveID": "belle-et-sebastien@s1e05",
+     "sourceID": "belle-et-sebastien",
+     "seasonNumber": 1,
+     "episodeNumber": 5,
+     "title": "La valise de Norbert",
+     "overview": null,
+     "stillURL": "https://archive.org/download/belle-et-sebastien/belle-et-sebastien.thumbs/Belle_et_S%C3%A9bastien_-_S01E05_-_La_Valise_De_Norbert.FR_000551.jpg",
+     "airDate": "1965-10-24",
+     "year": 1965,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Belle_et_Sébastien_-_S01E05_-_La_Valise_De_Norbert.FR.mp4",
+      "format": "h.264",
+      "sizeBytes": 153363857,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/belle-et-sebastien/Belle_et_S%C3%A9bastien_-_S01E05_-_La_Valise_De_Norbert.FR.mp4"
+    },
+    {
+     "archiveID": "belle-et-sebastien@s1e06",
+     "sourceID": "belle-et-sebastien",
+     "seasonNumber": 1,
+     "episodeNumber": 6,
+     "title": "La patrouille de douane",
+     "overview": null,
+     "stillURL": "https://archive.org/download/belle-et-sebastien/belle-et-sebastien.thumbs/Belle_et_S%C3%A9bastien_-_S01E06_-_La_Patrouille_De_Douane.FR_000552.jpg",
+     "airDate": "1965-10-31",
+     "year": 1965,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Belle_et_Sébastien_-_S01E06_-_La_Patrouille_De_Douane.FR.mp4",
+      "format": "h.264",
+      "sizeBytes": 153669387,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/belle-et-sebastien/Belle_et_S%C3%A9bastien_-_S01E06_-_La_Patrouille_De_Douane.FR.mp4"
+    },
+    {
+     "archiveID": "belle-et-sebastien@s1e07",
+     "sourceID": "belle-et-sebastien",
+     "seasonNumber": 1,
+     "episodeNumber": 7,
+     "title": "La piste du grand défilé",
+     "overview": null,
+     "stillURL": "https://archive.org/download/belle-et-sebastien/belle-et-sebastien.thumbs/Belle_et_S%C3%A9bastien_-_S01E07_-_La_Piste_Du_Grand_D%C3%A9fil%C3%A9.FR_000540.jpg",
+     "airDate": "1965-11-07",
+     "year": 1965,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Belle_et_Sébastien_-_S01E07_-_La_Piste_Du_Grand_Défilé.FR.mp4",
+      "format": "h.264",
+      "sizeBytes": 152224171,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/belle-et-sebastien/Belle_et_S%C3%A9bastien_-_S01E07_-_La_Piste_Du_Grand_D%C3%A9fil%C3%A9.FR.mp4"
+    },
+    {
+     "archiveID": "belle-et-sebastien@s1e08",
+     "sourceID": "belle-et-sebastien",
+     "seasonNumber": 1,
+     "episodeNumber": 8,
+     "title": "La veillée de Noël",
+     "overview": null,
+     "stillURL": "https://archive.org/download/belle-et-sebastien/belle-et-sebastien.thumbs/Belle_et_S%C3%A9bastien_-_S01E08_-_La_Veille_De_No%C3%ABl.FR_000553.jpg",
+     "airDate": "1965-11-14",
+     "year": 1965,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Belle_et_Sébastien_-_S01E08_-_La_Veille_De_Noël.FR.mp4",
+      "format": "h.264",
+      "sizeBytes": 155647184,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/belle-et-sebastien/Belle_et_S%C3%A9bastien_-_S01E08_-_La_Veille_De_No%C3%ABl.FR.mp4"
+    },
+    {
+     "archiveID": "belle-et-sebastien@s1e09",
+     "sourceID": "belle-et-sebastien",
+     "seasonNumber": 1,
+     "episodeNumber": 9,
+     "title": "Le jour de Noël",
+     "overview": null,
+     "stillURL": "https://archive.org/download/belle-et-sebastien/belle-et-sebastien.thumbs/Belle_et_S%C3%A9bastien_-_S01E09_-_Le_Jour_De_No%C3%ABl.FR_000560.jpg",
+     "airDate": "1965-11-21",
+     "year": 1965,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Belle_et_Sébastien_-_S01E09_-_Le_Jour_De_Noël.FR.mp4",
+      "format": "h.264",
+      "sizeBytes": 156308853,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/belle-et-sebastien/Belle_et_S%C3%A9bastien_-_S01E09_-_Le_Jour_De_No%C3%ABl.FR.mp4"
+    },
+    {
+     "archiveID": "belle-et-sebastien@s1e10",
+     "sourceID": "belle-et-sebastien",
+     "seasonNumber": 1,
+     "episodeNumber": 10,
+     "title": "L'incendie",
+     "overview": null,
+     "stillURL": "https://archive.org/download/belle-et-sebastien/belle-et-sebastien.thumbs/Belle_et_S%C3%A9bastien_-_S01E10_-_L%27incendie.FR_000561.jpg",
+     "airDate": "1965-11-28",
+     "year": 1965,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Belle_et_Sébastien_-_S01E10_-_L'incendie.FR.mp4",
+      "format": "h.264",
+      "sizeBytes": 155858106,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/belle-et-sebastien/Belle_et_S%C3%A9bastien_-_S01E10_-_L%27incendie.FR.mp4"
+    },
+    {
+     "archiveID": "belle-et-sebastien@s1e11",
+     "sourceID": "belle-et-sebastien",
+     "seasonNumber": 1,
+     "episodeNumber": 11,
+     "title": "L'avalanche",
+     "overview": null,
+     "stillURL": "https://archive.org/download/belle-et-sebastien/belle-et-sebastien.thumbs/Belle_et_S%C3%A9bastien_-_S01E11_-_L%27avalanche.FR_000519.jpg",
+     "airDate": "1965-12-05",
+     "year": 1965,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Belle_et_Sébastien_-_S01E11_-_L'avalanche.FR.mp4",
+      "format": "h.264",
+      "sizeBytes": 146150107,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/belle-et-sebastien/Belle_et_S%C3%A9bastien_-_S01E11_-_L%27avalanche.FR.mp4"
+    },
+    {
+     "archiveID": "belle-et-sebastien@s1e12",
+     "sourceID": "belle-et-sebastien",
+     "seasonNumber": 1,
+     "episodeNumber": 12,
+     "title": "L'enquête",
+     "overview": null,
+     "stillURL": "https://archive.org/download/belle-et-sebastien/belle-et-sebastien.thumbs/Belle_et_S%C3%A9bastien_-_S01E12_-_L%27enqu%C3%AAte.FR_000551.jpg",
+     "airDate": "1965-12-12",
+     "year": 1965,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Belle_et_Sébastien_-_S01E12_-_L'enquête.FR.mp4",
+      "format": "h.264",
+      "sizeBytes": 155149357,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/belle-et-sebastien/Belle_et_S%C3%A9bastien_-_S01E12_-_L%27enqu%C3%AAte.FR.mp4"
+    },
+    {
+     "archiveID": "belle-et-sebastien@s1e13",
+     "sourceID": "belle-et-sebastien",
+     "seasonNumber": 1,
+     "episodeNumber": 13,
+     "title": "La preuve",
+     "overview": null,
+     "stillURL": "https://archive.org/download/belle-et-sebastien/belle-et-sebastien.thumbs/Belle_et_S%C3%A9bastien_-_S01E13_-_La_Preuve.FR_000528.jpg",
+     "airDate": "1965-12-19",
+     "year": 1965,
+     "runtimeSeconds": 1500,
+     "videoFile": {
+      "name": "Belle_et_Sébastien_-_S01E13_-_La_Preuve.FR.mp4",
+      "format": "h.264",
+      "sizeBytes": 148508568,
+      "tier": 1
+     },
+     "downloadURL": "https://archive.org/download/belle-et-sebastien/Belle_et_S%C3%A9bastien_-_S01E13_-_La_Preuve.FR.mp4"
     }
-  ],
-  "episodesCount": 13,
-  "canonicalEpisodesCount": 39,
-  "seriesImdbID": "tt0166900",
-  "canonicalEpisodeCount": 7,
-  "canonicalSeasons": 2
+   ]
+  }
+ ],
+ "episodesCount": 13,
+ "canonicalEpisodesCount": 39
 }

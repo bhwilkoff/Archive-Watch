@@ -22,7 +22,7 @@
       "seasonNumber": 1,
       "episodes": [
         {
-          "archiveID": "bat-masterson-s-01-e-01-double-showdown-colorized-ai",
+          "archiveID": "bat-masterson-tv-1958-s01e01-double-showdown",
           "seasonNumber": 1,
           "episodeNumber": 1,
           "title": "Double Showdown",
@@ -32,15 +32,15 @@
           "year": 1958,
           "runtimeSeconds": 1800,
           "videoFile": {
-            "name": "Bat Masterson S01E01 Double Showdown (Colorized,AI).mp4",
-            "format": "h.264",
-            "sizeBytes": 149599689,
+            "name": "Bat Masterson TV 1958 colorized s01e01 Double Showdown.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 193572127,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/bat-masterson-s-01-e-01-double-showdown-colorized-ai/Bat%20Masterson%20S01E01%20Double%20Showdown%20%28Colorized%2CAI%29.mp4"
+          "downloadURL": "https://archive.org/download/bat-masterson-tv-1958-s01e01-double-showdown/Bat%20Masterson%20TV%201958%20colorized%20s01e01%20Double%20Showdown.mp4"
         },
         {
-          "archiveID": "bat-masterson-tv-1958-s01e01-double-showdown",
+          "archiveID": "bat-masterson-s-01-e-01-double-showdown-colorized-ai",
           "seasonNumber": 1,
           "episodeNumber": 1,
           "title": "Double Showdown (Pilot)",
@@ -50,12 +50,12 @@
           "year": 1958,
           "runtimeSeconds": 1800,
           "videoFile": {
-            "name": "Bat Masterson TV 1958 colorized s01e01 Double Showdown.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 193572127,
+            "name": "Bat Masterson S01E01 Double Showdown (Colorized,AI).mp4",
+            "format": "h.264",
+            "sizeBytes": 149599689,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/bat-masterson-tv-1958-s01e01-double-showdown/Bat%20Masterson%20TV%201958%20colorized%20s01e01%20Double%20Showdown.mp4"
+          "downloadURL": "https://archive.org/download/bat-masterson-s-01-e-01-double-showdown-colorized-ai/Bat%20Masterson%20S01E01%20Double%20Showdown%20%28Colorized%2CAI%29.mp4"
         },
         {
           "archiveID": "bat-masterson-colorized-s-1e-4-stampede-at-tent-city",
@@ -130,8 +130,5 @@
       "order": 0,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256364/photo/63ac8ceeb8504.jpg"
     }
-  ],
-  "seriesImdbID": "tt0052445",
-  "canonicalEpisodeCount": 108,
-  "canonicalSeasons": 3
+  ]
 }

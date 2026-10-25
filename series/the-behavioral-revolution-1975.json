@@ -1,0 +1,122 @@
+{
+  "version": 2,
+  "seriesID": "the-behavioral-revolution-1975",
+  "sourceID": "bf-skinner-the-behavioral-revolution-1975",
+  "tvmazeID": null,
+  "title": "The Behavioral Revolution",
+  "yearStart": 1975,
+  "yearEnd": null,
+  "overview": "The Behvavioral Revolution A Continuing Education and Community Service of Science, Technology, and Society. An inter-college program at The Pennsylvania State University. S01E01 - Innate Experience Looks at the ways in which Western culture has perceived humankind, from the views of Plato and Aristotle through Galileo, Rene Descartes, John Locke, Immanuel Kant, and Charles Darwin. Covers the establishment of psychology as a science and the division of Freudians, who follow Plato's views, and behaviorists, who follow Aristotle. Examines the evolution of behaviorism and the work of B.F. Skinner. S01E02 - Program Development Shows the applications of behavioral technology on individual and clinical levels by focusing on programs at the Laurelton State Institution in Pennsylvania and on an experimental teacher training program at The Pennsylvania State University. S01E03 - Biofeedback Introduces biofeedback as a relatively new technique in behavior modification. Dr. Robert M. Stern of The Pennsylvania State University discusses experimental applications in controlling galvanic skin response and brain waves. S01E04 - Fallacy of Composition Claims that the potential for the specific application of behavioral technology has not yet been realized. This program looks at its possible application to transportation to demonstrate how it might affect other social problems. S01E05 - Ethics States that the continuing controversy over the application of behavioral technology is really a controversy over the way science has changed our perception of humankind. Interviews B.F. Skinner, author Anthony Burgess, and Dr. Thomas Szasz.",
+  "posterURL": "https://archive.org/services/img/bf-skinner-the-behavioral-revolution-1975",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "bf-skinner-the-behavioral-revolution-1975@s1e01",
+          "sourceID": "bf-skinner-the-behavioral-revolution-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Innate Experience",
+          "overview": null,
+          "stillURL": "https://archive.org/download/bf-skinner-the-behavioral-revolution-1975/bf-skinner-the-behavioral-revolution-1975.thumbs/The%20Behavioral%20Revolution%20-%20S01E01%20-%20Innate%20Experience%20-%201975_000596.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 1716,
+          "videoFile": {
+            "name": "The Behavioral Revolution - S01E01 - Innate Experience - 1975.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 193740783,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/bf-skinner-the-behavioral-revolution-1975/The%20Behavioral%20Revolution%20-%20S01E01%20-%20Innate%20Experience%20-%201975.ia.mp4"
+        },
+        {
+          "archiveID": "bf-skinner-the-behavioral-revolution-1975@s1e02",
+          "sourceID": "bf-skinner-the-behavioral-revolution-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Program Development",
+          "overview": null,
+          "stillURL": "https://archive.org/download/bf-skinner-the-behavioral-revolution-1975/bf-skinner-the-behavioral-revolution-1975.thumbs/The%20Behavioral%20Revolution%20-%20S01E02%20-%20Program%20Development%20-%201975_000597.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 1739,
+          "videoFile": {
+            "name": "The Behavioral Revolution - S01E02 - Program Development - 1975.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 211526904,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/bf-skinner-the-behavioral-revolution-1975/The%20Behavioral%20Revolution%20-%20S01E02%20-%20Program%20Development%20-%201975.ia.mp4"
+        },
+        {
+          "archiveID": "bf-skinner-the-behavioral-revolution-1975@s1e03",
+          "sourceID": "bf-skinner-the-behavioral-revolution-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Biofeedback",
+          "overview": null,
+          "stillURL": "https://archive.org/download/bf-skinner-the-behavioral-revolution-1975/bf-skinner-the-behavioral-revolution-1975.thumbs/The%20Behavioral%20Revolution%20-%20S01E03%20-%20Biofeedback%20-%201975_000597.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 1743,
+          "videoFile": {
+            "name": "The Behavioral Revolution - S01E03 - Biofeedback - 1975.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 195170034,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/bf-skinner-the-behavioral-revolution-1975/The%20Behavioral%20Revolution%20-%20S01E03%20-%20Biofeedback%20-%201975.ia.mp4"
+        },
+        {
+          "archiveID": "bf-skinner-the-behavioral-revolution-1975@s1e04",
+          "sourceID": "bf-skinner-the-behavioral-revolution-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Fallacy of Composition",
+          "overview": null,
+          "stillURL": "https://archive.org/download/bf-skinner-the-behavioral-revolution-1975/bf-skinner-the-behavioral-revolution-1975.thumbs/The%20Behavioral%20Revolution%20-%20S01E04%20-%20Fallacy%20of%20Composition%20-%201975_000597.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 1726,
+          "videoFile": {
+            "name": "The Behavioral Revolution - S01E04 - Fallacy of Composition - 1975.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 204756783,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/bf-skinner-the-behavioral-revolution-1975/The%20Behavioral%20Revolution%20-%20S01E04%20-%20Fallacy%20of%20Composition%20-%201975.ia.mp4"
+        },
+        {
+          "archiveID": "bf-skinner-the-behavioral-revolution-1975@s1e05",
+          "sourceID": "bf-skinner-the-behavioral-revolution-1975",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Ethics",
+          "overview": null,
+          "stillURL": "https://archive.org/download/bf-skinner-the-behavioral-revolution-1975/bf-skinner-the-behavioral-revolution-1975.thumbs/The%20Behavioral%20Revolution%20-%20S01E05%20-%20Ethics%20-%201975_000594.jpg",
+          "airDate": null,
+          "year": 1975,
+          "runtimeSeconds": 1687,
+          "videoFile": {
+            "name": "The Behavioral Revolution - S01E05 - Ethics - 1975.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 342997080,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/bf-skinner-the-behavioral-revolution-1975/The%20Behavioral%20Revolution%20-%20S01E05%20-%20Ethics%20-%201975.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 5,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

@@ -3091,6 +3091,12 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "16864-viii-fighter-command-combat-film-1-mos-vwr": {
+  "checkedAt": "2026-10-25",
+  "isize": 232746676,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "16mmMoti1961": {
   "checkedAt": "2026-10-18",
   "isize": 940517926,
@@ -4875,6 +4881,12 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "1959SpringInTheMediterranean": {
+  "checkedAt": "2026-10-25",
+  "isize": 71792034355,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "1959TVSpecial": {
   "checkedAt": "2026-10-18",
   "isize": 2765940044,
@@ -5364,8 +5376,8 @@
   "verdict": "single"
  },
  "200731_New_York_Worlds_Fair_1": {
-  "checkedAt": "2026-10-18",
-  "isize": 11448638420,
+  "checkedAt": "2026-10-25",
+  "isize": 11448638779,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -7555,6 +7567,12 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "23980WorldAtWar": {
+  "checkedAt": "2026-10-25",
+  "isize": 1019488024,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "24-zatoichi-in-desperation": {
   "checkedAt": "2026-10-18",
   "isize": 7609956307,
@@ -7573,15 +7591,33 @@
   "reason": "2 playable works",
   "verdict": "single"
  },
+ "24SquareMiles": {
+  "checkedAt": "2026-10-25",
+  "isize": 2413293122,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "25-zatoichis-conspiracy": {
   "checkedAt": "2026-10-18",
   "isize": 7171719363,
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "25214-alliance-for-peace": {
+  "checkedAt": "2026-10-25",
+  "isize": 701847948,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "28272CivilDefenseMissionFallout": {
   "checkedAt": "2026-10-20",
   "isize": 987054215,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "29734wingsofthearmyvwr": {
+  "checkedAt": "2026-10-25",
+  "isize": 1049734088,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -7824,6 +7860,12 @@
  "3-paula-1973": {
   "checkedAt": "2026-10-18",
   "isize": 969368232,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "30454-the-stillwell-road-complete": {
+  "checkedAt": "2026-10-25",
+  "isize": 1209093301,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -8765,6 +8807,12 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "40542z-72712-the-american-road-vwr": {
+  "checkedAt": "2026-10-25",
+  "isize": 890062409,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "406182main_sts-129_srb_iPod": {
   "checkedAt": "2026-10-18",
   "isize": 800925737,
@@ -8831,6 +8879,12 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "41334roumaniaaxesaxisvwr": {
+  "checkedAt": "2026-10-25",
+  "isize": 1102154475,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "4148_Role_of_Gastroscopy": {
   "checkedAt": "2026-10-18",
   "isize": 1128846435,
@@ -8846,6 +8900,12 @@
  "43360_1411105199_s01_Moderne_wegenaanleg_te_Amsterdam": {
   "checkedAt": "2026-10-18",
   "isize": 1677873126,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "43744WheelsAcrossAfricaLongPrintPT1": {
+  "checkedAt": "2026-10-25",
+  "isize": 1391217707,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -9050,6 +9110,12 @@
  "45364VietnamProtest": {
   "checkedAt": "2026-10-20",
   "isize": 477917919,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "48904TheWorldAtWar": {
+  "checkedAt": "2026-10-25",
+  "isize": 1110969634,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -9336,6 +9402,12 @@
  "52594RussianMilitaryFootage": {
   "checkedAt": "2026-10-20",
   "isize": 766051458,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "58224-the-tower-of-jewels-mos-vwr": {
+  "checkedAt": "2026-10-25",
+  "isize": 930052611,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -10209,6 +10281,12 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "65804-portraitofthe-orient-vwr": {
+  "checkedAt": "2026-10-25",
+  "isize": 834708995,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "66274-summer-olympics-xi-berlin-germany-1936-vwr": {
   "checkedAt": "2026-10-20",
   "isize": 1324656959,
@@ -10721,6 +10799,12 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "79434-world-in-flames-vwr": {
+  "checkedAt": "2026-10-25",
+  "isize": 1821939583,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "7th-heaven": {
   "checkedAt": "2026-10-18",
   "isize": 16493910601,
@@ -10963,9 +11047,33 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "80304GrummanAtWar_201808": {
+  "checkedAt": "2026-10-25",
+  "isize": 831098128,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "81482SovietAviationDay1968": {
   "checkedAt": "2026-10-20",
   "isize": 1354199619,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "83944-occupied-japan-home-movie-mos-vwr": {
+  "checkedAt": "2026-10-25",
+  "isize": 614560367,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "85134SovietWWIIFilm": {
+  "checkedAt": "2026-10-25",
+  "isize": 1156520800,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "86334-wwii-war-department-report": {
+  "checkedAt": "2026-10-25",
+  "isize": 864483804,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -10990,6 +11098,12 @@
  "94744-klu-klux-klan-the-invisible-empire-vwr-2": {
   "checkedAt": "2026-10-20",
   "isize": 846654667,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "9608GrandpaJones_Avg15MbpsVBR": {
+  "checkedAt": "2026-10-25",
+  "isize": 6552144112,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -11195,6 +11309,12 @@
   "checkedAt": "2026-10-18",
   "isize": 2304901247,
   "reason": "0 numbered of 50",
+  "verdict": "single"
+ },
+ "AForestPlayground": {
+  "checkedAt": "2026-10-25",
+  "isize": 585786236,
+  "reason": "2 playable works",
   "verdict": "single"
  },
  "AHaulInOne1956": {
@@ -16429,6 +16549,12 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "BridgeBuildingWithTheCCC33.585": {
+  "checkedAt": "2026-10-25",
+  "isize": 644525390,
+  "reason": "2 playable works",
+  "verdict": "single"
+ },
  "BritishIntelligence1940": {
   "checkedAt": "2026-10-18",
   "isize": 1341967839,
@@ -16660,6 +16786,36 @@
  "C-Man": {
   "checkedAt": "2026-10-18",
   "isize": 1916696174,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "CAAM_00048": {
+  "checkedAt": "2026-10-25",
+  "isize": 876972747,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "CAAM_00093": {
+  "checkedAt": "2026-10-25",
+  "isize": 1055090222,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "CAAM_00095": {
+  "checkedAt": "2026-10-25",
+  "isize": 298168876,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "CAAM_00164": {
+  "checkedAt": "2026-10-25",
+  "isize": 748588259,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "CAAM_00184": {
+  "checkedAt": "2026-10-25",
+  "isize": 450243107,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -17971,6 +18127,12 @@
   "checkedAt": "2026-10-18",
   "isize": 939053374,
   "reason": "0 numbered of 13",
+  "verdict": "single"
+ },
+ "Cobra_784": {
+  "checkedAt": "2026-10-25",
+  "isize": 1709747482,
+  "reason": "1 playable works",
   "verdict": "single"
  },
  "Code3Case22061956": {
@@ -19572,6 +19734,12 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "DawnStrikesTheCapitolDomeCirca1936": {
+  "checkedAt": "2026-10-25",
+  "isize": 607469964,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "DayCalle1955": {
   "checkedAt": "2026-10-18",
   "isize": 816866306,
@@ -21150,6 +21318,12 @@
   "reason": "2 playable works",
   "verdict": "single"
  },
+ "Expedition-60-Soyuz-MS-13-Docking-Coverage_1227621": {
+  "checkedAt": "2026-10-25",
+  "isize": 39415573174,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "Expedition-60-Soyuz-MS-13_Launch-Coverage": {
   "checkedAt": "2026-10-20",
   "isize": 46852266764,
@@ -21400,6 +21574,12 @@
   "checkedAt": "2026-10-20",
   "isize": 28877536016,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "Expedition_61_EVA_56_Animation": {
+  "checkedAt": "2026-10-25",
+  "isize": 3934357940,
+  "reason": "0 numbered of 4",
   "verdict": "single"
  },
  "Expedition_61_EVA_57_Animation": {
@@ -23460,6 +23640,12 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "ForestAndMen": {
+  "checkedAt": "2026-10-25",
+  "isize": 460374972,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "ForlornRiver": {
   "checkedAt": "2026-10-18",
   "isize": 1581834910,
@@ -25310,6 +25496,12 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "Gypsamania": {
+  "checkedAt": "2026-10-25",
+  "isize": 416125947,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "H-1386": {
   "checkedAt": "2026-10-18",
   "isize": 2970735094,
@@ -27063,8 +27255,8 @@
   "verdict": "single"
  },
  "HowtheEy1941": {
-  "checkedAt": "2026-10-18",
-  "isize": 814238991,
+  "checkedAt": "2026-10-25",
+  "isize": 814239469,
   "reason": "2 playable works",
   "verdict": "single"
  },
@@ -31172,6 +31364,12 @@
   "checkedAt": "2026-10-18",
   "isize": 1573830402,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "KA-converted-uqyLOuAzbvo": {
+  "checkedAt": "2026-10-25",
+  "isize": 35647212,
+  "reason": "0 playable works",
   "verdict": "single"
  },
  "KISMETP": {
@@ -38764,6 +38962,12 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "Marihuana-the_Devils_Weed": {
+  "checkedAt": "2026-10-25",
+  "isize": 1279590588,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "MarioMancinisFrankenstein801972": {
   "checkedAt": "2026-10-18",
   "isize": 2117627523,
@@ -38809,6 +39013,12 @@
  "Martha_Ivers_movie": {
   "checkedAt": "2026-10-18",
   "isize": 3261987510,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "MartialArts_201303": {
+  "checkedAt": "2026-10-25",
+  "isize": 4898206582,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -38899,6 +39109,12 @@
  "MasteryOfSpace": {
   "checkedAt": "2026-10-18",
   "isize": 1247344393,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "MatanuskaAlaskaCirca1937": {
+  "checkedAt": "2026-10-25",
+  "isize": 1485443417,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -39240,6 +39456,42 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "MichaelShayneMurderAndTheWantonBride": {
+  "checkedAt": "2026-10-25",
+  "isize": 1449100011,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "MichaelShayneMurderAtTheConvention": {
+  "checkedAt": "2026-10-25",
+  "isize": 1244562209,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "MichaelShayneMurderPlaysCharades": {
+  "checkedAt": "2026-10-25",
+  "isize": 1329077708,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "MichaelShayneSpotlightOnACorpse": {
+  "checkedAt": "2026-10-25",
+  "isize": 1250600641,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "MichaelShayneTheBadge": {
+  "checkedAt": "2026-10-25",
+  "isize": 1311966783,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "MichaelShayneTheHeiress": {
+  "checkedAt": "2026-10-25",
+  "isize": 1253816107,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "MichaelShayneTheTroubleWithErnie": {
   "checkedAt": "2026-10-18",
   "isize": 1353576050,
@@ -39480,6 +39732,12 @@
   "checkedAt": "2026-10-18",
   "isize": 1965035656,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "MohammadOmar": {
+  "checkedAt": "2026-10-25",
+  "isize": 12480609314,
+  "reason": "0 numbered of 3",
   "verdict": "single"
  },
  "MoleMenAgainstTheSonofHercules": {
@@ -41372,6 +41630,12 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "NewDealFilmFestival4HopeForTheFutureBuildingCommunityBerkeleyGrayPanthers": {
+  "checkedAt": "2026-10-25",
+  "isize": 2037036374,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "NewDealFilmFestivalPuttingAmericaToWorkBerkeleyGrayPanthers": {
   "checkedAt": "2026-10-20",
   "isize": 2223460863,
@@ -41579,6 +41843,12 @@
  "NightOfTheLivingDeadwithSpanishSubtitles": {
   "checkedAt": "2026-10-18",
   "isize": 1056051565,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "NightTide1961": {
+  "checkedAt": "2026-10-25",
+  "isize": 2059148516,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -42124,6 +42394,12 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "OurRutland1941Revised": {
+  "checkedAt": "2026-10-25",
+  "isize": 2907483956,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "OurWorldCareersAtNasa-MoreThanJustAstronauts": {
   "checkedAt": "2026-10-18",
   "isize": 664615610,
@@ -42362,6 +42638,12 @@
   "checkedAt": "2026-10-18",
   "isize": 1015659089,
   "reason": "2 playable works",
+  "verdict": "single"
+ },
+ "PeavieDays": {
+  "checkedAt": "2026-10-25",
+  "isize": 3135853618,
+  "reason": "1 playable works",
   "verdict": "single"
  },
  "PecksBadBoy_558": {
@@ -43336,6 +43618,12 @@
  "Pygmalion": {
   "checkedAt": "2026-10-18",
   "isize": 2188379134,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "QF4OCzIor4S5rHJoO2i4eNOiB5MkE2": {
+  "checkedAt": "2026-10-25",
+  "isize": 716344585,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -47679,6 +47967,12 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "SRMLo9zaEK1bRLPsSzgONNd4dCgNBc": {
+  "checkedAt": "2026-10-25",
+  "isize": 915051033,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "SSRMS-Robo-Ops_DL-2_2018_138_0511_655120.mxf": {
   "checkedAt": "2026-10-18",
   "isize": 13755328690,
@@ -47982,8 +48276,8 @@
   "verdict": "bundle"
  },
  "SantaClausConquerstheMartians1964": {
-  "checkedAt": "2026-10-18",
-  "isize": 3844129718,
+  "checkedAt": "2026-10-25",
+  "isize": 3844130117,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -51398,6 +51692,12 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "Stillgoingplaces-wellcome": {
+  "checkedAt": "2026-10-25",
+  "isize": 908147409,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "Stingray.Complete": {
   "checkedAt": "2026-10-18",
   "files": [
@@ -52255,6 +52555,24 @@
  "Sts-135MissionHighlights": {
   "checkedAt": "2026-10-20",
   "isize": 2716403061,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "Sts-63PostFlightPresentation": {
+  "checkedAt": "2026-10-25",
+  "isize": 2084946847,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "Sts-64PostFlightPresentation": {
+  "checkedAt": "2026-10-25",
+  "isize": 2236363975,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "Sts-66PostFlightPresentation": {
+  "checkedAt": "2026-10-25",
+  "isize": 2021115291,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -56392,8 +56710,8 @@
   "verdict": "single"
  },
  "TheGeneral1926": {
-  "checkedAt": "2026-10-18",
-  "isize": 1423597862,
+  "checkedAt": "2026-10-25",
+  "isize": 1423598669,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -60589,7 +60907,7 @@
   "verdict": "single"
  },
  "UFO.complete": {
-  "checkedAt": "2026-10-18",
+  "checkedAt": "2026-10-25",
   "files": [
    {
     "format": "Cinepack",
@@ -61090,7 +61408,7 @@
     "name": "UFO.complete.thumbs/UFO.26.The Long Sleep_001010.jpg"
    }
   ],
-  "isize": 21399687017,
+  "isize": 21399687312,
   "reason": "ok",
   "verdict": "bundle"
  },
@@ -62543,6 +62861,74 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "WinslowOfTheNavy": {
+  "checkedAt": "2026-10-25",
+  "files": [
+   {
+    "format": "MPEG4",
+    "length": "1161.57",
+    "name": "winslow_navy_ep10.mp4",
+    "size": "85674752",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "984.75",
+    "name": "winslow_navy_ep11.mp4",
+    "size": "73514213",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1274.49",
+    "name": "winslow_navy_ep12.mp4",
+    "size": "92998381",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1272.24",
+    "name": "winslow_navy_ep7.mp4",
+    "size": "91616050",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1188.32",
+    "name": "winslow_navy_ep8.mp4",
+    "size": "84804571",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1205.88",
+    "name": "winslow_navy_ep9.mp4",
+    "size": "89961225",
+    "source": "original"
+   },
+   {
+    "name": "WinslowOfTheNavy.thumbs/winslow_navy_ep7_000414.jpg"
+   },
+   {
+    "name": "WinslowOfTheNavy.thumbs/winslow_navy_ep8_000354.jpg"
+   },
+   {
+    "name": "WinslowOfTheNavy.thumbs/winslow_navy_ep9_000414.jpg"
+   },
+   {
+    "name": "WinslowOfTheNavy.thumbs/winslow_navy_ep10_000354.jpg"
+   },
+   {
+    "name": "WinslowOfTheNavy.thumbs/winslow_navy_ep11_000294.jpg"
+   },
+   {
+    "name": "WinslowOfTheNavy.thumbs/winslow_navy_ep12_000414.jpg"
+   }
+  ],
+  "isize": 1023359137,
+  "reason": "ok",
+  "verdict": "bundle"
+ },
  "Winterset": {
   "checkedAt": "2026-10-18",
   "isize": 1858846571,
@@ -62841,6 +63227,12 @@
   "checkedAt": "2026-10-18",
   "isize": 1218941847,
   "reason": "2 playable works",
+  "verdict": "single"
+ },
+ "ZMDagar": {
+  "checkedAt": "2026-10-25",
+  "isize": 12069465917,
+  "reason": "1 playable works",
   "verdict": "single"
  },
  "ZaginionySwiat1925": {
@@ -64514,6 +64906,114 @@
   "isize": 1097692632,
   "reason": "1 playable works",
   "verdict": "single"
+ },
+ "afloat-and-a-boat": {
+  "checkedAt": "2026-10-25",
+  "files": [
+   {
+    "format": "MPEG4",
+    "length": "831.58",
+    "name": "Afloat and Aboat 01 All About Water.mp4",
+    "size": "131679861",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "829.46",
+    "name": "Afloat and Aboat 02 Sink or Swim.mp4",
+    "size": "160578117",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "830.66",
+    "name": "Afloat and Aboat 03 Look Before You Leap.mp4",
+    "size": "134490190",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "829.36",
+    "name": "Afloat and Aboat 04 Combing the Beach.mp4",
+    "size": "131838250",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "829.75",
+    "name": "Afloat and Aboat 05 Small Boats Afloat.mp4",
+    "size": "138570650",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "829.81",
+    "name": "Afloat and Aboat 06 Small Boats Underway.mp4",
+    "size": "148156644",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "832.18",
+    "name": "Afloat and Aboat 07 Taking the Helm.mp4",
+    "size": "156647475",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "829.48",
+    "name": "Afloat and Aboat 08 Paddle or Ski.mp4",
+    "size": "176460743",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "830.79",
+    "name": "Afloat and Aboat 09 Giving Way.mp4",
+    "size": "132047578",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "826.24",
+    "name": "Afloat and Aboat 10 Plotting Your Course.mp4",
+    "size": "138462111",
+    "source": "original"
+   },
+   {
+    "name": "afloat-and-a-boat.thumbs/Afloat and Aboat 01 All About Water_000301.jpg"
+   },
+   {
+    "name": "afloat-and-a-boat.thumbs/Afloat and Aboat 02 Sink or Swim_000297.jpg"
+   },
+   {
+    "name": "afloat-and-a-boat.thumbs/Afloat and Aboat 03 Look Before You Leap_000301.jpg"
+   },
+   {
+    "name": "afloat-and-a-boat.thumbs/Afloat and Aboat 04 Combing the Beach_000301.jpg"
+   },
+   {
+    "name": "afloat-and-a-boat.thumbs/Afloat and Aboat 05 Small Boats Afloat_000299.jpg"
+   },
+   {
+    "name": "afloat-and-a-boat.thumbs/Afloat and Aboat 06 Small Boats Underway_000302.jpg"
+   },
+   {
+    "name": "afloat-and-a-boat.thumbs/Afloat and Aboat 07 Taking the Helm_000301.jpg"
+   },
+   {
+    "name": "afloat-and-a-boat.thumbs/Afloat and Aboat 08 Paddle or Ski_000302.jpg"
+   },
+   {
+    "name": "afloat-and-a-boat.thumbs/Afloat and Aboat 09 Giving Way_000304.jpg"
+   },
+   {
+    "name": "afloat-and-a-boat.thumbs/Afloat and Aboat 10 Plotting Your Course_000302.jpg"
+   }
+  ],
+  "isize": 1468702482,
+  "reason": "ok",
+  "verdict": "bundle"
  },
  "africa_speaks": {
   "checkedAt": "2026-10-18",
@@ -75580,6 +76080,12 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "belly-dance-iso": {
+  "checkedAt": "2026-10-25",
+  "isize": 13660537366,
+  "reason": "0 numbered of 3",
+  "verdict": "single"
+ },
  "below_the_deadline": {
   "checkedAt": "2026-10-18",
   "isize": 4057052912,
@@ -75663,6 +76169,110 @@
   "isize": 4910524880,
   "reason": "1 playable works",
   "verdict": "single"
+ },
+ "bf-skinner-interviewed-by-richard-evans-1964": {
+  "checkedAt": "2026-10-25",
+  "isize": 901712010,
+  "reason": "2 playable works",
+  "verdict": "single"
+ },
+ "bf-skinner-the-behavioral-revolution-1975": {
+  "checkedAt": "2026-10-25",
+  "files": [
+   {
+    "format": "h.264 IA",
+    "length": "1716.63",
+    "name": "The Behavioral Revolution - S01E01 - Innate Experience - 1975.ia.mp4",
+    "original": "The Behavioral Revolution - S01E01 - Innate Experience - 1975.mp4",
+    "size": "193740783",
+    "source": "derivative"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1716.63",
+    "name": "The Behavioral Revolution - S01E01 - Innate Experience - 1975.mp4",
+    "size": "193740783",
+    "source": "original"
+   },
+   {
+    "format": "h.264 IA",
+    "length": "1739.01",
+    "name": "The Behavioral Revolution - S01E02 - Program Development - 1975.ia.mp4",
+    "original": "The Behavioral Revolution - S01E02 - Program Development - 1975.mp4",
+    "size": "211526904",
+    "source": "derivative"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1739.01",
+    "name": "The Behavioral Revolution - S01E02 - Program Development - 1975.mp4",
+    "size": "211526904",
+    "source": "original"
+   },
+   {
+    "format": "h.264 IA",
+    "length": "1743.66",
+    "name": "The Behavioral Revolution - S01E03 - Biofeedback - 1975.ia.mp4",
+    "original": "The Behavioral Revolution - S01E03 - Biofeedback - 1975.mp4",
+    "size": "195170034",
+    "source": "derivative"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1743.66",
+    "name": "The Behavioral Revolution - S01E03 - Biofeedback - 1975.mp4",
+    "size": "195170034",
+    "source": "original"
+   },
+   {
+    "format": "h.264 IA",
+    "length": "1726.85",
+    "name": "The Behavioral Revolution - S01E04 - Fallacy of Composition - 1975.ia.mp4",
+    "original": "The Behavioral Revolution - S01E04 - Fallacy of Composition - 1975.mp4",
+    "size": "204756783",
+    "source": "derivative"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1726.85",
+    "name": "The Behavioral Revolution - S01E04 - Fallacy of Composition - 1975.mp4",
+    "size": "204756783",
+    "source": "original"
+   },
+   {
+    "format": "h.264 IA",
+    "length": "1687.02",
+    "name": "The Behavioral Revolution - S01E05 - Ethics - 1975.ia.mp4",
+    "original": "The Behavioral Revolution - S01E05 - Ethics - 1975.mp4",
+    "size": "342997080",
+    "source": "derivative"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1687.02",
+    "name": "The Behavioral Revolution - S01E05 - Ethics - 1975.mp4",
+    "size": "342997080",
+    "source": "original"
+   },
+   {
+    "name": "bf-skinner-the-behavioral-revolution-1975.thumbs/The Behavioral Revolution - S01E01 - Innate Experience - 1975_000596.jpg"
+   },
+   {
+    "name": "bf-skinner-the-behavioral-revolution-1975.thumbs/The Behavioral Revolution - S01E02 - Program Development - 1975_000597.jpg"
+   },
+   {
+    "name": "bf-skinner-the-behavioral-revolution-1975.thumbs/The Behavioral Revolution - S01E03 - Biofeedback - 1975_000597.jpg"
+   },
+   {
+    "name": "bf-skinner-the-behavioral-revolution-1975.thumbs/The Behavioral Revolution - S01E04 - Fallacy of Composition - 1975_000597.jpg"
+   },
+   {
+    "name": "bf-skinner-the-behavioral-revolution-1975.thumbs/The Behavioral Revolution - S01E05 - Ethics - 1975_000594.jpg"
+   }
+  ],
+  "isize": 2302278162,
+  "reason": "ok",
+  "verdict": "bundle"
  },
  "bfskinnerandbehaviorchangeresearchpracticeandpromise": {
   "checkedAt": "2026-10-18",
@@ -76146,6 +76756,12 @@
   "checkedAt": "2026-10-18",
   "isize": 3440931376,
   "reason": "0 numbered of 13",
+  "verdict": "single"
+ },
+ "boy-in-court-1940": {
+  "checkedAt": "2026-10-25",
+  "isize": 2527373534,
+  "reason": "2 playable works",
   "verdict": "single"
  },
  "boy-with-a-knife-1955": {
@@ -77551,8 +78167,8 @@
   "verdict": "single"
  },
  "brian-hendersons-bandstand-unknown-airdate-no.-6-1962": {
-  "checkedAt": "2026-10-20",
-  "isize": 2847951083,
+  "checkedAt": "2026-10-25",
+  "isize": 2847951082,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -80506,6 +81122,65 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "chasing-the-moon-iso": {
+  "checkedAt": "2026-10-25",
+  "files": [
+   {
+    "format": "ISO Image",
+    "name": "CHASING_THE_MOON_D1.ISO",
+    "size": "4122034176",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "6866.83",
+    "name": "CHASING_THE_MOON_D1.mp4",
+    "original": "CHASING_THE_MOON_D1.ISO",
+    "size": "678991266",
+    "source": "derivative"
+   },
+   {
+    "format": "ISO Image",
+    "name": "CHASING_THE_MOON_D2.ISO",
+    "size": "4089196544",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "6817.37",
+    "name": "CHASING_THE_MOON_D2.mp4",
+    "original": "CHASING_THE_MOON_D2.ISO",
+    "size": "680396344",
+    "source": "derivative"
+   },
+   {
+    "format": "ISO Image",
+    "name": "CHASING_THE_MOON_D3.ISO",
+    "size": "7298826240",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "6846.71",
+    "name": "CHASING_THE_MOON_D3.mp4",
+    "original": "CHASING_THE_MOON_D3.ISO",
+    "size": "674789176",
+    "source": "derivative"
+   },
+   {
+    "name": "chasing-the-moon-iso.thumbs/CHASING_THE_MOON_D1_002396.jpg"
+   },
+   {
+    "name": "chasing-the-moon-iso.thumbs/CHASING_THE_MOON_D2_002379.jpg"
+   },
+   {
+    "name": "chasing-the-moon-iso.thumbs/CHASING_THE_MOON_D3_002389.jpg"
+   }
+  ],
+  "isize": 17706562003,
+  "reason": "ok",
+  "verdict": "bundle"
+ },
  "chasing_trouble": {
   "checkedAt": "2026-10-18",
   "isize": 5024724956,
@@ -82355,9 +83030,9 @@
   "verdict": "bundle"
  },
  "classic-warner-bros-movie-collection": {
-  "checkedAt": "2026-10-18",
-  "isize": 16371768590,
-  "reason": "0 numbered of 42",
+  "checkedAt": "2026-10-25",
+  "isize": 16696592281,
+  "reason": "0 numbered of 43",
   "verdict": "single"
  },
  "classicalcomedyecclesiazusaeandmilesgloriosus": {
@@ -83228,6 +83903,12 @@
   "checkedAt": "2026-10-18",
   "isize": 5149985994,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "crowded-out-1958": {
+  "checkedAt": "2026-10-25",
+  "isize": 7161559344,
+  "reason": "2 playable works",
   "verdict": "single"
  },
  "crowded_out": {
@@ -86674,6 +87355,334 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "dragons-wagons-wax": {
+  "checkedAt": "2026-10-25",
+  "files": [
+   {
+    "format": "MPEG4",
+    "length": "883.47",
+    "name": "Dragons Wagons and Wax 01 Its Alive.mp4",
+    "size": "94808888",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "872.12",
+    "name": "Dragons Wagons and Wax 02 See How They Grow.mp4",
+    "size": "76092709",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "867.24",
+    "name": "Dragons Wagons and Wax 03 A Lot of Living Things.mp4",
+    "size": "97931301",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "864.52",
+    "name": "Dragons Wagons and Wax 04 See How They Fit.mp4",
+    "size": "92380694",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "863.9",
+    "name": "Dragons Wagons and Wax 05 Togetherness.mp4",
+    "size": "93018486",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "873.67",
+    "name": "Dragons Wagons and Wax 06 Suppose There Were Only People.mp4",
+    "size": "85243659",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "861.41",
+    "name": "Dragons Wagons and Wax 07 Once Upon a Dinosaur.mp4",
+    "size": "95084070",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "857.07",
+    "name": "Dragons Wagons and Wax 08 The Clean Up.mp4",
+    "size": "75005644",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "856.58",
+    "name": "Dragons Wagons and Wax 09 The Surprise.mp4",
+    "size": "51962051",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "863.22",
+    "name": "Dragons Wagons and Wax 10 The Terrible Tiles.mp4",
+    "size": "79378197",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "865.52",
+    "name": "Dragons Wagons and Wax 11 The Measured Loaf.mp4",
+    "size": "64601324",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "890",
+    "name": "Dragons Wagons and Wax 12 The Change Shop.mp4",
+    "size": "80247729",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "875.88",
+    "name": "Dragons Wagons and Wax 13 Alice in Pushpullville.mp4",
+    "size": "79516401",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "858.7",
+    "name": "Dragons Wagons and Wax 14 Treasure Ho.mp4",
+    "size": "73060994",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "867.85",
+    "name": "Dragons Wagons and Wax 15 Toms New House.mp4",
+    "size": "70795023",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "872.81",
+    "name": "Dragons Wagons and Wax 16 Moving a Hippo.mp4",
+    "size": "79117916",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "868.01",
+    "name": "Dragons Wagons and Wax 17 This is the Life.mp4",
+    "size": "64263423",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "880.69",
+    "name": "Dragons Wagons and Wax 18 The One and Only.mp4",
+    "size": "62651607",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "862.2",
+    "name": "Dragons Wagons and Wax 19 The Same But Different.mp4",
+    "size": "62782590",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "868.98",
+    "name": "Dragons Wagons and Wax 20 All Systems Go.mp4",
+    "size": "68208698",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "863.11",
+    "name": "Dragons Wagons and Wax 21 Many Happy Returns.mp4",
+    "size": "65077237",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "871.51",
+    "name": "Dragons Wagons and Wax 22 In Sickness and In Health.mp4",
+    "size": "60562397",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "868.05",
+    "name": "Dragons Wagons and Wax 23 What on Earth.mp4",
+    "size": "61175075",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "870.93",
+    "name": "Dragons Wagons and Wax 24 From the Mountains to the Prairies.mp4",
+    "size": "58431009",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "860.44",
+    "name": "Dragons Wagons and Wax 25 As the Earth Changes Part 1.mp4",
+    "size": "69760054",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "867.1",
+    "name": "Dragons Wagons and Wax 26 As the Earth Changes Part 2.mp4",
+    "size": "70510888",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "873.37",
+    "name": "Dragons Wagons and Wax 27 Number One Sun.mp4",
+    "size": "52741327",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "876.79",
+    "name": "Dragons Wagons and Wax 28 All in This Together.mp4",
+    "size": "55207161",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "879.32",
+    "name": "Dragons Wagons and Wax 29 Whats Going On Around Here.mp4",
+    "size": "62022187",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "877.64",
+    "name": "Dragons Wagons and Wax 30 Now for a Change.mp4",
+    "size": "70553546",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "870.77",
+    "name": "Dragons Wagons and Wax 31 All Change.mp4",
+    "size": "67393754",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "862.88",
+    "name": "Dragons Wagons and Wax 32 Handle with Care.mp4",
+    "size": "76313374",
+    "source": "original"
+   },
+   {
+    "name": "dragons-wagons-wax.thumbs/Dragons Wagons and Wax 01 Its Alive_000645.jpg"
+   },
+   {
+    "name": "dragons-wagons-wax.thumbs/Dragons Wagons and Wax 02 See How They Grow_000635.jpg"
+   },
+   {
+    "name": "dragons-wagons-wax.thumbs/Dragons Wagons and Wax 03 A Lot of Living Things_000631.jpg"
+   },
+   {
+    "name": "dragons-wagons-wax.thumbs/Dragons Wagons and Wax 04 See How They Fit_000627.jpg"
+   },
+   {
+    "name": "dragons-wagons-wax.thumbs/Dragons Wagons and Wax 05 Togetherness_000634.jpg"
+   },
+   {
+    "name": "dragons-wagons-wax.thumbs/Dragons Wagons and Wax 06 Suppose There Were Only People_000634.jpg"
+   },
+   {
+    "name": "dragons-wagons-wax.thumbs/Dragons Wagons and Wax 07 Once Upon a Dinosaur_000628.jpg"
+   },
+   {
+    "name": "dragons-wagons-wax.thumbs/Dragons Wagons and Wax 08 The Clean Up_000624.jpg"
+   },
+   {
+    "name": "dragons-wagons-wax.thumbs/Dragons Wagons and Wax 09 The Surprise_000624.jpg"
+   },
+   {
+    "name": "dragons-wagons-wax.thumbs/Dragons Wagons and Wax 10 The Terrible Tiles_000631.jpg"
+   },
+   {
+    "name": "dragons-wagons-wax.thumbs/Dragons Wagons and Wax 11 The Measured Loaf_000633.jpg"
+   },
+   {
+    "name": "dragons-wagons-wax.thumbs/Dragons Wagons and Wax 12 The Change Shop_000648.jpg"
+   },
+   {
+    "name": "dragons-wagons-wax.thumbs/Dragons Wagons and Wax 13 Alice in Pushpullville_000636.jpg"
+   },
+   {
+    "name": "dragons-wagons-wax.thumbs/Dragons Wagons and Wax 14 Treasure Ho_000624.jpg"
+   },
+   {
+    "name": "dragons-wagons-wax.thumbs/Dragons Wagons and Wax 15 Toms New House_000637.jpg"
+   },
+   {
+    "name": "dragons-wagons-wax.thumbs/Dragons Wagons and Wax 16 Moving a Hippo_000632.jpg"
+   },
+   {
+    "name": "dragons-wagons-wax.thumbs/Dragons Wagons and Wax 17 This is the Life_000632.jpg"
+   },
+   {
+    "name": "dragons-wagons-wax.thumbs/Dragons Wagons and Wax 18 The One and Only_000647.jpg"
+   },
+   {
+    "name": "dragons-wagons-wax.thumbs/Dragons Wagons and Wax 19 The Same But Different_000628.jpg"
+   },
+   {
+    "name": "dragons-wagons-wax.thumbs/Dragons Wagons and Wax 20 All Systems Go_000636.jpg"
+   },
+   {
+    "name": "dragons-wagons-wax.thumbs/Dragons Wagons and Wax 21 Many Happy Returns_000635.jpg"
+   },
+   {
+    "name": "dragons-wagons-wax.thumbs/Dragons Wagons and Wax 22 In Sickness and In Health_000631.jpg"
+   },
+   {
+    "name": "dragons-wagons-wax.thumbs/Dragons Wagons and Wax 23 What on Earth_000637.jpg"
+   },
+   {
+    "name": "dragons-wagons-wax.thumbs/Dragons Wagons and Wax 24 From the Mountains to the Prairies_000635.jpg"
+   },
+   {
+    "name": "dragons-wagons-wax.thumbs/Dragons Wagons and Wax 25 As the Earth Changes Part 1_000625.jpg"
+   },
+   {
+    "name": "dragons-wagons-wax.thumbs/Dragons Wagons and Wax 26 As the Earth Changes Part 2_000634.jpg"
+   },
+   {
+    "name": "dragons-wagons-wax.thumbs/Dragons Wagons and Wax 27 Number One Sun_000634.jpg"
+   },
+   {
+    "name": "dragons-wagons-wax.thumbs/Dragons Wagons and Wax 28 All in This Together_000636.jpg"
+   },
+   {
+    "name": "dragons-wagons-wax.thumbs/Dragons Wagons and Wax 29 Whats Going On Around Here_000641.jpg"
+   },
+   {
+    "name": "dragons-wagons-wax.thumbs/Dragons Wagons and Wax 30 Now for a Change_000637.jpg"
+   },
+   {
+    "name": "dragons-wagons-wax.thumbs/Dragons Wagons and Wax 31 All Change_000639.jpg"
+   },
+   {
+    "name": "dragons-wagons-wax.thumbs/Dragons Wagons and Wax 32 Handle with Care_000627.jpg"
+   }
+  ],
+  "isize": 4621281148,
+  "reason": "ok",
+  "verdict": "bundle"
+ },
  "drcarlgustavjung": {
   "checkedAt": "2026-10-18",
   "isize": 24207682891,
@@ -86689,12 +87698,6 @@
  "dreamred": {
   "checkedAt": "2026-10-18",
   "isize": 2577331573,
-  "reason": "1 playable works",
-  "verdict": "single"
- },
- "dreams-that-money-can-buy": {
-  "checkedAt": "2026-10-18",
-  "isize": 4678711548,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -86875,8 +87878,8 @@
   "verdict": "single"
  },
  "dw_griffith_birth_of_a_nation": {
-  "checkedAt": "2026-10-18",
-  "isize": 3167966816,
+  "checkedAt": "2026-10-25",
+  "isize": 3167970030,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -90694,6 +91697,12 @@
   "checkedAt": "2026-10-18",
   "isize": 6319193966,
   "reason": "2 playable works",
+  "verdict": "single"
+ },
+ "every-peperami-commercial-erik-wheeler": {
+  "checkedAt": "2026-10-25",
+  "isize": 273721485,
+  "reason": "0 numbered of 3",
   "verdict": "single"
  },
  "everybody-loves-raymond-complete-series_20251121_0430": {
@@ -100722,6 +101731,12 @@
  "indiahauntingpassage": {
   "checkedAt": "2026-10-18",
   "isize": 33875620253,
+  "reason": "2 playable works",
+  "verdict": "single"
+ },
+ "industry-on-parade-434-on-the-map": {
+  "checkedAt": "2026-10-25",
+  "isize": 2983817149,
   "reason": "2 playable works",
   "verdict": "single"
  },
@@ -116541,6 +117556,24 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "md-46154-wonderful-world-vwr": {
+  "checkedAt": "2026-10-25",
+  "isize": 1023516290,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "md-52094a-the-new-york-city-transit-system-mos-vwr": {
+  "checkedAt": "2026-10-25",
+  "isize": 1065865046,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "md-53164-behind-the-scenes-with-telstar-vwr": {
+  "checkedAt": "2026-10-25",
+  "isize": 862395728,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "me-and-marlborough": {
   "checkedAt": "2026-10-18",
   "isize": 6653085452,
@@ -116558,6 +117591,124 @@
   "isize": 2726216803,
   "reason": "1 playable works",
   "verdict": "single"
+ },
+ "measure_metric": {
+  "checkedAt": "2026-10-25",
+  "files": [
+   {
+    "format": "MPEG4",
+    "length": "870.72",
+    "name": "measure_metric_01.mp4",
+    "size": "192527025",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "870.29",
+    "name": "measure_metric_02.mp4",
+    "size": "206616158",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "878.24",
+    "name": "measure_metric_03.mp4",
+    "size": "184808056",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "874.85",
+    "name": "measure_metric_04.mp4",
+    "size": "179263854",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "885.32",
+    "name": "measure_metric_05.mp4",
+    "size": "178475807",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "884.64",
+    "name": "measure_metric_06.mp4",
+    "size": "165885591",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "880.5",
+    "name": "measure_metric_07.mp4",
+    "size": "186130663",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "884.72",
+    "name": "measure_metric_08.mp4",
+    "size": "159805281",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "871.1",
+    "name": "measure_metric_09.mp4",
+    "size": "168217899",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "871.51",
+    "name": "measure_metric_10.mp4",
+    "size": "169483157",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "871.89",
+    "name": "measure_metric_11.mp4",
+    "size": "157018096",
+    "source": "original"
+   },
+   {
+    "name": "measure_metric.thumbs/measure_metric_01_000330.jpg"
+   },
+   {
+    "name": "measure_metric.thumbs/measure_metric_02_000328.jpg"
+   },
+   {
+    "name": "measure_metric.thumbs/measure_metric_03_000330.jpg"
+   },
+   {
+    "name": "measure_metric.thumbs/measure_metric_04_000300.jpg"
+   },
+   {
+    "name": "measure_metric.thumbs/measure_metric_05_000327.jpg"
+   },
+   {
+    "name": "measure_metric.thumbs/measure_metric_06_000325.jpg"
+   },
+   {
+    "name": "measure_metric.thumbs/measure_metric_07_000327.jpg"
+   },
+   {
+    "name": "measure_metric.thumbs/measure_metric_08_000335.jpg"
+   },
+   {
+    "name": "measure_metric.thumbs/measure_metric_09_000332.jpg"
+   },
+   {
+    "name": "measure_metric.thumbs/measure_metric_10_000297.jpg"
+   },
+   {
+    "name": "measure_metric.thumbs/measure_metric_11_000301.jpg"
+   }
+  ],
+  "isize": 1959841954,
+  "reason": "ok",
+  "verdict": "bundle"
  },
  "mechanical_engineering_at_dupont": {
   "checkedAt": "2026-10-18",
@@ -122929,6 +124080,12 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "mystery-of-matter-iso": {
+  "checkedAt": "2026-10-25",
+  "isize": 9978984112,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "naacp_south_carolina": {
   "checkedAt": "2026-10-18",
   "isize": 4355993393,
@@ -124951,6 +126108,12 @@
   "reason": "ok",
   "verdict": "bundle"
  },
+ "national-parks-iso": {
+  "checkedAt": "2026-10-25",
+  "isize": 42069212818,
+  "reason": "0 numbered of 8",
+  "verdict": "single"
+ },
  "nationofimmigrants": {
   "checkedAt": "2026-10-18",
   "isize": 32853209710,
@@ -125211,6 +126374,12 @@
   "reason": "2 numbered of 3",
   "verdict": "single"
  },
+ "nfgJZIcSlitN8Lgeh68wthU523bPjp": {
+  "checkedAt": "2026-10-25",
+  "isize": 794216333,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "nicholas-nickleby_202105": {
   "checkedAt": "2026-10-18",
   "isize": 8423729386,
@@ -125467,6 +126636,12 @@
   "checkedAt": "2026-10-18",
   "isize": 1695866515,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "not-by-books-alone-1945": {
+  "checkedAt": "2026-10-25",
+  "isize": 5364139592,
+  "reason": "2 playable works",
   "verdict": "single"
  },
  "not-on-your-nellie-1974-75": {
@@ -134946,8 +136121,8 @@
   "verdict": "single"
  },
  "quatermass-and-the-pit": {
-  "checkedAt": "2026-10-18",
-  "isize": 7716563301,
+  "checkedAt": "2026-10-25",
+  "isize": 7716563784,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -148327,6 +149502,12 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "sportinglovedivx": {
+  "checkedAt": "2026-10-25",
+  "isize": 977840740,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "spring-fever-1927_202507": {
   "checkedAt": "2026-10-18",
   "isize": 2164554263,
@@ -149478,6 +150659,334 @@
   "isize": 2447538286,
   "reason": "1 playable works",
   "verdict": "single"
+ },
+ "stories-of-america": {
+  "checkedAt": "2026-10-25",
+  "files": [
+   {
+    "format": "MPEG4",
+    "length": "880.04",
+    "name": "Stories of America 01 Our Countrys Birthday.mp4",
+    "size": "65833038",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "876.65",
+    "name": "Stories of America 02 Discover America.mp4",
+    "size": "52590751",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "878.11",
+    "name": "Stories of America 03 America is Named.mp4",
+    "size": "54880697",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "879.2",
+    "name": "Stories of America 04  Pocahontas.mp4",
+    "size": "58467238",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "874.79",
+    "name": "Stories of America 05 Children of the Mayflower.mp4",
+    "size": "63861108",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "877.32",
+    "name": "Stories of America 06 John Billington and Squanto.mp4",
+    "size": "52783023",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "874.28",
+    "name": "Stories of America 07 New Amsterdam.mp4",
+    "size": "64637060",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "872.14",
+    "name": "Stories of America 08 Ben Franklin.mp4",
+    "size": "61818689",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "880.89",
+    "name": "Stories of America 09 George Washington.mp4",
+    "size": "71433950",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "872.72",
+    "name": "Stories of America 10 Daniel Boone.mp4",
+    "size": "60907492",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "873.19",
+    "name": "Stories of America 11 The Start of a War.mp4",
+    "size": "64060662",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "875.44",
+    "name": "Stories of America 12 Needles and Bread.mp4",
+    "size": "75914110",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "879.48",
+    "name": "Stories of America 13 Indian Summer.mp4",
+    "size": "68842166",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "870.61",
+    "name": "Stories of America 14 The Growers.mp4",
+    "size": "58957030",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "880.34",
+    "name": "Stories of America 15 Lewis and Clark.mp4",
+    "size": "62371364",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "876.32",
+    "name": "Stories of America 16 Davy Crockett.mp4",
+    "size": "61309414",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "883.94",
+    "name": "Stories of America 17 Robert Fulton.mp4",
+    "size": "73079583",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "877.11",
+    "name": "Stories of America 18 The Oregon Trail.mp4",
+    "size": "62660854",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "877.9",
+    "name": "Stories of America 19 Gretchen Goes West.mp4",
+    "size": "76447599",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "877.32",
+    "name": "Stories of America 20 The California Gold Rush.mp4",
+    "size": "70064974",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "877.11",
+    "name": "Stories of America 21 The Pony Express.mp4",
+    "size": "67118650",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "883.5",
+    "name": "Stories of America 22 Runaway Slave.mp4",
+    "size": "67498536",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "880.71",
+    "name": "Stories of America 23 The Underground Railroad.mp4",
+    "size": "70873891",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "873.67",
+    "name": "Stories of America 24 Martin and Abraham Lincoln.mp4",
+    "size": "63586478",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "881.36",
+    "name": "Stories of America 25 Clara Barton.mp4",
+    "size": "71527943",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "871.58",
+    "name": "Stories of America 26 The Transcontinental Railroad.mp4",
+    "size": "74291680",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "878.06",
+    "name": "Stories of America 27 Pecos Bill.mp4",
+    "size": "72408096",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "869.7",
+    "name": "Stories of America 28 Tom Edison.mp4",
+    "size": "71732132",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "876.92",
+    "name": "Stories of America 29 Annie Oakley.mp4",
+    "size": "67433116",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "872.68",
+    "name": "Stories of America 30 The First Cars.mp4",
+    "size": "69947155",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "881.75",
+    "name": "Stories of America 31 Little Yellow Fur.mp4",
+    "size": "60642993",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "875.67",
+    "name": "Stories of America 32 Father is President.mp4",
+    "size": "56076783",
+    "source": "original"
+   },
+   {
+    "name": "stories-of-america.thumbs/Stories of America 01 Our Countrys Birthday_000646.jpg"
+   },
+   {
+    "name": "stories-of-america.thumbs/Stories of America 02 Discover America_000640.jpg"
+   },
+   {
+    "name": "stories-of-america.thumbs/Stories of America 03 America is Named_000638.jpg"
+   },
+   {
+    "name": "stories-of-america.thumbs/Stories of America 04  Pocahontas_000644.jpg"
+   },
+   {
+    "name": "stories-of-america.thumbs/Stories of America 05 Children of the Mayflower_000644.jpg"
+   },
+   {
+    "name": "stories-of-america.thumbs/Stories of America 06 John Billington and Squanto_000644.jpg"
+   },
+   {
+    "name": "stories-of-america.thumbs/Stories of America 07 New Amsterdam_000638.jpg"
+   },
+   {
+    "name": "stories-of-america.thumbs/Stories of America 08 Ben Franklin_000634.jpg"
+   },
+   {
+    "name": "stories-of-america.thumbs/Stories of America 09 George Washington_000639.jpg"
+   },
+   {
+    "name": "stories-of-america.thumbs/Stories of America 10 Daniel Boone_000640.jpg"
+   },
+   {
+    "name": "stories-of-america.thumbs/Stories of America 11 The Start of a War_000635.jpg"
+   },
+   {
+    "name": "stories-of-america.thumbs/Stories of America 12 Needles and Bread_000635.jpg"
+   },
+   {
+    "name": "stories-of-america.thumbs/Stories of America 13 Indian Summer_000644.jpg"
+   },
+   {
+    "name": "stories-of-america.thumbs/Stories of America 14 The Growers_000640.jpg"
+   },
+   {
+    "name": "stories-of-america.thumbs/Stories of America 15 Lewis and Clark_000646.jpg"
+   },
+   {
+    "name": "stories-of-america.thumbs/Stories of America 16 Davy Crockett_000643.jpg"
+   },
+   {
+    "name": "stories-of-america.thumbs/Stories of America 17 Robert Fulton_000646.jpg"
+   },
+   {
+    "name": "stories-of-america.thumbs/Stories of America 18 The Oregon Trail_000637.jpg"
+   },
+   {
+    "name": "stories-of-america.thumbs/Stories of America 19 Gretchen Goes West_000644.jpg"
+   },
+   {
+    "name": "stories-of-america.thumbs/Stories of America 20 The California Gold Rush_000640.jpg"
+   },
+   {
+    "name": "stories-of-america.thumbs/Stories of America 21 The Pony Express_000636.jpg"
+   },
+   {
+    "name": "stories-of-america.thumbs/Stories of America 22 Runaway Slave_000644.jpg"
+   },
+   {
+    "name": "stories-of-america.thumbs/Stories of America 23 The Underground Railroad_000648.jpg"
+   },
+   {
+    "name": "stories-of-america.thumbs/Stories of America 24 Martin and Abraham Lincoln_000640.jpg"
+   },
+   {
+    "name": "stories-of-america.thumbs/Stories of America 25 Clara Barton_000644.jpg"
+   },
+   {
+    "name": "stories-of-america.thumbs/Stories of America 26 The Transcontinental Railroad_000641.jpg"
+   },
+   {
+    "name": "stories-of-america.thumbs/Stories of America 27 Pecos Bill_000640.jpg"
+   },
+   {
+    "name": "stories-of-america.thumbs/Stories of America 28 Tom Edison_000631.jpg"
+   },
+   {
+    "name": "stories-of-america.thumbs/Stories of America 29 Annie Oakley_000641.jpg"
+   },
+   {
+    "name": "stories-of-america.thumbs/Stories of America 30 The First Cars_000634.jpg"
+   },
+   {
+    "name": "stories-of-america.thumbs/Stories of America 31 Little Yellow Fur_000641.jpg"
+   },
+   {
+    "name": "stories-of-america.thumbs/Stories of America 32 Father is President_000635.jpg"
+   }
+  ],
+  "isize": 4176781987,
+  "reason": "ok",
+  "verdict": "bundle"
  },
  "storm-over-asia-1928_202507": {
   "checkedAt": "2026-10-18",
@@ -174032,6 +175541,12 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "the-inner-man-steps-out-1951": {
+  "checkedAt": "2026-10-25",
+  "isize": 8303801919,
+  "reason": "2 playable works",
+  "verdict": "single"
+ },
  "the-insect-woman": {
   "checkedAt": "2026-10-18",
   "isize": 10130480185,
@@ -190870,6 +192385,12 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "the_christians": {
+  "checkedAt": "2026-10-25",
+  "isize": 13726239165,
+  "reason": "0 numbered of 15",
+  "verdict": "single"
+ },
  "the_contender": {
   "checkedAt": "2026-10-18",
   "isize": 4853071672,
@@ -197096,6 +198617,12 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "uncommon-ephemera-c790-3-rx-not-for-kicks": {
+  "checkedAt": "2026-10-25",
+  "isize": 3754089538,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "uncommon-ephemera-f00111-romeo-and-juliet-acts-i-ii-wherefore-art-thou-romeo": {
   "checkedAt": "2026-10-18",
   "isize": 10605747088,
@@ -197105,6 +198632,12 @@
  "uncommon-ephemera-f00112-romeo-and-juliet-acts-iii-iv-v-thus-with-a-kiss-i-die": {
   "checkedAt": "2026-10-18",
   "isize": 12819887156,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "uncommon-ephemera-f00121-part-1-the-time-machine": {
+  "checkedAt": "2026-10-25",
+  "isize": 8375040521,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -197120,6 +198653,12 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "uncommon-ephemera-filmstrip-11-787-106-jb-toots-his-horn-elba-systems-corporati": {
+  "checkedAt": "2026-10-25",
+  "isize": 9036335435,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "uncommon-ephemera-filmstrip-319-044-what-do-you-do-about-rules-part-1-guidance-associates-1972": {
   "checkedAt": "2026-10-18",
   "isize": 3983988672,
@@ -197129,6 +198668,12 @@
  "uncommon-ephemera-filmstrip-319-044-what-do-you-do-about-rules-part-2-guidance-associates-1972": {
   "checkedAt": "2026-10-20",
   "isize": 5049120945,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "uncommon-ephemera-filmstrip-319-101-thats-no-fair-part-1-copy-2-guidance-associates-1972": {
+  "checkedAt": "2026-10-25",
+  "isize": 3603488507,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -197180,6 +198725,12 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "uncommon-ephemera-filmstrip-a-106-25-freedom-of-choice-make-mine-purple-society-for-visual-education": {
+  "checkedAt": "2026-10-25",
+  "isize": 4393559823,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "uncommon-ephemera-filmstrip-a-211-12-choosing-and-buying-a-house-society-for-visual-education-1972": {
   "checkedAt": "2026-10-18",
   "isize": 3195614182,
@@ -197189,6 +198740,12 @@
  "uncommon-ephemera-filmstrip-a106-27-rules-are-important-a-mixed-up-mess-society-for-visual-education": {
   "checkedAt": "2026-10-18",
   "isize": 3941389487,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "uncommon-ephemera-filmstrip-a131-1-words-come-to-life-society-for-visual-education": {
+  "checkedAt": "2026-10-25",
+  "isize": 6692827584,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -197204,9 +198761,27 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "uncommon-ephemera-filmstrip-a553-3-length-decimeters-and-meters-society-for-visual-education-1974": {
+  "checkedAt": "2026-10-25",
+  "isize": 3762536848,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "uncommon-ephemera-filmstrip-a553-4-area-square-centimeters-society-for-visual-education-1974": {
+  "checkedAt": "2026-10-25",
+  "isize": 4257549692,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "uncommon-ephemera-filmstrip-a553-5-volume-cubic-centimeters-society-for-visual-education": {
   "checkedAt": "2026-10-18",
   "isize": 3995131986,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "uncommon-ephemera-filmstrip-a553-6-length-area-and-volume-society-for-visual-education-1974": {
+  "checkedAt": "2026-10-25",
+  "isize": 4396109540,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -197231,6 +198806,12 @@
  "uncommon-ephemera-filmstrip-c790-2-alcohol-decisions-about-drinking-qed-product": {
   "checkedAt": "2026-10-18",
   "isize": 5175601170,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "uncommon-ephemera-filmstrip-c790-4-narcotics-uses-and-abuses-qed-productions-1968": {
+  "checkedAt": "2026-10-25",
+  "isize": 3842689416,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -197264,6 +198845,12 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "uncommon-ephemera-filmstrip-e834d-our-reproductive-systems-how-they-work-eye-gate-house-1977": {
+  "checkedAt": "2026-10-25",
+  "isize": 3914252423,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "uncommon-ephemera-filmstrip-everybody-sells-chrysler-corporation-1962": {
   "checkedAt": "2026-10-18",
   "isize": 7056517955,
@@ -197276,9 +198863,21 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "uncommon-ephemera-filmstrip-f5662-1508-the-game-walt-disney-educational-media-company-1972": {
+  "checkedAt": "2026-10-25",
+  "isize": 3606326716,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "uncommon-ephemera-filmstrip-f5663-1511-the-project-walt-disney-educational-media-company-1972": {
   "checkedAt": "2026-10-20",
   "isize": 7920441998,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "uncommon-ephemera-filmstrip-f5664-1509-the-new-girl-walt-disney-educational-media-company-1972": {
+  "checkedAt": "2026-10-25",
+  "isize": 5043550769,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -197291,6 +198890,18 @@
  "uncommon-ephemera-filmstrip-fbc-80-the-learning-well-2a-green-green-green-educa": {
   "checkedAt": "2026-10-18",
   "isize": 4172166742,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "uncommon-ephemera-filmstrip-fbc-80-the-learning-well-2b-blue-blue-blue-educatio": {
+  "checkedAt": "2026-10-25",
+  "isize": 4063457637,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "uncommon-ephemera-filmstrip-filmstrip-2-case-histories-paramount-oxford-films-1977": {
+  "checkedAt": "2026-10-25",
+  "isize": 4631929523,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -197354,6 +198965,12 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "uncommon-ephemera-filmstrip-mtsc-vol-65-no-12-65-service-roundup-chrysler-corpo": {
+  "checkedAt": "2026-10-25",
+  "isize": 7862960419,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "uncommon-ephemera-filmstrip-parent-teacher-conferences-national-education-association-1976": {
   "checkedAt": "2026-10-20",
   "isize": 3745378397,
@@ -197394,6 +199011,12 @@
   "checkedAt": "2026-10-18",
   "isize": 8147427961,
   "reason": "2 playable works",
+  "verdict": "single"
+ },
+ "uncommon-ephemera-filmstrip-strawberry-ice-cream-cones-copy-2-international-child-evangelism-fellows": {
+  "checkedAt": "2026-10-25",
+  "isize": 3889036140,
+  "reason": "1 playable works",
   "verdict": "single"
  },
  "uncommon-ephemera-filmstrip-the-growing-trip-marsh-film-enterprises-1975": {
@@ -197600,6 +199223,12 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "uwethno-brindaranganathan1969": {
+  "checkedAt": "2026-10-25",
+  "isize": 15974067849,
+  "reason": "0 numbered of 3",
+  "verdict": "single"
+ },
  "uwethno-eldin1970": {
   "checkedAt": "2026-10-20",
   "isize": 11442958451,
@@ -197697,8 +199326,8 @@
   "verdict": "single"
  },
  "verkaufte_braut": {
-  "checkedAt": "2026-10-18",
-  "isize": 3740636344,
+  "checkedAt": "2026-10-25",
+  "isize": 3740636369,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -199863,6 +201492,12 @@
  "x_marks_the_spot_1942": {
   "checkedAt": "2026-10-18",
   "isize": 1091306557,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "xd-14284-jake-pine-motorcycle-race-vwr": {
+  "checkedAt": "2026-10-25",
+  "isize": 472532559,
   "reason": "1 playable works",
   "verdict": "single"
  },

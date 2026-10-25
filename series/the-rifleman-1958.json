@@ -4,7 +4,7 @@
   "tvmazeID": 3877,
   "title": "The Rifleman",
   "yearStart": 1958,
-  "yearEnd": 1958,
+  "yearEnd": 1963,
   "overview": "Lucas McCain is an ex-soldier who loses his wife after the birth of one son, Mark. Lucas and Mark move to North Fork and attempt to make a living as farmers. However, outlaws and criminals ride into North Fork regularly, and Lucas' past comes back to haunt him from time to time. Inevitably, Lucas has to pick up his rifle and uses his marksmanship skills to deal with trouble.",
   "posterURL": "https://artworks.thetvdb.com/banners/posters/72089-2.jpg",
   "backdropURL": null,
@@ -43,12 +43,12 @@
           "archiveID": "the-rifleman-tv-1958-s01e04-the-marshal",
           "seasonNumber": 1,
           "episodeNumber": 4,
-          "title": "The Rifleman TV 1958 colorized s01e04 The Marshal",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/the-rifleman-tv-1958-s01e04-the-marshal",
-          "airDate": null,
+          "title": "The Marshal",
+          "overview": "Micah Torrance, formerly a famous Marshal, but now a drunken derelict with a crippled arm from a gunfight, turns up in North Folk and is taken on as a hired hand by Lucas McCain, who wants to give the man a chance to rehabilitate himself. His good deed backfires when three outlaws ride into town bent on avenging themselves for past troubles with Micah. The outlaws kill the local sheriff, leaving Lucas and Micah to protect the town alone.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/47/118805.jpg",
+          "airDate": "1958-10-21",
           "year": 1958,
-          "runtimeSeconds": 1538,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "The Rifleman TV 1958 colorized s01e04 The Marshal.mp4",
             "format": "MPEG4",
@@ -60,12 +60,12 @@
       ]
     },
     {
-      "seasonNumber": 2,
+      "seasonNumber": null,
       "episodes": [
         {
           "archiveID": "The_Rifleman_-_Day_Of_The_Hunter",
-          "seasonNumber": 2,
-          "episodeNumber": 15,
+          "seasonNumber": null,
+          "episodeNumber": null,
           "title": "The Rifleman - Day Of The Hunter",
           "overview": null,
           "stillURL": "https://archive.org/services/img/The_Rifleman_-_Day_Of_The_Hunter",
@@ -82,8 +82,8 @@
         },
         {
           "archiveID": "TheRifleman-MailOrderGroom",
-          "seasonNumber": 2,
-          "episodeNumber": 16,
+          "seasonNumber": null,
+          "episodeNumber": null,
           "title": "The Rifleman - Mail Order Groom",
           "overview": null,
           "stillURL": "https://archive.org/services/img/TheRifleman-MailOrderGroom",
@@ -124,8 +124,5 @@
       "order": 2,
       "profilePath": "https://artworks.thetvdb.com/banners/actors/14676.jpg"
     }
-  ],
-  "seriesImdbID": "tt0051308",
-  "canonicalEpisodeCount": 121,
-  "canonicalSeasons": 5
+  ]
 }

@@ -1,0 +1,637 @@
+{
+  "version": 2,
+  "seriesID": "stories-of-america-pbs-children-s-history-series-with-1976",
+  "sourceID": "stories-of-america",
+  "tvmazeID": null,
+  "title": "Stories of America PBS Children's History Series with",
+  "yearStart": 1976,
+  "yearEnd": null,
+  "overview": "_. Stories of America: The interconnectedness of all things is a fundamental part of reading motivation projects. Although GPN's Reading Rainbow claims to have invented that idea, Stories of America with host Ann McGregor got there first. It was 1976, America's bicentennial year, and WVIZ-TV of Cleveland wanted something more out of a series aimed at delivering American history, They decided to combine history with reading. The result was Stories of America. Hosting was the familiar face of Ann McGregor, who had enlivened Picture Book Park and Tilson's Bookshop some two years earlier. Stories of America resembled more of a story reading than a history lesson, but it also introduced other elements that became standard Reading Rainbow procedure. There were occasional film sequences, dramatizations, and even an animation. All told, the 32-part Stories of America series ran some 14 years on WVIZ-TV. The series was reprised - and shown again: starting in 1998. The federal funding that supports Public Media has been eliminated in July of 2025 by the Republicans. Your PBS viewing experience is going away. ) Episodes: 01. Discover America 03. America is Named 04. Pocahontas 05. Children of the Mayflower 06. John Billington and Squanto 07. New Amsterdam 08. Ben Franklin 09. George Washington 10. Daniel Boone 11. The Start of a War 12. Needles and Bread 13. Indian Summer 14. The Growers 15. Lewis and Clark 16. Davy Crockett 17. Robert Fulton 18. The Oregon Trail 19. Gretchen Goes West 20. The California Gold Rush 21. The Pony Express 22. Runaway Slave 23. The Underground Railroad 24. Martin and Abraham Lincoln 25. Clara Barton 26. The Transcontinental Railroad 27. Pecos Bill 28. Tom Edison 29. Annie Oakley 30. The First Cars 31. Little Yellow Fur 32. These videos are all to be used only for free, personal, educational purposes. ___________________________________________________________________________________",
+  "posterURL": "https://archive.org/services/img/stories-of-america",
+  "backdropURL": null,
+  "genres": [
+    "Documentary"
+  ],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "stories-of-america@e01",
+          "sourceID": "stories-of-america",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Our Countrys Birthday",
+          "overview": null,
+          "stillURL": "https://archive.org/download/stories-of-america/stories-of-america.thumbs/Stories%20of%20America%2001%20Our%20Countrys%20Birthday_000646.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 880,
+          "videoFile": {
+            "name": "Stories of America 01 Our Countrys Birthday.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 65833038,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-america/Stories%20of%20America%2001%20Our%20Countrys%20Birthday.mp4"
+        },
+        {
+          "archiveID": "stories-of-america@e02",
+          "sourceID": "stories-of-america",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Discover America",
+          "overview": null,
+          "stillURL": "https://archive.org/download/stories-of-america/stories-of-america.thumbs/Stories%20of%20America%2002%20Discover%20America_000640.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 876,
+          "videoFile": {
+            "name": "Stories of America 02 Discover America.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 52590751,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-america/Stories%20of%20America%2002%20Discover%20America.mp4"
+        },
+        {
+          "archiveID": "stories-of-america@e03",
+          "sourceID": "stories-of-america",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "America is Named",
+          "overview": null,
+          "stillURL": "https://archive.org/download/stories-of-america/stories-of-america.thumbs/Stories%20of%20America%2003%20America%20is%20Named_000638.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 878,
+          "videoFile": {
+            "name": "Stories of America 03 America is Named.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 54880697,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-america/Stories%20of%20America%2003%20America%20is%20Named.mp4"
+        },
+        {
+          "archiveID": "stories-of-america@e04",
+          "sourceID": "stories-of-america",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Pocahontas",
+          "overview": null,
+          "stillURL": "https://archive.org/download/stories-of-america/stories-of-america.thumbs/Stories%20of%20America%2004%20%20Pocahontas_000644.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 879,
+          "videoFile": {
+            "name": "Stories of America 04  Pocahontas.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 58467238,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-america/Stories%20of%20America%2004%20%20Pocahontas.mp4"
+        },
+        {
+          "archiveID": "stories-of-america@e05",
+          "sourceID": "stories-of-america",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Children of the Mayflower",
+          "overview": null,
+          "stillURL": "https://archive.org/download/stories-of-america/stories-of-america.thumbs/Stories%20of%20America%2005%20Children%20of%20the%20Mayflower_000644.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 874,
+          "videoFile": {
+            "name": "Stories of America 05 Children of the Mayflower.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 63861108,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-america/Stories%20of%20America%2005%20Children%20of%20the%20Mayflower.mp4"
+        },
+        {
+          "archiveID": "stories-of-america@e06",
+          "sourceID": "stories-of-america",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "John Billington and Squanto",
+          "overview": null,
+          "stillURL": "https://archive.org/download/stories-of-america/stories-of-america.thumbs/Stories%20of%20America%2006%20John%20Billington%20and%20Squanto_000644.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 877,
+          "videoFile": {
+            "name": "Stories of America 06 John Billington and Squanto.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 52783023,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-america/Stories%20of%20America%2006%20John%20Billington%20and%20Squanto.mp4"
+        },
+        {
+          "archiveID": "stories-of-america@e07",
+          "sourceID": "stories-of-america",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "New Amsterdam",
+          "overview": null,
+          "stillURL": "https://archive.org/download/stories-of-america/stories-of-america.thumbs/Stories%20of%20America%2007%20New%20Amsterdam_000638.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 874,
+          "videoFile": {
+            "name": "Stories of America 07 New Amsterdam.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 64637060,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-america/Stories%20of%20America%2007%20New%20Amsterdam.mp4"
+        },
+        {
+          "archiveID": "stories-of-america@e08",
+          "sourceID": "stories-of-america",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Ben Franklin",
+          "overview": null,
+          "stillURL": "https://archive.org/download/stories-of-america/stories-of-america.thumbs/Stories%20of%20America%2008%20Ben%20Franklin_000634.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 872,
+          "videoFile": {
+            "name": "Stories of America 08 Ben Franklin.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 61818689,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-america/Stories%20of%20America%2008%20Ben%20Franklin.mp4"
+        },
+        {
+          "archiveID": "stories-of-america@e09",
+          "sourceID": "stories-of-america",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "George Washington",
+          "overview": null,
+          "stillURL": "https://archive.org/download/stories-of-america/stories-of-america.thumbs/Stories%20of%20America%2009%20George%20Washington_000639.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 880,
+          "videoFile": {
+            "name": "Stories of America 09 George Washington.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 71433950,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-america/Stories%20of%20America%2009%20George%20Washington.mp4"
+        },
+        {
+          "archiveID": "stories-of-america@e10",
+          "sourceID": "stories-of-america",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Daniel Boone",
+          "overview": null,
+          "stillURL": "https://archive.org/download/stories-of-america/stories-of-america.thumbs/Stories%20of%20America%2010%20Daniel%20Boone_000640.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 872,
+          "videoFile": {
+            "name": "Stories of America 10 Daniel Boone.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 60907492,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-america/Stories%20of%20America%2010%20Daniel%20Boone.mp4"
+        },
+        {
+          "archiveID": "stories-of-america@e11",
+          "sourceID": "stories-of-america",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Start of a War",
+          "overview": null,
+          "stillURL": "https://archive.org/download/stories-of-america/stories-of-america.thumbs/Stories%20of%20America%2011%20The%20Start%20of%20a%20War_000635.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 873,
+          "videoFile": {
+            "name": "Stories of America 11 The Start of a War.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 64060662,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-america/Stories%20of%20America%2011%20The%20Start%20of%20a%20War.mp4"
+        },
+        {
+          "archiveID": "stories-of-america@e12",
+          "sourceID": "stories-of-america",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Needles and Bread",
+          "overview": null,
+          "stillURL": "https://archive.org/download/stories-of-america/stories-of-america.thumbs/Stories%20of%20America%2012%20Needles%20and%20Bread_000635.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 875,
+          "videoFile": {
+            "name": "Stories of America 12 Needles and Bread.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 75914110,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-america/Stories%20of%20America%2012%20Needles%20and%20Bread.mp4"
+        },
+        {
+          "archiveID": "stories-of-america@e13",
+          "sourceID": "stories-of-america",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "Indian Summer",
+          "overview": null,
+          "stillURL": "https://archive.org/download/stories-of-america/stories-of-america.thumbs/Stories%20of%20America%2013%20Indian%20Summer_000644.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 879,
+          "videoFile": {
+            "name": "Stories of America 13 Indian Summer.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 68842166,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-america/Stories%20of%20America%2013%20Indian%20Summer.mp4"
+        },
+        {
+          "archiveID": "stories-of-america@e14",
+          "sourceID": "stories-of-america",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Growers",
+          "overview": null,
+          "stillURL": "https://archive.org/download/stories-of-america/stories-of-america.thumbs/Stories%20of%20America%2014%20The%20Growers_000640.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 870,
+          "videoFile": {
+            "name": "Stories of America 14 The Growers.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 58957030,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-america/Stories%20of%20America%2014%20The%20Growers.mp4"
+        },
+        {
+          "archiveID": "stories-of-america@e15",
+          "sourceID": "stories-of-america",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Lewis and Clark",
+          "overview": null,
+          "stillURL": "https://archive.org/download/stories-of-america/stories-of-america.thumbs/Stories%20of%20America%2015%20Lewis%20and%20Clark_000646.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 880,
+          "videoFile": {
+            "name": "Stories of America 15 Lewis and Clark.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 62371364,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-america/Stories%20of%20America%2015%20Lewis%20and%20Clark.mp4"
+        },
+        {
+          "archiveID": "stories-of-america@e16",
+          "sourceID": "stories-of-america",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Davy Crockett",
+          "overview": null,
+          "stillURL": "https://archive.org/download/stories-of-america/stories-of-america.thumbs/Stories%20of%20America%2016%20Davy%20Crockett_000643.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 876,
+          "videoFile": {
+            "name": "Stories of America 16 Davy Crockett.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 61309414,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-america/Stories%20of%20America%2016%20Davy%20Crockett.mp4"
+        },
+        {
+          "archiveID": "stories-of-america@e17",
+          "sourceID": "stories-of-america",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "Robert Fulton",
+          "overview": null,
+          "stillURL": "https://archive.org/download/stories-of-america/stories-of-america.thumbs/Stories%20of%20America%2017%20Robert%20Fulton_000646.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 883,
+          "videoFile": {
+            "name": "Stories of America 17 Robert Fulton.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 73079583,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-america/Stories%20of%20America%2017%20Robert%20Fulton.mp4"
+        },
+        {
+          "archiveID": "stories-of-america@e18",
+          "sourceID": "stories-of-america",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "The Oregon Trail",
+          "overview": null,
+          "stillURL": "https://archive.org/download/stories-of-america/stories-of-america.thumbs/Stories%20of%20America%2018%20The%20Oregon%20Trail_000637.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 877,
+          "videoFile": {
+            "name": "Stories of America 18 The Oregon Trail.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 62660854,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-america/Stories%20of%20America%2018%20The%20Oregon%20Trail.mp4"
+        },
+        {
+          "archiveID": "stories-of-america@e19",
+          "sourceID": "stories-of-america",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Gretchen Goes West",
+          "overview": null,
+          "stillURL": "https://archive.org/download/stories-of-america/stories-of-america.thumbs/Stories%20of%20America%2019%20Gretchen%20Goes%20West_000644.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 877,
+          "videoFile": {
+            "name": "Stories of America 19 Gretchen Goes West.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 76447599,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-america/Stories%20of%20America%2019%20Gretchen%20Goes%20West.mp4"
+        },
+        {
+          "archiveID": "stories-of-america@e20",
+          "sourceID": "stories-of-america",
+          "seasonNumber": 1,
+          "episodeNumber": 20,
+          "title": "The California Gold Rush",
+          "overview": null,
+          "stillURL": "https://archive.org/download/stories-of-america/stories-of-america.thumbs/Stories%20of%20America%2020%20The%20California%20Gold%20Rush_000640.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 877,
+          "videoFile": {
+            "name": "Stories of America 20 The California Gold Rush.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 70064974,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-america/Stories%20of%20America%2020%20The%20California%20Gold%20Rush.mp4"
+        },
+        {
+          "archiveID": "stories-of-america@e21",
+          "sourceID": "stories-of-america",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "The Pony Express",
+          "overview": null,
+          "stillURL": "https://archive.org/download/stories-of-america/stories-of-america.thumbs/Stories%20of%20America%2021%20The%20Pony%20Express_000636.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 877,
+          "videoFile": {
+            "name": "Stories of America 21 The Pony Express.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 67118650,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-america/Stories%20of%20America%2021%20The%20Pony%20Express.mp4"
+        },
+        {
+          "archiveID": "stories-of-america@e22",
+          "sourceID": "stories-of-america",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Runaway Slave",
+          "overview": null,
+          "stillURL": "https://archive.org/download/stories-of-america/stories-of-america.thumbs/Stories%20of%20America%2022%20Runaway%20Slave_000644.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 883,
+          "videoFile": {
+            "name": "Stories of America 22 Runaway Slave.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 67498536,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-america/Stories%20of%20America%2022%20Runaway%20Slave.mp4"
+        },
+        {
+          "archiveID": "stories-of-america@e23",
+          "sourceID": "stories-of-america",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "The Underground Railroad",
+          "overview": null,
+          "stillURL": "https://archive.org/download/stories-of-america/stories-of-america.thumbs/Stories%20of%20America%2023%20The%20Underground%20Railroad_000648.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 880,
+          "videoFile": {
+            "name": "Stories of America 23 The Underground Railroad.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 70873891,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-america/Stories%20of%20America%2023%20The%20Underground%20Railroad.mp4"
+        },
+        {
+          "archiveID": "stories-of-america@e24",
+          "sourceID": "stories-of-america",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Martin and Abraham Lincoln",
+          "overview": null,
+          "stillURL": "https://archive.org/download/stories-of-america/stories-of-america.thumbs/Stories%20of%20America%2024%20Martin%20and%20Abraham%20Lincoln_000640.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 873,
+          "videoFile": {
+            "name": "Stories of America 24 Martin and Abraham Lincoln.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 63586478,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-america/Stories%20of%20America%2024%20Martin%20and%20Abraham%20Lincoln.mp4"
+        },
+        {
+          "archiveID": "stories-of-america@e25",
+          "sourceID": "stories-of-america",
+          "seasonNumber": 1,
+          "episodeNumber": 25,
+          "title": "Clara Barton",
+          "overview": null,
+          "stillURL": "https://archive.org/download/stories-of-america/stories-of-america.thumbs/Stories%20of%20America%2025%20Clara%20Barton_000644.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 881,
+          "videoFile": {
+            "name": "Stories of America 25 Clara Barton.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 71527943,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-america/Stories%20of%20America%2025%20Clara%20Barton.mp4"
+        },
+        {
+          "archiveID": "stories-of-america@e26",
+          "sourceID": "stories-of-america",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "The Transcontinental Railroad",
+          "overview": null,
+          "stillURL": "https://archive.org/download/stories-of-america/stories-of-america.thumbs/Stories%20of%20America%2026%20The%20Transcontinental%20Railroad_000641.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 871,
+          "videoFile": {
+            "name": "Stories of America 26 The Transcontinental Railroad.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 74291680,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-america/Stories%20of%20America%2026%20The%20Transcontinental%20Railroad.mp4"
+        },
+        {
+          "archiveID": "stories-of-america@e27",
+          "sourceID": "stories-of-america",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Pecos Bill",
+          "overview": null,
+          "stillURL": "https://archive.org/download/stories-of-america/stories-of-america.thumbs/Stories%20of%20America%2027%20Pecos%20Bill_000640.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 878,
+          "videoFile": {
+            "name": "Stories of America 27 Pecos Bill.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 72408096,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-america/Stories%20of%20America%2027%20Pecos%20Bill.mp4"
+        },
+        {
+          "archiveID": "stories-of-america@e28",
+          "sourceID": "stories-of-america",
+          "seasonNumber": 1,
+          "episodeNumber": 28,
+          "title": "Tom Edison",
+          "overview": null,
+          "stillURL": "https://archive.org/download/stories-of-america/stories-of-america.thumbs/Stories%20of%20America%2028%20Tom%20Edison_000631.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 869,
+          "videoFile": {
+            "name": "Stories of America 28 Tom Edison.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 71732132,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-america/Stories%20of%20America%2028%20Tom%20Edison.mp4"
+        },
+        {
+          "archiveID": "stories-of-america@e29",
+          "sourceID": "stories-of-america",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "Annie Oakley",
+          "overview": null,
+          "stillURL": "https://archive.org/download/stories-of-america/stories-of-america.thumbs/Stories%20of%20America%2029%20Annie%20Oakley_000641.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 876,
+          "videoFile": {
+            "name": "Stories of America 29 Annie Oakley.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 67433116,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-america/Stories%20of%20America%2029%20Annie%20Oakley.mp4"
+        },
+        {
+          "archiveID": "stories-of-america@e30",
+          "sourceID": "stories-of-america",
+          "seasonNumber": 1,
+          "episodeNumber": 30,
+          "title": "The First Cars",
+          "overview": null,
+          "stillURL": "https://archive.org/download/stories-of-america/stories-of-america.thumbs/Stories%20of%20America%2030%20The%20First%20Cars_000634.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 872,
+          "videoFile": {
+            "name": "Stories of America 30 The First Cars.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 69947155,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-america/Stories%20of%20America%2030%20The%20First%20Cars.mp4"
+        },
+        {
+          "archiveID": "stories-of-america@e31",
+          "sourceID": "stories-of-america",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "Little Yellow Fur",
+          "overview": null,
+          "stillURL": "https://archive.org/download/stories-of-america/stories-of-america.thumbs/Stories%20of%20America%2031%20Little%20Yellow%20Fur_000641.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 881,
+          "videoFile": {
+            "name": "Stories of America 31 Little Yellow Fur.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 60642993,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-america/Stories%20of%20America%2031%20Little%20Yellow%20Fur.mp4"
+        },
+        {
+          "archiveID": "stories-of-america@e32",
+          "sourceID": "stories-of-america",
+          "seasonNumber": 1,
+          "episodeNumber": 32,
+          "title": "Father is President",
+          "overview": null,
+          "stillURL": "https://archive.org/download/stories-of-america/stories-of-america.thumbs/Stories%20of%20America%2032%20Father%20is%20President_000635.jpg",
+          "airDate": null,
+          "year": 1976,
+          "runtimeSeconds": 875,
+          "videoFile": {
+            "name": "Stories of America 32 Father is President.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 56076783,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/stories-of-america/Stories%20of%20America%2032%20Father%20is%20President.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 32,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

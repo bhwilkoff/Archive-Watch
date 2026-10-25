@@ -1,0 +1,217 @@
+{
+  "version": 2,
+  "seriesID": "afloat-and-aboat-lost-water-safety-course-from-1977-1977",
+  "sourceID": "afloat-and-a-boat",
+  "tvmazeID": null,
+  "title": "Afloat And Aboat \"Lost\" Water Safety course from 1977",
+  "yearStart": 1977,
+  "yearEnd": null,
+  "overview": "Afloat and Aboat ★ A \"Lost\" Water Safety Educational Series ... 46 Years Old! Date 1977 Summary A water and boating safety education series, suggested for grades 4-6. Mary Carol Reilly, host.",
+  "posterURL": "https://archive.org/services/img/afloat-and-a-boat",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "afloat-and-a-boat@e01",
+          "sourceID": "afloat-and-a-boat",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "All About Water",
+          "overview": null,
+          "stillURL": "https://archive.org/download/afloat-and-a-boat/afloat-and-a-boat.thumbs/Afloat%20and%20Aboat%2001%20All%20About%20Water_000301.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 831,
+          "videoFile": {
+            "name": "Afloat and Aboat 01 All About Water.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 131679861,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/afloat-and-a-boat/Afloat%20and%20Aboat%2001%20All%20About%20Water.mp4"
+        },
+        {
+          "archiveID": "afloat-and-a-boat@e02",
+          "sourceID": "afloat-and-a-boat",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Sink or Swim",
+          "overview": null,
+          "stillURL": "https://archive.org/download/afloat-and-a-boat/afloat-and-a-boat.thumbs/Afloat%20and%20Aboat%2002%20Sink%20or%20Swim_000297.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 829,
+          "videoFile": {
+            "name": "Afloat and Aboat 02 Sink or Swim.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 160578117,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/afloat-and-a-boat/Afloat%20and%20Aboat%2002%20Sink%20or%20Swim.mp4"
+        },
+        {
+          "archiveID": "afloat-and-a-boat@e03",
+          "sourceID": "afloat-and-a-boat",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Look Before You Leap",
+          "overview": null,
+          "stillURL": "https://archive.org/download/afloat-and-a-boat/afloat-and-a-boat.thumbs/Afloat%20and%20Aboat%2003%20Look%20Before%20You%20Leap_000301.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 830,
+          "videoFile": {
+            "name": "Afloat and Aboat 03 Look Before You Leap.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 134490190,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/afloat-and-a-boat/Afloat%20and%20Aboat%2003%20Look%20Before%20You%20Leap.mp4"
+        },
+        {
+          "archiveID": "afloat-and-a-boat@e04",
+          "sourceID": "afloat-and-a-boat",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Combing the Beach",
+          "overview": null,
+          "stillURL": "https://archive.org/download/afloat-and-a-boat/afloat-and-a-boat.thumbs/Afloat%20and%20Aboat%2004%20Combing%20the%20Beach_000301.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 829,
+          "videoFile": {
+            "name": "Afloat and Aboat 04 Combing the Beach.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 131838250,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/afloat-and-a-boat/Afloat%20and%20Aboat%2004%20Combing%20the%20Beach.mp4"
+        },
+        {
+          "archiveID": "afloat-and-a-boat@e05",
+          "sourceID": "afloat-and-a-boat",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "Small Boats Afloat",
+          "overview": null,
+          "stillURL": "https://archive.org/download/afloat-and-a-boat/afloat-and-a-boat.thumbs/Afloat%20and%20Aboat%2005%20Small%20Boats%20Afloat_000299.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 829,
+          "videoFile": {
+            "name": "Afloat and Aboat 05 Small Boats Afloat.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 138570650,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/afloat-and-a-boat/Afloat%20and%20Aboat%2005%20Small%20Boats%20Afloat.mp4"
+        },
+        {
+          "archiveID": "afloat-and-a-boat@e06",
+          "sourceID": "afloat-and-a-boat",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Small Boats Underway",
+          "overview": null,
+          "stillURL": "https://archive.org/download/afloat-and-a-boat/afloat-and-a-boat.thumbs/Afloat%20and%20Aboat%2006%20Small%20Boats%20Underway_000302.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 829,
+          "videoFile": {
+            "name": "Afloat and Aboat 06 Small Boats Underway.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 148156644,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/afloat-and-a-boat/Afloat%20and%20Aboat%2006%20Small%20Boats%20Underway.mp4"
+        },
+        {
+          "archiveID": "afloat-and-a-boat@e07",
+          "sourceID": "afloat-and-a-boat",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Taking the Helm",
+          "overview": null,
+          "stillURL": "https://archive.org/download/afloat-and-a-boat/afloat-and-a-boat.thumbs/Afloat%20and%20Aboat%2007%20Taking%20the%20Helm_000301.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 832,
+          "videoFile": {
+            "name": "Afloat and Aboat 07 Taking the Helm.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 156647475,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/afloat-and-a-boat/Afloat%20and%20Aboat%2007%20Taking%20the%20Helm.mp4"
+        },
+        {
+          "archiveID": "afloat-and-a-boat@e08",
+          "sourceID": "afloat-and-a-boat",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Paddle or Ski",
+          "overview": null,
+          "stillURL": "https://archive.org/download/afloat-and-a-boat/afloat-and-a-boat.thumbs/Afloat%20and%20Aboat%2008%20Paddle%20or%20Ski_000302.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 829,
+          "videoFile": {
+            "name": "Afloat and Aboat 08 Paddle or Ski.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 176460743,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/afloat-and-a-boat/Afloat%20and%20Aboat%2008%20Paddle%20or%20Ski.mp4"
+        },
+        {
+          "archiveID": "afloat-and-a-boat@e09",
+          "sourceID": "afloat-and-a-boat",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Giving Way",
+          "overview": null,
+          "stillURL": "https://archive.org/download/afloat-and-a-boat/afloat-and-a-boat.thumbs/Afloat%20and%20Aboat%2009%20Giving%20Way_000304.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 830,
+          "videoFile": {
+            "name": "Afloat and Aboat 09 Giving Way.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 132047578,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/afloat-and-a-boat/Afloat%20and%20Aboat%2009%20Giving%20Way.mp4"
+        },
+        {
+          "archiveID": "afloat-and-a-boat@e10",
+          "sourceID": "afloat-and-a-boat",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Plotting Your Course",
+          "overview": null,
+          "stillURL": "https://archive.org/download/afloat-and-a-boat/afloat-and-a-boat.thumbs/Afloat%20and%20Aboat%2010%20Plotting%20Your%20Course_000302.jpg",
+          "airDate": null,
+          "year": 1977,
+          "runtimeSeconds": 826,
+          "videoFile": {
+            "name": "Afloat and Aboat 10 Plotting Your Course.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 138462111,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/afloat-and-a-boat/Afloat%20and%20Aboat%2010%20Plotting%20Your%20Course.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 10,
+  "canonicalEpisodesCount": null,
+  "tvdbID": null,
+  "artworkSource": "archive",
+  "cast": []
+}

@@ -1,0 +1,160 @@
+{
+  "version": 2,
+  "seriesID": "winslow-of-the-navy-1942",
+  "sourceID": "WinslowOfTheNavy",
+  "tvmazeID": null,
+  "title": "Winslow of the Navy",
+  "yearStart": 1942,
+  "yearEnd": null,
+  "overview": "US naval officer Don Winslow is given command of the islands near Pearl Harbor. He discovers that there is a ring of saboteurs and enemy agents who are trying to destroy ships carrying supplies to the troops stationed in the islands and sabotage the war effort. He sets out with his trusted assistant and two beautiful women to find the mastermind behind these nefarious activities.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/258388-1.jpg",
+  "backdropURL": null,
+  "genres": [],
+  "networks": [],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "WinslowOfTheNavy@e07",
+          "sourceID": "WinslowOfTheNavy",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Episode 7",
+          "overview": null,
+          "stillURL": "https://archive.org/download/WinslowOfTheNavy/WinslowOfTheNavy.thumbs/winslow_navy_ep7_000414.jpg",
+          "airDate": null,
+          "year": 1942,
+          "runtimeSeconds": 1272,
+          "videoFile": {
+            "name": "winslow_navy_ep7.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 91616050,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/WinslowOfTheNavy/winslow_navy_ep7.mp4"
+        },
+        {
+          "archiveID": "WinslowOfTheNavy@e08",
+          "sourceID": "WinslowOfTheNavy",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "Episode 8",
+          "overview": null,
+          "stillURL": "https://archive.org/download/WinslowOfTheNavy/WinslowOfTheNavy.thumbs/winslow_navy_ep8_000354.jpg",
+          "airDate": null,
+          "year": 1942,
+          "runtimeSeconds": 1188,
+          "videoFile": {
+            "name": "winslow_navy_ep8.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 84804571,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/WinslowOfTheNavy/winslow_navy_ep8.mp4"
+        },
+        {
+          "archiveID": "WinslowOfTheNavy@e09",
+          "sourceID": "WinslowOfTheNavy",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "Episode 9",
+          "overview": null,
+          "stillURL": "https://archive.org/download/WinslowOfTheNavy/WinslowOfTheNavy.thumbs/winslow_navy_ep9_000414.jpg",
+          "airDate": null,
+          "year": 1942,
+          "runtimeSeconds": 1205,
+          "videoFile": {
+            "name": "winslow_navy_ep9.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 89961225,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/WinslowOfTheNavy/winslow_navy_ep9.mp4"
+        },
+        {
+          "archiveID": "WinslowOfTheNavy@e10",
+          "sourceID": "WinslowOfTheNavy",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Episode 10",
+          "overview": null,
+          "stillURL": "https://archive.org/download/WinslowOfTheNavy/WinslowOfTheNavy.thumbs/winslow_navy_ep10_000354.jpg",
+          "airDate": null,
+          "year": 1942,
+          "runtimeSeconds": 1161,
+          "videoFile": {
+            "name": "winslow_navy_ep10.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 85674752,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/WinslowOfTheNavy/winslow_navy_ep10.mp4"
+        },
+        {
+          "archiveID": "WinslowOfTheNavy@e11",
+          "sourceID": "WinslowOfTheNavy",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Episode 11",
+          "overview": null,
+          "stillURL": "https://archive.org/download/WinslowOfTheNavy/WinslowOfTheNavy.thumbs/winslow_navy_ep11_000294.jpg",
+          "airDate": null,
+          "year": 1942,
+          "runtimeSeconds": 984,
+          "videoFile": {
+            "name": "winslow_navy_ep11.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 73514213,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/WinslowOfTheNavy/winslow_navy_ep11.mp4"
+        },
+        {
+          "archiveID": "WinslowOfTheNavy@e12",
+          "sourceID": "WinslowOfTheNavy",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "Episode 12",
+          "overview": null,
+          "stillURL": "https://archive.org/download/WinslowOfTheNavy/WinslowOfTheNavy.thumbs/winslow_navy_ep12_000414.jpg",
+          "airDate": null,
+          "year": 1942,
+          "runtimeSeconds": 1274,
+          "videoFile": {
+            "name": "winslow_navy_ep12.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 92998381,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/WinslowOfTheNavy/winslow_navy_ep12.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 6,
+  "canonicalEpisodesCount": null,
+  "tvdbID": "258388",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Don Terry",
+      "character": "Cmdr. Don Winslow",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Walter Sande",
+      "character": "Lt. Red Pennington",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Anne Nagel",
+      "character": "Misty Gaye",
+      "order": 2,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/304533/photo/66ab26d59f4b0.jpg"
+    }
+  ]
+}
