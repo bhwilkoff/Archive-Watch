@@ -3133,6 +3133,18 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": "Richard Morris959"
+  },
+  {
+   "at": "2026-10-25T01:05:52.358798+00:00",
+   "id": "wing_claw_and_fang_1946",
+   "title": "Wing, Claw and Fang!",
+   "slot": "from-the-vaults",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mynzcmzssz2i",
+   "format": "video",
+   "kind": "short-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
