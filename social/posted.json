@@ -3145,6 +3145,54 @@
    "kind": "short-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-10-25T18:19:51.234532+00:00",
+   "id": "unconsciousmotivation",
+   "title": "Unconscious Motivation",
+   "slot": "from-the-vaults",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mypt3oquip2z",
+   "format": "video",
+   "kind": "short-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-25T18:19:51.234532+00:00",
+   "id": "unconsciousmotivation",
+   "title": "Unconscious Motivation",
+   "slot": "from-the-vaults",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117502930106430154",
+   "format": "video",
+   "kind": "short-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-25T18:19:51.234532+00:00",
+   "id": "unconsciousmotivation",
+   "title": "Unconscious Motivation",
+   "slot": "from-the-vaults",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/De7VmMFG1lf/",
+   "format": "card",
+   "kind": "short-film",
+   "mediaId": "117502929330698667",
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-25T18:19:51.234532+00:00",
+   "id": "unconsciousmotivation",
+   "title": "Unconscious Motivation",
+   "slot": "from-the-vaults",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=f-bquJwyYq4",
+   "format": "video",
+   "kind": "short-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
