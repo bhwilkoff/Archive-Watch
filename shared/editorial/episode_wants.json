@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-10-24T08:51:46Z",
+  "updated_at": "2026-10-25T09:13:00Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 19160,
-    "wanted": 18898,
+    "total": 19167,
+    "wanted": 18905,
     "fulfilled": 262,
-    "series_with_gaps": 387
+    "series_with_gaps": 389
   },
   "wants": [
     {
@@ -52888,6 +52888,36 @@
       "episodeImdbID": "tt0803301",
       "status": "wanted",
       "added_at": "2026-06-05T08:10:01Z"
+    },
+    {
+      "seriesID": "flash-gordon-1936",
+      "seriesTitle": "Flash Gordon",
+      "season": 2,
+      "episode": 3,
+      "title": "The Game/The Seed",
+      "episodeImdbID": "tt1281266",
+      "status": "wanted",
+      "added_at": "2026-10-25T09:13:00Z"
+    },
+    {
+      "seriesID": "flash-gordon-1936",
+      "seriesTitle": "Flash Gordon",
+      "season": 2,
+      "episode": 7,
+      "title": "Beware of Gifts/The Memory Bank of Ming",
+      "episodeImdbID": "tt1281260",
+      "status": "wanted",
+      "added_at": "2026-10-25T09:13:00Z"
+    },
+    {
+      "seriesID": "flash-gordon-1936",
+      "seriesTitle": "Flash Gordon",
+      "season": 2,
+      "episode": 8,
+      "title": "Survival Game/Gremlin's Finest Hour",
+      "episodeImdbID": "tt1281264",
+      "status": "wanted",
+      "added_at": "2026-10-25T09:13:00Z"
     },
     {
       "seriesID": "flash-gordon-1954",
@@ -143756,6 +143786,46 @@
       "episodeImdbID": "tt1630429",
       "status": "wanted",
       "added_at": "2026-06-05T08:10:01Z"
+    },
+    {
+      "seriesID": "the-black-widow-1947",
+      "seriesTitle": "The Black Widow",
+      "season": 15,
+      "episode": 1,
+      "title": "Episode #15.1",
+      "episodeImdbID": "tt14210100",
+      "status": "wanted",
+      "added_at": "2026-10-25T09:13:00Z"
+    },
+    {
+      "seriesID": "the-black-widow-1947",
+      "seriesTitle": "The Black Widow",
+      "season": 15,
+      "episode": 2,
+      "title": "Episode #15.2",
+      "episodeImdbID": "tt14210102",
+      "status": "wanted",
+      "added_at": "2026-10-25T09:13:00Z"
+    },
+    {
+      "seriesID": "the-black-widow-1947",
+      "seriesTitle": "The Black Widow",
+      "season": 15,
+      "episode": 3,
+      "title": "Episode #15.3",
+      "episodeImdbID": "tt14210106",
+      "status": "wanted",
+      "added_at": "2026-10-25T09:13:00Z"
+    },
+    {
+      "seriesID": "the-black-widow-1947",
+      "seriesTitle": "The Black Widow",
+      "season": 15,
+      "episode": 4,
+      "title": "Episode #15.4",
+      "episodeImdbID": "tt14210110",
+      "status": "wanted",
+      "added_at": "2026-10-25T09:13:00Z"
     },
     {
       "seriesID": "the-bob-newhart-show-1972",
