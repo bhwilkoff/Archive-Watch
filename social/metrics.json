@@ -4213,6 +4213,84 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mybjgaw53g2d",
+   "platform": "bluesky",
+   "id": "TheScreamingSkull_105",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-20T01:49:37.792493+00:00",
+   "sampled": "2026-10-26T20:36:46.849259+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mydddtxxzq2u",
+   "platform": "bluesky",
+   "id": "therecklessmoment1949",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-20T19:06:05.374294+00:00",
+   "sampled": "2026-10-26T20:36:46.849259+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117474799924468415",
+   "platform": "mastodon",
+   "id": "therecklessmoment1949",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-20T19:06:05.374294+00:00",
+   "sampled": "2026-10-26T20:36:46.849259+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mypt3oquip2z",
+   "platform": "bluesky",
+   "id": "unconsciousmotivation",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-25T18:19:51.234532+00:00",
+   "sampled": "2026-10-26T20:36:46.849259+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117502930106430154",
+   "platform": "mastodon",
+   "id": "unconsciousmotivation",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-25T18:19:51.234532+00:00",
+   "sampled": "2026-10-26T20:36:46.849259+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }

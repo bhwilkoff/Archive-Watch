@@ -3205,6 +3205,54 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": "WINSTON SMITH3353"
+  },
+  {
+   "at": "2026-10-26T20:35:48.087550+00:00",
+   "id": "sherlock-holmes-and-the-pearl-of-death",
+   "title": "The Pearl of Death",
+   "slot": "now-showing",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mysl5jtjut2n",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-26T20:35:48.087550+00:00",
+   "id": "sherlock-holmes-and-the-pearl-of-death",
+   "title": "The Pearl of Death",
+   "slot": "now-showing",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117509127423733046",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-26T20:35:48.087550+00:00",
+   "id": "sherlock-holmes-and-the-pearl-of-death",
+   "title": "The Pearl of Death",
+   "slot": "now-showing",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/De-J9wsmO-x/",
+   "format": "card",
+   "kind": "feature-film",
+   "mediaId": "117509125568629706",
+   "reviewer": null
+  },
+  {
+   "at": "2026-10-26T20:35:48.087550+00:00",
+   "id": "sherlock-holmes-and-the-pearl-of-death",
+   "title": "The Pearl of Death",
+   "slot": "now-showing",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=18TTm_I8q4s",
+   "format": "video",
+   "kind": "feature-film",
+   "mediaId": null,
+   "reviewer": null
   }
  ]
 }
