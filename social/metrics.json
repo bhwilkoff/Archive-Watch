@@ -4166,6 +4166,53 @@
     "reposts": 0,
     "replies": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3myaxrlefg22o",
+   "platform": "bluesky",
+   "id": "silent-das-geheimnis-der-marquisin",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-19T20:33:50.488563+00:00",
+   "sampled": "2026-10-26T01:14:30.919377+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117469483205907039",
+   "platform": "mastodon",
+   "id": "silent-das-geheimnis-der-marquisin",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-19T20:33:50.488563+00:00",
+   "sampled": "2026-10-26T01:14:30.919377+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3mynzcmzssz2i",
+   "platform": "bluesky",
+   "id": "wing_claw_and_fang_1946",
+   "slot": "from-the-vaults",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-25T01:05:52.358798+00:00",
+   "sampled": "2026-10-26T01:14:30.919377+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
   }
  ]
 }
