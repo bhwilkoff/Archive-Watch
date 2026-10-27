@@ -1,5 +1,6 @@
 # Reply to the YouTube API Services compliance review — ToS Violations Report V.1 (2026-10-01)
 
+Loaded 2026-10-01 as an unsent Gmail draft in the thread (owner reviews and sends).
 Send as a reply in the existing thread ("Re: YouTube API Services: Thank you for
 your submission", from youtube-disputes+2f0xs4f1bp7bh1n@google.com), from
 Gmail's web page — never through the Gmail connector, which wraps every link in
@@ -92,8 +93,9 @@ Google's cookies under Google's policy.
   https://security.google.com/settings/security/permissions, and the app deletes
   its stored API Data the next time it is refused.
 
-These changes are live on the website now, and the in-app link and the data
-refresh and deletion rules ship in the next app update.
+The privacy policy changes are live on the website now. The in-app privacy policy
+link and the data refresh and deletion rules are in Archive Watch 1.44.11,
+submitted to the App Store today.
 
 Thank you again. Please let me know if anything needs more detail.
 

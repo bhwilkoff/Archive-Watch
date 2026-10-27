@@ -218,6 +218,52 @@ def main() -> int:
         check("a unique name keeps its plain title",
               "<title>Suddenly (1954) — free" in (s5 / "item" / "suddenly" / "index.html").read_text(encoding="utf-8"), True)
 
+        # 6. Search Console, 2026-10-26: series aliases must forward to /series/<slug>/
+        #    (not /item/series:<slug>/) and episode archiveIDs without an item page
+        #    forward to /series/<slug>/ so old links and crawlers don't 404.
+        idx6 = td / "index6.json"
+        idx6.write_text(json.dumps({"items": [
+            ["series:dark-shadows-1966", "Dark Shadows", 1966, "tv-series"],
+            ["house-of-dark-shadows", "House of Dark Shadows", 1970, "feature-film"],
+        ]}), encoding="utf-8")
+        al6 = td / "aliases6.json"
+        al6.write_text(json.dumps({"bundle-item": "series:dark-shadows-1966",
+                                   "dark-shadows-pilot": "house-of-dark-shadows"}), encoding="utf-8")
+        ep6 = td / "episodes6.json"
+        ep6.write_text(json.dumps({
+            "fields": ["archiveID", "slug", "series", "season", "episode", "title", "still", "year", "url"],
+            "episodes": [
+                ["dark-shadows-disc-4", "dark-shadows-1966", "Dark Shadows", None, None, "Disc 4", None, 1966, None],
+                ["dark-shadows-pilot", "dark-shadows-1966", "Dark Shadows", None, None, "Pilot", None, 1966, None]
+            ]
+        }), encoding="utf-8")
+        r6 = subprocess.run(
+            [sys.executable, str(REPO / "tools" / "build_share_pages.py"),
+             "--out", str(td / "site6"), "--index", str(idx6), "--details", str(td / "nodetails"),
+             "--aliases", str(al6), "--episodes", str(ep6)], capture_output=True, text=True)
+        check("build with series aliases and episodes succeeds", r6.returncode, 0)
+        s6 = td / "site6"
+        fwd_series = s6 / "item" / "bundle-item" / "index.html"
+        hf_series = fwd_series.read_text(encoding="utf-8") if fwd_series.exists() else ""
+        check("an alias to a series forwards to /series/<slug>/",
+              'url=https://archivewatch.org/series/dark-shadows-1966/' in hf_series, True)
+        check("series alias forward canonical is /series/<slug>/",
+              '<link rel="canonical" href="https://archivewatch.org/series/dark-shadows-1966/">' in hf_series, True)
+        fwd_ep = s6 / "item" / "dark-shadows-disc-4" / "index.html"
+        hf_ep = fwd_ep.read_text(encoding="utf-8") if fwd_ep.exists() else ""
+        check("an episode archiveID forwards to its series page",
+              'url=https://archivewatch.org/series/dark-shadows-1966/' in hf_ep, True)
+        check("episode forward canonical is /series/<slug>/",
+              '<link rel="canonical" href="https://archivewatch.org/series/dark-shadows-1966/">' in hf_ep, True)
+
+        hf_both = (s6 / "item" / "dark-shadows-pilot" / "index.html").read_text(encoding="utf-8")
+        check("an id that is both a merge alias and an episode keeps the merge's redirect",
+              'url=https://archivewatch.org/item/house-of-dark-shadows/' in hf_both, True)
+
+        # 7. 404 page carries noindex so crawlers never treat 404s as duplicates of /
+        p404 = (REPO / "404.html").read_text(encoding="utf-8")
+        check("404.html carries noindex", '<meta name="robots" content="noindex, nofollow">' in p404, True)
+
     bad = [c for c in CASES if not c[1]]
     for name, ok, got, want in CASES:
         print(f"  {'PASS' if ok else 'FAIL'}  {name}"

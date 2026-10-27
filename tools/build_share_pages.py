@@ -462,8 +462,43 @@ def write_alias_redirects(out: Path, path: Path, pages: set) -> int:
             continue
         d = out / "item" / old
         d.mkdir(parents=True, exist_ok=True)
-        (d / "index.html").write_text(REDIRECT.format(url=e(f"{SITE}/item/{new}/")),
+        url = (f"{SITE}/series/{new[len('series:'):]}/"
+               if new.startswith("series:")
+               else f"{SITE}/item/{new}/")
+        (d / "index.html").write_text(REDIRECT.format(url=e(url)),
                                       encoding="utf-8")
+        n += 1
+    return n
+
+
+def write_episode_redirects(out: Path, path: Path, pages: set) -> int:
+    """Episodes that were converted from standalone catalog items to series
+    episodes (Decision 167) or shared via /item/<id> must not fall through to
+    404.html. They forward to their parent series page, canonicalized there.
+    Not in the sitemap."""
+    if not path.exists():
+        return 0
+    try:
+        ei = json.loads(path.read_text(encoding="utf-8"))
+    except Exception:  # noqa: BLE001
+        return 0
+    f = {name: n for n, name in enumerate(ei.get("fields") or [])}
+    n = 0
+    for ep in ei.get("episodes") or []:
+        aid = ep[f["archiveID"]]
+        slug = ep[f["slug"]]
+        if not aid or not slug or "@" in aid or aid in pages or not safe_segment(aid):
+            continue
+        if f"series:{slug}" not in pages and slug not in pages:
+            continue
+        d = out / "item" / aid
+        if (d / "index.html").exists():  # a merge's alias redirect wins
+            continue
+        d.mkdir(parents=True, exist_ok=True)
+        url = f"{SITE}/series/{slug}/"
+        (d / "index.html").write_text(REDIRECT.format(url=e(url)),
+                                      encoding="utf-8")
+        pages.add(aid)
         n += 1
     return n
 
@@ -676,6 +711,7 @@ def main() -> int:
         made += 1
 
     forwarded = write_alias_redirects(out, Path(args.aliases), pages)
+    ep_forwarded = write_episode_redirects(out, Path(args.episodes), pages)
     urls += write_directory(out, directory)
     write_sitemaps(out, urls, str(index.get("updatedAt") or "")[:10])
 
@@ -704,7 +740,7 @@ def main() -> int:
     (out / "list" / "index.html").write_text(LIST_LANDING, encoding="utf-8")
 
     note = f"; skipped {skipped} unsafe id(s)" if skipped else ""
-    note += f"; {forwarded:,} merged id(s) forward to their survivor"
+    note += f"; {forwarded:,} merged id(s) and {ep_forwarded:,} episode id(s) forward to their survivor"
     print(f"[share] wrote {made:,} share pages under {out}/item and "
           f"{out}/series{note}; plus the /list/ playlist landing page and "
           f"sitemap.xml ({len(urls) + 1:,} URLs)")

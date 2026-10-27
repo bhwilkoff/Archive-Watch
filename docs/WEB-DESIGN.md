@@ -129,12 +129,17 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
   - **A merged-away id keeps its URL** (Search Console, 2026-10-05: 128
     crawled pages had become 404 when their uploads merged): `/item/{old}/`
     is a zero-second meta refresh with a canonical to the survivor's page,
-    built from `aliases.json` (Decision 085). It is not in the sitemap. A
-    title the catalog HIDES still 404s; that is the right answer for it.
+    built from `aliases.json` (Decision 085). An alias to a series forwards
+    directly to `/series/{slug}/`. TV episodes converted to series
+    episodes (Decision 167) forward their archiveID to `/series/{slug}/`.
+    These are not in the sitemap. A title the catalog HIDES still 404s;
+    `404.html` carries `noindex, nofollow` so crawlers never treat a 404 as a
+    duplicate of `/`.
   - **Two pages never share a title**: when uploads share a title and year,
     each page's `<title>` and Details name its archive.org item, so
     Dark Shadows' nine discs are nine pages rather than one page and eight
-    duplicates.
+    duplicates. Year-only uploader titles are mapped to real film names in
+    `title_corrections.json`.
 
 - **§3.3 One router.** `route()` reads the hash, `showView(name)` toggles
   `<section hidden>`. Per-view `IntersectionObserver`s are disconnected on
