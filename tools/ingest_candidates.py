@@ -388,16 +388,22 @@ def main():
         batch = unresolved[:args.resolve_limit]
         resolved_n = miss_n = 0
 
+        unread_n = 0
+
         def resolve_one(cand):
             try:
                 iaid, score, _ = A.resolve_title(cand["title"], cand.get("year"), sess())
                 return (cand, iaid, score)
             except Exception:  # noqa: BLE001
-                return (cand, None, None)
+                # archive.org did not answer: not a miss, so not "unresolved"
+                # for good. It stays "new" and is asked again next run.
+                return (cand, None, "unread")
 
         with cf.ThreadPoolExecutor(max_workers=max(1, args.workers)) as ex:
             for cand, iaid, score in ex.map(resolve_one, batch):
-                if iaid and iaid not in have:
+                if score == "unread":
+                    unread_n += 1
+                elif iaid and iaid not in have:
                     cand["iaid"] = iaid
                     cand["resolvedVia"] = "title"
                     cand["resolveScore"] = score
@@ -406,7 +412,10 @@ def main():
                     cand["status"] = "unresolved"
                     miss_n += 1
         print(f"[ingest] title-resolver: matched {resolved_n} / {len(batch)} "
-              f"({miss_n} no Archive match)", flush=True)
+              f"({miss_n} no Archive match, {unread_n} unread — archive.org did not answer)", flush=True)
+        if unread_n:
+            print(f"::warning::title-resolver: archive.org did not answer for {unread_n} of "
+                  f"{len(batch)}; they stay queued", flush=True)
 
     # Pick the queue: status "new", now has an IA id (native or resolved),
     # right confidence.

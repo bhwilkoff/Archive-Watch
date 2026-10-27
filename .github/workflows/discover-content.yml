@@ -142,6 +142,8 @@ jobs:
           # Public-Domain-Day feed: films published in just-entered PD years
           # (the last three, computed from the calendar — Decision 137), which
           # catches titles outside the curated collections.
+          # archive.org not answering is never read as "nothing found" (§1).
+          python tools/test_archive_unavailable.py > /dev/null || { python tools/test_archive_unavailable.py; exit 1; }
           python tools/discover_archive_collections.py \
             --per-collection ${{ github.event.inputs.arch_per_collection || '600' }} \
             --pd-age-backfill 300 \

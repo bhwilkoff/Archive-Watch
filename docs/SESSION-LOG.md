@@ -1,5 +1,37 @@
 # Archive Watch — Session Log (archive)
 
+### 2026-10-08 — iPhone Duo, the new App Store assets, and screenshots for every Apple platform
+
+Owner: *"There are new fields, screenshots, and a whole new device class that
+need to be figured out for our Apple App Store submissions"*; then *"You should
+always build for the current version of Xcode that is publicly available (never
+the betas)"* / *"a release candidate is the final version"*; *"we may want to
+make new screenshots for all of the apple platforms"*; *"the movies grid and
+even the home screen need better screenshots."* v1.45.20 -> 1.46.0 (2124).
+
+- **Research**: `docs/research/IPHONE-DUO.md` (specs, Asset Library API, HIG,
+  what works in Device Hub). **Xcode**: only 27.1 RC on this Mac; CI on the
+  `xcode-27` image picks the newest non-beta (27.0 today; 1.46.0 built with it).
+- **Duo**: iOS-DESIGN §2.8; titled toolbar items, Detail backdrop under the bar
+  strip, iPhone scenes for a second window. Seen on the CLOSED Duo simulator
+  only: Device Hub's pose buttons ignored even real clicks. Clip Studio's
+  ArrangementView withdrawn until the owner's Duo.
+- **Assets**: header = the 1902 moon (`tools/make_store_header.py`), search =
+  the iPad app's Home; `AW_SHOWCASE=1` (DEBUG) gives Home and Movies the
+  rule-ranked hero-tier, pro-art, no-horror set. 44 screenshots + header +
+  search uploaded through the Asset Library API (`tools/asc_asset_library.py`,
+  `tools/asc_stage_assets.py`) and placed on 1.46.0.
+- **Catalog**: a Castle Films reel wore Disney's 1952 Alice (match_rejects);
+  50 Turner promos wore The Kid, The Gold Rush, Nosferatu... (Decision 163) —
+  the real 68-minute Kid (`Brzdac1921`) surfaced once the trailer stopped
+  winning the merge. Both republished.
+- **1.46.0 is WAITING_FOR_REVIEW on iOS, macOS and tvOS.**
+**Open**: the closed-Duo set is in the Asset Library, NOT placed — it shows the
+27.1 SDK's side strip, so it goes on the first store build made with Xcode 27.1
+(when GitHub adds it to `xcode-27`, actions/runner-images#14850); the open and
+partly-folded poses, and Clip Studio's arrangement, need the owner's Duo
+(after 2026-10-23).
+
 ### 2026-10-03 — the Samsung TV brought to the other platforms, tested on the S90C, packaged
 
 Owner: *"we need to update the Tizen app and get it ready to submit to the

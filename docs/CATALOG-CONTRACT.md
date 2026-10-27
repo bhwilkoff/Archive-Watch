@@ -56,7 +56,13 @@ Notes:
   Release assets also return 206 but send **no CORS**; archive.org
   `download/` storage nodes likewise range-serve without CORS (fine for
   `<img>`/`<video>`, blocked for `fetch()`); the archive.org `/metadata` API
-  **does** send CORS. The shipped web viewer therefore runs on
+  **does** send CORS. Re-measured 2026-10-27 with an `Origin` and a `Range`:
+  the `download/` 302 now carries `access-control-allow-origin: *`, but the
+  storage node's 206 for an **MP4** still carries none (The General,
+  His Girl Friday, two nodes), while an **MP3** in an audio item answers its
+  206 with full CORS (2026-10-17, 3/3, and again 2026-10-27). So video is
+  still `<video>`-only, and nothing here may rely on audio's CORS either until
+  archive.org documents it. The shipped web viewer therefore runs on
   `catalog-index.json` + the metadata API; the `sql.js-httpvfs` upgrade
   requires a chunked SQLite deployed to Pages via an Actions-based deploy
   (never committed to git — Decision 018). See `docs/WEB-DESIGN.md` §2.

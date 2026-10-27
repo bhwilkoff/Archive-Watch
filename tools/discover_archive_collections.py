@@ -138,11 +138,7 @@ def scrape_query(q, session, *, limit, min_downloads, is_new=lambda it: True):
         }
         if cursor:
             params["cursor"] = cursor
-        r = session.get(SCRAPE, params=params, headers={"User-Agent": UA},
-                        timeout=60)
-        if not r.ok:
-            return
-        data = r.json()
+        data = A.get_json(session, SCRAPE, params=params)   # raises A.ArchiveUnavailable
         items = data.get("items", [])
         if not items:
             return
@@ -269,6 +265,18 @@ def main():
         awaiting[0] += 1
         return True
 
+    unread, feeds = [], [0]
+
+    def read_feed(label, gen):
+        """Yield a feed's items; a feed archive.org would not answer is
+        recorded as UNREAD, never as a feed with nothing new (§1)."""
+        feeds[0] += 1
+        try:
+            yield from gen
+        except A.ArchiveUnavailable as e:
+            unread.append(f"{label} ({e})")
+            print(f"  {label:35} UNREAD — archive.org did not answer ({e})", flush=True)
+
     # Feed 1 — Public Domain Day (FIRST, so the ceiling below never crowds
     # out films that are public domain by age): films published in a just-entered PD year
     # (e.g. 1930 entered US PD on 2026-01-01). PD by age, regardless of
@@ -279,8 +287,8 @@ def main():
         q = f"mediatype:movies AND year:{yr}"
         # Exempt from the ceiling (self-capped): ingest takes the oldest first,
         # so these jump a queue full of ephemera rather than waiting behind it.
-        for it in scrape_query(q, session, limit=args.pd_day_cap,
-                               min_downloads=args.min_downloads, is_new=is_new):
+        for it in read_feed(f"pd-day {yr}", scrape_query(q, session, limit=args.pd_day_cap,
+                               min_downloads=args.min_downloads, is_new=is_new)):
             if add_candidate(it, source="public_domain_day"):
                 added += 1
                 y_added += 1
@@ -295,8 +303,8 @@ def main():
         first = min(int(y) for y in pd_years)
         b_added = 0
         q = f"mediatype:movies AND year:[1880 TO {first - 1}]"
-        for it in scrape_query(q, session, limit=args.pd_age_backfill,
-                               min_downloads=args.min_downloads, is_new=is_new):
+        for it in read_feed("pd-age backfill", scrape_query(q, session, limit=args.pd_age_backfill,
+                               min_downloads=args.min_downloads, is_new=is_new)):
             if add_candidate(it, source="pd_age_backfill"):
                 added += 1
                 b_added += 1
@@ -314,10 +322,10 @@ def main():
         c_added = 0
         # The limit is the room left, so a full queue stops the WALK too —
         # rejecting every row would still page through 3.4M newsreel ids.
-        for it in scrape_collection(coll, session,
+        for it in read_feed(f"collection:{coll}", scrape_collection(coll, session,
                                     per_collection=min(args.per_collection, room),
                                     min_downloads=args.min_downloads,
-                                    is_new=is_new):
+                                    is_new=is_new)):
             if add_candidate(it, source="archive_collection", collection=coll):
                 added += 1
                 c_added += 1
@@ -326,14 +334,20 @@ def main():
     # Feed 4 — the deferred collections, only when the backlog is through.
     # Until then their waiting candidates leave the queue, so they cannot
     # spend ingest's nightly budget; they are rediscovered when this opens.
-    if added == 0 and awaiting[0] < DEFERRED_BELOW:
+    # "Nothing new" read from a feed archive.org did not answer is not
+    # "the backlog is through": neither open the deferred feeds nor drop
+    # their waiting candidates on it.
+    if unread:
+        print(f"  deferred {', '.join(DEFERRED_COLLECTIONS)}: left as they are — "
+              f"{len(unread)} feed(s) unread this run", flush=True)
+    elif added == 0 and awaiting[0] < DEFERRED_BELOW:
         for coll in DEFERRED_COLLECTIONS:
             room = args.max_awaiting - awaiting[0]
             c_added = 0
-            for it in scrape_collection(coll, session,
+            for it in read_feed(f"collection:{coll}", scrape_collection(coll, session,
                                         per_collection=min(args.per_collection, room),
                                         min_downloads=args.min_downloads,
-                                        is_new=is_new):
+                                        is_new=is_new)):
                 if add_candidate(it, source="archive_collection", collection=coll):
                     added += 1
                     c_added += 1
@@ -372,6 +386,11 @@ def main():
     CANDIDATES.write_text(json.dumps(out, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"[arch-discover] +{added:,} new candidates; queue now "
           f"{awaiting:,} awaiting ingest", flush=True)
+    if unread:
+        print(f"::warning::archive.org did not answer {len(unread)} of {feeds[0]} feed(s): "
+              f"{'; '.join(unread[:6])}", flush=True)
+        if len(unread) == feeds[0]:
+            return 1   # read nothing at all: this run could not do its job (Decision 107)
     return 0
 
 

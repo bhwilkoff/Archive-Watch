@@ -57,16 +57,6 @@ because the loop was stopped mid-stride for a Claude update.
 
 ### Open owner items (nothing else is blocked)
 
-0-NEW-2026-10-22. **TWO ARCHIVE.ORG DEFECTS, FOUND, NOT FIXED** (measured 2026-10-17
-   while probing archive.org's audio collections; not owner items, an agent's
-   to fix). (a) `discover_archive_collections.scrape_query` stops with a bare
-   `return` on a failed response and `archive_lib.adv_search` returns `[]`, so
-   a throttled call reads as "nothing found" (ENGINEERING-PROCESS §1, absence
-   is not evidence). (b) archive.org storage nodes answered ranged GETs on MP3
-   with `access-control-allow-origin: *` (3/3), which contradicts
-   `docs/CATALOG-CONTRACT.md` (no CORS, measured 2026-06-09 for video).
-   Re-measure an MP4 before amending the contract.
-
 0-NEW-2026-10-08. **1.46.0 IS IN REVIEW (iOS, macOS, tvOS)** with the new header,
    search asset and screenshots. Still open, nothing blocked: the closed-Duo
    screenshots wait in the Asset Library for the first store build made with
@@ -768,6 +758,38 @@ keep serving it.
 
 ## Session Log
 
+### 2026-10-27 — the Antigravity stash recovered; wrong data found by following one warning (Decision 169)
+
+Owner: *"I did some work with Antigravity in this repository, but I don't know
+that it fully saved correctly"*, then *"Fix anything that doesn't look right.
+There is no reason to leave bad data rather than investigating and fixing
+it"*, then *"Yes, solve for all open issues like this one."* v1.46.17 (2142-2145).
+
+- **The stash** ("gsc fixes", 10-26, never committed) was Gemini's Search
+  Console work: series aliases forward to `/series/<slug>/`, episodes without a
+  page forward to their series, `404.html` noindex, 38 year-compilation cards
+  titled after the file each plays (all 38 checked). One defect fixed (an
+  episode redirect overwrote a merge's). The stale `catalog-index.json` was not
+  restored.
+- **A Sherlock Holmes pilot wore Abbott and Costello Meet the Invisible Man**
+  (title, poster, subtitles, merged into its card): `match_rejects`. A new
+  remediate rule drops a subtitle fetched for an IMDb id the item no longer
+  carries (17).
+- **109 "not in the catalog" ids were series episodes**, and their spines held
+  three defects (Decision 169): placement confirmed itself from the slot's
+  title (306 placements change, reviewed file by file); `not_films` bound only
+  the catalog (LTT101, a Looney Tunes rip, was ~260 episodes); other programs
+  sat in shows (2002 Twilight Zone, 2020-21 Family Feud, 1999 Emmerdale) —
+  `episode_rejects.json`. tv-canonical run 40583885569 applies it.
+- **The two archive.org defects** (scratchpad, 10-22) are fixed: a search
+  archive.org does not answer raises `ArchiveUnavailable` instead of reading as
+  "nothing found"; ingest keeps it queued, discovery reports the feed unread.
+  The 7,991 June "unresolved" were checked (0 of 40 resolve today), so none
+  were re-queued. The CORS contradiction was re-measured: MP4 206s still send
+  none, MP3s do; recorded in CATALOG-CONTRACT.
+**Open**: confirm run 40583885569 committed the spines and that remediate's
+`not_films` warning is gone.
+
 ### 2026-10-20 — whole series filed in one item become their shows' episodes (Decision 167)
 
 A viewer (echosoft.llc@gmail.com) asked for Fireball XL5's 39 colorized
@@ -801,37 +823,5 @@ v15.1.0 b1); static analysis 0 errors, 11 warnings (InitClientCertificates
 deprecated x10, AppDialog beacons). App Behavior Analysis failed 3/4 on its first
 run (the lab's player never started; ROKU-SUBMISSION.md), then passed 4/4 on a re-run.
 **Open**: Roku 1.0.79 Schedule publishing (owner).
-
-### 2026-10-08 — iPhone Duo, the new App Store assets, and screenshots for every Apple platform
-
-Owner: *"There are new fields, screenshots, and a whole new device class that
-need to be figured out for our Apple App Store submissions"*; then *"You should
-always build for the current version of Xcode that is publicly available (never
-the betas)"* / *"a release candidate is the final version"*; *"we may want to
-make new screenshots for all of the apple platforms"*; *"the movies grid and
-even the home screen need better screenshots."* v1.45.20 -> 1.46.0 (2124).
-
-- **Research**: `docs/research/IPHONE-DUO.md` (specs, Asset Library API, HIG,
-  what works in Device Hub). **Xcode**: only 27.1 RC on this Mac; CI on the
-  `xcode-27` image picks the newest non-beta (27.0 today; 1.46.0 built with it).
-- **Duo**: iOS-DESIGN §2.8; titled toolbar items, Detail backdrop under the bar
-  strip, iPhone scenes for a second window. Seen on the CLOSED Duo simulator
-  only: Device Hub's pose buttons ignored even real clicks. Clip Studio's
-  ArrangementView withdrawn until the owner's Duo.
-- **Assets**: header = the 1902 moon (`tools/make_store_header.py`), search =
-  the iPad app's Home; `AW_SHOWCASE=1` (DEBUG) gives Home and Movies the
-  rule-ranked hero-tier, pro-art, no-horror set. 44 screenshots + header +
-  search uploaded through the Asset Library API (`tools/asc_asset_library.py`,
-  `tools/asc_stage_assets.py`) and placed on 1.46.0.
-- **Catalog**: a Castle Films reel wore Disney's 1952 Alice (match_rejects);
-  50 Turner promos wore The Kid, The Gold Rush, Nosferatu... (Decision 163) —
-  the real 68-minute Kid (`Brzdac1921`) surfaced once the trailer stopped
-  winning the merge. Both republished.
-- **1.46.0 is WAITING_FOR_REVIEW on iOS, macOS and tvOS.**
-**Open**: the closed-Duo set is in the Asset Library, NOT placed — it shows the
-27.1 SDK's side strip, so it goes on the first store build made with Xcode 27.1
-(when GitHub adds it to `xcode-27`, actions/runner-images#14850); the open and
-partly-folded poses, and Clip Studio's arrangement, need the owner's Duo
-(after 2026-10-23).
 
 Older entries: `docs/SESSION-LOG.md` (verbatim, back to 2026-04-17).

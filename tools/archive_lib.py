@@ -13,6 +13,7 @@ Wikidata films that lack a P724 Internet Archive ID).
 from __future__ import annotations
 
 import re
+import time
 
 import requests
 
@@ -136,16 +137,33 @@ def is_adult(collections):
 # Search
 # ---------------------------------------------------------------------------
 
+class ArchiveUnavailable(Exception):
+    """archive.org did not answer (refused, throttled, timed out, or sent
+    something that is not its JSON). Not the same as "nothing found": a caller
+    that records a miss must not record one on this (ENGINEERING-PROCESS §1)."""
+
+
+def get_json(session, url, *, params=None, tries=3, timeout=60):
+    """GET an archive.org JSON endpoint, retrying a refusal, a throttle or a
+    network error with backoff; raises ArchiveUnavailable when it never answers."""
+    why = None
+    for attempt in range(tries):
+        try:
+            r = session.get(url, params=params, headers={"User-Agent": UA}, timeout=timeout)
+            if r.ok:
+                return r.json()
+            why = f"HTTP {r.status_code}"
+        except (requests.RequestException, ValueError) as e:
+            why = type(e).__name__
+        if attempt + 1 < tries:
+            time.sleep(2 * (attempt + 1))
+    raise ArchiveUnavailable(why)
+
+
 def adv_search(q, session, *, rows=50, fields=("identifier", "title", "year", "downloads")):
-    fl = list(fields)
-    r = session.get(
-        ADV_SEARCH,
-        params={"q": q, "fl[]": fl, "rows": rows, "output": "json"},
-        headers={"User-Agent": UA}, timeout=60,
-    )
-    if not r.ok:
-        return []
-    return r.json().get("response", {}).get("docs", [])
+    data = get_json(session, ADV_SEARCH,
+                    params={"q": q, "fl[]": list(fields), "rows": rows, "output": "json"})
+    return data.get("response", {}).get("docs", [])
 
 
 # ---------------------------------------------------------------------------
