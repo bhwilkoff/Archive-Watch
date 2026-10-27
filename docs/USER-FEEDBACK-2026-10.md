@@ -188,7 +188,17 @@ landscape, and ask him three things — which iPhone, held which way, and whethe
 
 ---
 
-## Owner calls (nothing else is blocked)
+## Owner calls — ANSWERED 2026-10-27, built in 1.47.0 (Decision 170)
+
+Owner: *"A-Z sorting by default makes sense with the ability to change and have
+it remember. Yes to ratings on TV series (TV maze is great) and then please
+implement full manual ordering for playlists, as it is a reasonable request."*
+F3, F4, F5 and the two F6 code defects are built on Apple, web, Android and
+(sorts only) Roku; the iPhone UI was pressed on the iPhone 12
+(`test_30_playlistEditing`, `test_12_playlistShareIsVisible`). F6's exact path
+on John's phone is still unreproduced: ask him which iPhone, held which way.
+
+The questions as they were asked:
 
 1. **Default sort for TV**: he wants A–Z; *iOS-DESIGN §5.1b* has the tv-series
    grid lead "deepest shows first by episode count" (Popular). Remembering the
