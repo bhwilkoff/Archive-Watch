@@ -315,6 +315,19 @@ separate tool with its own conventions (CLAUDE.md) — these rules govern the
   Detail "＋ Playlist" opens the add/create dialog; Library lists playlists →
   `#/playlist/{id}` grid with delete. Same verb as the apps; Drive sync joins
   later (Decision 028 §6).
+  **Edited where seen, in My Order** (2026-10-27, Decision 170, iOS-DESIGN
+  §4.3a): the Library lists playlists in My Order (`sortIndex`; a list with
+  none first, newest first) with a Sort select (My Order · A–Z · Z–A · Newest ·
+  Oldest, `playlistSort.lists`) and Edit; a playlist page has Rename, Sort
+  (`playlistSort.<id>`) and Edit, where each film has Remove and Move up / Move
+  down (drag too; buttons because drag fails on touch and remotes). Delete is
+  confirmed: "It is removed from your other devices too." **Both sync writers
+  (CloudKit and Drive) carry `sortIndex`**: a writer that drops it erases the
+  order on every other device.
+- **§4.10a Sort is remembered** per kind of grid (`browseSort.tv|browse|
+  category`, localStorage, try/catch); a `?sort=` in the URL wins; TV grids
+  start A–Z; Z–A everywhere; Top Rated orders a series by its TVmaze rating
+  (index rating column, no vote floor) and breaks ties by votes, then title.
 - **§4.11 Episode binge**: playing an episode passes the season's playable
   queue; `ended` auto-advances to the next episode (the apps' auto-advance).
 - **§4.12 More Like This** on Detail: same type, ±15 years, designed art,

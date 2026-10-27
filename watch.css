@@ -644,6 +644,39 @@ input[type="search"] {
   color: var(--text); text-decoration: none; font-weight: 600;
 }
 .playlist-card span { color: var(--text-dim); font-size: 0.85rem; font-weight: 500; }
+/* A section heading with its own controls (Playlists: Sort, Edit). */
+.list-head {
+  display: flex; flex-wrap: wrap; align-items: center; gap: 8px;
+  padding-right: var(--pad);
+}
+.list-head h2 { flex: 1; }
+.list-head [hidden], #view-playlist [hidden] { display: none; }
+#view-playlist .surprise-head { flex-wrap: wrap; gap: 8px; }
+#view-playlist .surprise-head h1 { flex-basis: 100%; }
+@media (min-width: 700px) {
+  #view-playlist .surprise-head h1 { flex-basis: auto; }
+}
+/* Edit (My Order): Move up / Move down beside each item for a keyboard, a
+   touch screen or a remote; a pointer can also drag. */
+.arrange-row { display: flex; align-items: stretch; gap: 6px; }
+.arrange-row .playlist-card { flex: 1; min-width: 0; }
+.arrange-item { position: relative; min-width: 0; }
+.arrange-tools { display: flex; gap: 6px; margin-top: 6px; }
+.arrange-tools .move-btn { flex: 1; }
+.move-btn {
+  min-width: 44px; min-height: 44px; padding: 0 10px;
+  background: var(--bg-raise); color: var(--text);
+  border: 1px solid var(--border); border-radius: var(--radius);
+  font-size: 1.1rem; font-weight: 700; cursor: pointer;
+}
+.move-btn:disabled { opacity: 0.35; cursor: default; }
+.arranging [draggable="true"] { cursor: grab; }
+.arranging .dragging { opacity: 0.5; }
+.card-remove {
+  position: absolute; top: 4px; right: 4px; width: 32px; height: 32px;
+  border: 0; border-radius: 50%; background: rgba(0, 0, 0, 0.72);
+  color: var(--text); font-size: 1.1rem; line-height: 1; cursor: pointer;
+}
 .dlg-title { margin: 0 0 10px; padding: 0; font-size: 1.05rem; }
 
 /* ---- detail: more like this ---- */

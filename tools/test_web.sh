@@ -15,7 +15,9 @@ for t in tools/test_web_search.mjs \
          tools/test_native_controls.mjs \
          tools/test_app_banner.mjs \
          tools/test_tmdb_rendition.mjs \
-         tools/test_view_transition.mjs; do
+         tools/test_view_transition.mjs \
+         tools/test_web_sort_rules.mjs \
+         tools/test_sync_sortindex.mjs; do
   out=$(node "$t" 2>&1)
   last=$(printf '%s\n' "$out" | tail -1)
   if [ $? -ne 0 ] || printf '%s' "$out" | grep -q FAIL; then

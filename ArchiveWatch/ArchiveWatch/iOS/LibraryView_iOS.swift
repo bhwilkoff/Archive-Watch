@@ -22,9 +22,14 @@ struct LibraryView: View {
     @Query private var progress: [WatchProgress]
     @Query(sort: \Playlist.createdAt, order: .reverse) private var allPlaylists: [Playlist]
     @State private var playlistSort = PlaylistSort.remembered(PlaylistSort.listKey)
+    // The target outlives the dialog: SwiftUI dismisses an alert (clearing its
+    // binding) BEFORE the button's action runs, so a target held only by the
+    // binding is gone when Rename or Delete reads it.
     @State private var renaming: Playlist?
+    @State private var showRename = false
     @State private var newName = ""
     @State private var deleting: Playlist?
+    @State private var showDelete = false
 
     /// The lists in the order the viewer chose (My Order: their arrangement).
     private var playlists: [Playlist] {
@@ -397,11 +402,11 @@ struct LibraryView: View {
                         if let shareURL {
                             ShareLink(item: shareURL) { Label("Share Playlist", systemImage: "square.and.arrow.up") }
                         }
-                        Button { newName = pl.name; renaming = pl } label: {
+                        Button { newName = pl.name; renaming = pl; showRename = true } label: {
                             Label("Rename…", systemImage: "pencil")
                         }
                         Divider()
-                        Button(role: .destructive) { deleting = pl } label: {
+                        Button(role: .destructive) { deleting = pl; showDelete = true } label: {
                             Label("Delete Playlist…", systemImage: "trash")
                         }
                     }
@@ -413,7 +418,7 @@ struct LibraryView: View {
                     }
                 }
                 .onDelete { offsets in
-                    if let i = offsets.first { deleting = playlists[i] }
+                    if let i = offsets.first { deleting = playlists[i]; showDelete = true }
                 }
                 // Arranging is My Order's: in any other order a drag has no meaning.
                 .onMove(perform: moveAction)
@@ -435,15 +440,13 @@ struct LibraryView: View {
                 }
             }
             .onChange(of: playlistSort) { playlistSort.remember(PlaylistSort.listKey) }
-            .alert("Rename Playlist", isPresented: Binding(get: { renaming != nil },
-                                                           set: { if !$0 { renaming = nil } })) {
+            .alert("Rename Playlist", isPresented: $showRename) {
                 TextField("Name", text: $newName)
                 Button("Cancel", role: .cancel) { renaming = nil }
                 Button("Rename") { renamePlaylist() }
             }
             .confirmationDialog("Delete “\(deleting?.name ?? "")”?",
-                                isPresented: Binding(get: { deleting != nil },
-                                                     set: { if !$0 { deleting = nil } }),
+                                isPresented: $showDelete,
                                 titleVisibility: .visible) {
                 Button("Delete Playlist", role: .destructive) { deletePlaylist() }
             } message: {

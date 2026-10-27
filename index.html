@@ -83,10 +83,11 @@
         <select id="browse-studio" aria-label="Studio"></select>
         <select id="browse-sort" aria-label="Sort">
           <option value="pop">Popular</option>
+          <option value="rate">Top rated</option>
           <option value="az">A–Z</option>
+          <option value="za">Z–A</option>
           <option value="new">Newest</option>
           <option value="old">Oldest</option>
-          <option value="rate">Top rated</option>
         </select>
         <span id="browse-count" class="muted"></span>
         <a class="btn-ghost" href="#/collections">Collections</a>
@@ -122,7 +123,11 @@
         <p id="library-favs-empty" class="lib-empty" hidden>No favorites yet. Tap the heart on any title.</p>
       </div>
       <div class="shelf">
-        <h2>Playlists</h2>
+        <div class="list-head">
+          <h2>Playlists</h2>
+          <select id="library-playlists-sort" aria-label="Sort playlists" hidden></select>
+          <button id="library-playlists-edit" class="btn-ghost" type="button" aria-pressed="false" hidden>Edit</button>
+        </div>
         <div id="library-playlists" class="playlist-list"></div>
         <p id="library-playlists-empty" class="lib-empty" hidden>No playlists yet. Use “＋ Playlist” on any title.</p>
       </div>
@@ -192,7 +197,12 @@
       <div class="surprise-head">
         <h1 id="playlist-title"></h1>
         <button id="playlist-share" class="btn-primary">Share</button>
+        <button id="playlist-rename" class="btn-ghost" type="button">Rename</button>
         <button id="playlist-delete" class="btn-ghost">Delete playlist</button>
+      </div>
+      <div class="browse-controls">
+        <select id="playlist-sort" aria-label="Sort"></select>
+        <button id="playlist-edit" class="btn-ghost" type="button" aria-pressed="false">Edit</button>
       </div>
       <div id="playlist-grid" class="grid"></div>
       <p id="playlist-empty" class="muted" hidden>This playlist is empty — add titles from any Detail page.</p>

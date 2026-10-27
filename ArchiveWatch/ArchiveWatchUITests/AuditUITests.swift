@@ -316,27 +316,11 @@ final class AuditUITests: XCTestCase {
     /// library is empty, and removes it at the end.
     func test_12_playlistShareIsVisible() {
         let name = "Share audit \(Int(Date().timeIntervalSince1970) % 10000)"
-        launch()
-        // Open a Detail by tapping a Home tile (AW_START_ITEM and the deep link
-        // both landed this rig on Home — not the thing under test).
-        let tile = app.staticTexts["His Girl Friday"].firstMatch
-        XCTAssertTrue(tile.waitForExistence(timeout: 20), "MISSING a His Girl Friday tile on Home")
-        tile.tap(); sleep(3)
-
-        // Create the playlist from Detail.
-        let add = app.buttons["Add to playlist"].firstMatch
-        XCTAssertTrue(add.waitForExistence(timeout: 20), "MISSING Add to playlist on Detail")
-        _ = scrollIntoView(add); add.tap()
-        let field = app.textFields["Name"].firstMatch
-        XCTAssertTrue(field.waitForExistence(timeout: 8), "MISSING playlist name field")
-        field.tap(); field.typeText(name)
-        app.buttons["Create"].firstMatch.tap(); sleep(2)
-        let done = app.buttons["Done"].firstMatch
-        if done.exists { done.tap(); sleep(1) }
+        createPlaylistWithHisGirlFriday(name)
 
         // Library → Playlists → the row.
         app.buttons["Library"].firstMatch.tap(); sleep(2)
-        let playlists = app.buttons["Playlists"].firstMatch
+        let playlists = app.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Playlists'")).firstMatch
         XCTAssertTrue(playlists.waitForExistence(timeout: 8)); playlists.tap(); sleep(2)
         let row = app.staticTexts[name].firstMatch
         XCTAssertTrue(row.waitForExistence(timeout: 8), "MISSING the playlist row just created")
@@ -344,7 +328,7 @@ final class AuditUITests: XCTestCase {
 
         // Route 1: long-press → "Share playlist" in a context menu.
         row.press(forDuration: 1.2)
-        let menuShare = app.buttons["Share playlist"].firstMatch
+        let menuShare = app.buttons["Share Playlist"].firstMatch
         let menuOK = menuShare.waitForExistence(timeout: 6)
         snap("playlist-row-menu")
         XCTAssertTrue(menuOK, "MISSING Share playlist in the row's long-press menu")
@@ -354,7 +338,9 @@ final class AuditUITests: XCTestCase {
         row.tap(); sleep(2)
         let nav = app.navigationBars[name]
         XCTAssertTrue(nav.waitForExistence(timeout: 8), "playlist screen did not open")
-        let share = nav.buttons.matching(NSPredicate(format: "label CONTAINS[c] 'share'")).firstMatch
+        // Exactly "Share": the list's own name ("Share audit …") is the title
+        // menu's button and contains the word too.
+        let share = nav.buttons.matching(NSPredicate(format: "label ==[c] 'share'")).firstMatch
         let shareOK = share.waitForExistence(timeout: 6)
         snap("playlist-screen")
         XCTAssertTrue(shareOK, "MISSING a visible Share button on the playlist screen")
@@ -379,16 +365,63 @@ final class AuditUITests: XCTestCase {
         snap("playlist-cleanup")
     }
 
+    /// Search → His Girl Friday → More → Add to Playlist → a new list of it.
+    /// By Search, not a Home tile: Home's shelves rotate daily.
+    private func createPlaylistWithHisGirlFriday(_ name: String) {
+        launch(["AW_START_TAB": "search"])
+        let search = app.searchFields.firstMatch
+        XCTAssertTrue(search.waitForExistence(timeout: 12), "MISSING search field")
+        search.tap(); search.typeText("His Girl Friday"); sleep(5)
+        let hit = app.staticTexts["His Girl Friday"].firstMatch
+        XCTAssertTrue(hit.waitForExistence(timeout: 12), "MISSING His Girl Friday in Search")
+        hit.tap(); sleep(3)
+        openAddToPlaylist()
+        let field = app.textFields["Name"].firstMatch
+        XCTAssertTrue(field.waitForExistence(timeout: 8), "MISSING playlist name field")
+        field.tap(); field.typeText(name + "\n"); sleep(2)   // Return = Create (onSubmit)
+        if app.buttons["Done"].firstMatch.exists { app.buttons["Done"].firstMatch.tap(); sleep(1) }
+    }
+
+    /// Detail → More → Add to Playlist (it moved into the action row's More
+    /// menu; the tests still looked for a top-level button).
+    private func openAddToPlaylist() {
+        let more = app.buttons["More"].firstMatch
+        XCTAssertTrue(more.waitForExistence(timeout: 20), "MISSING More on Detail")
+        sleep(2)   // Detail settles (its artwork and More Like This load) before a menu opens
+        let add = app.buttons["Add to Playlist"].firstMatch
+        for _ in 0..<2 where !add.exists {
+            more.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.5)).tap()
+            _ = add.waitForExistence(timeout: 3)
+        }
+        XCTAssertTrue(add.exists, "MISSING Add to Playlist in Detail's More menu")
+        add.tap()
+    }
+
+    /// Lists only these tests ever name ("Share audit …", "Edit audit …"), left
+    /// by a run that failed before its cleanup: never anything else of the
+    /// owner's. Run on the Playlists screen, before and after a test.
+    private func sweepTestPlaylists() {
+        for prefix in ["Share audit ", "Edit audit "] {
+            for _ in 0..<12 {
+                let stray = app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH %@", prefix)).firstMatch
+                guard stray.exists else { break }
+                deletePlaylist(stray)
+            }
+        }
+    }
+
     /// Swipe → Delete → confirm, then assert the row is gone.
     private func deletePlaylist(_ row: XCUIElement) {
         guard row.waitForExistence(timeout: 6) else { return }
+        // Assert on THIS row's name: a query re-resolves to the next match.
+        let label = row.label
         row.swipeLeft()
         let del = app.buttons["Delete"].firstMatch
         if del.waitForExistence(timeout: 4) { del.tap() }
         let confirm = app.buttons["Delete Playlist"].firstMatch
         if confirm.waitForExistence(timeout: 4) { confirm.tap() }
         sleep(2)
-        XCTAssertFalse(row.exists, "CLEANUP FAILED: the test's playlist is still in the Library")
+        XCTAssertFalse(app.staticTexts[label].exists, "CLEANUP FAILED: \(label) is still in the Library")
     }
 
     /// iOS-DESIGN §4.3a, from a viewer's emails (docs/USER-FEEDBACK-2026-10.md):
@@ -397,25 +430,16 @@ final class AuditUITests: XCTestCase {
     func test_30_playlistEditing() {
         let stamp = Int(Date().timeIntervalSince1970) % 10000
         let name = "Edit audit \(stamp)", renamed = "Edit audit renamed \(stamp)"
-        // By Search, not a Home tile: Home's shelves rotate daily.
-        launch(["AW_START_TAB": "search"])
-        let search = app.searchFields.firstMatch
-        XCTAssertTrue(search.waitForExistence(timeout: 12), "MISSING search field")
-        search.tap(); search.typeText("His Girl Friday"); sleep(5)
-        let hit = app.staticTexts["His Girl Friday"].firstMatch
-        XCTAssertTrue(hit.waitForExistence(timeout: 12), "MISSING His Girl Friday in Search")
-        hit.tap(); sleep(3)
-        let add = app.buttons["Add to playlist"].firstMatch
-        XCTAssertTrue(add.waitForExistence(timeout: 20), "MISSING Add to playlist on Detail")
-        _ = scrollIntoView(add); add.tap()
-        let field = app.textFields["Name"].firstMatch
-        XCTAssertTrue(field.waitForExistence(timeout: 8), "MISSING playlist name field")
-        field.tap(); field.typeText(name)
-        app.buttons["Create"].firstMatch.tap(); sleep(2)
-        if app.buttons["Done"].firstMatch.exists { app.buttons["Done"].firstMatch.tap(); sleep(1) }
+        // First, any list an earlier failed run left behind.
+        launch()
+        app.buttons["Library"].firstMatch.tap(); sleep(2)
+        let lists = app.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Playlists'")).firstMatch
+        if lists.waitForExistence(timeout: 8) { lists.tap(); sleep(2); sweepTestPlaylists() }
+        app.terminate()
+        createPlaylistWithHisGirlFriday(name)
 
         app.buttons["Library"].firstMatch.tap(); sleep(2)
-        app.buttons["Playlists"].firstMatch.tap(); sleep(2)
+        app.buttons.matching(NSPredicate(format: "label BEGINSWITH 'Playlists'")).firstMatch.tap(); sleep(2)
         let row = app.staticTexts[name].firstMatch
         XCTAssertTrue(row.waitForExistence(timeout: 8), "MISSING the playlist row just created")
         XCTAssertTrue(app.buttons["Sort"].firstMatch.exists, "MISSING the playlist list's Sort menu")
@@ -431,7 +455,8 @@ final class AuditUITests: XCTestCase {
         XCTAssertTrue(nameField.waitForExistence(timeout: 6), "MISSING the rename field")
         nameField.tap()
         nameField.typeText(String(repeating: XCUIKeyboardKey.delete.rawValue, count: name.count + 4) + renamed)
-        app.alerts.buttons["Rename"].firstMatch.tap(); sleep(2)
+        sleep(1)   // the keyboard settles its suggestion first; a tap before it is swallowed
+        app.alerts.buttons["Rename"].tap(); sleep(2)
         let renamedRow = app.staticTexts[renamed].firstMatch
         XCTAssertTrue(renamedRow.waitForExistence(timeout: 6), "DEAD Rename — the new name did not appear")
         snap("playlist-renamed")
@@ -451,6 +476,9 @@ final class AuditUITests: XCTestCase {
 
         app.navigationBars.buttons.element(boundBy: 0).tap(); sleep(1)
         deletePlaylist(renamedRow.exists ? renamedRow : row)
+        sweepTestPlaylists()
+        XCTAssertFalse(app.staticTexts.matching(NSPredicate(format: "label BEGINSWITH 'Share audit ' OR label BEGINSWITH 'Edit audit '")).firstMatch.exists,
+                       "CLEANUP FAILED: a test playlist is still in the Library")
         snap("playlist-edit-cleanup")
     }
 

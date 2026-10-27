@@ -81,6 +81,7 @@ window.AWCloudKitSync = (() => {
       playlists: dec(by.playlists).map(p => ({
         id: p.id, name: p.name, archiveIDs: p.archiveIDs || [],
         createdAt: ms(p.createdAt), modifiedAt: ms(p.modifiedAt),
+        ...(Number.isInteger(p.sortIndex) ? { sortIndex: p.sortIndex } : {}),
       })),
       channels: dec(by.channels).map(c => ({
         id: c.id, name: c.name, genre: c.genre ?? null, type: c.contentType ?? null,
@@ -113,6 +114,9 @@ window.AWCloudKitSync = (() => {
       rec('playlists', blob.playlists.map(p => ({
         id: p.id, name: p.name, archiveIDs: p.archiveIDs,
         createdAt: sec(p.createdAt), modifiedAt: sec(p.modifiedAt),
+        // "My Order" (PlaylistEntry.sortIndex on Apple): dropped here, it
+        // would erase the viewer's arrangement on every Apple device.
+        ...(Number.isInteger(p.sortIndex) ? { sortIndex: p.sortIndex } : {}),
       }))),
       rec('channels', blob.channels.map(c => ({
         id: c.id, name: c.name, genre: c.genre ?? undefined, contentType: c.type ?? undefined,

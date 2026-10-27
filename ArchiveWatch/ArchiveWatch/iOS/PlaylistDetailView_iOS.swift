@@ -68,6 +68,13 @@ struct PlaylistDetailView: View {
         .navigationBarTitleDisplayMode(.inline)
         .toolbarTitleMenu { RenameButton() }
         .toolbar {
+            // SHARE stays a visible icon (iOS-DESIGN §3.5): swipe- or menu-only,
+            // the owner could not find it (1.42.119).
+            if let shareURL {
+                ToolbarItem(placement: .topBarTrailing) {
+                    ShareLink(item: shareURL) { Label("Share", systemImage: "square.and.arrow.up") }
+                }
+            }
             if !films.isEmpty {
                 ToolbarItem(placement: .topBarTrailing) {
                     EditButton()
@@ -79,9 +86,6 @@ struct PlaylistDetailView: View {
                         Picker("Sort", selection: $sort) {
                             ForEach(PlaylistSort.allCases) { Text($0.label).tag($0) }
                         }
-                    }
-                    if let shareURL {
-                        ShareLink(item: shareURL) { Label("Share Playlist", systemImage: "square.and.arrow.up") }
                     }
                     RenameButton()
                     Divider()

@@ -56,6 +56,14 @@ import android.content.Intent
 import android.net.Uri
 import androidx.compose.material3.Card
 import app.archivewatch.android.data.UserPlaylist
+import app.archivewatch.android.data.PlaylistOrder
+import app.archivewatch.android.data.PlaylistSort
+import app.archivewatch.android.sync.DriveSync
+import androidx.compose.foundation.layout.Box
+import androidx.compose.foundation.layout.fillMaxWidth
+import androidx.compose.foundation.lazy.itemsIndexed
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
 import app.archivewatch.android.data.VideoClip
 import kotlinx.coroutines.launch
 
@@ -81,9 +89,15 @@ fun LibraryScreen(container: AppContainer, nav: Nav) {
     ) { value = continueWithProgress(container) }
     val continueWatching = continueState.first
     val continueProgress = continueState.second
-    val playlists by produceState<List<UserPlaylist>>(emptyList(), userChanges) {
+    val allPlaylists by produceState<List<UserPlaylist>>(emptyList(), userChanges) {
         value = container.userState.playlists()
     }
+    val libContext = LocalContext.current
+    var playlistSort by remember { mutableStateOf(PlaylistOrder.remembered(libContext, PlaylistOrder.LIST_KEY)) }
+    val playlists = PlaylistOrder.sortedLists(allPlaylists, playlistSort)
+    var playlistMenu by remember { mutableStateOf<String?>(null) }
+    var renamingPlaylist by remember { mutableStateOf<UserPlaylist?>(null) }
+    var deletingPlaylist by remember { mutableStateOf<UserPlaylist?>(null) }
     val clips by produceState<List<VideoClip>>(emptyList(), userChanges) {
         value = container.userState.clips()
     }
@@ -150,23 +164,89 @@ fun LibraryScreen(container: AppContainer, nav: Nav) {
                 return@Column
             }
             if (tabIndex == 2) {
+                renamingPlaylist?.let { pl ->
+                    RenamePlaylistDialog(
+                        current = pl.name,
+                        onDismiss = { renamingPlaylist = null },
+                        onRename = { name ->
+                            renamingPlaylist = null
+                            scope.launch { container.userState.renamePlaylist(pl.id, name) }
+                        },
+                    )
+                }
+                deletingPlaylist?.let { pl ->
+                    androidx.compose.material3.AlertDialog(
+                        onDismissRequest = { deletingPlaylist = null },
+                        title = { Text("Delete \u201c${pl.name}\u201d?") },
+                        text = if (DriveSync.isSignedIn) {
+                            { Text("It is removed from your other devices too.") }
+                        } else null,
+                        confirmButton = {
+                            androidx.compose.material3.TextButton(onClick = {
+                                deletingPlaylist = null
+                                scope.launch { container.userState.deletePlaylist(pl.id) }
+                            }) { Text("Delete") }
+                        },
+                        dismissButton = {
+                            androidx.compose.material3.TextButton(onClick = { deletingPlaylist = null }) { Text("Cancel") }
+                        },
+                    )
+                }
                 if (playlists.isEmpty()) {
                     EmptyState("No playlists yet — use the playlist button on any title.")
                 } else {
+                    if (playlists.size > 1) {
+                        Row(Modifier.fillMaxWidth().padding(horizontal = 8.dp),
+                            horizontalArrangement = RowArrangement.End) {
+                            PlaylistSortMenu(playlistSort) {
+                                playlistSort = it
+                                PlaylistOrder.remember(libContext, it, PlaylistOrder.LIST_KEY)
+                            }
+                        }
+                    }
                     LazyColumn(contentPadding = PaddingValues(16.dp),
                                verticalArrangement = Arrangement.spacedBy(10.dp)) {
-                        listItems(playlists, key = { it.id }) { pl ->
-                            Card(modifier = Modifier
-                                    .clickable { nav.push(Route.Playlist(pl.id)) }) {
-                                Row(
-                                    Modifier.padding(16.dp),
-                                    horizontalArrangement = RowArrangement.SpaceBetween,
-                                ) {
-                                    Text(pl.name, Modifier.weight(1f))
-                                    Text(
-                                        pl.archiveIDs.size.let { n -> "$n ${if (n == 1) "title" else "titles"}" },
-                                        color = MaterialTheme.colorScheme.onSurfaceVariant,
-                                    )
+                        itemsIndexed(playlists, key = { _, pl -> pl.id }) { index, pl ->
+                            // Long-press for the list's verbs, as a History poster
+                            // is removed (§4.5); arranging is My Order's alone.
+                            Box {
+                                Card(modifier = Modifier.combinedClickable(
+                                    onClick = { nav.push(Route.Playlist(pl.id)) },
+                                    onLongClick = { playlistMenu = pl.id },
+                                )) {
+                                    Row(
+                                        Modifier.padding(16.dp),
+                                        horizontalArrangement = RowArrangement.SpaceBetween,
+                                    ) {
+                                        Text(pl.name, Modifier.weight(1f))
+                                        Text(
+                                            pl.archiveIDs.size.let { n -> "$n ${if (n == 1) "title" else "titles"}" },
+                                            color = MaterialTheme.colorScheme.onSurfaceVariant,
+                                        )
+                                    }
+                                }
+                                DropdownMenu(expanded = playlistMenu == pl.id,
+                                             onDismissRequest = { playlistMenu = null }) {
+                                    DropdownMenuItem(text = { Text("Rename…") }, onClick = {
+                                        playlistMenu = null; renamingPlaylist = pl
+                                    })
+                                    if (playlistSort == PlaylistSort.MY_ORDER && index > 0) {
+                                        DropdownMenuItem(text = { Text("Move up") }, onClick = {
+                                            playlistMenu = null
+                                            scope.launch { container.userState.arrangePlaylists(
+                                                PlaylistOrder.moved(playlists, index, index - 1)) }
+                                        })
+                                    }
+                                    if (playlistSort == PlaylistSort.MY_ORDER && index < playlists.size - 1) {
+                                        DropdownMenuItem(text = { Text("Move down") }, onClick = {
+                                            playlistMenu = null
+                                            scope.launch { container.userState.arrangePlaylists(
+                                                PlaylistOrder.moved(playlists, index, index + 1)) }
+                                        })
+                                    }
+                                    DropdownMenuItem(text = { Text("Delete playlist…") }, onClick = {
+                                        playlistMenu = null; deletingPlaylist = pl
+                                    })
                                 }
                             }
                         }

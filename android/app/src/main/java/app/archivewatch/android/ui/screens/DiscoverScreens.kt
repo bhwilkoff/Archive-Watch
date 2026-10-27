@@ -19,7 +19,6 @@ import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.shape.RoundedCornerShape
 import androidx.compose.material.icons.Icons
 import androidx.compose.material.icons.automirrored.filled.ArrowBack
-import androidx.compose.material.icons.filled.Delete
 import androidx.compose.material.icons.filled.Shuffle
 import androidx.compose.material3.Button
 import androidx.compose.material3.ExperimentalMaterial3Api
@@ -35,6 +34,14 @@ import android.content.Intent
 import androidx.compose.material.icons.filled.Share
 import androidx.compose.ui.platform.LocalContext
 import app.archivewatch.android.data.PlaylistShare
+import androidx.compose.material.icons.filled.MoreVert
+import androidx.compose.material3.DropdownMenu
+import androidx.compose.material3.DropdownMenuItem
+import androidx.compose.material3.OutlinedTextField
+import app.archivewatch.android.data.PlaylistOrder
+import app.archivewatch.android.data.PlaylistSort
+import app.archivewatch.android.data.UserPlaylist
+import app.archivewatch.android.sync.DriveSync
 import app.archivewatch.android.ui.tv.TvPageHeader
 import app.archivewatch.android.ui.tv.TvPosterGrid
 import app.archivewatch.android.ui.tv.TvRefineChip
@@ -64,6 +71,7 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.BrowseSort
+import app.archivewatch.android.data.SortMemory
 import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.data.FeaturedCategory
 import app.archivewatch.android.ui.EmptyState
@@ -192,7 +200,10 @@ fun FilteredGridScreen(container: AppContainer, nav: Nav, route: Route.Filtered)
     // never did, on any platform. iOS and macOS were fixed in 1.42.8; this is
     // the same gap on Android, and `browse()` already takes the sort, so it
     // was only ever a missing control.
-    var sort by remember(route) { mutableStateOf(BrowseSort.POPULAR) }
+    val context = LocalContext.current
+    val sortSurface = SortMemory.surface(route.contentType)
+    var sort by remember(route) { mutableStateOf(SortMemory.sort(context, sortSurface)) }
+    val onSort: (BrowseSort) -> Unit = { sort = it; SortMemory.remember(context, it, sortSurface) }
     // Paged like Browse, with the real count: a fixed limit of 240 told a
     // viewer the 1930s held "240 titles" (4,576 do) and ended the grid there.
     var items by remember { mutableStateOf<List<CatalogItem>?>(null) }
@@ -252,7 +263,7 @@ fun FilteredGridScreen(container: AppContainer, nav: Nav, route: Route.Filtered)
                 modifier = Modifier.padding(bottom = 16.dp),
             ) {
                 items(BrowseSort.entries.toList(), key = { "sort-" + it.name }) { s ->
-                    TvRefineChip(s.label, s == sort) { sort = s }
+                    TvRefineChip(s.label, s == sort) { onSort(s) }
                 }
                 if (route.pdExplorer && route.year != null) {
                     items((0..9).map { route.year - it }, key = { "y" + it }) { y ->
@@ -278,7 +289,7 @@ fun FilteredGridScreen(container: AppContainer, nav: Nav, route: Route.Filtered)
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
                     }
                 },
-                actions = { SortMenu(sort) { sort = it } },
+                actions = { SortMenu(sort, onSort) },
                 colors = TopAppBarDefaults.topAppBarColors(
                     containerColor = MaterialTheme.colorScheme.background,
                 ),
@@ -379,7 +390,8 @@ fun SurpriseScreen(container: AppContainer, nav: Nav) {
     }
 }
 
-/** One playlist's grid, with delete (Library → playlist). */
+/** One playlist (Library → playlist): its films, sorted or in My Order, and
+ *  the verbs to rename, arrange, remove a film, share and delete. */
 @OptIn(ExperimentalMaterial3Api::class)
 @Composable
 fun PlaylistScreen(container: AppContainer, nav: Nav, playlistID: String) {
@@ -387,10 +399,15 @@ fun PlaylistScreen(container: AppContainer, nav: Nav, playlistID: String) {
     val userChanges by container.userState.changes.collectAsState()
     val scope = rememberCoroutineScope()
 
-    val state by produceState<Pair<String, List<CatalogItem>>?>(null, dbVersion, userChanges) {
+    // Each film beside the id the playlist STORES for it: a merged-away id
+    // resolves to its survivor (Decision 085), and a removal or a move has to
+    // edit the stored id, not the card's.
+    val state by produceState<Pair<UserPlaylist, List<Pair<String, CatalogItem>>>?>(null, dbVersion, userChanges) {
         val db = container.catalog.awaitDb()
         val pl = container.userState.playlists().find { it.id == playlistID } ?: return@produceState
-        value = pl.name to db.itemsByIDs(pl.archiveIDs)
+        val found = db.itemsByIDsKeyed(pl.archiveIDs)
+        value = pl to pl.archiveIDs.mapNotNull { id -> found[id]?.let { id to it } }
+            .uniqueBy { it.second.archiveID }
     }
 
     // SHARE. The playlist rides inside the link (PlaylistShare), so whoever
@@ -434,14 +451,14 @@ fun PlaylistScreen(container: AppContainer, nav: Nav, playlistID: String) {
     //     playlist on one press, with no question and no undo, which is not
     //     something to hand a remote.
     if (isTv) {
-        val rows = state?.second.orEmpty().uniqueBy { it.archiveID }
+        val rows = state?.second.orEmpty().map { it.second }
         var confirmDelete by remember { mutableStateOf(false) }
         val railFocus = LocalTvRailFocus.current
         Box(Modifier.fillMaxSize()) {
             Column(Modifier.fillMaxSize()) {
                 TvPageHeader(
                     eyebrow = "PLAYLIST",
-                    title = state?.first ?: "Playlist",
+                    title = state?.first?.name ?: "Playlist",
                     meta = when {
                         state == null -> "Loading…"
                         rows.isEmpty() -> "Empty — add titles from any Detail page."
@@ -469,7 +486,7 @@ fun PlaylistScreen(container: AppContainer, nav: Nav, playlistID: String) {
             if (confirmDelete) {
                 TvConfirm(
                     question = "Delete this playlist?",
-                    detail = "\"" + (state?.first ?: "") + "\" will be removed from your " +
+                    detail = "\"" + (state?.first?.name ?: "") + "\" will be removed from your " +
                         "library. The films stay in the catalog.",
                     confirmLabel = "Delete",
                     onConfirm = {
@@ -485,11 +502,30 @@ fun PlaylistScreen(container: AppContainer, nav: Nav, playlistID: String) {
         }
         return
     }
+    var sort by remember(playlistID) {
+        mutableStateOf(PlaylistOrder.remembered(ctx, PlaylistOrder.contentsKey(playlistID)))
+    }
     var confirmPhoneDelete by remember { mutableStateOf(false) }
+    var renaming by remember { mutableStateOf(false) }
+    var menuFor by remember { mutableStateOf<String?>(null) }
+    var moreOpen by remember { mutableStateOf(false) }
+
+    /** A move among the films shown. A film the catalog no longer serves is
+     *  not shown, so it cannot be placed; it keeps its place after the rest. */
+    fun move(from: Int, to: Int) {
+        val (pl, films) = state ?: return
+        val ids = PlaylistOrder.moved(films.map { it.first }, from, to)
+        val unseen = pl.archiveIDs.filter { it !in ids }
+        scope.launch { container.userState.setPlaylistItems(playlistID, ids + unseen) }
+    }
+
     if (confirmPhoneDelete) {
         androidx.compose.material3.AlertDialog(
             onDismissRequest = { confirmPhoneDelete = false },
             title = { Text("Delete this playlist?") },
+            text = if (DriveSync.isSignedIn) {
+                { Text("It is removed from your other devices too.") }
+            } else null,
             confirmButton = {
                 TextButton(onClick = {
                     confirmPhoneDelete = false
@@ -502,23 +538,49 @@ fun PlaylistScreen(container: AppContainer, nav: Nav, playlistID: String) {
             dismissButton = { TextButton(onClick = { confirmPhoneDelete = false }) { Text("Cancel") } },
         )
     }
+    if (renaming) {
+        RenamePlaylistDialog(
+            current = state?.first?.name.orEmpty(),
+            onDismiss = { renaming = false },
+            onRename = { name ->
+                renaming = false
+                scope.launch { container.userState.renamePlaylist(playlistID, name) }
+            },
+        )
+    }
     Scaffold(
         topBar = {
             TopAppBar(
-                title = { Text(state?.first ?: "Playlist") },
+                title = { Text(state?.first?.name ?: "Playlist") },
                 navigationIcon = {
                     IconButton(onClick = { nav.pop() }) {
                         Icon(Icons.AutoMirrored.Filled.ArrowBack, contentDescription = "Back")
                     }
                 },
                 actions = {
+                    PlaylistSortMenu(sort) {
+                        sort = it
+                        PlaylistOrder.remember(ctx, it, PlaylistOrder.contentsKey(playlistID))
+                    }
                     IconButton(onClick = onShare) {
                         Icon(Icons.Default.Share, contentDescription = "Share playlist")
                     }
-                    // Asks first, as the TV does: one tap on a trash icon
-                    // deleted a playlist outright, on every synced device.
-                    IconButton(onClick = { confirmPhoneDelete = true }) {
-                        Icon(Icons.Default.Delete, contentDescription = "Delete playlist")
+                    Box {
+                        IconButton(onClick = { moreOpen = true }) {
+                            Icon(Icons.Default.MoreVert, contentDescription = "More")
+                        }
+                        DropdownMenu(expanded = moreOpen, onDismissRequest = { moreOpen = false }) {
+                            DropdownMenuItem(
+                                text = { Text("Rename…") },
+                                onClick = { moreOpen = false; renaming = true },
+                            )
+                            // Asks first, as the TV does: one tap on a trash icon
+                            // deleted a playlist outright, on every synced device.
+                            DropdownMenuItem(
+                                text = { Text("Delete playlist…") },
+                                onClick = { moreOpen = false; confirmPhoneDelete = true },
+                            )
+                        }
                     }
                 },
                 colors = TopAppBarDefaults.topAppBarColors(
@@ -528,10 +590,10 @@ fun PlaylistScreen(container: AppContainer, nav: Nav, playlistID: String) {
         },
         containerColor = MaterialTheme.colorScheme.background,
     ) { padding ->
-        val items = state?.second
+        val films = state?.second
         when {
-            items == null -> LoadingBox(Modifier.padding(padding))
-            items.isEmpty() -> Box(Modifier.padding(padding)) {
+            films == null -> LoadingBox(Modifier.padding(padding))
+            films.isEmpty() -> Box(Modifier.padding(padding)) {
                 EmptyState("This playlist is empty — add titles from any Detail page.")
             }
             else -> LazyVerticalGrid(
@@ -541,12 +603,79 @@ fun PlaylistScreen(container: AppContainer, nav: Nav, playlistID: String) {
                 verticalArrangement = Arrangement.spacedBy(14.dp),
                 modifier = Modifier.fillMaxSize().padding(padding),
             ) {
-                items(items.uniqueBy { it.archiveID }, key = { it.archiveID }) { item ->
-                    PosterTile(item, onClick = {
-                        nav.openItem(item.archiveID, item.seriesID, item.contentType)
-                    })
+                val shown = PlaylistOrder.sortedFilms(films, sort) { it.second }
+                items(shown, key = { it.second.archiveID }) { (storedID, item) ->
+                    // Long-press, as History removes a film (§4.5). Arranging
+                    // happens in My Order only: in any other order a move has
+                    // no meaning.
+                    val at = films.indexOfFirst { it.first == storedID }
+                    Box {
+                        PosterTile(
+                            item,
+                            onClick = { nav.openItem(item.archiveID, item.seriesID, item.contentType) },
+                            onLongClick = { menuFor = storedID },
+                        )
+                        DropdownMenu(expanded = menuFor == storedID, onDismissRequest = { menuFor = null }) {
+                            if (sort == PlaylistSort.MY_ORDER && at > 0) {
+                                DropdownMenuItem(
+                                    text = { Text("Move earlier") },
+                                    onClick = { menuFor = null; move(at, at - 1) },
+                                )
+                            }
+                            if (sort == PlaylistSort.MY_ORDER && at < films.size - 1) {
+                                DropdownMenuItem(
+                                    text = { Text("Move later") },
+                                    onClick = { menuFor = null; move(at, at + 1) },
+                                )
+                            }
+                            DropdownMenuItem(
+                                text = { Text("Remove from playlist") },
+                                onClick = {
+                                    menuFor = null
+                                    val ids = state?.first?.archiveIDs.orEmpty().filter { it != storedID }
+                                    scope.launch { container.userState.setPlaylistItems(playlistID, ids) }
+                                },
+                            )
+                        }
+                    }
                 }
             }
         }
     }
+}
+
+/** The order of a playlist's films, or of the list of playlists. */
+@Composable
+internal fun PlaylistSortMenu(selected: PlaylistSort, onSelect: (PlaylistSort) -> Unit) {
+    var open by remember { mutableStateOf(false) }
+    Box {
+        TextButton(onClick = { open = true }) { Text(selected.label) }
+        DropdownMenu(expanded = open, onDismissRequest = { open = false }) {
+            PlaylistSort.entries.forEach { s ->
+                DropdownMenuItem(text = { Text(s.label) }, onClick = { onSelect(s); open = false })
+            }
+        }
+    }
+}
+
+/** A name is the viewer's own words; an empty one is not a name. */
+@Composable
+internal fun RenamePlaylistDialog(current: String, onDismiss: () -> Unit, onRename: (String) -> Unit) {
+    var name by remember(current) { mutableStateOf(current) }
+    val trimmed = name.trim()
+    androidx.compose.material3.AlertDialog(
+        onDismissRequest = onDismiss,
+        title = { Text("Rename playlist") },
+        text = {
+            OutlinedTextField(value = name, onValueChange = { name = it }, singleLine = true,
+                              label = { Text("Name") })
+        },
+        confirmButton = {
+            TextButton(
+                onClick = { if (trimmed != current) onRename(trimmed) else onDismiss() },
+                enabled = trimmed.isNotEmpty(),
+            ) { Text("Rename") }
+        },
+        dismissButton = { TextButton(onClick = onDismiss) { Text("Cancel") } },
+    )
 }

@@ -123,7 +123,7 @@ window.AWDriveSync = (() => {
   // Merge cloud state into IndexedDB and return the union blob to push
   // back. v2 blob, field-for-field the Android DriveSync's (google flavor):
   //   favorites   union minus tombstones
-  //   playlists   last writer wins by modifiedAt, minus tombstones
+  //   playlists   last writer wins by modifiedAt (sortIndex with it), minus tombstones
   //   channels    union minus tombstones (Android says contentType, we say type)
   //   progress    position LWW by `at`; HISTORY is a UNION (Decision 078)
   //   tombstones  union, 90-day TTL; a re-add newer than its stone clears it
@@ -159,8 +159,14 @@ window.AWDriveSync = (() => {
       if (!p?.id) continue;
       const mine = pls.get(p.id);
       if (!mine || (p.modifiedAt || 0) > (mine.modifiedAt || 0)) {
-        pls.set(p.id, { id: p.id, name: p.name || '', archiveIDs: (p.archiveIDs || []).filter(Boolean),
-                        createdAt: p.createdAt || p.modifiedAt || now, modifiedAt: p.modifiedAt || now });
+        // createdAt is the list's own, never this pull's; sortIndex is the
+        // viewer's "My Order" place, which a writer that drops it erases on
+        // every other device.
+        const pl = { id: p.id, name: p.name || '', archiveIDs: (p.archiveIDs || []).filter(Boolean),
+                     createdAt: p.createdAt || mine?.createdAt || p.modifiedAt || now,
+                     modifiedAt: p.modifiedAt || now };
+        if (Number.isInteger(p.sortIndex)) pl.sortIndex = p.sortIndex;
+        pls.set(p.id, pl);
       }
     }
     for (const [id, p] of [...pls]) if (dead('pl', id, p.modifiedAt)) pls.delete(id);

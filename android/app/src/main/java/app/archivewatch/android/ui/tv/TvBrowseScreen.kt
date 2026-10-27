@@ -38,6 +38,8 @@ import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.archivewatch.android.app.AppContainer
 import app.archivewatch.android.data.BrowseSort
+import app.archivewatch.android.data.SortMemory
+import androidx.compose.ui.platform.LocalContext
 import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.ui.Nav
 import app.archivewatch.android.ui.uniqueBy
@@ -78,7 +80,11 @@ fun TvBrowseScreen(container: AppContainer, nav: Nav) {
     var activeScope by remember { mutableStateOf(TvScope.All) }
     var activeDecade by remember { mutableStateOf<Int?>(null) }
     var activeRuntime by remember { mutableStateOf<app.archivewatch.android.data.RuntimeBand?>(null) }
-    var activeSort by remember { mutableStateOf(BrowseSort.POPULAR) }
+    // Remembered per kind of grid (SortMemory): the TV scope keeps its own.
+    val context = LocalContext.current
+    var filmSort by remember { mutableStateOf(SortMemory.sort(context, SortMemory.BROWSE)) }
+    var tvSort by remember { mutableStateOf(SortMemory.sort(context, SortMemory.TV)) }
+    val activeSort = if (activeScope == TvScope.TV) tvSort else filmSort
     var total by remember { mutableIntStateOf(0) }
     var endReached by remember { mutableStateOf(false) }
     var loading by remember { mutableStateOf(true) }
@@ -95,7 +101,7 @@ fun TvBrowseScreen(container: AppContainer, nav: Nav) {
         endReached = false
         val db = container.catalog.awaitDb()
         if (activeScope == TvScope.TV) {
-            val cards = db.seriesCards()
+            val cards = db.seriesCards(activeSort)
             items.addAll(cards)
             total = cards.size
             endReached = true
@@ -155,19 +161,22 @@ fun TvBrowseScreen(container: AppContainer, nav: Nav) {
             state = chipState,
         )
 
-        // Sort + era ride a second chip row (tvOS Browse parity: 4 sorts +
-        // Era facet). Hidden for the TV scope — series cards carry their own
-        // rating-then-depth order and eras belong to episodes, not spines.
-        if (activeScope != TvScope.TV) {
-            TvRefineChips(
-                sort = activeSort,
-                onSort = { activeSort = it },
-                decade = activeDecade,
-                onDecade = { activeDecade = it },
-                runtime = activeRuntime,
-                onRuntime = { activeRuntime = it },
-            )
-        }
+        // Sort + era ride a second chip row (tvOS Browse parity). The TV
+        // scope keeps the sorts only: eras and lengths belong to episodes,
+        // not spines.
+        TvRefineChips(
+            sort = activeSort,
+            onSort = {
+                val tv = activeScope == TvScope.TV
+                if (tv) tvSort = it else filmSort = it
+                SortMemory.remember(context, it, if (tv) SortMemory.TV else SortMemory.BROWSE)
+            },
+            decade = activeDecade,
+            onDecade = { activeDecade = it },
+            runtime = activeRuntime,
+            onRuntime = { activeRuntime = it },
+            facets = activeScope != TvScope.TV,
+        )
 
         if (loading && items.isEmpty()) {
             TvMessage("Loading…")
@@ -226,6 +235,7 @@ private fun TvRefineChips(
     onDecade: (Int?) -> Unit,
     runtime: app.archivewatch.android.data.RuntimeBand?,
     onRuntime: (app.archivewatch.android.data.RuntimeBand?) -> Unit,
+    facets: Boolean,
 ) {
     LazyRow(
         contentPadding = PaddingValues(start = TvDims.OverscanH, end = TvDims.OverscanH),
@@ -239,6 +249,7 @@ private fun TvRefineChips(
                 onClick = { onSort(s) },
             )
         }
+        if (!facets) return@LazyRow
         // A gap, not a mark: a "·" here read as a speck on the screen.
         item(key = "era-div") { Spacer(Modifier.width(24.dp)) }
         item(key = "era-all") {

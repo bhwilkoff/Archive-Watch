@@ -62,6 +62,8 @@ data class UserPlaylist(
     val archiveIDs: List<String>,
     val createdAt: Long,
     val modifiedAt: Long,
+    /** The viewer's place for this list ("My Order"); null until arranged. */
+    val sortIndex: Int? = null,
 )
 
 /**
@@ -122,6 +124,7 @@ class UserStateStore(context: Context) {
                 "id TEXT PRIMARY KEY, name TEXT, ids TEXT, " +
                 "createdAt INTEGER, modifiedAt INTEGER)",
         )
+        try { connection.execSQL("ALTER TABLE playlists ADD COLUMN sortIndex INTEGER") } catch (_: Exception) {}
         connection.execSQL(
             "CREATE TABLE IF NOT EXISTS channels (" +
                 "id TEXT PRIMARY KEY, name TEXT, genre TEXT, " +
@@ -305,17 +308,19 @@ class UserStateStore(context: Context) {
 
     // --- playlists ---
 
-    suspend fun playlists(): List<UserPlaylist> = dbCall {
-        query("SELECT id, name, ids, createdAt, modifiedAt FROM playlists ORDER BY modifiedAt DESC") {
+    /** Every playlist, in My Order (PlaylistOrder.inMyOrder). */
+    suspend fun playlists(): List<UserPlaylist> = PlaylistOrder.inMyOrder(dbCall {
+        query("SELECT id, name, ids, createdAt, modifiedAt, sortIndex FROM playlists") {
             UserPlaylist(
                 id = it.getText(0),
                 name = it.getText(1),
                 archiveIDs = it.getText(2).split('\n').filter { id -> id.isNotEmpty() },
                 createdAt = it.getLong(3),
                 modifiedAt = it.getLong(4),
+                sortIndex = if (it.isNull(5)) null else it.getLong(5).toInt(),
             )
         }
-    }
+    })
 
     suspend fun createPlaylist(name: String, firstID: String? = null) {
         val now = System.currentTimeMillis()
@@ -363,6 +368,34 @@ class UserStateStore(context: Context) {
         }
         _changes.value += 1
         return added
+    }
+
+    suspend fun renamePlaylist(playlistID: String, name: String) {
+        dbCall {
+            exec("UPDATE playlists SET name = ?, modifiedAt = ? WHERE id = ?",
+                 listOf(name, System.currentTimeMillis(), playlistID))
+        }
+        _changes.value += 1
+    }
+
+    /** Replace a playlist's films (a removal or a move), keeping its place. */
+    suspend fun setPlaylistItems(playlistID: String, archiveIDs: List<String>) {
+        dbCall {
+            exec("UPDATE playlists SET ids = ?, modifiedAt = ? WHERE id = ?",
+                 listOf(archiveIDs.joinToString("\n"), System.currentTimeMillis(), playlistID))
+        }
+        _changes.value += 1
+    }
+
+    /** Give the lists, in the order the viewer arranged, their places. */
+    suspend fun arrangePlaylists(ordered: List<UserPlaylist>) {
+        val changed = PlaylistOrder.arrange(ordered, System.currentTimeMillis())
+        if (changed.isEmpty()) return
+        dbCall {
+            for (p in changed) exec("UPDATE playlists SET sortIndex = ?, modifiedAt = ? WHERE id = ?",
+                                    listOf(p.sortIndex, p.modifiedAt, p.id))
+        }
+        _changes.value += 1
     }
 
     suspend fun deletePlaylist(playlistID: String) {
@@ -471,8 +504,8 @@ class UserStateStore(context: Context) {
 
     suspend fun putPlaylistRaw(p: UserPlaylist) = dbCall {
         exec(
-            "INSERT OR REPLACE INTO playlists (id, name, ids, createdAt, modifiedAt) VALUES (?, ?, ?, ?, ?)",
-            listOf(p.id, p.name, p.archiveIDs.joinToString("\n"), p.createdAt, p.modifiedAt),
+            "INSERT OR REPLACE INTO playlists (id, name, ids, createdAt, modifiedAt, sortIndex) VALUES (?, ?, ?, ?, ?, ?)",
+            listOf(p.id, p.name, p.archiveIDs.joinToString("\n"), p.createdAt, p.modifiedAt, p.sortIndex),
         )
         exec("DELETE FROM tombstones WHERE kind = 'pl' AND id = ?", listOf(p.id))
     }

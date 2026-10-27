@@ -276,6 +276,9 @@ dependencies {
     // PlaylistShare, ArchiveVersions), so without this NONE of that parsing was
     // unit-testable.
     testImplementation(libs.org.json)
+    // A real SQLite on the JVM, so a grid's ORDER BY is tested against rows
+    // rather than as a string (BrowseSortOrderTest).
+    testImplementation(libs.sqlite.jdbc)
     testImplementation(libs.coroutines.test)
     androidTestImplementation(libs.junit.ext)
     androidTestImplementation(libs.espresso.core)

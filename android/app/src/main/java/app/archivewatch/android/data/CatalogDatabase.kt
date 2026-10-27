@@ -55,6 +55,32 @@ class CatalogDatabase private constructor(
             "i.hasRealArtwork,i.artworkSource,i.runtimeSeconds,i.popularityScore," +
             "i.isSilentFilm,i.seriesID,i.episodesCount,i.imdbRating," +
             "i.director,i.numFavorites,i.avgRating"
+        /** A grid's ORDER BY over `items i` (Apple `CatalogDB.browseSQL`).
+         *  `demote` is the editorial demotion prefix (empty or ending ", "). */
+        fun orderSQL(sort: BrowseSort, hasTVmazeRating: Boolean, demote: String = ""): String =
+            when (sort) {
+                // Designed (professional) artwork first, then popularity; series
+                // cards have NULL popularityScore, so episodesCount breaks their ties.
+                BrowseSort.POPULAR -> demote +
+                    "(i.hasRealArtwork = 1 AND COALESCE(i.artworkSource,'') != 'generated') DESC, " +
+                    "COALESCE(i.popularityScore, 0) DESC, " +
+                    "COALESCE(i.episodesCount, 0) DESC, COALESCE(i.imdbVotes, 0) DESC, i.archiveID"
+                // A series card carries TVmaze's rating (no series has IMDb's).
+                // Every tie is broken: with none, ~400 unrated series came back
+                // in insertion (slug) order and read as A–Z (2026-10-25).
+                BrowseSort.RATING -> {
+                    val r = if (hasTVmazeRating) "COALESCE(i.imdbRating, i.tvmazeRating)" else "i.imdbRating"
+                    demote + "$r IS NULL, $r DESC, COALESCE(i.imdbVotes, 0) DESC, " +
+                        "COALESCE(i.episodesCount, 0) DESC, i.title COLLATE NOCASE ASC"
+                }
+                BrowseSort.ALPHABETICAL -> "i.title COLLATE NOCASE ASC, i.year ASC"
+                BrowseSort.REVERSE_ALPHABETICAL -> "i.title COLLATE NOCASE DESC, i.year ASC"
+                BrowseSort.NEWEST -> "i.year DESC"
+                // `i.year IS NULL` first: SQLite sorts NULL FIRST on ASC, so plain
+                // `i.year ASC` led "Oldest" with year-less items (Google TV, 2026-09-03).
+                BrowseSort.OLDEST -> "i.year IS NULL, i.year ASC"
+            }
+
         /** Open + probe. A missing `meta.itemCount` means "not our DB". */
         fun open(path: String, json: Json): CatalogDatabase? = try {
             val db = CatalogDatabase(BundledSQLiteDriver().open(path), json)
@@ -262,6 +288,13 @@ class CatalogDatabase private constructor(
         false
     }
 
+    /** `tvmazeRating` is the newest column; a cached older DB lacks it. */
+    private val hasTVmazeRatingColumn: Boolean = try {
+        queryRaw("PRAGMA table_info(items)") { it.getText(1) }.contains("tvmazeRating")
+    } catch (_: Throwable) {
+        false
+    }
+
     /** `rightsBucket` arrived with schema 2 and a shipped build may still be
      *  reading a cached schema-1 catalog — the same trap `playable` set. */
     private val hasRightsBucketColumn: Boolean = try {
@@ -394,15 +427,7 @@ class CatalogDatabase private constructor(
         val (where0, binds) = browseWhere(ct, decade, gn, year, homeOnly, heroOnly, runtime)
         val where = where0 + docAnd + (if (recommendOnly) noRecAnd else "")
         val (joins, joinBinds) = facetJoins(gn, keyword, studio)
-        // Popular = demoted ids last, designed (professional) artwork first,
-        // then popularity; series cards have NULL popularityScore, so
-        // episodesCount breaks their ties (iOS/tvOS parity).
-        val order = if (sort == BrowseSort.POPULAR) {
-            demoteOrder +
-                "(i.hasRealArtwork = 1 AND COALESCE(i.artworkSource,'') != 'generated') DESC, " +
-                "COALESCE(i.popularityScore, 0) DESC, " +
-                "COALESCE(i.episodesCount, 0) DESC, COALESCE(i.imdbVotes, 0) DESC, i.archiveID"
-        } else sort.sql
+        val order = orderSQL(sort, hasTVmazeRatingColumn, demoteOrder)
         // `full` decodes the per-item blob: only for callers that need fields a
         // list row does not carry (downloadURL, colorMode, synopsis) — Party
         // Play and Cartoon Mode build PLAYABLE lineups and filter on colour, so
@@ -611,11 +636,13 @@ class CatalogDatabase private constructor(
         ) { it.getText(0) }
     }
 
-    suspend fun seriesCards(limit: Int = 500): List<CatalogItem> = itemsLite(
+    /** Every series card, so an A–Z or Z–A grid holds the whole alphabet
+     *  (a 500 cap ended A–Z partway: 489 TVmaze spines + 141 one-item series, Decision 166). */
+    suspend fun seriesCards(sort: BrowseSort? = null, limit: Int = 2000): List<CatalogItem> = itemsLite(
         "$itemSelect WHERE i.contentType = 'tv-series'$adultAnd$typeAnd" +
-            " ORDER BY $demoteOrder" +
-            "(i.hasRealArtwork = 1 AND COALESCE(i.artworkSource,'') != 'generated') DESC," +
-            " i.episodesCount DESC LIMIT ?",
+            " ORDER BY " + (sort?.let { orderSQL(it, hasTVmazeRatingColumn, demoteOrder) }
+                ?: ("$demoteOrder(i.hasRealArtwork = 1 AND COALESCE(i.artworkSource,'') != 'generated') DESC," +
+                    " i.episodesCount DESC")) + " LIMIT ?",
         listOf(limit),
     )
 
@@ -982,17 +1009,19 @@ class CatalogDatabase private constructor(
     }
 }
 
-enum class BrowseSort(val label: String, val sql: String) {
-    // Same rich order the browse() path builds for POPULAR (designed-art-first + deterministic
-    // tiebreak), so every code path that sorts by Popular agrees (owner 2026-06-29).
-    POPULAR("Popular", "(i.hasRealArtwork = 1 AND COALESCE(i.artworkSource,'') != 'generated') DESC, " +
-        "COALESCE(i.popularityScore, 0) DESC, COALESCE(i.imdbVotes, 0) DESC, i.archiveID"),
-    RATING("Top Rated", "i.imdbRating IS NULL, i.imdbRating DESC, COALESCE(i.imdbVotes, 0) DESC"),
-    ALPHABETICAL("A–Z", "i.title COLLATE NOCASE ASC"),
-    NEWEST("Newest", "i.year DESC"),
-    // `i.year IS NULL` first, exactly as RATING does: SQLite sorts NULL FIRST on
-    // ASC, so plain `i.year ASC` led the "Oldest" grid with year-less items —
-    // measured on the Google TV 2026-09-03, page one was Flash Gordon, The
-    // Astral Factor and Zeitgeist: Addendum, none of them old.
-    OLDEST("Oldest", "i.year IS NULL, i.year ASC"),
+/** A grid's order. [key] is the persisted choice (SortMemory) and matches the
+ *  Apple `CatalogDB.Sort` raw values, so it never changes once shipped. The
+ *  SQL lives in [CatalogDatabase.orderSQL], which knows the DB's columns. */
+enum class BrowseSort(val label: String, val key: String) {
+    POPULAR("Popular", "popular"),
+    RATING("Top Rated", "rating"),
+    ALPHABETICAL("A–Z", "alphabetical"),
+    // A 400-row grid is a long swipe from the bottom (a viewer, 2026-10-25).
+    REVERSE_ALPHABETICAL("Z–A", "reverseAlphabetical"),
+    NEWEST("Newest", "newest"),
+    OLDEST("Oldest", "oldest");
+
+    companion object {
+        fun fromKey(key: String?): BrowseSort? = entries.firstOrNull { it.key == key }
+    }
 }

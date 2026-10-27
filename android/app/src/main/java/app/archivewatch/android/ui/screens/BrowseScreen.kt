@@ -35,7 +35,9 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import app.archivewatch.android.app.AppContainer
+import androidx.compose.ui.platform.LocalContext
 import app.archivewatch.android.data.BrowseSort
+import app.archivewatch.android.data.SortMemory
 import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.ui.EmptyState
 import app.archivewatch.android.ui.uniqueBy
@@ -71,7 +73,15 @@ fun BrowseScreen(container: AppContainer, nav: Nav) {
     // Metadata-expansion facets (Decision 046): keyword (thematic) + studio filters.
     var keyword by remember { mutableStateOf<String?>(null) }
     var studio by remember { mutableStateOf<String?>(null) }
-    var sort by remember { mutableStateOf(BrowseSort.POPULAR) }
+    // Remembered per kind of grid (SortMemory): the TV scope keeps its own.
+    val context = LocalContext.current
+    var filmSort by remember { mutableStateOf(SortMemory.sort(context, SortMemory.BROWSE)) }
+    var tvSort by remember { mutableStateOf(SortMemory.sort(context, SortMemory.TV)) }
+    val sort = if (scope == Scope.TV) tvSort else filmSort
+    val onSort: (BrowseSort) -> Unit = {
+        if (scope == Scope.TV) tvSort = it else filmSort = it
+        SortMemory.remember(context, it, if (scope == Scope.TV) SortMemory.TV else SortMemory.BROWSE)
+    }
     var total by remember { mutableIntStateOf(0) }
     var endReached by remember { mutableStateOf(false) }
     var loading by remember { mutableStateOf(true) }
@@ -96,7 +106,7 @@ fun BrowseScreen(container: AppContainer, nav: Nav) {
         endReached = false
         val db = container.catalog.awaitDb()
         if (scope == Scope.TV) {
-            val cards = db.seriesCards()
+            val cards = db.seriesCards(sort)
             items.addAll(cards)
             total = cards.size
             endReached = true
@@ -178,7 +188,7 @@ fun BrowseScreen(container: AppContainer, nav: Nav) {
             ) {
                 DecadeMenu(decade, decades) { decade = it }
                 if (scope != Scope.TV) LengthMenu(runtime) { runtime = it }
-                SortMenu(sort) { sort = it }
+                SortMenu(sort, onSort)
                 // Keyword/studio facets don't apply to the TV scope (series cards).
                 if (scope != Scope.TV) {
                     if (keywordChoices.isNotEmpty()) {

@@ -15,12 +15,14 @@ struct LibraryView: View {
     /// The viewer's own order, the same on every device (Playlist.inMyOrder).
     private var playlists: [Playlist] { Playlist.inMyOrder(allPlaylists) }
     @State private var renaming: Playlist?
+    @State private var showRename = false   // the target outlives the dialog (iOS LibraryView)
     @State private var newName = ""
     @Query(sort: \DownloadedFilm.addedAt, order: .reverse) private var downloads: [DownloadedFilm]
     @Environment(AppRouter.self) private var router
     @Environment(\.modelContext) private var ctx
     /// The playlist a "Delete Playlist…" is asking about.
     @State private var deleting: Playlist?
+    @State private var showDelete = false
 
     var body: some View {
         ScrollView {
@@ -62,7 +64,7 @@ struct LibraryView: View {
                                     NSPasteboard.general.setString(url.absoluteString, forType: .string)
                                 } label: { Label("Copy Link", systemImage: "link") }
                             }
-                            Button("Rename…") { newName = pl.name; renaming = pl }
+                            Button("Rename…") { newName = pl.name; renaming = pl; showRename = true }
                             // My Order, arranged where the shelves are (2026-10-27).
                             Button("Move Up") { move(pl, by: -1) }
                                 .disabled(playlists.first?.id == pl.id)
@@ -71,7 +73,7 @@ struct LibraryView: View {
                             // The iPhone could delete a playlist and the Mac could not
                             // (Mac loop, 2026-09-27). Asked first: it syncs everywhere.
                             Divider()
-                            Button("Delete Playlist…", role: .destructive) { deleting = pl }
+                            Button("Delete Playlist…", role: .destructive) { deleting = pl; showDelete = true }
                         }
                 }
 
@@ -94,7 +96,7 @@ struct LibraryView: View {
         }
         .navigationTitle("Library")
         .confirmationDialog("Delete \u{201C}\(deleting?.name ?? "")\u{201D}?",
-                            isPresented: Binding(get: { deleting != nil }, set: { if !$0 { deleting = nil } }),
+                            isPresented: $showDelete,
                             titleVisibility: .visible) {
             Button("Delete Playlist", role: .destructive) {
                 if let pl = deleting {
@@ -106,8 +108,7 @@ struct LibraryView: View {
         } message: {
             Text("It is removed from your other devices too.")
         }
-        .alert("Rename Playlist", isPresented: Binding(get: { renaming != nil },
-                                                       set: { if !$0 { renaming = nil } })) {
+        .alert("Rename Playlist", isPresented: $showRename) {
             TextField("Name", text: $newName)
             Button("Cancel", role: .cancel) { renaming = nil }
             Button("Rename") {

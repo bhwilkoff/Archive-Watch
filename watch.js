@@ -150,6 +150,21 @@
         await tx('playlists', 'readwrite', s => s.delete(id));
         await DB.putTombstone('pl', id);
       },
+      renamePlaylist: async (plID, name) => {
+        const pl = (await getAll('playlists')).find(p => p.id === plID);
+        if (!pl || !name || pl.name === name) return;
+        await DB.savePlaylist({ ...pl, name });
+      },
+      /** The films in their new order (a removal is an order without it). */
+      setPlaylistItems: async (plID, archiveIDs) => {
+        const pl = (await getAll('playlists')).find(p => p.id === plID);
+        if (!pl) return;
+        await DB.savePlaylist({ ...pl, archiveIDs });
+      },
+      /** The lists, in the order the viewer arranged them ("My Order"). */
+      arrangePlaylists: async ordered => {
+        for (const pl of SortRules.arrange(ordered)) await DB.savePlaylistRaw(pl);
+      },
       togglePlaylistItem: async (plID, archiveID) => {
         const pl = (await getAll('playlists')).find(p => p.id === plID);
         if (!pl) return false;
@@ -838,11 +853,11 @@
     if (name === 'home') Home.render();
     if (name === 'browse') Browse.render(q);
     if (name === 'search') Search.render(q);
-    if (name === 'library') Library.render();
+    if (name === 'library') { Library.arranging = false; Library.render(); }
     if (name === 'item') Item.render(decodeURIComponent(seg[1] || ''));
     if (name === 'series') SeriesView.render(decodeURIComponent(seg[1] || ''));
     if (name === 'surprise') Surprise.render();
-    if (name === 'playlist') PlaylistView.render(decodeURIComponent(seg[1] || ''));
+    if (name === 'playlist') { PlaylistView.arranging = false; PlaylistView.render(decodeURIComponent(seg[1] || '')); }
     // The blob can contain '/' after base64url? No — base64url is [A-Za-z0-9_-],
     // so seg[1] is the whole thing. Taking the join anyway costs nothing and
     // survives anyone "helpfully" re-encoding the link.
@@ -1569,6 +1584,105 @@
     ['over', 'Over 90 minutes', m => m > 90],
   ];
 
+  /* SORT RULES — the apps' own (SortMemory.swift, CatalogDB.Sort, UserState
+   * Playlist.inMyOrder / PlaylistSort). tools/test_web_sort_rules.mjs reads
+   * this block out of the shipped file. */
+  // --- sort rules ---
+  const SortRules = {
+    /** Memory is per KIND of grid: television (series, specials) or films. */
+    surface(type) { return type === 'tv-series' || type === 'tv-special' ? 'tv' : 'browse'; },
+    /** Television is found by name; everything else leads with Popular. */
+    defaultSort(surface) { return surface === 'tv' ? 'az' : 'pop'; },
+    BROWSE: ['pop', 'rate', 'az', 'za', 'new', 'old'],
+    key(surface) { return 'browseSort.' + surface; },
+    byTitle(a, b) {
+      return String(a || '').localeCompare(String(b || ''), undefined, { sensitivity: 'base' });
+    },
+    /** Index rows: [id, title, year, type, …, rating10 (10), votes (11)]. */
+    sortRows(rows, sort) {
+      const t = SortRules.byTitle;
+      const yr = r => r[2] || 0;
+      if (sort === 'az') return [...rows].sort((a, b) => t(a[1], b[1]) || yr(a) - yr(b));
+      if (sort === 'za') return [...rows].sort((a, b) => t(b[1], a[1]) || yr(a) - yr(b));
+      if (sort === 'new') return [...rows].sort((a, b) => (b[2] || 0) - (a[2] || 0));
+      if (sort === 'old') return [...rows].sort((a, b) => (a[2] || 9999) - (b[2] || 9999));
+      if (sort === 'rate') {
+        // A film's score needs 100 votes to count (a 9.8 from six people is
+        // noise). A series carries TVmaze's rating and no votes at all, so its
+        // rating counts as it is. Ties fall to votes, then title.
+        const score = r => {
+          if (r[10] == null) return -1;
+          return r[3] === 'tv-series' || (r[11] || 0) >= 100 ? r[10] : -1;
+        };
+        return [...rows].sort((a, b) =>
+          (score(b) - score(a)) || ((b[11] || 0) - (a[11] || 0)) || t(a[1], b[1]));
+      }
+      return rows;
+    },
+
+    PLAYLIST: [['myOrder', 'My Order'], ['alphabetical', 'A–Z'],
+               ['reverseAlphabetical', 'Z–A'], ['newest', 'Newest'], ['oldest', 'Oldest']],
+    listKey: 'playlistSort.lists',
+    contentsKey(id) { return 'playlistSort.' + id; },
+    /** My Order: a list with no place (new since the last arrangement, or
+     *  from before places existed) comes FIRST, newest first; then the
+     *  arranged lists, ascending. */
+    inMyOrder(lists) {
+      const has = p => Number.isInteger(p.sortIndex);
+      const newer = (a, b) => (b.createdAt || 0) - (a.createdAt || 0);
+      return [...lists].sort((a, b) => {
+        if (has(a) && has(b)) return (a.sortIndex - b.sortIndex) || newer(a, b);
+        if (has(a) !== has(b)) return has(a) ? 1 : -1;
+        return newer(a, b);
+      });
+    },
+    /** Places for lists already in the viewer's order. Only a list whose
+     *  place changed is stamped, so sync carries the move and nothing else. */
+    arrange(ordered, now) {
+      const at = now || Date.now();
+      const changed = [];
+      ordered.forEach((p, i) => {
+        if (p.sortIndex !== i) { p.sortIndex = i; p.modifiedAt = at; changed.push(p); }
+      });
+      return changed;
+    },
+    sortLists(lists, sort) {
+      const t = SortRules.byTitle;
+      if (sort === 'alphabetical') return [...lists].sort((a, b) => t(a.name, b.name));
+      if (sort === 'reverseAlphabetical') return [...lists].sort((a, b) => t(b.name, a.name));
+      if (sort === 'newest') return [...lists].sort((a, b) => (b.createdAt || 0) - (a.createdAt || 0));
+      if (sort === 'oldest') return [...lists].sort((a, b) => (a.createdAt || 0) - (b.createdAt || 0));
+      return SortRules.inMyOrder(lists);
+    },
+    /** A playlist's films, as index rows, in the order asked; My Order is
+     *  the list's own order. */
+    sortFilms(items, sort, rowOf) {
+      const t = SortRules.byTitle;
+      const r = rowOf || (x => x);
+      const newest = x => r(x)[2] || -Infinity;
+      const oldest = x => r(x)[2] || Infinity;
+      if (sort === 'alphabetical') return [...items].sort((a, b) => t(r(a)[1], r(b)[1]));
+      if (sort === 'reverseAlphabetical') return [...items].sort((a, b) => t(r(b)[1], r(a)[1]));
+      if (sort === 'newest') return [...items].sort((a, b) => newest(b) - newest(a));
+      if (sort === 'oldest') return [...items].sort((a, b) => oldest(a) - oldest(b));
+      return items;
+    },
+  };
+  // --- end sort rules ---
+
+  /** A remembered choice on this browser; storage may be absent or refuse. */
+  const Remembered = {
+    get(key, allowed, fallback) {
+      try {
+        const v = localStorage.getItem(key);
+        return allowed.indexOf(v) >= 0 ? v : fallback;
+      } catch { return fallback; }
+    },
+    set(key, v) {
+      try { localStorage.setItem(key, v); } catch { /* private mode */ }
+    },
+  };
+
   const Browse = {
     filtered: [],
     shown: 0,
@@ -1578,7 +1692,12 @@
       const decade = q.get('decade') || '';
       const len = q.get('len') || '';
       const lenTest = (LENGTHS.find(l => l[0] === len) || [])[2];
-      const sort = q.get('sort') || 'pop';
+      // The hash wins (a link, back/forward); otherwise the sort this kind of
+      // grid was last given, otherwise its default.
+      const surface = SortRules.surface(type);
+      const asked = q.get('sort');
+      const sort = SortRules.BROWSE.indexOf(asked) >= 0 ? asked
+        : Remembered.get(SortRules.key(surface), SortRules.BROWSE, SortRules.defaultSort(surface));
       // Keyword/studio filters (Decision 046) run client-side against the index's
       // search column (r[6]) — no per-row id map, so the committed index stays lean.
       const kw = (q.get('kw') || '').toLowerCase();
@@ -1591,16 +1710,7 @@
         (!lenTest || lenTest(r[17] || 0)) &&
         (!kw || (r[6] && r[6].includes(kw))) &&
         (!studio || (r[6] && r[6].includes(studio))));
-      if (sort === 'az') this.filtered = [...this.filtered].sort((a, b) => a[1].localeCompare(b[1]));
-      if (sort === 'new') this.filtered = [...this.filtered].sort((a, b) => (b[2] || 0) - (a[2] || 0));
-      if (sort === 'old') this.filtered = [...this.filtered].sort((a, b) => (a[2] || 9999) - (b[2] || 9999));
-      // TOP RATED (parity with the apps): rating, but only where it is
-      // earned — a score needs 100 votes to count (the ten-foot rule; a 9.8
-      // from six people is noise). The rest keep popularity order beneath.
-      if (sort === 'rate') {
-        const score = r => ((r[11] || 0) >= 100 ? (r[10] || 0) : -1);
-        this.filtered = [...this.filtered].sort((a, b) => score(b) - score(a));
-      }
+      this.filtered = SortRules.sortRows(this.filtered, sort);
 
       $('browse-count').textContent = `${this.filtered.length.toLocaleString()} titles`;
       this.shown = 0;
@@ -1631,7 +1741,13 @@
         const b = document.createElement('button');
         b.textContent = label;
         b.setAttribute('aria-pressed', String(val === type));
-        b.onclick = () => this.setParam('type', val);
+        // A new kind of grid starts on ITS remembered sort, not this one's.
+        b.onclick = () => {
+          const q = new URLSearchParams((location.hash.split('?')[1]) || '');
+          if (SortRules.surface(val) !== SortRules.surface(type)) q.delete('sort');
+          if (val) q.set('type', val); else q.delete('type');
+          location.hash = `#/browse?${q.toString()}`;
+        };
         return b;
       }));
 
@@ -1668,7 +1784,11 @@
       stSel.onchange = () => this.setParam('studio', stSel.value);
 
       $('browse-sort').value = sort;
-      $('browse-sort').onchange = () => this.setParam('sort', $('browse-sort').value);
+      $('browse-sort').onchange = () => {
+        const v = $('browse-sort').value;
+        Remembered.set(SortRules.key(SortRules.surface(type)), v);
+        this.setParam('sort', v);
+      };
     },
   };
 
@@ -1910,6 +2030,56 @@
     window.AWCloudKitSync?.init(DB, apple);
     follow();
   }, 0);
+  /** Tell both sync islands an edit is waiting (each is a no-op signed out). */
+  function syncNudge() {
+    window.AWDriveSync?.nudge?.();
+    window.AWCloudKitSync?.nudge?.();
+  }
+
+  /** Move up / Move down for item `i` of `n`: the way to arrange with a
+   *  keyboard, a touch screen or a remote, where dragging does not work. */
+  function moveButtons(name, i, n, move) {
+    const mk = (dir, glyph, label, to) => {
+      const b = document.createElement('button');
+      b.type = 'button';
+      b.className = 'move-btn';
+      b.dataset.dir = dir;
+      b.textContent = glyph;
+      b.setAttribute('aria-label', `${label}: ${name}`);
+      b.disabled = to < 0 || to >= n;
+      b.onclick = () => move(i, to);
+      return b;
+    };
+    return [mk('up', '↑', 'Move up', i - 1), mk('down', '↓', 'Move down', i + 1)];
+  }
+
+  /** After a move the list is redrawn; focus follows the item to its new
+   *  place, so a second press moves it again. */
+  function focusMover(host, i, dir) {
+    const row = host.children[i];
+    if (!row) return;
+    const b = row.querySelector(`.move-btn[data-dir="${dir}"]:not(:disabled)`)
+      || row.querySelector('.move-btn:not(:disabled)');
+    if (b) b.focus();
+  }
+
+  /** Native drag and drop, where a pointer offers it. */
+  function dragToMove(row, i, move) {
+    row.draggable = true;
+    row.addEventListener('dragstart', e => {
+      e.dataTransfer.effectAllowed = 'move';
+      e.dataTransfer.setData('text/plain', String(i));
+      row.classList.add('dragging');
+    });
+    row.addEventListener('dragend', () => row.classList.remove('dragging'));
+    row.addEventListener('dragover', e => { e.preventDefault(); e.dataTransfer.dropEffect = 'move'; });
+    row.addEventListener('drop', e => {
+      e.preventDefault();
+      const from = Number(e.dataTransfer.getData('text/plain'));
+      if (Number.isInteger(from)) move(from, i);
+    });
+  }
+
   // A pull that landed while the Library is open must show up without a
   // reload — the first web sync (2026-09-03) merged the phone's progress
   // into IndexedDB and the page kept saying "Nothing in progress".
@@ -1918,6 +2088,61 @@
   });
 
   const Library = {
+    arranging: false,
+
+    /** The viewer's lists, in the order they chose (My Order by default);
+     *  Edit arranges them, and only in My Order, where a move means something. */
+    async renderPlaylists() {
+      const all = await DB.playlists().catch(() => []);
+      const values = SortRules.PLAYLIST.map(o => o[0]);
+      const sort = Remembered.get(SortRules.listKey, values, 'myOrder');
+      const playlists = SortRules.sortLists(all, sort);
+      const canArrange = sort === 'myOrder' && playlists.length > 1;
+      if (!canArrange) this.arranging = false;
+
+      const sel = $('library-playlists-sort');
+      sel.replaceChildren(...SortRules.PLAYLIST.map(([v, label]) => new Option(label, v)));
+      sel.value = sort;
+      sel.hidden = playlists.length < 2;
+      sel.onchange = () => { Remembered.set(SortRules.listKey, sel.value); this.renderPlaylists(); };
+      const edit = $('library-playlists-edit');
+      edit.hidden = !canArrange;
+      edit.textContent = this.arranging ? 'Done' : 'Edit';
+      edit.setAttribute('aria-pressed', String(this.arranging));
+      edit.onclick = () => { this.arranging = !this.arranging; this.renderPlaylists(); };
+
+      const host = $('library-playlists');
+      const move = async (from, to) => {
+        if (to < 0 || to >= playlists.length || from === to) return;
+        const ordered = [...playlists];
+        ordered.splice(to, 0, ordered.splice(from, 1)[0]);
+        await DB.arrangePlaylists(ordered).catch(() => {});
+        syncNudge();
+        await this.renderPlaylists();
+        focusMover(host, to, from < to ? 'down' : 'up');
+      };
+      host.classList.toggle('arranging', this.arranging);
+      host.replaceChildren(...playlists.map((pl, i) => {
+        const a = document.createElement('a');
+        a.className = 'playlist-card';
+        a.href = `#/playlist/${encodeURIComponent(pl.id)}`;
+        const t = document.createElement('strong');
+        t.textContent = pl.name;
+        const n = document.createElement('span');
+        n.textContent = `${pl.archiveIDs.length} titles`;
+        a.append(t, n);
+        if (!this.arranging) return a;
+        const row = document.createElement('div');
+        row.className = 'arrange-row';
+        a.draggable = false;
+        row.append(a, ...moveButtons(pl.name, i, playlists.length, move));
+        dragToMove(row, i, move);
+        return row;
+      }));
+      host.hidden = !playlists.length;
+      $('library-playlists-empty').hidden = playlists.length > 0;
+    },
+
     async render() {
       const progress = (await DB.progress())
         .filter(p => p.duration > 0 && p.position > 10 && p.position / p.duration < 0.95)
@@ -1942,22 +2167,7 @@
       $('library-favs').hidden = !favs.length;
       $('library-favs-empty').hidden = favs.length > 0;
 
-      const playlists = (await DB.playlists().catch(() => []))
-        .sort((a, b) => (b.modifiedAt || 0) - (a.modifiedAt || 0));
-      const host = $('library-playlists');
-      host.replaceChildren(...playlists.map(pl => {
-        const a = document.createElement('a');
-        a.className = 'playlist-card';
-        a.href = `#/playlist/${encodeURIComponent(pl.id)}`;
-        const t = document.createElement('strong');
-        t.textContent = pl.name;
-        const n = document.createElement('span');
-        n.textContent = `${pl.archiveIDs.length} titles`;
-        a.append(t, n);
-        return a;
-      }));
-      host.hidden = !playlists.length;
-      $('library-playlists-empty').hidden = playlists.length > 0;
+      await this.renderPlaylists();
 
       // The complete watch record (Decision 078): everything ever played,
       // newest first — finished or not, resumable or not.
@@ -2169,15 +2379,89 @@
   };
 
   const PlaylistView = {
+    arranging: false,
+
     async render(id) {
       const pl = (await DB.playlists().catch(() => [])).find(p => p.id === id);
       if (!pl) { location.hash = '#/library'; return; }
       $('playlist-title').textContent = pl.name;
       const plAlias = await Aliases.rows(pl.archiveIDs);
-      const rows = pl.archiveIDs.map(aid => Data.byID.get(aid) || plAlias.get(aid))
-        .filter(Boolean);
-      fillGrid($('playlist-grid'), rows);
-      $('playlist-empty').hidden = rows.length > 0;
+      // [the list's own id, the row to draw]: a merged-away id draws as its
+      // survivor, and is still removed or moved by the id the list holds.
+      const films = pl.archiveIDs.map(aid => [aid, Data.byID.get(aid) || plAlias.get(aid)])
+        .filter(f => f[1]);
+      const values = SortRules.PLAYLIST.map(o => o[0]);
+      const key = SortRules.contentsKey(id);
+      let sort = Remembered.get(key, values, 'myOrder');
+      // Arranging is My Order by definition: the grid shows the order being made.
+      if (this.arranging && sort !== 'myOrder') { sort = 'myOrder'; Remembered.set(key, sort); }
+      const shown = SortRules.sortFilms(films, sort, f => f[1]);
+
+      const sel = $('playlist-sort');
+      sel.replaceChildren(...SortRules.PLAYLIST.map(([v, label]) => new Option(label, v)));
+      sel.value = sort;
+      sel.hidden = films.length < 2;
+      sel.disabled = this.arranging;
+      sel.onchange = () => { Remembered.set(key, sel.value); this.render(id); };
+      const edit = $('playlist-edit');
+      if (!films.length) this.arranging = false;
+      edit.hidden = !films.length;
+      edit.textContent = this.arranging ? 'Done' : 'Edit';
+      edit.setAttribute('aria-pressed', String(this.arranging));
+      edit.onclick = () => { this.arranging = !this.arranging; this.render(id); };
+
+      const grid = $('playlist-grid');
+      grid.classList.toggle('arranging', this.arranging);
+      if (!this.arranging) {
+        fillGrid(grid, shown.map(f => f[1]));
+      } else {
+        const save = async ids => {
+          // A film the catalog no longer serves is not shown, so it cannot be
+          // placed; it keeps its place after the rest.
+          const seen = new Set(shown.map(f => f[0]));
+          await DB.setPlaylistItems(id, ids.concat(pl.archiveIDs.filter(a => !seen.has(a))))
+            .catch(() => {});
+          syncNudge();
+        };
+        const ids = shown.map(f => f[0]);
+        const move = async (from, to) => {
+          if (to < 0 || to >= ids.length || from === to) return;
+          const next = [...ids];
+          next.splice(to, 0, next.splice(from, 1)[0]);
+          await save(next);
+          await this.render(id);
+          focusMover(grid, to, from < to ? 'down' : 'up');
+        };
+        grid.replaceChildren(...shown.map(([aid, row], i) => {
+          const wrap = document.createElement('div');
+          wrap.className = 'arrange-item';
+          const c = card(row);
+          c.draggable = false;
+          const drop = document.createElement('button');
+          drop.type = 'button';
+          drop.className = 'card-remove';
+          drop.textContent = '\u00D7';
+          drop.setAttribute('aria-label', `Remove ${row[1]} from the playlist`);
+          drop.onclick = async () => {
+            await save(ids.filter(x => x !== aid));
+            await this.render(id);
+          };
+          const tools = document.createElement('div');
+          tools.className = 'arrange-tools';
+          tools.append(...moveButtons(row[1], i, shown.length, move));
+          wrap.append(c, drop, tools);
+          dragToMove(wrap, i, move);
+          return wrap;
+        }));
+      }
+      $('playlist-empty').hidden = films.length > 0;
+      $('playlist-rename').onclick = async () => {
+        const name = (prompt('Playlist name', pl.name) || '').trim();
+        if (!name || name === pl.name) return;
+        await DB.renamePlaylist(id, name).catch(() => {});
+        syncNudge();
+        this.render(id);
+      };
       // SHARE. The link carries the playlist itself, so it keeps working for
       // anyone, on any platform, with nothing hosted and nothing about the
       // sharer attached to it.
@@ -2218,14 +2502,17 @@
         // (tv.js § tvConfirm). Feature-detected, so the phone and desktop
         // keep the native confirm they should have.
         if (window.AWTV?.confirm && document.documentElement.classList.contains('tv')) {
-          window.AWTV.confirm(`Delete the playlist “${pl.name}”?`, 'Delete', async () => {
-            await DB.deletePlaylist(id).catch(() => {});
-            location.hash = '#/library';
-          });
+          window.AWTV.confirm(`Delete “${pl.name}”? It is removed from your other devices too.`,
+            'Delete Playlist', async () => {
+              await DB.deletePlaylist(id).catch(() => {});
+              syncNudge();
+              location.hash = '#/library';
+            });
           return;
         }
-        if (!confirm(`Delete the playlist “${pl.name}”?`)) return;
+        if (!confirm(`Delete “${pl.name}”?\n\nIt is removed from your other devices too.`)) return;
         await DB.deletePlaylist(id).catch(() => {});
+        syncNudge();
         location.hash = '#/library';
       };
     },
@@ -3175,7 +3462,7 @@
     async playlistMenu(archiveID) {
       const dlg = $('playlistmenu');
       const renderList = async () => {
-        const playlists = await DB.playlists().catch(() => []);
+        const playlists = SortRules.inMyOrder(await DB.playlists().catch(() => []));
         $('playlistmenu-list').replaceChildren(...playlists.map(pl => {
           const b = document.createElement('button');
           b.className = 'btn-ghost';

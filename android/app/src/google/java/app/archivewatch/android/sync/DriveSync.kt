@@ -10,6 +10,7 @@ import android.content.SharedPreferences
 import android.util.Log
 import app.archivewatch.android.BuildConfig
 import app.archivewatch.android.data.UserChannelRec
+import app.archivewatch.android.data.PlaylistOrder
 import app.archivewatch.android.data.UserPlaylist
 import app.archivewatch.android.data.UserStateStore
 import androidx.lifecycle.DefaultLifecycleObserver
@@ -46,7 +47,7 @@ import kotlin.coroutines.resume
  *
  * Blob (v2, shared field names with the web):
  *   favorites  [{id, addedAt}]                       union minus tombstones
- *   playlists  [{id, name, archiveIDs, createdAt, modifiedAt}]  LWW by modifiedAt
+ *   playlists  [{id, name, archiveIDs, createdAt, modifiedAt, sortIndex}]  LWW by modifiedAt
  *   channels   [{id, name, genre, contentType, decade, createdAt}]  union minus tombstones
  *   progress   [{id, position(s), duration(s), at, firstAt, plays, everDone}]
  *              position LWW by `at`; HISTORY is a UNION (Decision 078)
@@ -349,13 +350,9 @@ object DriveSync {
         for (p in store.playlists()) pls[p.id] = p
         for (p in cloud.arr("playlists")) {
             val id = p.optString("id"); if (id.isEmpty()) continue
-            val mod = p.optLong("modifiedAt")
             val mine = pls[id]
-            if (mine == null || mod > mine.modifiedAt) {
-                val ids = p.optJSONArray("archiveIDs")?.let { a -> (0 until a.length()).map { a.optString(it) } }
-                    ?: emptyList()
-                pls[id] = UserPlaylist(id, p.optString("name"), ids.filter { it.isNotEmpty() },
-                    p.optLong("createdAt").takeIf { it > 0 } ?: mod, mod)
+            if (mine == null || p.optLong("modifiedAt") > mine.modifiedAt) {
+                PlaylistOrder.fromJson(p, mine)?.let { pls[id] = it }
             }
         }
         for (id in pls.keys.toList()) if (dead("pl", id, pls[id]!!.modifiedAt)) pls.remove(id)
@@ -422,10 +419,7 @@ object DriveSync {
             for ((id, at) in store.favoritesWithTime()) a.put(JSONObject().put("id", id).put("addedAt", at))
         })
         out.put("playlists", JSONArray().also { a ->
-            for (p in store.playlists()) a.put(JSONObject()
-                .put("id", p.id).put("name", p.name)
-                .put("archiveIDs", JSONArray(p.archiveIDs))
-                .put("createdAt", p.createdAt).put("modifiedAt", p.modifiedAt))
+            for (p in store.playlists()) a.put(PlaylistOrder.toJson(p))
         })
         out.put("channels", JSONArray().also { a ->
             for (c in store.userChannels()) a.put(JSONObject()

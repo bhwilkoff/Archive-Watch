@@ -130,6 +130,16 @@ or tvOS rule, that inversion is deliberate — do not "harmonize" them.
   is removed by long-press, asked first (owner, 2026-09-29: *"You should be able to remove items from history if you want."*); the television's is a
   held Select, Cancel focused, and focus returns to the grid (TV-DESIGN §3.7).
   Each tab keeps its own grid position.
+  **Playlists are edited where they are seen** (2026-10-27, Decision 170,
+  iOS-DESIGN §4.3a): the Playlists tab has a Sort menu (My Order · A–Z · Z–A ·
+  Newest · Oldest, `playlistSort.lists`), and a long-press on a list offers
+  Rename…, Move up / Move down (My Order only) and Delete playlist… (asked
+  first). A playlist's screen has Sort (remembered per playlist), Share, and
+  Rename… / Delete playlist… in its overflow; a long-press on a film offers
+  Move earlier / Move later (My Order) and Remove from playlist. Move items, not
+  drag: Compose foundation has no built-in reorderable list. `sortIndex` rides
+  in the Drive blob both ways. Browse remembers its sort per kind of grid
+  (`browseSort.*`, SharedPreferences), TV starts A–Z, Z–A everywhere.
 - **§4.6 Tiles are poster + two text lines, nothing else** (density from
   removing chrome). Poster fallback chain per contract §8: `posterURL` →
   `https://archive.org/services/img/{id}`. Stable `key`s on every
