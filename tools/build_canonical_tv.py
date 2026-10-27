@@ -685,6 +685,7 @@ def map_items_to_canonical(our_eps, canon, show_title=None):
             advert = by_sxe.get((ps, pe)) if ps is not None else None
             it["title"] = f"Promo: {advert['title']}" if advert else (own[0] if own else title)
             it["_promo"] = True
+            it["_notThis"] = True
             extras.append(it)
             continue
         sxe_texts = _item_sxe_texts(it)
@@ -716,6 +717,7 @@ def map_items_to_canonical(our_eps, canon, show_title=None):
         elif (target is not None and len(words) >= 2 and not agrees
                 and not _GENERIC_EP.match(target["title"] or "")):
             it["title"] = own[0]
+            it["_notThis"] = True   # its own title says another episode: no number, no second pass
             target = None
             extras.append(it)
             continue
@@ -740,7 +742,10 @@ def map_items_to_canonical(our_eps, canon, show_title=None):
     if any(it.get("sourceID") for _, it in mapped.values()):
         still = []
         for it in extras:
-            target = None if it.get("sourceID") else \
+            # A promo or an upload whose own title named another episode was
+            # judged already: "Promo: Person or Persons Unknown" must not match
+            # the episode it advertises here (2026-10-27).
+            target = None if it.get("sourceID") or it.get("_notThis") else \
                 _title_target(_title_variants(it.get("title"), show_tokens), canon_titles)
             key = (target["season"], target["number"]) if target else None
             if key and (key not in used or mapped[key][1].get("sourceID")):
@@ -889,8 +894,8 @@ def rebuild_show(show, our_eps, *, repick, deadline=None):
                 continue
             if item.get("sourceID"):
                 s2, e2 = item.get("seasonNumber"), item.get("episodeNumber")
-            elif item.get("_promo"):
-                s2, e2 = None, None
+            elif item.get("_notThis"):
+                s2, e2 = None, None   # a promo, or a file whose number names another episode
             else:
                 sxe_texts = _item_sxe_texts(item)
                 s2, e2 = parse_sxe(*sxe_texts)

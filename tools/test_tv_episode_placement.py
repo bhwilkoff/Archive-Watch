@@ -76,6 +76,14 @@ by, extras = place([ep("tz_promos_s2_1960-61", "The Silence", "Twilight Zone pro
 check("a promo is not the episode it advertises", by, {})
 check("... and is labeled as that episode's promo", extras[0]["title"], "Promo: The Silence")
 
+tz3 = [c(3, 27, "Person or Persons Unknown"), c(3, 1, "Two")]
+bundle_file = {"archiveID": "tz-s3@s3e01", "sourceID": "tz-s3", "seasonNumber": 3, "episodeNumber": 1,
+               "title": "Two", "bundleTitle": "Two", "videoFile": {"name": "Two.mp4"}, "downloadURL": "x"}
+by, extras = place([ep("tz_promos_s3_1961-62", "Person or Persons Unknown",
+                       "Twilight Zone promo (S3E27 Person Or Persons Unknown).mp4"), bundle_file], tz3, "The Twilight Zone")
+check("a promo stays out even when a whole-series file is placed beside it",
+      "tz_promos_s3_1961-62" in by, False)
+
 soul = [c(1, 5, "Bill Withers/ Al Green/ Viola Wills"), c(2, 5, "The Temptations")]
 by, _ = place([ep("soul-train-season-2-episode-5", "Soul Train", "Soul Train (Season 2, Episode 5).mp4")],
               soul, "Soul Train")
