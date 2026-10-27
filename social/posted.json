@@ -3265,6 +3265,66 @@
    "kind": "silent-film",
    "mediaId": null,
    "reviewer": "billbarstad"
+  },
+  {
+   "at": "2026-10-27T20:01:09.019705+00:00",
+   "id": "TheDentist_817",
+   "title": "The Dentist",
+   "slot": "viewer-said",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3myuzomvkai2i",
+   "format": "video",
+   "kind": "short-film",
+   "mediaId": null,
+   "reviewer": "porterville"
+  },
+  {
+   "at": "2026-10-27T20:01:09.019705+00:00",
+   "id": "TheDentist_817",
+   "title": "The Dentist",
+   "slot": "viewer-said",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117514654435913268",
+   "format": "video",
+   "kind": "short-film",
+   "mediaId": null,
+   "reviewer": "porterville"
+  },
+  {
+   "at": "2026-10-27T20:01:09.019705+00:00",
+   "id": "TheDentist_817",
+   "title": "The Dentist",
+   "slot": "viewer-said",
+   "platform": "threads",
+   "url": "https://www.threads.com/@archivewatchapp/post/DfAq0gBmChd",
+   "format": "card",
+   "kind": "short-film",
+   "mediaId": null,
+   "reviewer": "porterville"
+  },
+  {
+   "at": "2026-10-27T20:01:09.019705+00:00",
+   "id": "TheDentist_817",
+   "title": "The Dentist",
+   "slot": "viewer-said",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DfAq5GamMtH/",
+   "format": "card",
+   "kind": "short-film",
+   "mediaId": "117514651959519417",
+   "reviewer": "porterville"
+  },
+  {
+   "at": "2026-10-27T20:01:09.019705+00:00",
+   "id": "TheDentist_817",
+   "title": "The Dentist",
+   "slot": "viewer-said",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=7HHPNlRR_NM",
+   "format": "video",
+   "kind": "short-film",
+   "mediaId": null,
+   "reviewer": "porterville"
   }
  ]
 }
