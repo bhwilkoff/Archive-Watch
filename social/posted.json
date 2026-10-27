@@ -3253,6 +3253,18 @@
    "kind": "feature-film",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-10-27T02:03:38.164314+00:00",
+   "id": "silent-die-nibelungen-siegfried",
+   "title": "Die Nibelungen: Siegfried",
+   "slot": "viewer-said",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3myt5hqg4tn2n",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": "billbarstad"
   }
  ]
 }
