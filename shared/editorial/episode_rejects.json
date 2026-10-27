@@ -1,0 +1,17 @@
+{
+  "_how": "{archiveID: {notIn: <series slug> or \"*\", why}}: an upload a person has found is not an episode of the show it was filed under. build_canonical_tv drops it from that spine (\"*\": from every spine). The why says what the upload is, from its own file name or record.",
+  "the.-twilight.-zone.-2002.-s-01.480p.-dvd-rip.-x-264.-will-1869": {"notIn": "*", "why": "a DVD rip of the 2002 UPN revival of The Twilight Zone (its own path: 'The.Twilight.Zone.2002.S01'), filed as the 1959 series' 'Where is Everybody?' and dated 1959"},
+  "the-outer-limits-1995_202304": {"notIn": "*", "why": "the 1995 Showtime revival of The Outer Limits ('The Outer Limits (1995)/Season 1/... The New Series'), filed under the 1963 series"},
+  "family-feud-october-12-2021-1": {"notIn": "*", "why": "a 2021 Family Feud broadcast, filed under The Smith Family (1971) because a contestant family is named Smith"},
+  "family-feud-november-10-2020": {"notIn": "*", "why": "a 2020 Family Feud broadcast, filed under The Smith Family (1971) because a contestant family is named Smith"},
+  "family-feud-october-21-2021-1": {"notIn": "*", "why": "a 2021 Family Feud broadcast, filed under The Smith Family (1971) because a contestant family is named Smith"},
+  "family-feud-9-27-2021": {"notIn": "*", "why": "a 2021 Family Feud broadcast, filed under The Smith Family (1971) because a contestant family is named Smith"},
+  "family-feud-october-29-2021-2": {"notIn": "*", "why": "a 2021 Family Feud broadcast, filed under The Smith Family (1971) because a contestant family is named Smith"},
+  "family-feud-october-28-2021-2": {"notIn": "*", "why": "a 2021 Family Feud broadcast, filed under The Smith Family (1971) because a contestant family is named Smith"},
+  "emmerdale-episode-2478-28-january-1999_202403": {"notIn": "*", "why": "Emmerdale episode 2478, broadcast 28 January 1999 (its own id), kept on the series' 1972 start because the spine dropped its year"},
+  "emmerdale-episode-2554-27-july-1999_202403": {"notIn": "*", "why": "Emmerdale episode 2554, broadcast 27 July 1999 (its own id), kept on the series' 1972 start because the spine dropped its year"},
+  "emmerdale-episode-2565-18-august-1999_202403": {"notIn": "*", "why": "Emmerdale episode 2565, broadcast 18 August 1999 (its own id), kept on the series' 1972 start because the spine dropped its year"},
+  "the-family-chase-uk-s2-e8": {"notIn": "adam-12-1968", "why": "'The Family Chase UK S2 E8' (its own file), another program, filed as Adam-12's 'Log 093: Once a Junkie'"},
+  "AdventuresOfRobinHoodep9Checkmate": {"notIn": "checkmate-1960", "why": "'Adventures of Robin Hood (ep 9 Checkmate)' (its own file), an episode of The Adventures of Robin Hood titled Checkmate, filed under the series Checkmate (1960)"},
+  "wasp-bikini-scenes-the-avengers-earths-mightiest-heroes-s-01-e-20-1080p": {"notIn": "*", "why": "a clip of The Avengers: Earth's Mightiest Heroes (Marvel, 2010), filed as the 1961 British series' 'Tunnel of Fear'"}
+}

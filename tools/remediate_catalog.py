@@ -4314,13 +4314,32 @@ def report_unknown_editorial_ids(items):
     """An entry keyed on an id the catalog does not have does nothing, silently.
     (2026-09-29: five title fixes were keyed on ids a listing had truncated.)"""
     ids = {it.get("archiveID") for it in items}
+    # An item that became a series episode (Decisions 045/167) is not a card:
+    # its spine gives it TVmaze's or its own file's title, so a card-era
+    # correction is dormant, not mistyped (2026-10-27: 109 such ids).
+    served = set()
+    for f in (REPO / "series").glob("*.json"):
+        try:
+            d = json.loads(f.read_text())
+        except Exception:  # noqa: BLE001
+            continue
+        for se in d.get("seasons") or []:
+            for e in se.get("episodes") or []:
+                served.update(x for x in (e.get("archiveID"), e.get("sourceID"),
+                                          str(e.get("archiveID") or "").split("@")[0]) if x)
     for name in _EDITORIAL_ID_TABLES:
         p = REPO / f"shared/editorial/{name}.json"
         if not p.exists():
             continue
-        unknown = [k for k in json.loads(p.read_text()) if not k.startswith("_") and k not in ids]
+        keys = [k for k in json.loads(p.read_text()) if not k.startswith("_") and k not in ids]
+        unknown = [k for k in keys if k not in served]
         if unknown:
             print(f"::warning::{name}.json has {len(unknown)} id(s) not in the catalog: {', '.join(unknown[:5])}")
+        eps = [k for k in keys if k in served]
+        if eps and name == "not_films":   # never to be served: build_canonical_tv drops them
+            print(f"::warning::not_films.json names {len(eps)} id(s) a series spine still serves: {', '.join(eps[:5])}")
+        elif eps:
+            print(f"[remediate] {name}.json: {len(eps)} id(s) are series episodes")
 
 
 def main():

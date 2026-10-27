@@ -255,6 +255,7 @@ into every session and the index alone carries every title.)
 - 166 — A series held in one archive.org item is a series: its files become episodes, `<item>@<token>`, on evidence the item itself gives
 - 167 — A whole series filed in one item and matched onto a TVmaze show becomes that show's episodes, placed by title
 - 168 — Correction to 167: each file of a whole-series item is judged by its own year; its item answers only for the licence
+- 169 — A single-episode upload is placed by its own file name and id, and a person's "never serve this" binds every series
 
 ---
 
@@ -1030,4 +1031,47 @@ every one aired 1978 or later, and every show stays.
 judge by file. The 111 manifest rows were removed and the five spines restored
 and rebuilt, since `tv_rights_removed.csv` re-removes by id on every run.
 `test_tv_rights_items.py` holds a 1976 and a 1978 file of one upload.
+
+## 169 — A single-episode upload is placed by its own file name and id, and a person's "never serve this" binds every series
+*Date: 2026-10-27*
+
+`build_canonical_tv.map_items_to_canonical` places an upload that is one
+episode by its OWN words, its file name and archive.org id, never by the
+`title` it carries: a title it states that names a TVmaze episode places it
+there (exact, leading articles ignored, then fuzzy unless the candidates differ
+only by a part number or the years disagree); a number it states ("S04E03",
+"4x03", "Season 4, Episode 3") places it only when its title shares a word with
+that slot or states none; a promo, trailer or "next week" reel is never placed
+and is listed as "Promo: <episode>". Colorized singles place last (Decision
+158), "colorized" is dropped from a show name before TVmaze is asked, and an
+unplaced title loses the show's name in front. `not_films.json` and the new
+`shared/editorial/episode_rejects.json` ({archiveID: {notIn: slug|"*", why}})
+are dropped from every rebuilt spine.
+
+**Why**: the owner, 2026-10-27: *"There is no reason to leave bad data rather
+than investigating and fixing it."* 109 editorial ids warned "not in the
+catalog" every build; they were series episodes, and reading their spines
+found three defects. An episode is re-pooled carrying the canonical title of
+the slot it holds, so a misplacement confirmed itself every build:
+"s01e01.The.Speckled.Band" was Sherlock Holmes' "Cunningham Heritage", a 1953
+Humphrey Bogart Jack Benny was 1951's 1x03, Twilight Zone promo reels were
+"The Silence" and "The Parallel", Victory at Sea's "09_Sea_And_Sand" was 1x02.
+Measured against TVmaze for all 236 spines: 306 placements change, about 230
+of them files that now find their episode (Four Star Playhouse, William Tell,
+The Buccaneers, Loretta Young), each reviewed against its file name. Second,
+`not_films` bound only the catalog, so LTT101, a Looney Tunes rip from Tubi, was
+some 260 episodes of the Looney Tunes spine through Decision 167. Third, other
+programs sat inside shows with their years clamped to the show's run, where
+the TV rights audit keeps an undated episode on the show's year: the 2002
+Twilight Zone and 1995 Outer Limits revivals, 2020-21 Family Feud in The Smith
+Family, 1999 Emmerdale, a Marvel cartoon clip in The Avengers (1961).
+
+**How to apply**: never place a single upload by `title`; read `_own_texts`. A
+wrong placement is fixed by a rule with a control in
+`tools/test_tv_episode_placement.py` (gated in tv-canonical), never a list of
+ids; an upload that is another program goes in `episode_rejects.json` with what
+its own file or record says it is. A stated year was measured as a general
+rule and refused: Space: 1999, Studio One's "1984" and a KNTV accession number
+read as modern years. Editorial ids that are series episodes are reported as
+such, and a `not_films` id a spine still serves is a warning.
 

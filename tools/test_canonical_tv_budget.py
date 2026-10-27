@@ -30,7 +30,7 @@ B.canonical_episodes = lambda sh: [
 items = [{"archiveID": f"aid-{i+1}", "downloadURL": f"https://x/{i+1}.mp4",
           "videoFile": f"{i+1}.mp4", "title": f"Budget Test S01E{i+1:02d}",
           "runtimeSeconds": 1500} for i in range(EPS)]
-B.map_items_to_canonical = lambda our, canon: (
+B.map_items_to_canonical = lambda our, canon, show_title=None: (
     {(1, i + 1): (canon[i], items[i]) for i in range(min(len(items), len(canon)))}, [])
 
 def run(deadline):

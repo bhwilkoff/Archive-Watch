@@ -245,6 +245,90 @@ def parse_sxe(*texts):
     return None, None
 
 
+NXN_RE = re.compile(r"(?<![\w.])(\d{1,2})x(\d{2,3})(?!\d)", re.I)
+SEASON_EP_RE = re.compile(r"season[\s_.-]*(\d{1,2})[\s_.,-]*(?:episode|ep)s?[\s_.-]*(\d{1,3})", re.I)
+_PROMO_RE = re.compile(r"\b(?:promos?|trailers?|preview|teaser|next week)\b", re.I)
+_MARKS_RE = re.compile(r"\b(?:s\d{1,2}\s*e\d{1,3}|\d{1,2}x\d{2,3}|season|episodes?|ep|part|\d+[a-z]{0,2})\b")
+_FILE_JUNK = {"mp4", "mkv", "avi", "ogv", "ia", "hd", "sd", "web", "dl", "dvdrip", "rip", "x264",
+              "h264", "aac", "colorized", "restored", "airing", "aired", "guest", "classic",
+              "sitcom", "vintage", "full", "uncut", "remastered", "pilot", "unaired", "tv"}
+
+
+def _own_texts(it):
+    """The upload's OWN words for itself: its file name and its archive.org id.
+    Not `title` — an episode re-pooled from a spine carries the canonical title
+    of the slot it already holds, so a misplacement would confirm itself."""
+    vf = it.get("videoFile") or {}
+    stem = re.sub(r"\.[a-z0-9]{2,4}$", "", vf.get("name") or _basename(it.get("downloadURL")) or "", flags=re.I)
+    stem = re.sub(r"\.ia$", "", stem, flags=re.I)
+    return [re.sub(r"[_.]+", " ", re.sub(r"([a-z])([A-Z])", r"\1 \2", t)).strip()
+            for t in (stem, it.get("archiveID") or "") if t]
+
+
+def _own_sxe(texts):
+    """A season and episode the upload states, in any of the forms uploaders use
+    (S04E03, 4x03, "Season 4, Episode 3")."""
+    for t in texts:
+        for rx in (SXE_RE, NXN_RE, SEASON_EP_RE):
+            m = rx.search(t)
+            if m:
+                return int(m.group(1)), int(m.group(2))
+    return None, None
+
+
+_ARTICLE = re.compile(r"^(?:the|a|an)\s+")
+
+
+def _own_title_target(variants, canon_titles):
+    """_title_target for a single upload's own words: an exact match first with
+    leading articles dropped on both sides ("Bonanza - The Blood Line" is TVmaze's
+    "The Blood Line", not the closer-spelled "Blood Tie"), and no fuzzy guess
+    among episodes that differ only by a part number ("Beyond the Curtain of
+    Space (1)/(2)/(3)")."""
+    bare = [(_ARTICLE.sub("", t), c) for t, c in canon_titles]
+    for v in variants:
+        hit = [c for t, c in bare if t == _ARTICLE.sub("", v)]
+        if hit:
+            return hit[0]
+    target = _title_target(variants, canon_titles)
+    if target is not None:
+        theirs = set(re.findall(r"\b(?:19|20)\d{2}\b", target["title"] or ""))
+        mine = {y for v in variants for y in re.findall(r"\b(?:19|20)\d{2}\b", v)}
+        if theirs and mine and not theirs & mine:   # "1 November 1959" is not "November 2, 1956"
+            return None
+        stem = re.sub(r"\d+", "", _norm(target["title"])).strip()
+        if sum(1 for t, _ in canon_titles if re.sub(r"\d+", "", t).strip() == stem) > 1:
+            return None
+    return target
+
+
+def _after_marker(texts):
+    """What follows the last episode marker ("... TV 1954 colorized s01e04 At
+    Night All Cats Are Gray"), which is where uploaders write the episode."""
+    out = []
+    for t in texts:
+        m = list(re.finditer(r"s\d{1,2}\s*-?\s*e\d{1,3}|(?<![\w.])\d{1,2}x\d{2,3}(?!\d)", t, re.I))
+        if m and t[m[-1].end():].strip(" -–:."):
+            out.append(t[m[-1].end():].strip(" -–:."))
+    return out
+
+
+_GENERIC_EP = re.compile(r"^\s*(?:episode|part|chapter|program(?:me)?)\b", re.I)
+
+
+def _words_meet(a, b):
+    """Two titles share a word, allowing a stem ("Recruits"/"Recruit") and a
+    translation's cognate ("Universo"/"Universe")."""
+    return any(x == y or (len(x) >= 5 and len(y) >= 5 and x[:5] == y[:5]) for x in a for y in b)
+
+
+def _title_words(t, show_tokens=frozenset()):
+    t = re.sub(r"(?<=[a-z])(?=\d)|(?<=\d)(?=[a-z])", " ", _norm(t))
+    words = _MARKS_RE.sub(" ", t).split()
+    return {w for w in words if len(w) >= 3 and w not in show_tokens
+            and w not in _TOKEN_STOP and w not in _FILE_JUNK}
+
+
 def parse_epnum(*texts):
     for t in texts:
         if not t:
@@ -378,13 +462,23 @@ _EXTRA_TITLE_NOISE = re.compile(
     r"blu[\s-]?ray(\s+extras)?|x264|x265|h\.?264|web[\s-]?dl)\b", re.I)
 
 
-def clean_extra_title(t):
+def clean_extra_title(t, show_title=None):
     """Light cleanup for the title of an item we couldn't align to a canonical
     episode: strip bracket tags, format noise, and trailing dates so we don't
-    show '...The Complete Series' / '...- MKV' as an episode name (issue #4)."""
+    show '...The Complete Series' / '...- MKV' as an episode name (issue #4),
+    and the show's own name in front ("'Mack and Myer for Hire'- Wacky
+    Wizardry"), which the series page already says."""
     if not t:
         return None
     s = re.sub(r"[\[\(][^\]\)]*[\]\)]", " ", t)       # [upgrade] / (1080p)
+    words = [w for w in re.findall(r"[a-z0-9]+", (show_title or "").lower()) if w != "the"]
+    if words:
+        lead = re.compile(r"^\W*(?:the\W+)?" + r"\W+".join(map(re.escape, words)) + r"(?![a-z0-9])[\W_]*", re.I)
+        rest = lead.sub("", s)
+        if re.search(r"[a-z0-9]{2}", rest, re.I):
+            s = rest
+    s = s.replace("''", " ").strip(" '\"")
+    s = re.sub(r"^(?:s\d{1,2}\s*e\d{1,3}|\d{1,2}x\d{2,3})\s*[-–:.]?\s+(?=\w)", "", s, flags=re.I)
     s = _EXTRA_TITLE_NOISE.sub(" ", s)
     s = re.sub(r"\s+[-–]\s+\d{1,2}[-/.]\d{1,2}[-/.]\d{2,4}\b", " ", s)  # - 10-24-62
     s = re.sub(r"[_]+", " ", s)
@@ -405,6 +499,33 @@ def _wrong_show_bundles(our_eps):
             total[e["sourceID"]] += 1
             placed[e["sourceID"]] += bool(e.get("_named"))
     return {src for src, n in total.items() if n >= 4 and placed[src] < 0.25 * n}
+
+
+_NOT_FILMS = None
+
+
+def _not_films():
+    global _NOT_FILMS
+    if _NOT_FILMS is None:
+        p = REPO / "shared" / "editorial" / "not_films.json"
+        _NOT_FILMS = ({k for k in json.loads(p.read_text()) if not k.startswith("_")}
+                      if p.exists() else set())
+    return _NOT_FILMS
+
+
+_EPISODE_REJECTS = None
+
+
+def _episode_rejects():
+    """{archiveID: {notIn, why}}: an upload a person found is not an episode of
+    the show it was filed under (2002 Twilight Zone revival rips in the 1959
+    series, 2021 Family Feud in The Smith Family)."""
+    global _EPISODE_REJECTS
+    if _EPISODE_REJECTS is None:
+        p = REPO / "shared" / "editorial" / "episode_rejects.json"
+        _EPISODE_REJECTS = ({k: v for k, v in json.loads(p.read_text()).items() if not k.startswith("_")}
+                            if p.exists() else {})
+    return _EPISODE_REJECTS
 
 
 def expand_bundles(our_eps, keep=frozenset()):
@@ -456,7 +577,8 @@ def _bundle_order(our_eps):
     """Items that are one episode each place first, as before; files of
     whole-series items after them, the fullest upload first and a colorized one
     last (Decision 158: a colorization is never the default copy)."""
-    singles = [e for e in our_eps if not e.get("sourceID")]
+    singles = sorted((e for e in our_eps if not e.get("sourceID")),
+                     key=lambda e: BUNDLE.is_colorized(" ".join(_own_texts(e))))
     files = [e for e in our_eps if e.get("sourceID")]
     size = defaultdict(int)
     for e in files:
@@ -555,17 +677,48 @@ def map_items_to_canonical(our_eps, canon, show_title=None):
                 extras.append(it)
             continue
         title = it.get("title") or ""
+        own = _own_texts(it)
+        # A promo, trailer or "next week" reel names the episode it advertises
+        # ("Twilight Zone promo (S2E25 The Silence)"); it is not that episode.
+        if any(_PROMO_RE.search(t) for t in own):
+            ps, pe = _own_sxe(own)
+            advert = by_sxe.get((ps, pe)) if ps is not None else None
+            it["title"] = f"Promo: {advert['title']}" if advert else (own[0] if own else title)
+            it["_promo"] = True
+            extras.append(it)
+            continue
         sxe_texts = _item_sxe_texts(it)
         s, e = parse_sxe(*sxe_texts)
+        if s is None:
+            s, e = _own_sxe(own)
         target = None
         if s is not None and (s, e) in by_sxe:
             target = by_sxe[(s, e)]
-        if target is None:
+        if target is None and s is None:
             # Season 1 assumption when only an episode number is present and
-            # the show is single-season-ish — but only if S1En exists.
+            # the show is single-season-ish — but only if S1En exists, and
+            # never when the upload names another season ("Season4Episode3").
             n = parse_epnum(*sxe_texts)
             if n is not None and (1, n) in by_sxe:
                 target = by_sxe[(1, n)]
+        # The upload's own title outranks its number (as for a whole-series
+        # item's files, Decision 167): "s01e01.The.Speckled.Band" is not
+        # TVmaze's 1x01. A title that names another episode moves it there;
+        # one that names none and shares no word with its numbered slot is not
+        # that slot.
+        words = _title_words(own[0], show_tokens) if own else set()
+        agrees = target is not None and _words_meet(words, _title_words(target["title"], show_tokens))
+        named = _own_title_target([v for t in own[:1] + _after_marker(own[:1])
+                                   for v in _title_variants(t, show_tokens)], canon_titles) \
+            if words and not agrees else None
+        if named is not None:
+            target = named
+        elif (target is not None and len(words) >= 2 and not agrees
+                and not _GENERIC_EP.match(target["title"] or "")):
+            it["title"] = own[0]
+            target = None
+            extras.append(it)
+            continue
         if target is None:
             # Fuzzy title match against canonical episode names.
             nt = _norm(title)
@@ -617,10 +770,18 @@ def rebuild_show(show, our_eps, *, repick, deadline=None):
     Archive items. Returns (series_dict|None, report_row)."""
     pooled = dedup_items(our_eps)
     our_eps, n_bundles = expand_bundles(pooled)
-    our_eps = dedup_items(our_eps)
+    # A person named the item not a film, never to be served (not_films.json):
+    # that binds its episodes too. LTT101, a Looney Tunes rip from Tubi, came
+    # back as some 260 episodes of the Looney Tunes spine through Decision 167.
+    nf = _not_films()
+    our_eps = dedup_items([e for e in our_eps
+                           if (e.get("sourceID") or BUNDLE.item_of(e.get("archiveID") or "")) not in nf])
     canon = canonical_episodes(show)
     prem0 = (show.get("premiered") or "")[:4]
     slug = slugify(show.get("name"), prem0 if prem0.isdigit() else None)
+    rej = _episode_rejects()
+    our_eps = [e for e in our_eps
+               if (rej.get(e.get("archiveID")) or {}).get("notIn") not in ("*", slug)]
     row = {"slug": slug, "tvmazeID": show.get("id"),
            "title": show.get("name"), "matched": True,
            "canonEps": len(canon), "ourItems": len(our_eps),
@@ -728,6 +889,8 @@ def rebuild_show(show, our_eps, *, repick, deadline=None):
                 continue
             if item.get("sourceID"):
                 s2, e2 = item.get("seasonNumber"), item.get("episodeNumber")
+            elif item.get("_promo"):
+                s2, e2 = None, None
             else:
                 sxe_texts = _item_sxe_texts(item)
                 s2, e2 = parse_sxe(*sxe_texts)
@@ -737,7 +900,8 @@ def rebuild_show(show, our_eps, *, repick, deadline=None):
                 **({"sourceID": item["sourceID"]} if item.get("sourceID") else {}),
                 "seasonNumber": s2,
                 "episodeNumber": e2,
-                "title": (item.get("title") if item.get("sourceID") else clean_extra_title(item.get("title"))) or "Untitled",
+                "title": (item.get("title") if item.get("sourceID")
+                          else clean_extra_title(item.get("title"), show.get("name"))) or "Untitled",
                 "overview": item.get("overview"),
                 "stillURL": item.get("stillURL"),
                 "airDate": None,
@@ -790,7 +954,7 @@ def rebuild_show(show, our_eps, *, repick, deadline=None):
 
 _SUFFIX_RE = re.compile(
     r"\b(tv\s*show|tv\s*series|the\s+complete\s+series|complete\s+series|"
-    r"complete|mini[\s-]?series|tv)\b", re.I)
+    r"complete|mini[\s-]?series|tv|colou?ri[sz]ed)\b", re.I)
 
 def clean_title(t):
     """Normalise an Archive-derived show title for TVmaze search: drop
