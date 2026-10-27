@@ -1864,6 +1864,25 @@ def drop_denylisted_subtitles(items):
     return n
 
 
+def drop_wrong_film_subtitles(items):
+    """Drop a provider subtitle fetched for an IMDb id the item no longer
+    carries. free_subtitles harvests by imdbID and records it as
+    `matchedIMDb`, so when the match is cleared or replaced the file is
+    another film's dialogue (a 1951 Sherlock Holmes pilot kept Abbott and
+    Costello Meet the Invisible Man's). The HLS track was built from the
+    captions, so it goes too and is rebuilt from whatever remains."""
+    n = 0
+    for it in items:
+        caps = it.get("captions") or []
+        kept = [c for c in caps
+                if not (c.get("matchedIMDb") and c["matchedIMDb"] != it.get("imdbID"))]
+        if len(kept) != len(caps):
+            n += len(caps) - len(kept)
+            it["captions"] = kept or None
+            it.pop("subtitleHLS", None)
+    return n
+
+
 def drop_asr_captions(items):
     """archive.org auto-ASR captions (label 'English (auto)', source 'archive-asr')
     are hallucinated word-salad on the catalog's old-film audio — the SAME failure
@@ -4335,6 +4354,9 @@ def main():
     denied = drop_denylisted_subtitles(cat["items"])   # laundered-ASR provider tracks
     if denied:
         stats["denylisted_subtitles_dropped"] = denied
+    wrong_subs = drop_wrong_film_subtitles(cat["items"])
+    if wrong_subs:
+        stats["wrong_film_subtitles_dropped"] = wrong_subs
     stats["junk_removed"] = junk_removed
     print("[remediate] " + (", ".join(f"{k}={v}" for k, v in sorted(stats.items())) or "no changes"))
     if not args.dry_run:

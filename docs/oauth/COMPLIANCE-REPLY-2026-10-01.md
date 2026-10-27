@@ -1,6 +1,8 @@
 # Reply to the YouTube API Services compliance review — ToS Violations Report V.1 (2026-10-01)
 
-Loaded 2026-10-01 as an unsent Gmail draft in the thread (owner reviews and sends).
+SENT 2026-10-01 11:36 MT from benwilkoff@gmail.com, as written below; Google
+acknowledged it 2026-10-02 ("We will conduct our review based on the
+information you provided").
 Send as a reply in the existing thread ("Re: YouTube API Services: Thank you for
 your submission", from youtube-disputes+2f0xs4f1bp7bh1n@google.com), from
 Gmail's web page — never through the Gmail connector, which wraps every link in

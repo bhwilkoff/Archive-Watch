@@ -63,5 +63,20 @@ check("CONTROL: 'adult education' subject is not", rc.is_adult_signal({"title": 
 check("CONTROL: a burlesque parody is not", rc.is_adult_signal({"title": "A Burlesque on Carmen", "synopsis": "Chaplin's burlesque of the opera."}), False)
 check("CONTROL: Haxan's 'erotic film' mention is not", rc.is_adult_signal({"title": "Haxan", "synopsis": "A documentary-style erotic film about witchcraft."}), False)
 
+# A provider subtitle fetched for an IMDb id the item no longer carries is
+# another film's dialogue (the Sherlock Holmes pilot kept Abbott and Costello's).
+sub = lambda m: {"lang": "en", "source": "subsource", "url": "x.vtt", "matchedIMDb": m}
+pilot = {"archiveID": "SherlockHolmes-TheManWhoDisappearedfailedPilot", "imdbID": None,
+         "captions": [sub("tt0043255")], "subtitleHLS": "master.m3u8"}
+kept = {"archiveID": "abbott-and-costello-meet-the-invisible-man", "imdbID": "tt0043255",
+        "captions": [sub("tt0043255")], "subtitleHLS": "master.m3u8"}
+own = {"archiveID": "uploader-srt", "imdbID": None,
+       "captions": [{"lang": "en", "source": "archive", "url": "y.vtt"}], "subtitleHLS": "master.m3u8"}
+check("wrong film's subtitle dropped", rc.drop_wrong_film_subtitles([pilot, kept, own]), 1)
+check("its HLS track goes with it", (pilot["captions"], pilot.get("subtitleHLS")), (None, None))
+check("CONTROL: the film's own match keeps its subtitle", (len(kept["captions"]), kept["subtitleHLS"]), (1, "master.m3u8"))
+check("CONTROL: an uploader's own file has no match to contradict", len(own["captions"]), 1)
+check("Sherlock pilot's match is named wrong", "SherlockHolmes-TheManWhoDisappearedfailedPilot" in rej, True)
+
 print("FAILED" if fails else "ALL PASS", fails)
 sys.exit(1 if fails else 0)
