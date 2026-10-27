@@ -69,6 +69,9 @@ final class CloudKitSyncService {
     private struct PlaylistEntry: Codable {
         var id: String; var name: String; var archiveIDs: [String]
         var createdAt: Date; var modifiedAt: Date
+        // "My Order" among the viewer's lists (2026-10-27). Optional so
+        // payloads from older builds and the web decode unchanged.
+        var sortIndex: Int? = nil
     }
     private struct ProgressEntry: Codable {
         var archiveID: String; var positionSeconds: Double; var durationSeconds: Double
@@ -322,7 +325,8 @@ final class CloudKitSyncService {
         var merged: [String: PlaylistEntry] = [:]
         for p in local.values {
             merged[p.id] = PlaylistEntry(id: p.id, name: p.name, archiveIDs: p.archiveIDs,
-                                         createdAt: p.createdAt, modifiedAt: p.modifiedAt)
+                                         createdAt: p.createdAt, modifiedAt: p.modifiedAt,
+                                         sortIndex: p.sortIndex)
         }
         for e in cloud {
             if let dead = tombByKey["pl:\(e.id)"], dead >= e.modifiedAt { continue }
@@ -330,11 +334,16 @@ final class CloudKitSyncService {
                 if e.modifiedAt > existing.modifiedAt {   // recency wins -> removals propagate
                     existing.name = e.name
                     existing.archiveIDs = e.archiveIDs
+                    existing.sortIndex = e.sortIndex
                     existing.modifiedAt = e.modifiedAt
                     merged[e.id] = e
                 }
             } else {
-                let p = Playlist(id: e.id, name: e.name, archiveIDs: e.archiveIDs)
+                // Its own creation date, not this device's pull time: "newest"
+                // meant "newest to arrive here" on every synced device.
+                let p = Playlist(id: e.id, name: e.name, archiveIDs: e.archiveIDs,
+                                 createdAt: e.createdAt)
+                p.sortIndex = e.sortIndex
                 p.modifiedAt = e.modifiedAt
                 ctx.insert(p)
                 merged[e.id] = e

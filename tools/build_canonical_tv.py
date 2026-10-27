@@ -943,6 +943,7 @@ def rebuild_show(show, our_eps, *, repick, deadline=None):
         "seasons": season_list,
         "episodesCount": avail,         # available (playable) count
         "canonicalEpisodesCount": len(canon),
+        "tvmazeRating": (show.get("rating") or {}).get("average"),
     }
     row["availableEps"] = avail
     return series, row

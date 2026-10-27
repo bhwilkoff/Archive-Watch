@@ -65,8 +65,17 @@ final class Router {
                 set: { self.sidePaths[tab] = $0 })
     }
 
+    /// When the last push landed. A tap that arrives before the page it opened
+    /// has appeared is not a new request: a viewer tapped five TV Specials
+    /// while the first Detail was still coming and found all five stacked
+    /// (2026-10-27).
+    @ObservationIgnored private var lastPushAt = Date.distantPast
+
     /// Push any registered destination onto the active tab's stack.
     func push<V: Hashable>(_ value: V) {
+        let now = Date()
+        guard now.timeIntervalSince(lastPushAt) > 0.5 else { return }
+        lastPushAt = now
         switch tab {
         case .home: homePath.append(value)
         case .browse: browsePath.append(value)

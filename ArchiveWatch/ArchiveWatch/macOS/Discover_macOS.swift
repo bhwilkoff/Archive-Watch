@@ -24,24 +24,26 @@ struct FilteredGridView: View {
     // The grid a category tile opens had no ordering of its own — it was
     // pinned to `.popular`. Reported on the iPad and fixed on every platform
     // at once (2026-09-11); Browse has offered the control for months.
-    @State private var sort: CatalogDB.Sort = .popular
+    @State private var sort: CatalogDB.Sort
+    private var sortSurface: String { SortMemory.surface(contentType: route.contentType) }
+
+    init(route: BrowseFilterRoute) {
+        self.route = route
+        _sort = State(initialValue: SortMemory.sort(for: SortMemory.surface(contentType: route.contentType)))
+    }
 
     var body: some View {
         GridView(title: route.title, items: items)
             .toolbar {
                 ToolbarItem {
                     Picker("Sort", selection: $sort) {
-                        Text("Popular").tag(CatalogDB.Sort.popular)
-                        Text("Top Rated").tag(CatalogDB.Sort.rating)
-                        Text("A–Z").tag(CatalogDB.Sort.alphabetical)
-                        Text("Newest").tag(CatalogDB.Sort.newest)
-                        Text("Oldest").tag(CatalogDB.Sort.oldest)
+                        ForEach(CatalogDB.Sort.allCases, id: \.self) { Text($0.label).tag($0) }
                     }
                     .pickerStyle(.menu)
                 }
             }
             .task(id: store.dbVersion) { load() }
-            .onChange(of: sort) { load() }
+            .onChange(of: sort) { SortMemory.remember(sort, for: sortSurface); load() }
     }
 
     /// Capped routes (Decision 046) hold their whole result set already, so they

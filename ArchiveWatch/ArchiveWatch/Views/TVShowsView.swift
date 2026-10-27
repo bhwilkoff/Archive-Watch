@@ -18,7 +18,7 @@ struct TVShowsView: View {
     @Environment(Router.self) private var router
 
     @State private var filter = BrowseFilter()
-    @State private var sort: BrowseSort = .popular
+    @State private var sort = BrowseSort.remembered(for: SortMemory.tv)
     @State private var shuffleSeed = 0
     @State private var items: [Catalog.Item] = []
     @State private var specialsCount = 0
@@ -47,7 +47,8 @@ struct TVShowsView: View {
             // field-by-field rather than as a tuple — the tuple form times out
             // the type-checker on the released toolchain.
             return pool.sorted { a, b in
-                let ra = a.imdbRating ?? -1, rb = b.imdbRating ?? -1
+                // TVmaze's rating where IMDb's is missing (every series card).
+                let ra = a.imdbRating ?? a.tvmazeRating ?? -1, rb = b.imdbRating ?? b.tvmazeRating ?? -1
                 if ra != rb { return ra > rb }
                 let va = a.imdbVotes ?? 0, vb = b.imdbVotes ?? 0
                 if va != vb { return va > vb }
@@ -55,6 +56,8 @@ struct TVShowsView: View {
             }
         case .alphabetical:
             return pool.sorted { $0.title.localizedCaseInsensitiveCompare($1.title) == .orderedAscending }
+        case .reverseAlphabetical:
+            return pool.sorted { $0.title.localizedCaseInsensitiveCompare($1.title) == .orderedDescending }
         case .newest:
             return pool.sorted { ($0.year ?? 0) > ($1.year ?? 0) }
         case .oldest:
@@ -103,7 +106,7 @@ struct TVShowsView: View {
             focusedArchiveID = items.first?.archiveID
         }
         .onChange(of: filter) { _, _ in items = computeItems() }
-        .onChange(of: sort) { _, _ in items = computeItems() }
+        .onChange(of: sort) { _, _ in sort.remember(for: SortMemory.tv); items = computeItems() }
         .onChange(of: shuffleSeed) { _, _ in items = computeItems() }
         .onChange(of: store.dbGeneration) { _, _ in
             items = computeItems()

@@ -188,7 +188,7 @@ struct GridView: View {
     /// A collection's own words (archive.org's, SCRATCHPAD 2026-09-27), above its films as
     /// the iPhone shows them; the Mac opened straight onto posters.
     var blurb: String? = nil
-    @State private var sort: CatalogDB.Sort = .popular
+    @State private var sort = SortMemory.sort(for: SortMemory.collection)
 
     private var shown: [Catalog.Item] { sortable ? CatalogDB.ordered(items, by: sort) : items }
 
@@ -212,15 +212,12 @@ struct GridView: View {
             }
         }
         .navigationTitle(title)
+        .onChange(of: sort) { if sortable { SortMemory.remember(sort, for: SortMemory.collection) } }
         .toolbar {
             if sortable {
                 ToolbarItem {
                     Picker("Sort", selection: $sort) {
-                        Text("Popular").tag(CatalogDB.Sort.popular)
-                        Text("Top Rated").tag(CatalogDB.Sort.rating)
-                        Text("A–Z").tag(CatalogDB.Sort.alphabetical)
-                        Text("Newest").tag(CatalogDB.Sort.newest)
-                        Text("Oldest").tag(CatalogDB.Sort.oldest)
+                        ForEach(CatalogDB.Sort.allCases, id: \.self) { Text($0.label).tag($0) }
                     }
                     .pickerStyle(.menu)
                     .fixedSize()

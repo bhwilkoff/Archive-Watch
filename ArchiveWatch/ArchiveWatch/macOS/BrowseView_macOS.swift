@@ -14,7 +14,7 @@ struct BrowseView: View {
     @State private var typeFilter: String? = nil      // narrows WITHIN the section (parity with iOS)
     @State private var decade: Int? = nil
     @State private var runtime: RuntimeBand? = nil
-    @State private var sort: CatalogDB.Sort = .popular
+    @State private var sort = SortMemory.sort(for: SortMemory.browse)
     @State private var total = 0
     @State private var offset = 0
     // Metadata-expansion facets (Decision 046) for the Filter menu.
@@ -68,11 +68,7 @@ struct BrowseView: View {
                         ForEach(RuntimeBand.allCases) { Text($0.label).tag(RuntimeBand?.some($0)) }
                     }
                     Picker("Sort", selection: $sort) {
-                        Text("Popular").tag(CatalogDB.Sort.popular)
-                        Text("Top Rated").tag(CatalogDB.Sort.rating)
-                        Text("A–Z").tag(CatalogDB.Sort.alphabetical)
-                        Text("Newest").tag(CatalogDB.Sort.newest)
-                        Text("Oldest").tag(CatalogDB.Sort.oldest)
+                        ForEach(CatalogDB.Sort.allCases, id: \.self) { Text($0.label).tag($0) }
                     }
                     // Decision 046: keyword + studio facets open a dedicated filtered
                     // grid (join-table queries, not part of this paged section).
@@ -115,7 +111,7 @@ struct BrowseView: View {
         .onChange(of: typeFilter) { _, _ in reset() }
         .onChange(of: decade) { _, _ in reset() }
         .onChange(of: runtime) { _, _ in reset() }
-        .onChange(of: sort) { _, _ in reset() }
+        .onChange(of: sort) { _, _ in SortMemory.remember(sort, for: SortMemory.browse); reset() }
     }
 
     private var decadeList: [Int] { (store.db?.decadeCounts().keys.sorted(by: >)) ?? [] }
@@ -146,7 +142,7 @@ struct TVBrowseView: View {
     @Environment(AppRouter.self) private var router
     @State private var series: [Catalog.Item] = []
     @State private var specialsCount = 0
-    @State private var sort: CatalogDB.Sort = .popular
+    @State private var sort = SortMemory.sort(for: SortMemory.tv)
 
     var body: some View {
         ScrollView {
@@ -184,29 +180,23 @@ struct TVBrowseView: View {
             ToolbarItem {
                 Menu {
                     Picker("Sort", selection: $sort) {
-                        Text("Popular").tag(CatalogDB.Sort.popular)
-                        Text("Top Rated").tag(CatalogDB.Sort.rating)
-                        Text("A–Z").tag(CatalogDB.Sort.alphabetical)
+                        ForEach(CatalogDB.Sort.allCases, id: \.self) { Text($0.label).tag($0) }
                     }
                 } label: {
-                    Label("Filter", systemImage: sort == .popular
+                    Label("Filter", systemImage: sort == SortMemory.defaultSort(for: SortMemory.tv)
                           ? "line.3.horizontal.decrease.circle" : "line.3.horizontal.decrease.circle.fill")
                 }
             }
         }
+        .onChange(of: sort) { SortMemory.remember(sort, for: SortMemory.tv) }
         .task(id: store.dbVersion) {
             series = store.seriesCards()
             specialsCount = store.tvSpecialsCount()
         }
     }
 
-    // Series cards carry no popularity, so sort them client-side by the chosen key.
-    private var sortedSeries: [Catalog.Item] {
-        switch sort {
-        case .alphabetical: series.sorted { $0.title.localizedCaseInsensitiveCompare($1.title) == .orderedAscending }
-        case .rating:       series.sorted { ($0.imdbRating ?? 0) > ($1.imdbRating ?? 0) }
-        default:            series
-        }
-    }
+    // Series cards are already in Popular order; every other key sorts here,
+    // with Browse's own rules (CatalogDB.ordered).
+    private var sortedSeries: [Catalog.Item] { CatalogDB.ordered(series, by: sort) }
 }
 #endif

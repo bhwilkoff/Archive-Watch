@@ -28,7 +28,7 @@ struct BrowseView: View {
     @State private var contentType: String? = nil
     @State private var decade: Int? = nil
     @State private var runtime: RuntimeBand? = nil
-    @State private var sort: CatalogDB.Sort = .popular
+    @State private var sort = SortMemory.sort(for: SortMemory.browse)
     @State private var items: [Catalog.Item] = []
     @State private var page = 0
     private let pageSize = 60
@@ -36,6 +36,7 @@ struct BrowseView: View {
 
     // TV state
     @State private var series: [Catalog.Item] = []
+    @State private var tvSort = SortMemory.sort(for: SortMemory.tv)
     @State private var specialsCount = 0
 
     // Metadata-expansion facets (Decision 046) for the filter menu.
@@ -66,6 +67,7 @@ struct BrowseView: View {
             }
 
             if scope == .films { filterChips }
+            if scope == .tv { tvChips }
 
             switch scope {
             case .films: filmsGrid
@@ -92,7 +94,7 @@ struct BrowseView: View {
             }
             #endif
             if items.isEmpty { reload() }
-            if series.isEmpty { series = store.seriesCards() }
+            if series.isEmpty { series = CatalogDB.ordered(store.seriesCards(), by: tvSort) }
             specialsCount = store.tvSpecialsCount()
             if keywordFacets.isEmpty { keywordFacets = store.topKeywords() }
             if studioFacets.isEmpty { studioFacets = store.topStudios() }
@@ -115,7 +117,7 @@ struct BrowseView: View {
         .onChange(of: contentType) { reload() }
         .onChange(of: decade) { reload() }
         .onChange(of: runtime) { reload() }
-        .onChange(of: sort) { reload() }
+        .onChange(of: sort) { SortMemory.remember(sort, for: SortMemory.browse); reload() }
     }
 
     // MARK: Filters you can see (iOS-DESIGN §4.2a)
@@ -126,15 +128,7 @@ struct BrowseView: View {
     // narrows the grid is filled, and Clear appears once anything is set.
 
     private var typeLabel: String { types.first { $0.1 == contentType }?.0 ?? "All" }
-    private var sortLabel: String {
-        switch sort {
-        case .popular: "Popular"
-        case .rating: "Top Rated"
-        case .alphabetical: "A–Z"
-        case .newest: "Newest"
-        case .oldest: "Oldest"
-        }
-    }
+    private var sortLabel: String { sort.label }
     private var anyFilter: Bool { contentType != nil || decade != nil || runtime != nil }
 
     private var filterChips: some View {
@@ -171,11 +165,7 @@ struct BrowseView: View {
                 }
                 chip("Sort: \(sortLabel)", active: false) {
                     Picker("Sort", selection: $sort) {
-                        Text("Popular").tag(CatalogDB.Sort.popular)
-                        Text("Top Rated").tag(CatalogDB.Sort.rating)
-                        Text("A–Z").tag(CatalogDB.Sort.alphabetical)
-                        Text("Newest").tag(CatalogDB.Sort.newest)
-                        Text("Oldest").tag(CatalogDB.Sort.oldest)
+                        ForEach(CatalogDB.Sort.allCases, id: \.self) { Text($0.label).tag($0) }
                     }
                 }
                 // Decision 046: keyword + studio facets open a dedicated
@@ -184,7 +174,7 @@ struct BrowseView: View {
                     chip("Keyword", active: false) {
                         ForEach(keywordFacets, id: \.self) { k in
                             Button(k.capitalized) {
-                                router.browsePath.append(BrowseFilterRoute(title: k.capitalized, keyword: k))
+                                router.push(BrowseFilterRoute(title: k.capitalized, keyword: k))
                             }
                         }
                     }
@@ -193,7 +183,7 @@ struct BrowseView: View {
                     chip("Studio", active: false) {
                         ForEach(studioFacets, id: \.self) { st in
                             Button(st) {
-                                router.browsePath.append(BrowseFilterRoute(title: st, studio: st))
+                                router.push(BrowseFilterRoute(title: st, studio: st))
                             }
                         }
                     }
@@ -244,14 +234,31 @@ struct BrowseView: View {
 
     // MARK: TV
 
+    /// The series grid's own Sort chip (iOS-DESIGN §4.2a), remembered with
+    /// every other television grid's: A–Z until the viewer chooses otherwise.
+    private var tvChips: some View {
+        HStack {
+            chip("Sort: \(tvSort.label)", active: false) {
+                Picker("Sort", selection: $tvSort) {
+                    ForEach(CatalogDB.Sort.allCases, id: \.self) { Text($0.label).tag($0) }
+                }
+            }
+            Spacer()
+        }
+        .padding(.horizontal).padding(.bottom, 8)
+        .onChange(of: tvSort) {
+            SortMemory.remember(tvSort, for: SortMemory.tv)
+            series = CatalogDB.ordered(store.seriesCards(), by: tvSort)
+        }
+    }
+
     private var tvGrid: some View {
         ScrollView {
             // Standalone TV specials/episodes not folded into a series live here,
             // OUT of the Films grid (owner directive 2026-06-18). Shown only when present.
             if specialsCount > 0 {
                 Button {
-                    router.browsePath.append(BrowseFilterRoute(title: "TV Specials",
-                                                               contentType: "tv-special"))
+                    router.push(BrowseFilterRoute(title: "TV Specials", contentType: "tv-special"))
                 } label: {
                     HStack {
                         Label("TV Specials", systemImage: "tv")
@@ -266,7 +273,7 @@ struct BrowseView: View {
             }
             LazyVGrid(columns: cols, spacing: 18) {
                 ForEach(series) { card in
-                    Button { router.browsePath.append(SeriesRef(card: card)) } label: {
+                    Button { router.push(SeriesRef(card: card)) } label: {
                         PosterTile(item: card)
                     }
                     .buttonStyle(.plain)

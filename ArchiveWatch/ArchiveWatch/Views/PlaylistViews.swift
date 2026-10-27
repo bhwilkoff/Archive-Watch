@@ -51,7 +51,7 @@ struct AddToPlaylistSheet: View {
                         .foregroundStyle(.white.opacity(0.85))
                         .padding(.top, 8)
                     LazyVStack(spacing: 14) {
-                        ForEach(playlists) { pl in
+                        ForEach(Playlist.inMyOrder(playlists)) { pl in
                             PlaylistPickRow(name: pl.name,
                                             count: pl.archiveIDs.count,
                                             isOn: pl.contains(archiveID)) { toggle(pl) }
@@ -306,7 +306,7 @@ struct PlaylistsSection: View {
                     .padding(.horizontal, 80)
                 ScrollView(.horizontal, showsIndicators: false) {
                     LazyHStack(alignment: .top, spacing: 40) {
-                        ForEach(playlists) { pl in
+                        ForEach(Playlist.inMyOrder(playlists)) { pl in
                             PlaylistTile(playlist: pl) { router.push(PlaylistRoute(id: pl.id)) }
                                 // tvOS could CREATE and PLAY playlists but never
                                 // delete one — iOS swipe-deletes with the same

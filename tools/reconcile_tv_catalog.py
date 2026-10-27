@@ -87,6 +87,7 @@ def series_card(s):
         "networks": nets,
         "creator": s.get("creator"),
         "imdbRating": None, "imdbVotes": None, "contentRating": None,
+        "tvmazeRating": s.get("tvmazeRating"),
         "synopsisSource": "tvmaze" if s.get("overview") else None,
     }
 
@@ -144,6 +145,7 @@ def main():
             # carry the real artwork source (TheTVDB upgrades) + cast through to
             # the card, instead of letting series_card default everything to tvmaze.
             "artworkSource": s.get("artworkSource"), "cast": s.get("cast"),
+            "tvmazeRating": s.get("tvmazeRating"),
         }))
         for season in s.get("seasons", []):
             for ep in season.get("episodes", []):

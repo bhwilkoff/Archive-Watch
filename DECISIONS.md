@@ -256,6 +256,7 @@ into every session and the index alone carries every title.)
 - 167 — A whole series filed in one item and matched onto a TVmaze show becomes that show's episodes, placed by title
 - 168 — Correction to 167: each file of a whole-series item is judged by its own year; its item answers only for the licence
 - 169 — A single-episode upload is placed by its own file name and id, and a person's "never serve this" binds every series
+- 170 — A sort is remembered per kind of grid and television starts A–Z; a playlist's place among playlists is synced, and every sync writer carries it
 
 ---
 
@@ -1074,4 +1075,40 @@ its own file or record says it is. A stated year was measured as a general
 rule and refused: Space: 1999, Studio One's "1984" and a KNTV accession number
 read as modern years. Editorial ids that are series episodes are reported as
 such, and a `not_films` id a spine still serves is a warning.
+
+## 170 — A sort is remembered per kind of grid and television starts A–Z; a playlist's place among playlists is synced, and every sync writer carries it
+*Date: 2026-10-27*
+
+Every Browse grid keeps the viewer's sort per KIND of grid — `browseSort.tv`,
+`.browse`, `.category`, `.collection`, the same key names on every platform —
+and television grids start on A–Z (the rest on Popular). Sort gains Z–A
+everywhere. Top Rated orders a series by its TVmaze rating (`tvmazeRating`: a
+spine field, a series-card field, the last `items` column, the index's rating
+column for tv-series rows) and breaks every tie, ending in title. Playlists
+gain "My Order": `Playlist.sortIndex`, synced with the list, a list with none
+first; a playlist's films are arranged by the order of `archiveIDs`. Remove,
+Rename and a confirmed Delete sit where the list is seen (iOS-DESIGN §4.2c,
+§4.3a).
+
+**Why**: a viewer, John Howard, over five emails (docs/USER-FEEDBACK-2026-10.md):
+the sort reset on every visit, Top Rated looked like A–Z, and he could neither
+remove a film from a list nor arrange one. The owner, 2026-10-27: *"A-Z sorting
+by default makes sense with the ability to change and have it remember. Yes to
+ratings on TV series (TV maze is great) and then please implement full manual
+ordering for playlists, as it is a reasonable request."* Top Rated "looked like
+A–Z" because no series card had any rating, every row tied, and SQLite returned
+insertion order, which is slug order. Memory per kind rather than per grid: a
+choice made in one genre is expected in the next.
+
+**How to apply**: a new grid takes its sort from `SortMemory` (Apple),
+`BrowseSort.remembered` (tvOS) or its platform's equivalent, never a bare
+`@State`/`remember` default; Random/Shuffle is never remembered. The TVmaze
+number is never displayed or written as IMDb's — it is its own column, guarded
+by `columnExists` because older DBs lack it. Any code that writes playlists to
+a sync store (CloudKit on Apple and web, Drive on Android and web) must read and
+write `sortIndex`: a writer that rebuilds an entry from the fields it knows
+erases the viewer's arrangement on every other device, and the web did exactly
+that for unknown fields before this change. `Playlist.arrange` stamps only
+lists whose place changed, so a move syncs as a move. A synced playlist keeps
+its own `createdAt` (it used to take the pull time).
 

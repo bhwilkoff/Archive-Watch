@@ -42,6 +42,7 @@ private struct FilmContextMenu: ViewModifier {
     @Environment(\.modelContext) private var ctx
     @Environment(\.openWindow) private var openWindow
     @Environment(\.supportsMultipleWindows) private var supportsMultipleWindows
+    @Environment(\.removeFromPlaylist) private var removeFromPlaylist
 
     /// Read when the menu opens, so a grid of tiles does not each observe
     /// every favorite.
@@ -72,6 +73,12 @@ private struct FilmContextMenu: ViewModifier {
             }
             if let url = URL(string: "https://archivewatch.org/item/\(archiveID)") {
                 ShareLink(item: url) { Label("Share…", systemImage: "square.and.arrow.up") }
+            }
+            if let removeFromPlaylist {
+                Divider()
+                Button(role: .destructive) { removeFromPlaylist(archiveID) } label: {
+                    Label("Remove from Playlist", systemImage: "minus.circle")
+                }
             }
         }
     }

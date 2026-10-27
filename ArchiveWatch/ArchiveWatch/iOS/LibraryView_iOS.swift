@@ -20,7 +20,24 @@ struct LibraryView: View {
     @Environment(\.modelContext) private var ctx
     @Query(sort: \Favorite.addedAt, order: .reverse) private var favorites: [Favorite]
     @Query private var progress: [WatchProgress]
-    @Query(sort: \Playlist.createdAt, order: .reverse) private var playlists: [Playlist]
+    @Query(sort: \Playlist.createdAt, order: .reverse) private var allPlaylists: [Playlist]
+    @State private var playlistSort = PlaylistSort.remembered(PlaylistSort.listKey)
+    @State private var renaming: Playlist?
+    @State private var newName = ""
+    @State private var deleting: Playlist?
+
+    /// The lists in the order the viewer chose (My Order: their arrangement).
+    private var playlists: [Playlist] {
+        switch playlistSort {
+        case .myOrder: Playlist.inMyOrder(allPlaylists)
+        case .alphabetical:
+            allPlaylists.sorted { $0.name.localizedCaseInsensitiveCompare($1.name) == .orderedAscending }
+        case .reverseAlphabetical:
+            allPlaylists.sorted { $0.name.localizedCaseInsensitiveCompare($1.name) == .orderedDescending }
+        case .newest: allPlaylists.sorted { $0.createdAt > $1.createdAt }
+        case .oldest: allPlaylists.sorted { $0.createdAt < $1.createdAt }
+        }
+    }
     @Query(sort: \VideoClip.createdAt, order: .reverse) private var clips: [VideoClip]
     @Query(sort: \DownloadedFilm.addedAt, order: .reverse) private var downloads: [DownloadedFilm]
 
@@ -363,21 +380,7 @@ struct LibraryView: View {
                 ForEach(playlists) { pl in
                     let shareURL = PlaylistShare.url(name: pl.name, archiveIDs: pl.archiveIDs)
                     NavigationLink {
-                        grid(store.itemsByIDs(pl.archiveIDs), empty: "Empty playlist", icon: "rectangle.stack")
-                            .navigationTitle(pl.name)
-                            // SHARE lives where Detail puts it (iOS-DESIGN §3.5): a
-                            // visible toolbar icon. It was ONLY a leading swipe on the
-                            // row until 1.42.119, and the owner could not find it —
-                            // §4.3 reserves swipes for destructive verbs for that reason.
-                            .toolbar {
-                                if let shareURL {
-                                    ToolbarItem(placement: .topBarTrailing) {
-                                        ShareLink(item: shareURL) {
-                                            Label("Share", systemImage: "square.and.arrow.up")
-                                        }
-                                    }
-                                }
-                            }
+                        PlaylistDetailView(playlist: pl)
                     } label: {
                         VStack(alignment: .leading) {
                             Text(pl.name).font(.headline)
@@ -388,9 +391,18 @@ struct LibraryView: View {
                     .dropDestination(for: URL.self) { urls, _ in add(urls, to: pl) }
                     // The playlist rides inside the link (PlaylistShare), so the
                     // person who receives it needs no account and we host nothing.
+                    // Every verb a swipe offers is here too (iOS-DESIGN §4.3a):
+                    // a swipe alone was found by accident.
                     .contextMenu {
                         if let shareURL {
                             ShareLink(item: shareURL) { Label("Share Playlist", systemImage: "square.and.arrow.up") }
+                        }
+                        Button { newName = pl.name; renaming = pl } label: {
+                            Label("Rename…", systemImage: "pencil")
+                        }
+                        Divider()
+                        Button(role: .destructive) { deleting = pl } label: {
+                            Label("Delete Playlist…", systemImage: "trash")
                         }
                     }
                     .swipeActions(edge: .leading) {
@@ -401,15 +413,74 @@ struct LibraryView: View {
                     }
                 }
                 .onDelete { offsets in
-                    for i in offsets {
-                        let pl = playlists[i]
-                        ctx.delete(pl)
-                        SyncNudge.recordDeletion("pl:\(pl.id)", in: ctx)
+                    if let i = offsets.first { deleting = playlists[i] }
+                }
+                // Arranging is My Order's: in any other order a drag has no meaning.
+                .onMove(perform: moveAction)
+            }
+            .readableListWidth()
+            .toolbar {
+                ToolbarItem(placement: .topBarTrailing) {
+                    if playlistSort == .myOrder && playlists.count > 1 { EditButton() }
+                }
+                ToolbarItem(placement: .topBarTrailing) {
+                    Menu {
+                        Picker("Sort", selection: $playlistSort) {
+                            ForEach(PlaylistSort.allCases) { Text($0.label).tag($0) }
+                        }
+                    } label: {
+                        Label("Sort", systemImage: playlistSort == .myOrder
+                              ? "arrow.up.arrow.down" : "arrow.up.arrow.down.circle.fill")
                     }
                 }
             }
-            .readableListWidth()
+            .onChange(of: playlistSort) { playlistSort.remember(PlaylistSort.listKey) }
+            .alert("Rename Playlist", isPresented: Binding(get: { renaming != nil },
+                                                           set: { if !$0 { renaming = nil } })) {
+                TextField("Name", text: $newName)
+                Button("Cancel", role: .cancel) { renaming = nil }
+                Button("Rename") { renamePlaylist() }
+            }
+            .confirmationDialog("Delete “\(deleting?.name ?? "")”?",
+                                isPresented: Binding(get: { deleting != nil },
+                                                     set: { if !$0 { deleting = nil } }),
+                                titleVisibility: .visible) {
+                Button("Delete Playlist", role: .destructive) { deletePlaylist() }
+            } message: {
+                Text("It is removed from your other devices too.")
+            }
         }
+    }
+
+    private var moveAction: ((IndexSet, Int) -> Void)? {
+        playlistSort == .myOrder ? { movePlaylists(from: $0, to: $1) } : nil
+    }
+
+    private func movePlaylists(from: IndexSet, to: Int) {
+        var ordered = playlists
+        ordered.move(fromOffsets: from, toOffset: to)
+        Playlist.arrange(ordered)
+        try? ctx.save()
+        SyncNudge.nudge(ctx)
+    }
+
+    private func renamePlaylist() {
+        let name = newName.trimmingCharacters(in: .whitespacesAndNewlines)
+        if let pl = renaming, !name.isEmpty, name != pl.name {
+            pl.name = name
+            pl.touch()
+            try? ctx.save()
+            SyncNudge.nudge(ctx)
+        }
+        renaming = nil
+    }
+
+    private func deletePlaylist() {
+        guard let pl = deleting else { return }
+        let id = pl.id
+        ctx.delete(pl)
+        SyncNudge.recordDeletion("pl:\(id)", in: ctx)
+        deleting = nil
     }
 
     // Clips made in Clip Studio (Decision 033). Share the rendered file if it's
@@ -510,7 +581,7 @@ private struct DownloadThumb: View {
 }
 
 // Small poster thumbnail for list rows (Library History).
-private struct PosterThumb: View {
+struct PosterThumb: View {
     let item: Catalog.Item
     var body: some View {
         AsyncImage(url: item.posterURLParsed) { phase in

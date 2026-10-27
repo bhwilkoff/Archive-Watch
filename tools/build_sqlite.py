@@ -1088,7 +1088,10 @@ def create_schema(db):
       -- Decision 149: never RECOMMENDED (Home, hero, More Like This, channels,
       -- Top Shelf, Tonight, Surprise, social), always findable by Search,
       -- Detail and Browse. Set by remediate_catalog.flag_propaganda.
-      noRecommend INTEGER
+      noRecommend INTEGER,
+      -- A series card's TVmaze rating (0-10), the Top Rated order where no
+      -- IMDb rating exists. Never shown as IMDb's (2026-10-27).
+      tvmazeRating REAL
     );
     -- Full item as JSON in a side table so the lean `items` table stays small
     -- for scalar WHERE/ORDER scans; the app JOINs this only for the handful of
@@ -1246,6 +1249,7 @@ def populate_items(db, items, rotate_seed="0", skip_aids=frozenset()):
             1 if it.get("playbackVerified") is True else 0,
             0,                      # hiddenGem — filled by _mark_hidden_gems below
             1 if it.get("noRecommend") else 0,
+            it.get("tvmazeRating"),
         ))
         if _gem_suppressed(it) or it.get("noRecommend"):
             gem_suppressed.add(aid)
@@ -1313,7 +1317,7 @@ def populate_items(db, items, rotate_seed="0", skip_aids=frozenset()):
                   "rightsStatus", "rightsBucket", "contentRating", "language", "network", "director",
                   "seriesID", "yearEnd", "seasonsCount", "episodesCount", "isAdult",
                   "numFavorites", "numReviews", "avgRating", "views30d", "playable",
-                  "hiddenGem", "noRecommend"]
+                  "hiddenGem", "noRecommend", "tvmazeRating"]
     col = {name: i for i, name in enumerate(_ITEM_COLS)}
     assert len(item_rows) == 0 or len(item_rows[0]) == len(_ITEM_COLS), \
         f"items tuple has {len(item_rows[0])} fields, _ITEM_COLS has {len(_ITEM_COLS)}"
@@ -1504,6 +1508,7 @@ def populate_series(db, materialize_episode_items=True):
                     0,
                     0,      # hiddenGem — a gem is a film claim; episodes never qualify
                     0,      # noRecommend — Decision 149 flags catalog items only
+                    None,   # tvmazeRating — a series card's, never an episode's
                 ))
                 ep_json_rows.append((aid, json.dumps(_slim_for_blob(it), ensure_ascii=False,
                                                      separators=(",", ":"))))

@@ -26,7 +26,7 @@ struct CollectionsList: View {
             ForEach(entries) { e in
                 VStack(spacing: 0) {
                     Button {
-                        router.browsePath.append(CollectionRef(id: e.id, title: e.title, blurb: e.blurb))
+                        router.push(CollectionRef(id: e.id, title: e.title, blurb: e.blurb))
                     } label: { CollectionCard(entry: e) }
                     .buttonStyle(.plain)
                     .hoverEffect(.highlight)
@@ -63,7 +63,7 @@ struct CollectionGridView: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
     @State private var loaded: [Catalog.Item] = []
-    @State private var sort: CatalogDB.Sort = .popular
+    @State private var sort = SortMemory.sort(for: SortMemory.collection)
     @Environment(\.horizontalSizeClass) private var hSize
     private let cols = [GridItem(.adaptive(minimum: 110), spacing: 14)]
 
@@ -92,11 +92,7 @@ struct CollectionGridView: View {
             ToolbarItem(placement: .primaryAction) {
                 Menu {
                     Picker("Sort", selection: $sort) {
-                        Text("Popular").tag(CatalogDB.Sort.popular)
-                        Text("Top Rated").tag(CatalogDB.Sort.rating)
-                        Text("A–Z").tag(CatalogDB.Sort.alphabetical)
-                        Text("Newest").tag(CatalogDB.Sort.newest)
-                        Text("Oldest").tag(CatalogDB.Sort.oldest)
+                        ForEach(CatalogDB.Sort.allCases, id: \.self) { Text($0.label).tag($0) }
                     }
                 } label: {
                     Label("Sort", systemImage: "arrow.up.arrow.down")
@@ -104,6 +100,7 @@ struct CollectionGridView: View {
             }
         }
         .task(id: store.dbVersion) { loaded = store.byCollection(ref.id) }
+        .onChange(of: sort) { SortMemory.remember(sort, for: SortMemory.collection) }
     }
 }
 

@@ -256,6 +256,9 @@ struct Catalog: Decodable, Sendable {
         // Decision-012 adult filter with a real MPAA/TV signal.
         let imdbRating: Double?
         let imdbVotes: Int?
+        /// A series card's TVmaze rating (0–10), Top Rated's order where no
+        /// IMDb rating exists. Not shown: it is not IMDb's.
+        let tvmazeRating: Double?
         let contentRating: String?
         let synopsisSource: String?
 

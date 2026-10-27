@@ -262,7 +262,10 @@ def main():
         #
         # rating is x10 as an INTEGER: 7.4 becomes 74. A float per row costs
         # more bytes in JSON than the precision is worth on a 27,000-row index.
-        r = it.get("imdbRating")
+        # A series card has no IMDb rating; its TVmaze rating (2026-10-27) is
+        # what Browse's Top Rated orders television by. Films stay IMDb's, and
+        # no film shelf reads a series (the Top Rated shelf is films with votes).
+        r = it.get("imdbRating") or (it.get("tvmazeRating") if it.get("contentType") == "tv-series" else None)
         try:
             rating = int(round(float(r) * 10)) if r else None
         except (TypeError, ValueError):

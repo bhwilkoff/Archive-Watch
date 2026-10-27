@@ -56,8 +56,14 @@ struct FilteredGridView: View {
     // order what it showed — reported from the iPad: "would be nice to have
     // sort features like by year browsing through film noir". Browse itself
     // has had the control all along; the grid a CATEGORY opens never did.
-    @State private var sort: CatalogDB.Sort = .popular
+    @State private var sort: CatalogDB.Sort
     private let pageSize = 60
+    private var sortSurface: String { SortMemory.surface(contentType: route.contentType) }
+
+    init(route: BrowseFilterRoute) {
+        self.route = route
+        _sort = State(initialValue: SortMemory.sort(for: SortMemory.surface(contentType: route.contentType)))
+    }
     private let cols = [GridItem(.adaptive(minimum: 110), spacing: 14)]
 
     var body: some View {
@@ -81,19 +87,15 @@ struct FilteredGridView: View {
             ToolbarItem(placement: .topBarTrailing) {
                 Menu {
                     Picker("Sort", selection: $sort) {
-                        Text("Popular").tag(CatalogDB.Sort.popular)
-                        Text("Top Rated").tag(CatalogDB.Sort.rating)
-                        Text("A–Z").tag(CatalogDB.Sort.alphabetical)
-                        Text("Newest").tag(CatalogDB.Sort.newest)
-                        Text("Oldest").tag(CatalogDB.Sort.oldest)
+                        ForEach(CatalogDB.Sort.allCases, id: \.self) { Text($0.label).tag($0) }
                     }
                 } label: {
-                    Label("Sort", systemImage: sort == .popular
+                    Label("Sort", systemImage: sort == SortMemory.defaultSort(for: sortSurface)
                           ? "arrow.up.arrow.down" : "arrow.up.arrow.down.circle.fill")
                 }
             }
         }
-        .onChange(of: sort) { reload() }
+        .onChange(of: sort) { SortMemory.remember(sort, for: sortSurface); reload() }
         .overlay {
             if items.isEmpty {
                 ContentUnavailableView("Nothing here yet", systemImage: "film",
@@ -182,7 +184,7 @@ struct CategoryTilesRow: View {
                 LazyHStack(spacing: 12) {
                     ForEach(categories) { cat in
                         Button {
-                            router.homePath.append(BrowseFilterRoute(
+                            router.push(BrowseFilterRoute(
                                 title: cat.displayName, contentType: cat.id))
                         } label: { CategoryTileSmall(category: cat) }
                         .buttonStyle(.plain)
@@ -256,7 +258,7 @@ struct DecadeTilesRow: View {
                 LazyHStack(spacing: 12) {
                     ForEach(decades, id: \.self) { decade in
                         Button {
-                            router.homePath.append(BrowseFilterRoute(
+                            router.push(BrowseFilterRoute(
                                 title: "\(String(decade))s", decade: decade))
                         } label: { DecadeTileSmall(decade: decade, count: counts[decade] ?? 0) }
                         .buttonStyle(.plain)

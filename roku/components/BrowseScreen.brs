@@ -54,7 +54,7 @@ sub init()
         { id: "type",   label: "Type",   values: ["All", "Feature Film", "Silent Era", "Animation", "Short Film", "Newsreel", "Documentary"] },
         { id: "decade", label: "Decade", values: ["All", "1900s", "1910s", "1920s", "1930s", "1940s", "1950s", "1960s", "1970s"] },
         { id: "genre",  label: "Genre",  values: ["All", "Drama", "Comedy", "Animation", "Crime", "Romance", "Action", "Western", "Documentary", "Thriller", "Horror", "Mystery", "Adventure", "War", "Family", "Fantasy"] },
-        { id: "sort",   label: "Sort",   values: ["Popular", "Newest", "Oldest", "A-Z", "Top Rated", "Shuffle"] },
+        { id: "sort",   label: "Sort",   values: ["Popular", "Newest", "Oldest", "A-Z", "Z-A", "Top Rated", "Shuffle"] },
         ' LAST, so chips 0-3 keep the positions submit() reads them by
         ' (2026-09-26, the Orphaned Films research; the same bands everywhere).
         { id: "length", label: "Length", values: ["All", "Under 60 minutes", "60 to 90 minutes", "Over 90 minutes"] }
@@ -241,7 +241,7 @@ sub onScope()
     s = m.top.scope
     ' F14 — "the filters should reset when you go from films to tv": decade,
     ' genre and sort carried over, so TV opened pre-narrowed by a Movies pick.
-    m.chipIndex[1] = 0 : m.chipIndex[2] = 0 : m.chipIndex[3] = 0 : m.chipIndex[4] = 0
+    m.chipIndex[1] = 0 : m.chipIndex[2] = 0 : m.chipIndex[4] = 0
     m.focusChip = 0
     m.collectionID = ""
     m.chipGroup.visible = true
@@ -258,6 +258,11 @@ sub onScope()
     ' Land on "All" within the tab. Pre-selecting one value made the tab look
     ' like it was already filtered, and on TV it hid the specials entirely.
     m.chipIndex[0] = 0
+    ' The sort is the TAB's own, remembered (owner, 2026-10-27: "A-Z sorting
+    ' by default makes sense with the ability to change and have it
+    ' remember"): TV starts A-Z, Movies Popular. F14 still holds: a Movies
+    ' sort never carries into TV.
+    m.chipIndex[3] = sortIndexFor(bsReadSort(sortKey()), m.scopeNow = "tv")
     paintChips()
     submit()
 end sub
@@ -301,8 +306,12 @@ sub submit()
     g = m.chipDefs[2].values[m.chipIndex[2]]
     if g = "All" then g = ""
     svc.qGenre = g
-    sv = LCase(m.chipDefs[3].values[m.chipIndex[3]])
+    label = m.chipDefs[3].values[m.chipIndex[3]]
+    ' Shuffle is a request for this visit, not a preference.
+    if m.collectionID = "" and label <> "Shuffle" then bsWriteSort(sortKey(), label)
+    sv = LCase(label)
     if sv = "a-z" then sv = "alpha"
+    if sv = "z-a" then sv = "alpha_desc"
     if sv = "top rated" then sv = "rating"
     svc.qSort = sv
     lv = m.chipDefs[4].values[m.chipIndex[4]]
@@ -314,6 +323,38 @@ sub submit()
     ' One bump, after every field is set — the service triggers on this alone.
     print "AWBROWSE submit sort="; sv; " qid="; svc.queryId
     svc.queryId = svc.queryId + 1
+end sub
+
+' The same key names as every other platform: browseSort.tv | browseSort.browse.
+function sortKey() as String
+    if m.scopeNow = "tv" then return "browseSort.tv"
+    return "browseSort.browse"
+end function
+
+function sortIndexFor(label as String, isTV as Boolean) as Integer
+    if label = ""
+        if isTV then label = "A-Z" else label = "Popular"
+    end if
+    vals = m.chipDefs[3].values
+    for i = 0 to vals.Count() - 1
+        if vals[i] = label then return i
+    end for
+    return 0
+end function
+
+function bsReadSort(key as String) as String
+    sec = CreateObject("roRegistrySection", "archivewatch")
+    if not sec.Exists(key) then return ""
+    v = sec.Read(key)
+    if v = invalid then return ""
+    return v
+end function
+
+sub bsWriteSort(key as String, label as String)
+    if bsReadSort(key) = label then return
+    sec = CreateObject("roRegistrySection", "archivewatch")
+    sec.Write(key, label)
+    sec.Flush()
 end sub
 
 sub showResults(root as Object, total as Integer)

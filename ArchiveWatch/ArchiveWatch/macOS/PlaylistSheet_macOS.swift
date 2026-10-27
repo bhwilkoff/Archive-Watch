@@ -35,7 +35,7 @@ struct AddToPlaylistSheet: View {
                 }
                 if !playlists.isEmpty {
                     Section("Your Playlists") {
-                        ForEach(playlists) { pl in
+                        ForEach(Playlist.inMyOrder(playlists)) { pl in
                             Button { toggle(pl) } label: {
                                 HStack {
                                     Image(systemName: pl.contains(archiveID)

@@ -86,6 +86,7 @@ jobs:
           # episode_rejects bind every spine (2026-10-27).
           python tools/test_tv_episode_placement.py > /dev/null || { python tools/test_tv_episode_placement.py; exit 1; }
           python tools/test_canonical_tv_budget.py > /dev/null || { python tools/test_canonical_tv_budget.py; exit 1; }
+          python tools/test_tv_series_rating.py > /dev/null || { python tools/test_tv_series_rating.py; exit 1; }
           python tools/build_canonical_tv.py \
             --throttle ${{ github.event.inputs.throttle || '0.3' }} \
             --max-minutes ${{ github.event.inputs.max_minutes || '150' }} \

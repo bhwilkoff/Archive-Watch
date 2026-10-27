@@ -371,14 +371,87 @@ final class AuditUITests: XCTestCase {
             }
         }
 
-        // Cleanup: back to the list, swipe-to-delete the playlist we made.
+        // Cleanup: back to the list, swipe-to-delete the playlist we made. A
+        // delete is confirmed since 2026-10-27 (iOS-DESIGN §4.3a), and the
+        // cleanup ASSERTS the list is gone — it syncs to the owner's devices.
         app.navigationBars.buttons.element(boundBy: 0).tap(); sleep(1)
-        if row.waitForExistence(timeout: 6) {
-            row.swipeLeft()
-            let del = app.buttons["Delete"].firstMatch
-            if del.waitForExistence(timeout: 4) { del.tap() }
-        }
+        deletePlaylist(row)
         snap("playlist-cleanup")
+    }
+
+    /// Swipe → Delete → confirm, then assert the row is gone.
+    private func deletePlaylist(_ row: XCUIElement) {
+        guard row.waitForExistence(timeout: 6) else { return }
+        row.swipeLeft()
+        let del = app.buttons["Delete"].firstMatch
+        if del.waitForExistence(timeout: 4) { del.tap() }
+        let confirm = app.buttons["Delete Playlist"].firstMatch
+        if confirm.waitForExistence(timeout: 4) { confirm.tap() }
+        sleep(2)
+        XCTAssertFalse(row.exists, "CLEANUP FAILED: the test's playlist is still in the Library")
+    }
+
+    /// iOS-DESIGN §4.3a, from a viewer's emails (docs/USER-FEEDBACK-2026-10.md):
+    /// a film leaves a playlist from the playlist, a list renames, and Delete
+    /// is in the row's menu, not only a swipe. Makes and removes its own list.
+    func test_30_playlistEditing() {
+        let stamp = Int(Date().timeIntervalSince1970) % 10000
+        let name = "Edit audit \(stamp)", renamed = "Edit audit renamed \(stamp)"
+        // By Search, not a Home tile: Home's shelves rotate daily.
+        launch(["AW_START_TAB": "search"])
+        let search = app.searchFields.firstMatch
+        XCTAssertTrue(search.waitForExistence(timeout: 12), "MISSING search field")
+        search.tap(); search.typeText("His Girl Friday"); sleep(5)
+        let hit = app.staticTexts["His Girl Friday"].firstMatch
+        XCTAssertTrue(hit.waitForExistence(timeout: 12), "MISSING His Girl Friday in Search")
+        hit.tap(); sleep(3)
+        let add = app.buttons["Add to playlist"].firstMatch
+        XCTAssertTrue(add.waitForExistence(timeout: 20), "MISSING Add to playlist on Detail")
+        _ = scrollIntoView(add); add.tap()
+        let field = app.textFields["Name"].firstMatch
+        XCTAssertTrue(field.waitForExistence(timeout: 8), "MISSING playlist name field")
+        field.tap(); field.typeText(name)
+        app.buttons["Create"].firstMatch.tap(); sleep(2)
+        if app.buttons["Done"].firstMatch.exists { app.buttons["Done"].firstMatch.tap(); sleep(1) }
+
+        app.buttons["Library"].firstMatch.tap(); sleep(2)
+        app.buttons["Playlists"].firstMatch.tap(); sleep(2)
+        let row = app.staticTexts[name].firstMatch
+        XCTAssertTrue(row.waitForExistence(timeout: 8), "MISSING the playlist row just created")
+        XCTAssertTrue(app.buttons["Sort"].firstMatch.exists, "MISSING the playlist list's Sort menu")
+
+        // The row's menu: Rename… and Delete Playlist…, not only swipes.
+        row.press(forDuration: 1.2)
+        let renameItem = app.buttons["Rename…"].firstMatch
+        XCTAssertTrue(renameItem.waitForExistence(timeout: 6), "MISSING Rename… in the row's menu")
+        XCTAssertTrue(app.buttons["Delete Playlist…"].firstMatch.exists, "MISSING Delete Playlist… in the row's menu")
+        snap("playlist-row-menu-edit")
+        renameItem.tap()
+        let nameField = app.alerts.textFields.firstMatch
+        XCTAssertTrue(nameField.waitForExistence(timeout: 6), "MISSING the rename field")
+        nameField.tap()
+        nameField.typeText(String(repeating: XCUIKeyboardKey.delete.rawValue, count: name.count + 4) + renamed)
+        app.alerts.buttons["Rename"].firstMatch.tap(); sleep(2)
+        let renamedRow = app.staticTexts[renamed].firstMatch
+        XCTAssertTrue(renamedRow.waitForExistence(timeout: 6), "DEAD Rename — the new name did not appear")
+        snap("playlist-renamed")
+
+        // Inside: long-press the film → Remove from Playlist → empty.
+        (renamedRow.exists ? renamedRow : row).tap(); sleep(2)
+        let poster = app.staticTexts["His Girl Friday"].firstMatch
+        XCTAssertTrue(poster.waitForExistence(timeout: 8), "MISSING the film inside the playlist")
+        poster.press(forDuration: 1.2)
+        let removeItem = app.buttons["Remove from Playlist"].firstMatch
+        XCTAssertTrue(removeItem.waitForExistence(timeout: 6), "MISSING Remove from Playlist on a film's long-press")
+        snap("playlist-film-menu")
+        if removeItem.exists { removeItem.tap(); sleep(2) }
+        XCTAssertTrue(app.staticTexts["Empty playlist"].firstMatch.waitForExistence(timeout: 6),
+                      "DEAD Remove from Playlist — the film is still listed")
+        snap("playlist-emptied")
+
+        app.navigationBars.buttons.element(boundBy: 0).tap(); sleep(1)
+        deletePlaylist(renamedRow.exists ? renamedRow : row)
+        snap("playlist-edit-cleanup")
     }
 
     /// Isolates the "dead toggle" report: which switch, by LABEL, and does it

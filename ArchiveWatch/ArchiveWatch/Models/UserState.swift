@@ -234,12 +234,20 @@ final class Playlist {
     // could never shrink a list. Defaulted for lightweight migration of stores
     // created before this field existed.
     var modifiedAt: Date = Date.distantPast
+    /// The viewer's own place for this list among their lists ("My Order"),
+    /// ascending. Optional for lightweight migration; a list with none (one
+    /// made since the last arrangement, or before this field) sorts FIRST,
+    /// newest first, so a new list appears where it is looked for. Synced with
+    /// the list (owner, 2026-10-27: "please implement full manual ordering for
+    /// playlists").
+    var sortIndex: Int? = nil
 
-    init(id: String = UUID().uuidString, name: String, archiveIDs: [String] = []) {
+    init(id: String = UUID().uuidString, name: String, archiveIDs: [String] = [],
+         createdAt: Date = Date()) {
         self.id = id
         self.name = name
         self.archiveIDs = archiveIDs
-        self.createdAt = Date()
+        self.createdAt = createdAt
         self.modifiedAt = Date()
     }
 
@@ -247,6 +255,55 @@ final class Playlist {
 
     /// Stamp an edit so sync treats this device's copy as the newest.
     func touch() { modifiedAt = Date() }
+
+    /// The viewer's lists in "My Order" — the one rule every platform uses.
+    static func inMyOrder(_ lists: [Playlist]) -> [Playlist] {
+        lists.sorted { a, b in
+            switch (a.sortIndex, b.sortIndex) {
+            case let (x?, y?): return x != y ? x < y : a.createdAt > b.createdAt
+            case (nil, _?): return true
+            case (_?, nil): return false
+            case (nil, nil): return a.createdAt > b.createdAt
+            }
+        }
+    }
+
+    /// Give `lists`, already in the order the viewer arranged, their places.
+    /// Only a list whose place changed is stamped, so sync carries the move
+    /// without rewriting every list.
+    static func arrange(_ lists: [Playlist]) {
+        for (i, p) in lists.enumerated() where p.sortIndex != i {
+            p.sortIndex = i
+            p.touch()
+        }
+    }
+}
+
+/// How a playlist's films, or the list of playlists, is shown. "My Order" is
+/// the viewer's own arrangement (a viewer, 2026-10-25: "Popular sorting by us
+/// users is our own rearrangement of the items being respected").
+enum PlaylistSort: String, CaseIterable, Identifiable {
+    case myOrder, alphabetical, reverseAlphabetical, newest, oldest
+    var id: String { rawValue }
+    var label: String {
+        switch self {
+        case .myOrder:             "My Order"
+        case .alphabetical:        "A–Z"
+        case .reverseAlphabetical: "Z–A"
+        case .newest:              "Newest"
+        case .oldest:              "Oldest"
+        }
+    }
+
+    /// Remembered on this device: one choice for the list of playlists, and
+    /// one per playlist for its films (iOS-DESIGN §9.5 key names, shared by
+    /// every Apple platform).
+    static func remembered(_ key: String) -> PlaylistSort {
+        UserDefaults.standard.string(forKey: key).flatMap(PlaylistSort.init(rawValue:)) ?? .myOrder
+    }
+    func remember(_ key: String) { UserDefaults.standard.set(rawValue, forKey: key) }
+    static let listKey = "playlistSort.lists"
+    static func contentsKey(_ playlistID: String) -> String { "playlistSort.\(playlistID)" }
 }
 
 // #11b (Decision 022): a record that a synced item was DELETED, with when. Local

@@ -789,10 +789,16 @@ sub runQuery()
         ' Top Rated. A vote floor is not optional: without it a single 10/10
         ' rating outranks Citizen Kane, which is the exact bug Decision 050
         ' records on the apps.
+        ' A series has no IMDb votes; its rating is TVmaze's (2026-10-27), a
+        ' different scale's average, so the floor that keeps a dozen-vote film
+        ' below Citizen Kane does not apply to it.
         rated = []
         for each r in hits
-            if r.Count() > 11 and r[10] <> invalid and r[11] <> invalid
-                if Int(r[11]) >= 1000 then rated.Push({ s: Int(r[10]), r: r })
+            if r.Count() > 11 and r[10] <> invalid
+                isSeries = (r[3] = "tv-series")
+                floorOK = isSeries
+                if not floorOK and r[11] <> invalid then floorOK = (Int(r[11]) >= 1000)
+                if floorOK then rated.Push({ s: Int(r[10]), r: r })
             end if
         end for
         rated.SortBy("s", "r")
@@ -810,6 +816,16 @@ sub runQuery()
             wrapped.Push({ t: LCase(fmt(r[1])), r: r })
         end for
         wrapped.SortBy("t")
+        hits = []
+        for each w in wrapped
+            hits.Push(w.r)
+        end for
+    else if sort = "alpha_desc"
+        wrapped = []
+        for each r in hits
+            wrapped.Push({ t: LCase(fmt(r[1])), r: r })
+        end for
+        wrapped.SortBy("t", "r")
         hits = []
         for each w in wrapped
             hits.Push(w.r)

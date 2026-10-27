@@ -350,6 +350,39 @@ chip row (Type, Decade — the word Browse uses) is the only filter.
 playlists, user channels. Deletion of synced models goes through
 `SyncNudge.recordDeletion`, never a bare `ctx.delete` (§9.4).
 
+4.2c **A sort is remembered, and television starts A–Z.** A viewer,
+2026-10-25: *"Sorting Menu resets to first menu item, not keeping what we
+previously chose"*; the owner, 2026-10-27: *"A-Z sorting by default makes sense
+with the ability to change and have it remember."* Every grid's Sort is one
+`Picker` over `CatalogDB.Sort.allCases` — Popular · Top Rated · A–Z · **Z–A** ·
+Newest · Oldest, worded by `CatalogDB.Sort.label` — and its choice is kept per
+KIND of grid in `SortMemory` (`browseSort.tv|browse|category|collection`, one
+key name on every Apple platform, §9.5): television grids (series cards, TV
+Specials) start on A–Z, the rest on Popular. Browse→TV's series grid carries
+the same Sort chip as Films (§4.2a). Top Rated orders a series by its TVmaze
+rating (`tvmazeRating`; never shown as IMDb's) and breaks every tie, ending in
+title — with none, 400 unrated series came back in insertion order and read
+as A–Z.
+
+4.3a **A playlist is edited where it is seen, and a swipe is never the only
+way to a verb.** A viewer, 2026-10-23 to 10-27: he could not remove a film,
+rename a list or arrange either, and found Delete by swiping by accident; the
+owner had not found swipe-only Share either (1.42.119). So:
+- A film in a playlist: long-press → **Remove from Playlist** (the
+  `removeFromPlaylist` environment action the film menu reads; tvOS's verb).
+- A playlist: **Rename** from its title menu (`RenameButton`) and the row's
+  menu; **Delete Playlist…** in the row's menu and the playlist's toolbar
+  menu, always confirmed — "It is removed from your other devices too." The
+  swipes stay as shortcuts.
+- **Sort** (a toolbar `Menu`, §4.2): My Order · A–Z · Z–A · Newest · Oldest,
+  remembered per playlist (`playlistSort.<id>`) and for the list of playlists
+  (`playlistSort.lists`). **My Order** is the viewer's arrangement ("Popular
+  sorting by us users is our own rearrangement of the items being respected").
+- **Edit** arranges, in My Order only: the films become rows (`.onMove`,
+  `.onDelete`) and the grid returns on Done; the list of playlists drags in
+  place. A list's order among lists is `Playlist.sortIndex`, synced with it;
+  a list with none (a new one) sorts first (`Playlist.inMyOrder`).
+
 4.4 **`fullScreenCover` is for playback only.** Everything else transient is
 a `.sheet`. Cover presentation binds to an **item**, not a Bool, whenever the
 content is data-dependent — `fullScreenCover(item:)` for episodes and

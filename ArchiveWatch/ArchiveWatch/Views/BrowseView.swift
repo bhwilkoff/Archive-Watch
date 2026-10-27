@@ -25,10 +25,33 @@ enum BrowseSort: String, CaseIterable, Identifiable {
     case popular      = "Popular"
     case rating       = "Top Rated"
     case alphabetical = "A–Z"
+    case reverseAlphabetical = "Z–A"
     case newest       = "Newest"
     case oldest       = "Oldest"
     case random       = "Random"
     var id: String { rawValue }
+
+    /// The viewer's last choice for a kind of grid (SortMemory's keys; the
+    /// television default is A–Z). Random is never remembered: a shuffle is
+    /// a request for this visit, not a preference.
+    static func remembered(for surface: String) -> BrowseSort {
+        UserDefaults.standard.string(forKey: SortMemory.key(surface)).flatMap(BrowseSort.init(rawValue:))
+            ?? (SortMemory.defaultSort(for: surface) == .alphabetical ? .alphabetical : .popular)
+    }
+
+    func remember(for surface: String) {
+        guard self != .random else { return }
+        UserDefaults.standard.set(rawValue, forKey: SortMemory.key(surface))
+    }
+}
+
+extension BrowseFilter {
+    /// The kind of grid this filter makes, for SortMemory.
+    var sortSurface: String {
+        if category == "tv-series" || category == "tv-special" { return SortMemory.tv }
+        if collection != nil { return SortMemory.collection }
+        return isEmpty ? SortMemory.browse : SortMemory.category
+    }
 }
 
 struct BrowseView: View {
@@ -58,6 +81,7 @@ struct BrowseView: View {
 
     init(filter: BrowseFilter = BrowseFilter()) {
         _filter = State(initialValue: filter)
+        _sort = State(initialValue: BrowseSort.remembered(for: filter.sortSurface))
         _filtersShown = State(initialValue: false)
         self.isPreFiltered = !filter.isEmpty
     }
@@ -72,6 +96,7 @@ struct BrowseView: View {
         case .popular, .random: return .popular
         case .rating:           return .rating
         case .alphabetical:     return .alphabetical
+        case .reverseAlphabetical: return .reverseAlphabetical
         case .newest:           return .newest
         case .oldest:           return .oldest
         }
@@ -245,7 +270,7 @@ struct BrowseView: View {
             focusedArchiveID = items.first?.archiveID
         }
         .onChange(of: filter) { _, _ in reload() }
-        .onChange(of: sort) { _, _ in reload() }
+        .onChange(of: sort) { _, _ in sort.remember(for: filter.sortSurface); reload() }
         .onChange(of: shuffleSeed) { _, _ in reload() }
         // Re-query when the DB swaps (seed → full) or the adult toggle flips.
         .onChange(of: store.dbGeneration) { _, _ in reload() }
