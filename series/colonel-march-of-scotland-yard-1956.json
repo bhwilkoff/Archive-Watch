@@ -24,11 +24,11 @@
         {
           "archiveID": "colonel-march-of-scotland-yard-tv-1954-colorized-s01e04-at-night-all-cats-are-gray",
           "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "The Abominable Snowman",
+          "episodeNumber": 3,
+          "title": "At Night All Cats Are Grey",
           "overview": null,
           "stillURL": "https://archive.org/services/img/colonel-march-of-scotland-yard-tv-1954-colorized-s01e04-at-night-all-cats-are-gray",
-          "airDate": "1956-04-08",
+          "airDate": "1956-03-08",
           "year": 1956,
           "runtimeSeconds": 1800,
           "videoFile": {
@@ -38,22 +38,17 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/colonel-march-of-scotland-yard-tv-1954-colorized-s01e04-at-night-all-cats-are-gray/Colonel%20March%20of%20Scotland%20Yard%20TV%201954%20colorized%20s01e04%20At%20Night%20All%20Cats%20Are%20Gray.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
+        },
         {
           "archiveID": "ColonelMarchOfScotlandYard-ErrorAtDaybreak",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Colonel March of Scotland Yard - Error at Daybreak",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "Error at Daybreak",
           "overview": null,
           "stillURL": "https://archive.org/services/img/ColonelMarchOfScotlandYard-ErrorAtDaybreak",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1561,
+          "airDate": "1956-07-17",
+          "year": 1956,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "ErrorAtDaybreak.mp4",
             "format": "h.264",
@@ -82,8 +77,5 @@
       "order": 1,
       "profilePath": "https://artworks.thetvdb.com/banners/actors/454557.jpg"
     }
-  ],
-  "seriesImdbID": "tt0046588",
-  "canonicalEpisodeCount": 14,
-  "canonicalSeasons": 1
+  ]
 }

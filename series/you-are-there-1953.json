@@ -23,7 +23,7 @@
           "archiveID": "you-are-there-dec-7th-1941",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "You Are There - Dec. 7th 1941, 1954 - 16mm film",
+          "title": "Dec. 7th 1941, 1954 - 16mm film",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/dXApQQpOLmHUz7p9QmYM6j4OZI1.jpg",
           "airDate": null,
@@ -41,7 +41,7 @@
           "archiveID": "you-are-there-joan-of-arc",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "You Are There - Joan of Arc, 1954 - 16mm film",
+          "title": "Joan of Arc, 1954 - 16mm film",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/dXApQQpOLmHUz7p9QmYM6j4OZI1.jpg",
           "airDate": null,
@@ -59,7 +59,7 @@
           "archiveID": "you-are-there-wright-brothers",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "You Are There - The Wright Brothers, 1954 - 16mm film",
+          "title": "The Wright Brothers, 1954 - 16mm film",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/dXApQQpOLmHUz7p9QmYM6j4OZI1.jpg",
           "airDate": null,
@@ -86,8 +86,5 @@
       "order": 0,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/254117/photo/60ec3bc235f41.jpg"
     }
-  ],
-  "seriesImdbID": "tt0045458",
-  "canonicalEpisodeCount": 89,
-  "canonicalSeasons": 5
+  ]
 }

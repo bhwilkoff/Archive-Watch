@@ -21,7 +21,7 @@
           "archiveID": "TheEdWynnShow13October1949",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Ed Wynn Show'' - 13 October 1949",
+          "title": "13 October 1949",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789311.jpg",
           "airDate": null,
@@ -39,7 +39,7 @@
           "archiveID": "TheEdWynnShow14January1950",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Ed Wynn Show'' - 14 January 1950",
+          "title": "14 January 1950",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789311.jpg",
           "airDate": null,
@@ -54,10 +54,28 @@
           "downloadURL": "https://archive.org/download/TheEdWynnShow14January1950/EdwynnShow-14January1950.mp4"
         },
         {
+          "archiveID": "TheEdWynnShow1950",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "1950",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The_Ed_Wynn_show_03_11_50.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 170984263,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheEdWynnShow1950/The_Ed_Wynn_show_03_11_50.ia.mp4"
+        },
+        {
           "archiveID": "EdWynn20October1949",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Ed Wynn Show'' - 20 October 1949",
+          "title": "20 October 1949",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789311.jpg",
           "airDate": null,
@@ -75,7 +93,7 @@
           "archiveID": "TheEdWynnShow24November1949",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Ed Wynn Show'' - 24 November 1949",
+          "title": "24 November 1949",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789311.jpg",
           "airDate": null,
@@ -93,7 +111,7 @@
           "archiveID": "EdWynn25February1950",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Ed Wynn Show'' - 25 February 1950",
+          "title": "25 February 1950",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789311.jpg",
           "airDate": null,
@@ -111,7 +129,7 @@
           "archiveID": "TheEdWynnShow6October1949",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Ed Wynn Show'' - 6 October 1949",
+          "title": "6 October 1949",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789311.jpg",
           "airDate": null,
@@ -129,7 +147,7 @@
           "archiveID": "TheEdWynnShow9December1949",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Ed Wynn Show'' - 9 December 1949",
+          "title": "9 December 1949",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789311.jpg",
           "airDate": null,
@@ -147,7 +165,7 @@
           "archiveID": "theEdWynnShow-Outtakes",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Ed Wynn Show'' - Outtakes",
+          "title": "Outtakes",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789311.jpg",
           "airDate": null,
@@ -160,24 +178,6 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/theEdWynnShow-Outtakes/EdWynnOuttakes.mp4"
-        },
-        {
-          "archiveID": "TheEdWynnShow1950",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Ed Wynn show, 1950",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "The_Ed_Wynn_show_03_11_50.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 170984263,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/TheEdWynnShow1950/The_Ed_Wynn_show_03_11_50.ia.mp4"
         }
       ]
     }

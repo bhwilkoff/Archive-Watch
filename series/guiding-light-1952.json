@@ -24,7 +24,7 @@
           "archiveID": "GuidingLight4March1953",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Guiding Light'' - 4 March 1953?",
+          "title": "4 March 1953?",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/uRJntFgQJuHLJDvRHDsHBcsxE7q.jpg",
           "airDate": null,
@@ -42,7 +42,7 @@
           "archiveID": "GuidingLight9April1953",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Guiding Light'' - 9 April 1953",
+          "title": "9 April 1953",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/uRJntFgQJuHLJDvRHDsHBcsxE7q.jpg",
           "airDate": null,
@@ -60,7 +60,7 @@
           "archiveID": "The_Maykers_Suck",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "'The Guiding Light' - April 9, 1953",
+          "title": "April 9, 1953",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/uRJntFgQJuHLJDvRHDsHBcsxE7q.jpg",
           "airDate": null,
@@ -78,7 +78,7 @@
           "archiveID": "Guiding_Light",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "'The Guiding Light' - March 4, 1953",
+          "title": "March 4, 1953",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/uRJntFgQJuHLJDvRHDsHBcsxE7q.jpg",
           "airDate": null,
@@ -208,8 +208,5 @@
       "order": 17,
       "profilePath": "https://artworks.thetvdb.com/banners/person/271140/605a82e61d249.jpg"
     }
-  ],
-  "seriesImdbID": "tt0044265",
-  "canonicalEpisodeCount": 100,
-  "canonicalSeasons": 47
+  ]
 }

@@ -17,6 +17,47 @@
   "creator": null,
   "seasons": [
     {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "theGeorgeBurnsAndGracieAllenShow-HarryMortonsPrivateSecretary",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Harry Morton's Private Secretary",
+          "overview": "Blanche Morton becomes jealous when her husband, Harry, hires a new secretary because she assumes his new assistant is female. Meanwhile, a pretty high school student drops by the Burns home to interview George for her high school newspaper, Blanche and Gracie assume that the girl is the person Harry just hired.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/kvCVEK1AeNTBbY5OREw2YdRa9bF.jpg",
+          "airDate": "1950-11-23",
+          "year": 1950,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "harrymortonsprivatesecretary.mp4",
+            "format": "h.264",
+            "sizeBytes": 178086972,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/theGeorgeBurnsAndGracieAllenShow-HarryMortonsPrivateSecretary/harrymortonsprivatesecretary.mp4"
+        },
+        {
+          "archiveID": "GracieAllenSpaceGirls",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Space Patrol Kids Visit",
+          "overview": "Trouble starts when Mamie Kelly and her three children park their trailer in the Burns backyard.",
+          "stillURL": "https://archive.org/services/img/GracieAllenSpaceGirls",
+          "airDate": "1951-08-16",
+          "year": 1951,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "SpacePatrolKidsVisit.mp4",
+            "format": "h.264",
+            "sizeBytes": 182191363,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GracieAllenSpaceGirls/SpacePatrolKidsVisit.mp4"
+        }
+      ]
+    },
+    {
       "seasonNumber": 2,
       "episodes": [
         {
@@ -54,6 +95,47 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/TheGeorgeBurnsAndGracieAllenShow-TripToPalmSprings/BurnsAllPalmSprings.ia.mp4"
+        },
+        {
+          "archiveID": "georgeburnsandgracieallen_202307",
+          "seasonNumber": 2,
+          "episodeNumber": 17,
+          "title": "Gracie's Redecoration Scheme",
+          "overview": "Gracie wants to redecorate, and to get George out of the house she tricks him into taking Harry Morton fishing. However, when Harry declines to go fishing, Grace has to come up with another plan to get rid of George.",
+          "stillURL": null,
+          "airDate": "1952-05-08",
+          "year": 1952,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "The George Burns and Gracie Allen Show/Season 2/17 Gracie's Redecoration Scheme.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 202429145,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/georgeburnsandgracieallen_202307/The%20George%20Burns%20and%20Gracie%20Allen%20Show/Season%202/17%20Gracie%27s%20Redecoration%20Scheme.ia.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "BurnsAndAllenFreeTripToHawaii",
+          "seasonNumber": 3,
+          "episodeNumber": 1,
+          "title": "Free Trip to Hawaii",
+          "overview": "Gracie plays matchmaker for her wardrobe woman and Harry Von Zell, not realizing the woman is happily married.",
+          "stillURL": "https://archive.org/services/img/BurnsAndAllenFreeTripToHawaii",
+          "airDate": "1952-10-09",
+          "year": 1952,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "BurnsAndAllen-freeTripToHawaii.mp4",
+            "format": "h.264",
+            "sizeBytes": 139823432,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/BurnsAndAllenFreeTripToHawaii/BurnsAndAllen-freeTripToHawaii.mp4"
         }
       ]
     },
@@ -64,7 +146,7 @@
           "archiveID": "GracieGeorgePlusOthers",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''Burns and Allen''",
+          "title": "Burns and Allen",
           "overview": null,
           "stillURL": "https://archive.org/services/img/GracieGeorgePlusOthers",
           "airDate": null,
@@ -82,7 +164,7 @@
           "archiveID": "HeyGracieUplift",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''Burns and Allen'' - Beverly Hills Uplift Society",
+          "title": "Burns and Allen - Beverly Hills Uplift Society",
           "overview": null,
           "stillURL": "https://archive.org/services/img/HeyGracieUplift",
           "airDate": null,
@@ -95,78 +177,6 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/HeyGracieUplift/BeverlyHillsUplift1951.mp4"
-        },
-        {
-          "archiveID": "GracieAllenSpaceGirls",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''Burns and Allen'' - Space Patrol Kids Visit",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/GracieAllenSpaceGirls",
-          "airDate": null,
-          "year": 1951,
-          "runtimeSeconds": 1763,
-          "videoFile": {
-            "name": "SpacePatrolKidsVisit.mp4",
-            "format": "h.264",
-            "sizeBytes": 182191363,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/GracieAllenSpaceGirls/SpacePatrolKidsVisit.mp4"
-        },
-        {
-          "archiveID": "DriversLicence",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''The George Burns and Gracie Allen Show''",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/kvCVEK1AeNTBbY5OREw2YdRa9bF.jpg",
-          "airDate": null,
-          "year": 1954,
-          "runtimeSeconds": 1759,
-          "videoFile": {
-            "name": "GracieDrivers.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 169932618,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DriversLicence/GracieDrivers.ia.mp4"
-        },
-        {
-          "archiveID": "theGeorgeBurnsAndGracieAllenShow-HarryMortonsPrivateSecretary",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''The George Burns and Gracie Allen Show'' - Harry Morton's Private Secretary",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/kvCVEK1AeNTBbY5OREw2YdRa9bF.jpg",
-          "airDate": null,
-          "year": 1950,
-          "runtimeSeconds": 1710,
-          "videoFile": {
-            "name": "harrymortonsprivatesecretary.mp4",
-            "format": "h.264",
-            "sizeBytes": 178086972,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/theGeorgeBurnsAndGracieAllenShow-HarryMortonsPrivateSecretary/harrymortonsprivatesecretary.mp4"
-        },
-        {
-          "archiveID": "GeorgeBurnsGracieAllen-Thanksgiving",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''The George Burns and Gracie Allen Show'' - Thanksgiving",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/kvCVEK1AeNTBbY5OREw2YdRa9bF.jpg",
-          "airDate": null,
-          "year": 1951,
-          "runtimeSeconds": 1771,
-          "videoFile": {
-            "name": "burnsallen-thanksgiving.mp4",
-            "format": "h.264",
-            "sizeBytes": 184086326,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/GeorgeBurnsGracieAllen-Thanksgiving/burnsallen-thanksgiving.mp4"
         },
         {
           "archiveID": "BurnsAndAllen-PropertyTaxAssessor",
@@ -187,24 +197,6 @@
           "downloadURL": "https://archive.org/download/BurnsAndAllen-PropertyTaxAssessor/BurnsAndAllen-PropertyTaxAssessor11-9-50.mp4"
         },
         {
-          "archiveID": "BurnsAndAllenFreeTripToHawaii",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Burns and Allen: Free Trip to Hawaii",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/BurnsAndAllenFreeTripToHawaii",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1453,
-          "videoFile": {
-            "name": "BurnsAndAllen-freeTripToHawaii.mp4",
-            "format": "h.264",
-            "sizeBytes": 139823432,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/BurnsAndAllenFreeTripToHawaii/BurnsAndAllen-freeTripToHawaii.mp4"
-        },
-        {
           "archiveID": "BurnsAndAllenGracieGivesAWedding",
           "seasonNumber": null,
           "episodeNumber": null,
@@ -223,28 +215,10 @@
           "downloadURL": "https://archive.org/download/BurnsAndAllenGracieGivesAWedding/BurnsAndAllen-gracieGivesAWedding.ia.mp4"
         },
         {
-          "archiveID": "georgeburnsandgracieallen_202307",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The George Burns and Gracie Allen Show",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "The George Burns and Gracie Allen Show/Season 2/17 Gracie's Redecoration Scheme.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 202429145,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/georgeburnsandgracieallen_202307/The%20George%20Burns%20and%20Gracie%20Allen%20Show/Season%202/17%20Gracie%27s%20Redecoration%20Scheme.ia.mp4"
-        },
-        {
           "archiveID": "TheGeorgeBurnsAndGracieAllenShow-Football",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The George Burns and Gracie Allen Show - Football",
+          "title": "Football",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/kvCVEK1AeNTBbY5OREw2YdRa9bF.jpg",
           "airDate": null,
@@ -262,7 +236,7 @@
           "archiveID": "TheGeorgeBurnsAndGracieAllenShow-GracieGivesAWedding",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The George Burns and Gracie Allen Show - Gracie Gives a Wedding",
+          "title": "Gracie Gives a Wedding",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/kvCVEK1AeNTBbY5OREw2YdRa9bF.jpg",
           "airDate": null,
@@ -280,7 +254,7 @@
           "archiveID": "TheGeorgeBurnsAndGracieAllenShow-NewCoatssitcom1950s",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The George Burns and Gracie Allen Show - New Coats",
+          "title": "New Coats",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/kvCVEK1AeNTBbY5OREw2YdRa9bF.jpg",
           "airDate": null,
@@ -293,6 +267,42 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/TheGeorgeBurnsAndGracieAllenShow-NewCoatssitcom1950s/BurnsAllenCoats.ia.mp4"
+        },
+        {
+          "archiveID": "GeorgeBurnsGracieAllen-Thanksgiving",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Thanksgiving",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kvCVEK1AeNTBbY5OREw2YdRa9bF.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1771,
+          "videoFile": {
+            "name": "burnsallen-thanksgiving.mp4",
+            "format": "h.264",
+            "sizeBytes": 184086326,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GeorgeBurnsGracieAllen-Thanksgiving/burnsallen-thanksgiving.mp4"
+        },
+        {
+          "archiveID": "DriversLicence",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The George Burns and Gracie Allen Show",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kvCVEK1AeNTBbY5OREw2YdRa9bF.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1759,
+          "videoFile": {
+            "name": "GracieDrivers.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 169932618,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DriversLicence/GracieDrivers.ia.mp4"
         }
       ]
     }

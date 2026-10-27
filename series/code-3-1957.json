@@ -73,22 +73,17 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/Code3TheManWithManyFaces/Code3-theManWithManyFaces.ia.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
+        },
         {
           "archiveID": "Code3TheBensonCase",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Code 3: The Benson Case",
+          "seasonNumber": 1,
+          "episodeNumber": 39,
+          "title": "The Benson Case",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/k2DycRNUrDjZg4LYG36ceISzgTQ.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1577,
+          "airDate": "1957-12-24",
+          "year": 1957,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "Code3-theBensonCase.ia.mp4",
             "format": "h.264 IA",
@@ -117,8 +112,5 @@
       "order": 1,
       "profilePath": "https://artworks.thetvdb.com/banners/actors/393569.jpg"
     }
-  ],
-  "seriesImdbID": "tt0050005",
-  "canonicalEpisodeCount": 15,
-  "canonicalSeasons": 1
+  ]
 }

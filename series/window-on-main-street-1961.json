@@ -47,7 +47,7 @@
           "archiveID": "Window_on_Main--Doctor_to_Town",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "Window on Main Street: A Doctor Comes to Town",
+          "title": "A Doctor Comes to Town",
           "overview": null,
           "stillURL": null,
           "airDate": null,
@@ -65,7 +65,7 @@
           "archiveID": "Window_on_Main--Chambermaid",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "Window on Main Street: The Chambermaid",
+          "title": "The Chambermaid",
           "overview": null,
           "stillURL": null,
           "airDate": null,
@@ -83,7 +83,7 @@
           "archiveID": "Window_on_Main_St--The_Return",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "Window on Main Street: The Return",
+          "title": "The Return",
           "overview": null,
           "stillURL": null,
           "airDate": null,
@@ -135,8 +135,5 @@
       "order": 4,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/257551/photo/64909ddd53b08.jpg"
     }
-  ],
-  "seriesImdbID": "tt0054579",
-  "canonicalEpisodeCount": 16,
-  "canonicalSeasons": 1
+  ]
 }

@@ -7,13 +7,13 @@
    "matched": true,
    "canonEps": 435,
    "ourItems": 593,
-   "mappedEps": 424,
-   "extras": 36,
+   "mappedEps": 425,
+   "extras": 27,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
    "bundles": 4,
-   "availableEps": 460,
+   "availableEps": 452,
    "kinds": [
     "series",
     "single"
@@ -69,14 +69,13 @@
    "title": "Looney Tunes",
    "matched": true,
    "canonEps": 1042,
-   "ourItems": 262,
-   "mappedEps": 191,
-   "extras": 71,
+   "ourItems": 0,
+   "mappedEps": 0,
+   "extras": 0,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
    "bundles": 1,
-   "availableEps": 262,
    "kinds": [
     "series"
    ],
@@ -96,12 +95,12 @@
    "canonEps": 158,
    "ourItems": 196,
    "mappedEps": 158,
-   "extras": 5,
+   "extras": 4,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
    "bundles": 2,
-   "availableEps": 163,
+   "availableEps": 162,
    "kinds": [
     "series",
     "single"
@@ -228,14 +227,14 @@
    "title": "The Twilight Zone",
    "matched": true,
    "canonEps": 156,
-   "ourItems": 126,
+   "ourItems": 125,
    "mappedEps": 121,
-   "extras": 1,
+   "extras": 3,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
    "bundles": 4,
-   "availableEps": 122,
+   "availableEps": 124,
    "kinds": [
     "series"
    ],
@@ -304,8 +303,8 @@
    "matched": true,
    "canonEps": 130,
    "ourItems": 101,
-   "mappedEps": 11,
-   "extras": 90,
+   "mappedEps": 75,
+   "extras": 26,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -330,12 +329,12 @@
    "canonEps": 78,
    "ourItems": 186,
    "mappedEps": 69,
-   "extras": 23,
+   "extras": 24,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
    "bundles": 3,
-   "availableEps": 92,
+   "availableEps": 93,
    "kinds": [
     "series"
    ],
@@ -404,8 +403,8 @@
    "matched": true,
    "canonEps": 257,
    "ourItems": 69,
-   "mappedEps": 0,
-   "extras": 69,
+   "mappedEps": 13,
+   "extras": 56,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -520,14 +519,14 @@
    "title": "The Smith Family",
    "matched": true,
    "canonEps": 39,
-   "ourItems": 55,
+   "ourItems": 49,
    "mappedEps": 35,
-   "extras": 20,
+   "extras": 14,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
    "bundles": 2,
-   "availableEps": 55,
+   "availableEps": 49,
    "kinds": [
     "series"
    ],
@@ -595,14 +594,14 @@
    "title": "The Avengers",
    "matched": true,
    "canonEps": 161,
-   "ourItems": 61,
-   "mappedEps": 52,
+   "ourItems": 60,
+   "mappedEps": 51,
    "extras": 1,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
    "bundles": 2,
-   "availableEps": 53,
+   "availableEps": 52,
    "kinds": [
     "series"
    ],
@@ -611,6 +610,40 @@
     {
      "kind": "series",
      "ref": "the-avengers-1961"
+    }
+   ]
+  },
+  {
+   "slug": "the-outer-limits-1963",
+   "tvmazeID": 2147,
+   "title": "The Outer Limits",
+   "matched": true,
+   "canonEps": 49,
+   "ourItems": 53,
+   "mappedEps": 47,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "bundles": 2,
+   "availableEps": 48,
+   "kinds": [
+    "series",
+    "single"
+   ],
+   "mergedFrom": 3,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-outer-limits-1963"
+    },
+    {
+     "kind": "series",
+     "ref": "the-outer-limits-tv-1964-colorized-1964"
+    },
+    {
+     "kind": "single",
+     "ref": "the-outer-limits-1995_202304"
     }
    ]
   },
@@ -636,36 +669,6 @@
     {
      "kind": "series",
      "ref": "playboy-after-dark-1968"
-    }
-   ]
-  },
-  {
-   "slug": "the-outer-limits-1963",
-   "tvmazeID": 2147,
-   "title": "The Outer Limits",
-   "matched": true,
-   "canonEps": 49,
-   "ourItems": 54,
-   "mappedEps": 47,
-   "extras": 2,
-   "repicked": 1,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "bundles": 2,
-   "availableEps": 49,
-   "kinds": [
-    "series",
-    "single"
-   ],
-   "mergedFrom": 2,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "the-outer-limits-1963"
-    },
-    {
-     "kind": "single",
-     "ref": "the-outer-limits-1995_202304"
     }
    ]
   },
@@ -751,8 +754,8 @@
    "matched": true,
    "canonEps": 466,
    "ourItems": 40,
-   "mappedEps": 27,
-   "extras": 13,
+   "mappedEps": 32,
+   "extras": 8,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -816,6 +819,35 @@
     {
      "kind": "series",
      "ref": "interpol-calling-1959"
+    }
+   ]
+  },
+  {
+   "slug": "stories-of-the-century-1954",
+   "tvmazeID": 16191,
+   "title": "Stories of the Century",
+   "matched": true,
+   "canonEps": 39,
+   "ourItems": 29,
+   "mappedEps": 16,
+   "extras": 13,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "bundles": 0,
+   "availableEps": 29,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "stories-of-the-century-1954"
+    },
+    {
+     "kind": "series",
+     "ref": "stories-of-the-century-tv-1954-colorized-1954"
     }
    ]
   },
@@ -900,14 +932,14 @@
    "title": "Doctor Who",
    "matched": true,
    "canonEps": 700,
-   "ourItems": 63,
-   "mappedEps": 18,
-   "extras": 17,
+   "ourItems": 62,
+   "mappedEps": 15,
+   "extras": 19,
    "repicked": 2,
    "deadItems": 0,
    "repickSkipped": 0,
    "bundles": 4,
-   "availableEps": 35,
+   "availableEps": 34,
    "kinds": [
     "series"
    ],
@@ -1261,8 +1293,8 @@
    "matched": true,
    "canonEps": 69,
    "ourItems": 30,
-   "mappedEps": 25,
-   "extras": 5,
+   "mappedEps": 27,
+   "extras": 3,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -1330,44 +1362,19 @@
    ]
   },
   {
-   "slug": "stories-of-the-century-1954",
-   "tvmazeID": 16191,
-   "title": "Stories of the Century",
-   "matched": true,
-   "canonEps": 39,
-   "ourItems": 29,
-   "mappedEps": 16,
-   "extras": 13,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "bundles": 0,
-   "availableEps": 29,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "stories-of-the-century-1954"
-    }
-   ]
-  },
-  {
    "slug": "adam-12-1968",
    "tvmazeID": 2119,
    "title": "Adam-12",
    "matched": true,
    "canonEps": 174,
-   "ourItems": 28,
-   "mappedEps": 28,
+   "ourItems": 27,
+   "mappedEps": 27,
    "extras": 0,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
    "bundles": 1,
-   "availableEps": 28,
+   "availableEps": 27,
    "kinds": [
     "series"
    ],
@@ -1636,8 +1643,8 @@
    "matched": true,
    "canonEps": 39,
    "ourItems": 24,
-   "mappedEps": 9,
-   "extras": 15,
+   "mappedEps": 19,
+   "extras": 5,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -1656,6 +1663,35 @@
     {
      "kind": "single",
      "ref": "sherlock-holmes-tv"
+    }
+   ]
+  },
+  {
+   "slug": "the-lone-ranger-1949",
+   "tvmazeID": 2146,
+   "title": "The Lone Ranger",
+   "matched": true,
+   "canonEps": 221,
+   "ourItems": 28,
+   "mappedEps": 16,
+   "extras": 6,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "bundles": 1,
+   "availableEps": 22,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "the-lone-ranger-1949"
+    },
+    {
+     "kind": "series",
+     "ref": "the-lone-ranger-tv-1950-colorized-1950"
     }
    ]
   },
@@ -1746,8 +1782,8 @@
    "matched": true,
    "canonEps": 1134,
    "ourItems": 24,
-   "mappedEps": 15,
-   "extras": 9,
+   "mappedEps": 21,
+   "extras": 3,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -1846,8 +1882,8 @@
    "matched": true,
    "canonEps": 251,
    "ourItems": 22,
-   "mappedEps": 21,
-   "extras": 1,
+   "mappedEps": 20,
+   "extras": 2,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -1901,8 +1937,8 @@
    "matched": true,
    "canonEps": 68,
    "ourItems": 22,
-   "mappedEps": 19,
-   "extras": 3,
+   "mappedEps": 21,
+   "extras": 1,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -1975,39 +2011,14 @@
    ]
   },
   {
-   "slug": "the-lone-ranger-1949",
-   "tvmazeID": 2146,
-   "title": "The Lone Ranger",
-   "matched": true,
-   "canonEps": 221,
-   "ourItems": 28,
-   "mappedEps": 16,
-   "extras": 6,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "bundles": 1,
-   "availableEps": 22,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "the-lone-ranger-1949"
-    }
-   ]
-  },
-  {
    "slug": "climax-1954",
    "tvmazeID": 21855,
    "title": "Climax!",
    "matched": true,
    "canonEps": 166,
    "ourItems": 21,
-   "mappedEps": 16,
-   "extras": 5,
+   "mappedEps": 18,
+   "extras": 3,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -2031,8 +2042,8 @@
    "matched": true,
    "canonEps": 276,
    "ourItems": 20,
-   "mappedEps": 17,
-   "extras": 3,
+   "mappedEps": 18,
+   "extras": 2,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -2056,8 +2067,8 @@
    "matched": true,
    "canonEps": 102,
    "ourItems": 18,
-   "mappedEps": 2,
-   "extras": 16,
+   "mappedEps": 3,
+   "extras": 15,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -2115,8 +2126,8 @@
    "matched": true,
    "canonEps": 72,
    "ourItems": 20,
-   "mappedEps": 19,
-   "extras": 1,
+   "mappedEps": 20,
+   "extras": 0,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -2250,8 +2261,8 @@
    "matched": true,
    "canonEps": 44,
    "ourItems": 19,
-   "mappedEps": 1,
-   "extras": 18,
+   "mappedEps": 4,
+   "extras": 15,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -2344,14 +2355,43 @@
    ]
   },
   {
+   "slug": "the-roy-rogers-show-1951",
+   "tvmazeID": 2149,
+   "title": "The Roy Rogers Show",
+   "matched": true,
+   "canonEps": 100,
+   "ourItems": 11,
+   "mappedEps": 10,
+   "extras": 1,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "bundles": 0,
+   "availableEps": 11,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "roy-rogers-show-tv-1952-colorized-1952"
+    },
+    {
+     "kind": "series",
+     "ref": "the-roy-rogers-show-1951"
+    }
+   ]
+  },
+  {
    "slug": "the-buccaneers-1956",
    "tvmazeID": 28387,
    "title": "The Buccaneers",
    "matched": true,
    "canonEps": 39,
    "ourItems": 17,
-   "mappedEps": 2,
-   "extras": 15,
+   "mappedEps": 15,
+   "extras": 2,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -2400,8 +2440,8 @@
    "matched": true,
    "canonEps": 291,
    "ourItems": 15,
-   "mappedEps": 2,
-   "extras": 13,
+   "mappedEps": 6,
+   "extras": 9,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -2430,8 +2470,8 @@
    "matched": true,
    "canonEps": 78,
    "ourItems": 15,
-   "mappedEps": 7,
-   "extras": 8,
+   "mappedEps": 14,
+   "extras": 1,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -2455,8 +2495,8 @@
    "matched": true,
    "canonEps": 58,
    "ourItems": 15,
-   "mappedEps": 13,
-   "extras": 2,
+   "mappedEps": 15,
+   "extras": 0,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -2520,6 +2560,35 @@
     {
      "kind": "series",
      "ref": "the-dinah-shore-show-1951"
+    }
+   ]
+  },
+  {
+   "slug": "annie-oakley-1954",
+   "tvmazeID": 9475,
+   "title": "Annie Oakley",
+   "matched": true,
+   "canonEps": 81,
+   "ourItems": 9,
+   "mappedEps": 6,
+   "extras": 3,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "bundles": 0,
+   "availableEps": 9,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "annie-oakley-1954"
+    },
+    {
+     "kind": "series",
+     "ref": "annie-oakley-tv-1954-colorized-1954"
     }
    ]
   },
@@ -2733,8 +2802,8 @@
    "matched": true,
    "canonEps": 33,
    "ourItems": 13,
-   "mappedEps": 0,
-   "extras": 13,
+   "mappedEps": 1,
+   "extras": 12,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -2808,8 +2877,8 @@
    "matched": true,
    "canonEps": 26,
    "ourItems": 13,
-   "mappedEps": 13,
-   "extras": 0,
+   "mappedEps": 5,
+   "extras": 8,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -2833,8 +2902,8 @@
    "matched": true,
    "canonEps": 260,
    "ourItems": 12,
-   "mappedEps": 2,
-   "extras": 10,
+   "mappedEps": 4,
+   "extras": 8,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -2938,8 +3007,8 @@
    "matched": true,
    "canonEps": 28,
    "ourItems": 12,
-   "mappedEps": 1,
-   "extras": 11,
+   "mappedEps": 8,
+   "extras": 4,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -3082,39 +3151,14 @@
    ]
   },
   {
-   "slug": "the-roy-rogers-show-1951",
-   "tvmazeID": 2149,
-   "title": "The Roy Rogers Show",
-   "matched": true,
-   "canonEps": 100,
-   "ourItems": 11,
-   "mappedEps": 10,
-   "extras": 1,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "bundles": 0,
-   "availableEps": 11,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "the-roy-rogers-show-1951"
-    }
-   ]
-  },
-  {
    "slug": "william-tell-1958",
    "tvmazeID": 21082,
    "title": "William Tell",
    "matched": true,
    "canonEps": 39,
    "ourItems": 11,
-   "mappedEps": 0,
-   "extras": 11,
+   "mappedEps": 8,
+   "extras": 3,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -3138,8 +3182,8 @@
    "matched": true,
    "canonEps": 10,
    "ourItems": 9,
-   "mappedEps": 1,
-   "extras": 8,
+   "mappedEps": 2,
+   "extras": 7,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -3162,14 +3206,39 @@
    ]
   },
   {
+   "slug": "fawlty-towers-1975",
+   "tvmazeID": 577,
+   "title": "Fawlty Towers",
+   "matched": true,
+   "canonEps": 12,
+   "ourItems": 16,
+   "mappedEps": 12,
+   "extras": 4,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "bundles": 1,
+   "availableEps": 16,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "fawlty-towers-1975"
+    }
+   ]
+  },
+  {
    "slug": "flash-gordon-1954",
    "tvmazeID": 34934,
    "title": "Flash Gordon",
    "matched": true,
    "canonEps": 39,
    "ourItems": 9,
-   "mappedEps": 5,
-   "extras": 4,
+   "mappedEps": 6,
+   "extras": 3,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -3188,6 +3257,35 @@
     {
      "kind": "single",
      "ref": "flash-gordon-tv-show"
+    }
+   ]
+  },
+  {
+   "slug": "have-gun-will-travel-1957",
+   "tvmazeID": 3360,
+   "title": "Have Gun - Will Travel",
+   "matched": true,
+   "canonEps": 225,
+   "ourItems": 7,
+   "mappedEps": 7,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "bundles": 0,
+   "availableEps": 7,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "have-gun-will-travel-1957"
+    },
+    {
+     "kind": "series",
+     "ref": "have-gun-will-travel-tv-1962-colorized-1962"
     }
    ]
   },
@@ -3272,31 +3370,6 @@
    ]
   },
   {
-   "slug": "annie-oakley-1954",
-   "tvmazeID": 9475,
-   "title": "Annie Oakley",
-   "matched": true,
-   "canonEps": 81,
-   "ourItems": 9,
-   "mappedEps": 6,
-   "extras": 3,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "bundles": 0,
-   "availableEps": 9,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "annie-oakley-1954"
-    }
-   ]
-  },
-  {
    "slug": "blansky-s-beauties-1977",
    "tvmazeID": 32951,
    "title": "Blansky's Beauties",
@@ -3353,8 +3426,8 @@
    "matched": true,
    "canonEps": 32,
    "ourItems": 9,
-   "mappedEps": 2,
-   "extras": 7,
+   "mappedEps": 9,
+   "extras": 0,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -3437,8 +3510,8 @@
    "matched": true,
    "canonEps": 173,
    "ourItems": 9,
-   "mappedEps": 0,
-   "extras": 9,
+   "mappedEps": 6,
+   "extras": 3,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -3592,8 +3665,8 @@
    "matched": true,
    "canonEps": 81,
    "ourItems": 8,
-   "mappedEps": 1,
-   "extras": 7,
+   "mappedEps": 8,
+   "extras": 0,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -3661,36 +3734,6 @@
    ]
   },
   {
-   "slug": "fawlty-towers-1975",
-   "tvmazeID": 577,
-   "title": "Fawlty Towers",
-   "matched": true,
-   "canonEps": 12,
-   "ourItems": 18,
-   "mappedEps": 12,
-   "extras": 4,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "bundles": 1,
-   "availableEps": 16,
-   "kinds": [
-    "series",
-    "single"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "fawlty-towers-1975"
-    },
-    {
-     "kind": "single",
-     "ref": "fawlty_towers_202604"
-    }
-   ]
-  },
-  {
    "slug": "follow-me-1977",
    "tvmazeID": 25860,
    "title": "Follow Me...",
@@ -3716,11 +3759,11 @@
    ]
   },
   {
-   "slug": "have-gun-will-travel-1957",
-   "tvmazeID": 3360,
-   "title": "Have Gun - Will Travel",
+   "slug": "hawkeye-and-the-last-of-the-mohicans-1957",
+   "tvmazeID": 28385,
+   "title": "Hawkeye and the Last of the Mohicans",
    "matched": true,
-   "canonEps": 225,
+   "canonEps": 39,
    "ourItems": 7,
    "mappedEps": 7,
    "extras": 0,
@@ -3736,7 +3779,7 @@
    "consumedRefs": [
     {
      "kind": "series",
-     "ref": "have-gun-will-travel-1957"
+     "ref": "hawkeye-and-the-last-of-the-mohicans-tv-1957-colorized-1957"
     }
    ]
   },
@@ -3747,8 +3790,8 @@
    "matched": true,
    "canonEps": 79,
    "ourItems": 7,
-   "mappedEps": 2,
-   "extras": 5,
+   "mappedEps": 6,
+   "extras": 1,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -3797,8 +3840,8 @@
    "matched": true,
    "canonEps": 52,
    "ourItems": 7,
-   "mappedEps": 6,
-   "extras": 1,
+   "mappedEps": 7,
+   "extras": 0,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -3935,8 +3978,8 @@
    "matched": true,
    "canonEps": 26,
    "ourItems": 6,
-   "mappedEps": 0,
-   "extras": 6,
+   "mappedEps": 3,
+   "extras": 3,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -4198,8 +4241,8 @@
    "matched": true,
    "canonEps": 108,
    "ourItems": 5,
-   "mappedEps": 3,
-   "extras": 2,
+   "mappedEps": 4,
+   "extras": 1,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -4222,14 +4265,14 @@
    "title": "Checkmate",
    "matched": true,
    "canonEps": 70,
-   "ourItems": 5,
-   "mappedEps": 4,
+   "ourItems": 4,
+   "mappedEps": 3,
    "extras": 1,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
    "bundles": 0,
-   "availableEps": 5,
+   "availableEps": 4,
    "kinds": [
     "series"
    ],
@@ -4242,14 +4285,39 @@
    ]
   },
   {
+   "slug": "h-g-wells-invisible-man-1959",
+   "tvmazeID": 3586,
+   "title": "H.G. Wells' Invisible Man",
+   "matched": true,
+   "canonEps": 26,
+   "ourItems": 5,
+   "mappedEps": 5,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "bundles": 0,
+   "availableEps": 5,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "invisible-man-tv-1959-colorized-1959"
+    }
+   ]
+  },
+  {
    "slug": "make-room-for-daddy-1953",
    "tvmazeID": 12740,
    "title": "Make Room for Daddy",
    "matched": true,
    "canonEps": 344,
    "ourItems": 5,
-   "mappedEps": 0,
-   "extras": 5,
+   "mappedEps": 4,
+   "extras": 1,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -4298,8 +4366,8 @@
    "matched": true,
    "canonEps": 93,
    "ourItems": 5,
-   "mappedEps": 1,
-   "extras": 4,
+   "mappedEps": 2,
+   "extras": 3,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -4323,8 +4391,8 @@
    "matched": true,
    "canonEps": 8,
    "ourItems": 5,
-   "mappedEps": 0,
-   "extras": 5,
+   "mappedEps": 3,
+   "extras": 2,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -4348,8 +4416,8 @@
    "matched": true,
    "canonEps": 13,
    "ourItems": 2,
-   "mappedEps": 0,
-   "extras": 2,
+   "mappedEps": 2,
+   "extras": 0,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -4437,8 +4505,8 @@
    "matched": true,
    "canonEps": 39,
    "ourItems": 4,
-   "mappedEps": 3,
-   "extras": 1,
+   "mappedEps": 4,
+   "extras": 0,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -4537,8 +4605,8 @@
    "matched": true,
    "canonEps": 130,
    "ourItems": 4,
-   "mappedEps": 3,
-   "extras": 1,
+   "mappedEps": 4,
+   "extras": 0,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -4556,14 +4624,44 @@
    ]
   },
   {
+   "slug": "sky-king-1952",
+   "tvmazeID": 2136,
+   "title": "Sky King",
+   "matched": true,
+   "canonEps": 72,
+   "ourItems": 4,
+   "mappedEps": 3,
+   "extras": 1,
+   "repicked": 1,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "bundles": 0,
+   "availableEps": 4,
+   "kinds": [
+    "series",
+    "single"
+   ],
+   "mergedFrom": 2,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "sky-king-tv-1952-colorized-1952"
+    },
+    {
+     "kind": "single",
+     "ref": "sky-king-tv-series"
+    }
+   ]
+  },
+  {
    "slug": "the-adventures-of-kit-carson-1951",
    "tvmazeID": 4971,
    "title": "The Adventures of Kit Carson",
    "matched": true,
    "canonEps": 103,
    "ourItems": 4,
-   "mappedEps": 0,
-   "extras": 4,
+   "mappedEps": 3,
+   "extras": 1,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -4646,8 +4744,8 @@
    "matched": true,
    "canonEps": 168,
    "ourItems": 4,
-   "mappedEps": 2,
-   "extras": 2,
+   "mappedEps": 4,
+   "extras": 0,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -4671,8 +4769,8 @@
    "matched": true,
    "canonEps": 32,
    "ourItems": 4,
-   "mappedEps": 0,
-   "extras": 4,
+   "mappedEps": 3,
+   "extras": 1,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -4795,14 +4893,13 @@
    "title": "Emmerdale",
    "matched": true,
    "canonEps": 8889,
-   "ourItems": 3,
+   "ourItems": 0,
    "mappedEps": 0,
-   "extras": 3,
+   "extras": 0,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
    "bundles": 0,
-   "availableEps": 3,
    "kinds": [
     "series"
    ],
@@ -4821,8 +4918,8 @@
    "matched": true,
    "canonEps": 111,
    "ourItems": 2,
-   "mappedEps": 1,
-   "extras": 1,
+   "mappedEps": 2,
+   "extras": 0,
    "repicked": 1,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -4851,8 +4948,8 @@
    "matched": true,
    "canonEps": 526,
    "ourItems": 3,
-   "mappedEps": 0,
-   "extras": 3,
+   "mappedEps": 1,
+   "extras": 2,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -4901,8 +4998,8 @@
    "matched": true,
    "canonEps": 14,
    "ourItems": 3,
-   "mappedEps": 0,
-   "extras": 3,
+   "mappedEps": 1,
+   "extras": 2,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -4926,8 +5023,8 @@
    "matched": true,
    "canonEps": 74,
    "ourItems": 3,
-   "mappedEps": 0,
-   "extras": 3,
+   "mappedEps": 1,
+   "extras": 2,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -5147,8 +5244,8 @@
    "matched": true,
    "canonEps": 26,
    "ourItems": 2,
-   "mappedEps": 1,
-   "extras": 1,
+   "mappedEps": 2,
+   "extras": 0,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -5197,8 +5294,8 @@
    "matched": true,
    "canonEps": 284,
    "ourItems": 2,
-   "mappedEps": 1,
-   "extras": 1,
+   "mappedEps": 2,
+   "extras": 0,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -5247,8 +5344,8 @@
    "matched": true,
    "canonEps": 66,
    "ourItems": 2,
-   "mappedEps": 1,
-   "extras": 1,
+   "mappedEps": 2,
+   "extras": 0,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -5327,8 +5424,8 @@
    "matched": true,
    "canonEps": 38,
    "ourItems": 2,
-   "mappedEps": 2,
-   "extras": 0,
+   "mappedEps": 1,
+   "extras": 1,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -5402,8 +5499,8 @@
    "matched": true,
    "canonEps": 40,
    "ourItems": 2,
-   "mappedEps": 0,
-   "extras": 2,
+   "mappedEps": 2,
+   "extras": 0,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
@@ -6265,12 +6362,13 @@
    "matched": true,
    "canonEps": 155,
    "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
+   "mappedEps": 1,
+   "extras": 0,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
    "bundles": 0,
+   "availableEps": 1,
    "kinds": [
     "orphan-episode"
    ],
@@ -6337,12 +6435,13 @@
    "matched": true,
    "canonEps": 173,
    "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
+   "mappedEps": 1,
+   "extras": 0,
    "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
    "bundles": 0,
+   "availableEps": 1,
    "kinds": [
     "orphan-episode"
    ],
@@ -6400,6 +6499,31 @@
     {
      "kind": "orphan-episode",
      "ref": "la-linea-the-complete-series-1-1971"
+    }
+   ]
+  },
+  {
+   "slug": "the-rebel-1959",
+   "tvmazeID": 4951,
+   "title": "The Rebel",
+   "matched": true,
+   "canonEps": 76,
+   "ourItems": 1,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "bundles": 0,
+   "availableEps": 1,
+   "kinds": [
+    "orphan-episode"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "orphan-episode",
+     "ref": "the-rebel-tv-1959-s01e16-glory"
     }
    ]
   },
@@ -6572,11 +6696,11 @@
    ]
   },
   {
-   "slug": "doug-to-the-rescue-2021",
-   "tvmazeID": 55657,
-   "title": "Doug to the Rescue",
+   "slug": "george-to-the-rescue-2020",
+   "tvmazeID": 58253,
+   "title": "George to the Rescue",
    "matched": true,
-   "canonEps": 6,
+   "canonEps": 19,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -6620,11 +6744,11 @@
    ]
   },
   {
-   "slug": "big-cats-about-the-house-2018",
-   "tvmazeID": 35443,
-   "title": "Big Cats About the House",
+   "slug": "inside-the-big-east-2005",
+   "tvmazeID": 11255,
+   "title": "Inside the Big East",
    "matched": true,
-   "canonEps": 3,
+   "canonEps": 7,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -7707,12 +7831,13 @@
    "matched": true,
    "canonEps": 16,
    "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
-   "repicked": 0,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 1,
    "deadItems": 0,
    "repickSkipped": 0,
    "bundles": 0,
+   "availableEps": 1,
    "kinds": [
     "single"
    ],
@@ -7725,11 +7850,11 @@
    ]
   },
   {
-   "slug": "the-armando-iannucci-shows-2001",
-   "tvmazeID": 2574,
-   "title": "The Armando Iannucci Shows",
+   "slug": "big-brother-best-shows-ever-2020",
+   "tvmazeID": 48066,
+   "title": "Big Brother: Best Shows Ever",
    "matched": true,
-   "canonEps": 8,
+   "canonEps": 10,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -7803,12 +7928,13 @@
    "matched": true,
    "canonEps": 17,
    "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
-   "repicked": 0,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 1,
    "deadItems": 0,
    "repickSkipped": 0,
    "bundles": 0,
+   "availableEps": 1,
    "kinds": [
     "single"
    ],
@@ -7899,12 +8025,13 @@
    "matched": true,
    "canonEps": 13,
    "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
-   "repicked": 0,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 1,
    "deadItems": 0,
    "repickSkipped": 0,
    "bundles": 0,
+   "availableEps": 1,
    "kinds": [
     "single"
    ],
@@ -7923,12 +8050,13 @@
    "matched": true,
    "canonEps": 12,
    "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
-   "repicked": 0,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 1,
    "deadItems": 0,
    "repickSkipped": 0,
    "bundles": 0,
+   "availableEps": 1,
    "kinds": [
     "single"
    ],
@@ -8067,12 +8195,13 @@
    "matched": true,
    "canonEps": 11,
    "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
-   "repicked": 0,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 1,
    "deadItems": 0,
    "repickSkipped": 0,
    "bundles": 0,
+   "availableEps": 1,
    "kinds": [
     "single"
    ],
@@ -9264,30 +9393,6 @@
    ]
   },
   {
-   "slug": "sky-king-1952",
-   "tvmazeID": 2136,
-   "title": "Sky King",
-   "matched": true,
-   "canonEps": 72,
-   "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "bundles": 0,
-   "kinds": [
-    "single"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "single",
-     "ref": "sky-king-tv-series"
-    }
-   ]
-  },
-  {
    "slug": "faerie-tale-theatre-1982",
    "tvmazeID": 11349,
    "title": "Faerie Tale Theatre",
@@ -9342,12 +9447,13 @@
    "matched": true,
    "canonEps": 34,
    "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
-   "repicked": 0,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 1,
    "deadItems": 0,
    "repickSkipped": 0,
    "bundles": 0,
+   "availableEps": 1,
    "kinds": [
     "single"
    ],
@@ -9360,11 +9466,11 @@
    ]
   },
   {
-   "slug": "franklin-1997",
-   "tvmazeID": 17755,
+   "slug": "franklin-2024",
+   "tvmazeID": 74480,
    "title": "Franklin",
    "matched": true,
-   "canonEps": 156,
+   "canonEps": 8,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -9528,11 +9634,11 @@
    ]
   },
   {
-   "slug": "dr-slump-1997",
-   "tvmazeID": 55245,
+   "slug": "dr-slump-1981",
+   "tvmazeID": 55244,
    "title": "Dr. Slump",
    "matched": true,
-   "canonEps": 74,
+   "canonEps": 243,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -9744,11 +9850,11 @@
    ]
   },
   {
-   "slug": "the-worst-witch-2017",
-   "tvmazeID": 12990,
+   "slug": "the-worst-witch-1998",
+   "tvmazeID": 11931,
    "title": "The Worst Witch",
    "matched": true,
-   "canonEps": 52,
+   "canonEps": 53,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -9822,12 +9928,13 @@
    "matched": true,
    "canonEps": 19,
    "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
-   "repicked": 0,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 1,
    "deadItems": 0,
    "repickSkipped": 0,
    "bundles": 0,
+   "availableEps": 1,
    "kinds": [
     "single"
    ],
@@ -10176,11 +10283,11 @@
    ]
   },
   {
-   "slug": "harry-2016",
-   "tvmazeID": 6373,
+   "slug": "harry-2013",
+   "tvmazeID": 7272,
    "title": "Harry",
    "matched": true,
-   "canonEps": 176,
+   "canonEps": 6,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -10204,7 +10311,7 @@
    "tvmazeID": 3164,
    "title": "Heartland",
    "matched": true,
-   "canonEps": 285,
+   "canonEps": 287,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -10344,19 +10451,18 @@
    ]
   },
   {
-   "slug": "double-trouble-1984",
-   "tvmazeID": 25641,
+   "slug": "double-trouble-2008",
+   "tvmazeID": 12981,
    "title": "Double Trouble",
    "matched": true,
-   "canonEps": 23,
+   "canonEps": 13,
    "ourItems": 1,
-   "mappedEps": 1,
-   "extras": 0,
-   "repicked": 1,
+   "mappedEps": 0,
+   "extras": 1,
+   "repicked": 0,
    "deadItems": 0,
    "repickSkipped": 0,
    "bundles": 0,
-   "availableEps": 1,
    "kinds": [
     "single"
    ],
@@ -10664,12 +10770,13 @@
    "matched": true,
    "canonEps": 6,
    "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
-   "repicked": 0,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 1,
    "deadItems": 0,
    "repickSkipped": 0,
    "bundles": 0,
+   "availableEps": 1,
    "kinds": [
     "single"
    ],
@@ -10856,12 +10963,13 @@
    "matched": true,
    "canonEps": 12,
    "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
-   "repicked": 0,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 1,
    "deadItems": 0,
    "repickSkipped": 0,
    "bundles": 0,
+   "availableEps": 1,
    "kinds": [
     "single"
    ],
@@ -10904,12 +11012,13 @@
    "matched": true,
    "canonEps": 10,
    "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
-   "repicked": 0,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 1,
    "deadItems": 0,
    "repickSkipped": 0,
    "bundles": 0,
+   "availableEps": 1,
    "kinds": [
     "single"
    ],
@@ -10922,11 +11031,11 @@
    ]
   },
   {
-   "slug": "dennis-the-menace-1986",
-   "tvmazeID": 26779,
+   "slug": "dennis-the-menace-1959",
+   "tvmazeID": 2121,
    "title": "Dennis the Menace",
    "matched": true,
-   "canonEps": 36,
+   "canonEps": 146,
    "ourItems": 1,
    "mappedEps": 0,
    "extras": 1,
@@ -12010,12 +12119,13 @@
    "matched": true,
    "canonEps": 22,
    "ourItems": 1,
-   "mappedEps": 0,
-   "extras": 1,
-   "repicked": 0,
+   "mappedEps": 1,
+   "extras": 0,
+   "repicked": 1,
    "deadItems": 0,
    "repickSkipped": 0,
    "bundles": 0,
+   "availableEps": 1,
    "kinds": [
     "single"
    ],
@@ -12077,12 +12187,275 @@
   }
  ],
  "reclassifyArchiveIDs": [
+  "LTT101@s1e05",
+  "LTT101@s1e08",
+  "LTT101@s1e10",
+  "LTT101@s1e15",
+  "LTT101@s1e16",
+  "LTT101@s1e18",
+  "LTT101@s1e19",
+  "LTT101@s1e21",
+  "LTT101@s1e22",
+  "LTT101@s1e23",
+  "LTT101@s1e26",
+  "LTT101@s1e27",
+  "LTT101@s1e28",
+  "LTT101@s1e31",
+  "LTT101@s1e33",
+  "LTT101@s1e37",
+  "LTT101@s1e39",
+  "LTT101@s1e41",
+  "LTT101@s1e44",
+  "LTT101@s1e49",
+  "LTT101@s1e57",
+  "LTT101@s1e58",
+  "LTT101@s1e65",
+  "LTT101@s1e67",
+  "LTT101@s1e70",
+  "LTT101@s1e73",
+  "LTT101@s1e79",
+  "LTT101@s1e80",
+  "LTT101@s1e83",
+  "LTT101@s1e89",
+  "LTT101@s1e92",
+  "LTT101@s1e105",
+  "LTT101@s1e115",
+  "LTT101@s1e125",
+  "LTT101@s1e126",
+  "LTT101@s1e129",
+  "LTT101@s1e131",
+  "LTT101@s1e132",
+  "LTT101@s1e145",
+  "LTT101@s1e149",
+  "LTT101@s1e151",
+  "LTT101@s1e153",
+  "LTT101@s1e161",
+  "LTT101@s1e163",
+  "LTT101@s1e170",
+  "LTT101@s1e173",
+  "LTT101@s1e180",
+  "LTT101@s1e186",
+  "LTT101@s1e190",
+  "LTT101@s1e191",
+  "LTT101@s1e192",
+  "LTT101@s1e193",
+  "LTT101@s1e203",
+  "LTT101@s1e206",
+  "LTT101@s1e211",
+  "LTT101@s1e214",
+  "LTT101@s1e224",
+  "LTT101@s1e226",
+  "LTT101@s1e228",
+  "LTT101@s1e232",
+  "LTT101@s1e236",
+  "LTT101@s1e239",
+  "LTT101@s1e247",
+  "LTT101@s1e249",
+  "LTT101@s1e253",
+  "LTT101@s1e255",
+  "LTT101@s1e256",
+  "LTT101@s1e257",
+  "LTT101@s1e259",
+  "LTT101@s1e260",
+  "LTT101@s1e262",
+  "LTT101@s1e01",
+  "LTT101@s1e02",
+  "LTT101@s1e03",
+  "LTT101@s1e04",
+  "LTT101@s1e06",
+  "LTT101@s1e07",
+  "LTT101@s1e09",
+  "LTT101@s1e11",
+  "LTT101@s1e12",
+  "LTT101@s1e13",
+  "LTT101@s1e17",
+  "LTT101@s1e20",
+  "LTT101@s1e24",
+  "LTT101@s1e25",
+  "LTT101@s1e29",
+  "LTT101@s1e30",
+  "LTT101@s1e32",
+  "LTT101@s1e34",
+  "LTT101@s1e36",
+  "LTT101@s1e35",
+  "LTT101@s1e38",
+  "LTT101@s1e40",
+  "LTT101@s1e42",
+  "LTT101@s1e43",
+  "LTT101@s1e45",
+  "LTT101@s1e46",
+  "LTT101@s1e47",
+  "LTT101@s1e48",
+  "LTT101@s1e50",
+  "LTT101@s1e51",
+  "LTT101@s1e52",
+  "LTT101@s1e53",
+  "LTT101@s1e54",
+  "LTT101@s1e55",
+  "LTT101@s1e56",
+  "LTT101@s1e59",
+  "LTT101@s1e60",
+  "LTT101@s1e61",
+  "LTT101@s1e62",
+  "LTT101@s1e63",
+  "LTT101@s1e64",
+  "LTT101@s1e66",
+  "LTT101@s1e68",
+  "LTT101@s1e261",
+  "LTT101@s1e69",
+  "LTT101@s1e71",
+  "LTT101@s1e72",
+  "LTT101@s1e75",
+  "LTT101@s1e74",
+  "LTT101@s1e76",
+  "LTT101@s1e77",
+  "LTT101@s1e78",
+  "LTT101@s1e81",
+  "LTT101@s1e82",
+  "LTT101@s1e84",
+  "LTT101@s1e85",
+  "LTT101@s1e86",
+  "LTT101@s1e87",
+  "LTT101@s1e88",
+  "LTT101@s1e90",
+  "LTT101@s1e91",
+  "LTT101@s1e93",
+  "LTT101@s1e94",
+  "LTT101@s1e95",
+  "LTT101@s1e14",
+  "LTT101@s1e96",
+  "LTT101@s1e97",
+  "LTT101@s1e98",
+  "LTT101@s1e99",
+  "LTT101@s1e101",
+  "LTT101@s1e100",
+  "LTT101@s1e102",
+  "LTT101@s1e103",
+  "LTT101@s1e104",
+  "LTT101@s1e106",
+  "LTT101@s1e107",
+  "LTT101@s1e108",
+  "LTT101@s1e109",
+  "LTT101@s1e110",
+  "LTT101@s1e111",
+  "LTT101@s1e112",
+  "LTT101@s1e113",
+  "LTT101@s1e114",
+  "LTT101@s1e116",
+  "LTT101@s1e117",
+  "LTT101@s1e118",
+  "LTT101@s1e119",
+  "LTT101@s1e120",
+  "LTT101@s1e121",
+  "LTT101@s1e139",
+  "LTT101@s1e122",
+  "LTT101@s1e123",
+  "LTT101@s1e124",
+  "LTT101@s1e127",
+  "LTT101@s1e128",
+  "LTT101@s1e130",
+  "LTT101@s1e133",
+  "LTT101@s1e134",
+  "LTT101@s1e135",
+  "LTT101@s1e136",
+  "LTT101@s1e137",
+  "LTT101@s1e138",
+  "LTT101@s1e140",
+  "LTT101@s1e141",
+  "LTT101@s1e142",
+  "LTT101@s1e143",
+  "LTT101@s1e144",
+  "LTT101@s1e146",
+  "LTT101@s1e147",
+  "LTT101@s1e148",
+  "LTT101@s1e150",
+  "LTT101@s1e152",
+  "LTT101@s1e154",
+  "LTT101@s1e155",
+  "LTT101@s1e156",
+  "LTT101@s1e157",
+  "LTT101@s1e158",
+  "LTT101@s1e159",
+  "LTT101@s1e160",
+  "LTT101@s1e162",
+  "LTT101@s1e164",
+  "LTT101@s1e165",
+  "LTT101@s1e167",
+  "LTT101@s1e168",
+  "LTT101@s1e169",
+  "LTT101@s1e171",
+  "LTT101@s1e172",
+  "LTT101@s1e174",
+  "LTT101@s1e175",
+  "LTT101@s1e176",
+  "LTT101@s1e177",
+  "LTT101@s1e178",
+  "LTT101@s1e179",
+  "LTT101@s1e181",
+  "LTT101@s1e182",
+  "LTT101@s1e183",
+  "LTT101@s1e184",
+  "LTT101@s1e185",
+  "LTT101@s1e187",
+  "LTT101@s1e188",
+  "LTT101@s1e189",
+  "LTT101@s1e194",
+  "LTT101@s1e195",
+  "LTT101@s1e196",
+  "LTT101@s1e197",
+  "LTT101@s1e198",
+  "LTT101@s1e199",
+  "LTT101@s1e200",
+  "LTT101@s1e201",
+  "LTT101@s1e202",
+  "LTT101@s1e204",
+  "LTT101@s1e205",
+  "LTT101@s1e207",
+  "LTT101@s1e208",
+  "LTT101@s1e209",
+  "LTT101@s1e210",
+  "LTT101@s1e212",
+  "LTT101@s1e213",
+  "LTT101@s1e215",
+  "LTT101@s1e216",
+  "LTT101@s1e217",
+  "LTT101@s1e218",
+  "LTT101@s1e219",
+  "LTT101@s1e220",
+  "LTT101@s1e221",
+  "LTT101@s1e222",
+  "LTT101@s1e223",
+  "LTT101@s1e225",
+  "LTT101@s1e227",
+  "LTT101@s1e229",
+  "LTT101@s1e230",
+  "LTT101@s1e231",
+  "LTT101@s1e233",
+  "LTT101@s1e234",
+  "LTT101@s1e235",
+  "LTT101@s1e166",
+  "LTT101@s1e237",
+  "LTT101@s1e238",
+  "LTT101@s1e240",
+  "LTT101@s1e241",
+  "LTT101@s1e242",
+  "LTT101@s1e243",
+  "LTT101@s1e244",
+  "LTT101@s1e246",
+  "LTT101@s1e245",
+  "LTT101@s1e258",
+  "LTT101@s1e248",
+  "LTT101@s1e250",
+  "LTT101@s1e251",
+  "LTT101@s1e252",
+  "LTT101@s1e254",
+  "emmerdale-episode-2478-28-january-1999_202403",
+  "emmerdale-episode-2554-27-july-1999_202403",
+  "emmerdale-episode-2565-18-august-1999_202403",
   "TheDeathKiss",
   "the-killers-1946-1080p-1456x-1080-blu-ray-x-264",
-  "Sea_Hunt_Mark_of_the_Octopus",
   "captain-scarlet-tv-series",
   "Dragnet_The_Big_Lift",
-  "Love_That_Bob_Ep4x26_Bob_Goes_Bird_Watching",
   "PeteAndGladys1960CbsSneakPreview",
   "sportinglovedivx",
   "on-the-buses-1969-73",
@@ -12137,22 +12510,17 @@
   "bless-me-father-1978-81",
   "the-lovers-1970-71",
   "1x-01-pilot_20230920",
-  "07.justlikemom",
   "001-tv_202409",
   "fenn-street-gang-1971-73",
   "romany-jones-1972-75",
-  "07.-of-human-bonding",
   "home-to-roost-1985-90",
   "living.-dolls.-s-01-e-02.-its.-my.-party.-360p.-ctv.-web-dl.-aac-2.0.-h.-264-qoq",
   "Alice1985FinalEpisode",
-  "106.-fairly-secret-army...-when-the-talking-had-to-stop",
-  "106.-ffizz...-with-friends-like-these",
   "greatscott06",
   "surgical-spirit-1989-95",
   "in-loving-memory-1979-86",
   "growing-pains-complete-series",
   "the-duck-factory",
-  "10.-yule-be-sorry",
   "TheNewAndyGriffithShowPREMIERE",
   "down_the_shore_1992_tv_series",
   "the-squirrels-1975",
@@ -12199,10 +12567,8 @@
   "blues-clues-1",
   "cliffords-puppy-days-s-02e-05-celebrating-spring-garden-delights",
   "cutie-honey-the-live",
-  "sky-king-tv-series",
   "fgtd5r",
   "americas-most-wanted-misc-eps",
-  "16.-the-wrong-lumber-race",
   "franklin-and-friends-deep-sea-voyage",
   "hi-hi-puffy-ami-yumi-6-opera-yumi-save-the-farm-pen-pal",
   "dead-like-me",
@@ -12222,7 +12588,6 @@
   "s-01-e-06-monkey-business_202109",
   "1977TVCommercials",
   "lame-ducks-1984-85",
-  "SisterKateEugenesFeat",
   "citizen-james-1960-62",
   "mc-hales-navy-complete",
   "s-01-e-01-pilot_202303",
@@ -12244,6 +12609,7 @@
   "the-herculoids_202509",
   "alice-_tv_Lando18",
   "the-drew-carey-show-complete-series",
+  "DoubleTroubleS1E4BadChemistry",
   "meego-s-01-e-01-pilot_202408",
   "cowboy-g-men-22-rawhiders_20210606",
   "TLC1984UnsoldPilot",
@@ -12255,7 +12621,6 @@
   "charles-in-charge-s-05-e-08-paper-covers-rock",
   "the.-michael.-richards.-show.-s-01-e-02.-simplification.-vhsrip.x-264",
   "perfect-strangers-Lando18",
-  "the-bradys-e-01-start-your-engines",
   "mamas-family-Lando18",
   "i-dream-of-jeannie",
   "NatureKilimanjaro",
@@ -12263,9 +12628,7 @@
   "liberace-show-d-6-",
   "titus-the-family-homecoming-reunion-episode-pt-1-pt-2",
   "free-spirit",
-  "how-do-you-want-me-1x-02-floppy-but-not-too-floppy",
   "thenewdickvandykeshow",
-  "the-brady-brides-e-01-living-together",
   "dennis-the-menace-tv-Lando18",
   "rhoda-Lando18",
   "too-close-for-comfort_202202",
@@ -12309,11 +12672,13 @@
   "It_Aint_Half_Hot_Mum",
   "Bram-Alice-complete-series",
   "rob-_Lando18",
-  "ep-02-under-one-roof",
   "rude-awakening-complete-series",
   "hippies_202602"
  ],
- "orphanSeriesSlugs": [],
+ "orphanSeriesSlugs": [
+  "looney-tunes-1929",
+  "emmerdale-1972"
+ ],
  "unmatched": [
   {
    "title": "Alan Watts",
@@ -12328,13 +12693,6 @@
    "items": 5,
    "kind": "series",
    "ref": "all-star-revue-1952"
-  },
-  {
-   "title": "Annie Oakley TV 1954 colorized",
-   "year": 1954,
-   "items": 5,
-   "kind": "series",
-   "ref": "annie-oakley-tv-1954-colorized-1954"
   },
   {
    "title": "BCTV News Hour Access",
@@ -12491,20 +12849,6 @@
    "ref": "h-g-wells-invisible-man-1959"
   },
   {
-   "title": "Have Gun Will Travel TV 1962 colorized",
-   "year": 1962,
-   "items": 3,
-   "kind": "series",
-   "ref": "have-gun-will-travel-tv-1962-colorized-1962"
-  },
-  {
-   "title": "Hawkeye and the Last of the Mohicans TV 1957 colorized",
-   "year": 1957,
-   "items": 7,
-   "kind": "series",
-   "ref": "hawkeye-and-the-last-of-the-mohicans-tv-1957-colorized-1957"
-  },
-  {
    "title": "Hawkins Falls",
    "year": 1953,
    "items": 3,
@@ -12531,13 +12875,6 @@
    "items": 4,
    "kind": "series",
    "ref": "i-remember-mama-1950"
-  },
-  {
-   "title": "Invisible Man TV 1959 colorized",
-   "year": 1959,
-   "items": 5,
-   "kind": "series",
-   "ref": "invisible-man-tv-1959-colorized-1959"
   },
   {
    "title": "Jackpot Bowling",
@@ -12659,13 +12996,6 @@
    "ref": "rocky-king-detective-1952"
   },
   {
-   "title": "Roy Rogers Show TV 1952 colorized",
-   "year": 1952,
-   "items": 6,
-   "kind": "series",
-   "ref": "roy-rogers-show-tv-1952-colorized-1952"
-  },
-  {
    "title": "Sheriff of Cochise",
    "year": 1956,
    "items": 4,
@@ -12680,25 +13010,11 @@
    "ref": "shower-of-stars-1955"
   },
   {
-   "title": "Sky King TV 1952 colorized",
-   "year": 1952,
-   "items": 3,
-   "kind": "series",
-   "ref": "sky-king-tv-1952-colorized-1952"
-  },
-  {
    "title": "Stage 7",
    "year": 1955,
    "items": 13,
    "kind": "series",
    "ref": "stage-7-1955"
-  },
-  {
-   "title": "Stories of the Century TV 1954 colorized",
-   "year": 1954,
-   "items": 10,
-   "kind": "series",
-   "ref": "stories-of-the-century-tv-1954-colorized-1954"
   },
   {
    "title": "Stump the Stars",
@@ -12750,13 +13066,6 @@
    "ref": "the-graham-kennedy-show-1960"
   },
   {
-   "title": "The Lone Ranger TV 1950 colorized",
-   "year": 1950,
-   "items": 3,
-   "kind": "series",
-   "ref": "the-lone-ranger-tv-1950-colorized-1950"
-  },
-  {
    "title": "The Man from U.N.C.L.E",
    "year": null,
    "items": 4,
@@ -12776,13 +13085,6 @@
    "items": 4,
    "kind": "series",
    "ref": "the-morey-amsterdam-show-1949"
-  },
-  {
-   "title": "The Outer Limits TV 1964 colorized",
-   "year": 1964,
-   "items": 3,
-   "kind": "series",
-   "ref": "the-outer-limits-tv-1964-colorized-1964"
   },
   {
    "title": "The Patti Page Oldsmobile Show",
@@ -13835,13 +14137,6 @@
    "ref": "DiverDan_Ep27_Ghost_Is_Clear"
   },
   {
-   "title": "The Rifleman The Marshal",
-   "year": 1958,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "the-rifleman-tv-1958-s01e04-the-marshal"
-  },
-  {
    "title": "Diver Dan",
    "year": 1961,
    "items": 1,
@@ -14094,13 +14389,6 @@
    "ref": "riverboat-tv-1959-colorized-s01e01-payment-in-full"
   },
   {
-   "title": "gunslinger colorized",
-   "year": 1961,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "gunslinger-tv-1961-colorized-s01e12-new-savannah"
-  },
-  {
    "title": "Angela Lansbury",
    "year": 1968,
    "items": 1,
@@ -14113,20 +14401,6 @@
    "items": 1,
    "kind": "orphan-episode",
    "ref": "flash-gordon-116-and-135"
-  },
-  {
-   "title": "The Rebel colorized",
-   "year": 1960,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "the-rebel-tv-1959-s01e16-glory"
-  },
-  {
-   "title": "riverboat colorized",
-   "year": 1960,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "riverboat-tv-1960-colorized-s01e17-landlubbers"
   },
   {
    "title": "Two Faces West",
@@ -14162,13 +14436,6 @@
    "items": 1,
    "kind": "orphan-episode",
    "ref": "561007TheJackBennyProgramS07e02GeorgeBurnsSpikeJonesShow"
-  },
-  {
-   "title": "The Californians colorized",
-   "year": 1958,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "the-californians-tv-1957-colorized-s01e07-the-regulators"
   },
   {
    "title": "Not For Hire",
@@ -14309,13 +14576,6 @@
    "items": 1,
    "kind": "orphan-episode",
    "ref": "394794main_whatsup20091001-320x180"
-  },
-  {
-   "title": "The Behavioral Revolution",
-   "year": 1975,
-   "items": 1,
-   "kind": "orphan-episode",
-   "ref": "bf-skinner-the-behavioral-revolution-1975"
   },
   {
    "title": "Lucy meets John Wayne",

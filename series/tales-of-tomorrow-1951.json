@@ -161,7 +161,7 @@
           "archiveID": "UpdateTalesOfTomorrow-AllTheTimeInTheWorld1952",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "'Tales of Tomorrow' - All the time in the world",
+          "title": "All the time in the world",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/TqlBxeIAkk6H1GrO4GK5Kx3HeZ.jpg",
           "airDate": null,
@@ -179,7 +179,7 @@
           "archiveID": "talesOfTomorrow-Blunder1951",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "'Tales of Tomorrow' - Blunder",
+          "title": "Blunder",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/TqlBxeIAkk6H1GrO4GK5Kx3HeZ.jpg",
           "airDate": null,
@@ -194,10 +194,28 @@
           "downloadURL": "https://archive.org/download/talesOfTomorrow-Blunder1951/ToT_Blunder_08_10_1951.ia.mp4"
         },
         {
+          "archiveID": "talesOfTomorrowMiraculousSerum1952",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Miraculous serum",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/TqlBxeIAkk6H1GrO4GK5Kx3HeZ.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "ToT_Miraculous_serum_06_20_52.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 201366919,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/talesOfTomorrowMiraculousSerum1952/ToT_Miraculous_serum_06_20_52.ia.mp4"
+        },
+        {
           "archiveID": "talesOfTomorrow-TheLittleBlackBag1952",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "'Tales of Tomorrow' - The little black bag",
+          "title": "The little black bag",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/TqlBxeIAkk6H1GrO4GK5Kx3HeZ.jpg",
           "airDate": null,
@@ -215,7 +233,7 @@
           "archiveID": "talesOfTomorrow-WhatYouNeed1952",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "'Tales of Tomorrow' - What you need",
+          "title": "What you need",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/TqlBxeIAkk6H1GrO4GK5Kx3HeZ.jpg",
           "airDate": null,
@@ -230,28 +248,10 @@
           "downloadURL": "https://archive.org/download/talesOfTomorrow-WhatYouNeed1952/ToT_What_you_need_02_08_52.ia.mp4"
         },
         {
-          "archiveID": "talesOfTomorrowMiraculousSerum1952",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "'Tales of Tomorrow' Miraculous serum",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/TqlBxeIAkk6H1GrO4GK5Kx3HeZ.jpg",
-          "airDate": null,
-          "year": 1952,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "ToT_Miraculous_serum_06_20_52.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 201366919,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/talesOfTomorrowMiraculousSerum1952/ToT_Miraculous_serum_06_20_52.ia.mp4"
-        },
-        {
           "archiveID": "Tales_of_Tomorrow--Youth_on_Tap",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "Tales of Tomorrow: Youth on Tap",
+          "title": "Youth on Tap",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/TqlBxeIAkk6H1GrO4GK5Kx3HeZ.jpg",
           "airDate": null,

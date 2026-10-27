@@ -288,39 +288,16 @@
       ]
     },
     {
-      "seasonNumber": 2,
-      "episodes": [
-        {
-          "archiveID": "doctor-who_202207",
-          "seasonNumber": 2,
-          "episodeNumber": 22,
-          "title": "The Lion (The Crusade, Part One)",
-          "overview": "The TARDIS arrives in 12th century Palestine where a holy war is in progress between the forces of King Richard the Lionheart and the Saracenruler Saladin. Barbara is abducted in a Saracen ambush and the Doctor, Ianand Vicki make their way to King Richard's palace in the city of Jaffa.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/22/56250.jpg",
-          "airDate": "1965-03-27",
-          "year": 1965,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Doctor Who - S02E22 - The Lion.mp4",
-            "format": "h.264",
-            "sizeBytes": 156642462,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/doctor-who_202207/Doctor%20Who%20-%20S02E22%20-%20The%20Lion.mp4"
-        }
-      ]
-    },
-    {
       "seasonNumber": 3,
       "episodes": [
         {
           "archiveID": "doctorwho_s03_v2",
           "seasonNumber": 3,
           "episodeNumber": 2,
-          "title": "Trap of Steel (Galaxy 4, Part Two)",
+          "title": "season 3 doctor 1/Doctor Who - S03E02 - Mission to the Unknown - Parts 1-1/Doctor Who - S03E02 Bonus - Mission to the Unknown Reunion",
           "overview": "Missing episode -animated recreation released by BBC.The Doctor, Vicki and Steven arrive on an arid planet where they meet the beautiful Drahvins and the hideous Rills. Each has crash-landed after a confrontation in space. The Rills are friendly, compassionate explorers. The Drahvins are dull-witted, cloned soldiers, terrorised by the intelligent, warlike matriarch Maaga.Both ships are damaged. The Drahvins' craft is irreparable, but the Rills' is almost ready to take off. Although unable to breathe the oxygen atmosphere, they employ efficient robot drones, which Vicki nicknames \"Chumblies\". Despite numerous offers by the Rills to take Maaga and her crew to safety, she refuses their aid. When the planet is discovered to be on the point of disintegration, Maaga tries to force the time travellers to help her steal the Rills' ship and kill the Rills. Instead, the Doctor allows the Rills to draw power from the TARDIS to refuel and escape, leaving the Drahvins to their fate.",
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/22/56269.jpg",
-          "airDate": "1965-09-18",
+          "airDate": null,
           "year": 1965,
           "runtimeSeconds": 1500,
           "videoFile": {
@@ -340,10 +317,10 @@
           "archiveID": "doctorwho_s04",
           "seasonNumber": 4,
           "episodeNumber": 4,
-          "title": "The Smugglers, Part Four",
+          "title": "season 4 doctor 1,2/Doctor Who - S04E04 - The Highlanders - Parts 1-4/Doctor Who - S04E04 Bonus - Interview with actor Michael Elwyn",
           "overview": "The Doctor and his friends are at the mercy of Cherub, who is now seeking Avery's treasure for himself, while Pike prepares to attack the village.",
           "stillURL": "https://image.tmdb.org/t/p/w500/w8enSKCf6Zm0topeQ2XPccDqsqp.jpg",
-          "airDate": "1966-10-01",
+          "airDate": null,
           "year": 1966,
           "runtimeSeconds": 1500,
           "videoFile": {
@@ -672,7 +649,7 @@
           "archiveID": "the-daleks-master-plan-episodes-2-5-10",
           "seasonNumber": null,
           "episodeNumber": 2,
-          "title": "The Cave of Skulls",
+          "title": "Episode 2 - Day of Armageddeon",
           "overview": "The enigmatic Doctor, afraid that schoolteachers Ian Chesterton and Barbara Wright will reveal his secrets to the people of 20th century Earth, has taken them and his granddaughter Susan back to the dawn of human history. There, the four travellers are dragged into the savage politics of a tribe of cavemen who have lost the secret of making fire…",
           "stillURL": "https://image.tmdb.org/t/p/w300/svg8CUTdkVVNqaJKWp6vd999ahO.jpg",
           "airDate": null,
@@ -708,7 +685,7 @@
       ]
     }
   ],
-  "episodesCount": 35,
+  "episodesCount": 34,
   "canonicalEpisodesCount": 700,
   "tvdbID": "76107",
   "artworkSource": "tvdb",

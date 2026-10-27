@@ -38,6 +38,24 @@
           "downloadURL": "https://archive.org/download/67-02-05-1-01-ed-sullivan-jim-nabors-jill-st.-john_202404/67-02-05%201-01%20Ed%20Sullivan%3B%20Jim%20Nabors%3B%20Jill%20St.%20John.mp4"
         },
         {
+          "archiveID": "67-02-12-1-02-eddie-albert-eva-gabor-the-turtles_202404",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "19670212.Eddie Albert, Eva Gabor,Turtles",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/67-02-12-1-02-eddie-albert-eva-gabor-the-turtles_202404",
+          "airDate": "1967-02-12",
+          "year": 1967,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "67-02-12 1-02 Eddie Albert, Eva Gabor, the Turtles.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 186408696,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/67-02-12-1-02-eddie-albert-eva-gabor-the-turtles_202404/67-02-12%201-02%20Eddie%20Albert%2C%20Eva%20Gabor%2C%20the%20Turtles.mp4"
+        },
+        {
           "archiveID": "67-06-04-1-17-vicki-carr-steve-allen-ted-neeley-five",
           "seasonNumber": 1,
           "episodeNumber": 17,
@@ -370,29 +388,6 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/smothers-brothers-comedy-hour-s-3-e-26-1969-04-20-anthony-newley-leigh-french-the-clingers/Smothers%20Brothers%20Comedy%20Hour%20S3E26%201969-04-20%20-%20Anthony%20Newley%20-%20Leigh%20French%20-%20The%20Clingers.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "67-02-12-1-02-eddie-albert-eva-gabor-the-turtles_202404",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Smothers Brothers Comedy Hour 67 02 12 1 02 Eddie Albert, Eva Gabor, The Turtles",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/67-02-12-1-02-eddie-albert-eva-gabor-the-turtles_202404",
-          "airDate": null,
-          "year": 1967,
-          "runtimeSeconds": 3459,
-          "videoFile": {
-            "name": "67-02-12 1-02 Eddie Albert, Eva Gabor, the Turtles.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 186408696,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/67-02-12-1-02-eddie-albert-eva-gabor-the-turtles_202404/67-02-12%201-02%20Eddie%20Albert%2C%20Eva%20Gabor%2C%20the%20Turtles.mp4"
         }
       ]
     }

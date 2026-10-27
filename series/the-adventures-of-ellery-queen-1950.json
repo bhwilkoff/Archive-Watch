@@ -42,18 +42,18 @@
       ]
     },
     {
-      "seasonNumber": null,
+      "seasonNumber": 3,
       "episodes": [
         {
           "archiveID": "theAdventuresOfElleryQueen-BuckFever1952",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "'The Adventures of Ellery Queen' - Buck fever",
+          "seasonNumber": 3,
+          "episodeNumber": 5,
+          "title": "Buck Fever",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/dbu2dNeMA8WdvemFsiWufSMJ1Au.jpg",
           "airDate": null,
           "year": null,
-          "runtimeSeconds": 1521,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "Ellery_Queen_Buck_fever_10_01_52.mp4",
             "format": "h.264",
@@ -61,12 +61,17 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/theAdventuresOfElleryQueen-BuckFever1952/Ellery_Queen_Buck_fever_10_01_52.mp4"
-        },
+        }
+      ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
         {
           "archiveID": "theAdventuresOfElleryQueen-DeathSpinsAWheel1951",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "'The Adventures of Ellery Queen' - Death Spins a Wheel",
+          "title": "Death Spins a Wheel",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/dbu2dNeMA8WdvemFsiWufSMJ1Au.jpg",
           "airDate": null,
@@ -84,7 +89,7 @@
           "archiveID": "theAdventuresOfElleryQueen-MurderToMusic1951",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "'The Adventures of Ellery Queen' - Murder to Music",
+          "title": "Murder to Music",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/dbu2dNeMA8WdvemFsiWufSMJ1Au.jpg",
           "airDate": null,
@@ -102,7 +107,7 @@
           "archiveID": "Ellery_Queen_DuMont",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Adventures of Ellery Queen - The Hanging Acrobat - DuMont Network",
+          "title": "The Hanging Acrobat - DuMont Network",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/104/262276.jpg",
           "airDate": null,
@@ -148,8 +153,5 @@
       "order": 3,
       "profilePath": "https://artworks.thetvdb.com/banners/actors/436646.jpg"
     }
-  ],
-  "seriesImdbID": "tt0042069",
-  "canonicalEpisodeCount": 57,
-  "canonicalSeasons": 5
+  ]
 }

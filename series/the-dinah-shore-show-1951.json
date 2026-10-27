@@ -18,28 +18,10 @@
       "seasonNumber": null,
       "episodes": [
         {
-          "archiveID": "theDinahShoreShowc1952",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "\"The Dinah Shore Show\"",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89670.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 865,
-          "videoFile": {
-            "name": "Dinah_Shore_Show_1952.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 92131763,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/theDinahShoreShowc1952/Dinah_Shore_Show_1952.ia.mp4"
-        },
-        {
           "archiveID": "DinahShore1January1952",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Dinah Shore Show'' - 1 January 1952",
+          "title": "1 January 1952",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89670.jpg",
           "airDate": null,
@@ -57,7 +39,7 @@
           "archiveID": "TheDinahShoreShowFirstSongsALovelyDayToday",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Dinah Shore Show'' - 10 January 1952",
+          "title": "10 January 1952",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89670.jpg",
           "airDate": null,
@@ -75,7 +57,7 @@
           "archiveID": "TheDinahShoreShow17March1953",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Dinah Shore Show'' - 17 March 1953",
+          "title": "17 March 1953",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89670.jpg",
           "airDate": null,
@@ -93,7 +75,7 @@
           "archiveID": "TheDinahShoreShow17March1963",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Dinah Shore Show'' - 17 March 1963",
+          "title": "17 March 1963",
           "overview": null,
           "stillURL": null,
           "airDate": null,
@@ -111,7 +93,7 @@
           "archiveID": "TheDinahShoreShow20January1963",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Dinah Shore Show'' - 20 January 1963",
+          "title": "20 January 1963",
           "overview": null,
           "stillURL": null,
           "airDate": null,
@@ -129,7 +111,7 @@
           "archiveID": "dinahshore26november1953",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Dinah Shore Show'' - 26 November 1953",
+          "title": "26 November 1953",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89670.jpg",
           "airDate": null,
@@ -144,10 +126,28 @@
           "downloadURL": "https://archive.org/download/dinahshore26november1953/dinahshore26november1953.mp4"
         },
         {
+          "archiveID": "TheDinahShoreShowJustOneOfThoseThings",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "29 April 1952",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89670.jpg",
+          "airDate": null,
+          "year": 1952,
+          "runtimeSeconds": 873,
+          "videoFile": {
+            "name": "The Dinah Shore Show - Just One of Those Things.mp4",
+            "format": "h.264",
+            "sizeBytes": 90943004,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheDinahShoreShowJustOneOfThoseThings/The%20Dinah%20Shore%20Show%20-%20Just%20One%20of%20Those%20Things.mp4"
+        },
+        {
           "archiveID": "dinah3december1953",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Dinah Shore Show'' - 3 December 1953",
+          "title": "3 December 1953",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89670.jpg",
           "airDate": null,
@@ -165,7 +165,7 @@
           "archiveID": "TheDinahShoreShowFirstSongYoureUndecidedNow",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Dinah Shore Show'' - 8 January 1952",
+          "title": "8 January 1952",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89670.jpg",
           "airDate": null,
@@ -183,7 +183,7 @@
           "archiveID": "TheDinahShoreShow8October1953",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Dinah Shore Show'' - 8 October 1953?",
+          "title": "8 October 1953?",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89670.jpg",
           "airDate": null,
@@ -201,7 +201,7 @@
           "archiveID": "Dinahshore9December1962",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Dinah Shore Show'' - 9 December 1962",
+          "title": "9 December 1962",
           "overview": null,
           "stillURL": null,
           "airDate": null,
@@ -219,7 +219,7 @@
           "archiveID": "TheDinahShoreShowSunnySideOfTheStreet",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Dinah Shore Show'' - Possibly 15 January 1952",
+          "title": "Possibly 15 January 1952",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89670.jpg",
           "airDate": null,
@@ -234,10 +234,28 @@
           "downloadURL": "https://archive.org/download/TheDinahShoreShowSunnySideOfTheStreet/The%20Dinah%20Shore%20Show%20-%20Sunny%20Side%20of%20the%20Street.mp4"
         },
         {
+          "archiveID": "theDinahShoreShowc1952",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Dinah Shore Show",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89670.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 865,
+          "videoFile": {
+            "name": "Dinah_Shore_Show_1952.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 92131763,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/theDinahShoreShowc1952/Dinah_Shore_Show_1952.ia.mp4"
+        },
+        {
           "archiveID": "dinahshore-Jan1952",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Dinah Shore Show'' - first song: ''Jimmy Crack Corn''",
+          "title": "first song: Jimmy Crack Corn",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89670.jpg",
           "airDate": null,
@@ -255,7 +273,7 @@
           "archiveID": "TheDinahShoreShowFirstSongRedCanary",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Dinah Shore Show'' - first song: ''Red Canary''",
+          "title": "first song: Red Canary",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89670.jpg",
           "airDate": null,
@@ -268,24 +286,6 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/TheDinahShoreShowFirstSongRedCanary/The%20Dinah%20Shore%20Show%20-%20first%20song%20-%20Red%20Canary.mp4"
-        },
-        {
-          "archiveID": "TheDinahShoreShowJustOneOfThoseThings",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''The Dinah Shore Show'' -29 April 1952",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89670.jpg",
-          "airDate": null,
-          "year": 1952,
-          "runtimeSeconds": 873,
-          "videoFile": {
-            "name": "The Dinah Shore Show - Just One of Those Things.mp4",
-            "format": "h.264",
-            "sizeBytes": 90943004,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/TheDinahShoreShowJustOneOfThoseThings/The%20Dinah%20Shore%20Show%20-%20Just%20One%20of%20Those%20Things.mp4"
         }
       ]
     }

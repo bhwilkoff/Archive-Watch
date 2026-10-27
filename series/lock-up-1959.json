@@ -461,7 +461,7 @@
           "downloadURL": "https://archive.org/download/LockUpDeadMansShoes/LockUp-deadMansShoes.mp4"
         },
         {
-          "archiveID": "LockUpConcreteCoffin",
+          "archiveID": "LockUpStrangeSummons",
           "seasonNumber": 1,
           "episodeNumber": 22,
           "title": "Strange Summons",
@@ -471,12 +471,12 @@
           "year": 1960,
           "runtimeSeconds": 1800,
           "videoFile": {
-            "name": "LockUp-conreteCoffin.mp4",
+            "name": "LockUp-strangeSummons.mp4",
             "format": "h.264",
-            "sizeBytes": 158337010,
+            "sizeBytes": 154745015,
             "tier": 2
           },
-          "downloadURL": "https://archive.org/download/LockUpConcreteCoffin/LockUp-conreteCoffin.mp4"
+          "downloadURL": "https://archive.org/download/LockUpStrangeSummons/LockUp-strangeSummons.mp4"
         },
         {
           "archiveID": "LockUpMurderPlaysItCool",
@@ -977,22 +977,23 @@
           "downloadURL": "https://archive.org/download/LockUpTheSisters/LockUp-theSisters.mp4"
         },
         {
-          "archiveID": "LockUpStrangeSummons",
+          "archiveID": "lock-up-season-2-of-2-tv-series-1959-mkv@s2e16",
+          "sourceID": "lock-up-season-2-of-2-tv-series-1959-mkv",
           "seasonNumber": 2,
           "episodeNumber": 9,
           "title": "Diamond Dupe",
           "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "stillURL": "https://archive.org/download/lock-up-season-2-of-2-tv-series-1959-mkv/lock-up-season-2-of-2-tv-series-1959-mkv.thumbs/Lock%20Up%20-%20S02E16%20-%20Diamond%20Dupe_000656.jpg",
           "airDate": "1960-11-12",
           "year": 1960,
           "runtimeSeconds": 1800,
           "videoFile": {
-            "name": "LockUp-strangeSummons.mp4",
+            "name": "Lock Up - S02E16 - Diamond Dupe.mp4",
             "format": "h.264",
-            "sizeBytes": 154745015,
-            "tier": 2
+            "sizeBytes": 162667452,
+            "tier": 1
           },
-          "downloadURL": "https://archive.org/download/LockUpStrangeSummons/LockUp-strangeSummons.mp4"
+          "downloadURL": "https://archive.org/download/lock-up-season-2-of-2-tv-series-1959-mkv/Lock%20Up%20-%20S02E16%20-%20Diamond%20Dupe.mp4"
         },
         {
           "archiveID": "LockUpSocietyDoctor",
@@ -1068,7 +1069,7 @@
           "downloadURL": "https://archive.org/download/lock-up-season-2-of-2-tv-series-1959-mkv/Lock%20Up%20-%20S02E12%20-%20The%20Case%20of%20Alexis%20George.mp4"
         },
         {
-          "archiveID": "LockUpConcreteCoffincorrectEpisode",
+          "archiveID": "LockUpConcreteCoffin",
           "seasonNumber": 2,
           "episodeNumber": 14,
           "title": "Concrete Coffin",
@@ -1078,12 +1079,12 @@
           "year": 1960,
           "runtimeSeconds": 1800,
           "videoFile": {
-            "name": "LockUp-theConcreteCoffin.mp4",
+            "name": "LockUp-conreteCoffin.mp4",
             "format": "h.264",
-            "sizeBytes": 163375322,
+            "sizeBytes": 158337010,
             "tier": 2
           },
-          "downloadURL": "https://archive.org/download/LockUpConcreteCoffincorrectEpisode/LockUp-theConcreteCoffin.mp4"
+          "downloadURL": "https://archive.org/download/LockUpConcreteCoffin/LockUp-conreteCoffin.mp4"
         },
         {
           "archiveID": "lock-up-season-2-of-2-tv-series-1959-mkv@s2e14",
@@ -1487,7 +1488,7 @@
           "archiveID": "lock-up-season-2-of-2-tv-series-1959-xvid-avi",
           "seasonNumber": 2,
           "episodeNumber": 37,
-          "title": "Lock Up - - TV Series - 1959 - XviD AVI",
+          "title": "TV Series - 1959 - XviD AVI",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
           "airDate": null,
@@ -1544,10 +1545,28 @@
       "seasonNumber": null,
       "episodes": [
         {
+          "archiveID": "LockUpConcreteCoffincorrectEpisode",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Concrete Coffin",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "LockUp-theConcreteCoffin.mp4",
+            "format": "h.264",
+            "sizeBytes": 163375322,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpConcreteCoffincorrectEpisode/LockUp-theConcreteCoffin.mp4"
+        },
+        {
           "archiveID": "LockUpElectionDay",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "Lock Up: Election Day",
+          "title": "Election Day",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
           "airDate": null,
@@ -1565,7 +1584,7 @@
           "archiveID": "LockUpTheCaseOfAlexisGeorge",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "Lock Up: The Case of Alexis George",
+          "title": "The Case of Alexis George",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
           "airDate": null,
@@ -1583,7 +1602,7 @@
           "archiveID": "LockUpTheCaseOfCorporalNewman",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "Lock Up: The Case of Corporal Newman",
+          "title": "The Case of Corporal Newman",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
           "airDate": null,
@@ -1596,96 +1615,6 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/LockUpTheCaseOfCorporalNewman/LockUp-theCaseOfCorporalNewman.mp4"
-        },
-        {
-          "archiveID": "LockUpTheCaseOfDetectiveWeston",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Lock Up: The Case of Detective Weston",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1428,
-          "videoFile": {
-            "name": "LockUp-theCaseOfDetectiveWeston.mp4",
-            "format": "h.264",
-            "sizeBytes": 144697002,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/LockUpTheCaseOfDetectiveWeston/LockUp-theCaseOfDetectiveWeston.mp4"
-        },
-        {
-          "archiveID": "LockUpTheCaseOfFrankCorry",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Lock Up: The Case of Frank Corry",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1558,
-          "videoFile": {
-            "name": "LockUp-theCaseOfFrankCorry.mp4",
-            "format": "h.264",
-            "sizeBytes": 154924572,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/LockUpTheCaseOfFrankCorry/LockUp-theCaseOfFrankCorry.mp4"
-        },
-        {
-          "archiveID": "LockUpTheCaseOfJoeSlade",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Lock Up: The Case of Joe Slade",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1557,
-          "videoFile": {
-            "name": "LockUp-theCaseOfJoeSlade.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 159875346,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/LockUpTheCaseOfJoeSlade/LockUp-theCaseOfJoeSlade.ia.mp4"
-        },
-        {
-          "archiveID": "LockUpTheCaseOfNanHavens",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Lock Up: The Case of Nan Havens",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1557,
-          "videoFile": {
-            "name": "LockUp-theCaseOfNanHavens.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 160375884,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/LockUpTheCaseOfNanHavens/LockUp-theCaseOfNanHavens.ia.mp4"
-        },
-        {
-          "archiveID": "LockUpTheCaseOfWillieButterlfly",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Lock Up: The Case of Willie Butterlfly",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1573,
-          "videoFile": {
-            "name": "LockUp-theCaseOfWillieButterfly.mp4",
-            "format": "h.264",
-            "sizeBytes": 161695060,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/LockUpTheCaseOfWillieButterlfly/LockUp-theCaseOfWillieButterfly.mp4"
         },
         {
           "archiveID": "LockUpTheCaseOfDanGray",
@@ -1704,11 +1633,101 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/LockUpTheCaseOfDanGray/LockUp-theCaseOfDanGray.mp4"
+        },
+        {
+          "archiveID": "LockUpTheCaseOfDetectiveWeston",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Case of Detective Weston",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1428,
+          "videoFile": {
+            "name": "LockUp-theCaseOfDetectiveWeston.mp4",
+            "format": "h.264",
+            "sizeBytes": 144697002,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheCaseOfDetectiveWeston/LockUp-theCaseOfDetectiveWeston.mp4"
+        },
+        {
+          "archiveID": "LockUpTheCaseOfFrankCorry",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Case of Frank Corry",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1558,
+          "videoFile": {
+            "name": "LockUp-theCaseOfFrankCorry.mp4",
+            "format": "h.264",
+            "sizeBytes": 154924572,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheCaseOfFrankCorry/LockUp-theCaseOfFrankCorry.mp4"
+        },
+        {
+          "archiveID": "LockUpTheCaseOfJoeSlade",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Case of Joe Slade",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1557,
+          "videoFile": {
+            "name": "LockUp-theCaseOfJoeSlade.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 159875346,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheCaseOfJoeSlade/LockUp-theCaseOfJoeSlade.ia.mp4"
+        },
+        {
+          "archiveID": "LockUpTheCaseOfNanHavens",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Case of Nan Havens",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1557,
+          "videoFile": {
+            "name": "LockUp-theCaseOfNanHavens.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 160375884,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheCaseOfNanHavens/LockUp-theCaseOfNanHavens.ia.mp4"
+        },
+        {
+          "archiveID": "LockUpTheCaseOfWillieButterlfly",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Case of Willie Butterlfly",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/1u424sUx20HbiQJjHn4ZYfuGG4z.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1573,
+          "videoFile": {
+            "name": "LockUp-theCaseOfWillieButterfly.mp4",
+            "format": "h.264",
+            "sizeBytes": 161695060,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LockUpTheCaseOfWillieButterlfly/LockUp-theCaseOfWillieButterfly.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 92,
+  "episodesCount": 93,
   "canonicalEpisodesCount": 78,
   "tvdbID": "70464",
   "artworkSource": "tvdb",

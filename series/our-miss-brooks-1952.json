@@ -20,6 +20,24 @@
       "seasonNumber": 3,
       "episodes": [
         {
+          "archiveID": "OurMissBrooks-ThisIsYourPast",
+          "seasonNumber": 3,
+          "episodeNumber": 27,
+          "title": "Here is Your Past",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xNTKuGh4JYG449XJn7lf4V2WuGl.jpg",
+          "airDate": "1955-05-13",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "OurMissBrooks-ThisIsYourPast.mp4",
+            "format": "h.264",
+            "sizeBytes": 150067845,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OurMissBrooks-ThisIsYourPast/OurMissBrooks-ThisIsYourPast.mp4"
+        },
+        {
           "archiveID": "OurMissBrooks-MadisonMascot",
           "seasonNumber": 3,
           "episodeNumber": 28,
@@ -72,29 +90,6 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/OurMissBrooks-HomeCookedMeal/OurMissBrooks-HomeCookedMeal.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "OurMissBrooks-ThisIsYourPast",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Our Miss Brooks - This is Your Past",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/xNTKuGh4JYG449XJn7lf4V2WuGl.jpg",
-          "airDate": null,
-          "year": 1955,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "OurMissBrooks-ThisIsYourPast.mp4",
-            "format": "h.264",
-            "sizeBytes": 150067845,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/OurMissBrooks-ThisIsYourPast/OurMissBrooks-ThisIsYourPast.mp4"
         }
       ]
     }
@@ -212,8 +207,5 @@
       "order": 17,
       "profilePath": null
     }
-  ],
-  "seriesImdbID": "tt0044287",
-  "canonicalEpisodeCount": 90,
-  "canonicalSeasons": 4
+  ]
 }

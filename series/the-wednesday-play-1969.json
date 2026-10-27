@@ -17,13 +17,126 @@
  "creator": null,
  "seasons": [
   {
+   "seasonNumber": 1,
+   "episodes": [
+    {
+     "archiveID": "the-wednesday-play-no-trams-to-lime-street-1970",
+     "seasonNumber": 1,
+     "episodeNumber": 70,
+     "title": "No Trams to Lime Street",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/the-wednesday-play-no-trams-to-lime-street-1970",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Wednesday Play - No Trams to Lime Street (1970).ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 104653847,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-wednesday-play-no-trams-to-lime-street-1970/The%20Wednesday%20Play%20-%20No%20Trams%20to%20Lime%20Street%20%281970%29.ia.mp4"
+    },
+    {
+     "archiveID": "the-wednesday-play-horror-of-darkness-1965",
+     "seasonNumber": 1,
+     "episodeNumber": 73,
+     "title": "Horror of Darkness",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/the-wednesday-play-horror-of-darkness-1965",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Wednesday Play - Horror of Darkness (1965).ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 326617625,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-wednesday-play-horror-of-darkness-1965/The%20Wednesday%20Play%20-%20Horror%20of%20Darkness%20%281965%29.ia.mp4"
+    },
+    {
+     "archiveID": "the-wednesday-play-cock-hen-and-courting-pit-1966",
+     "seasonNumber": 1,
+     "episodeNumber": 82,
+     "title": "Cock, Hen and Courting Pit",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/the-wednesday-play-cock-hen-and-courting-pit-1966",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Wednesday Play - Cock, Hen and Courting Pit (1966).ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 258106252,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-wednesday-play-cock-hen-and-courting-pit-1966/The%20Wednesday%20Play%20-%20Cock%2C%20Hen%20and%20Courting%20Pit%20%281966%29.ia.mp4"
+    },
+    {
+     "archiveID": "the-wednesday-play-tap-on-the-shoulder-1965",
+     "seasonNumber": 1,
+     "episodeNumber": 108,
+     "title": "A Tap on the Shoulder",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/the-wednesday-play-tap-on-the-shoulder-1965",
+     "airDate": "1965-01-06",
+     "year": 1965,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Wednesday Play - Tap on the Shoulder (1965).ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 237174738,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-wednesday-play-tap-on-the-shoulder-1965/The%20Wednesday%20Play%20-%20Tap%20on%20the%20Shoulder%20%281965%29.ia.mp4"
+    },
+    {
+     "archiveID": "the-wednesday-play-nathan-and-tabileth-1970",
+     "seasonNumber": 1,
+     "episodeNumber": 124,
+     "title": "Nathan and Tabileth",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/the-wednesday-play-nathan-and-tabileth-1970",
+     "airDate": null,
+     "year": null,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Wednesday Play - Nathan and Tabileth (1970).ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 196305249,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-wednesday-play-nathan-and-tabileth-1970/The%20Wednesday%20Play%20-%20Nathan%20and%20Tabileth%20%281970%29.ia.mp4"
+    },
+    {
+     "archiveID": "the-wednesday-play-silent-song-1966",
+     "seasonNumber": 1,
+     "episodeNumber": 131,
+     "title": "Silent Song",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/the-wednesday-play-silent-song-1966",
+     "airDate": "1966-02-02",
+     "year": 1966,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Wednesday Play - Silent Song (1966).ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 271810951,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-wednesday-play-silent-song-1966/The%20Wednesday%20Play%20-%20Silent%20Song%20%281966%29.ia.mp4"
+    }
+   ]
+  },
+  {
    "seasonNumber": null,
    "episodes": [
     {
      "archiveID": "the-wednesday-play-calf-love-1966",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "The Wednesday Play - Calf Love",
+     "title": "Calf Love",
      "overview": null,
      "stillURL": "https://archive.org/services/img/the-wednesday-play-calf-love-1966",
      "airDate": null,
@@ -38,46 +151,10 @@
      "downloadURL": "https://archive.org/download/the-wednesday-play-calf-love-1966/The%20Wednesday%20Play%20-%20Calf%20Love%20%281966%29.ia.mp4"
     },
     {
-     "archiveID": "the-wednesday-play-cock-hen-and-courting-pit-1966",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "The Wednesday Play - Cock, Hen And Courting Pit",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/the-wednesday-play-cock-hen-and-courting-pit-1966",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "The Wednesday Play - Cock, Hen and Courting Pit (1966).ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 258106252,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the-wednesday-play-cock-hen-and-courting-pit-1966/The%20Wednesday%20Play%20-%20Cock%2C%20Hen%20and%20Courting%20Pit%20%281966%29.ia.mp4"
-    },
-    {
-     "archiveID": "the-wednesday-play-horror-of-darkness-1965",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "The Wednesday Play - Horror Of Darkness",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/the-wednesday-play-horror-of-darkness-1965",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "The Wednesday Play - Horror of Darkness (1965).ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 326617625,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the-wednesday-play-horror-of-darkness-1965/The%20Wednesday%20Play%20-%20Horror%20of%20Darkness%20%281965%29.ia.mp4"
-    },
-    {
      "archiveID": "wednesday-play-in-camera-aka-no-exit-1964",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "The Wednesday Play - In Camera aka No Exit",
+     "title": "In Camera aka No Exit",
      "overview": null,
      "stillURL": "https://archive.org/services/img/wednesday-play-in-camera-aka-no-exit-1964",
      "airDate": null,
@@ -92,82 +169,10 @@
      "downloadURL": "https://archive.org/download/wednesday-play-in-camera-aka-no-exit-1964/Wednesday%20Play%20-%20In%20Camera%20aka%20No%20Exit%20%281964%29.ia.mp4"
     },
     {
-     "archiveID": "the-wednesday-play-nathan-and-tabileth-1970",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "The Wednesday Play - Nathan And Tabileth",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/the-wednesday-play-nathan-and-tabileth-1970",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "The Wednesday Play - Nathan and Tabileth (1970).ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 196305249,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the-wednesday-play-nathan-and-tabileth-1970/The%20Wednesday%20Play%20-%20Nathan%20and%20Tabileth%20%281970%29.ia.mp4"
-    },
-    {
-     "archiveID": "the-wednesday-play-no-trams-to-lime-street-1970",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "The Wednesday Play - No Trams To Lime Street",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/the-wednesday-play-no-trams-to-lime-street-1970",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "The Wednesday Play - No Trams to Lime Street (1970).ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 104653847,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the-wednesday-play-no-trams-to-lime-street-1970/The%20Wednesday%20Play%20-%20No%20Trams%20to%20Lime%20Street%20%281970%29.ia.mp4"
-    },
-    {
-     "archiveID": "the-wednesday-play-silent-song-1966",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "The Wednesday Play - Silent Song",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/the-wednesday-play-silent-song-1966",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "The Wednesday Play - Silent Song (1966).ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 271810951,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the-wednesday-play-silent-song-1966/The%20Wednesday%20Play%20-%20Silent%20Song%20%281966%29.ia.mp4"
-    },
-    {
-     "archiveID": "the-wednesday-play-tap-on-the-shoulder-1965",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "The Wednesday Play - Tap On The Shoulder",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/the-wednesday-play-tap-on-the-shoulder-1965",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "The Wednesday Play - Tap on the Shoulder (1965).ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 237174738,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the-wednesday-play-tap-on-the-shoulder-1965/The%20Wednesday%20Play%20-%20Tap%20on%20the%20Shoulder%20%281965%29.ia.mp4"
-    },
-    {
      "archiveID": "the-wednesday-play-the-lump-1967",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "The Wednesday Play - The Lump",
+     "title": "The Lump",
      "overview": null,
      "stillURL": "https://archive.org/services/img/the-wednesday-play-the-lump-1967",
      "airDate": null,

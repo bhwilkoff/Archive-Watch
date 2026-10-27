@@ -20,11 +20,11 @@
         {
           "archiveID": "tateseason1",
           "seasonNumber": 1,
-          "episodeNumber": 12,
-          "title": "The Return of Jessica Jackson",
+          "episodeNumber": 11,
+          "title": "Quiet After the Storm",
           "overview": null,
           "stillURL": "https://archive.org/download/archivewatch-covers/tateseason1.45e0d800.jpg",
-          "airDate": "1960-09-14",
+          "airDate": "1960-09-07",
           "year": 1960,
           "runtimeSeconds": 1500,
           "videoFile": {
@@ -49,8 +49,5 @@
       "order": 0,
       "profilePath": "https://artworks.thetvdb.com/banners/actors/56264.jpg"
     }
-  ],
-  "seriesImdbID": "tt0053545",
-  "canonicalEpisodeCount": 6,
-  "canonicalSeasons": 1
+  ]
 }

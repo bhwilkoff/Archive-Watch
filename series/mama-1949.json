@@ -21,7 +21,7 @@
           "archiveID": "mamas-family-s-01e-11-alien-marriage",
           "seasonNumber": 1,
           "episodeNumber": 11,
-          "title": "Mama's Family | Ep. 11 | Alien Marriage",
+          "title": "s Family | Ep. 11 | Alien Marriage",
           "overview": null,
           "stillURL": null,
           "airDate": null,
@@ -44,7 +44,7 @@
           "archiveID": "mamas-family-s-02e-03-country-club",
           "seasonNumber": 2,
           "episodeNumber": 3,
-          "title": "Mama's Family | Ep. 16 | Country Club",
+          "title": "s Family | Ep. 16 | Country Club",
           "overview": null,
           "stillURL": null,
           "airDate": null,
@@ -62,7 +62,7 @@
           "archiveID": "mamas-family-s-02e-04-naomi-and-the-stork",
           "seasonNumber": 2,
           "episodeNumber": 4,
-          "title": "Mama's Family | Ep. 17 | Naomi and the Stork",
+          "title": "s Family | Ep. 17 | Naomi and the Stork",
           "overview": null,
           "stillURL": null,
           "airDate": null,
@@ -80,7 +80,7 @@
           "archiveID": "mamas-family-s-02e-07-ellen-s-boyfriend",
           "seasonNumber": 2,
           "episodeNumber": 7,
-          "title": "Mama's Family | Ep. 20 | Ellen's Boyfriend",
+          "title": "s Family | Ep. 20 | Ellen's Boyfriend",
           "overview": null,
           "stillURL": null,
           "airDate": null,
@@ -98,7 +98,7 @@
           "archiveID": "mamas-family-s-02e-08-aunt-gert-rides-again",
           "seasonNumber": 2,
           "episodeNumber": 8,
-          "title": "Mama's Family | Episode 21 | Gert Rides Again",
+          "title": "s Family | Episode 21 | Gert Rides Again",
           "overview": null,
           "stillURL": null,
           "airDate": null,
@@ -116,7 +116,7 @@
           "archiveID": "mamas-family-s-02e-10-the-mama-who-came-to-dinner",
           "seasonNumber": 2,
           "episodeNumber": 10,
-          "title": "Mama's Family | Episode 23 | The Mama Who Came to Dinner",
+          "title": "s Family | Episode 23 | The Mama Who Came to Dinner",
           "overview": null,
           "stillURL": null,
           "airDate": null,
@@ -134,7 +134,7 @@
           "archiveID": "mamas-family-s-02e-12-black-belt-mama",
           "seasonNumber": 2,
           "episodeNumber": 12,
-          "title": "Mama's Family | Episode 25 | Black Belt Mama",
+          "title": "s Family | Episode 25 | Black Belt Mama",
           "overview": null,
           "stillURL": null,
           "airDate": null,
@@ -154,64 +154,10 @@
       "seasonNumber": null,
       "episodes": [
         {
-          "archiveID": "Mama1955",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "\"Mama\" - Mama's Nursery School",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "MamaNurserySchool1955.mp4",
-            "format": "h.264",
-            "sizeBytes": 153221012,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Mama1955/MamaNurserySchool1955.mp4"
-        },
-        {
-          "archiveID": "Mama4",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "\"Mama\" - T.R.'s Surprise Party",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "TRsSurpriseParty1954.mp4",
-            "format": "h.264",
-            "sizeBytes": 147124335,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Mama4/TRsSurpriseParty1954.mp4"
-        },
-        {
-          "archiveID": "Mama5",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "'Mama' - The Parade Grandstand",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "TheParadeGrandstand1955.mp4",
-            "format": "h.264",
-            "sizeBytes": 170784661,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Mama5/TheParadeGrandstand1955.mp4"
-        },
-        {
           "archiveID": "Mama-MadameZodiac1950",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "Mama - Madame Zodiac",
+          "title": "Madame Zodiac",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/374/937415.jpg",
           "airDate": null,
@@ -229,7 +175,7 @@
           "archiveID": "iRememberMama-MadameZodiak",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "Mama - Madame Zodiak",
+          "title": "Madame Zodiak",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/374/937415.jpg",
           "airDate": null,
@@ -242,6 +188,60 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/iRememberMama-MadameZodiak/Mama-MadameZodiak.mp4"
+        },
+        {
+          "archiveID": "Mama1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mama's Nursery School",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MamaNurserySchool1955.mp4",
+            "format": "h.264",
+            "sizeBytes": 153221012,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mama1955/MamaNurserySchool1955.mp4"
+        },
+        {
+          "archiveID": "Mama4",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "T.R.'s Surprise Party",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TRsSurpriseParty1954.mp4",
+            "format": "h.264",
+            "sizeBytes": 147124335,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mama4/TRsSurpriseParty1954.mp4"
+        },
+        {
+          "archiveID": "Mama5",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Parade Grandstand",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "TheParadeGrandstand1955.mp4",
+            "format": "h.264",
+            "sizeBytes": 170784661,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mama5/TheParadeGrandstand1955.mp4"
         }
       ]
     }

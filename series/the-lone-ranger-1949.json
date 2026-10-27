@@ -43,7 +43,7 @@
           "archiveID": "the-lone-ranger-1949-s-01-e-01-enter-the-lone-ranger",
           "seasonNumber": 1,
           "episodeNumber": 1,
-          "title": "The Lone Ranger: Enter the Lone Ranger",
+          "title": "Enter the Lone Ranger",
           "overview": null,
           "stillURL": "https://archive.org/services/img/the-lone-ranger-1949-s-01-e-01-enter-the-lone-ranger",
           "airDate": null,
@@ -56,6 +56,24 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/the-lone-ranger-1949-s-01-e-01-enter-the-lone-ranger/The%20Lone%20Ranger%20%201949%20%28S01%20E01%29%20Enter%20the%20Lone%20Ranger.ia.mp4"
+        },
+        {
+          "archiveID": "thelonerangerthelonerangerfightsons01e02",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Fights On",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/sAQSKgrYC0l5kQbLk8QXINAK6F4.jpg",
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Lone Ranger - The Lone Ranger Fights On S01 E02.mp4",
+            "format": "h.264",
+            "sizeBytes": 153727628,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thelonerangerthelonerangerfightsons01e02/The%20Lone%20Ranger%20-%20The%20Lone%20Ranger%20Fights%20On%20S01%20E02.mp4"
         },
         {
           "archiveID": "the-lone-ranger-1949-s-01-e-02-the-lone-ranger-fights-on",
@@ -74,24 +92,6 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/the-lone-ranger-1949-s-01-e-02-the-lone-ranger-fights-on/The%20Lone%20Ranger%201949%20%28S01E02%29%20The%20Lone%20Ranger%20Fights%20on.mp4"
-        },
-        {
-          "archiveID": "thelonerangerthelonerangerfightsons01e02",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "The Lone Ranger Fights On",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/sAQSKgrYC0l5kQbLk8QXINAK6F4.jpg",
-          "airDate": null,
-          "year": 1949,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "The Lone Ranger - The Lone Ranger Fights On S01 E02.mp4",
-            "format": "h.264",
-            "sizeBytes": 153727628,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/thelonerangerthelonerangerfightsons01e02/The%20Lone%20Ranger%20-%20The%20Lone%20Ranger%20Fights%20On%20S01%20E02.mp4"
         },
         {
           "archiveID": "the-lone-ranger-1949-s-01-e-03-the-lone-rangers-triumph",
@@ -400,24 +400,6 @@
       "seasonNumber": null,
       "episodes": [
         {
-          "archiveID": "LegionOfOldTimers1949",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''The Lone Ranger'' - The Legion of Old Timers",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/sAQSKgrYC0l5kQbLk8QXINAK6F4.jpg",
-          "airDate": null,
-          "year": 1949,
-          "runtimeSeconds": 1466,
-          "videoFile": {
-            "name": "LegionOfOldTimers1949.mp4",
-            "format": "h.264",
-            "sizeBytes": 152594598,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/LegionOfOldTimers1949/LegionOfOldTimers1949.mp4"
-        },
-        {
           "archiveID": "LoneRanger_916",
           "seasonNumber": null,
           "episodeNumber": null,
@@ -434,6 +416,24 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/LoneRanger_916/LoneRanger.mp4"
+        },
+        {
+          "archiveID": "LegionOfOldTimers1949",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Legion of Old Timers",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/sAQSKgrYC0l5kQbLk8QXINAK6F4.jpg",
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 1466,
+          "videoFile": {
+            "name": "LegionOfOldTimers1949.mp4",
+            "format": "h.264",
+            "sizeBytes": 152594598,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LegionOfOldTimers1949/LegionOfOldTimers1949.mp4"
         }
       ]
     }

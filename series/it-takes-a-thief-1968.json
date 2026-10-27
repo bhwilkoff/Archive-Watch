@@ -41,18 +41,18 @@
       ]
     },
     {
-      "seasonNumber": null,
+      "seasonNumber": 3,
       "episodes": [
         {
           "archiveID": "it-takes-a-thief-the-suzie-simone-caper",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "It Takes A Thief",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/it-takes-a-thief-the-suzie-simone-caper",
-          "airDate": null,
+          "seasonNumber": 3,
+          "episodeNumber": 21,
+          "title": "The Suzie Simone Caper",
+          "overview": "A Nazi diary reveals that a painting by Matisse has a hidden list of Nazi war criminals. Wally calls Al to steal the painting, which is protected by a sophisticated security system.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/520/1302260.jpg",
+          "airDate": "1970-03-02",
           "year": 1970,
-          "runtimeSeconds": 2893,
+          "runtimeSeconds": 3600,
           "videoFile": {
             "name": "3x21 - It Takes a Thief - The Suzie Simone Caper.mp4",
             "format": "h.264",
@@ -81,8 +81,5 @@
       "order": 1,
       "profilePath": null
     }
-  ],
-  "seriesImdbID": "tt0062572",
-  "canonicalEpisodeCount": 12,
-  "canonicalSeasons": 3
+  ]
 }

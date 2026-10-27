@@ -56,6 +56,24 @@
           "downloadURL": "https://archive.org/download/ClimaxAnErrorInChemistry/Climax-anErrorInChemistry.mp4"
         },
         {
+          "archiveID": "ClimaxWildStallion",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "Wild Stallion",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+          "airDate": "1955-07-07",
+          "year": 1955,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Climax-wildStallion.mp4",
+            "format": "h.264",
+            "sizeBytes": 351789053,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ClimaxWildStallion/Climax-wildStallion.mp4"
+        },
+        {
           "archiveID": "climax_202103",
           "seasonNumber": 1,
           "episodeNumber": 34,
@@ -208,6 +226,24 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/ClimaxStrangeSanctuary/Climax-strangeSanctuary.mp4"
+        },
+        {
+          "archiveID": "ClimaxTrailOfTerror",
+          "seasonNumber": 3,
+          "episodeNumber": 43,
+          "title": "Trail of Terror",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+          "airDate": "1957-08-08",
+          "year": 1957,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Climax-trailOfTerror.mp4",
+            "format": "h.264",
+            "sizeBytes": 356425528,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ClimaxTrailOfTerror/Climax-trailOfTerror.mp4"
         }
       ]
     },
@@ -328,60 +364,6 @@
       "seasonNumber": null,
       "episodes": [
         {
-          "archiveID": "ClimaxJacobsAngel",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Climax!: Jacob's Angel",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 3561,
-          "videoFile": {
-            "name": "Climax-jacobsAngel.mp4",
-            "format": "h.264",
-            "sizeBytes": 354821452,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ClimaxJacobsAngel/Climax-jacobsAngel.mp4"
-        },
-        {
-          "archiveID": "ClimaxTrailOfTerror",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Climax: Trail of Terror",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 3565,
-          "videoFile": {
-            "name": "Climax-trailOfTerror.mp4",
-            "format": "h.264",
-            "sizeBytes": 356425528,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ClimaxTrailOfTerror/Climax-trailOfTerror.mp4"
-        },
-        {
-          "archiveID": "ClimaxWildStallion",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Climax: Wild Stallion",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 3531,
-          "videoFile": {
-            "name": "Climax-wildStallion.mp4",
-            "format": "h.264",
-            "sizeBytes": 351789053,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ClimaxWildStallion/Climax-wildStallion.mp4"
-        },
-        {
           "archiveID": "Climax-DrJekyllAndMrHyde",
           "seasonNumber": null,
           "episodeNumber": null,
@@ -398,6 +380,24 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/Climax-DrJekyllAndMrHyde/Climax-drJekyllAndMrHyde_512kb.mp4"
+        },
+        {
+          "archiveID": "ClimaxJacobsAngel",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Jacob's Angel",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fO9xn3sIVQHs5ap4gUnQ4AacONE.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 3561,
+          "videoFile": {
+            "name": "Climax-jacobsAngel.mp4",
+            "format": "h.264",
+            "sizeBytes": 354821452,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ClimaxJacobsAngel/Climax-jacobsAngel.mp4"
         },
         {
           "archiveID": "ClimaxTheAdventuresOfHuckleberryFinn",

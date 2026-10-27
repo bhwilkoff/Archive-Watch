@@ -21,82 +21,10 @@
       "seasonNumber": null,
       "episodes": [
         {
-          "archiveID": "TexacoStarTheater22March1949",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''Texaco Star Theater'' - 22 March 1949",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1949,
-          "runtimeSeconds": 3575,
-          "videoFile": {
-            "name": "texaco22March1949.mp4",
-            "format": "h.264",
-            "sizeBytes": 373635285,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/TexacoStarTheater22March1949/texaco22March1949.mp4"
-        },
-        {
-          "archiveID": "TexacoStarTheater28February1950",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''Texaco Star Theater'' - 28 February 1950",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1950,
-          "runtimeSeconds": 3539,
-          "videoFile": {
-            "name": "TexacoStarTheater28February1950.mp4",
-            "format": "h.264",
-            "sizeBytes": 367177440,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/TexacoStarTheater28February1950/TexacoStarTheater28February1950.mp4"
-        },
-        {
-          "archiveID": "TexacoStarTheater",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''Texaco Star Theater'' - 29 November 1949",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1949,
-          "runtimeSeconds": 3377,
-          "videoFile": {
-            "name": "TexacoStarTheater29November1949.mp4",
-            "format": "h.264",
-            "sizeBytes": 350323670,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/TexacoStarTheater/TexacoStarTheater29November1949.mp4"
-        },
-        {
-          "archiveID": "berle24April1956",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''The Milton Berle Show - 24 April 1956",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/berle24April1956",
-          "airDate": null,
-          "year": 1956,
-          "runtimeSeconds": 3434,
-          "videoFile": {
-            "name": "berle24April1956.mp4",
-            "format": "h.264",
-            "sizeBytes": 357471666,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/berle24April1956/berle24April1956.mp4"
-        },
-        {
           "archiveID": "theMiltonBerleShow-13March1956",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Milton Berle Show'' - 13 March 1956",
+          "title": "13 March 1956",
           "overview": null,
           "stillURL": "https://archive.org/services/img/theMiltonBerleShow-13March1956",
           "airDate": null,
@@ -111,10 +39,28 @@
           "downloadURL": "https://archive.org/download/theMiltonBerleShow-13March1956/TheMiltonBerleShow13March1956.mp4"
         },
         {
+          "archiveID": "berle24April1956",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "24 April 1956",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/berle24April1956",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 3434,
+          "videoFile": {
+            "name": "berle24April1956.mp4",
+            "format": "h.264",
+            "sizeBytes": 357471666,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/berle24April1956/berle24April1956.mp4"
+        },
+        {
           "archiveID": "theMiltonBerleShow-3April1956",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Milton Berle Show'' - 3 April 1956",
+          "title": "3 April 1956",
           "overview": null,
           "stillURL": "https://archive.org/services/img/theMiltonBerleShow-3April1956",
           "airDate": null,
@@ -132,7 +78,7 @@
           "archiveID": "MiltonBerleMickeyRooneyPeggyKing",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Milton Berle Show'' - 8 May 1956",
+          "title": "8 May 1956",
           "overview": null,
           "stillURL": "https://archive.org/services/img/MiltonBerleMickeyRooneyPeggyKing",
           "airDate": null,
@@ -145,6 +91,42 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/MiltonBerleMickeyRooneyPeggyKing/MiltonBerle8May1956.mp4"
+        },
+        {
+          "archiveID": "TexacoStarTheater22March1949",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Texaco Star Theater - 22 March 1949",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 3575,
+          "videoFile": {
+            "name": "texaco22March1949.mp4",
+            "format": "h.264",
+            "sizeBytes": 373635285,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TexacoStarTheater22March1949/texaco22March1949.mp4"
+        },
+        {
+          "archiveID": "TexacoStarTheater28February1950",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Texaco Star Theater - 28 February 1950",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1950,
+          "runtimeSeconds": 3539,
+          "videoFile": {
+            "name": "TexacoStarTheater28February1950.mp4",
+            "format": "h.264",
+            "sizeBytes": 367177440,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TexacoStarTheater28February1950/TexacoStarTheater28February1950.mp4"
         },
         {
           "archiveID": "TexacoStarTheatre-29May1951",
@@ -163,6 +145,24 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/TexacoStarTheatre-29May1951/Texaco1951.ia.mp4"
+        },
+        {
+          "archiveID": "TexacoStarTheater",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Texaco Star Theater - 29 November 1949",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1949,
+          "runtimeSeconds": 3377,
+          "videoFile": {
+            "name": "TexacoStarTheater29November1949.mp4",
+            "format": "h.264",
+            "sizeBytes": 350323670,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TexacoStarTheater/TexacoStarTheater29November1949.mp4"
         }
       ]
     }

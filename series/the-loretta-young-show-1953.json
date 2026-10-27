@@ -15,13 +15,272 @@
   "creator": null,
   "seasons": [
     {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "Loretta_Young--Thanksgiving_in_Beaver_Run",
+          "seasonNumber": 1,
+          "episodeNumber": 10,
+          "title": "Thanksgiving in Beaver Run",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
+          "airDate": "1953-11-21",
+          "year": 1953,
+          "runtimeSeconds": 1274,
+          "videoFile": {
+            "name": "LorettaYoung110_Thanksgiving_in_Beaver_Run.mp4",
+            "format": "h.264",
+            "sizeBytes": 132531633,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Loretta_Young--Thanksgiving_in_Beaver_Run/LorettaYoung110_Thanksgiving_in_Beaver_Run.mp4"
+        },
+        {
+          "archiveID": "Loretta_Young--Night_My_Father_Came_Home",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Night My Father Came Home",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
+          "airDate": "1953-12-20",
+          "year": 1953,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "LorettaYoung114_Night_My_Father_Came_Home.mp4",
+            "format": "h.264",
+            "sizeBytes": 123848316,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Loretta_Young--Night_My_Father_Came_Home/LorettaYoung114_Night_My_Father_Came_Home.mp4"
+        },
+        {
+          "archiveID": "Loretta_Young--Son_This_Is_Your_Father",
+          "seasonNumber": 1,
+          "episodeNumber": 27,
+          "title": "Son, This is Your Father",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
+          "airDate": "1954-03-28",
+          "year": 1954,
+          "runtimeSeconds": 1405,
+          "videoFile": {
+            "name": "LorettaYoung127_Son_This_Is_Your_Father.mp4",
+            "format": "h.264",
+            "sizeBytes": 146229880,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Loretta_Young--Son_This_Is_Your_Father/LorettaYoung127_Son_This_Is_Your_Father.mp4"
+        },
+        {
+          "archiveID": "LorettaYoung--Something_Always_Happens",
+          "seasonNumber": 1,
+          "episodeNumber": 35,
+          "title": "Something Always Happens",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
+          "airDate": "1954-05-23",
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "LorettaYoung135_Something_Always_Happens.mp4",
+            "format": "h.264",
+            "sizeBytes": 146732196,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LorettaYoung--Something_Always_Happens/LorettaYoung135_Something_Always_Happens.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "Loretta_Young--Youre_Driving_Me_Crazy",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "You're Driving Me Crazy",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
+          "airDate": "1954-09-26",
+          "year": 1954,
+          "runtimeSeconds": 1378,
+          "videoFile": {
+            "name": "LorettaYoung205_Youre_Driving_Me_Crazy.mp4",
+            "format": "h.264",
+            "sizeBytes": 143296854,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Loretta_Young--Youre_Driving_Me_Crazy/LorettaYoung205_Youre_Driving_Me_Crazy.mp4"
+        },
+        {
+          "archiveID": "LorettaYoung--Beyond_Reasonable_Doubt",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Beyond a Reasonable Doubt",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
+          "airDate": "1954-10-03",
+          "year": 1954,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "LorettaYoung206_Beyond_a_Reasonable_Doubt.mp4",
+            "format": "h.264",
+            "sizeBytes": 145455915,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LorettaYoung--Beyond_Reasonable_Doubt/LorettaYoung206_Beyond_a_Reasonable_Doubt.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "Loretta_Young--The_Years_Between",
+          "seasonNumber": 4,
+          "episodeNumber": 7,
+          "title": "The Years Between",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/Loretta_Young--The_Years_Between",
+          "airDate": "1956-10-07",
+          "year": 1956,
+          "runtimeSeconds": 1437,
+          "videoFile": {
+            "name": "LorettaYoung_407--Years_Between.mp4",
+            "format": "h.264",
+            "sizeBytes": 149297696,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Loretta_Young--The_Years_Between/LorettaYoung_407--Years_Between.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 5,
+      "episodes": [
+        {
+          "archiveID": "Loretta_Young--Dollars_Worth",
+          "seasonNumber": 5,
+          "episodeNumber": 1,
+          "title": "A Dollar's Worth",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
+          "airDate": "1957-10-20",
+          "year": 1957,
+          "runtimeSeconds": 1393,
+          "videoFile": {
+            "name": "LorettaYoung_501--Dollars_Worth.mp4",
+            "format": "h.264",
+            "sizeBytes": 144412881,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Loretta_Young--Dollars_Worth/LorettaYoung_501--Dollars_Worth.mp4"
+        },
+        {
+          "archiveID": "LorettaYoung--Friends_at_a_Distance",
+          "seasonNumber": 5,
+          "episodeNumber": 7,
+          "title": "Friends at a Distance",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
+          "airDate": "1957-12-08",
+          "year": 1957,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "LorettaYoung507_Friends_at_a_Distance.mp4",
+            "format": "h.264",
+            "sizeBytes": 131996845,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LorettaYoung--Friends_at_a_Distance/LorettaYoung507_Friends_at_a_Distance.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 8,
+      "episodes": [
+        {
+          "archiveID": "Loretta_Young--Long_Night",
+          "seasonNumber": 8,
+          "episodeNumber": 1,
+          "title": "The Long Night",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
+          "airDate": "1960-09-18",
+          "year": 1960,
+          "runtimeSeconds": 1409,
+          "videoFile": {
+            "name": "LorettaYoung_801--Long_Night.mp4",
+            "format": "h.264",
+            "sizeBytes": 146407135,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Loretta_Young--Long_Night/LorettaYoung_801--Long_Night.mp4"
+        },
+        {
+          "archiveID": "LorettaYoung--Love_Between_the_Acts",
+          "seasonNumber": 8,
+          "episodeNumber": 6,
+          "title": "Love Between the Acts",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
+          "airDate": "1960-10-23",
+          "year": 1960,
+          "runtimeSeconds": 1408,
+          "videoFile": {
+            "name": "LorettaYoung806_Love_between_the_Acts.mp4",
+            "format": "h.264",
+            "sizeBytes": 131741651,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LorettaYoung--Love_Between_the_Acts/LorettaYoung806_Love_between_the_Acts.mp4"
+        },
+        {
+          "archiveID": "LorettaYoung--Unconditional_Surrender",
+          "seasonNumber": 8,
+          "episodeNumber": 10,
+          "title": "Unconditional Surrender",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
+          "airDate": "1960-11-20",
+          "year": 1960,
+          "runtimeSeconds": 1402,
+          "videoFile": {
+            "name": "LorettaYoung810_Unconditional_Surrender.mp4",
+            "format": "h.264",
+            "sizeBytes": 130610090,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/LorettaYoung--Unconditional_Surrender/LorettaYoung810_Unconditional_Surrender.mp4"
+        },
+        {
+          "archiveID": "Loretta_Young--These_Few_Years",
+          "seasonNumber": 8,
+          "episodeNumber": 12,
+          "title": "These Few Years",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
+          "airDate": "1960-12-11",
+          "year": 1960,
+          "runtimeSeconds": 1489,
+          "videoFile": {
+            "name": "LorettaYoung_812--These_Few_Years.mp4",
+            "format": "h.264",
+            "sizeBytes": 145816579,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Loretta_Young--These_Few_Years/LorettaYoung_812--These_Few_Years.mp4"
+        }
+      ]
+    },
+    {
       "seasonNumber": null,
       "episodes": [
         {
           "archiveID": "LorettaYoung--600_Seconds",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: 600 Seconds",
+          "title": "600 Seconds",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
           "airDate": null,
@@ -36,28 +295,10 @@
           "downloadURL": "https://archive.org/download/LorettaYoung--600_Seconds/LorettaYoung222_600_Seconds.mp4"
         },
         {
-          "archiveID": "Loretta_Young--Dollars_Worth",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Loretta Young Show: A Dollar's Worth",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
-          "airDate": null,
-          "year": 1957,
-          "runtimeSeconds": 1393,
-          "videoFile": {
-            "name": "LorettaYoung_501--Dollars_Worth.mp4",
-            "format": "h.264",
-            "sizeBytes": 144412881,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Loretta_Young--Dollars_Worth/LorettaYoung_501--Dollars_Worth.mp4"
-        },
-        {
           "archiveID": "LorettaYoung--A_New_Step",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: A New Step",
+          "title": "A New Step",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
           "airDate": null,
@@ -75,7 +316,7 @@
           "archiveID": "Loretta_Young--Act_of_Faith",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: Act of Faith",
+          "title": "Act of Faith",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
           "airDate": null,
@@ -90,28 +331,10 @@
           "downloadURL": "https://archive.org/download/Loretta_Young--Act_of_Faith/LorettaYoung122_Act_of_Faith.mp4"
         },
         {
-          "archiveID": "LorettaYoung--Beyond_Reasonable_Doubt",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Loretta Young Show: Beyond a Reasonable Doubt",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
-          "airDate": null,
-          "year": 1954,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "LorettaYoung206_Beyond_a_Reasonable_Doubt.mp4",
-            "format": "h.264",
-            "sizeBytes": 145455915,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/LorettaYoung--Beyond_Reasonable_Doubt/LorettaYoung206_Beyond_a_Reasonable_Doubt.mp4"
-        },
-        {
           "archiveID": "Loretta_Young_Show--Big_Little_Lie",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: Big Little Lie",
+          "title": "Big Little Lie",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
           "airDate": null,
@@ -129,7 +352,7 @@
           "archiveID": "Loretta_Young--But_for_Gods_Grace",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: But for God's Grace",
+          "title": "But for God's Grace",
           "overview": null,
           "stillURL": "https://archive.org/services/img/Loretta_Young--But_for_Gods_Grace",
           "airDate": null,
@@ -147,7 +370,7 @@
           "archiveID": "LorettaYoung--Christmas_Stopover",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: Christmas Stopover",
+          "title": "Christmas Stopover",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
           "airDate": null,
@@ -165,7 +388,7 @@
           "archiveID": "Loretta_Young--Double_Partners",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: Double Partners",
+          "title": "Double Partners",
           "overview": null,
           "stillURL": "https://archive.org/services/img/Loretta_Young--Double_Partners",
           "airDate": null,
@@ -183,7 +406,7 @@
           "archiveID": "Loretta_Young--Emergency_in_114",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: Emergency in 114",
+          "title": "Emergency in 114",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
           "airDate": null,
@@ -201,7 +424,7 @@
           "archiveID": "Loretta_Young--Evil_for_Evil",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: Evil for Evil",
+          "title": "Evil for Evil",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
           "airDate": null,
@@ -219,7 +442,7 @@
           "archiveID": "LorettaYoung--For_Father-Darling",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: For Father Darling",
+          "title": "For Father Darling",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
           "airDate": null,
@@ -237,7 +460,7 @@
           "archiveID": "Loretta_Young--Forest_Ranger",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: Forest Ranger",
+          "title": "Forest Ranger",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
           "airDate": null,
@@ -252,28 +475,10 @@
           "downloadURL": "https://archive.org/download/Loretta_Young--Forest_Ranger/LorettaYoung130_Forest_Ranger.mp4"
         },
         {
-          "archiveID": "LorettaYoung--Friends_at_a_Distance",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Loretta Young Show: Friends at a Distance",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
-          "airDate": null,
-          "year": 1957,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "LorettaYoung507_Friends_at_a_Distance.mp4",
-            "format": "h.264",
-            "sizeBytes": 131996845,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/LorettaYoung--Friends_at_a_Distance/LorettaYoung507_Friends_at_a_Distance.mp4"
-        },
-        {
           "archiveID": "LorettaYoung--Goodbye_Goodbye",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: Goodbye, Goodbye",
+          "title": "Goodbye, Goodbye",
           "overview": null,
           "stillURL": "https://archive.org/services/img/LorettaYoung--Goodbye_Goodbye",
           "airDate": null,
@@ -291,7 +496,7 @@
           "archiveID": "LorettaYoung--Guest_in_the_Night",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: Guest in the Night",
+          "title": "Guest in the Night",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
           "airDate": null,
@@ -309,7 +514,7 @@
           "archiveID": "LorettaYoung--He_Always_Comes_Home",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: He Always Comes Home",
+          "title": "He Always Comes Home",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
           "airDate": null,
@@ -327,7 +532,7 @@
           "archiveID": "LorettaYoung--Hotel_Irritant",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: Hotel Irritant",
+          "title": "Hotel Irritant",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
           "airDate": null,
@@ -345,7 +550,7 @@
           "archiveID": "LorettaYoung--Imperfect_Balance",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: Imperfect Balance",
+          "title": "Imperfect Balance",
           "overview": null,
           "stillURL": "https://archive.org/services/img/LorettaYoung--Imperfect_Balance",
           "airDate": null,
@@ -363,7 +568,7 @@
           "archiveID": "LorettaYoung--Inga_II",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: Inga II",
+          "title": "Inga II",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
           "airDate": null,
@@ -381,7 +586,7 @@
           "archiveID": "Loretta_Young--Inga_III",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: Inga III",
+          "title": "Inga III",
           "overview": null,
           "stillURL": "https://archive.org/services/img/Loretta_Young--Inga_III",
           "airDate": null,
@@ -399,7 +604,7 @@
           "archiveID": "LorettaYoung--Inga_IV",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: Inga IV",
+          "title": "Inga IV",
           "overview": null,
           "stillURL": "https://archive.org/services/img/LorettaYoung--Inga_IV",
           "airDate": null,
@@ -417,7 +622,7 @@
           "archiveID": "LorettaYoung--Kid_Stuff",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: Kid Stuff",
+          "title": "Kid Stuff",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
           "airDate": null,
@@ -435,7 +640,7 @@
           "archiveID": "Loretta_Young--Lady_Killer",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: Lady Killer",
+          "title": "Lady Killer",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
           "airDate": null,
@@ -453,7 +658,7 @@
           "archiveID": "LorettaYoung--Legacy",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: Legacy",
+          "title": "Legacy",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
           "airDate": null,
@@ -468,28 +673,10 @@
           "downloadURL": "https://archive.org/download/LorettaYoung--Legacy/LorettaYoung429_Legacy.mp4"
         },
         {
-          "archiveID": "LorettaYoung--Love_Between_the_Acts",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Loretta Young Show: Love Between the Acts",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
-          "airDate": null,
-          "year": 1960,
-          "runtimeSeconds": 1408,
-          "videoFile": {
-            "name": "LorettaYoung806_Love_between_the_Acts.mp4",
-            "format": "h.264",
-            "sizeBytes": 131741651,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/LorettaYoung--Love_Between_the_Acts/LorettaYoung806_Love_between_the_Acts.mp4"
-        },
-        {
           "archiveID": "LorettaYoung--Mans_Estate",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: Man's Estate",
+          "title": "Man's Estate",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
           "airDate": null,
@@ -507,7 +694,7 @@
           "archiveID": "LorettaYoung--Mask_of_Evidence",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: Mask of Evidence",
+          "title": "Mask of Evidence",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
           "airDate": null,
@@ -525,7 +712,7 @@
           "archiveID": "Loretta_Young--My_Favorite_Monster",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: My Favorite Monster",
+          "title": "My Favorite Monster",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
           "airDate": null,
@@ -543,7 +730,7 @@
           "archiveID": "Loretta_Young_Show--No_Help_Wanted",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: No Help Wanted",
+          "title": "No Help Wanted",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
           "airDate": null,
@@ -561,7 +748,7 @@
           "archiveID": "LorettaYoung--Not_in_Our_Stars",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: Not in Our Stars",
+          "title": "Not in Our Stars",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
           "airDate": null,
@@ -579,7 +766,7 @@
           "archiveID": "Loretta_Young--Now_a_Brief_Word",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: Now a Brief Word",
+          "title": "Now a Brief Word",
           "overview": null,
           "stillURL": "https://archive.org/services/img/Loretta_Young--Now_a_Brief_Word",
           "airDate": null,
@@ -597,7 +784,7 @@
           "archiveID": "LorettaYoung--Oh_My_Aching_Heart",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: Oh, My Aching Heart",
+          "title": "Oh, My Aching Heart",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
           "airDate": null,
@@ -615,7 +802,7 @@
           "archiveID": "LorettaYoung--One_Beautiful_Moment",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: One Beautiful Moment",
+          "title": "One Beautiful Moment",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
           "airDate": null,
@@ -633,7 +820,7 @@
           "archiveID": "Loretta_Young_Show--Option_on_a_Wife",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: Option on a Wife",
+          "title": "Option on a Wife",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
           "airDate": null,
@@ -651,7 +838,7 @@
           "archiveID": "Loretta_Young--Prisoner_at_One_OClock",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: Prisoner at One O'Clock",
+          "title": "Prisoner at One O'Clock",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
           "airDate": null,
@@ -669,7 +856,7 @@
           "archiveID": "LorettaYoung--Secret_Answer",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: Secret Answer",
+          "title": "Secret Answer",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
           "airDate": null,
@@ -684,64 +871,10 @@
           "downloadURL": "https://archive.org/download/LorettaYoung--Secret_Answer/LorettaYoung118_Secret_Answer.mp4"
         },
         {
-          "archiveID": "LorettaYoung--Something_Always_Happens",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Loretta Young Show: Something Always Happens",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
-          "airDate": null,
-          "year": 1954,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "LorettaYoung135_Something_Always_Happens.mp4",
-            "format": "h.264",
-            "sizeBytes": 146732196,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/LorettaYoung--Something_Always_Happens/LorettaYoung135_Something_Always_Happens.mp4"
-        },
-        {
-          "archiveID": "Loretta_Young--Son_This_Is_Your_Father",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Loretta Young Show: Son, This Is Your Father",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
-          "airDate": null,
-          "year": 1954,
-          "runtimeSeconds": 1405,
-          "videoFile": {
-            "name": "LorettaYoung127_Son_This_Is_Your_Father.mp4",
-            "format": "h.264",
-            "sizeBytes": 146229880,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Loretta_Young--Son_This_Is_Your_Father/LorettaYoung127_Son_This_Is_Your_Father.mp4"
-        },
-        {
-          "archiveID": "Loretta_Young--Thanksgiving_in_Beaver_Run",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Loretta Young Show: Thanksgiving in Beaver Run",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
-          "airDate": null,
-          "year": 1953,
-          "runtimeSeconds": 1274,
-          "videoFile": {
-            "name": "LorettaYoung110_Thanksgiving_in_Beaver_Run.mp4",
-            "format": "h.264",
-            "sizeBytes": 132531633,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Loretta_Young--Thanksgiving_in_Beaver_Run/LorettaYoung110_Thanksgiving_in_Beaver_Run.mp4"
-        },
-        {
           "archiveID": "LorettaYoung--Case_of_Mrs_Bannister",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: The Case of Mrs. Bannister",
+          "title": "The Case of Mrs. Bannister",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
           "airDate": null,
@@ -759,7 +892,7 @@
           "archiveID": "LorettaYoung--The_Countess",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: The Countess",
+          "title": "The Countess",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
           "airDate": null,
@@ -777,7 +910,7 @@
           "archiveID": "LorettaYoung--End_of_the_Week",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: The End of the Week",
+          "title": "The End of the Week",
           "overview": null,
           "stillURL": "https://archive.org/services/img/LorettaYoung--End_of_the_Week",
           "airDate": null,
@@ -795,7 +928,7 @@
           "archiveID": "Loretta_Young--The_Flood",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: The Flood",
+          "title": "The Flood",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
           "airDate": null,
@@ -813,7 +946,7 @@
           "archiveID": "LorettaYoung--Forbidden_Guests",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: The Forbidden Guests",
+          "title": "The Forbidden Guests",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
           "airDate": null,
@@ -831,7 +964,7 @@
           "archiveID": "Loretta_Young--Girl_Scout_Story",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: The Girl Scout Story",
+          "title": "The Girl Scout Story",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
           "airDate": null,
@@ -849,7 +982,7 @@
           "archiveID": "Loretta_Young--Girl_Who_Knew",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: The Girl Who Knew",
+          "title": "The Girl Who Knew",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
           "airDate": null,
@@ -867,7 +1000,7 @@
           "archiveID": "LorettaYoung--Great_Divide",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: The Great Divide",
+          "title": "The Great Divide",
           "overview": null,
           "stillURL": "https://archive.org/services/img/LorettaYoung--Great_Divide",
           "airDate": null,
@@ -885,7 +1018,7 @@
           "archiveID": "Loretta_Young--The_Judgment",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: The Judgment",
+          "title": "The Judgment",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
           "airDate": null,
@@ -903,7 +1036,7 @@
           "archiveID": "Loretta_Young--Lady_in_Fish_Bowl",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: The Lady in the Fish Bowl",
+          "title": "The Lady in the Fish Bowl",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
           "airDate": null,
@@ -921,7 +1054,7 @@
           "archiveID": "LorettaYoung--The_Lamp",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: The Lamp",
+          "title": "The Lamp",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
           "airDate": null,
@@ -939,7 +1072,7 @@
           "archiveID": "LorettaYoung--Little_Teacher",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: The Little Teacher",
+          "title": "The Little Teacher",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
           "airDate": null,
@@ -957,7 +1090,7 @@
           "archiveID": "LorettaYoung--Little_Witness",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: The Little Witness",
+          "title": "The Little Witness",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
           "airDate": null,
@@ -972,28 +1105,10 @@
           "downloadURL": "https://archive.org/download/LorettaYoung--Little_Witness/LorettaYoung505_Little_Witness.mp4"
         },
         {
-          "archiveID": "Loretta_Young--Long_Night",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Loretta Young Show: The Long Night",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
-          "airDate": null,
-          "year": 1960,
-          "runtimeSeconds": 1409,
-          "videoFile": {
-            "name": "LorettaYoung_801--Long_Night.mp4",
-            "format": "h.264",
-            "sizeBytes": 146407135,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Loretta_Young--Long_Night/LorettaYoung_801--Long_Night.mp4"
-        },
-        {
           "archiveID": "LorettaYoung--TheMirror",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: The Mirror",
+          "title": "The Mirror",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
           "airDate": null,
@@ -1008,28 +1123,10 @@
           "downloadURL": "https://archive.org/download/LorettaYoung--TheMirror/LorettaYoung102_Mirror.mp4"
         },
         {
-          "archiveID": "Loretta_Young--Night_My_Father_Came_Home",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Loretta Young Show: The Night My Father Came Home",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
-          "airDate": null,
-          "year": 1953,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "LorettaYoung114_Night_My_Father_Came_Home.mp4",
-            "format": "h.264",
-            "sizeBytes": 123848316,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Loretta_Young--Night_My_Father_Came_Home/LorettaYoung114_Night_My_Father_Came_Home.mp4"
-        },
-        {
           "archiveID": "LorettaYoung--One_That_Got_Away",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: The One That Got Away",
+          "title": "The One That Got Away",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
           "airDate": null,
@@ -1047,7 +1144,7 @@
           "archiveID": "LorettaYoung--The_Question",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: The Question",
+          "title": "The Question",
           "overview": null,
           "stillURL": "https://archive.org/services/img/LorettaYoung--The_Question",
           "airDate": null,
@@ -1065,7 +1162,7 @@
           "archiveID": "LorettaYoung--Room_Next_Door",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: The Room Next Door",
+          "title": "The Room Next Door",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
           "airDate": null,
@@ -1083,7 +1180,7 @@
           "archiveID": "Loretta_Young_Show--The_Secret",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: The Secret",
+          "title": "The Secret",
           "overview": null,
           "stillURL": "https://archive.org/services/img/Loretta_Young_Show--The_Secret",
           "airDate": null,
@@ -1101,7 +1198,7 @@
           "archiveID": "LorettaYoung--The_Seducer",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: The Seducer",
+          "title": "The Seducer",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
           "airDate": null,
@@ -1116,46 +1213,10 @@
           "downloadURL": "https://archive.org/download/LorettaYoung--The_Seducer/LorettaYoung808_The_Seducer.mp4"
         },
         {
-          "archiveID": "Loretta_Young--The_Years_Between",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Loretta Young Show: The Years Between",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/Loretta_Young--The_Years_Between",
-          "airDate": null,
-          "year": 1956,
-          "runtimeSeconds": 1437,
-          "videoFile": {
-            "name": "LorettaYoung_407--Years_Between.mp4",
-            "format": "h.264",
-            "sizeBytes": 149297696,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Loretta_Young--The_Years_Between/LorettaYoung_407--Years_Between.mp4"
-        },
-        {
-          "archiveID": "Loretta_Young--These_Few_Years",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Loretta Young Show: These Few Years",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
-          "airDate": null,
-          "year": 1960,
-          "runtimeSeconds": 1489,
-          "videoFile": {
-            "name": "LorettaYoung_812--These_Few_Years.mp4",
-            "format": "h.264",
-            "sizeBytes": 145816579,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Loretta_Young--These_Few_Years/LorettaYoung_812--These_Few_Years.mp4"
-        },
-        {
           "archiveID": "LorettaYoung--This_Subtle_Danger",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: This Subtle Danger",
+          "title": "This Subtle Danger",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
           "airDate": null,
@@ -1173,7 +1234,7 @@
           "archiveID": "Loretta_Young--Three_Minutes_Too_Late",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: Three Minutes Too Late",
+          "title": "Three Minutes Too Late",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
           "airDate": null,
@@ -1191,7 +1252,7 @@
           "archiveID": "LorettaYoung--Time_and_Yuletide",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: Time and Yuletide",
+          "title": "Time and Yuletide",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
           "airDate": null,
@@ -1206,28 +1267,10 @@
           "downloadURL": "https://archive.org/download/LorettaYoung--Time_and_Yuletide/LorettaYoung216_Time_and_Yuletide.mp4"
         },
         {
-          "archiveID": "LorettaYoung--Unconditional_Surrender",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Loretta Young Show: Unconditional Surrender",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
-          "airDate": null,
-          "year": 1960,
-          "runtimeSeconds": 1402,
-          "videoFile": {
-            "name": "LorettaYoung810_Unconditional_Surrender.mp4",
-            "format": "h.264",
-            "sizeBytes": 130610090,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/LorettaYoung--Unconditional_Surrender/LorettaYoung810_Unconditional_Surrender.mp4"
-        },
-        {
           "archiveID": "Loretta_Young_Show--Wedding_Day",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Loretta Young Show: Wedding Day",
+          "title": "Wedding Day",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/xnglqEiL7DK4QNI9T1QfVbDzGCd.jpg",
           "airDate": null,
@@ -1240,24 +1283,6 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/Loretta_Young_Show--Wedding_Day/LorettaYoung423_Wedding_Day.mp4"
-        },
-        {
-          "archiveID": "Loretta_Young--Youre_Driving_Me_Crazy",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Loretta Young Show: You're Driving Me Crazy",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/315/789605.jpg",
-          "airDate": null,
-          "year": 1954,
-          "runtimeSeconds": 1378,
-          "videoFile": {
-            "name": "LorettaYoung205_Youre_Driving_Me_Crazy.mp4",
-            "format": "h.264",
-            "sizeBytes": 143296854,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Loretta_Young--Youre_Driving_Me_Crazy/LorettaYoung205_Youre_Driving_Me_Crazy.mp4"
         }
       ]
     }

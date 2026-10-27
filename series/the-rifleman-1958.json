@@ -60,18 +60,18 @@
       ]
     },
     {
-      "seasonNumber": null,
+      "seasonNumber": 2,
       "episodes": [
         {
           "archiveID": "The_Rifleman_-_Day_Of_The_Hunter",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Rifleman - Day Of The Hunter",
+          "seasonNumber": 2,
+          "episodeNumber": 15,
+          "title": "Day of the Hunter",
           "overview": null,
           "stillURL": "https://archive.org/services/img/The_Rifleman_-_Day_Of_The_Hunter",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1529,
+          "airDate": "1960-01-05",
+          "year": 1960,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "The_Rifleman_-_Day_Of_The_Hunter_512kb.mp4",
             "format": "512Kb MPEG4",
@@ -82,14 +82,14 @@
         },
         {
           "archiveID": "TheRifleman-MailOrderGroom",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Rifleman - Mail Order Groom",
+          "seasonNumber": 2,
+          "episodeNumber": 16,
+          "title": "Mail Order Groom",
           "overview": null,
           "stillURL": "https://archive.org/services/img/TheRifleman-MailOrderGroom",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1451,
+          "airDate": "1960-01-12",
+          "year": 1960,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "The_Rifleman_-_Mail_Order_Groom_512kb.mp4",
             "format": "512Kb MPEG4",
@@ -124,8 +124,5 @@
       "order": 2,
       "profilePath": "https://artworks.thetvdb.com/banners/actors/14676.jpg"
     }
-  ],
-  "seriesImdbID": "tt0051308",
-  "canonicalEpisodeCount": 121,
-  "canonicalSeasons": 5
+  ]
 }

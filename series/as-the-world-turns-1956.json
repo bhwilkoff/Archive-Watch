@@ -21,10 +21,28 @@
       "seasonNumber": null,
       "episodes": [
         {
+          "archiveID": "AsTheWorldTurns",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "As The World Turns",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kKp1hYBFCoLyLhfpirpKAvDhCTi.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "AsTheWorldTurns11-22-63.mp4",
+            "format": "h.264",
+            "sizeBytes": 169365501,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/AsTheWorldTurns/AsTheWorldTurns11-22-63.mp4"
+        },
+        {
           "archiveID": "AsTheWorldTurns1961",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''As The World Turns'' - 18 April 1961",
+          "title": "As The World Turns - 18 April 1961",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/kKp1hYBFCoLyLhfpirpKAvDhCTi.jpg",
           "airDate": null,
@@ -42,7 +60,7 @@
           "archiveID": "AsTheWorldTurns22August1960",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''As The World Turns'' - 22 August 1960",
+          "title": "As The World Turns - 22 August 1960",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/kKp1hYBFCoLyLhfpirpKAvDhCTi.jpg",
           "airDate": null,
@@ -55,24 +73,6 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/AsTheWorldTurns22August1960/AsTheWorldTurns22August1960.mp4"
-        },
-        {
-          "archiveID": "AsTheWorldTurns",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "As The World Turns",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/kKp1hYBFCoLyLhfpirpKAvDhCTi.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "AsTheWorldTurns11-22-63.mp4",
-            "format": "h.264",
-            "sizeBytes": 169365501,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/AsTheWorldTurns/AsTheWorldTurns11-22-63.mp4"
         },
         {
           "archiveID": "AsTheWorldTurns-21stApril1961",
@@ -224,8 +224,5 @@
       "order": 17,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/67/169919.jpg"
     }
-  ],
-  "seriesImdbID": "tt0048845",
-  "canonicalEpisodeCount": 120,
-  "canonicalSeasons": 46
+  ]
 }

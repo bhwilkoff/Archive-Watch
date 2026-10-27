@@ -17,17 +17,17 @@
   "creator": null,
   "seasons": [
     {
-      "seasonNumber": 1,
+      "seasonNumber": 2,
       "episodes": [
         {
           "archiveID": "TheJackBennyProgramSeason2Episode1Aired11041951",
-          "seasonNumber": 1,
+          "seasonNumber": 2,
           "episodeNumber": 1,
-          "title": "Premiere Show",
+          "title": "Dorothy Shay",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/iwXBIb8zWPpt916UoOiYBPigbEI.jpg",
-          "airDate": "1950-10-28",
-          "year": 1950,
+          "airDate": "1951-11-04",
+          "year": 1951,
           "runtimeSeconds": 1500,
           "videoFile": {
             "name": "Jack_Benny_Program-2x01-Dorothy_Shay.mp4",
@@ -36,16 +36,21 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/TheJackBennyProgramSeason2Episode1Aired11041951/Jack_Benny_Program-2x01-Dorothy_Shay.mp4"
-        },
+        }
+      ]
+    },
+    {
+      "seasonNumber": 4,
+      "episodes": [
         {
           "archiveID": "TheJackBennyProgramSeason4Episode3HumphreyBogartGuest-Aired",
-          "seasonNumber": 1,
+          "seasonNumber": 4,
           "episodeNumber": 3,
-          "title": "Claudette Colbert and Basil Rathbone Show",
+          "title": "Humphrey Bogart Show",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/iwXBIb8zWPpt916UoOiYBPigbEI.jpg",
-          "airDate": "1951-04-01",
-          "year": 1951,
+          "airDate": "1953-10-25",
+          "year": 1953,
           "runtimeSeconds": 1500,
           "videoFile": {
             "name": "JackBennyProgram-4x03-Humphrey_Bogart_Show.mp4",
@@ -54,6 +59,47 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/TheJackBennyProgramSeason4Episode3HumphreyBogartGuest-Aired/JackBennyProgram-4x03-Humphrey_Bogart_Show.mp4"
+        },
+        {
+          "archiveID": "JackBenny-GoldieFieldsAndGlide",
+          "seasonNumber": 4,
+          "episodeNumber": 10,
+          "title": "Goldie, Fields and Glide",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/JackBenny-GoldieFieldsAndGlide",
+          "airDate": "1954-03-21",
+          "year": 1954,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "JackBenny-GoldieFieldsAndGlide.mp4",
+            "format": "h.264",
+            "sizeBytes": 144942184,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JackBenny-GoldieFieldsAndGlide/JackBenny-GoldieFieldsAndGlide.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 11,
+      "episodes": [
+        {
+          "archiveID": "JackBenny-JackAtTheSupermarket",
+          "seasonNumber": 11,
+          "episodeNumber": 14,
+          "title": "Jack at the Supermarket",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/JackBenny-JackAtTheSupermarket",
+          "airDate": "1961-01-22",
+          "year": 1961,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "JackBennyProgram-JackAtTheSupermarket.mp4",
+            "format": "h.264",
+            "sizeBytes": 146568694,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/JackBenny-JackAtTheSupermarket/JackBennyProgram-JackAtTheSupermarket.mp4"
         }
       ]
     },
@@ -97,24 +143,6 @@
           "downloadURL": "https://archive.org/download/JackBenny-FrankieAvalonAsGuest/JackBennyProgram-FrankieAvalonAsGuest.mp4"
         },
         {
-          "archiveID": "JackBenny-GoldieFieldsAndGlide",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Jack Benny - Goldie, Fields and Glide",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/JackBenny-GoldieFieldsAndGlide",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1531,
-          "videoFile": {
-            "name": "JackBenny-GoldieFieldsAndGlide.mp4",
-            "format": "h.264",
-            "sizeBytes": 144942184,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/JackBenny-GoldieFieldsAndGlide/JackBenny-GoldieFieldsAndGlide.mp4"
-        },
-        {
           "archiveID": "JackBenny-JackWritesASong",
           "seasonNumber": null,
           "episodeNumber": null,
@@ -131,24 +159,6 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/JackBenny-JackWritesASong/JackBenny-JackWritesASong.mp4"
-        },
-        {
-          "archiveID": "JackBenny-JackAtTheSupermarket",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Jack Benny - Jack at the Supermarket",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/JackBenny-JackAtTheSupermarket",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1555,
-          "videoFile": {
-            "name": "JackBennyProgram-JackAtTheSupermarket.mp4",
-            "format": "h.264",
-            "sizeBytes": 146568694,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/JackBenny-JackAtTheSupermarket/JackBennyProgram-JackAtTheSupermarket.mp4"
         },
         {
           "archiveID": "JackBennys20thAnniversaryTVSpecial",
@@ -205,24 +215,6 @@
           "downloadURL": "https://archive.org/download/TheJackBennyProgram3april1955/Jack_Benny_Groucho_04_03_1955.ia.mp4"
         },
         {
-          "archiveID": "Sunday_With_Jack_Benny_-_Western_Town",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Jack Benny Program : Western Town",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/iwXBIb8zWPpt916UoOiYBPigbEI.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Sunday_With_Jack_Benny_-_Western_Town.mp4",
-            "format": "h.264",
-            "sizeBytes": 145928197,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Sunday_With_Jack_Benny_-_Western_Town/Sunday_With_Jack_Benny_-_Western_Town.mp4"
-        },
-        {
           "archiveID": "TheJackBennyProgram-01171954",
           "seasonNumber": null,
           "episodeNumber": null,
@@ -239,6 +231,24 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/TheJackBennyProgram-01171954/Jack_Benny_Liberace_1_17_1954.mp4"
+        },
+        {
+          "archiveID": "Sunday_With_Jack_Benny_-_Western_Town",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Western Town",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/iwXBIb8zWPpt916UoOiYBPigbEI.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sunday_With_Jack_Benny_-_Western_Town.mp4",
+            "format": "h.264",
+            "sizeBytes": 145928197,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Sunday_With_Jack_Benny_-_Western_Town/Sunday_With_Jack_Benny_-_Western_Town.mp4"
         }
       ]
     }

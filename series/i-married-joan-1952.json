@@ -557,10 +557,28 @@
       "seasonNumber": null,
       "episodes": [
         {
+          "archiveID": "I_Married_Joan--Joan_the_Matchmaker",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Joan, the Matchmaker",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "IMarriedJoan314_Joan_the_Matchmaker.mp4",
+            "format": "h.264",
+            "sizeBytes": 143932405,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan--Joan_the_Matchmaker/IMarriedJoan314_Joan_the_Matchmaker.mp4"
+        },
+        {
           "archiveID": "I_Married_Joan",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "\"I Married Joan\" - Talent Scout",
+          "title": "Talent Scout",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
           "airDate": null,
@@ -578,7 +596,7 @@
           "archiveID": "JailJoan",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''I Married Joan'' - The Jailbird",
+          "title": "The Jailbird",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
           "airDate": null,
@@ -591,24 +609,6 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/JailJoan/Joan_Jailbird.ia.mp4"
-        },
-        {
-          "archiveID": "I_Married_Joan--Joan_the_Matchmaker",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "I Married Joan: Joan, the Matchmaker",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "IMarriedJoan314_Joan_the_Matchmaker.mp4",
-            "format": "h.264",
-            "sizeBytes": 143932405,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/I_Married_Joan--Joan_the_Matchmaker/IMarriedJoan314_Joan_the_Matchmaker.mp4"
         }
       ]
     }

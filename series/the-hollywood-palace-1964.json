@@ -213,28 +213,10 @@
       "seasonNumber": null,
       "episodes": [
         {
-          "archiveID": "HollywoodPalace2October1965",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''Hollywood Palace'' - 2 October 1965",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/xFohVA0pojtTbTkvjY7OWj1DIw1.jpg",
-          "airDate": null,
-          "year": 1965,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "HollywoodPalace2October1965.mp4",
-            "format": "h.264",
-            "sizeBytes": 369313852,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/HollywoodPalace2October1965/HollywoodPalace2October1965.mp4"
-        },
-        {
           "archiveID": "hollywoodpalace",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Hollywood Palace'' - 18 October 1969",
+          "title": "18 October 1969",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/xFohVA0pojtTbTkvjY7OWj1DIw1.jpg",
           "airDate": null,
@@ -247,6 +229,24 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/hollywoodpalace/hollywoodpalace.mp4"
+        },
+        {
+          "archiveID": "HollywoodPalace2October1965",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "2 October 1965",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/xFohVA0pojtTbTkvjY7OWj1DIw1.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "HollywoodPalace2October1965.mp4",
+            "format": "h.264",
+            "sizeBytes": 369313852,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/HollywoodPalace2October1965/HollywoodPalace2October1965.mp4"
         }
       ]
     }

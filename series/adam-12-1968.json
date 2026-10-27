@@ -518,29 +518,6 @@
       ]
     },
     {
-      "seasonNumber": 2,
-      "episodes": [
-        {
-          "archiveID": "the-family-chase-uk-s2-e8",
-          "seasonNumber": 2,
-          "episodeNumber": 8,
-          "title": "Log 093: Once a Junkie",
-          "overview": "Malloy and Reed hear through the grapevine that their snitch Tee Jay, for who Malloy got a job as a dishwasher at Duke's, has been using drugs again. This belief is strengthened when they attend to a call at an inner city church, where Tee Jay was seen by the priest just as the priest was beaten and the church funds stolen. Malloy and Reed manage quickly to locate Tee Jay, who seemingly is on the run from them, and who has the church's money on his person. But Tee Jay tells a different story of another unknown man who he saw beat up the priest and who he caught but who managed to get away, the reason he was on the run as he was chasing that man. The evidence, however circumstantial, starts to mount against Tee Jay, including getting caught in a few lies. But when all the players start to level with Malloy and Reed, the identity of the thief and the truth if Tee Jay is indeed using again come to light.",
-          "stillURL": "https://archive.org/services/img/the-family-chase-uk-s2-e8",
-          "airDate": "1969-11-22",
-          "year": 1969,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "The Family Chase UK S2 E8.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 409317808,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/the-family-chase-uk-s2-e8/The%20Family%20Chase%20UK%20S2%20E8.ia.mp4"
-        }
-      ]
-    },
-    {
       "seasonNumber": 4,
       "episodes": [
         {
@@ -564,7 +541,7 @@
       ]
     }
   ],
-  "episodesCount": 28,
+  "episodesCount": 27,
   "canonicalEpisodesCount": 174,
   "tvdbID": "78686",
   "artworkSource": "tvdb",

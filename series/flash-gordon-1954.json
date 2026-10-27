@@ -94,6 +94,24 @@
           "downloadURL": "https://archive.org/download/FlashGordon-TheBrainMachine-1955/FlashGordon121-TheBrainMachine.mp4"
         },
         {
+          "archiveID": "FlashGordon-StruggleToTheEnd-1955",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Struggle to the End",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/9kKqbxsXSzW1H6Se46mOcZm7Rhy.jpg",
+          "airDate": "1955-03-18",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Flash_Gordon_Struggle_to_the_end_03_18_1955.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 203371326,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FlashGordon-StruggleToTheEnd-1955/Flash_Gordon_Struggle_to_the_end_03_18_1955.ia.mp4"
+        },
+        {
           "archiveID": "flash-gordon-s-01-e-23-the-water-world-mennace",
           "seasonNumber": 1,
           "episodeNumber": 23,
@@ -120,7 +138,7 @@
           "archiveID": "FlashGordon-TheRaceAgainstTime-1955-Ep.1x19",
           "seasonNumber": null,
           "episodeNumber": 1,
-          "title": "Flash Gordon - The Race Against Time - 1955 - Ep. 1x19",
+          "title": "The Race Against Time - 1955 - Ep. 1x19",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/9kKqbxsXSzW1H6Se46mOcZm7Rhy.jpg",
           "airDate": null,
@@ -138,7 +156,7 @@
           "archiveID": "FlashGordon-DeadlineAtNoon-1955",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "Flash Gordon - Deadline at Noon - 1955",
+          "title": "Deadline at Noon - 1955",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/9kKqbxsXSzW1H6Se46mOcZm7Rhy.jpg",
           "airDate": null,
@@ -153,28 +171,10 @@
           "downloadURL": "https://archive.org/download/FlashGordon-DeadlineAtNoon-1955/FlashGordon136-DeadlineAtNoon.mp4"
         },
         {
-          "archiveID": "FlashGordon-StruggleToTheEnd-1955",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Flash Gordon - Struggle to the End - 1955",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/9kKqbxsXSzW1H6Se46mOcZm7Rhy.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1573,
-          "videoFile": {
-            "name": "Flash_Gordon_Struggle_to_the_end_03_18_1955.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 203371326,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/FlashGordon-StruggleToTheEnd-1955/Flash_Gordon_Struggle_to_the_end_03_18_1955.ia.mp4"
-        },
-        {
           "archiveID": "FlashGordon-TheWitchOfNeptune-1955",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "Flash Gordon - The Witch of Neptune - 1955",
+          "title": "The Witch of Neptune - 1955",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/9kKqbxsXSzW1H6Se46mOcZm7Rhy.jpg",
           "airDate": null,

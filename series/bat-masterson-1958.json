@@ -22,7 +22,7 @@
       "seasonNumber": 1,
       "episodes": [
         {
-          "archiveID": "bat-masterson-tv-1958-s01e01-double-showdown",
+          "archiveID": "bat-masterson-s-01-e-01-double-showdown-colorized-ai",
           "seasonNumber": 1,
           "episodeNumber": 1,
           "title": "Double Showdown",
@@ -32,15 +32,15 @@
           "year": 1958,
           "runtimeSeconds": 1800,
           "videoFile": {
-            "name": "Bat Masterson TV 1958 colorized s01e01 Double Showdown.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 193572127,
+            "name": "Bat Masterson S01E01 Double Showdown (Colorized,AI).mp4",
+            "format": "h.264",
+            "sizeBytes": 149599689,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/bat-masterson-tv-1958-s01e01-double-showdown/Bat%20Masterson%20TV%201958%20colorized%20s01e01%20Double%20Showdown.mp4"
+          "downloadURL": "https://archive.org/download/bat-masterson-s-01-e-01-double-showdown-colorized-ai/Bat%20Masterson%20S01E01%20Double%20Showdown%20%28Colorized%2CAI%29.mp4"
         },
         {
-          "archiveID": "bat-masterson-s-01-e-01-double-showdown-colorized-ai",
+          "archiveID": "bat-masterson-tv-1958-s01e01-double-showdown",
           "seasonNumber": 1,
           "episodeNumber": 1,
           "title": "Double Showdown (Pilot)",
@@ -50,12 +50,12 @@
           "year": 1958,
           "runtimeSeconds": 1800,
           "videoFile": {
-            "name": "Bat Masterson S01E01 Double Showdown (Colorized,AI).mp4",
-            "format": "h.264",
-            "sizeBytes": 149599689,
+            "name": "Bat Masterson TV 1958 colorized s01e01 Double Showdown.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 193572127,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/bat-masterson-s-01-e-01-double-showdown-colorized-ai/Bat%20Masterson%20S01E01%20Double%20Showdown%20%28Colorized%2CAI%29.mp4"
+          "downloadURL": "https://archive.org/download/bat-masterson-tv-1958-s01e01-double-showdown/Bat%20Masterson%20TV%201958%20colorized%20s01e01%20Double%20Showdown.mp4"
         },
         {
           "archiveID": "bat-masterson-colorized-s-1e-4-stampede-at-tent-city",
@@ -76,6 +76,24 @@
           "downloadURL": "https://archive.org/download/bat-masterson-colorized-s-1e-4-stampede-at-tent-city/Bat%20Masterson%20colorized%20s1e4%20Stampede%20at%20Tent%20City.ia.mp4"
         },
         {
+          "archiveID": "BatMasterson-TheFighter",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Fighter",
+          "overview": "Bat wins the contract of a young fighter from his unscrupulous manager, then trains him for one honest fight, betting all his poker winnings on it. The boxer's former manager doesn't want a fair fight and plans to ensure the boxer loses.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/533/1332744.jpg",
+          "airDate": "1958-11-05",
+          "year": 1958,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Bat_Masterson_-_The_Fighter.mp4",
+            "format": "h.264",
+            "sizeBytes": 161799778,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/BatMasterson-TheFighter/Bat_Masterson_-_The_Fighter.mp4"
+        },
+        {
           "archiveID": "bat-masterson-tv-1959-s01e35-the-desert-ship",
           "seasonNumber": 1,
           "episodeNumber": 35,
@@ -94,29 +112,6 @@
           "downloadURL": "https://archive.org/download/bat-masterson-tv-1959-s01e35-the-desert-ship/Bat%20Masterson%20TV%201959%20colorized%20s01e35%20The%20Desert%20Ship.mp4"
         }
       ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "BatMasterson-TheFighter",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Bat Masterson - The Fighter",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/BatMasterson-TheFighter",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1559,
-          "videoFile": {
-            "name": "Bat_Masterson_-_The_Fighter.mp4",
-            "format": "h.264",
-            "sizeBytes": 161799778,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/BatMasterson-TheFighter/Bat_Masterson_-_The_Fighter.mp4"
-        }
-      ]
     }
   ],
   "episodesCount": 5,
@@ -130,8 +125,5 @@
       "order": 0,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/256364/photo/63ac8ceeb8504.jpg"
     }
-  ],
-  "seriesImdbID": "tt0052445",
-  "canonicalEpisodeCount": 108,
-  "canonicalSeasons": 3
+  ]
 }

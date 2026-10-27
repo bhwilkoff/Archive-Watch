@@ -80,7 +80,7 @@
           "archiveID": "captain-video-and-his-video-rangers-v01e01",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "Captain Video and His Video Rangers - V01E01",
+          "title": "V01E01",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/35/89680.jpg",
           "airDate": null,
@@ -136,8 +136,5 @@
       "order": 5,
       "profilePath": null
     }
-  ],
-  "seriesImdbID": "tt0041014",
-  "canonicalEpisodeCount": 4,
-  "canonicalSeasons": 1
+  ]
 }

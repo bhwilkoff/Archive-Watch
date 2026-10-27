@@ -41,7 +41,8 @@
           "downloadURL": "https://archive.org/download/the-twilight-zone-1959-s-01-e-00-original-pilot/The%20Twilight%20Zone%201959%20S01E00%20Original%20Pilot.mp4"
         },
         {
-          "archiveID": "the.-twilight.-zone.-2002.-s-01.480p.-dvd-rip.-x-264.-will-1869",
+          "archiveID": "the-twilight-zone-1959-s-01-e-00-original-pilot@s1e01",
+          "sourceID": "the-twilight-zone-1959-s-01-e-00-original-pilot",
           "seasonNumber": 1,
           "episodeNumber": 1,
           "title": "Where is Everybody?",
@@ -51,12 +52,12 @@
           "year": 1959,
           "runtimeSeconds": 1800,
           "videoFile": {
-            "name": "The.Twilight.Zone.2002.S01.480p.DvdRip.X264.Will1869/S01E01-E02.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 503216659,
+            "name": "The Twilight Zone 1959 S01E01 Where Is Everybody.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 74677188,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/the.-twilight.-zone.-2002.-s-01.480p.-dvd-rip.-x-264.-will-1869/The.Twilight.Zone.2002.S01.480p.DvdRip.X264.Will1869/S01E01-E02.ia.mp4"
+          "downloadURL": "https://archive.org/download/the-twilight-zone-1959-s-01-e-00-original-pilot/The%20Twilight%20Zone%201959%20S01E01%20Where%20Is%20Everybody.mp4"
         },
         {
           "archiveID": "the-twilight-zone-1959-s-01-e-00-original-pilot@s1e02",
@@ -1185,7 +1186,8 @@
           "downloadURL": "https://archive.org/download/the-twilight-zone-s-2-e-1-colorized-720p-hd/the%20twilight%20zone-s2e24-colorized-720p-hd.mp4"
         },
         {
-          "archiveID": "tz_promos_s2_1960-61",
+          "archiveID": "the-twilight-zone-s-2-e-1-colorized-720p-hd@s2e25",
+          "sourceID": "the-twilight-zone-s-2-e-1-colorized-720p-hd",
           "seasonNumber": 2,
           "episodeNumber": 25,
           "title": "The Silence",
@@ -1195,12 +1197,12 @@
           "year": 1961,
           "runtimeSeconds": 1800,
           "videoFile": {
-            "name": "Twilight Zone promo (S2E25 The Silence).mp4",
+            "name": "the twilight zone-s2e25-colorized-720p-hd.mp4",
             "format": "h.264",
-            "sizeBytes": 4123056,
-            "tier": 2
+            "sizeBytes": 145527403,
+            "tier": 1
           },
-          "downloadURL": "https://archive.org/download/tz_promos_s2_1960-61/Twilight%20Zone%20promo%20%28S2E25%20The%20Silence%29.mp4"
+          "downloadURL": "https://archive.org/download/the-twilight-zone-s-2-e-1-colorized-720p-hd/the%20twilight%20zone-s2e25-colorized-720p-hd.mp4"
         },
         {
           "archiveID": "the-twilight-zone-s-2-e-1-colorized-720p-hd@s2e26",
@@ -2181,7 +2183,8 @@
           "downloadURL": "https://archive.org/download/the-twilight-zone-s-4e-3-colorized-720p-hd/the%20twilight%20zone-s4e10-colorized-720p-hd.mp4"
         },
         {
-          "archiveID": "tz_promos_s4_1963",
+          "archiveID": "the-twilight-zone-s-4e-3-colorized-720p-hd@s4e11",
+          "sourceID": "the-twilight-zone-s-4e-3-colorized-720p-hd",
           "seasonNumber": 4,
           "episodeNumber": 11,
           "title": "The Parallel",
@@ -2191,12 +2194,12 @@
           "year": 1963,
           "runtimeSeconds": 3600,
           "videoFile": {
-            "name": "Twilight Zone promo (S4E11 The Parallel).mp4",
+            "name": "the twilight zone-s4e11-colorized-720p-hd.mp4",
             "format": "h.264",
-            "sizeBytes": 6086853,
-            "tier": 2
+            "sizeBytes": 295694718,
+            "tier": 1
           },
-          "downloadURL": "https://archive.org/download/tz_promos_s4_1963/Twilight%20Zone%20promo%20%28S4E11%20The%20Parallel%29.mp4"
+          "downloadURL": "https://archive.org/download/the-twilight-zone-s-4e-3-colorized-720p-hd/the%20twilight%20zone-s4e11-colorized-720p-hd.mp4"
         },
         {
           "archiveID": "the-twilight-zone-s-4e-3-colorized-720p-hd@s4e12",
@@ -2355,9 +2358,50 @@
           "downloadURL": "https://archive.org/download/tz_promos_s5_1963-64/Twilight%20Zone%20promo%20%28S5E18%20Black%20Leather%20Jackets%29.mp4"
         }
       ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "tz_promos_s4_1963",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Promo: The Parallel",
+          "overview": "An astronaut (Steve Forrest) returns from a space flight to find things much changed during his absence.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/308/772104.jpg",
+          "airDate": null,
+          "year": 1963,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Twilight Zone promo (S4E11 The Parallel).mp4",
+            "format": "h.264",
+            "sizeBytes": 6086853,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tz_promos_s4_1963/Twilight%20Zone%20promo%20%28S4E11%20The%20Parallel%29.mp4"
+        },
+        {
+          "archiveID": "tz_promos_s2_1960-61",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Promo: The Silence",
+          "overview": "One night at a men's club, respected Colonel Archie Taylor grows tired of the constant chatter of fellow member Jamie Tennyson. As a result, Taylor offers Tennyson a wager: stay silent for one year and be paid $500,000 while living in a glass enclosed cell inside the men's club. However, after the wager is accepted, both men go to drastic measures to win.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/308/772059.jpg",
+          "airDate": null,
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Twilight Zone promo (S2E25 The Silence).mp4",
+            "format": "h.264",
+            "sizeBytes": 4123056,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tz_promos_s2_1960-61/Twilight%20Zone%20promo%20%28S2E25%20The%20Silence%29.mp4"
+        }
+      ]
     }
   ],
-  "episodesCount": 122,
+  "episodesCount": 124,
   "canonicalEpisodesCount": 156,
   "tvdbID": "73587",
   "artworkSource": "tvdb",

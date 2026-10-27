@@ -18,28 +18,10 @@
       "seasonNumber": null,
       "episodes": [
         {
-          "archiveID": "GeorgeGobelFayeEmerson1",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "\"The George Gobel Show\" - 4 December 1954",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/388/971858.jpg",
-          "airDate": null,
-          "year": 1954,
-          "runtimeSeconds": 1545,
-          "videoFile": {
-            "name": "GeorgeGobel-FayeEmerson (1).mp4",
-            "format": "h.264",
-            "sizeBytes": 160732415,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/GeorgeGobelFayeEmerson1/GeorgeGobel-FayeEmerson%20%281%29.mp4"
-        },
-        {
           "archiveID": "theGeorgeGobelShow-2October1954",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The George Gobel Show'' - 2 October 1954",
+          "title": "2 October 1954",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/388/971858.jpg",
           "airDate": null,
@@ -57,7 +39,7 @@
           "archiveID": "GeorgeGobel22January1955",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The George Gobel Show'' - 22 January 1955",
+          "title": "22 January 1955",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/388/971858.jpg",
           "airDate": null,
@@ -75,7 +57,7 @@
           "archiveID": "gobel",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The George Gobel Show'' - 23 April 1955",
+          "title": "23 April 1955",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/388/971858.jpg",
           "airDate": null,
@@ -90,10 +72,28 @@
           "downloadURL": "https://archive.org/download/gobel/gobel.mp4"
         },
         {
+          "archiveID": "GeorgeGobelFayeEmerson1",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "4 December 1954",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/388/971858.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1545,
+          "videoFile": {
+            "name": "GeorgeGobel-FayeEmerson (1).mp4",
+            "format": "h.264",
+            "sizeBytes": 160732415,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GeorgeGobelFayeEmerson1/GeorgeGobel-FayeEmerson%20%281%29.mp4"
+        },
+        {
           "archiveID": "TheGeorgeGobelShow-JefferyHunter",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The George Gobel Show'' - 5 February 1955",
+          "title": "5 February 1955",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/388/971858.jpg",
           "airDate": null,
@@ -111,7 +111,7 @@
           "archiveID": "TheGeorgeGobelShow9October1954",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The George Gobel Show'' - 9 October 1954",
+          "title": "9 October 1954",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/388/971858.jpg",
           "airDate": null,

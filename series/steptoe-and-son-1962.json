@@ -63,13 +63,32 @@
       "seasonNumber": 1,
       "episodes": [
         {
-          "archiveID": "SteptoeAndSonS1xE1TheBird",
+          "archiveID": "Steptoe_and_Son@s1e01",
+          "sourceID": "Steptoe_and_Son",
           "seasonNumber": 1,
           "episodeNumber": 1,
           "title": "The Offer",
           "overview": "Harold gets the offer of a better job and is determined to take it. Albert, however, fearing loneliness if Harold goes, knows just how to keep his son at home.",
-          "stillURL": "https://image.tmdb.org/t/p/w500/sC48BBKDlGeZqdCamr7XHklQ3RG.jpg",
+          "stillURL": null,
           "airDate": "1962-01-05",
+          "year": 1962,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Steptoe & Son/Season 01/S01E01 - The Offer.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 1056436597,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2001/S01E01%20-%20The%20Offer.ia.mp4"
+        },
+        {
+          "archiveID": "SteptoeAndSonS1xE1TheBird",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Bird",
+          "overview": "Harold has been going out in the evenings, making Albert suspicious. It turns out Harold has a 'bird', so Albert suggests he invite her round.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/sC48BBKDlGeZqdCamr7XHklQ3RG.jpg",
+          "airDate": "1962-06-14",
           "year": 1962,
           "runtimeSeconds": 1800,
           "videoFile": {
@@ -83,11 +102,11 @@
         {
           "archiveID": "SteptoeAndSonS1xE2ThePiano",
           "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "The Bird",
-          "overview": "Harold has been going out in the evenings, making Albert suspicious. It turns out Harold has a 'bird', so Albert suggests he invite her round.",
+          "episodeNumber": 3,
+          "title": "The Piano",
+          "overview": "The offer of a free piano seems too good to be true - and it is.",
           "stillURL": "https://image.tmdb.org/t/p/w300/2hQ70FgmWE7eTOhrHxLMWVEbTjj.jpg",
-          "airDate": "1962-06-14",
+          "airDate": "1962-06-21",
           "year": 1962,
           "runtimeSeconds": 1800,
           "videoFile": {
@@ -101,11 +120,11 @@
         {
           "archiveID": "SteptoeAndSon1x03",
           "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "The Piano",
-          "overview": "The offer of a free piano seems too good to be true - and it is.",
+          "episodeNumber": 4,
+          "title": "The Economist",
+          "overview": "Harold reads a book on capitalism and comes to the conclusion that the business is not being run properly. He decides that in order to make large profits they must start buying goods in bulk.",
           "stillURL": "https://image.tmdb.org/t/p/w500/sC48BBKDlGeZqdCamr7XHklQ3RG.jpg",
-          "airDate": "1962-06-21",
+          "airDate": "1962-06-28",
           "year": 1962,
           "runtimeSeconds": 1800,
           "videoFile": {
@@ -119,11 +138,11 @@
         {
           "archiveID": "SteptoeAndSon1x04",
           "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "The Economist",
-          "overview": "Harold reads a book on capitalism and comes to the conclusion that the business is not being run properly. He decides that in order to make large profits they must start buying goods in bulk.",
+          "episodeNumber": 5,
+          "title": "The Diploma",
+          "overview": "Harold is fed up with scraping a living and with Albert's constant criticism of his ability to do the rounds; he decides to follow a different vocation and takes a correspondence course in TV repairing.",
           "stillURL": "https://image.tmdb.org/t/p/w500/sC48BBKDlGeZqdCamr7XHklQ3RG.jpg",
-          "airDate": "1962-06-28",
+          "airDate": "1962-07-05",
           "year": 1962,
           "runtimeSeconds": 1800,
           "videoFile": {
@@ -137,11 +156,11 @@
         {
           "archiveID": "SteptoeAndSon1x05",
           "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "The Diploma",
-          "overview": "Harold is fed up with scraping a living and with Albert's constant criticism of his ability to do the rounds; he decides to follow a different vocation and takes a correspondence course in TV repairing.",
+          "episodeNumber": 6,
+          "title": "The Holiday",
+          "overview": "Classic rag and bone men comedy. Harold has holiday plans, and they don't involve Albert or the annual trip to Bognor Regis. Albert attempts to change his son's mind by using emotional blackmail.",
           "stillURL": "https://image.tmdb.org/t/p/w500/sC48BBKDlGeZqdCamr7XHklQ3RG.jpg",
-          "airDate": "1962-07-05",
+          "airDate": "1962-07-12",
           "year": 1962,
           "runtimeSeconds": 1800,
           "videoFile": {
@@ -151,25 +170,6 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/SteptoeAndSon1x05/Steptoe%20And%20Son_%20S1E5%20-%20The%20Holiday.mp4"
-        },
-        {
-          "archiveID": "Steptoe_and_Son@s1e06",
-          "sourceID": "Steptoe_and_Son",
-          "seasonNumber": 1,
-          "episodeNumber": 6,
-          "title": "The Holiday",
-          "overview": "Classic rag and bone men comedy. Harold has holiday plans, and they don't involve Albert or the annual trip to Bognor Regis. Albert attempts to change his son's mind by using emotional blackmail.",
-          "stillURL": null,
-          "airDate": "1962-07-12",
-          "year": 1962,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "Steptoe & Son/Season 01/S01E06 - The Holiday.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 404166314,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/Steptoe_and_Son/Steptoe%20%26%20Son/Season%2001/S01E06%20-%20The%20Holiday.ia.mp4"
         }
       ]
     },

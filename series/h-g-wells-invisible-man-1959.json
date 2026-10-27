@@ -22,6 +22,24 @@
       "seasonNumber": 1,
       "episodes": [
         {
+          "archiveID": "invisible-man-tv-1959-s01e11-bank-raid",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Bank Raid",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/invisible-man-tv-1959-s01e11-bank-raid",
+          "airDate": "1959-08-22",
+          "year": 1959,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Invisible Man TV 1959 colorized s01e11 Bank Raid.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 231183138,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/invisible-man-tv-1959-s01e11-bank-raid/Invisible%20Man%20TV%201959%20colorized%20s01e11%20Bank%20Raid.mp4"
+        },
+        {
           "archiveID": "invisible-man-tv-1959-s01e12-odds-against-death",
           "seasonNumber": 1,
           "episodeNumber": 12,
@@ -35,7 +53,7 @@
             "name": "Invisible Man TV 1959 colorized s01e12 Odds Against Death.mp4",
             "format": "MPEG4",
             "sizeBytes": 235294167,
-            "tier": 1
+            "tier": 2
           },
           "downloadURL": "https://archive.org/download/invisible-man-tv-1959-s01e12-odds-against-death/Invisible%20Man%20TV%201959%20colorized%20s01e12%20Odds%20Against%20Death.mp4"
         }
@@ -44,6 +62,24 @@
     {
       "seasonNumber": 2,
       "episodes": [
+        {
+          "archiveID": "invisible-man-tv-1959-s-02e-02-death-cell",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "Death Cell",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/invisible-man-tv-1959-s-02e-02-death-cell",
+          "airDate": "1959-10-03",
+          "year": 1959,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Invisible Man TV 1959 colorized s02e02 Death Cell.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 179852704,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/invisible-man-tv-1959-s-02e-02-death-cell/Invisible%20Man%20TV%201959%20colorized%20s02e02%20Death%20Cell.mp4"
+        },
         {
           "archiveID": "invisible-man-tv-1959-s02e04-the-prize",
           "seasonNumber": 2,
@@ -58,7 +94,7 @@
             "name": "Invisible Man TV 1959 colorized s02e04 The Prize.mp4",
             "format": "MPEG4",
             "sizeBytes": 204935045,
-            "tier": 1
+            "tier": 2
           },
           "downloadURL": "https://archive.org/download/invisible-man-tv-1959-s02e04-the-prize/Invisible%20Man%20TV%201959%20colorized%20s02e04%20The%20Prize.mp4"
         },
@@ -76,14 +112,14 @@
             "name": "Invisible Man TV 1959 colorized s02e08 The White Rabbit.mp4",
             "format": "MPEG4",
             "sizeBytes": 192015878,
-            "tier": 1
+            "tier": 2
           },
           "downloadURL": "https://archive.org/download/invisible-man-tv-1959-s02e08-the-white-rabbit/Invisible%20Man%20TV%201959%20colorized%20s02e08%20The%20White%20Rabbit.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 3,
+  "episodesCount": 5,
   "canonicalEpisodesCount": 26,
   "cast": [
     {
@@ -104,7 +140,5 @@
       "order": 2,
       "profilePath": "https://static.tvmaze.com/uploads/images/medium_portrait/20/50042.jpg"
     }
-  ],
-  "seriesImdbID": null,
-  "canonicalEpisodeCount": 0
+  ]
 }

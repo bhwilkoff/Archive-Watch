@@ -57,6 +57,24 @@
           "downloadURL": "https://archive.org/download/RamarOfTheJungle-WhiteSavages/RamarOfTheJungle-WhiteSavages.mp4"
         },
         {
+          "archiveID": "RamarOfTheJungle-DrumsOfAfrica",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Drums of the Jungle",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/127/318429.jpg",
+          "airDate": "1953-05-02",
+          "year": 1953,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "RamarOfTheJungle-DrumsOfTheJungle.mp4",
+            "format": "h.264",
+            "sizeBytes": 153165587,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RamarOfTheJungle-DrumsOfAfrica/RamarOfTheJungle-DrumsOfTheJungle.mp4"
+        },
+        {
           "archiveID": "RamarOfTheJungle-TheDoomedSafari",
           "seasonNumber": 1,
           "episodeNumber": 4,
@@ -127,29 +145,6 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/RamarOfTheJungle-TheUnknownTerror/RamarOfTheJungle-TheUnkownTerror.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "RamarOfTheJungle-DrumsOfAfrica",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Ramar of the Jungle - Drums of Africa",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/127/318429.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1563,
-          "videoFile": {
-            "name": "RamarOfTheJungle-DrumsOfTheJungle.mp4",
-            "format": "h.264",
-            "sizeBytes": 153165587,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/RamarOfTheJungle-DrumsOfAfrica/RamarOfTheJungle-DrumsOfTheJungle.mp4"
         }
       ]
     }

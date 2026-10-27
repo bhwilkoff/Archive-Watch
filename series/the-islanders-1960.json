@@ -38,11 +38,11 @@
         {
           "archiveID": "the-islanders-tv-1961-colorized-s01e17-to-bell-the-cat",
           "seasonNumber": 1,
-          "episodeNumber": 17,
-          "title": "Episode 17",
+          "episodeNumber": 19,
+          "title": "To Bell the Cat",
           "overview": null,
           "stillURL": "https://archive.org/services/img/the-islanders-tv-1961-colorized-s01e17-to-bell-the-cat",
-          "airDate": "1961-01-22",
+          "airDate": "1961-02-05",
           "year": 1961,
           "runtimeSeconds": 3600,
           "videoFile": {
@@ -90,8 +90,5 @@
       "order": 4,
       "profilePath": null
     }
-  ],
-  "seriesImdbID": "tt0053511",
-  "canonicalEpisodeCount": 6,
-  "canonicalSeasons": 1
+  ]
 }

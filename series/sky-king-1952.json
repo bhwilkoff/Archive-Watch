@@ -1,0 +1,152 @@
+{
+  "version": 2,
+  "seriesID": "sky-king-1952",
+  "tvmazeID": 2136,
+  "title": "Sky King",
+  "yearStart": 1952,
+  "yearEnd": 1959,
+  "overview": "Sky King was a WWII naval aviator-turned rancher, who flies his twin-engine Cessna high above the Arizona plains. Accompanying Sky on his adventures are his nephew, Clipper and his teen niece, Penny. Starring Kirby Grant and Gloria Winters.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76541-1.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Action",
+    "Adventure",
+    "Western"
+  ],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "sky-king-tv-1952-s01e01-operation-urgent",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Operation Urgent",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/sky-king-tv-1952-s01e01-operation-urgent",
+          "airDate": "1952-04-05",
+          "year": 1952,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Sky King TV 1952 colorized s01e01 Operation Urgent.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 198018401,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sky-king-tv-1952-s01e01-operation-urgent/Sky%20King%20TV%201952%20colorized%20s01e01%20Operation%20Urgent.mp4"
+        },
+        {
+          "archiveID": "sky-king-tv-1952-colorized-s01e03-stagecoach-robbers",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Stagecoach Robbers",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/sky-king-tv-1952-colorized-s01e03-stagecoach-robbers",
+          "airDate": "1952-05-03",
+          "year": 1952,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Sky King TV 1952 colorized s01e03 Stagecoach Robbers.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 207465152,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sky-king-tv-1952-colorized-s01e03-stagecoach-robbers/Sky%20King%20TV%201952%20colorized%20s01e03%20Stagecoach%20Robbers.mp4"
+        },
+        {
+          "archiveID": "sky-king-tv-1952-s01e04-deadly-cargo",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "Deadly Cargo",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/sky-king-tv-1952-s01e04-deadly-cargo",
+          "airDate": "1952-05-17",
+          "year": 1952,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Sky King TV 1952 colorized s01e04 Deadly Cargo.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 258653576,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/sky-king-tv-1952-s01e04-deadly-cargo/Sky%20King%20TV%201952%20colorized%20s01e04%20Deadly%20Cargo.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
+          "archiveID": "sky-king-tv-series",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "TV Series",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Sky King TV s1e19 The Porcelain Lion.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 163629169,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/sky-king-tv-series/Sky%20King%20TV%20s1e19%20The%20Porcelain%20Lion.ia.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 4,
+  "canonicalEpisodesCount": 72,
+  "tvdbID": "76541",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Kirby Grant",
+      "character": "",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Norman Ollestad",
+      "character": "",
+      "order": 1,
+      "profilePath": null
+    },
+    {
+      "name": "Monte Blue",
+      "character": "",
+      "order": 2,
+      "profilePath": null
+    },
+    {
+      "name": "Ewing Mitchell",
+      "character": "",
+      "order": 3,
+      "profilePath": null
+    },
+    {
+      "name": "Chubby Johnson",
+      "character": "",
+      "order": 4,
+      "profilePath": null
+    },
+    {
+      "name": "Gloria Winters",
+      "character": "",
+      "order": 5,
+      "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/260322/photo/63eea8dfc89e2.jpg"
+    },
+    {
+      "name": "Ron Hagerthy",
+      "character": "",
+      "order": 6,
+      "profilePath": null
+    }
+  ]
+}

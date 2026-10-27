@@ -18,46 +18,10 @@
       "seasonNumber": null,
       "episodes": [
         {
-          "archiveID": "TheChevyShow-10April1956",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''The Chevy Show'' - 10 April 1956",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/c43KibsMqs5Y156HLgQudPT7LQf.jpg",
-          "airDate": null,
-          "year": 1956,
-          "runtimeSeconds": 3565,
-          "videoFile": {
-            "name": "DinahShoreChevyShow10April1956.mp4",
-            "format": "h.264",
-            "sizeBytes": 372744661,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/TheChevyShow-10April1956/DinahShoreChevyShow10April1956.mp4"
-        },
-        {
-          "archiveID": "TheChevyShowStateFairU.S.A.",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''The Chevy Show'' - State Fair U.S.A.",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/c43KibsMqs5Y156HLgQudPT7LQf.jpg",
-          "airDate": null,
-          "year": 1959,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "The Chevy Show - State Fair U.S.A..mp4",
-            "format": "h.264",
-            "sizeBytes": 371429587,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/TheChevyShowStateFairU.S.A./The%20Chevy%20Show%20-%20State%20Fair%20U.S.A..mp4"
-        },
-        {
           "archiveID": "TheDinahShoreChevyShow1November1959",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Dinah Shore Chevy Show'' - 1 November 1959",
+          "title": "1 November 1959",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
           "airDate": null,
@@ -75,7 +39,7 @@
           "archiveID": "TheDinahShoreChevyShow10May1959",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Dinah Shore Chevy Show'' - 10 May 1959",
+          "title": "10 May 1959",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
           "airDate": null,
@@ -90,10 +54,28 @@
           "downloadURL": "https://archive.org/download/TheDinahShoreChevyShow10May1959/TheDinahShoreChevyShow-10May1959.mp4"
         },
         {
+          "archiveID": "TheDinahShoreChevyShow11December1960",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "11 December 1960",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
+          "airDate": null,
+          "year": 1960,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Dinah Shore Chevy Show - 11 December 1960.mp4",
+            "format": "h.264",
+            "sizeBytes": 375327291,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheDinahShoreChevyShow11December1960/The%20Dinah%20Shore%20Chevy%20Show%20-%2011%20December%201960.mp4"
+        },
+        {
           "archiveID": "TheDinahShoreChevyShow11January1959",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Dinah Shore Chevy Show'' - 11 January 1959",
+          "title": "11 January 1959",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
           "airDate": null,
@@ -111,7 +93,7 @@
           "archiveID": "TheDinahShoreChevyShow12January1958",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Dinah Shore Chevy Show'' - 12 January 1958",
+          "title": "12 January 1958",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
           "airDate": null,
@@ -129,7 +111,7 @@
           "archiveID": "TheDinahShoreChevyShow15February1959",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Dinah Shore Chevy Show'' - 15 February 1959",
+          "title": "15 February 1959",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
           "airDate": null,
@@ -147,7 +129,7 @@
           "archiveID": "TheDinahShoreChevyShow15March1959",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Dinah Shore Chevy Show'' - 15 March 1959",
+          "title": "15 March 1959",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
           "airDate": null,
@@ -165,7 +147,7 @@
           "archiveID": "TheDinahShoreChevyShow17May1957",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Dinah Shore Chevy Show'' - 17 May 1957",
+          "title": "17 May 1957",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
           "airDate": null,
@@ -183,7 +165,7 @@
           "archiveID": "TheDinahShoreChevyShow17May1959",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Dinah Shore Chevy Show'' - 17 May 1959",
+          "title": "17 May 1959",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
           "airDate": null,
@@ -201,7 +183,7 @@
           "archiveID": "TheDinahShoreShow20March1960",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Dinah Shore Chevy Show'' - 20 March 1960",
+          "title": "20 March 1960",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
           "airDate": null,
@@ -219,7 +201,7 @@
           "archiveID": "TheDinahShoreChevyShow24April1960",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Dinah Shore Chevy Show'' - 24 April 1960",
+          "title": "24 April 1960",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
           "airDate": null,
@@ -237,7 +219,7 @@
           "archiveID": "TheDinahShoreChevyShow24January1960",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Dinah Shore Chevy Show'' - 24 January 1960",
+          "title": "24 January 1960",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
           "airDate": null,
@@ -255,7 +237,7 @@
           "archiveID": "TheDinahShoreChevyShow26January1958",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Dinah Shore Chevy Show'' - 26 January 1958",
+          "title": "26 January 1958",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
           "airDate": null,
@@ -273,7 +255,7 @@
           "archiveID": "TheDinahShoreChevyShow29December1957",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Dinah Shore Chevy Show'' - 29 December 1957",
+          "title": "29 December 1957",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
           "airDate": null,
@@ -291,7 +273,7 @@
           "archiveID": "DinahShore4October1959",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Dinah Shore Chevy Show'' - 4 October 1959",
+          "title": "4 October 1959",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
           "airDate": null,
@@ -309,7 +291,7 @@
           "archiveID": "TheDinahShoreShow8March1959",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Dinah Shore Chevy Show'' - 8 March 1959",
+          "title": "8 March 1959",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
           "airDate": null,
@@ -322,24 +304,6 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/TheDinahShoreShow8March1959/The%20Dinah%20Shore%20Chevy%20Show%20-%208%20March%20%201959.mp4"
-        },
-        {
-          "archiveID": "TheDinahShoreChevyShow11December1960",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''The Dinah Shore Chevy Show'' 11 December 1960",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/7diL0sAqbIlPVVa4UtVxiXKpHLy.jpg",
-          "airDate": null,
-          "year": 1960,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "The Dinah Shore Chevy Show - 11 December 1960.mp4",
-            "format": "h.264",
-            "sizeBytes": 375327291,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/TheDinahShoreChevyShow11December1960/The%20Dinah%20Shore%20Chevy%20Show%20-%2011%20December%201960.mp4"
         },
         {
           "archiveID": "TheChevyShow",
@@ -358,6 +322,42 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/TheChevyShow/TheChevyShow.mp4"
+        },
+        {
+          "archiveID": "TheChevyShow-10April1956",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Chevy Show - 10 April 1956",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/c43KibsMqs5Y156HLgQudPT7LQf.jpg",
+          "airDate": null,
+          "year": 1956,
+          "runtimeSeconds": 3565,
+          "videoFile": {
+            "name": "DinahShoreChevyShow10April1956.mp4",
+            "format": "h.264",
+            "sizeBytes": 372744661,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheChevyShow-10April1956/DinahShoreChevyShow10April1956.mp4"
+        },
+        {
+          "archiveID": "TheChevyShowStateFairU.S.A.",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Chevy Show - State Fair U.S.A.",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/c43KibsMqs5Y156HLgQudPT7LQf.jpg",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "The Chevy Show - State Fair U.S.A..mp4",
+            "format": "h.264",
+            "sizeBytes": 371429587,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheChevyShowStateFairU.S.A./The%20Chevy%20Show%20-%20State%20Fair%20U.S.A..mp4"
         }
       ]
     }

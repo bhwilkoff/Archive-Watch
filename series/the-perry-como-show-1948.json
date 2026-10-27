@@ -20,10 +20,28 @@
       "seasonNumber": null,
       "episodes": [
         {
+          "archiveID": "ThePerryComoShow-11March1955_907",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "11 March 1955",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2oHFVewn4FtpK1TjdaKh3pPss5M.jpg",
+          "airDate": null,
+          "year": 1955,
+          "runtimeSeconds": 866,
+          "videoFile": {
+            "name": "ThePerryComoShow-11march1955.mp4",
+            "format": "h.264",
+            "sizeBytes": 90251848,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ThePerryComoShow-11March1955_907/ThePerryComoShow-11march1955.mp4"
+        },
+        {
           "archiveID": "PerryComoShow02141951",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "\"The Perry Como Show\" - 14/February/1951",
+          "title": "14/February/1951",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/2oHFVewn4FtpK1TjdaKh3pPss5M.jpg",
           "airDate": null,
@@ -41,7 +59,7 @@
           "archiveID": "thePerryComoShow-16september1953",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "\"The Perry Como Show\" - 16/September/1953",
+          "title": "16/September/1953",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/2oHFVewn4FtpK1TjdaKh3pPss5M.jpg",
           "airDate": null,
@@ -56,64 +74,10 @@
           "downloadURL": "https://archive.org/download/thePerryComoShow-16september1953/53-09-16_Perry_Como_show.ia.mp4"
         },
         {
-          "archiveID": "Perry_Como_1952",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "\"The Perry Como Show\" - 1952 Episode",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/2oHFVewn4FtpK1TjdaKh3pPss5M.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "PerryComo1952.mp4",
-            "format": "h.264",
-            "sizeBytes": 89265744,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Perry_Como_1952/PerryComo1952.mp4"
-        },
-        {
-          "archiveID": "thePerryComoShow-20january1954",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "\"The Perry Como Show\" - 20/January/1954",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/2oHFVewn4FtpK1TjdaKh3pPss5M.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 877,
-          "videoFile": {
-            "name": "54-01-20_Perry_Como_show.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 93651013,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/thePerryComoShow-20january1954/54-01-20_Perry_Como_show.ia.mp4"
-        },
-        {
-          "archiveID": "thePerryComoShow-24december1952",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "\"The Perry Como Show\" - 24/December/1952",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/2oHFVewn4FtpK1TjdaKh3pPss5M.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 870,
-          "videoFile": {
-            "name": "Perry_Como_show_12_24_1952.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 118462481,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/thePerryComoShow-24december1952/Perry_Como_show_12_24_1952.ia.mp4"
-        },
-        {
           "archiveID": "PerryComoShow17January1959",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Perry Como Show'' - 17 January 1959",
+          "title": "17 January 1959",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/2oHFVewn4FtpK1TjdaKh3pPss5M.jpg",
           "airDate": null,
@@ -131,7 +95,7 @@
           "archiveID": "PerryComo18February1956",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Perry Como Show'' - 18 February 1956",
+          "title": "18 February 1956",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/2oHFVewn4FtpK1TjdaKh3pPss5M.jpg",
           "airDate": null,
@@ -149,7 +113,7 @@
           "archiveID": "PerryComo19January1957",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Perry Como Show'' - 19 January 1957",
+          "title": "19 January 1957",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/2oHFVewn4FtpK1TjdaKh3pPss5M.jpg",
           "airDate": null,
@@ -164,28 +128,28 @@
           "downloadURL": "https://archive.org/download/PerryComo19January1957/perrycomo19January1957.mp4"
         },
         {
-          "archiveID": "ThePerryComoShow-11March1955_907",
+          "archiveID": "Perry_Como_1952",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Perry Como Show - 11 March 1955",
+          "title": "1952 Episode",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/2oHFVewn4FtpK1TjdaKh3pPss5M.jpg",
           "airDate": null,
-          "year": 1955,
-          "runtimeSeconds": 866,
+          "year": null,
+          "runtimeSeconds": null,
           "videoFile": {
-            "name": "ThePerryComoShow-11march1955.mp4",
+            "name": "PerryComo1952.mp4",
             "format": "h.264",
-            "sizeBytes": 90251848,
+            "sizeBytes": 89265744,
             "tier": 2
           },
-          "downloadURL": "https://archive.org/download/ThePerryComoShow-11March1955_907/ThePerryComoShow-11march1955.mp4"
+          "downloadURL": "https://archive.org/download/Perry_Como_1952/PerryComo1952.mp4"
         },
         {
           "archiveID": "ThePerryComoShow-2March1955",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Perry Como Show - 2 March 1955",
+          "title": "2 March 1955",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/2oHFVewn4FtpK1TjdaKh3pPss5M.jpg",
           "airDate": null,
@@ -200,10 +164,46 @@
           "downloadURL": "https://archive.org/download/ThePerryComoShow-2March1955/PerryComoShow2March1955.mp4"
         },
         {
+          "archiveID": "thePerryComoShow-20january1954",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "20/January/1954",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2oHFVewn4FtpK1TjdaKh3pPss5M.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 877,
+          "videoFile": {
+            "name": "54-01-20_Perry_Como_show.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 93651013,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thePerryComoShow-20january1954/54-01-20_Perry_Como_show.ia.mp4"
+        },
+        {
+          "archiveID": "thePerryComoShow-24december1952",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "24/December/1952",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/2oHFVewn4FtpK1TjdaKh3pPss5M.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 870,
+          "videoFile": {
+            "name": "Perry_Como_show_12_24_1952.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 118462481,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/thePerryComoShow-24december1952/Perry_Como_show_12_24_1952.ia.mp4"
+        },
+        {
           "archiveID": "ThePerryComoShow-22February1955",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Perry Como Show - 28 February 1955",
+          "title": "28 February 1955",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/2oHFVewn4FtpK1TjdaKh3pPss5M.jpg",
           "airDate": null,
@@ -221,7 +221,7 @@
           "archiveID": "ThePerryComoShow-4March1955",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Perry Como Show - 4 March 1955",
+          "title": "4 March 1955",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/2oHFVewn4FtpK1TjdaKh3pPss5M.jpg",
           "airDate": null,
@@ -239,7 +239,7 @@
           "archiveID": "ThePerryComoShow-7March1955",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Perry Como Show - 7 March 1955",
+          "title": "7 March 1955",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/2oHFVewn4FtpK1TjdaKh3pPss5M.jpg",
           "airDate": null,
@@ -257,7 +257,7 @@
           "archiveID": "ThePerryComoShow-11March1955",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Perry Como Show - 9 March 1955",
+          "title": "9 March 1955",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/2oHFVewn4FtpK1TjdaKh3pPss5M.jpg",
           "airDate": null,

@@ -18,6 +18,24 @@
       "seasonNumber": 1,
       "episodes": [
         {
+          "archiveID": "DangerousAssignmentTheArtTreasureStory",
+          "seasonNumber": 1,
+          "episodeNumber": 26,
+          "title": "The Art Treasure Story",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/iWcg8cDGTpZtbH1mRTHPG3a8tdt.jpg",
+          "airDate": "1952-04-14",
+          "year": 1952,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "DangerousAssignment-theArtTreasureStory.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 154145831,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DangerousAssignmentTheArtTreasureStory/DangerousAssignment-theArtTreasureStory.ia.mp4"
+        },
+        {
           "archiveID": "DangerousAssignmentTheArcheologicalStory",
           "seasonNumber": 1,
           "episodeNumber": 36,
@@ -44,7 +62,7 @@
           "archiveID": "DangerousAssignment1952Eps1-12",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "Dangerous Assignment 1952",
+          "title": "1952",
           "overview": null,
           "stillURL": null,
           "airDate": null,
@@ -57,42 +75,6 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/DangerousAssignment1952Eps1-12/DangerousAssignmentEpisode9ThePatAndMikeStory1952Replaced.mp4"
-        },
-        {
-          "archiveID": "DangerousAssignmentTheArtTreasureStory",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Dangerous Assignment: The Art Treasure Story",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/iWcg8cDGTpZtbH1mRTHPG3a8tdt.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1523,
-          "videoFile": {
-            "name": "DangerousAssignment-theArtTreasureStory.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 154145831,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DangerousAssignmentTheArtTreasureStory/DangerousAssignment-theArtTreasureStory.ia.mp4"
-        },
-        {
-          "archiveID": "DangerousAssignmentTheAssassinRing",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Dangerous Assignment: The Assassin Ring",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/iWcg8cDGTpZtbH1mRTHPG3a8tdt.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1551,
-          "videoFile": {
-            "name": "DangerousAssignment-theAssassinRing.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 154600322,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DangerousAssignmentTheAssassinRing/DangerousAssignment-theAssassinRing.ia.mp4"
         },
         {
           "archiveID": "DangerousAssignment-TheSunflowerSeedStory",
@@ -129,6 +111,24 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/TheAlienSmugglerStory/DangerousAssignment-TheAlienSmugglerStory.mp4"
+        },
+        {
+          "archiveID": "DangerousAssignmentTheAssassinRing",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Assassin Ring",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/iWcg8cDGTpZtbH1mRTHPG3a8tdt.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1551,
+          "videoFile": {
+            "name": "DangerousAssignment-theAssassinRing.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 154600322,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DangerousAssignmentTheAssassinRing/DangerousAssignment-theAssassinRing.ia.mp4"
         },
         {
           "archiveID": "DangerousAssignment-TheBhandaraStory",

@@ -22,6 +22,42 @@
       "seasonNumber": 1,
       "episodes": [
         {
+          "archiveID": "FrontierDoctorQueenOfTheCimarron",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Queen of the Cimarron",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fcjSgqQnZgHtluOOq81KyxuT4O0.jpg",
+          "airDate": "1958-09-26",
+          "year": 1958,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Frontier Doctor - Queen of the Cimarron.mp4",
+            "format": "h.264",
+            "sizeBytes": 163815474,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FrontierDoctorQueenOfTheCimarron/Frontier%20Doctor%20-%20Queen%20of%20the%20Cimarron.mp4"
+        },
+        {
+          "archiveID": "FrontierDoctorSanFranciscoStory",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "San Francisco Story",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fcjSgqQnZgHtluOOq81KyxuT4O0.jpg",
+          "airDate": "1958-10-04",
+          "year": 1958,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "FrontierDoctor-SanFranciscoStory.mp4",
+            "format": "h.264",
+            "sizeBytes": 163473771,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FrontierDoctorSanFranciscoStory/FrontierDoctor-SanFranciscoStory.mp4"
+        },
+        {
           "archiveID": "Frontier_Doctor--Crooked_Circle",
           "seasonNumber": 1,
           "episodeNumber": 4,
@@ -38,6 +74,96 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/Frontier_Doctor--Crooked_Circle/FrontierDoctor--Crooked_Circle.mp4"
+        },
+        {
+          "archiveID": "FrontierDoctorMysteryOfTheBlackStallion_201509",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Mystery of Black Stallion",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fcjSgqQnZgHtluOOq81KyxuT4O0.jpg",
+          "airDate": "1958-11-08",
+          "year": 1958,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "FrontierDoctor-MysteryOfTheBlackStallion.mp4",
+            "format": "h.264",
+            "sizeBytes": 162495590,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FrontierDoctorMysteryOfTheBlackStallion_201509/FrontierDoctor-MysteryOfTheBlackStallion.mp4"
+        },
+        {
+          "archiveID": "FrontierDoctorTheOutlawLegion",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Outlaw Legion",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fcjSgqQnZgHtluOOq81KyxuT4O0.jpg",
+          "airDate": "1958-11-15",
+          "year": 1958,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Frontier Doctor - The Outlaw Legion.mp4",
+            "format": "h.264",
+            "sizeBytes": 162952928,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FrontierDoctorTheOutlawLegion/Frontier%20Doctor%20-%20The%20Outlaw%20Legion.mp4"
+        },
+        {
+          "archiveID": "FrontierDoctorIllegalEntry",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Illegal Entry",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fcjSgqQnZgHtluOOq81KyxuT4O0.jpg",
+          "airDate": "1959-01-10",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Frontier Doctor - Illegal Entry.mp4",
+            "format": "h.264",
+            "sizeBytes": 158626179,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FrontierDoctorIllegalEntry/Frontier%20Doctor%20-%20Illegal%20Entry.mp4"
+        },
+        {
+          "archiveID": "FrontierDoctorGringoPete",
+          "seasonNumber": 1,
+          "episodeNumber": 22,
+          "title": "Gringo Pete",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fcjSgqQnZgHtluOOq81KyxuT4O0.jpg",
+          "airDate": "1959-05-02",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "FrontierDoctor-GringoPete.mp4",
+            "format": "h.264",
+            "sizeBytes": 163668421,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FrontierDoctorGringoPete/FrontierDoctor-GringoPete.mp4"
+        },
+        {
+          "archiveID": "elktonlakefeud",
+          "seasonNumber": 1,
+          "episodeNumber": 24,
+          "title": "Elkton Lake Feud",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fcjSgqQnZgHtluOOq81KyxuT4O0.jpg",
+          "airDate": "1959-05-16",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "elktonlakefeud.mp4",
+            "format": "h.264",
+            "sizeBytes": 163526215,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/elktonlakefeud/elktonlakefeud.mp4"
         }
       ]
     },
@@ -48,7 +174,7 @@
           "archiveID": "FrontierDoctorDangerValley",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''Frontier Doctor'' - Danger Valley",
+          "title": "Danger Valley",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/fcjSgqQnZgHtluOOq81KyxuT4O0.jpg",
           "airDate": null,
@@ -63,100 +189,10 @@
           "downloadURL": "https://archive.org/download/FrontierDoctorDangerValley/Frontier%20Doctor%20-%20Danger%20Valley.mp4"
         },
         {
-          "archiveID": "elktonlakefeud",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''Frontier Doctor'' - Elkton Lake Feud",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/fcjSgqQnZgHtluOOq81KyxuT4O0.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1569,
-          "videoFile": {
-            "name": "elktonlakefeud.mp4",
-            "format": "h.264",
-            "sizeBytes": 163526215,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/elktonlakefeud/elktonlakefeud.mp4"
-        },
-        {
-          "archiveID": "FrontierDoctorGringoPete",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''Frontier Doctor'' - Gringo Pete",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/fcjSgqQnZgHtluOOq81KyxuT4O0.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1571,
-          "videoFile": {
-            "name": "FrontierDoctor-GringoPete.mp4",
-            "format": "h.264",
-            "sizeBytes": 163668421,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/FrontierDoctorGringoPete/FrontierDoctor-GringoPete.mp4"
-        },
-        {
-          "archiveID": "FrontierDoctorMysteryOfTheBlackStallion_201509",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''Frontier Doctor'' - Mystery Of The Black Stallion",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/fcjSgqQnZgHtluOOq81KyxuT4O0.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1561,
-          "videoFile": {
-            "name": "FrontierDoctor-MysteryOfTheBlackStallion.mp4",
-            "format": "h.264",
-            "sizeBytes": 162495590,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/FrontierDoctorMysteryOfTheBlackStallion_201509/FrontierDoctor-MysteryOfTheBlackStallion.mp4"
-        },
-        {
-          "archiveID": "FrontierDoctorQueenOfTheCimarron",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''Frontier Doctor'' - Queen Of The Cimarron",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/fcjSgqQnZgHtluOOq81KyxuT4O0.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1574,
-          "videoFile": {
-            "name": "Frontier Doctor - Queen of the Cimarron.mp4",
-            "format": "h.264",
-            "sizeBytes": 163815474,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/FrontierDoctorQueenOfTheCimarron/Frontier%20Doctor%20-%20Queen%20of%20the%20Cimarron.mp4"
-        },
-        {
-          "archiveID": "FrontierDoctorSanFranciscoStory",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''Frontier Doctor'' - San Francisco Story",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/fcjSgqQnZgHtluOOq81KyxuT4O0.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1569,
-          "videoFile": {
-            "name": "FrontierDoctor-SanFranciscoStory.mp4",
-            "format": "h.264",
-            "sizeBytes": 163473771,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/FrontierDoctorSanFranciscoStory/FrontierDoctor-SanFranciscoStory.mp4"
-        },
-        {
           "archiveID": "frontierdoctor-bigframeup",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''Frontier Doctor'' - The Big Frame Up",
+          "title": "The Big Frame Up",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/fcjSgqQnZgHtluOOq81KyxuT4O0.jpg",
           "airDate": null,
@@ -174,7 +210,7 @@
           "archiveID": "FrontierDoctorTheHomesteaders",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''Frontier Doctor'' - The Homesteaders",
+          "title": "The Homesteaders",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/fcjSgqQnZgHtluOOq81KyxuT4O0.jpg",
           "airDate": null,
@@ -189,28 +225,10 @@
           "downloadURL": "https://archive.org/download/FrontierDoctorTheHomesteaders/FrontierDoctor-The%20Homesteaders.mp4"
         },
         {
-          "archiveID": "FrontierDoctorTheOutlawLegion",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''Frontier Doctor'' - The Outlaw Legion",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/fcjSgqQnZgHtluOOq81KyxuT4O0.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1564,
-          "videoFile": {
-            "name": "Frontier Doctor - The Outlaw Legion.mp4",
-            "format": "h.264",
-            "sizeBytes": 162952928,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/FrontierDoctorTheOutlawLegion/Frontier%20Doctor%20-%20The%20Outlaw%20Legion.mp4"
-        },
-        {
           "archiveID": "frontierdoctortwistedroad",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''Frontier Doctor'' - The Twisted Road",
+          "title": "The Twisted Road",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/fcjSgqQnZgHtluOOq81KyxuT4O0.jpg",
           "airDate": null,
@@ -223,24 +241,6 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/frontierdoctortwistedroad/frontierdoctortwistedroad.mp4"
-        },
-        {
-          "archiveID": "FrontierDoctorIllegalEntry",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Frontier Doctor - Illegal Entry",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/fcjSgqQnZgHtluOOq81KyxuT4O0.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1524,
-          "videoFile": {
-            "name": "Frontier Doctor - Illegal Entry.mp4",
-            "format": "h.264",
-            "sizeBytes": 158626179,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/FrontierDoctorIllegalEntry/Frontier%20Doctor%20-%20Illegal%20Entry.mp4"
         }
       ]
     }

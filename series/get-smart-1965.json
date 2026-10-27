@@ -40,7 +40,7 @@
           "downloadURL": "https://archive.org/download/get-smart-s1e1-pilot/Get%20Smart-S1E1-Get%20Smart.mp4"
         },
         {
-          "archiveID": "get-smart-s1e2-casino-evil",
+          "archiveID": "get-smart-s-01-e-02-diplomats-daughter.mp-4",
           "seasonNumber": 1,
           "episodeNumber": 2,
           "title": "Diplomat's Daughter",
@@ -50,30 +50,30 @@
           "year": 1965,
           "runtimeSeconds": 1800,
           "videoFile": {
-            "name": "Get Smart-S1E2-Casino Evil.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 691634705,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/get-smart-s1e2-casino-evil/Get%20Smart-S1E2-Casino%20Evil.mp4"
-        },
-        {
-          "archiveID": "get-smart-s-01-e-02-diplomats-daughter.mp-4",
-          "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "Get Smart S01 E02 .mp 4",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/get-smart-s-01-e-02-diplomats-daughter.mp-4",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1521,
-          "videoFile": {
             "name": "Get Smart S01E02 (Diplomat's Daughter).mp4.mp4",
             "format": "MPEG4",
             "sizeBytes": 157508129,
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/get-smart-s-01-e-02-diplomats-daughter.mp-4/Get%20Smart%20S01E02%20%28Diplomat%27s%20Daughter%29.mp4.mp4"
+        },
+        {
+          "archiveID": "get-smart-s1e2-casino-evil",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "S1E2-Casino Evil",
+          "overview": "Numerous blondes have been kidnapped and Smart is assigned to protect a beautiful diplomat's daughter. He discovers the KAOS lair and tangles with The Claw, capturing him and his henchmen.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/235/588407.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Get Smart-S1E2-Casino Evil.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 691634705,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/get-smart-s1e2-casino-evil/Get%20Smart-S1E2-Casino%20Evil.mp4"
         },
         {
           "archiveID": "get-smart-s-01-e-03-school-days.mp-4",

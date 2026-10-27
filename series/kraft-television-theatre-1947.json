@@ -17,18 +17,18 @@
   "creator": null,
   "seasons": [
     {
-      "seasonNumber": null,
+      "seasonNumber": 7,
       "episodes": [
         {
           "archiveID": "kraft-television-theatre-alice-in-wonderland-1954",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Kraft Television Theatre - Alice In Wonderland",
+          "seasonNumber": 7,
+          "episodeNumber": 36,
+          "title": "Alice in Wonderland",
           "overview": null,
           "stillURL": "https://archive.org/services/img/kraft-television-theatre-alice-in-wonderland-1954",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
+          "airDate": "1954-05-05",
+          "year": 1954,
+          "runtimeSeconds": 3600,
           "videoFile": {
             "name": "Kraft Television Theatre Alice in Wonderland (1954).ia.mp4",
             "format": "h.264 IA",
@@ -36,12 +36,17 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/kraft-television-theatre-alice-in-wonderland-1954/Kraft%20Television%20Theatre%20Alice%20in%20Wonderland%20%281954%29.ia.mp4"
-        },
+        }
+      ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
         {
           "archiveID": "kraft-television-theatre-kelly-1951",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "Kraft Television Theatre - Kelly",
+          "title": "Kelly",
           "overview": null,
           "stillURL": "https://archive.org/services/img/kraft-television-theatre-kelly-1951",
           "airDate": null,
@@ -59,7 +64,7 @@
           "archiveID": "kraft-television-theatre-kidnapped-1954",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "Kraft Television Theatre - Kidnapped",
+          "title": "Kidnapped",
           "overview": null,
           "stillURL": "https://archive.org/services/img/kraft-television-theatre-kidnapped-1954",
           "airDate": null,
@@ -92,7 +97,5 @@
       "order": 1,
       "profilePath": null
     }
-  ],
-  "seriesImdbID": null,
-  "canonicalEpisodeCount": 0
+  ]
 }

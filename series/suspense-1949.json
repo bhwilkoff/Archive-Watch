@@ -272,12 +272,12 @@
         {
           "archiveID": "suspense-tv-show",
           "seasonNumber": 5,
-          "episodeNumber": 13,
-          "title": "A Time of Innocence",
+          "episodeNumber": 19,
+          "title": "Mr. Matches",
           "overview": null,
           "stillURL": null,
-          "airDate": "1952-12-02",
-          "year": 1952,
+          "airDate": "1953-01-13",
+          "year": 1953,
           "runtimeSeconds": 1500,
           "videoFile": {
             "name": "Suspense S05E13 Mr.  Matches.ia.mp4",
@@ -286,24 +286,6 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/suspense-tv-show/Suspense%20S05E13%20Mr.%20%20Matches.ia.mp4"
-        },
-        {
-          "archiveID": "Suspense--Mr_Matches",
-          "seasonNumber": 5,
-          "episodeNumber": 19,
-          "title": "Mr. Matches",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
-          "airDate": "1953-01-13",
-          "year": 1953,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "Suspense--Mr_Matches.mp4",
-            "format": "h.264",
-            "sizeBytes": 137063755,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Suspense--Mr_Matches/Suspense--Mr_Matches.mp4"
         },
         {
           "archiveID": "Suspense--Mutiny_Below",
@@ -419,10 +401,28 @@
       "seasonNumber": null,
       "episodes": [
         {
+          "archiveID": "Suspense--Mr_Matches",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Mr. Matches",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+          "airDate": null,
+          "year": 1953,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Suspense--Mr_Matches.mp4",
+            "format": "h.264",
+            "sizeBytes": 137063755,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Suspense--Mr_Matches/Suspense--Mr_Matches.mp4"
+        },
+        {
           "archiveID": "Suspense--Far-Off_House",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "Suspense: The Far-Off House",
+          "title": "The Far-Off House",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
           "airDate": null,

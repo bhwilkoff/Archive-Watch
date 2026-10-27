@@ -43,10 +43,10 @@
           "archiveID": "case-of-the-dangerous-robin-tv-1961-s01e26-tin-caper",
           "seasonNumber": 1,
           "episodeNumber": 26,
-          "title": "China Passage",
+          "title": "Case of the Dangerous Robin TV 1961 colorized s01e26 Tin Caper",
           "overview": "Robin Scott travels to Hong Kong to investigate an insurance claim involving a cargo of tin allegedly lost overboard from the tramp freighter Natuna Star. Captain Thane, who holds a grudge against insurance companies, and his crew have stolen $100,000 worth of tin ingots en route from Singapore to Hong Kong, claiming they jettisoned the cargo to save the ship during a storm. Suspecting barratry, Robin enlists the help of skin diver Danny Wayne and gains the confidence of Thane, first mate Vernon, and Sparky Tanjong, the ship's mixed-race Malay radio operator. He then stages the kidnapping of Phyllis Collier, who happens to be in Hong Kong, and bribes his way aboard the Natuna Star, hoping to be led to the island where the stolen tin is hidden. Thane and his crew double-cross Robin, intending to keep the supposed ransom for themselves. After a deadly fight on the island, Robin defeats the villains and recovers the ingots—only to learn his fee will be paid in Hong Kong dollars, each worth less than 25 American cents.",
           "stillURL": "https://archive.org/services/img/case-of-the-dangerous-robin-tv-1961-s01e26-tin-caper",
-          "airDate": "1961-04-03",
+          "airDate": null,
           "year": 1961,
           "runtimeSeconds": 1500,
           "videoFile": {
@@ -77,8 +77,5 @@
       "order": 1,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/8026562/photo/61c7d885c4bde.jpg"
     }
-  ],
-  "seriesImdbID": "tt0053490",
-  "canonicalEpisodeCount": 3,
-  "canonicalSeasons": 1
+  ]
 }

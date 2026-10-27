@@ -22,28 +22,10 @@
       "seasonNumber": null,
       "episodes": [
         {
-          "archiveID": "tomCorbettSpaceCadet_175",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "'Tom Corbett, Space Cadet'",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/h9IvcvTSTWIy01X6iqKncdaMpVr.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Tom_corbett_1955_02_26_assignment_mercury.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 135237621,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/tomCorbettSpaceCadet_175/Tom_corbett_1955_02_26_assignment_mercury.ia.mp4"
-        },
-        {
           "archiveID": "tomCorbettSpaceCadet-AmbushInSpace1955",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "'Tom Corbett, Space cadet' - Ambush in space",
+          "title": "Ambush in space",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/h9IvcvTSTWIy01X6iqKncdaMpVr.jpg",
           "airDate": null,
@@ -61,7 +43,7 @@
           "archiveID": "tomCorbettSpaceCadet-FightForSurvival1955",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "'Tom Corbett, Space cadet' - Fight for survival",
+          "title": "Fight for survival",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/h9IvcvTSTWIy01X6iqKncdaMpVr.jpg",
           "airDate": null,
@@ -79,7 +61,7 @@
           "archiveID": "tomCorbettSpaceCadet-MissingMailShip1955",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "'Tom Corbett, Space cadet' - Missing Mail Ship",
+          "title": "Missing Mail Ship",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/h9IvcvTSTWIy01X6iqKncdaMpVr.jpg",
           "airDate": null,
@@ -97,7 +79,7 @@
           "archiveID": "tomCorbettSpaceCadet-MonsterOfSpace1955_278",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "'Tom Corbett, Space cadet' - Monster of Space",
+          "title": "Monster of Space",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/h9IvcvTSTWIy01X6iqKncdaMpVr.jpg",
           "airDate": null,
@@ -115,7 +97,7 @@
           "archiveID": "tomCorbettSpaceCadet-PursuitOfTheDeepSpaceProjectile1955",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "'Tom Corbett, Space cadet' - Pursuit of the deep space projectile",
+          "title": "Pursuit of the deep space projectile",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/h9IvcvTSTWIy01X6iqKncdaMpVr.jpg",
           "airDate": null,
@@ -133,7 +115,7 @@
           "archiveID": "tomCorbettSpaceCadet-RunawayRocket1954",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "'Tom Corbett, Space cadet' - Runaway rocket",
+          "title": "Runaway rocket",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/h9IvcvTSTWIy01X6iqKncdaMpVr.jpg",
           "airDate": null,
@@ -146,6 +128,24 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/tomCorbettSpaceCadet-RunawayRocket1954/Tom_Corbett_Runaway_Rocket_05_22_54.ia.mp4"
+        },
+        {
+          "archiveID": "tomCorbettSpaceCadet_175",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Tom Corbett, Space Cadet",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9IvcvTSTWIy01X6iqKncdaMpVr.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Tom_corbett_1955_02_26_assignment_mercury.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 135237621,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tomCorbettSpaceCadet_175/Tom_corbett_1955_02_26_assignment_mercury.ia.mp4"
         }
       ]
     }

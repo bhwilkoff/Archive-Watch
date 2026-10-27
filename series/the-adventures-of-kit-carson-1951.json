@@ -17,36 +17,18 @@
   "creator": null,
   "seasons": [
     {
-      "seasonNumber": null,
+      "seasonNumber": 1,
       "episodes": [
         {
-          "archiveID": "TheAdventuresOfKitCarsonSingingWires",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''The Adventures Of Kit Carson'' - Singing Wires",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/uptHEepL0EjsK9pVfChzLxBnyHP.jpg",
-          "airDate": null,
-          "year": 1952,
-          "runtimeSeconds": 1518,
-          "videoFile": {
-            "name": "The Adventures of Kit Carson - Singing Wires.mp4",
-            "format": "h.264",
-            "sizeBytes": 157913022,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/TheAdventuresOfKitCarsonSingingWires/The%20Adventures%20of%20Kit%20Carson%20-%20Singing%20Wires.mp4"
-        },
-        {
           "archiveID": "TheAdventuresOfKitCarsonTheOutlawsOfManzantia",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''The Adventures Of Kit Carson'' - The Outlaws Of Manzantia",
+          "seasonNumber": 1,
+          "episodeNumber": 13,
+          "title": "The Outlaws of Manzanita",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/uptHEepL0EjsK9pVfChzLxBnyHP.jpg",
-          "airDate": null,
+          "airDate": "1951-11-03",
           "year": 1951,
-          "runtimeSeconds": 1506,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "The Adventures of Kit Carson - The Outlaws of Manzantia.mp4",
             "format": "h.264",
@@ -57,14 +39,14 @@
         },
         {
           "archiveID": "BadmanOfBriscoe",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''The Adventures of Kit Carson'' - Badman of Briscoe",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Bad Man of Brisco",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/uptHEepL0EjsK9pVfChzLxBnyHP.jpg",
-          "airDate": null,
+          "airDate": "1951-12-15",
           "year": 1951,
-          "runtimeSeconds": 1574,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "Badman of Briscoe.mp4",
             "format": "h.264",
@@ -72,12 +54,40 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/BadmanOfBriscoe/Badman%20of%20Briscoe.mp4"
-        },
+        }
+      ]
+    },
+    {
+      "seasonNumber": 2,
+      "episodes": [
+        {
+          "archiveID": "TheAdventuresOfKitCarsonSingingWires",
+          "seasonNumber": 2,
+          "episodeNumber": 18,
+          "title": "Singing Wires",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uptHEepL0EjsK9pVfChzLxBnyHP.jpg",
+          "airDate": "1952-11-29",
+          "year": 1952,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Adventures of Kit Carson - Singing Wires.mp4",
+            "format": "h.264",
+            "sizeBytes": 157913022,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfKitCarsonSingingWires/The%20Adventures%20of%20Kit%20Carson%20-%20Singing%20Wires.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
         {
           "archiveID": "KitCarsonDesperateSheriff1951",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''The Adventures of Kit Carson'' - The Desperate Sheriff",
+          "title": "The Desperate Sheriff",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/uptHEepL0EjsK9pVfChzLxBnyHP.jpg",
           "airDate": null,
@@ -117,8 +127,5 @@
       "order": 2,
       "profilePath": null
     }
-  ],
-  "seriesImdbID": "tt0043169",
-  "canonicalEpisodeCount": 28,
-  "canonicalSeasons": 4
+  ]
 }

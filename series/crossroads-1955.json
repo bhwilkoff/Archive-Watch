@@ -38,6 +38,42 @@
           "downloadURL": "https://archive.org/download/Crossroads--Hostage_1955/Crossroads105_Hostage.mp4"
         },
         {
+          "archiveID": "CrossroadsTheGoodThief",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Good Thief",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pEXMvsUgtXmYzCnewX8c89SP0Zw.jpg",
+          "airDate": "1955-11-25",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Crossroads-theGoodThief.mp4",
+            "format": "h.264",
+            "sizeBytes": 149389183,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CrossroadsTheGoodThief/Crossroads-theGoodThief.mp4"
+        },
+        {
+          "archiveID": "CrossroadsTheInnerLight",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "The Inner Light",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pEXMvsUgtXmYzCnewX8c89SP0Zw.jpg",
+          "airDate": "1956-02-03",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Crossroads-theInnerLight.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 149727240,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CrossroadsTheInnerLight/Crossroads-theInnerLight.ia.mp4"
+        },
+        {
           "archiveID": "Crossroads--Strange_Bequest",
           "seasonNumber": 1,
           "episodeNumber": 20,
@@ -54,6 +90,24 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/Crossroads--Strange_Bequest/Crossroads120_Strange_Bequest.mp4"
+        },
+        {
+          "archiveID": "CrossroadsMotherObrien",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "Mother O'Brien",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pEXMvsUgtXmYzCnewX8c89SP0Zw.jpg",
+          "airDate": "1956-03-09",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Crossroads-motherObrien.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 150043791,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CrossroadsMotherObrien/Crossroads-motherObrien.ia.mp4"
         },
         {
           "archiveID": "Crossroads--The_Bowery_Bishop",
@@ -97,6 +151,24 @@
       "seasonNumber": 2,
       "episodes": [
         {
+          "archiveID": "CrossroadsGodsHealing",
+          "seasonNumber": 2,
+          "episodeNumber": 9,
+          "title": "God's Healing",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pEXMvsUgtXmYzCnewX8c89SP0Zw.jpg",
+          "airDate": "1956-11-30",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "CrossroadsGodsHealing.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 150316187,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CrossroadsGodsHealing/CrossroadsGodsHealing.ia.mp4"
+        },
+        {
           "archiveID": "OurFirstChristmasTree",
           "seasonNumber": 2,
           "episodeNumber": 12,
@@ -133,6 +205,60 @@
           "downloadURL": "https://archive.org/download/CrossroadsTheManWhoWalkedOnWater/Crossroads-theManWhoWalkedOnWater.ia.mp4"
         },
         {
+          "archiveID": "CrossroadsCallForHelp",
+          "seasonNumber": 2,
+          "episodeNumber": 22,
+          "title": "Call for Help",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pEXMvsUgtXmYzCnewX8c89SP0Zw.jpg",
+          "airDate": "1957-03-01",
+          "year": 1957,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Crossroads-callForHelp.mp4",
+            "format": "h.264",
+            "sizeBytes": 144191459,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CrossroadsCallForHelp/Crossroads-callForHelp.mp4"
+        },
+        {
+          "archiveID": "CrossroadsTheLastStrand",
+          "seasonNumber": 2,
+          "episodeNumber": 25,
+          "title": "The Last Strand",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pEXMvsUgtXmYzCnewX8c89SP0Zw.jpg",
+          "airDate": "1957-03-22",
+          "year": 1957,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "crossroads-thelaststrand.mp4",
+            "format": "h.264",
+            "sizeBytes": 146233713,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CrossroadsTheLastStrand/crossroads-thelaststrand.mp4"
+        },
+        {
+          "archiveID": "CrossroadsParatroopPadre",
+          "seasonNumber": 2,
+          "episodeNumber": 26,
+          "title": "Paratroop Padre",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/pEXMvsUgtXmYzCnewX8c89SP0Zw.jpg",
+          "airDate": "1957-03-29",
+          "year": 1957,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "crossroads-paratropperpadre.mp4",
+            "format": "h.264",
+            "sizeBytes": 142558644,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/CrossroadsParatroopPadre/crossroads-paratropperpadre.mp4"
+        },
+        {
           "archiveID": "Crossroads--The_Healing",
           "seasonNumber": 2,
           "episodeNumber": 33,
@@ -159,7 +285,7 @@
           "archiveID": "Crossroads930Action",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "Crossroads: 9:30 Action",
+          "title": "9:30 Action",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/pEXMvsUgtXmYzCnewX8c89SP0Zw.jpg",
           "airDate": null,
@@ -172,132 +298,6 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/Crossroads930Action/Crossroads930action.mp4"
-        },
-        {
-          "archiveID": "CrossroadsCallForHelp",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Crossroads: Call for Help",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/pEXMvsUgtXmYzCnewX8c89SP0Zw.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1446,
-          "videoFile": {
-            "name": "Crossroads-callForHelp.mp4",
-            "format": "h.264",
-            "sizeBytes": 144191459,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/CrossroadsCallForHelp/Crossroads-callForHelp.mp4"
-        },
-        {
-          "archiveID": "CrossroadsGodsHealing",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Crossroads: God's Healing",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/pEXMvsUgtXmYzCnewX8c89SP0Zw.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "CrossroadsGodsHealing.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 150316187,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/CrossroadsGodsHealing/CrossroadsGodsHealing.ia.mp4"
-        },
-        {
-          "archiveID": "CrossroadsMotherObrien",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Crossroads: Mother O'Brien",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/pEXMvsUgtXmYzCnewX8c89SP0Zw.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1509,
-          "videoFile": {
-            "name": "Crossroads-motherObrien.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 150043791,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/CrossroadsMotherObrien/Crossroads-motherObrien.ia.mp4"
-        },
-        {
-          "archiveID": "CrossroadsParatroopPadre",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Crossroads: Paratroop Padre",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/pEXMvsUgtXmYzCnewX8c89SP0Zw.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1466,
-          "videoFile": {
-            "name": "crossroads-paratropperpadre.mp4",
-            "format": "h.264",
-            "sizeBytes": 142558644,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/CrossroadsParatroopPadre/crossroads-paratropperpadre.mp4"
-        },
-        {
-          "archiveID": "CrossroadsTheGoodThief",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Crossroads: The Good Thief",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/pEXMvsUgtXmYzCnewX8c89SP0Zw.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1508,
-          "videoFile": {
-            "name": "Crossroads-theGoodThief.mp4",
-            "format": "h.264",
-            "sizeBytes": 149389183,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/CrossroadsTheGoodThief/Crossroads-theGoodThief.mp4"
-        },
-        {
-          "archiveID": "CrossroadsTheInnerLight",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Crossroads: The Inner Light",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/pEXMvsUgtXmYzCnewX8c89SP0Zw.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1507,
-          "videoFile": {
-            "name": "Crossroads-theInnerLight.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 149727240,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/CrossroadsTheInnerLight/Crossroads-theInnerLight.ia.mp4"
-        },
-        {
-          "archiveID": "CrossroadsTheLastStrand",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Crossroads: The Last Strand",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/pEXMvsUgtXmYzCnewX8c89SP0Zw.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1492,
-          "videoFile": {
-            "name": "crossroads-thelaststrand.mp4",
-            "format": "h.264",
-            "sizeBytes": 146233713,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/CrossroadsTheLastStrand/crossroads-thelaststrand.mp4"
         }
       ]
     }

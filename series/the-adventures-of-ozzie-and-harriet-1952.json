@@ -44,8 +44,7 @@
       "seasonNumber": 1,
       "episodes": [
         {
-          "archiveID": "the-adventures-of-ozzie-and-harriet-the-complete-series@s1e01",
-          "sourceID": "the-adventures-of-ozzie-and-harriet-the-complete-series",
+          "archiveID": "TheAdventuresOfOzzieHarriet_264",
           "seasonNumber": 1,
           "episodeNumber": 1,
           "title": "The Rivals",
@@ -55,12 +54,12 @@
           "year": 1952,
           "runtimeSeconds": 1800,
           "videoFile": {
-            "name": "Season 01/S01E01 - The Rivals.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 504260815,
+            "name": "001_THE_RIVALS.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 120603071,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/the-adventures-of-ozzie-and-harriet-the-complete-series/Season%2001/S01E01%20-%20The%20Rivals.mp4"
+          "downloadURL": "https://archive.org/download/TheAdventuresOfOzzieHarriet_264/001_THE_RIVALS.ia.mp4"
         },
         {
           "archiveID": "the-adventures-of-ozzie-and-harriet-the-complete-series@s1e02",
@@ -158,22 +157,23 @@
           "downloadURL": "https://archive.org/download/the-adventures-of-ozzie-and-harriet-the-complete-series/Season%2001/S01E06%20-%20Riviera%20Ballet.mp4"
         },
         {
-          "archiveID": "DavidNelsonIsBetterThanFamilyGuy",
+          "archiveID": "the-adventures-of-ozzie-and-harriet-season-one@s1e07",
+          "sourceID": "the-adventures-of-ozzie-and-harriet-season-one",
           "seasonNumber": 1,
           "episodeNumber": 7,
           "title": "David, the Babysitter",
           "overview": null,
-          "stillURL": "https://archive.org/services/img/DavidNelsonIsBetterThanFamilyGuy",
+          "stillURL": "https://archive.org/download/the-adventures-of-ozzie-and-harriet-season-one/the-adventures-of-ozzie-and-harriet-season-one.thumbs/The%20Adventures%20of%20Ozzie%20and%20Harriet%20-%20S01E07%20-%20David%20The%20Babysitter_000516.jpg",
           "airDate": "1952-11-14",
           "year": 1952,
           "runtimeSeconds": 1800,
           "videoFile": {
-            "name": "DavidtheSleuth.ia.mp4",
+            "name": "The Adventures of Ozzie and Harriet - S01E07 - David The Babysitter.ia.mp4",
             "format": "h.264 IA",
-            "sizeBytes": 170715776,
-            "tier": 2
+            "sizeBytes": 57334132,
+            "tier": 1
           },
-          "downloadURL": "https://archive.org/download/DavidNelsonIsBetterThanFamilyGuy/DavidtheSleuth.ia.mp4"
+          "downloadURL": "https://archive.org/download/the-adventures-of-ozzie-and-harriet-season-one/The%20Adventures%20of%20Ozzie%20and%20Harriet%20-%20S01E07%20-%20David%20The%20Babysitter.ia.mp4"
         },
         {
           "archiveID": "the-adventures-of-ozzie-and-harriet-the-complete-series@s1e08",
@@ -214,8 +214,7 @@
           "downloadURL": "https://archive.org/download/the-adventures-of-ozzie-and-harriet-the-complete-series/Season%2001/S01E09%20-%20The%20Day%20After%20Thanksgiving.mp4"
         },
         {
-          "archiveID": "the-adventures-of-ozzie-and-harriet-the-complete-series@s1e10",
-          "sourceID": "the-adventures-of-ozzie-and-harriet-the-complete-series",
+          "archiveID": "TheAdventuresOfOzzieHarriet_530",
           "seasonNumber": 1,
           "episodeNumber": 10,
           "title": "Thorny's Gift",
@@ -225,12 +224,12 @@
           "year": 1952,
           "runtimeSeconds": 1800,
           "videoFile": {
-            "name": "Season 01/S01E10 - Thorny's Gift.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 516007106,
+            "name": "010_THORNYS_GIFT.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 141885548,
             "tier": 1
           },
-          "downloadURL": "https://archive.org/download/the-adventures-of-ozzie-and-harriet-the-complete-series/Season%2001/S01E10%20-%20Thorny%27s%20Gift.mp4"
+          "downloadURL": "https://archive.org/download/TheAdventuresOfOzzieHarriet_530/010_THORNYS_GIFT.ia.mp4"
         },
         {
           "archiveID": "the-adventures-of-ozzie-and-harriet-the-complete-series@s1e11",
@@ -476,23 +475,22 @@
           "downloadURL": "https://archive.org/download/Ozzie-Harriet_Dental_Receptionist/01-22_Dental_Receptionist.mp4"
         },
         {
-          "archiveID": "the-adventures-of-ozzie-and-harriet-the-complete-series@s1e23",
-          "sourceID": "the-adventures-of-ozzie-and-harriet-the-complete-series",
+          "archiveID": "Ozzie-Harriet_Speech",
           "seasonNumber": 1,
           "episodeNumber": 23,
           "title": "The Speech",
           "overview": null,
-          "stillURL": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_Speech",
           "airDate": "1953-03-06",
           "year": 1953,
           "runtimeSeconds": 1800,
           "videoFile": {
-            "name": "Season 01/S01E23 - The Speech.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 510987719,
-            "tier": 1
+            "name": "01-23_The_Speech.mp4",
+            "format": "h.264",
+            "sizeBytes": 136718016,
+            "tier": 2
           },
-          "downloadURL": "https://archive.org/download/the-adventures-of-ozzie-and-harriet-the-complete-series/Season%2001/S01E23%20-%20The%20Speech.mp4"
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_Speech/01-23_The_Speech.mp4"
         },
         {
           "archiveID": "the-adventures-of-ozzie-and-harriet-the-complete-series@s1e24",
@@ -627,22 +625,23 @@
           "downloadURL": "https://archive.org/download/the-adventures-of-ozzie-and-harriet-the-complete-series/Season%2001/S01E30%20-%20The%20Fish%20Story.mp4"
         },
         {
-          "archiveID": "NoNewsforHarriet",
+          "archiveID": "the-adventures-of-ozzie-and-harriet-the-complete-series@s1e31",
+          "sourceID": "the-adventures-of-ozzie-and-harriet-the-complete-series",
           "seasonNumber": 1,
           "episodeNumber": 31,
           "title": "Night School",
           "overview": null,
-          "stillURL": "https://archive.org/services/img/NoNewsforHarriet",
+          "stillURL": null,
           "airDate": "1953-05-01",
           "year": 1953,
           "runtimeSeconds": 1800,
           "videoFile": {
-            "name": "NoNewsforHarriet.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 170329975,
-            "tier": 2
+            "name": "Season 01/S01E31 - Night School.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 505240625,
+            "tier": 1
           },
-          "downloadURL": "https://archive.org/download/NoNewsforHarriet/NoNewsforHarriet.ia.mp4"
+          "downloadURL": "https://archive.org/download/the-adventures-of-ozzie-and-harriet-the-complete-series/Season%2001/S01E31%20-%20Night%20School.mp4"
         },
         {
           "archiveID": "the-adventures-of-ozzie-and-harriet-the-complete-series@s1e32",
@@ -1249,23 +1248,22 @@
           "downloadURL": "https://archive.org/download/Ozzie-Harriet_02-22/Ozzie-Harriet_02-22_Davids_Career.mp4"
         },
         {
-          "archiveID": "the-adventures-of-ozzie-and-harriet-the-complete-series@s2e22",
-          "sourceID": "the-adventures-of-ozzie-and-harriet-the-complete-series",
+          "archiveID": "Ozzie-Harriet_02-23",
           "seasonNumber": 2,
           "episodeNumber": 23,
           "title": "Harriet Gives a Party",
           "overview": null,
-          "stillURL": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_02-23",
           "airDate": "1954-02-19",
           "year": 1954,
           "runtimeSeconds": 1800,
           "videoFile": {
-            "name": "Season 02/S02E22 - Harriet Gives a Party.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 517675478,
-            "tier": 1
+            "name": "Ozzie-Harriet_02-23_Harriet_Gives_a_Party.mp4",
+            "format": "h.264",
+            "sizeBytes": 183385729,
+            "tier": 2
           },
-          "downloadURL": "https://archive.org/download/the-adventures-of-ozzie-and-harriet-the-complete-series/Season%2002/S02E22%20-%20Harriet%20Gives%20a%20Party.mp4"
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_02-23/Ozzie-Harriet_02-23_Harriet_Gives_a_Party.mp4"
         },
         {
           "archiveID": "Ozzie-Harriet_02-24",
@@ -1931,23 +1929,22 @@
           "downloadURL": "https://archive.org/download/the-adventures-of-ozzie-and-harriet-the-complete-series/Season%2003/S03E18%20-%20The%20Girl%20Who%20Came%20to%20Dinner.mp4"
         },
         {
-          "archiveID": "the-adventures-of-ozzie-and-harriet-the-complete-series@s3e19",
-          "sourceID": "the-adventures-of-ozzie-and-harriet-the-complete-series",
+          "archiveID": "Ozzie-Harriet_03-19",
           "seasonNumber": 3,
           "episodeNumber": 19,
           "title": "The Sportscar",
           "overview": null,
-          "stillURL": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_03-19",
           "airDate": "1955-03-11",
           "year": 1955,
           "runtimeSeconds": 1800,
           "videoFile": {
-            "name": "Season 03/S03E19 - The Sports Car.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 514512492,
-            "tier": 1
+            "name": "Ozzie-Harriet_03-19_The_Sportscar.mp4",
+            "format": "h.264",
+            "sizeBytes": 152265734,
+            "tier": 2
           },
-          "downloadURL": "https://archive.org/download/the-adventures-of-ozzie-and-harriet-the-complete-series/Season%2003/S03E19%20-%20The%20Sports%20Car.mp4"
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_03-19/Ozzie-Harriet_03-19_The_Sportscar.mp4"
         },
         {
           "archiveID": "the-adventures-of-ozzie-and-harriet-the-complete-series@s3e20",
@@ -4764,6 +4761,24 @@
           "downloadURL": "https://archive.org/download/the-adventures-of-ozzie-and-harriet-the-complete-series/Season%2008/S08E02%20-%20Ozzie%20the%20Host.mp4"
         },
         {
+          "archiveID": "DavidClerk",
+          "seasonNumber": 8,
+          "episodeNumber": 3,
+          "title": "David, the Law Clerk",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": "1959-10-21",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "DavidtheLawClerk.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 170969068,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DavidClerk/DavidtheLawClerk.ia.mp4"
+        },
+        {
           "archiveID": "the-adventures-of-ozzie-and-harriet-the-complete-series@s8e04",
           "sourceID": "the-adventures-of-ozzie-and-harriet-the-complete-series",
           "seasonNumber": 8,
@@ -4821,23 +4836,22 @@
           "downloadURL": "https://archive.org/download/the-adventures-of-ozzie-and-harriet-the-complete-series/Season%2008/S08E06%20-%20The%20Nelsons%20Decide%20to%20Move.mp4"
         },
         {
-          "archiveID": "the-adventures-of-ozzie-and-harriet-the-complete-series@s8e07",
-          "sourceID": "the-adventures-of-ozzie-and-harriet-the-complete-series",
+          "archiveID": "DavidNelsonIsBetterThanFamilyGuy",
           "seasonNumber": 8,
           "episodeNumber": 7,
           "title": "David, the Sleuth",
           "overview": null,
-          "stillURL": null,
+          "stillURL": "https://archive.org/services/img/DavidNelsonIsBetterThanFamilyGuy",
           "airDate": "1959-11-18",
           "year": 1959,
           "runtimeSeconds": 1800,
           "videoFile": {
-            "name": "Season 08/S08E07 - David the Sleuth.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 513764292,
-            "tier": 1
+            "name": "DavidtheSleuth.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 170715776,
+            "tier": 2
           },
-          "downloadURL": "https://archive.org/download/the-adventures-of-ozzie-and-harriet-the-complete-series/Season%2008/S08E07%20-%20David%20the%20Sleuth.mp4"
+          "downloadURL": "https://archive.org/download/DavidNelsonIsBetterThanFamilyGuy/DavidtheSleuth.ia.mp4"
         },
         {
           "archiveID": "the-adventures-of-ozzie-and-harriet-the-complete-series@s8e08",
@@ -5009,23 +5023,22 @@
           "downloadURL": "https://archive.org/download/the-adventures-of-ozzie-and-harriet-the-complete-series/Season%2008/S08E16%20-%20Rick%E2%80%99s%20English%20Literature%20Class.mp4"
         },
         {
-          "archiveID": "the-adventures-of-ozzie-and-harriet-the-complete-series@s8e17",
-          "sourceID": "the-adventures-of-ozzie-and-harriet-the-complete-series",
+          "archiveID": "Ozzie-Harriet_08-17",
           "seasonNumber": 8,
           "episodeNumber": 17,
           "title": "The Lockout",
           "overview": null,
-          "stillURL": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_08-17",
           "airDate": "1960-02-10",
           "year": 1960,
           "runtimeSeconds": 1800,
           "videoFile": {
-            "name": "Season 08/S08E17 - The Lockout.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 522434793,
-            "tier": 1
+            "name": "Ozzie_08-17_The_Lockout.mp4",
+            "format": "h.264",
+            "sizeBytes": 156172761,
+            "tier": 2
           },
-          "downloadURL": "https://archive.org/download/the-adventures-of-ozzie-and-harriet-the-complete-series/Season%2008/S08E17%20-%20The%20Lockout.mp4"
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_08-17/Ozzie_08-17_The_Lockout.mp4"
         },
         {
           "archiveID": "the-adventures-of-ozzie-and-harriet-the-complete-series@s8e18",
@@ -5270,23 +5283,22 @@
           "downloadURL": "https://archive.org/download/Ozzie_and_Harriet--Painting_the_Sorority_House/OzzieHarriet0830_Painting_the_Sorority_House.mp4"
         },
         {
-          "archiveID": "the-adventures-of-ozzie-and-harriet-the-complete-series@s8e31",
-          "sourceID": "the-adventures-of-ozzie-and-harriet-the-complete-series",
+          "archiveID": "NoNewsforHarriet",
           "seasonNumber": 8,
           "episodeNumber": 31,
           "title": "No News for Harriet",
           "overview": null,
-          "stillURL": null,
+          "stillURL": "https://archive.org/services/img/NoNewsforHarriet",
           "airDate": "1960-06-08",
           "year": 1960,
           "runtimeSeconds": 1800,
           "videoFile": {
-            "name": "Season 08/S08E31 - No News for Harriet.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 499954530,
-            "tier": 1
+            "name": "NoNewsforHarriet.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 170329975,
+            "tier": 2
           },
-          "downloadURL": "https://archive.org/download/the-adventures-of-ozzie-and-harriet-the-complete-series/Season%2008/S08E31%20-%20No%20News%20for%20Harriet.mp4"
+          "downloadURL": "https://archive.org/download/NoNewsforHarriet/NoNewsforHarriet.ia.mp4"
         },
         {
           "archiveID": "the-adventures-of-ozzie-and-harriet-the-complete-series@s8e32",
@@ -7525,23 +7537,22 @@
           "downloadURL": "https://archive.org/download/the-adventures-of-ozzie-and-harriet-the-complete-series/Season%2013/S13E06%20-%20Kris%20Goes%20to%20College.mp4"
         },
         {
-          "archiveID": "the-adventures-of-ozzie-and-harriet-the-complete-series@s13e07",
-          "sourceID": "the-adventures-of-ozzie-and-harriet-the-complete-series",
+          "archiveID": "Ozzie-Harriet_13-07",
           "seasonNumber": 13,
           "episodeNumber": 7,
           "title": "The Pennies",
           "overview": null,
-          "stillURL": null,
+          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_13-07",
           "airDate": "1964-10-28",
           "year": 1964,
           "runtimeSeconds": 1800,
           "videoFile": {
-            "name": "Season 13/S13E07 - The Pennies.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 497305389,
-            "tier": 1
+            "name": "Ozzie-Harriet_13-07_The_Pennies.mp4",
+            "format": "h.264",
+            "sizeBytes": 180561640,
+            "tier": 2
           },
-          "downloadURL": "https://archive.org/download/the-adventures-of-ozzie-and-harriet-the-complete-series/Season%2013/S13E07%20-%20The%20Pennies.mp4"
+          "downloadURL": "https://archive.org/download/Ozzie-Harriet_13-07/Ozzie-Harriet_13-07_The_Pennies.mp4"
         },
         {
           "archiveID": "the-adventures-of-ozzie-and-harriet-the-complete-series@s13e08",
@@ -8281,23 +8292,22 @@
           "downloadURL": "https://archive.org/download/the-adventures-of-ozzie-and-harriet-the-complete-series/Season%2014/S14E20%20-%20Ozzie%20a%20Go-Go.mp4"
         },
         {
-          "archiveID": "the-adventures-of-ozzie-and-harriet-the-complete-series@s14e21",
-          "sourceID": "the-adventures-of-ozzie-and-harriet-the-complete-series",
+          "archiveID": "OzzieAndHarrietTripTrap",
           "seasonNumber": 14,
           "episodeNumber": 21,
           "title": "The Trip Trap",
           "overview": null,
-          "stillURL": null,
+          "stillURL": "https://archive.org/services/img/OzzieAndHarrietTripTrap",
           "airDate": "1966-02-19",
           "year": 1966,
           "runtimeSeconds": 1800,
           "videoFile": {
-            "name": "Season 14/S14E21 - The Trip Trap.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 498566029,
-            "tier": 1
+            "name": "Ozzie and Harriet-Trip Trap.mp4",
+            "format": "h.264",
+            "sizeBytes": 157789993,
+            "tier": 2
           },
-          "downloadURL": "https://archive.org/download/the-adventures-of-ozzie-and-harriet-the-complete-series/Season%2014/S14E21%20-%20The%20Trip%20Trap.mp4"
+          "downloadURL": "https://archive.org/download/OzzieAndHarrietTripTrap/Ozzie%20and%20Harriet-Trip%20Trap.mp4"
         },
         {
           "archiveID": "the-adventures-of-ozzie-and-harriet-the-complete-series@s14e22",
@@ -8403,7 +8413,7 @@
           "archiveID": "Ozzie_and_Harriet_Christmas",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "\"The Adventures of Ozzie and Harriet\" 1956 Christmas episode",
+          "title": "1956 Christmas episode",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
           "airDate": null,
@@ -8416,96 +8426,6 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/Ozzie_and_Harriet_Christmas/Ozzie_and_Harriet.ia.mp4"
-        },
-        {
-          "archiveID": "OzzieAndHarrietTripTrap",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''Ozzie And Harriet'' - Trip Trap",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/OzzieAndHarrietTripTrap",
-          "airDate": null,
-          "year": 1966,
-          "runtimeSeconds": 1515,
-          "videoFile": {
-            "name": "Ozzie and Harriet-Trip Trap.mp4",
-            "format": "h.264",
-            "sizeBytes": 157789993,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/OzzieAndHarrietTripTrap/Ozzie%20and%20Harriet-Trip%20Trap.mp4"
-        },
-        {
-          "archiveID": "DavidClerk",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''The Adventures of Ozzie and Harriet\"",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
-          "airDate": null,
-          "year": 1959,
-          "runtimeSeconds": 1756,
-          "videoFile": {
-            "name": "DavidtheLawClerk.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 170969068,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DavidClerk/DavidtheLawClerk.ia.mp4"
-        },
-        {
-          "archiveID": "theAdventuresOfOzzieAndHarriet22September1965aRoseADay",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''The Adventures of Ozzie and Harriet''",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
-          "airDate": null,
-          "year": 1965,
-          "runtimeSeconds": 1715,
-          "videoFile": {
-            "name": "ARoseADay.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 166464285,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/theAdventuresOfOzzieAndHarriet22September1965aRoseADay/ARoseADay.ia.mp4"
-        },
-        {
-          "archiveID": "OzzieBox",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''The Adventures of Ozzie and Harriet''",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
-          "airDate": null,
-          "year": 1959,
-          "runtimeSeconds": 1760,
-          "videoFile": {
-            "name": "OzzieBlackBox.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 167967752,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/OzzieBox/OzzieBlackBox.ia.mp4"
-        },
-        {
-          "archiveID": "OzzieandHarriet-Bachelor",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''The Adventures of Ozzie and Harriet'' - The Bachelor",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
-          "airDate": null,
-          "year": 1958,
-          "runtimeSeconds": 1760,
-          "videoFile": {
-            "name": "ozziebachelor.mp4",
-            "format": "h.264",
-            "sizeBytes": 184440794,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/OzzieandHarriet-Bachelor/ozziebachelor.mp4"
         },
         {
           "archiveID": "Ozzie-Harriet_08-20",
@@ -8524,96 +8444,6 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/Ozzie-Harriet_08-20/Ozzie-Harriet_08-20_An_Interesting_Evening.mp4"
-        },
-        {
-          "archiveID": "Ozzie-Harriet_02-23",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Ozzie & Harriet: Harriet Gives a Party",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_02-23",
-          "airDate": null,
-          "year": 1954,
-          "runtimeSeconds": 1764,
-          "videoFile": {
-            "name": "Ozzie-Harriet_02-23_Harriet_Gives_a_Party.mp4",
-            "format": "h.264",
-            "sizeBytes": 183385729,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Ozzie-Harriet_02-23/Ozzie-Harriet_02-23_Harriet_Gives_a_Party.mp4"
-        },
-        {
-          "archiveID": "Ozzie-Harriet_08-17",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Ozzie & Harriet: The Lockout",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_08-17",
-          "airDate": null,
-          "year": 1960,
-          "runtimeSeconds": 1501,
-          "videoFile": {
-            "name": "Ozzie_08-17_The_Lockout.mp4",
-            "format": "h.264",
-            "sizeBytes": 156172761,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Ozzie-Harriet_08-17/Ozzie_08-17_The_Lockout.mp4"
-        },
-        {
-          "archiveID": "Ozzie-Harriet_13-07",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Ozzie & Harriet: The Pennies",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_13-07",
-          "airDate": null,
-          "year": 1964,
-          "runtimeSeconds": 1738,
-          "videoFile": {
-            "name": "Ozzie-Harriet_13-07_The_Pennies.mp4",
-            "format": "h.264",
-            "sizeBytes": 180561640,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Ozzie-Harriet_13-07/Ozzie-Harriet_13-07_The_Pennies.mp4"
-        },
-        {
-          "archiveID": "Ozzie-Harriet_Speech",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Ozzie & Harriet: The Speech",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_Speech",
-          "airDate": null,
-          "year": 1953,
-          "runtimeSeconds": 1312,
-          "videoFile": {
-            "name": "01-23_The_Speech.mp4",
-            "format": "h.264",
-            "sizeBytes": 136718016,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Ozzie-Harriet_Speech/01-23_The_Speech.mp4"
-        },
-        {
-          "archiveID": "Ozzie-Harriet_03-19",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Ozzie & Harriet: The Sportscar",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/Ozzie-Harriet_03-19",
-          "airDate": null,
-          "year": 1955,
-          "runtimeSeconds": 1462,
-          "videoFile": {
-            "name": "Ozzie-Harriet_03-19_The_Sportscar.mp4",
-            "format": "h.264",
-            "sizeBytes": 152265734,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Ozzie-Harriet_03-19/Ozzie-Harriet_03-19_The_Sportscar.mp4"
         },
         {
           "archiveID": "Ozzie-Harriet_Christmas-Tree-Lot_3D",
@@ -8670,40 +8500,40 @@
           "downloadURL": "https://archive.org/download/TheAdventuresOfOzzieHarriet_103/012R_CHRISTMAS_MONEY.ia.mp4"
         },
         {
-          "archiveID": "TheAdventuresOfOzzieHarriet_264",
+          "archiveID": "theAdventuresOfOzzieAndHarriet22September1965aRoseADay",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Adventures of Ozzie & Harriet",
+          "title": "The Adventures of Ozzie and Harriet",
           "overview": null,
-          "stillURL": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
           "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
+          "year": 1965,
+          "runtimeSeconds": 1715,
           "videoFile": {
-            "name": "001_THE_RIVALS.ia.mp4",
+            "name": "ARoseADay.ia.mp4",
             "format": "h.264 IA",
-            "sizeBytes": 120603071,
-            "tier": 1
+            "sizeBytes": 166464285,
+            "tier": 2
           },
-          "downloadURL": "https://archive.org/download/TheAdventuresOfOzzieHarriet_264/001_THE_RIVALS.ia.mp4"
+          "downloadURL": "https://archive.org/download/theAdventuresOfOzzieAndHarriet22September1965aRoseADay/ARoseADay.ia.mp4"
         },
         {
-          "archiveID": "TheAdventuresOfOzzieHarriet_530",
+          "archiveID": "OzzieBox",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Adventures of Ozzie & Harriet",
+          "title": "The Adventures of Ozzie and Harriet",
           "overview": null,
-          "stillURL": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
           "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
+          "year": 1959,
+          "runtimeSeconds": 1760,
           "videoFile": {
-            "name": "010_THORNYS_GIFT.ia.mp4",
+            "name": "OzzieBlackBox.ia.mp4",
             "format": "h.264 IA",
-            "sizeBytes": 141885548,
-            "tier": 1
+            "sizeBytes": 167967752,
+            "tier": 2
           },
-          "downloadURL": "https://archive.org/download/TheAdventuresOfOzzieHarriet_530/010_THORNYS_GIFT.ia.mp4"
+          "downloadURL": "https://archive.org/download/OzzieBox/OzzieBlackBox.ia.mp4"
         },
         {
           "archiveID": "TheAdventuresOfOzzieAndHarriet_690",
@@ -8740,11 +8570,29 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/TheAdventuresOfOzzieAndHarriet_119/The-Adventures-of-Ozzie-and-Harriet-10-28-64.ia.mp4"
+        },
+        {
+          "archiveID": "OzzieandHarriet-Bachelor",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Bachelor",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
+          "airDate": null,
+          "year": 1958,
+          "runtimeSeconds": 1760,
+          "videoFile": {
+            "name": "ozziebachelor.mp4",
+            "format": "h.264",
+            "sizeBytes": 184440794,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/OzzieandHarriet-Bachelor/ozziebachelor.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 460,
+  "episodesCount": 452,
   "canonicalEpisodesCount": 435,
   "tvdbID": "71598",
   "artworkSource": "tvdb",

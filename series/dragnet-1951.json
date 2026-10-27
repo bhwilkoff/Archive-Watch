@@ -117,6 +117,24 @@
       "seasonNumber": 2,
       "episodes": [
         {
+          "archiveID": "DragnetEpisode18TheBigSeventeenwcommercials",
+          "seasonNumber": 2,
+          "episodeNumber": 4,
+          "title": "The Big Seventeen",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/393BVqnVaioYBE5f3LMUwFRAwPQ.jpg",
+          "airDate": "1952-11-06",
+          "year": 1952,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "dragnet_bigseventeen.mp4",
+            "format": "h.264",
+            "sizeBytes": 180811422,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/DragnetEpisode18TheBigSeventeenwcommercials/dragnet_bigseventeen.mp4"
+        },
+        {
           "archiveID": "DragnetTheBigHate",
           "seasonNumber": 2,
           "episodeNumber": 14,
@@ -362,24 +380,6 @@
     {
       "seasonNumber": null,
       "episodes": [
-        {
-          "archiveID": "DragnetEpisode18TheBigSeventeenwcommercials",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Dragnet - Episode # 18 The Big Seventeen w/commercials",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/393BVqnVaioYBE5f3LMUwFRAwPQ.jpg",
-          "airDate": null,
-          "year": 1952,
-          "runtimeSeconds": 1860,
-          "videoFile": {
-            "name": "dragnet_bigseventeen.mp4",
-            "format": "h.264",
-            "sizeBytes": 180811422,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/DragnetEpisode18TheBigSeventeenwcommercials/dragnet_bigseventeen.mp4"
-        },
         {
           "archiveID": "Dragnet-TheBigDeal",
           "seasonNumber": null,

@@ -17,36 +17,18 @@
  "creator": null,
  "seasons": [
   {
-   "seasonNumber": null,
+   "seasonNumber": 1,
    "episodes": [
     {
-     "archiveID": "watch_with_mother_woodentops_horseshoe",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Watch With Mother - The Woodentops",
-     "overview": null,
-     "stillURL": null,
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": 895,
-     "videoFile": {
-      "name": "watch_with_mother_woodentops_horseshoe.mp4",
-      "format": "h.264",
-      "sizeBytes": 88530942,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/watch_with_mother_woodentops_horseshoe/watch_with_mother_woodentops_horseshoe.mp4"
-    },
-    {
      "archiveID": "watch_with_mother_andy_pandy",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Watch with Mother - Andy Pandy",
+     "seasonNumber": 1,
+     "episodeNumber": 1,
+     "title": "Andy Pandy",
      "overview": null,
      "stillURL": null,
-     "airDate": null,
-     "year": 1952,
-     "runtimeSeconds": 1003,
+     "airDate": "1950-07-01",
+     "year": 1950,
+     "runtimeSeconds": 60,
      "videoFile": {
       "name": "watch_with_mother_andy_pandy.mp4",
       "format": "h.264",
@@ -54,17 +36,22 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/watch_with_mother_andy_pandy/watch_with_mother_andy_pandy.mp4"
-    },
+    }
+   ]
+  },
+  {
+   "seasonNumber": 2,
+   "episodes": [
     {
      "archiveID": "watch_with_mother_the_flowerpot_men",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Watch with Mother - Bill and Ben: The Flowerpot Men",
+     "seasonNumber": 2,
+     "episodeNumber": 1,
+     "title": "Flower Pot Men",
      "overview": null,
      "stillURL": null,
-     "airDate": null,
-     "year": 1953,
-     "runtimeSeconds": 905,
+     "airDate": "1952-04-04",
+     "year": 1952,
+     "runtimeSeconds": 60,
      "videoFile": {
       "name": "watch_with_mother_the_flowerpot_men.mp4",
       "format": "h.264",
@@ -72,12 +59,40 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/watch_with_mother_the_flowerpot_men/watch_with_mother_the_flowerpot_men.mp4"
-    },
+    }
+   ]
+  },
+  {
+   "seasonNumber": 3,
+   "episodes": [
+    {
+     "archiveID": "watch_with_mother_rag_tag_and_bobtail_snowballs",
+     "seasonNumber": 3,
+     "episodeNumber": 1,
+     "title": "Rag, Tag and Bobtail",
+     "overview": null,
+     "stillURL": null,
+     "airDate": "1953-10-13",
+     "year": 1953,
+     "runtimeSeconds": 60,
+     "videoFile": {
+      "name": "watch_with_mother_rag_tag_and_bobtail_snowballs.mp4",
+      "format": "h.264",
+      "sizeBytes": 86888745,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/watch_with_mother_rag_tag_and_bobtail_snowballs/watch_with_mother_rag_tag_and_bobtail_snowballs.mp4"
+    }
+   ]
+  },
+  {
+   "seasonNumber": null,
+   "episodes": [
     {
      "archiveID": "watch_with_mother_rag_tag_and_bobtail",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "Watch with Mother - Rag, Tag and Bobtail",
+     "title": "Rag, Tag and Bobtail",
      "overview": null,
      "stillURL": null,
      "airDate": null,
@@ -92,22 +107,22 @@
      "downloadURL": "https://archive.org/download/watch_with_mother_rag_tag_and_bobtail/Bobtail.mp4"
     },
     {
-     "archiveID": "watch_with_mother_rag_tag_and_bobtail_snowballs",
+     "archiveID": "watch_with_mother_woodentops_horseshoe",
      "seasonNumber": null,
      "episodeNumber": null,
-     "title": "Watch with Mother - Rag, Tag and Bobtail",
+     "title": "The Woodentops",
      "overview": null,
      "stillURL": null,
      "airDate": null,
-     "year": 1954,
-     "runtimeSeconds": 881,
+     "year": null,
+     "runtimeSeconds": 895,
      "videoFile": {
-      "name": "watch_with_mother_rag_tag_and_bobtail_snowballs.mp4",
+      "name": "watch_with_mother_woodentops_horseshoe.mp4",
       "format": "h.264",
-      "sizeBytes": 86888745,
+      "sizeBytes": 88530942,
       "tier": 2
      },
-     "downloadURL": "https://archive.org/download/watch_with_mother_rag_tag_and_bobtail_snowballs/watch_with_mother_rag_tag_and_bobtail_snowballs.mp4"
+     "downloadURL": "https://archive.org/download/watch_with_mother_woodentops_horseshoe/watch_with_mother_woodentops_horseshoe.mp4"
     }
    ]
   }

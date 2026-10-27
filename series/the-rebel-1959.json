@@ -1,0 +1,63 @@
+{
+  "version": 2,
+  "seriesID": "the-rebel-1959",
+  "tvmazeID": 4951,
+  "title": "The Rebel",
+  "yearStart": 1959,
+  "yearEnd": 1961,
+  "overview": "Western starring Nick Adams as Johnny Yuma, a former Confederate soldier who headed west after the conclusion of the Civil War in search of adventure and himself. 76 episodes of The Rebel was filmed over the course of two seasons and country music legend Johnny Cash sang the show's haunting theme song.",
+  "posterURL": "https://artworks.thetvdb.com/banners/posters/76434-2.jpg",
+  "backdropURL": null,
+  "genres": [
+    "Action",
+    "Adventure",
+    "Western"
+  ],
+  "networks": [
+    "NBC"
+  ],
+  "creator": null,
+  "seasons": [
+    {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "the-rebel-tv-1959-s01e16-glory",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "Glory",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-rebel-tv-1959-s01e16-glory",
+          "airDate": "1960-01-24",
+          "year": 1960,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Rebel TV 1959 colorized s01e16 Glory.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 193495623,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-rebel-tv-1959-s01e16-glory/The%20Rebel%20TV%201959%20colorized%20s01e16%20Glory.mp4"
+        }
+      ]
+    }
+  ],
+  "episodesCount": 1,
+  "canonicalEpisodesCount": 76,
+  "tvdbID": "76434",
+  "artworkSource": "tvdb",
+  "cast": [
+    {
+      "name": "Earl Parker",
+      "character": "",
+      "order": 0,
+      "profilePath": null
+    },
+    {
+      "name": "Nick Adams",
+      "character": "Johnny Yuma",
+      "order": 1,
+      "profilePath": "https://artworks.thetvdb.com/banners/actors/46199.jpg"
+    }
+  ]
+}

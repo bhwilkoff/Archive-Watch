@@ -20,6 +20,42 @@
       "seasonNumber": null,
       "episodes": [
         {
+          "archiveID": "ThisIsYourLife-DickClark1959",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Dick Clark 1959",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ot1iWBTekpduO2q6TFto7zj2hf.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 498,
+          "videoFile": {
+            "name": "tiyl_dickclark.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 57133501,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/ThisIsYourLife-DickClark1959/tiyl_dickclark.ia.mp4"
+        },
+        {
+          "archiveID": "this_is_your_life_duke_kahanamoku",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Duke Kahanamoku",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/ot1iWBTekpduO2q6TFto7zj2hf.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1489,
+          "videoFile": {
+            "name": "this_is_your_life_duke_kahanamoku.mp4",
+            "format": "h.264",
+            "sizeBytes": 144674671,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/this_is_your_life_duke_kahanamoku/this_is_your_life_duke_kahanamoku.mp4"
+        },
+        {
           "archiveID": "this_is_your_life_hanna_bloch_kohner",
           "seasonNumber": null,
           "episodeNumber": null,
@@ -56,28 +92,10 @@
           "downloadURL": "https://archive.org/download/this_is_your_life_jesse_owens/this_is_your_life_jesse_owens.mp4"
         },
         {
-          "archiveID": "ThisIsYourLife-DickClark1959",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "THIS IS YOUR LIFE - Dick Clark 1959",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/ot1iWBTekpduO2q6TFto7zj2hf.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 498,
-          "videoFile": {
-            "name": "tiyl_dickclark.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 57133501,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/ThisIsYourLife-DickClark1959/tiyl_dickclark.ia.mp4"
-        },
-        {
           "archiveID": "ThisIsYourLifelaurelAndHardywithCommercials",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "This Is Your Life \"Laurel And Hardy\"",
+          "title": "Laurel And Hardy",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/ot1iWBTekpduO2q6TFto7zj2hf.jpg",
           "airDate": null,
@@ -92,28 +110,10 @@
           "downloadURL": "https://archive.org/download/ThisIsYourLifelaurelAndHardywithCommercials/TIYL_Laurel_And_Hardy_12_01_1954_512kb.mp4"
         },
         {
-          "archiveID": "this_is_your_life_duke_kahanamoku",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "This is Your Life: Duke Kahanamoku",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/ot1iWBTekpduO2q6TFto7zj2hf.jpg",
-          "airDate": null,
-          "year": 1957,
-          "runtimeSeconds": 1489,
-          "videoFile": {
-            "name": "this_is_your_life_duke_kahanamoku.mp4",
-            "format": "h.264",
-            "sizeBytes": 144674671,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/this_is_your_life_duke_kahanamoku/this_is_your_life_duke_kahanamoku.mp4"
-        },
-        {
           "archiveID": "this_is_your_life_samuel_g_fuqua",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "This is your Life: Rear Admiral Samuel G. Fuqua",
+          "title": "Rear Admiral Samuel G. Fuqua",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/ot1iWBTekpduO2q6TFto7zj2hf.jpg",
           "airDate": null,

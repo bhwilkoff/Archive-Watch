@@ -39,6 +39,24 @@
           "downloadURL": "https://archive.org/download/MEDIC_My_Brother_Joe/MEDIC_My_Brother_Joe.mp4"
         },
         {
+          "archiveID": "MEDIC_The_Wild_Intruder",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Wild Intruder",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
+          "airDate": "1954-12-06",
+          "year": 1954,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "MEDIC_The_Wild_Intruder.mp4",
+            "format": "h.264",
+            "sizeBytes": 156942817,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MEDIC_The_Wild_Intruder/MEDIC_The_Wild_Intruder.mp4"
+        },
+        {
           "archiveID": "MEDIC_Boy_In_The_Storm",
           "seasonNumber": 1,
           "episodeNumber": 14,
@@ -91,6 +109,24 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/MEDIC_Flash_Of_Darkness/MEDIC_Flash_Of_Darkness.mp4"
+        },
+        {
+          "archiveID": "MEDIC_Dr_Impossible",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "Dr. Impossible",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
+          "airDate": "1955-02-28",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "MEDIC_Dr_Impossible.mp4",
+            "format": "h.264",
+            "sizeBytes": 158862072,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MEDIC_Dr_Impossible/MEDIC_Dr_Impossible.mp4"
         },
         {
           "archiveID": "MEDIC_Break_Through",
@@ -258,47 +294,6 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/MEDIC_Til_the_Song_Is_Done_-_Til_The_Dance_Is_Gone/MEDIC_Til_the_Song_Is_Done_-_Til_The_Dance_Is_Gone.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "MEDIC_Dr_Impossible",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "\"Medic\" Dr. Impossible",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
-          "airDate": null,
-          "year": 1955,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "MEDIC_Dr_Impossible.mp4",
-            "format": "h.264",
-            "sizeBytes": 158862072,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/MEDIC_Dr_Impossible/MEDIC_Dr_Impossible.mp4"
-        },
-        {
-          "archiveID": "MEDIC_The_Wild_Intruder",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "\"Medic\" The Wild Intruder",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/v100cC5xrjfv7ukmX7BLpzVeNc6.jpg",
-          "airDate": null,
-          "year": 1954,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "MEDIC_The_Wild_Intruder.mp4",
-            "format": "h.264",
-            "sizeBytes": 156942817,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/MEDIC_The_Wild_Intruder/MEDIC_The_Wild_Intruder.mp4"
         }
       ]
     }

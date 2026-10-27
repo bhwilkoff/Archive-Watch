@@ -41,12 +41,12 @@
         {
           "archiveID": "08marenostrum",
           "seasonNumber": 1,
-          "episodeNumber": 2,
-          "title": "The Pacific Boils Over: Pearl Harbor, December 7, 1941",
-          "overview": "Pearl Harbor, December 7, 1941. Using Japanese footage, viewers see the planning, execution and, ultimately, the celebration of the country's attack on Pearl Harbor. There is also an explanation provided for the attack and some peaceful moments depicted among the U.S. sailors before the fateful events begin. Though badly damaged, the U.S. Navy survives to fight again.",
+          "episodeNumber": 9,
+          "title": "Sea and Sand: Invasion of North Africa, 1942-1943",
+          "overview": "The Russians asked the Allies to open a second front to divert some German forces. Operation Torch was then born with Dwight D. Eisenhower as the Commander-in-Chief.",
           "stillURL": "https://image.tmdb.org/t/p/w500/2aIFcJ7C2e5LQjfxIOcs3QtxBWC.jpg",
-          "airDate": "1952-11-02",
-          "year": 1952,
+          "airDate": "1953-01-04",
+          "year": 1953,
           "runtimeSeconds": 1800,
           "videoFile": {
             "name": "09_Sea_And_Sand.mp4",
@@ -59,12 +59,12 @@
         {
           "archiveID": "15dday",
           "seasonNumber": 1,
-          "episodeNumber": 3,
-          "title": "Sealing the Breach: Anti-Submarine Warfare, 1941-1943",
-          "overview": "Anti-submarine warfare, 1941-1943. With war now declared by the U.S., naval forces throughout the states have joined to bring convoys of supplies across the Atlantic Ocean to the Allies in England. German U-Boat wolf packs prey on the convoys but they steam valiantly onward despite terrible losses.",
+          "episodeNumber": 17,
+          "title": "The Turkey Shoot: Conquest of the Marianas",
+          "overview": "In June 1944, the U.S. decided to continue releasing islands from Japanese occupation beginning with Guam and the rest of the Mariana islands getting closer to Japan itself.",
           "stillURL": "https://image.tmdb.org/t/p/w500/2aIFcJ7C2e5LQjfxIOcs3QtxBWC.jpg",
-          "airDate": "1952-11-09",
-          "year": 1952,
+          "airDate": "1953-03-01",
+          "year": 1953,
           "runtimeSeconds": 1800,
           "videoFile": {
             "name": "17_The_Turkey_Shoot.mp4",
@@ -77,12 +77,12 @@
         {
           "archiveID": "22thefateofeurope",
           "seasonNumber": 1,
-          "episodeNumber": 4,
-          "title": "Midway is East: Japanese Victories & The Midway Battle",
-          "overview": "Japanese victories and the Battle of Midway. The Japanese are ascendant as they successfully invade the East Indies, Singapore and the Philippines. But the Americans are victorious, first on the Coral Sea and ultimately on Midway as they manage to bomb and sink four of Japan's aircraft carriers-the same ones that were used for the attack on Pearl Harbor-making the imperial fleet retreat and giving the U.S. an incredible early victory in the Pacific.",
+          "episodeNumber": 23,
+          "title": "Target Suribachi: Iwo Jima",
+          "overview": "Before B-29 Flying Fortress' could bomb Japan from airfields on Iwo Jima, it first had to be taken by Marine amphibious landings. After some time, the iconic flag-raising on Mount Suribachi..",
           "stillURL": "https://image.tmdb.org/t/p/w500/2aIFcJ7C2e5LQjfxIOcs3QtxBWC.jpg",
-          "airDate": "1952-11-23",
-          "year": 1952,
+          "airDate": "1953-04-12",
+          "year": 1953,
           "runtimeSeconds": 1800,
           "videoFile": {
             "name": "23_Target_Suribachi.mp4",
@@ -98,8 +98,5 @@
   "episodesCount": 4,
   "canonicalEpisodesCount": 26,
   "tvdbID": "84130",
-  "artworkSource": "tvdb",
-  "seriesImdbID": "tt0046658",
-  "canonicalEpisodeCount": 10,
-  "canonicalSeasons": 1
+  "artworkSource": "tvdb"
 }

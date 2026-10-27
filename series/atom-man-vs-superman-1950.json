@@ -24,11 +24,11 @@
         {
           "archiveID": "atom-man-vs.-superman-1950-1x-15-superman-salva-el-universo",
           "seasonNumber": 1,
-          "episodeNumber": 5,
-          "title": "Atom Man Tricks Superman",
+          "episodeNumber": 15,
+          "title": "Superman Saves the Universe",
           "overview": null,
           "stillURL": "https://archive.org/services/img/atom-man-vs.-superman-1950-1x-15-superman-salva-el-universo",
-          "airDate": "1950-08-17",
+          "airDate": "1950-10-26",
           "year": 1950,
           "runtimeSeconds": 900,
           "videoFile": {
@@ -71,7 +71,5 @@
       "order": 3,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/619425/photo/649c76e94d841.jpg"
     }
-  ],
-  "seriesImdbID": null,
-  "canonicalEpisodeCount": 0
+  ]
 }

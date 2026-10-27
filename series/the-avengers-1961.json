@@ -19,29 +19,6 @@
   "creator": null,
   "seasons": [
     {
-      "seasonNumber": 1,
-      "episodes": [
-        {
-          "archiveID": "wasp-bikini-scenes-the-avengers-earths-mightiest-heroes-s-01-e-20-1080p",
-          "seasonNumber": 1,
-          "episodeNumber": 20,
-          "title": "Tunnel of Fear",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/584/1462249.jpg",
-          "airDate": "1961-08-05",
-          "year": 1961,
-          "runtimeSeconds": 3600,
-          "videoFile": {
-            "name": "Wasp Bikini Scenes - The Avengers Earth's Mightiest Heroes S01E20 (1080p).ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 14507599,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/wasp-bikini-scenes-the-avengers-earths-mightiest-heroes-s-01-e-20-1080p/Wasp%20Bikini%20Scenes%20-%20The%20Avengers%20Earth%27s%20Mightiest%20Heroes%20S01E20%20%281080p%29.ia.mp4"
-        }
-      ]
-    },
-    {
       "seasonNumber": 2,
       "episodes": [
         {
@@ -1044,7 +1021,7 @@
       ]
     }
   ],
-  "episodesCount": 53,
+  "episodesCount": 52,
   "canonicalEpisodesCount": 161,
   "tvdbID": "71020",
   "artworkSource": "tvdb",

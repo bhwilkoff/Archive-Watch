@@ -134,7 +134,7 @@
           "archiveID": "space-patrol-16mmdub",
           "seasonNumber": null,
           "episodeNumber": 195,
-          "title": "Space Patrol episode 1954 - 16mm film",
+          "title": "episode 1954 - 16mm film",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/iF4swaP1ULp5CdQq0ev2gVlcf31.jpg",
           "airDate": null,
@@ -152,7 +152,7 @@
           "archiveID": "SpacePatrol-InterplanetarySmugglers1952",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "Space Patrol - Interplanetary Smugglers",
+          "title": "Interplanetary Smugglers",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/iF4swaP1ULp5CdQq0ev2gVlcf31.jpg",
           "airDate": null,
@@ -165,24 +165,6 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/SpacePatrol-InterplanetarySmugglers1952/Space_patrol_Smugglers_06_28_1952.ia.mp4"
-        },
-        {
-          "archiveID": "space-patrol-edit",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Space Patrol - The Martian Totem - 16mm",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/iF4swaP1ULp5CdQq0ev2gVlcf31.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Space Patrol - edit.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 419868327,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/space-patrol-edit/Space%20Patrol%20-%20edit.mp4"
         },
         {
           "archiveID": "SpacePatrol1951",
@@ -201,6 +183,24 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/SpacePatrol1951/Space_patrol_-_The_space_patrol_code_belt.ia.mp4"
+        },
+        {
+          "archiveID": "space-patrol-edit",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Martian Totem - 16mm",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/iF4swaP1ULp5CdQq0ev2gVlcf31.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Space Patrol - edit.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 419868327,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/space-patrol-edit/Space%20Patrol%20-%20edit.mp4"
         }
       ]
     }

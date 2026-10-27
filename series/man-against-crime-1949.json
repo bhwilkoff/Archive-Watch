@@ -19,6 +19,83 @@
   "creator": null,
   "seasons": [
     {
+      "seasonNumber": 4,
+      "episodes": [
+        {
+          "archiveID": "Man_Against_Crime--High_Ambush",
+          "seasonNumber": 4,
+          "episodeNumber": 30,
+          "title": "High Ambush",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/valMFoVuCteM3sr6hgXmEFtdemW.jpg",
+          "airDate": "1953-04-22",
+          "year": 1953,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Man_Against_Crime--High_Ambush.mp4",
+            "format": "h.264",
+            "sizeBytes": 159136718,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Man_Against_Crime--High_Ambush/Man_Against_Crime--High_Ambush.mp4"
+        },
+        {
+          "archiveID": "Man_Against_Crime--Washington_Story",
+          "seasonNumber": 4,
+          "episodeNumber": 36,
+          "title": "The Washington Story",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/valMFoVuCteM3sr6hgXmEFtdemW.jpg",
+          "airDate": "1953-06-17",
+          "year": 1953,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "4-36_Washington_Story.mp4",
+            "format": "h.264",
+            "sizeBytes": 160718392,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Man_Against_Crime--Washington_Story/4-36_Washington_Story.mp4"
+        },
+        {
+          "archiveID": "Man_Against_Crime--Hide_and_Seek",
+          "seasonNumber": 4,
+          "episodeNumber": 41,
+          "title": "Hide and Seek",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/valMFoVuCteM3sr6hgXmEFtdemW.jpg",
+          "airDate": "1953-08-07",
+          "year": 1953,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Man_Against_Crime--Hide_and_Seek.mp4",
+            "format": "h.264",
+            "sizeBytes": 165008162,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Man_Against_Crime--Hide_and_Seek/Man_Against_Crime--Hide_and_Seek.mp4"
+        },
+        {
+          "archiveID": "Man_against_Crime--Missing_Cadet",
+          "seasonNumber": 4,
+          "episodeNumber": 43,
+          "title": "The Missing Cadet",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/valMFoVuCteM3sr6hgXmEFtdemW.jpg",
+          "airDate": "1953-08-28",
+          "year": 1953,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "4-43_Missing_Cadet.mp4",
+            "format": "h.264",
+            "sizeBytes": 163267795,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Man_against_Crime--Missing_Cadet/4-43_Missing_Cadet.mp4"
+        }
+      ]
+    },
+    {
       "seasonNumber": 5,
       "episodes": [
         {
@@ -62,78 +139,6 @@
     {
       "seasonNumber": null,
       "episodes": [
-        {
-          "archiveID": "Man_Against_Crime--Hide_and_Seek",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Man Against Crime: Hide and Seek",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/valMFoVuCteM3sr6hgXmEFtdemW.jpg",
-          "airDate": null,
-          "year": 1953,
-          "runtimeSeconds": 1585,
-          "videoFile": {
-            "name": "Man_Against_Crime--Hide_and_Seek.mp4",
-            "format": "h.264",
-            "sizeBytes": 165008162,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Man_Against_Crime--Hide_and_Seek/Man_Against_Crime--Hide_and_Seek.mp4"
-        },
-        {
-          "archiveID": "Man_Against_Crime--Washington_Story",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Man Against Crime: Washington Story",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/valMFoVuCteM3sr6hgXmEFtdemW.jpg",
-          "airDate": null,
-          "year": 1953,
-          "runtimeSeconds": 1545,
-          "videoFile": {
-            "name": "4-36_Washington_Story.mp4",
-            "format": "h.264",
-            "sizeBytes": 160718392,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Man_Against_Crime--Washington_Story/4-36_Washington_Story.mp4"
-        },
-        {
-          "archiveID": "Man_Against_Crime--High_Ambush",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Man against Crime: High Ambush",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/valMFoVuCteM3sr6hgXmEFtdemW.jpg",
-          "airDate": null,
-          "year": 1953,
-          "runtimeSeconds": 1535,
-          "videoFile": {
-            "name": "Man_Against_Crime--High_Ambush.mp4",
-            "format": "h.264",
-            "sizeBytes": 159136718,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Man_Against_Crime--High_Ambush/Man_Against_Crime--High_Ambush.mp4"
-        },
-        {
-          "archiveID": "Man_against_Crime--Missing_Cadet",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Man against Crime: The Missing Cadet",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/valMFoVuCteM3sr6hgXmEFtdemW.jpg",
-          "airDate": null,
-          "year": 1953,
-          "runtimeSeconds": 1572,
-          "videoFile": {
-            "name": "4-43_Missing_Cadet.mp4",
-            "format": "h.264",
-            "sizeBytes": 163267795,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Man_against_Crime--Missing_Cadet/4-43_Missing_Cadet.mp4"
-        },
         {
           "archiveID": "ManAgainstCrime08051956",
           "seasonNumber": null,

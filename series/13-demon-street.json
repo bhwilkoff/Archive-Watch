@@ -18,36 +18,18 @@
   "creator": null,
   "seasons": [
     {
-      "seasonNumber": null,
+      "seasonNumber": 1,
       "episodes": [
         {
-          "archiveID": "13_demon_street_fever_1959",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "13 Demon Street",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1959,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "demon_street_fever.mp4",
-            "format": "h.264",
-            "sizeBytes": 145567737,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/13_demon_street_fever_1959/demon_street_fever.mp4"
-        },
-        {
           "archiveID": "13_demon_street_black_hand_1959",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "13 Demon Street",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Black Hand",
           "overview": null,
           "stillURL": null,
           "airDate": null,
           "year": 1959,
-          "runtimeSeconds": null,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "demon_street_the_black_hand.mp4",
             "format": "h.264",
@@ -55,6 +37,24 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/13_demon_street_black_hand_1959/demon_street_the_black_hand.mp4"
+        },
+        {
+          "archiveID": "13_demon_street_fever_1959",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Fever",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "demon_street_fever.mp4",
+            "format": "h.264",
+            "sizeBytes": 145567737,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/13_demon_street_fever_1959/demon_street_fever.mp4"
         }
       ]
     }
@@ -70,8 +70,5 @@
       "order": 0,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/260611/photo/6233e37562702.jpg"
     }
-  ],
-  "seriesImdbID": "tt0204079",
-  "canonicalEpisodeCount": 0,
-  "canonicalSeasons": null
+  ]
 }

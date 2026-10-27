@@ -17,18 +17,18 @@
   "creator": null,
   "seasons": [
     {
-      "seasonNumber": null,
+      "seasonNumber": 1,
       "episodes": [
         {
           "archiveID": "TheLarkins1x01WideOpenHouse",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Larkins - 1x01 - Wide Open House",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "Wide Open House",
           "overview": null,
           "stillURL": "https://archive.org/services/img/TheLarkins1x01WideOpenHouse",
-          "airDate": null,
+          "airDate": "1958-09-19",
           "year": 1958,
-          "runtimeSeconds": 2268,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "The Larkins 1x01 Wide Open House.mp4",
             "format": "h.264",
@@ -39,14 +39,14 @@
         },
         {
           "archiveID": "TheLarkins1x07CheistmasWithTheLarkins",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Larkins - 1x07 - Christmas with the Larkins",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Christmas with the Larkins",
           "overview": null,
           "stillURL": "https://archive.org/services/img/TheLarkins1x07CheistmasWithTheLarkins",
-          "airDate": null,
+          "airDate": "1958-12-26",
           "year": 1958,
-          "runtimeSeconds": 1724,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "The Larkins 1x07 Cheistmas With The Larkins.mp4",
             "format": "MPEG4",
@@ -105,8 +105,5 @@
       "order": 6,
       "profilePath": null
     }
-  ],
-  "seriesImdbID": "tt0162815",
-  "canonicalEpisodeCount": 5,
-  "canonicalSeasons": 6
+  ]
 }

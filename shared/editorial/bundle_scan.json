@@ -1963,6 +1963,18 @@
   "reason": "ok",
   "verdict": "bundle"
  },
+ "07.-of-human-bonding": {
+  "checkedAt": "2026-10-27",
+  "isize": 8102618010,
+  "reason": "0 numbered of 16",
+  "verdict": "single"
+ },
+ "07.justlikemom": {
+  "checkedAt": "2026-10-27",
+  "isize": 3523327060,
+  "reason": "0 numbered of 12",
+  "verdict": "single"
+ },
  "0708_Cool_Hot_Rod_14_01_03_00": {
   "checkedAt": "2026-10-18",
   "isize": 1172515866,
@@ -2947,6 +2959,12 @@
   "reason": "0 numbered of 23",
   "verdict": "single"
  },
+ "10.-yule-be-sorry": {
+  "checkedAt": "2026-10-27",
+  "isize": 5077806900,
+  "reason": "0 numbered of 10",
+  "verdict": "single"
+ },
  "101-panic-no-warning-the-priest": {
   "checkedAt": "2026-10-18",
   "isize": 3562263412,
@@ -2957,6 +2975,18 @@
   "checkedAt": "2026-10-18",
   "isize": 12819840612,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "106.-fairly-secret-army...-when-the-talking-had-to-stop": {
+  "checkedAt": "2026-10-27",
+  "isize": 781883821,
+  "reason": "0 numbered of 13",
+  "verdict": "single"
+ },
+ "106.-ffizz...-with-friends-like-these": {
+  "checkedAt": "2026-10-27",
+  "isize": 986646428,
+  "reason": "0 numbered of 12",
   "verdict": "single"
  },
  "10879_brt40con133_hm_family_scenes": {
@@ -7388,8 +7418,8 @@
   "verdict": "single"
  },
  "202729_Portions_of_Twenty_Three_States_in_Two_Parts_P1": {
-  "checkedAt": "2026-10-20",
-  "isize": 8457042111,
+  "checkedAt": "2026-10-27",
+  "isize": 8457041351,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -11053,9 +11083,21 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "80974-b-1-progress-report-mos-vwr": {
+  "checkedAt": "2026-10-27",
+  "isize": 660391563,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "81482SovietAviationDay1968": {
   "checkedAt": "2026-10-20",
   "isize": 1354199619,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "82144AttackOnJapan": {
+  "checkedAt": "2026-10-27",
+  "isize": 1007062844,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -11110,6 +11152,12 @@
  "9625WheelwrightCoalMiningTown_Avg15MbpsVBR": {
   "checkedAt": "2026-10-18",
   "isize": 4466749391,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "9639Dynamite_Avg15MbpsVBR": {
+  "checkedAt": "2026-10-27",
+  "isize": 7612830988,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -16208,8 +16256,8 @@
   "verdict": "single"
  },
  "Bonanza-DeathOnSunMountain": {
-  "checkedAt": "2026-10-20",
-  "isize": 823690172,
+  "checkedAt": "2026-10-27",
+  "isize": 823690614,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -16795,9 +16843,21 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "CAAM_00092": {
+  "checkedAt": "2026-10-27",
+  "isize": 1107454791,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "CAAM_00093": {
   "checkedAt": "2026-10-25",
   "isize": 1055090222,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "CAAM_00094": {
+  "checkedAt": "2026-10-27",
+  "isize": 895778761,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -30516,6 +30576,12 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "JSPEC446.DPVL": {
+  "checkedAt": "2026-10-27",
+  "isize": 60336303103,
+  "reason": "0 numbered of 3",
+  "verdict": "single"
+ },
  "Jacare_ipod": {
   "checkedAt": "2026-10-18",
   "isize": 782350140,
@@ -43765,6 +43831,12 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "RPBt5abf77eyb8oOjUpxUcx7wUTZTX": {
+  "checkedAt": "2026-10-27",
+  "isize": 1057727006,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "RTTLD01": {
   "checkedAt": "2026-10-18",
   "files": [
@@ -49144,6 +49216,256 @@
   "isize": 1703595206,
   "reason": "1 playable works",
   "verdict": "single"
+ },
+ "SisterKateEugenesFeat": {
+  "checkedAt": "2026-10-27",
+  "files": [
+   {
+    "format": "MPEG4",
+    "length": "1361.48",
+    "name": "Sister Kate s01 e01 - Pilot.mp4",
+    "size": "70989389",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1328.95",
+    "name": "Sister Kate s01 e02 - Freddy's Bad Habit.mp4",
+    "size": "65887633",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1424.04",
+    "name": "Sister Kate s01 e03 - Eugene's Secret .mp4",
+    "size": "69458326",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1422.53",
+    "name": "Sister Kate s01 e04 - Freddy's Date.mp4",
+    "size": "71906044",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1424.54",
+    "name": "Sister Kate s01 e05 - Eugene's Model.mp4",
+    "size": "73547680",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1359.49",
+    "name": "Sister Kate s01 e06 - Neville's Hired Hand.mp4",
+    "size": "66778104",
+    "source": "original"
+   },
+   {
+    "format": "h.264 IA",
+    "length": "1421.99",
+    "name": "Sister Kate s01 e07 - Hilary's Date.ia.mp4",
+    "original": "Sister Kate s01 e07 - Hilary's Date.mp4",
+    "size": "65154721",
+    "source": "derivative"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1421.99",
+    "name": "Sister Kate s01 e07 - Hilary's Date.mp4",
+    "size": "65154721",
+    "source": "original"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1415.05",
+    "name": "Sister Kate s01 e08 - Violets Friend .mp4",
+    "size": "103908135",
+    "source": "original"
+   },
+   {
+    "format": "h.264 IA",
+    "length": "1390.39",
+    "name": "Sister Kate s01 e09 - Kate's Baby.ia.mp4",
+    "original": "Sister Kate s01 e09 - Kate's Baby.mp4",
+    "size": "189055417",
+    "source": "derivative"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1390.39",
+    "name": "Sister Kate s01 e09 - Kate's Baby.mp4",
+    "size": "189055417",
+    "source": "original"
+   },
+   {
+    "format": "Matroska",
+    "length": "1415.45",
+    "name": "Sister Kate s01 e10 - Kate's Furnace.mkv",
+    "size": "322959572",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1415.45",
+    "name": "Sister Kate s01 e10 - Kate's Furnace.mp4",
+    "original": "Sister Kate s01 e10 - Kate's Furnace.mkv",
+    "size": "137278804",
+    "source": "derivative"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1368.35",
+    "name": "Sister Kate s01 e11 - The Nun.mp4",
+    "size": "56363196",
+    "source": "original"
+   },
+   {
+    "format": "Matroska",
+    "length": "1382.91",
+    "name": "Sister Kate s01 e12 - April in Paris.mkv",
+    "size": "369112212",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1382.92",
+    "name": "Sister Kate s01 e12 - April in Paris.mp4",
+    "original": "Sister Kate s01 e12 - April in Paris.mkv",
+    "size": "134056447",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1376.91",
+    "name": "Sister Kate s01 e13 - Father Chistmas.mkv",
+    "size": "329525416",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1376.91",
+    "name": "Sister Kate s01 e13 - Father Chistmas.mp4",
+    "original": "Sister Kate s01 e13 - Father Chistmas.mkv",
+    "size": "133840679",
+    "source": "derivative"
+   },
+   {
+    "format": "h.264 IA",
+    "length": "1380.84",
+    "name": "Sister Kate s01 e14 - Eugenes's Feat.ia.mp4",
+    "original": "Sister Kate s01 e14 - Eugenes's Feat.mp4",
+    "size": "172535273",
+    "source": "derivative"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1380.84",
+    "name": "Sister Kate s01 e14 - Eugenes's Feat.mp4",
+    "size": "172535273",
+    "source": "original"
+   },
+   {
+    "format": "Matroska",
+    "length": "1235.77",
+    "name": "Sister Kate s01 e15 - Kandid Kate.mkv",
+    "size": "365794008",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1235.77",
+    "name": "Sister Kate s01 e15 - Kandid Kate.mp4",
+    "original": "Sister Kate s01 e15 - Kandid Kate.mkv",
+    "size": "119708684",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1293.82",
+    "name": "Sister Kate s01 e17 - Bingo.mkv",
+    "size": "405879837",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1293.83",
+    "name": "Sister Kate s01 e17 - Bingo.mp4",
+    "original": "Sister Kate s01 e17 - Bingo.mkv",
+    "size": "125321285",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1422.95",
+    "name": "Sister Kate s01 e18 - Todd's Cheap Date.mkv",
+    "size": "415640331",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1422.96",
+    "name": "Sister Kate s01 e18 - Todd's Cheap Date.mp4",
+    "original": "Sister Kate s01 e18 - Todd's Cheap Date.mkv",
+    "size": "138089952",
+    "source": "derivative"
+   },
+   {
+    "name": "SisterKateEugenesFeat.thumbs/Sister Kate s01 e01 - Pilot_000476.jpg"
+   },
+   {
+    "name": "SisterKateEugenesFeat.thumbs/Sister Kate s01 e02 - Freddy's Bad Habit_000482.jpg"
+   },
+   {
+    "name": "SisterKateEugenesFeat.thumbs/Sister Kate s01 e03 - Eugene's Secret _000536.jpg"
+   },
+   {
+    "name": "SisterKateEugenesFeat.thumbs/Sister Kate s01 e04 - Freddy's Date_000534.jpg"
+   },
+   {
+    "name": "SisterKateEugenesFeat.thumbs/Sister Kate s01 e05 - Eugene's Model_000537.jpg"
+   },
+   {
+    "name": "SisterKateEugenesFeat.thumbs/Sister Kate s01 e06 - Neville's Hired Hand_000477.jpg"
+   },
+   {
+    "name": "SisterKateEugenesFeat.thumbs/Sister Kate s01 e07 - Hilary's Date_000539.jpg"
+   },
+   {
+    "name": "SisterKateEugenesFeat.thumbs/Sister Kate s01 e08 - Violets Friend _000601.jpg"
+   },
+   {
+    "name": "SisterKateEugenesFeat.thumbs/Sister Kate s01 e09 - Kate's Baby_000589.jpg"
+   },
+   {
+    "name": "SisterKateEugenesFeat.thumbs/Sister Kate s01 e10 - Kate's Furnace_000576.jpg"
+   },
+   {
+    "name": "SisterKateEugenesFeat.thumbs/Sister Kate s01 e11 - The Nun_000542.jpg"
+   },
+   {
+    "name": "SisterKateEugenesFeat.thumbs/Sister Kate s01 e12 - April in Paris_000522.jpg"
+   },
+   {
+    "name": "SisterKateEugenesFeat.thumbs/Sister Kate s01 e13 - Father Chistmas_000590.jpg"
+   },
+   {
+    "name": "SisterKateEugenesFeat.thumbs/Sister Kate s01 e14 - Eugenes's Feat_000585.jpg"
+   },
+   {
+    "name": "SisterKateEugenesFeat.thumbs/Sister Kate s01 e15 - Kandid Kate_000505.jpg"
+   },
+   {
+    "name": "SisterKateEugenesFeat.thumbs/Sister Kate s01 e17 - Bingo_000550.jpg"
+   },
+   {
+    "name": "SisterKateEugenesFeat.thumbs/Sister Kate s01 e18 - Todd's Cheap Date_000606.jpg"
+   }
+  ],
+  "isize": 4440142055,
+  "reason": "ok",
+  "verdict": "bundle"
  },
  "SisterStreetfighter1974": {
   "checkedAt": "2026-10-18",
@@ -70929,6 +71251,65 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "americas_national_parks_iso": {
+  "checkedAt": "2026-10-27",
+  "files": [
+   {
+    "format": "ISO Image",
+    "name": "AMERICAS_NATIONAL_PARKS_S1_D1.ISO",
+    "size": "8244711424",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "8317.26",
+    "name": "AMERICAS_NATIONAL_PARKS_S1_D1.mp4",
+    "original": "AMERICAS_NATIONAL_PARKS_S1_D1.ISO",
+    "size": "856943134",
+    "source": "derivative"
+   },
+   {
+    "format": "ISO Image",
+    "name": "AMERICAS_NATIONAL_PARKS_S1_D2.ISO",
+    "size": "8140226560",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "8314.32",
+    "name": "AMERICAS_NATIONAL_PARKS_S1_D2.mp4",
+    "original": "AMERICAS_NATIONAL_PARKS_S1_D2.ISO",
+    "size": "858131026",
+    "source": "derivative"
+   },
+   {
+    "format": "ISO Image",
+    "name": "AMERICAS_NATIONAL_PARKS_S1_D3.ISO",
+    "size": "8029786112",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "8374.83",
+    "name": "AMERICAS_NATIONAL_PARKS_S1_D3.mp4",
+    "original": "AMERICAS_NATIONAL_PARKS_S1_D3.ISO",
+    "size": "855153290",
+    "source": "derivative"
+   },
+   {
+    "name": "americas_national_parks_iso.thumbs/AMERICAS_NATIONAL_PARKS_S1_D1_002902.jpg"
+   },
+   {
+    "name": "americas_national_parks_iso.thumbs/AMERICAS_NATIONAL_PARKS_S1_D2_002901.jpg"
+   },
+   {
+    "name": "americas_national_parks_iso.thumbs/AMERICAS_NATIONAL_PARKS_S1_D3_002923.jpg"
+   }
+  ],
+  "isize": 30041483394,
+  "reason": "ok",
+  "verdict": "bundle"
+ },
  "amor-1940": {
   "checkedAt": "2026-10-18",
   "isize": 4773395103,
@@ -83030,9 +83411,9 @@
   "verdict": "bundle"
  },
  "classic-warner-bros-movie-collection": {
-  "checkedAt": "2026-10-25",
-  "isize": 16696592281,
-  "reason": "0 numbered of 43",
+  "checkedAt": "2026-10-27",
+  "isize": 17647010498,
+  "reason": "0 numbered of 46",
   "verdict": "single"
  },
  "classicalcomedyecclesiazusaeandmilesgloriosus": {
@@ -90436,6 +90817,402 @@
   "isize": 7784662157,
   "reason": "2 playable works",
   "verdict": "single"
+ },
+ "ep-02-under-one-roof": {
+  "checkedAt": "2026-10-27",
+  "files": [
+   {
+    "format": "Matroska",
+    "length": "1316.85",
+    "name": "Ep 01 - Pilot.mkv",
+    "size": "180836078",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1316.85",
+    "name": "Ep 01 - Pilot.mp4",
+    "original": "Ep 01 - Pilot.mkv",
+    "size": "130608360",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1350.38",
+    "name": "Ep 02 - Under One Roof.mkv",
+    "size": "192582322",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1350.38",
+    "name": "Ep 02 - Under One Roof.mp4",
+    "original": "Ep 02 - Under One Roof.mkv",
+    "size": "133998392",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1271.8",
+    "name": "Ep 03 - The Curfew.mkv",
+    "size": "158397442",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1271.81",
+    "name": "Ep 03 - The Curfew.mp4",
+    "original": "Ep 03 - The Curfew.mkv",
+    "size": "126532343",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1284.81",
+    "name": "Ep 04 - The Date.mkv",
+    "size": "171635019",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1284.82",
+    "name": "Ep 04 - The Date.mp4",
+    "original": "Ep 04 - The Date.mkv",
+    "size": "127034300",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1317.85",
+    "name": "Ep 05 - College Debate.mkv",
+    "size": "177285751",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1317.85",
+    "name": "Ep 05 - College Debate.mp4",
+    "original": "Ep 05 - College Debate.mkv",
+    "size": "130772473",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1314.34",
+    "name": "Ep 06 - Black Like Keith.mkv",
+    "size": "167075297",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1314.35",
+    "name": "Ep 06 - Black Like Keith.mp4",
+    "original": "Ep 06 - Black Like Keith.mkv",
+    "size": "129813208",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1314.34",
+    "name": "Ep 07 - The Dance.mkv",
+    "size": "184974652",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1314.35",
+    "name": "Ep 07 - The Dance.mp4",
+    "original": "Ep 07 - The Dance.mkv",
+    "size": "130630468",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1245.78",
+    "name": "Ep 08 - Parental Authority.mkv",
+    "size": "177264958",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1245.78",
+    "name": "Ep 08 - Parental Authority.mp4",
+    "original": "Ep 08 - Parental Authority.mkv",
+    "size": "123693654",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1306.34",
+    "name": "Ep 09 - Value Of A Dollar.mkv",
+    "size": "204977474",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1306.34",
+    "name": "Ep 09 - Value Of A Dollar.mp4",
+    "original": "Ep 09 - Value Of A Dollar.mkv",
+    "size": "129966057",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1315.35",
+    "name": "Ep 10 - Who's Your Daddy.mkv",
+    "size": "183708630",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1315.35",
+    "name": "Ep 10 - Who's Your Daddy.mp4",
+    "original": "Ep 10 - Who's Your Daddy.mkv",
+    "size": "130926135",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1283.81",
+    "name": "Ep 11 - Bobby's Bullies.mkv",
+    "size": "185279415",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1283.82",
+    "name": "Ep 11 - Bobby's Bullies.mp4",
+    "original": "Ep 11 - Bobby's Bullies.mkv",
+    "size": "127767324",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1284.81",
+    "name": "Ep 12 - My Two Moms.mkv",
+    "size": "178083993",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1284.82",
+    "name": "Ep 12 - My Two Moms.mp4",
+    "original": "Ep 12 - My Two Moms.mkv",
+    "size": "127517945",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1317.85",
+    "name": "Ep 13 - Ladies Night.mkv",
+    "size": "206696416",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1317.85",
+    "name": "Ep 13 - Ladies Night.mp4",
+    "original": "Ep 13 - Ladies Night.mkv",
+    "size": "132939319",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1297.33",
+    "name": "Ep 14 - Daddy Knows Best.mkv",
+    "size": "177697111",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1297.33",
+    "name": "Ep 14 - Daddy Knows Best.mp4",
+    "original": "Ep 14 - Daddy Knows Best.mkv",
+    "size": "128628693",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1296.83",
+    "name": "Ep 15 - The Permit.mkv",
+    "size": "192718516",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1296.83",
+    "name": "Ep 15 - The Permit.mp4",
+    "original": "Ep 15 - The Permit.mkv",
+    "size": "128701310",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1301.33",
+    "name": "Ep 16 - Women At Work.mkv",
+    "size": "189530628",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1301.34",
+    "name": "Ep 16 - Women At Work.mp4",
+    "original": "Ep 16 - Women At Work.mkv",
+    "size": "128582120",
+    "source": "derivative"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1325.21",
+    "name": "Ep 17 - Dating the Enemy.mp4",
+    "size": "187297829",
+    "source": "original"
+   },
+   {
+    "format": "h.264 IA",
+    "length": "1333.83",
+    "name": "Ep 18 - Romancing the Home.ia.mp4",
+    "original": "Ep 18 - Romancing the Home.mp4",
+    "size": "447272138",
+    "source": "derivative"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1333.83",
+    "name": "Ep 18 - Romancing the Home.mp4",
+    "size": "447272138",
+    "source": "original"
+   },
+   {
+    "format": "h.264 IA",
+    "length": "1334.83",
+    "name": "Ep 19 - Sex Ed.ia.mp4",
+    "original": "Ep 19 - Sex Ed.mp4",
+    "size": "448404242",
+    "source": "derivative"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1334.83",
+    "name": "Ep 19 - Sex Ed.mp4",
+    "size": "448404242",
+    "source": "original"
+   },
+   {
+    "format": "h.264 IA",
+    "length": "1330.83",
+    "name": "Ep 20 - Brother's Keeper.ia.mp4",
+    "original": "Ep 20 - Brother's Keeper.mp4",
+    "size": "432885945",
+    "source": "derivative"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1330.83",
+    "name": "Ep 20 - Brother's Keeper.mp4",
+    "size": "432885945",
+    "source": "original"
+   },
+   {
+    "format": "h.264 IA",
+    "length": "1331.33",
+    "name": "Ep 21 - Roger Returns.ia.mp4",
+    "original": "Ep 21 - Roger Returns.mp4",
+    "size": "432025691",
+    "source": "derivative"
+   },
+   {
+    "format": "MPEG4",
+    "length": "1331.33",
+    "name": "Ep 21 - Roger Returns.mp4",
+    "size": "432025691",
+    "source": "original"
+   },
+   {
+    "format": "Matroska",
+    "length": "1316.35",
+    "name": "Ep 22 - We're Gonna Need More Peanut M&M.mkv",
+    "size": "181844552",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1316.35",
+    "name": "Ep 22 - We're Gonna Need More Peanut M&M.mp4",
+    "original": "Ep 22 - We're Gonna Need More Peanut M&M.mkv",
+    "size": "130080918",
+    "source": "derivative"
+   },
+   {
+    "name": "ep-02-under-one-roof.thumbs/Ep 01 - Pilot_000404.jpg"
+   },
+   {
+    "name": "ep-02-under-one-roof.thumbs/Ep 02 - Under One Roof_000412.jpg"
+   },
+   {
+    "name": "ep-02-under-one-roof.thumbs/Ep 03 - The Curfew_000388.jpg"
+   },
+   {
+    "name": "ep-02-under-one-roof.thumbs/Ep 04 - The Date_000392.jpg"
+   },
+   {
+    "name": "ep-02-under-one-roof.thumbs/Ep 05 - College Debate_000404.jpg"
+   },
+   {
+    "name": "ep-02-under-one-roof.thumbs/Ep 06 - Black Like Keith_000404.jpg"
+   },
+   {
+    "name": "ep-02-under-one-roof.thumbs/Ep 07 - The Dance_000404.jpg"
+   },
+   {
+    "name": "ep-02-under-one-roof.thumbs/Ep 08 - Parental Authority_000380.jpg"
+   },
+   {
+    "name": "ep-02-under-one-roof.thumbs/Ep 09 - Value Of A Dollar_000400.jpg"
+   },
+   {
+    "name": "ep-02-under-one-roof.thumbs/Ep 10 - Who's Your Daddy_000404.jpg"
+   },
+   {
+    "name": "ep-02-under-one-roof.thumbs/Ep 11 - Bobby's Bullies_000392.jpg"
+   },
+   {
+    "name": "ep-02-under-one-roof.thumbs/Ep 12 - My Two Moms_000392.jpg"
+   },
+   {
+    "name": "ep-02-under-one-roof.thumbs/Ep 13 - Ladies Night_000404.jpg"
+   },
+   {
+    "name": "ep-02-under-one-roof.thumbs/Ep 14 - Daddy Knows Best_000396.jpg"
+   },
+   {
+    "name": "ep-02-under-one-roof.thumbs/Ep 15 - The Permit_000396.jpg"
+   },
+   {
+    "name": "ep-02-under-one-roof.thumbs/Ep 16 - Women At Work_000400.jpg"
+   },
+   {
+    "name": "ep-02-under-one-roof.thumbs/Ep 17 - Dating the Enemy_000404.jpg"
+   },
+   {
+    "name": "ep-02-under-one-roof.thumbs/Ep 18 - Romancing the Home_000408.jpg"
+   },
+   {
+    "name": "ep-02-under-one-roof.thumbs/Ep 19 - Sex Ed_000408.jpg"
+   },
+   {
+    "name": "ep-02-under-one-roof.thumbs/Ep 20 - Brother's Keeper_000408.jpg"
+   },
+   {
+    "name": "ep-02-under-one-roof.thumbs/Ep 21 - Roger Returns_000408.jpg"
+   },
+   {
+    "name": "ep-02-under-one-roof.thumbs/Ep 22 - We're Gonna Need More Peanut M&M_000404.jpg"
+   }
+  ],
+  "isize": 9027707032,
+  "reason": "ok",
+  "verdict": "bundle"
  },
  "ep-345-pe": {
   "checkedAt": "2026-10-18",
@@ -101207,6 +101984,230 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "how-do-you-want-me-1x-02-floppy-but-not-too-floppy": {
+  "checkedAt": "2026-10-27",
+  "files": [
+   {
+    "format": "Matroska",
+    "length": "1769.28",
+    "name": "How Do You Want Me - 1x01 - No-one Can Hear You Scream.mkv",
+    "size": "306224062",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1769.32",
+    "name": "How Do You Want Me - 1x01 - No-one Can Hear You Scream.mp4",
+    "original": "How Do You Want Me - 1x01 - No-one Can Hear You Scream.mkv",
+    "size": "175328108",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1767.55",
+    "name": "How Do You Want Me - 1x02 - Floppy, But Not Too Floppy.mkv",
+    "size": "306237776",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1767.6",
+    "name": "How Do You Want Me - 1x02 - Floppy, But Not Too Floppy.mp4",
+    "original": "How Do You Want Me - 1x02 - Floppy, But Not Too Floppy.mkv",
+    "size": "175717442",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1759.76",
+    "name": "How Do You Want Me - 1x03 - Monstrous.mkv",
+    "size": "305773833",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1759.8",
+    "name": "How Do You Want Me - 1x03 - Monstrous.mp4",
+    "original": "How Do You Want Me - 1x03 - Monstrous.mkv",
+    "size": "174691270",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1754.82",
+    "name": "How Do You Want Me - 1x04 - Woof!.mkv",
+    "size": "305987675",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1754.86",
+    "name": "How Do You Want Me - 1x04 - Woof!.mp4",
+    "original": "How Do You Want Me - 1x04 - Woof!.mkv",
+    "size": "172884967",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1759.76",
+    "name": "How Do You Want Me - 1x05 - The Hidden World of Country Fire Stations.mkv",
+    "size": "305839900",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1759.8",
+    "name": "How Do You Want Me - 1x05 - The Hidden World of Country Fire Stations.mp4",
+    "original": "How Do You Want Me - 1x05 - The Hidden World of Country Fire Stations.mkv",
+    "size": "174134491",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1753.86",
+    "name": "How Do You Want Me - 1x06 - Sausage, Balloon, Bum.mkv",
+    "size": "305719221",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1753.9",
+    "name": "How Do You Want Me - 1x06 - Sausage, Balloon, Bum.mp4",
+    "original": "How Do You Want Me - 1x06 - Sausage, Balloon, Bum.mkv",
+    "size": "175036051",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1765.38",
+    "name": "How Do You Want Me - 2x01 - White Pubic Hair.mkv",
+    "size": "305909702",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1765.42",
+    "name": "How Do You Want Me - 2x01 - White Pubic Hair.mp4",
+    "original": "How Do You Want Me - 2x01 - White Pubic Hair.mkv",
+    "size": "174213475",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1765.38",
+    "name": "How Do You Want Me - 2x02 - I’m Not an Alcoholic.mkv",
+    "size": "306085260",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1765.42",
+    "name": "How Do You Want Me - 2x02 - I’m Not an Alcoholic.mp4",
+    "original": "How Do You Want Me - 2x02 - I’m Not an Alcoholic.mkv",
+    "size": "173906650",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1765.38",
+    "name": "How Do You Want Me - 2x03 - Nude Modelling Module.mkv",
+    "size": "305908996",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1765.42",
+    "name": "How Do You Want Me - 2x03 - Nude Modelling Module.mp4",
+    "original": "How Do You Want Me - 2x03 - Nude Modelling Module.mkv",
+    "size": "174267150",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1766.92",
+    "name": "How Do You Want Me - 2x04 - Bad Builders.mkv",
+    "size": "306130224",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1766.96",
+    "name": "How Do You Want Me - 2x04 - Bad Builders.mp4",
+    "original": "How Do You Want Me - 2x04 - Bad Builders.mkv",
+    "size": "173324086",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1727.87",
+    "name": "How Do You Want Me - 2x05 - Ready Steady Kill.mkv",
+    "size": "304753773",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1727.92",
+    "name": "How Do You Want Me - 2x05 - Ready Steady Kill.mp4",
+    "original": "How Do You Want Me - 2x05 - Ready Steady Kill.mkv",
+    "size": "170614995",
+    "source": "derivative"
+   },
+   {
+    "format": "Matroska",
+    "length": "1762.88",
+    "name": "How Do You Want Me - 2x06 - The Pleasures of Village Life.mkv",
+    "size": "305930543",
+    "source": "original"
+   },
+   {
+    "format": "h.264",
+    "length": "1762.92",
+    "name": "How Do You Want Me - 2x06 - The Pleasures of Village Life.mp4",
+    "original": "How Do You Want Me - 2x06 - The Pleasures of Village Life.mkv",
+    "size": "172867445",
+    "source": "derivative"
+   },
+   {
+    "name": "how-do-you-want-me-1x-02-floppy-but-not-too-floppy.thumbs/How Do You Want Me - 1x01 - No-one Can Hear You Scream_000654.jpg"
+   },
+   {
+    "name": "how-do-you-want-me-1x-02-floppy-but-not-too-floppy.thumbs/How Do You Want Me - 1x02 - Floppy, But Not Too Floppy_000655.jpg"
+   },
+   {
+    "name": "how-do-you-want-me-1x-02-floppy-but-not-too-floppy.thumbs/How Do You Want Me - 1x03 - Monstrous_000655.jpg"
+   },
+   {
+    "name": "how-do-you-want-me-1x-02-floppy-but-not-too-floppy.thumbs/How Do You Want Me - 1x04 - Woof!_000660.jpg"
+   },
+   {
+    "name": "how-do-you-want-me-1x-02-floppy-but-not-too-floppy.thumbs/How Do You Want Me - 1x05 - The Hidden World of Country Fire Stations_000655.jpg"
+   },
+   {
+    "name": "how-do-you-want-me-1x-02-floppy-but-not-too-floppy.thumbs/How Do You Want Me - 1x06 - Sausage, Balloon, Bum_000663.jpg"
+   },
+   {
+    "name": "how-do-you-want-me-1x-02-floppy-but-not-too-floppy.thumbs/How Do You Want Me - 2x01 - White Pubic Hair_000656.jpg"
+   },
+   {
+    "name": "how-do-you-want-me-1x-02-floppy-but-not-too-floppy.thumbs/How Do You Want Me - 2x02 - I’m Not an Alcoholic_000630.jpg"
+   },
+   {
+    "name": "how-do-you-want-me-1x-02-floppy-but-not-too-floppy.thumbs/How Do You Want Me - 2x03 - Nude Modelling Module_000631.jpg"
+   },
+   {
+    "name": "how-do-you-want-me-1x-02-floppy-but-not-too-floppy.thumbs/How Do You Want Me - 2x04 - Bad Builders_000634.jpg"
+   },
+   {
+    "name": "how-do-you-want-me-1x-02-floppy-but-not-too-floppy.thumbs/How Do You Want Me - 2x05 - Ready Steady Kill_000616.jpg"
+   },
+   {
+    "name": "how-do-you-want-me-1x-02-floppy-but-not-too-floppy.thumbs/How Do You Want Me - 2x06 - The Pleasures of Village Life_000629.jpg"
+   }
+  ],
+  "isize": 5770464667,
+  "reason": "ok",
+  "verdict": "bundle"
+ },
  "how-funny-can-sex-be-sessomatto-1973": {
   "checkedAt": "2026-10-18",
   "isize": 2247990620,
@@ -106013,6 +107014,12 @@
  "jettatore-1938": {
   "checkedAt": "2026-10-18",
   "isize": 1275177021,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "jfnXvyoFco8QAVOSsx0z0JVPpp07AK": {
+  "checkedAt": "2026-10-27",
+  "isize": 872089985,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -112448,6 +113455,12 @@
   "checkedAt": "2026-10-18",
   "isize": 1131566656,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "legong": {
+  "checkedAt": "2026-10-27",
+  "isize": 8176284399,
+  "reason": "two works share a number",
   "verdict": "single"
  },
  "leisuretimeussr02": {
@@ -146380,6 +147393,12 @@
   "checkedAt": "2026-10-18",
   "isize": 2450631243,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "sky-king-tv-series": {
+  "checkedAt": "2026-10-27",
+  "isize": 16113796762,
+  "reason": "mixed season numbering",
   "verdict": "single"
  },
  "slander_house": {
@@ -187110,6 +188129,12 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "the-queen-in-australia": {
+  "checkedAt": "2026-10-27",
+  "isize": 4616372893,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "the-racketeer-1929-with-watermark": {
   "checkedAt": "2026-10-18",
   "isize": 3582194923,
@@ -188003,7 +189028,7 @@
   "verdict": "single"
  },
  "the-time-tunnel-complete-series-1966": {
-  "checkedAt": "2026-10-20",
+  "checkedAt": "2026-10-27",
   "files": [
    {
     "format": "Matroska",
@@ -188564,7 +189589,7 @@
     "name": "the-time-tunnel-complete-series-1966.thumbs/The Time Tunnel S02E00 - Pilot_001644.jpg"
    }
   ],
-  "isize": 17409072498,
+  "isize": 17409072970,
   "reason": "ok",
   "verdict": "bundle"
  },
@@ -192539,6 +193564,12 @@
   "checkedAt": "2026-10-18",
   "isize": 5033841089,
   "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "the_long_search": {
+  "checkedAt": "2026-10-27",
+  "isize": 8715262732,
+  "reason": "0 numbered of 13",
   "verdict": "single"
  },
  "the_million_dollar_kid": {
@@ -198659,6 +199690,12 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "uncommon-ephemera-filmstrip-1507-the-fight-walt-disney-educational-media-company-1975": {
+  "checkedAt": "2026-10-27",
+  "isize": 3261271058,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "uncommon-ephemera-filmstrip-319-044-what-do-you-do-about-rules-part-1-guidance-associates-1972": {
   "checkedAt": "2026-10-18",
   "isize": 3983988672,
@@ -198731,6 +199768,12 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "uncommon-ephemera-filmstrip-a-106-28-the-majority-rules-a-secret-that-grew-society-for-visual-educat": {
+  "checkedAt": "2026-10-27",
+  "isize": 4770496384,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "uncommon-ephemera-filmstrip-a-211-12-choosing-and-buying-a-house-society-for-visual-education-1972": {
   "checkedAt": "2026-10-18",
   "isize": 3195614182,
@@ -198746,6 +199789,12 @@
  "uncommon-ephemera-filmstrip-a131-1-words-come-to-life-society-for-visual-education": {
   "checkedAt": "2026-10-25",
   "isize": 6692827584,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "uncommon-ephemera-filmstrip-a131-2-whats-in-a-name-society-for-visual-education-1967": {
+  "checkedAt": "2026-10-27",
+  "isize": 5437982073,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -198797,6 +199846,12 @@
   "reason": "1 playable works",
   "verdict": "single"
  },
+ "uncommon-ephemera-filmstrip-b557-g-the-muscles-eye-gate-house-1974": {
+  "checkedAt": "2026-10-27",
+  "isize": 4898122511,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
  "uncommon-ephemera-filmstrip-c790-1-tobacco-the-habit-and-the-hazards-qed-produc": {
   "checkedAt": "2026-10-18",
   "isize": 4663735886,
@@ -198824,6 +199879,12 @@
  "uncommon-ephemera-filmstrip-c790-6-lsd-worth-the-risk-copy-1-qed-productions-1968": {
   "checkedAt": "2026-10-20",
   "isize": 4377664476,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "uncommon-ephemera-filmstrip-caf-604-violence-in-the-home-an-american-tragedy-current-affairs-films-1": {
+  "checkedAt": "2026-10-27",
+  "isize": 7823755827,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -199004,6 +200065,12 @@
  "uncommon-ephemera-filmstrip-sbe-13-a-picnic-in-the-forest-q-ed-productions-1970": {
   "checkedAt": "2026-10-18",
   "isize": 4291338532,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "uncommon-ephemera-filmstrip-sfx-33b-frankenstein-part-two-listening-library-1976": {
+  "checkedAt": "2026-10-27",
+  "isize": 5676415169,
   "reason": "1 playable works",
   "verdict": "single"
  },
@@ -199244,6 +200311,12 @@
  "uwlibraries_oclc758510947": {
   "checkedAt": "2026-10-18",
   "isize": 1871519502,
+  "reason": "1 playable works",
+  "verdict": "single"
+ },
+ "v9iGb6OCTrNfDh6EllWrNFq8FUAYVC": {
+  "checkedAt": "2026-10-27",
+  "isize": 1291593722,
   "reason": "1 playable works",
   "verdict": "single"
  },

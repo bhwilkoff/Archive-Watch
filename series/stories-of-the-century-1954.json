@@ -308,13 +308,31 @@
           "downloadURL": "https://archive.org/download/stories-of-the-century-tv-1954-colorized-s01e08-johnny-ringo/Stories%20of%20the%20Century%20TV%201954%20colorized%20s01e08%20Johnny%20Ringo.mp4"
         },
         {
+          "archiveID": "StoriesOfTheCentury-TheDaltonGang",
+          "seasonNumber": 1,
+          "episodeNumber": 9,
+          "title": "The Dalton Gang",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
+          "airDate": "1954-03-18",
+          "year": 1954,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "StoriesOfTheCentury-1x09-TheDaltonGang.mp4",
+            "format": "h.264",
+            "sizeBytes": 156480637,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StoriesOfTheCentury-TheDaltonGang/StoriesOfTheCentury-1x09-TheDaltonGang.mp4"
+        },
+        {
           "archiveID": "stories-of-the-century-tv-1954-colorized-s01e09-the-dalton-gang",
           "seasonNumber": 1,
           "episodeNumber": 9,
           "title": "The Dalton Gang",
           "overview": null,
           "stillURL": "https://archive.org/services/img/stories-of-the-century-tv-1954-colorized-s01e09-the-dalton-gang",
-          "airDate": "1954-03-18",
+          "airDate": null,
           "year": 1954,
           "runtimeSeconds": 1800,
           "videoFile": {
@@ -532,24 +550,6 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/StoriesOfTheCentury1954/FrankAndJesse.ia.mp4"
-        },
-        {
-          "archiveID": "StoriesOfTheCentury-TheDaltonGang",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Dalton Gang",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/jpC586cOQF3M0UJehsGhTnPclER.jpg",
-          "airDate": null,
-          "year": 1954,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "StoriesOfTheCentury-1x09-TheDaltonGang.mp4",
-            "format": "h.264",
-            "sizeBytes": 156480637,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/StoriesOfTheCentury-TheDaltonGang/StoriesOfTheCentury-1x09-TheDaltonGang.mp4"
         }
       ]
     }

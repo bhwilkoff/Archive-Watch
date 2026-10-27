@@ -19,18 +19,18 @@
   "creator": null,
   "seasons": [
     {
-      "seasonNumber": null,
+      "seasonNumber": 1,
       "episodes": [
         {
           "archiveID": "WilliamTell1x01",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Adventures of William Tell - 1x01",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Emperor's Hat",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/waiT1XnYIcfy9w2HkTzEddLtnHz.jpg",
-          "airDate": null,
+          "airDate": "1958-09-15",
           "year": 1958,
-          "runtimeSeconds": null,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "William Tell 1x01.ia.mp4",
             "format": "h.264 IA",
@@ -41,14 +41,14 @@
         },
         {
           "archiveID": "WilliamTell1x02",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Adventures of William Tell - 1x02",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Hostages",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/waiT1XnYIcfy9w2HkTzEddLtnHz.jpg",
-          "airDate": null,
+          "airDate": "1958-09-22",
           "year": 1958,
-          "runtimeSeconds": null,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "William Tell 1x02.ia.mp4",
             "format": "h.264 IA",
@@ -59,14 +59,14 @@
         },
         {
           "archiveID": "WilliamTell1x03",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Adventures of William Tell - 1x03",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Secret Death",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/waiT1XnYIcfy9w2HkTzEddLtnHz.jpg",
-          "airDate": null,
+          "airDate": "1958-09-29",
           "year": 1958,
-          "runtimeSeconds": null,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "William Tell 1x03.ia.mp4",
             "format": "h.264 IA",
@@ -77,14 +77,14 @@
         },
         {
           "archiveID": "WilliamTell1x04",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Adventures of William Tell - 1x04",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Gauntlet of St. Gerhardt",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/waiT1XnYIcfy9w2HkTzEddLtnHz.jpg",
-          "airDate": null,
+          "airDate": "1958-10-06",
           "year": 1958,
-          "runtimeSeconds": null,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "William Tell 1x04.ia.mp4",
             "format": "h.264 IA",
@@ -95,14 +95,14 @@
         },
         {
           "archiveID": "WilliamTell1x05",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Adventures of William Tell - 1x05",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Prisoner",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/waiT1XnYIcfy9w2HkTzEddLtnHz.jpg",
-          "airDate": null,
+          "airDate": "1958-10-13",
           "year": 1958,
-          "runtimeSeconds": null,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "William Tell 1x05.ia.mp4",
             "format": "h.264 IA",
@@ -112,10 +112,69 @@
           "downloadURL": "https://archive.org/download/WilliamTell1x05/William%20Tell%201x05.ia.mp4"
         },
         {
+          "archiveID": "William_Tell--Voice_in_the_Night",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Voice in the Night",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/74/186088.jpg",
+          "airDate": "1958-10-20",
+          "year": 1958,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "WilliamTell06_Voice_in_the_Night.mp4",
+            "format": "h.264",
+            "sizeBytes": 143246581,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/William_Tell--Voice_in_the_Night/WilliamTell06_Voice_in_the_Night.mp4"
+        },
+        {
+          "archiveID": "William_Tell--The_Cuckoo",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Cuckoo",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/74/186088.jpg",
+          "airDate": "1958-11-24",
+          "year": 1958,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "WilliamTell_11_The_Cuckoo.mp4",
+            "format": "h.264",
+            "sizeBytes": 142767916,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/William_Tell--The_Cuckoo/WilliamTell_11_The_Cuckoo.mp4"
+        },
+        {
+          "archiveID": "William_Tell--The_Manhunt",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "The Manhunt",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/74/186088.jpg",
+          "airDate": "1959-02-02",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "WilliamTell_21_Manhunt.mp4",
+            "format": "h.264",
+            "sizeBytes": 142852883,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/William_Tell--The_Manhunt/WilliamTell_21_Manhunt.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
           "archiveID": "William_Tell--The_Assassins",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "William Tell: The Assassins",
+          "title": "The Assassins",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/74/186088.jpg",
           "airDate": null,
@@ -130,28 +189,10 @@
           "downloadURL": "https://archive.org/download/William_Tell--The_Assassins/WilliamTell_07_Assassins.mp4"
         },
         {
-          "archiveID": "William_Tell--The_Cuckoo",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "William Tell: The Cuckoo",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/74/186088.jpg",
-          "airDate": null,
-          "year": 1958,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "WilliamTell_11_The_Cuckoo.mp4",
-            "format": "h.264",
-            "sizeBytes": 142767916,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/William_Tell--The_Cuckoo/WilliamTell_11_The_Cuckoo.mp4"
-        },
-        {
           "archiveID": "William_Tell--The_Ensign",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "William Tell: The Ensign",
+          "title": "The Ensign",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/74/186088.jpg",
           "airDate": null,
@@ -166,28 +207,10 @@
           "downloadURL": "https://archive.org/download/William_Tell--The_Ensign/WilliamTell24_The_Ensign.mp4"
         },
         {
-          "archiveID": "William_Tell--The_Manhunt",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "William Tell: The Manhunt",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/74/186088.jpg",
-          "airDate": null,
-          "year": 1959,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "WilliamTell_21_Manhunt.mp4",
-            "format": "h.264",
-            "sizeBytes": 142852883,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/William_Tell--The_Manhunt/WilliamTell_21_Manhunt.mp4"
-        },
-        {
           "archiveID": "William_Tell--The_Spider",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "William Tell: The Spider",
+          "title": "The Spider",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/74/186088.jpg",
           "airDate": null,
@@ -200,24 +223,6 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/William_Tell--The_Spider/WilliamTell37_The_Spider.mp4"
-        },
-        {
-          "archiveID": "William_Tell--Voice_in_the_Night",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "William Tell: Voice in the Night",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/74/186088.jpg",
-          "airDate": null,
-          "year": 1958,
-          "runtimeSeconds": 1530,
-          "videoFile": {
-            "name": "WilliamTell06_Voice_in_the_Night.mp4",
-            "format": "h.264",
-            "sizeBytes": 143246581,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/William_Tell--Voice_in_the_Night/WilliamTell06_Voice_in_the_Night.mp4"
         }
       ]
     }

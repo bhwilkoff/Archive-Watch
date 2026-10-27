@@ -17,13 +17,36 @@
   "creator": null,
   "seasons": [
     {
+      "seasonNumber": 1,
+      "episodes": [
+        {
+          "archiveID": "MyHero-WheelOfFortune",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "Wheel of Fortune",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/368/922076.jpg",
+          "airDate": "1953-03-07",
+          "year": 1953,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "MyHero-wheeloffortune.mp4",
+            "format": "h.264",
+            "sizeBytes": 152323348,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MyHero-WheelOfFortune/MyHero-wheeloffortune.mp4"
+        }
+      ]
+    },
+    {
       "seasonNumber": null,
       "episodes": [
         {
           "archiveID": "MyHero-ArabianNights",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''My Hero'' - Arabian Nights",
+          "title": "Arabian Nights",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/368/922076.jpg",
           "airDate": null,
@@ -41,7 +64,7 @@
           "archiveID": "MyHero-BumForaDay",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''My Hero'' - Bum for a Day",
+          "title": "Bum for a Day",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/368/922076.jpg",
           "airDate": null,
@@ -59,7 +82,7 @@
           "archiveID": "MyHero-ElToro",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''My Hero'' - El Toro",
+          "title": "El Toro",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/368/922076.jpg",
           "airDate": null,
@@ -77,7 +100,7 @@
           "archiveID": "MyHero-Jailbreak",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''My Hero'' - Jailbreak",
+          "title": "Jailbreak",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/368/922076.jpg",
           "airDate": null,
@@ -95,7 +118,7 @@
           "archiveID": "MyHero-JimmyValentine",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''My Hero'' - Jimmy Valentine",
+          "title": "Jimmy Valentine",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/368/922076.jpg",
           "airDate": null,
@@ -113,7 +136,7 @@
           "archiveID": "MyHero-SaltWaterDaffy",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''My Hero'' - Salt Water Daffy",
+          "title": "Salt Water Daffy",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/368/922076.jpg",
           "airDate": null,
@@ -131,7 +154,7 @@
           "archiveID": "MyHero-TheBicycle",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''My Hero'' - The Bicycle",
+          "title": "The Bicycle",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/368/922076.jpg",
           "airDate": null,
@@ -149,7 +172,7 @@
           "archiveID": "MyHero-TheBigCrush",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''My Hero'' - The Big Crush",
+          "title": "The Big Crush",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/368/922076.jpg",
           "airDate": null,
@@ -167,7 +190,7 @@
           "archiveID": "TheCaterer",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''My Hero'' - The Catering Story",
+          "title": "The Catering Story",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/368/922076.jpg",
           "airDate": null,
@@ -185,7 +208,7 @@
           "archiveID": "MyHero-TheDuel",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''My Hero'' - The Duel",
+          "title": "The Duel",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/368/922076.jpg",
           "airDate": null,
@@ -203,7 +226,7 @@
           "archiveID": "MyHero-FishingStory",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''My Hero'' - The Fishing Story",
+          "title": "The Fishing Story",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/368/922076.jpg",
           "airDate": null,
@@ -221,7 +244,7 @@
           "archiveID": "MyHero-TheTiger",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "''My Hero'' - The Tiger",
+          "title": "The Tiger",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/368/922076.jpg",
           "airDate": null,
@@ -234,24 +257,6 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/MyHero-TheTiger/myhero-thetiger.mp4"
-        },
-        {
-          "archiveID": "MyHero-WheelOfFortune",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''My Hero'' - Wheel of Fortune",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/368/922076.jpg",
-          "airDate": null,
-          "year": 1953,
-          "runtimeSeconds": 1464,
-          "videoFile": {
-            "name": "MyHero-wheeloffortune.mp4",
-            "format": "h.264",
-            "sizeBytes": 152323348,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/MyHero-WheelOfFortune/MyHero-wheeloffortune.mp4"
         }
       ]
     }

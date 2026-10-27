@@ -38,22 +38,17 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/hawaii-five-o-S2E3-480p/hawaii-five-o-S2E3-480p.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
+        },
         {
           "archiveID": "hawaii-5.0-2x16-bored-she-hung-herself",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "\"Bored, She Hung Herself\" Hawaii Five-O 2-16",
-          "overview": "This episode was only ever aired once on January 7, 1970, and then never again aired or officially released. This is purportedly because someone died after attempting to copy the hanging technique seen in the show. Although never officially aired or released again, it still exists in the form of home recording.",
-          "stillURL": "https://archive.org/services/img/hawaii-5.0-2x16-bored-she-hung-herself",
-          "airDate": null,
+          "seasonNumber": 2,
+          "episodeNumber": 16,
+          "title": "Bored, She Hung Herself",
+          "overview": "The girlfriend of a fitness guru dies while attempting a hanging-type exercise.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/309/774178.jpg",
+          "airDate": "1970-01-07",
           "year": 1970,
-          "runtimeSeconds": 3046,
+          "runtimeSeconds": 3600,
           "videoFile": {
             "name": "hawaii-5.0-2x16-bored-she-hung-herself.mp4",
             "format": "MPEG4",
@@ -178,8 +173,5 @@
       "order": 17,
       "profilePath": "https://artworks.thetvdb.com/banners/v4/actor/262845/photo/649fc93b63c9e.jpg"
     }
-  ],
-  "seriesImdbID": "tt0062568",
-  "canonicalEpisodeCount": 264,
-  "canonicalSeasons": 12
+  ]
 }

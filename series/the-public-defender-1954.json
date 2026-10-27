@@ -405,6 +405,24 @@
           "downloadURL": "https://archive.org/download/Public_Defender--Knowledge_of_Astronomy/PublicDefender227_Knowledge_of_Astronomy.mp4"
         },
         {
+          "archiveID": "PublicDefenderCornered-withCommercials",
+          "seasonNumber": 2,
+          "episodeNumber": 30,
+          "title": "Cornered",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+          "airDate": "1955-03-24",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "PublicDefender-cornered.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 197289064,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PublicDefenderCornered-withCommercials/PublicDefender-cornered.ia.mp4"
+        },
+        {
           "archiveID": "Public_Defender--Time_To_Kill",
           "seasonNumber": 2,
           "episodeNumber": 31,
@@ -459,6 +477,24 @@
           "downloadURL": "https://archive.org/download/Public_Defender--A_Pair_of_Gloves/PublicDefender234_Pair_of_Gloves.mp4"
         },
         {
+          "archiveID": "PublicDefenderEightOutOfOneHundred",
+          "seasonNumber": 2,
+          "episodeNumber": 37,
+          "title": "Eight Out of a Hundred",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+          "airDate": "1955-05-12",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "PublicDefender-eightOutOfOneHundred.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 150921160,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PublicDefenderEightOutOfOneHundred/PublicDefender-eightOutOfOneHundred.ia.mp4"
+        },
+        {
           "archiveID": "PublicDefenderTheStoryOfNoraFulton",
           "seasonNumber": 2,
           "episodeNumber": 40,
@@ -482,6 +518,24 @@
       "seasonNumber": null,
       "episodes": [
         {
+          "archiveID": "PublicDefenderLivingALie",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Living a Lie",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1535,
+          "videoFile": {
+            "name": "PublicDefender-livingALie.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 150485213,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/PublicDefenderLivingALie/PublicDefender-livingALie.ia.mp4"
+        },
+        {
           "archiveID": "Public_Defender--Loyalty",
           "seasonNumber": null,
           "episodeNumber": null,
@@ -498,60 +552,6 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/Public_Defender--Loyalty/PublicDefender--Loyalty.mp4"
-        },
-        {
-          "archiveID": "PublicDefenderCornered-withCommercials",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Public Defender: Cornered-With Commercials",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1761,
-          "videoFile": {
-            "name": "PublicDefender-cornered.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 197289064,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/PublicDefenderCornered-withCommercials/PublicDefender-cornered.ia.mp4"
-        },
-        {
-          "archiveID": "PublicDefenderEightOutOfOneHundred",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Public Defender: Eight Out of One Hundred",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1516,
-          "videoFile": {
-            "name": "PublicDefender-eightOutOfOneHundred.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 150921160,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/PublicDefenderEightOutOfOneHundred/PublicDefender-eightOutOfOneHundred.ia.mp4"
-        },
-        {
-          "archiveID": "PublicDefenderLivingALie",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Public Defender: Living a Lie",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/i1UJWIOhM9iBriECHlzO7F33Krm.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1535,
-          "videoFile": {
-            "name": "PublicDefender-livingALie.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 150485213,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/PublicDefenderLivingALie/PublicDefender-livingALie.ia.mp4"
         },
         {
           "archiveID": "Public_Defender--The_Stepfather",

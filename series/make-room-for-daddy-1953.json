@@ -18,52 +18,16 @@
   "creator": null,
   "seasons": [
     {
-      "seasonNumber": null,
+      "seasonNumber": 2,
       "episodes": [
         {
-          "archiveID": "atriptowisconsin",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''Make Room for Daddy'' - A Trip to Wisconsin",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/43/109171.jpg",
-          "airDate": null,
-          "year": 1955,
-          "runtimeSeconds": 1759,
-          "videoFile": {
-            "name": "atriptowisconsin.mp4",
-            "format": "h.264",
-            "sizeBytes": 182984910,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/atriptowisconsin/atriptowisconsin.mp4"
-        },
-        {
-          "archiveID": "dontyellatyourchildren",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''Make Room for Daddy'' - Don't Yell at Your Children",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/dontyellatyourchildren",
-          "airDate": null,
-          "year": 1956,
-          "runtimeSeconds": 1762,
-          "videoFile": {
-            "name": "dontyellatyourchildren.mp4",
-            "format": "h.264",
-            "sizeBytes": 183418299,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/dontyellatyourchildren/dontyellatyourchildren.mp4"
-        },
-        {
           "archiveID": "rustygetsahaircut",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "''Make Room for Daddy'' - Rusty Gets a Haircut",
+          "seasonNumber": 2,
+          "episodeNumber": 22,
+          "title": "Rusty Gets a Haircut",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/43/109171.jpg",
-          "airDate": null,
+          "airDate": "1955-02-22",
           "year": 1955,
           "runtimeSeconds": 1764,
           "videoFile": {
@@ -75,10 +39,74 @@
           "downloadURL": "https://archive.org/download/rustygetsahaircut/rustygetsahaircut.mp4"
         },
         {
+          "archiveID": "atriptowisconsin",
+          "seasonNumber": 2,
+          "episodeNumber": 30,
+          "title": "A Trip to Wisconsin",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/43/109171.jpg",
+          "airDate": "1955-04-26",
+          "year": 1955,
+          "runtimeSeconds": 1759,
+          "videoFile": {
+            "name": "atriptowisconsin.mp4",
+            "format": "h.264",
+            "sizeBytes": 182984910,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/atriptowisconsin/atriptowisconsin.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "MakeRoomForDaddy-TheLittleLeague1955",
+          "seasonNumber": 3,
+          "episodeNumber": 2,
+          "title": "Little League",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/43/109171.jpg",
+          "airDate": "1955-09-20",
+          "year": 1955,
+          "runtimeSeconds": 1764,
+          "videoFile": {
+            "name": "Make_room_Little_league_09_20_55.mp4",
+            "format": "h.264",
+            "sizeBytes": 171894519,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MakeRoomForDaddy-TheLittleLeague1955/Make_room_Little_league_09_20_55.mp4"
+        },
+        {
+          "archiveID": "dontyellatyourchildren",
+          "seasonNumber": 3,
+          "episodeNumber": 26,
+          "title": "Don't Yell at Your Children",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/dontyellatyourchildren",
+          "airDate": "1956-03-20",
+          "year": 1956,
+          "runtimeSeconds": 1762,
+          "videoFile": {
+            "name": "dontyellatyourchildren.mp4",
+            "format": "h.264",
+            "sizeBytes": 183418299,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/dontyellatyourchildren/dontyellatyourchildren.mp4"
+        }
+      ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
+        {
           "archiveID": "MakeRoomForDaddy-ChildrensGoverness1955",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "Make Room For Daddy - Children's Governess",
+          "title": "Children's Governess",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/43/109171.jpg",
           "airDate": null,
@@ -91,24 +119,6 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/MakeRoomForDaddy-ChildrensGoverness1955/Make_room_Childrens_governess_02_01_55.mp4"
-        },
-        {
-          "archiveID": "MakeRoomForDaddy-TheLittleLeague1955",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Make Room For Daddy - The Little League",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/43/109171.jpg",
-          "airDate": null,
-          "year": 1955,
-          "runtimeSeconds": 1764,
-          "videoFile": {
-            "name": "Make_room_Little_league_09_20_55.mp4",
-            "format": "h.264",
-            "sizeBytes": 171894519,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/MakeRoomForDaddy-TheLittleLeague1955/Make_room_Little_league_09_20_55.mp4"
         }
       ]
     }
@@ -220,7 +230,5 @@
       "order": 16,
       "profilePath": null
     }
-  ],
-  "seriesImdbID": null,
-  "canonicalEpisodeCount": 0
+  ]
 }

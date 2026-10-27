@@ -79,28 +79,28 @@
           "downloadURL": "https://archive.org/download/dr.shrinker/Dr.%20Shrinker%20-%20Episode%204%20-%20Gordie%27s%20Bird%20-%20Krofft%20Supershow.mp4"
         },
         {
-          "archiveID": "dr-shrinker-online",
+          "archiveID": "dr-shrinker-full-series",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "DR SHRINKER \"Slowly I Turn\"",
+          "title": "Full Series!",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/ksztmXdGiQk9C6329IuO508xqOz.jpg",
           "airDate": null,
           "year": 1976,
           "runtimeSeconds": null,
           "videoFile": {
-            "name": "DR SHRINKER SLOWLY I TURN.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 33087361,
+            "name": "Dr. Shrinker (1976)_ 360p.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 513592868,
             "tier": 2
           },
-          "downloadURL": "https://archive.org/download/dr-shrinker-online/DR%20SHRINKER%20SLOWLY%20I%20TURN.ia.mp4"
+          "downloadURL": "https://archive.org/download/dr-shrinker-full-series/Dr.%20Shrinker%20%281976%29_%20360p.mp4"
         },
         {
           "archiveID": "dr-shrinker",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "DR. SHRINKER \"Pardon Me, King Kong\"",
+          "title": "Pardon Me, King Kong",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/ksztmXdGiQk9C6329IuO508xqOz.jpg",
           "airDate": null,
@@ -115,22 +115,22 @@
           "downloadURL": "https://archive.org/download/dr-shrinker/Dr.%20Shrinker%20-%20Pardon%20Me%2C%20King%20Kong%20-%20Krofft%20Supershow%20%281%29.mp4"
         },
         {
-          "archiveID": "dr-shrinker-full-series",
+          "archiveID": "dr-shrinker-online",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "Dr. Shrinker - Full Series!",
+          "title": "Slowly I Turn",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/ksztmXdGiQk9C6329IuO508xqOz.jpg",
           "airDate": null,
           "year": 1976,
           "runtimeSeconds": null,
           "videoFile": {
-            "name": "Dr. Shrinker (1976)_ 360p.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 513592868,
+            "name": "DR SHRINKER SLOWLY I TURN.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 33087361,
             "tier": 2
           },
-          "downloadURL": "https://archive.org/download/dr-shrinker-full-series/Dr.%20Shrinker%20%281976%29_%20360p.mp4"
+          "downloadURL": "https://archive.org/download/dr-shrinker-online/DR%20SHRINKER%20SLOWLY%20I%20TURN.ia.mp4"
         },
         {
           "archiveID": "dr-shrinker-krofft",

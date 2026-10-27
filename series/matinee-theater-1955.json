@@ -19,18 +19,18 @@
   "creator": null,
   "seasons": [
     {
-      "seasonNumber": null,
+      "seasonNumber": 1,
       "episodes": [
         {
           "archiveID": "matinee-theater-george-has-a-birthday-1956",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Matinee Theater - George Has A Birthday",
+          "seasonNumber": 1,
+          "episodeNumber": 40,
+          "title": "George has a birthday",
           "overview": null,
           "stillURL": "https://archive.org/services/img/matinee-theater-george-has-a-birthday-1956",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
+          "airDate": "1956-06-11",
+          "year": 1956,
+          "runtimeSeconds": 3600,
           "videoFile": {
             "name": "Matinee Theater George Has A Birthday (1956).ia.mp4",
             "format": "h.264 IA",
@@ -38,12 +38,17 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/matinee-theater-george-has-a-birthday-1956/Matinee%20Theater%20George%20Has%20A%20Birthday%20%281956%29.ia.mp4"
-        },
+        }
+      ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
         {
           "archiveID": "matinee-theatre-horsepower",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "Matinee Theater - Horsepower",
+          "title": "Horsepower",
           "overview": null,
           "stillURL": "https://archive.org/services/img/matinee-theatre-horsepower",
           "airDate": null,
@@ -61,7 +66,7 @@
           "archiveID": "matinee-theatre-jane-eyre-1957",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "Matinee Theater - Jane Eyre",
+          "title": "Jane Eyre",
           "overview": null,
           "stillURL": "https://archive.org/services/img/matinee-theatre-jane-eyre-1957",
           "airDate": null,
@@ -190,7 +195,5 @@
       "order": 17,
       "profilePath": null
     }
-  ],
-  "seriesImdbID": null,
-  "canonicalEpisodeCount": 0
+  ]
 }

@@ -52,7 +52,7 @@
             "name": "Roy Rogers Show TV 1952 colorized s01e02 Doc Stevens Traveling Store.mp4",
             "format": "MPEG4",
             "sizeBytes": 189375662,
-            "tier": 1
+            "tier": 2
           },
           "downloadURL": "https://archive.org/download/roy-rogers-show-tv-1952-s01e02-doc-stevens-traveling-store/Roy%20Rogers%20Show%20TV%201952%20colorized%20s01e02%20Doc%20Stevens%20Traveling%20Store.mp4"
         },
@@ -70,7 +70,7 @@
             "name": "Roy Rogers Show TV 1952 colorized s01e05 Train Robbery.mp4",
             "format": "MPEG4",
             "sizeBytes": 215975697,
-            "tier": 1
+            "tier": 2
           },
           "downloadURL": "https://archive.org/download/roy-rogers-show-tv-1952-s01e05-train-robbery/Roy%20Rogers%20Show%20TV%201952%20colorized%20s01e05%20Train%20Robbery.mp4"
         },
@@ -88,7 +88,7 @@
             "name": "Roy Rogers Show TV 1952 colorized s01e08 The Desert Fugitive.mp4",
             "format": "MPEG4",
             "sizeBytes": 204836552,
-            "tier": 1
+            "tier": 2
           },
           "downloadURL": "https://archive.org/download/roy-rogers-show-tv-1952-s01e08-the-desert-fugitive/Roy%20Rogers%20Show%20TV%201952%20colorized%20s01e08%20The%20Desert%20Fugitive.mp4"
         },
@@ -106,7 +106,7 @@
             "name": "Roy Rogers Show TV 1952 colorized s01e19 Haunted Mine of Paradise Valley.mp4",
             "format": "MPEG4",
             "sizeBytes": 216423009,
-            "tier": 1
+            "tier": 2
           },
           "downloadURL": "https://archive.org/download/roy-rogers-show-tv-1952-s01e19-haunted-mine-of-paradise-valley/Roy%20Rogers%20Show%20TV%201952%20colorized%20s01e19%20Haunted%20Mine%20of%20Paradise%20Valley.mp4"
         },
@@ -124,7 +124,7 @@
             "name": "Roy Rogers Show TV 1952 colorized s01e21 The Doublecrosser.mp4",
             "format": "MPEG4",
             "sizeBytes": 179182764,
-            "tier": 1
+            "tier": 2
           },
           "downloadURL": "https://archive.org/download/roy-rogers-show-tv-1952-s01e21-the-doublecrosser/Roy%20Rogers%20Show%20TV%201952%20colorized%20s01e21%20The%20Doublecrosser.mp4"
         },
@@ -142,7 +142,7 @@
             "name": "Roy Rogers Show TV 1952 colorized s01e22 Carnival Killer.mp4",
             "format": "MPEG4",
             "sizeBytes": 224902871,
-            "tier": 1
+            "tier": 2
           },
           "downloadURL": "https://archive.org/download/roy-rogers-show-tv-1952-s01e22-carnival-killer/Roy%20Rogers%20Show%20TV%201952%20colorized%20s01e22%20Carnival%20Killer.mp4"
         }
@@ -224,7 +224,7 @@
           "archiveID": "TheRoyRogersShow-OutlawsGirl",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "The Roy Rogers Show - Outlaw's Girl",
+          "title": "Outlaw's Girl",
           "overview": null,
           "stillURL": "https://archive.org/services/img/TheRoyRogersShow-OutlawsGirl",
           "airDate": null,
