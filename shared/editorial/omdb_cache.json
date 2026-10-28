@@ -1,7 +1,7 @@
 {
   "version": 1,
   "description": "OMDb lookup results keyed by IMDb ID. Positive = poster_url; negative = null (so we don't burn daily quota retrying items OMDb doesn't have). Populated by the scheduled omdb-backfill GitHub Action + local runs of tools/omdb_backfill.py. The exporter overlays this cache over DB rows at export time.",
-  "updated_at": "2026-10-27T07:55:53Z",
+  "updated_at": "2026-10-28T08:37:50Z",
   "entries": {
     "tt0007613": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzUwNTY4NWUtNGRhMy00YjVmLWEyNmQtYTQyNWQyNDZhNjFmXkEyXkFqcGc@._V1_SX300.jpg",
@@ -1080,8 +1080,9 @@
         "Animation",
         "Short"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0022867": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMzNmMGY5YmYtNGZhNC00ZGZjLWFkZGYtODJlNmFjNjNkNTAyXkEyXkFqcGc@._V1_QL75_UY562_CR9,0,380,562_.jpg",
@@ -33843,11 +33844,11 @@
     },
     "nm0101038": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm0101038\" to type \\'Double\\''",
-      "last_tried": "2026-10-27T07:55:53Z"
+      "last_tried": "2026-10-28T08:37:50Z"
     },
     "nm1947784": {
       "error": "bad JSON (Expecting ',' delimiter: line 1 column 54 (char 53)); body[:80]='{\"Response\":\"False\",\"Error\":\"Conversion from string \"nm1947784\" to type \\'Double\\''",
-      "last_tried": "2026-10-27T07:55:53Z"
+      "last_tried": "2026-10-28T08:37:50Z"
     },
     "tt0000046": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWM2N2MzMGMtNzNkNi00OTc2LTg5NDQtNWViNTA2MGIwNmFhXkEyXkFqcGdeQXVyNTI2NTY2MDI@._V1_SX300.jpg",
@@ -285403,8 +285404,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0428416": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMDc1MzFjNzUtOGUyOS00NDA1LWE5M2ItN2Y1MWI0ZDZjMmMxXkEyXkFqcGdeQXVyMDUyOTUyNQ@@._V1_SX300.jpg",
@@ -285464,8 +285466,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0430019": {
       "poster_url": null,
@@ -285748,8 +285751,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0431074": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMTIwODQzOTA1MV5BMl5BanBnXkFtZTcwMjI3MTgyMQ@@._V1_SX300.jpg",
@@ -285845,8 +285849,9 @@
         "Frida Richard"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0432585": {
       "poster_url": null,
@@ -285865,8 +285870,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0432623": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYTQzYmE4YTMtZWI3ZC00OGU1LTk5OGItNTVmMDBkYzZlNTViXkEyXkFqcGdeQXVyNDE5MTU2MDE@._V1_SX300.jpg",
@@ -285904,8 +285910,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0433125": {
       "poster_url": null,
@@ -285921,8 +285928,9 @@
       "genres": [
         "Drama"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0433133": {
       "poster_url": null,
@@ -285939,8 +285947,9 @@
         "Paula de Waart"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0433207": {
       "poster_url": null,
@@ -285960,8 +285969,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0433595": {
       "poster_url": null,
@@ -285977,8 +285987,9 @@
         "Romuald Joubé"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0433791": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYTkzNDE0YzctOTIwYi00YmJkLWJlYzgtNzFmMjg3ZTkzY2FjXkEyXkFqcGdeQXVyNjYxMzM2NA@@._V1_SX300.jpg",
@@ -286015,8 +286026,9 @@
         "Beppie De Vries"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0433926": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMGQwZDc5MzEtNGE2MC00MWFjLWFhMzctMDc4ODkwMmEyZDY0XkEyXkFqcGdeQXVyNjYxMzM2NA@@._V1_SX300.jpg",
@@ -286091,8 +286103,9 @@
       "genres": [
         "Drama"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0434157": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNmEzNWQwZWQtMWZkMC00OTE5LTk3NjAtMzY5ZDRkMDUwZjBiXkEyXkFqcGc@._V1_SX300.jpg",
@@ -286306,8 +286319,9 @@
       "genres": [
         "Comedy"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0435698": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BN2UxMjcyODAtOTEyYy00MDA1LWE5MzYtNjk1ZjIwM2NjNmFhXkEyXkFqcGdeQXVyMzg1ODEwNQ@@._V1_SX300.jpg",
@@ -286405,8 +286419,9 @@
       "genres": [
         "Crime"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0436841": {
       "poster_url": null,
@@ -286461,8 +286476,9 @@
         "Short",
         "Romance"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0437237": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNDA3NTY2MTIyMV5BMl5BanBnXkFtZTcwMTY1NTcxOA@@._V1_QL75_UX280_CR0,0,280,280_.jpg",
@@ -286498,8 +286514,9 @@
         "Max Gülstorff"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0437626": {
       "poster_url": null,
@@ -286518,8 +286535,9 @@
         "Short",
         "Mystery"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0437815": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMGUwY2Y3YzctZDM2Ni00NjY4LThmOWMtMDUzNjI2ZDA1ZWEzXkEyXkFqcGc@._V1_SX300.jpg",
@@ -286538,8 +286556,9 @@
         "Short",
         "Romance"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0437864": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMzk5MWI2MGUtZjcxMy00NmQ0LTg2MzMtODIzYzk1MWQ3ODIzXkEyXkFqcGdeQXVyMzg1ODEwNQ@@._V1_SX300.jpg",
@@ -286616,8 +286635,9 @@
         "Comedy",
         "Short"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0438165": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNzc3OTU5OTUtOWQ1ZS00YWFhLWFjZjctNThlYjUxZmRhZGNhXkEyXkFqcGdeQXVyNzUyMjQ3NTQ@._V1_SX300.jpg",
@@ -286694,8 +286714,9 @@
       "genres": [
         "Drama"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0438500": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMTYzMTgwNTgwN15BMl5BanBnXkFtZTcwNjg1MDE0MQ@@._V1_SX300.jpg",
@@ -286756,8 +286777,9 @@
         "Comedy",
         "Short"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0438662": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZTI1NDM0ODUtZTdkYS00NWQzLTk1ZTktOGU5YTIwMzc1MDNjXkEyXkFqcGdeQXVyMDI3OTIzOA@@._V1_SX300.jpg",
@@ -287001,8 +287023,9 @@
         "Boris Michailow"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0441569": {
       "poster_url": null,
@@ -287020,8 +287043,9 @@
       "genres": [
         "Comedy"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0442013": {
       "poster_url": null,
@@ -287100,8 +287124,9 @@
         "Rochus Gliese"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0442351": {
       "poster_url": null,
@@ -287192,8 +287217,9 @@
         "Ilka Grüning"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0443097": {
       "poster_url": null,
@@ -287269,8 +287295,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0444635": {
       "poster_url": null,
@@ -287365,8 +287392,9 @@
       "genres": [
         "Comedy"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0444923": {
       "poster_url": null,
@@ -287485,8 +287513,9 @@
         "Ivan Koval-Samborsky"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0447376": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNGQxNGU4NTctYzlhZS00NTAyLWFiZmUtMDI5ZjkxMWFmZDU1XkEyXkFqcGc@._V1_SX300.jpg",
@@ -287521,8 +287550,9 @@
         "Kurt Vespermann"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0447565": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZmQzZWMwYzQtNjQwYS00Y2I4LWJhZDQtY2M2ZjhkMDJhZWJhXkEyXkFqcGdeQXVyMzg1ODEwNQ@@._V1_SX300.jpg",
@@ -287538,8 +287568,9 @@
         "Fritz Eckert"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0447849": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWJkYzQ4Y2QtZjllZi00MmJjLWFlNzYtM2I2ZTFkYWJlZDdiXkEyXkFqcGdeQXVyNzQ1NDIxMDQ@._V1_SX300.jpg",
@@ -287597,8 +287628,9 @@
       "genres": [
         "Drama"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0448204": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMWUxYmI4NTAtNDYyOC00OGRhLWEwYjctNDY0OWRlY2I1MzRjXkEyXkFqcGc@._V1_SX300.jpg",
@@ -287943,8 +287975,9 @@
       "genres": [
         "Drama"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0449269": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNzc2ZGM5ZTAtNTc2Ny00NWFiLWI5MDgtNGVjMTAwNzhjZjkyXkEyXkFqcGdeQXVyNzUyMjQ3NTQ@._V1_SX300.jpg",
@@ -288220,8 +288253,9 @@
         "Anita Dorris"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0450689": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMDdhZDlmMDYtOGM3NC00YTUwLWI3NjctZDFiNDU1Mjk4NTFjXkEyXkFqcGdeQXVyNjA5MTAzODY@._V1_SX300.jpg",
@@ -288301,8 +288335,9 @@
         "Oscar Marion"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0451261": {
       "poster_url": null,
@@ -288318,8 +288353,9 @@
         "Albert Steinrück"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0451312": {
       "poster_url": null,
@@ -288334,8 +288370,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0451404": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BOGI1NTFhOTUtYTM4Zi00NzE4LTlkMjgtYWEzMTI5NjEyYjc2XkEyXkFqcGdeQXVyMDUyOTUyNQ@@._V1_SX300.jpg",
@@ -288353,8 +288390,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0451432": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BODE3OGU3NWUtNGEwZi00NjY3LTkyZjEtZTMwZTlhZTNkNTdiXkEyXkFqcGdeQXVyNzUyMjQ3NTQ@._V1_SX300.jpg",
@@ -288448,8 +288486,9 @@
       "genres": [
         "Drama"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0452498": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMGE1MGFmOGEtNDM5OC00YTBjLWJhOWQtNjI4N2JmNDUzNTUyXkEyXkFqcGdeQXVyMjQ5NzQ4NjM@._V1_SX300.jpg",
@@ -288599,8 +288638,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0454183": {
       "poster_url": null,
@@ -288871,8 +288911,9 @@
       "genres": [
         "Drama"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0456904": {
       "poster_url": null,
@@ -288911,8 +288952,9 @@
       "genres": [
         "Drama"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0457331": {
       "poster_url": null,
@@ -288928,8 +288970,9 @@
         "Inge Borg"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0457338": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNzI1NDk0MmEtYzU2Yy00ZjQyLTlhMWQtYTUzOThkNzZiMjBmXkEyXkFqcGdeQXVyMzg1ODEwNQ@@._V1_SX300.jpg",
@@ -288945,8 +288988,9 @@
         "Hermann Vallentin"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0457346": {
       "poster_url": null,
@@ -288981,8 +289025,9 @@
         "Gertrude De Lalsky"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0457371": {
       "poster_url": null,
@@ -289018,8 +289063,9 @@
         "Julius Brandt"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0457907": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMTkwMTk3NjU3MF5BMl5BanBnXkFtZTcwMTMyNzIzMQ@@._V1_QL75_UY562_CR5,0,380,562_.jpg",
@@ -289081,8 +289127,9 @@
         "Drama",
         "Short"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0460150": {
       "poster_url": null,
@@ -289101,8 +289148,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0460524": {
       "poster_url": null,
@@ -289262,8 +289310,9 @@
         "Inge Helgard"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0461671": {
       "poster_url": null,
@@ -289281,8 +289330,9 @@
       "genres": [
         "Drama"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0461685": {
       "poster_url": null,
@@ -289300,8 +289350,9 @@
         "Short",
         "War"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0461737": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNWJkZGEwMGMtMTVmNi00N2U0LTg2MzAtYjM0ZjczMjlkNzVmXkEyXkFqcGdeQXVyMTI2OTg5ODQw._V1_SX300.jpg",
@@ -289317,8 +289368,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0462374": {
       "poster_url": null,
@@ -289336,8 +289388,9 @@
       "genres": [
         "Drama"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0462694": {
       "poster_url": null,
@@ -289355,8 +289408,9 @@
       "genres": [
         "Comedy"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0462698": {
       "poster_url": null,
@@ -289373,8 +289427,9 @@
         "Werner Fuetterer"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0462700": {
       "poster_url": null,
@@ -289392,8 +289447,9 @@
       "genres": [
         "Drama"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0462839": {
       "poster_url": null,
@@ -289413,8 +289469,9 @@
         "Drama",
         "Music"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0463457": {
       "poster_url": null,
@@ -289446,8 +289503,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0463605": {
       "poster_url": null,
@@ -289465,8 +289523,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0463721": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BN2NmODk1NTQtNzM4Mi00YTg3LTljZDYtZGNkNDA2MGZkNDExXkEyXkFqcGc@._V1_QL75_UY562_CR21,0,380,562_.jpg",
@@ -289501,8 +289560,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0464656": {
       "poster_url": null,
@@ -289600,8 +289660,9 @@
         "Harry Hardt"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0464947": {
       "poster_url": null,
@@ -289618,8 +289679,9 @@
         "Hertha von Walther"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0465148": {
       "poster_url": null,
@@ -289639,8 +289701,9 @@
         "Crime",
         "Drama"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0466051": {
       "poster_url": null,
@@ -289656,8 +289719,9 @@
         "Fritz Beckmann"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0466068": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMjVlOWJlZjktZTA4OS00MDQyLTg2ZGEtNzg3ZmI4MzM3M2RmXkEyXkFqcGdeQXVyMzg1ODEwNQ@@._V1_SX300.jpg",
@@ -289693,8 +289757,9 @@
         "Erna Morena"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0466434": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNDZlYmQ4MmEtYjAyYS00NWU1LWIwMWUtNjhhZDc3N2YyMjY4XkEyXkFqcGdeQXVyMzE0MjY5ODA@._V1_SX300.jpg",
@@ -289730,8 +289795,9 @@
         "Hedda Vernon"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0467029": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYTJjYjU2YzYtMjFlYi00M2EzLTgwYjQtNmI5MTRjM2JkYTFmXkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_SX300.jpg",
@@ -289809,8 +289875,9 @@
         "Margarete Schlegel"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0467528": {
       "poster_url": null,
@@ -289869,8 +289936,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0468314": {
       "poster_url": null,
@@ -289888,8 +289956,9 @@
       "genres": [
         "Drama"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0468340": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZjE4ZmUyMTktNWZhMy00YTQ1LWFmNDctYjRmNjQ4YTFkOWZjXkEyXkFqcGdeQXVyMzg1ODEwNQ@@._V1_SX300.jpg",
@@ -289946,8 +290015,9 @@
         "Colette Brettel"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0469153": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYTI5ZGJjYTItNGU4Ni00ODdkLThkMjEtY2UyNGZmNzQ2ZjM3XkEyXkFqcGdeQXVyNjg5ODE0MDQ@._V1_SX300.jpg",
@@ -290041,8 +290111,9 @@
         "Robert Garrison"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0470941": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BM2RhZDc1NWQtZmU3Yi00OTgxLWJjNmEtNDc0NGU0ZjE3OTcwXkEyXkFqcGc@._V1_SX300.jpg",
@@ -290631,8 +290702,9 @@
         "Frida Richard"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0471832": {
       "poster_url": null,
@@ -290683,8 +290755,9 @@
         "Eva May"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0471945": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMTY3NDQ5MzcxMF5BMl5BanBnXkFtZTgwNjc3OTMyOTE@._V1_SX300.jpg",
@@ -290721,8 +290794,9 @@
         "Olga Engl"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0472483": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BOTI2NjE0MjktMjYyYS00YzgwLTljMzQtMDU1OTA2YjEzOTFmXkEyXkFqcGdeQXVyMzI2MDEwNA@@._V1_SX300.jpg",
@@ -290816,8 +290890,9 @@
       "genres": [
         "History"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0473735": {
       "poster_url": null,
@@ -290834,8 +290909,9 @@
         "Fritz Kampers"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0473954": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNjNlZmMwZGQtYWY0Yy00N2QxLTlmOTgtOTMxZjBiOTg2YTg4XkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_SX300.jpg",
@@ -290934,8 +291010,9 @@
         "Hanni Reinwald"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0475080": {
       "poster_url": null,
@@ -291010,8 +291087,9 @@
       "genres": [
         "Drama"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0476731": {
       "poster_url": null,
@@ -291032,11 +291110,11 @@
       "schema": 3
     },
     "tt0477022": {
-      "poster_url": "https://m.media-amazon.com/images/M/MV5BNWJkYzE3ZmEtMDY5YS00OWQzLTg1ZGYtY2Q1N2NiMDUzYmIxXkEyXkFqcGc@._V1_SX300.jpg",
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNWJkYzE3ZmEtMDY5YS00OWQzLTg1ZGYtY2Q1N2NiMDUzYmIxXkEyXkFqcGc@._V1_QL75_UX380_CR0,5,380,562_.jpg",
       "imdb_rating": null,
       "imdb_votes": null,
       "content_rating": null,
-      "plot": "The student Walter is sent to the big city for his exams. Immediately dazzled by the night life and falls in love with the primadonna Grita. But she is looking for more and Walter is devastated. Blinded by love he visits Grita wit...",
+      "plot": "The student Walter is sent to the big city for his exams. Immediately dazzled by the night life and falls in love with the primadonna Grita. But she is looking for more and Walter is devastated. Blinded by love he visits Grita with a gun.",
       "runtime_min": 78,
       "director": "Manfred Noa",
       "actors": [
@@ -291047,8 +291125,9 @@
       "genres": [
         "Drama"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0477172": {
       "poster_url": null,
@@ -291064,8 +291143,9 @@
         "Olga Engl"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0477309": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzg3OWZjNzgtYzYwZS00NzJhLThjOWYtZDc5YjFjNzQ1ZDQyXkEyXkFqcGc@._V1_SX300.jpg",
@@ -291339,8 +291419,9 @@
         "Hermann Picha"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0477771": {
       "poster_url": null,
@@ -291354,8 +291435,9 @@
         "Bruno Kastner"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0477903": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzFlYzY5MGMtMjBmMS00NWFlLTliMjQtNzIwZDA0YzBjMTYxXkEyXkFqcGdeQXVyMjI3MDczMjI@._V1_SX300.jpg",
@@ -291373,8 +291455,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0477913": {
       "poster_url": null,
@@ -291389,8 +291472,9 @@
         "Bruno Kastner"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0477914": {
       "poster_url": null,
@@ -291407,8 +291491,9 @@
         "Eva May"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0477920": {
       "poster_url": null,
@@ -291465,8 +291550,9 @@
         "Short",
         "Comedy"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0478640": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNjMwODYzOTUtZDM0Ni00MTBiLThhMmQtYjYyZWE0YjlkMjNjXkEyXkFqcGdeQXVyMjI3MTk1MjI@._V1_SX300.jpg",
@@ -291592,8 +291678,9 @@
         "Werner Pittschau"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0480856": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMTQ3ODI2ODAzOV5BMl5BanBnXkFtZTgwMDc2NjU5OTE@._V1_SX300.jpg",
@@ -291671,8 +291758,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0481509": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMTI2ODkzMDg3MV5BMl5BanBnXkFtZTcwNjkzMDU1MQ@@._V1_SX300.jpg",
@@ -291714,8 +291802,9 @@
         "Drama",
         "Romance"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0481876": {
       "poster_url": null,
@@ -291751,8 +291840,9 @@
         "Angelo Ferrari"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0482779": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZGZmMWY5M2ItZWIzMS00YzQxLThmZTQtODE2NDdlYjkyODllXkEyXkFqcGdeQXVyNjA5MTAzODY@._V1_SX300.jpg",
@@ -291832,8 +291922,9 @@
       "genres": [
         "Crime"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0484100": {
       "poster_url": null,
@@ -291851,8 +291942,9 @@
       "genres": [
         "Comedy"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0484199": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMzdmMTUxY2EtYjZlOC00ZDIxLWJhOTYtZDFhNTU3YzdiNjk2XkEyXkFqcGdeQXVyNDUyNzcwNjU@._V1_SX300.jpg",
@@ -291868,8 +291960,9 @@
         "Kurt Brenkendorf"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0484620": {
       "poster_url": null,
@@ -291889,8 +291982,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0484733": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMGM2Y2Y3NTktOWY2Ni00ZDAxLWJhOTItMmRkMDNjZGQxYTNjXkEyXkFqcGdeQXVyNjA5MTAzODY@._V1_SX300.jpg",
@@ -292001,8 +292095,9 @@
         "Aud Egede-Nissen"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0487563": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BOWQ1ZDZlZjUtMWVlNy00Mzk2LTg5NzktNTBiM2RkMTE5YTFhXkEyXkFqcGdeQXVyNDE4OTY5NzI@._V1_SX300.jpg",
@@ -292037,8 +292132,9 @@
         "Short",
         "Comedy"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0487661": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNmRiODhiMDEtNGZmOC00ZDJmLTkwYTgtOTMwZDhhMDA0ZDQ3XkEyXkFqcGdeQXVyMzI5NDcxNzI@._V1_SX300.jpg",
@@ -292078,8 +292174,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0487891": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BODczNDAwNjIxMF5BMl5BanBnXkFtZTgwNjc3MDA2MDE@._V1_QL75_UY562_CR10,0,380,562_.jpg",
@@ -292158,8 +292255,9 @@
         "Drama",
         "Romance"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0488968": {
       "poster_url": null,
@@ -292176,8 +292274,9 @@
         "Paul Bildt"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0489012": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMTAyMTQ1YjktNmQ2YS00NjE3LWJjMzUtNTg2YzI1ZjBmMDgwXkEyXkFqcGdeQXVyMzg1ODEwNQ@@._V1_SX300.jpg",
@@ -292214,8 +292313,9 @@
       "genres": [
         "Drama"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0489748": {
       "poster_url": null,
@@ -292233,8 +292333,9 @@
       "genres": [
         "Drama"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0489771": {
       "poster_url": null,
@@ -292330,8 +292431,9 @@
         "Short",
         "Western"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0491954": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZTUyMDRkMTktYmZhMS00MmViLWI0NDUtYzM3NmIyOGY5NTVhXkEyXkFqcGdeQXVyNjQ0MjEwNjU@._V1_SX300.jpg",
@@ -292433,8 +292535,9 @@
         "Short",
         "Comedy"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0495860": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNzZjMzM5ZjktOTFhZi00ZDFmLWJlYTAtNzJiYTQ0N2FiNTkxXkEyXkFqcGdeQXVyMDM0MzU2NA@@._V1_SX300.jpg",
@@ -292490,8 +292593,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0496924": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZjViYzMwZTItMDNjNC00Yjk4LTkxYzctOTYxYTEwZTk4YjRlXkEyXkFqcGdeQXVyMDU5NDcxNw@@._V1_SX300.jpg",
@@ -292662,8 +292766,9 @@
         "Animation",
         "Short"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0498127": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZWYzMjk1MmUtZDkwNS00N2ExLWIwYjAtYjYxODZjNGRlMzJiXkEyXkFqcGdeQXVyMjQ1NTU3Nzg@._V1_SX300.jpg",
@@ -292715,8 +292820,9 @@
         "Pierre Alcover"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0499427": {
       "poster_url": null,
@@ -292955,8 +293061,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0759756": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZmQ2OWU1NDctMWQ4Yi00MTYxLWE2ZDktZjNkNmEwYjI2YzdmXkEyXkFqcGdeQXVyNjk1NzUxMDQ@._V1_SX300.jpg",
@@ -293140,8 +293247,9 @@
         "Comedy",
         "Drama"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0772896": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNjQwNzFlMjktZmJlOC00ODczLWJjMjItMWE0ZDk1Y2FhYzNiXkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_SX300.jpg",
@@ -293442,8 +293550,9 @@
         "Horror",
         "Thriller"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0790769": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMTgwMzA0MjU0M15BMl5BanBnXkFtZTcwMDI3MDU1MQ@@._V1_QL75_UY562_CR5,0,380,562_.jpg",
@@ -293812,8 +293921,9 @@
       "genres": [
         "Drama"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0829184": {
       "poster_url": null,
@@ -293876,8 +293986,9 @@
         "Comedy",
         "Western"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0830855": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzM3NmY1ZmUtZGE5Yy00MjVkLWE4MjMtYzY5MDRiYTc2YTQxXkEyXkFqcGdeQXVyMTAyNTQ0MTk@._V1_SX300.jpg",
@@ -293979,8 +294090,9 @@
         "Drama",
         "War"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0839938": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMTQ5Njc5MTU1OV5BMl5BanBnXkFtZTcwNDkxNjgzMQ@@._V1_QL75_UY562_CR9,0,380,562_.jpg",
@@ -294234,8 +294346,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0861403": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNzEzMzQzMDc0Nl5BMl5BanBnXkFtZTcwMTk5ODczMQ@@._V1_SX300.jpg",
@@ -294575,8 +294688,9 @@
         "Diana Karenne"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0903876": {
       "poster_url": null,
@@ -294593,8 +294707,9 @@
         "Diana Karenne"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0903884": {
       "poster_url": null,
@@ -294610,8 +294725,9 @@
         "Enrico Roma"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0905617": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYTZlNDg1OGQtODA4Ni00Y2Q5LTk4M2EtN2Y5NjJhYmU0ZWJiXkEyXkFqcGc@._V1_SX300.jpg",
@@ -294856,8 +294972,9 @@
         "Comedy",
         "Romance"
       ],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0927107": {
       "poster_url": null,
@@ -294874,8 +294991,9 @@
         "Giovanni Schettini"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0928075": {
       "poster_url": null,
@@ -294891,8 +295009,9 @@
         "Alex Bernard"
       ],
       "genres": [],
-      "fetched_at": "2026-06-27T06:03:13Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0929415": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzc4OTlhMjEtY2IyMS00NDA5LTlkYTAtZDk2NWE4ZTBiMmIzXkEyXkFqcGdeQXVyNzQ1NDIxMDQ@._V1_SX300.jpg",
@@ -295039,8 +295158,9 @@
         "Wally Elta"
       ],
       "genres": [],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0938571": {
       "poster_url": null,
@@ -295106,8 +295226,9 @@
         "Dante Cappelli"
       ],
       "genres": [],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0943415": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYTA2NmJkNjctMjM2Yy00YTUzLThiMWUtNjQ2NzUxNGE4MTlkXkEyXkFqcGdeQXVyMTg1MjM0NQ@@._V1_SX300.jpg",
@@ -295143,8 +295264,9 @@
         "Huguette Delacroix"
       ],
       "genres": [],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0949559": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMTQ3OTAwNTM1M15BMl5BanBnXkFtZTgwMjE1OTg5MTE@._V1_SX300.jpg",
@@ -295162,8 +295284,9 @@
       "genres": [
         "Drama"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0949739": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZGMxZjE2OWUtMzYxNS00YmNjLWI5ZGUtN2VmMzE3ZDY0ZjQxXkEyXkFqcGc@._V1_SX300.jpg",
@@ -295248,8 +295371,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0950684": {
       "poster_url": null,
@@ -295501,8 +295625,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0953900": {
       "poster_url": null,
@@ -295520,8 +295645,9 @@
       "genres": [
         "Romance"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0955263": {
       "poster_url": null,
@@ -295610,8 +295736,9 @@
         "Giuseppe Piemontesi"
       ],
       "genres": [],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0963324": {
       "poster_url": null,
@@ -295651,8 +295778,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0963367": {
       "poster_url": null,
@@ -295672,8 +295800,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0969294": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNTY2ZTI2NzEtNzllNC00NzY4LWEyYzEtNmYxMDhjYzAzYTMxXkEyXkFqcGdeQXVyMzI5NDcxNzI@._V1_SX300.jpg",
@@ -295853,8 +295982,9 @@
         "Alexander Ekert"
       ],
       "genres": [],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1002443": {
       "poster_url": null,
@@ -295976,8 +296106,9 @@
       "genres": [
         "Drama"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1003211": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZmUwMTA3OWQtZWNhYy00ZjRiLTk2MDctZDMyMDcxZTU4NDA0XkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg",
@@ -296156,8 +296287,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1014759": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYjgxMTQ3NjMtOTI1Yy00Yzg4LWJlNWQtMjFkNjVlYjU0OWIyXkEyXkFqcGc@._V1_QL75_UY562_CR0,0,380,562_.jpg",
@@ -296220,8 +296352,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1016201": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYjkzNGU1ZjItODYxNy00Y2ZiLWE3NWUtN2ZkYTRmMzU3ZDE4XkEyXkFqcGdeQXVyMjQ0NzgwNzY@._V1_SX300.jpg",
@@ -296238,8 +296371,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt10173556": {
       "poster_url": null,
@@ -296411,8 +296545,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1027746": {
       "poster_url": null,
@@ -296432,8 +296567,9 @@
         "Drama",
         "Romance"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt10284252": {
       "poster_url": null,
@@ -296490,8 +296626,9 @@
       "genres": [
         "Thriller"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1029331": {
       "poster_url": null,
@@ -296675,8 +296812,9 @@
         "Diomira Jacobini"
       ],
       "genres": [],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1041688": {
       "poster_url": null,
@@ -296692,8 +296830,9 @@
         "Andrea Habay"
       ],
       "genres": [],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1041696": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYTA1YmFjMTgtNTI0Mi00NTQwLWJhNjQtMjZiNDJlNWYzMWU2XkEyXkFqcGdeQXVyNzUyMjQ3NTQ@._V1_SX300.jpg",
@@ -296749,8 +296888,9 @@
         "Gian Paolo Rosmino"
       ],
       "genres": [],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1041763": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYmIyYzA4NTQtMzMxZi00NjVhLTk4OTItNWUyODkwNzgyZTlkXkEyXkFqcGdeQXVyMTQ3NTAzMA@@._V1_SX300.jpg",
@@ -296847,8 +296987,9 @@
         "Short",
         "Musical"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1051215": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZTZlY2RlM2QtZWU3NS00OTc2LTk0MzQtOWVkMzQ3OGFlODQyXkEyXkFqcGdeQXVyNjA2MzA2MzQ@._V1_SX300.jpg",
@@ -296990,8 +297131,9 @@
         "Liese Leyde"
       ],
       "genres": [],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1058754": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNzczNjc0NmItY2VhZi00ZmY4LWExM2EtY2IxZWI5ZGIyMjhhXkEyXkFqcGdeQXVyMTYwODE3NTA3._V1_SX300.jpg",
@@ -297025,8 +297167,9 @@
         "Short",
         "Comedy"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1059258": {
       "poster_url": null,
@@ -297043,8 +297186,9 @@
         "Short",
         "Musical"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1059291": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzg2MmFjMjctMjBhNC00ZTAzLTlhN2EtY2ViZjRlYTIzYjk0XkEyXkFqcGdeQXVyMTc4MzI2NQ@@._V1_SX300.jpg",
@@ -297115,8 +297259,9 @@
         "Elsa Lazzerini"
       ],
       "genres": [],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1065500": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNzNiMDM1ZWYtZWYwMS00MTdkLTljMTktYjhiNWM3YmIzN2Y0XkEyXkFqcGdeQXVyMTk4MDgwNA@@._V1_SX300.jpg",
@@ -297209,8 +297354,9 @@
         "Animation",
         "Short"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1070812": {
       "poster_url": null,
@@ -297227,8 +297373,9 @@
         "Gianna Terribili-Gonzales"
       ],
       "genres": [],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1070858": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMTc3NjMzNDA1OV5BMl5BanBnXkFtZTcwNjQ4Nzc4Mg@@._V1_SX300.jpg",
@@ -297268,8 +297415,9 @@
         "Short",
         "Western"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1074557": {
       "poster_url": null,
@@ -297287,8 +297435,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt10746060": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZTE3NGQ4MmEtMzUzMy00MzdkLWEyMGItYjU2MzAwOGNhZTViXkEyXkFqcGc@._V1_SX300.jpg",
@@ -297324,8 +297473,9 @@
       "genres": [
         "Comedy"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1075062": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYjk5YWE2N2UtZmI0NS00OWYxLWIyMmItMmM3NTdmZmNjM2UzL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyMjIxMzMyMQ@@._V1_SX300.jpg",
@@ -297365,8 +297515,9 @@
         "Short",
         "News"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1079968": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BODU0ZmQ1Y2ItNGVlMy00MmY3LTlmNjQtNWIyM2YxMTI5MzIyXkEyXkFqcGc@._V1_SX300.jpg",
@@ -297425,8 +297576,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1080942": {
       "poster_url": null,
@@ -297443,8 +297595,9 @@
         "Umberto Scalpellini"
       ],
       "genres": [],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt10809810": {
       "poster_url": null,
@@ -297458,8 +297611,9 @@
       "genres": [
         "Documentary"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1081005": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYWE3ZDJjZDItZDRjMS00NDkxLTg4N2QtMWFmZWJkNTczZjBjXkEyXkFqcGdeQXVyNDY3MTQwMzk@._V1_SX300.jpg",
@@ -297739,8 +297893,9 @@
         "Animation",
         "Short"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1092624": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNDc3Njc3NmEtNDE1Yi00YWIxLWJmYzQtNGY0NzNjY2Q4Y2M4XkEyXkFqcGdeQXVyNDcwNDI2MTk@._V1_SX300.jpg",
@@ -297775,8 +297930,9 @@
       "genres": [
         "Drama"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1100003": {
       "poster_url": null,
@@ -297834,8 +297990,9 @@
       "genres": [
         "Drama"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1106684": {
       "poster_url": null,
@@ -297849,8 +298006,9 @@
       "genres": [
         "Documentary"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt11116656": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNWNiNTQ4NDMtOWQzNS00YmJiLWI5MDctYTEzMWQ2ZjA5MjVlXkEyXkFqcGdeQXVyNjE4OTY3NTg@._V1_SX300.jpg",
@@ -297943,8 +298101,9 @@
         "Karl Falkenberg"
       ],
       "genres": [],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1121971": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMTI5MjE1NDM0OF5BMl5BanBnXkFtZTcwMzk5MTU1MQ@@._V1_SX300.jpg",
@@ -297977,8 +298136,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1125849": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMTc5MjYyOTg4MF5BMl5BanBnXkFtZTcwNDc2MzQwMg@@._V1_SX300.jpg",
@@ -298084,8 +298244,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1136688": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMjI3OTAzMTYyNV5BMl5BanBnXkFtZTcwNTgzMDQ4NA@@._V1_SX300.jpg",
@@ -298421,8 +298582,9 @@
       "genres": [
         "Romance"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1172203": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNWRiZjBmYzctNTY2ZS00NjFhLThlOGItZDk2ZDYyZGViZmNhXkEyXkFqcGc@._V1_SX300.jpg",
@@ -298465,8 +298627,9 @@
       "genres": [
         "Drama"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1175228": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BOTE0Y2JmOGYtZDAzNi00NDEzLWI4MjQtMTVjYmE4YjJiNWYzXkEyXkFqcGdeQXVyMDUyOTUyNQ@@._V1_SX300.jpg",
@@ -298504,8 +298667,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1179072": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BOTRjZmVkM2ItNDg3Ni00ZmZjLThiNjUtOTBkNWI1OTQxODhjXkEyXkFqcGc@._V1_SX300.jpg",
@@ -298612,8 +298776,9 @@
         "Haydee Merighi"
       ],
       "genres": [],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1185244": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMjE3NTQzMzE0MV5BMl5BanBnXkFtZTcwNjA5MTA5Ng@@._V1_SX300.jpg",
@@ -298734,8 +298899,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1189323": {
       "poster_url": null,
@@ -298771,8 +298937,9 @@
         "Drama",
         "History"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1196122": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BOGI1ZmZlZjUtZWMyNS00YTFlLWEyM2YtMjI3ZDJkMzY1NjU1XkEyXkFqcGdeQXVyOTE3NDAzMDU@._V1_SX300.jpg",
@@ -298930,8 +299097,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1212442": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMTJlYmFiMzEtN2Y4OS00ODE1LTgzZTItNDViNmM2YmJhNzY0XkEyXkFqcGdeQXVyMTU1Nzg4NTgw._V1_SX300.jpg",
@@ -299085,8 +299253,9 @@
       "genres": [
         "Documentary"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt12204424": {
       "poster_url": null,
@@ -299143,8 +299312,9 @@
         "Rinaldo Rinaldi"
       ],
       "genres": [],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt12275738": {
       "poster_url": null,
@@ -299233,8 +299403,9 @@
         "Dante Testa"
       ],
       "genres": [],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt12302958": {
       "poster_url": null,
@@ -299517,8 +299688,9 @@
       "genres": [
         "Comedy"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt12471898": {
       "poster_url": null,
@@ -299594,8 +299766,9 @@
         "Short",
         "History"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1258744": {
       "poster_url": null,
@@ -299709,8 +299882,9 @@
         "Animation",
         "Short"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1268864": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZmY4NGVmNzMtNjEwNi00MWU0LWEyZGEtMDc5MjE1ODIwMjRkXkEyXkFqcGdeQXVyNjg2NjExMzY@._V1_SX300.jpg",
@@ -299809,8 +299983,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1278429": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNzE2ZGE3ZjMtZmQ4MC00NjZlLWIwMjctN2MwMTYxODBkNWZlXkEyXkFqcGdeQXVyMjM3MzA3ODA@._V1_SX300.jpg",
@@ -299861,8 +300036,9 @@
         "Short",
         "Comedy"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1283524": {
       "poster_url": null,
@@ -300060,8 +300236,9 @@
         "Wilhelm Diegelmann"
       ],
       "genres": [],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1307880": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BODlhZjNlYmYtNjYzNy00ZWMxLWE4NTctOTMxMTkyNmZhNzBiXkEyXkFqcGdeQXVyOTU3MTI2NzY@._V1_SX300.jpg",
@@ -300122,11 +300299,11 @@
       "schema": 3
     },
     "tt1315413": {
-      "poster_url": null,
-      "imdb_rating": null,
-      "imdb_votes": null,
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BOTUzNWE1MWQtNDA4ZC00YWFkLWE2OGEtZmQ4NGNjNjM3YWZhXkEyXkFqcGc@._V1_QL75_UY562_CR180,0,380,562_.jpg",
+      "imdb_rating": 9.0,
+      "imdb_votes": 10,
       "content_rating": null,
-      "plot": null,
+      "plot": "Sprung in den Feind, translated means: \"Jumping the enemy\" and has been completely reenacted by actual soldiers in 1942, based on successful attack in May 1940 on the Moerdijk bridges by the German Fallschirmjägers. It's was a German propaganda film about a successful war fought by German soldiers against the Dutch forces. Sprung in den Feind was intended for the German people and played in the Cinemas in Germany.",
       "runtime_min": 22,
       "director": "Paul Otto Bartning, Karl-Ludwig Ruppel",
       "actors": [],
@@ -300134,8 +300311,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1316458": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZGY4MjJlYjAtM2Q0NS00Y2UwLTg0YTUtZGRkNjAzYmMwNTExXkEyXkFqcGc@._V1_QL75_UY562_CR0,0,380,562_.jpg",
@@ -300390,8 +300568,9 @@
         "Comedy",
         "Drama"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1334226": {
       "poster_url": null,
@@ -300548,8 +300727,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1352852": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMTM0MzM2MjU0N15BMl5BanBnXkFtZTcwMDIyMDcxMw@@._V1_SX300.jpg",
@@ -300590,8 +300770,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1360165": {
       "poster_url": null,
@@ -300729,8 +300910,9 @@
         "Comedy",
         "Drama"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1371711": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMjE3Mjk0MjIyM15BMl5BanBnXkFtZTcwOTA4NzA5Mw@@._V1_QL75_UY562_CR9,0,380,562_.jpg",
@@ -300847,8 +301029,9 @@
         "Animation",
         "Short"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt13854830": {
       "poster_url": null,
@@ -300924,8 +301107,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt13905610": {
       "poster_url": null,
@@ -300956,8 +301140,9 @@
         "Animation",
         "Short"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1394228": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BOTBhMjQyYzMtYzRiZC00NjY0LTkwYmEtZGY4ZjkyMWJlNWI3L2ltYWdlXkEyXkFqcGdeQXVyNTkyMTcwODg@._V1_SX300.jpg",
@@ -300992,8 +301177,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt13944414": {
       "poster_url": null,
@@ -301143,8 +301329,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt14190918": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNzIyNDI3MzctMmViMC00OTdhLTk5ZWEtYTI5YTM2OTMwM2NmXkEyXkFqcGc@._V1_QL75_UY562_CR9,0,380,562_.jpg",
@@ -301487,8 +301674,9 @@
         "Drama",
         "Fantasy"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1440601": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNTJkYmM3YmItZDY1NC00OTU3LWIxNDMtNzVhOWQzNDMyNmI0XkEyXkFqcGdeQXVyODQ1NTk5OQ@@._V1_SX300.jpg",
@@ -301561,8 +301749,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt14503918": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMTA3OTkxMDktNTE2YS00M2Q3LTkwMDMtOTBhOGRhYzE5ZjY3XkEyXkFqcGc@._V1_SX300.jpg",
@@ -301662,8 +301851,9 @@
         "Animation",
         "Short"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1468076": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzk5OWYwODEtODk1ZC00NzQzLThjZDItNmQzYzk1NmRhYzY1XkEyXkFqcGc@._V1_SX300.jpg",
@@ -301718,8 +301908,9 @@
         "Animation",
         "Short"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1480727": {
       "poster_url": null,
@@ -301754,8 +301945,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt14832530": {
       "poster_url": null,
@@ -302128,8 +302320,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1525784": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BODc1NTA5MzMtOTQ5YS00ZTFlLWI1NzItZTEwZDM2MzE4MmYwXkEyXkFqcGc@._V1_SX300.jpg",
@@ -302523,8 +302716,9 @@
         "Short",
         "Comedy"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1570637": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BM2RkZjk5ODEtYTY1NC00ZjJiLWEwYjAtODJjMGFkNTkxOWU3XkEyXkFqcGdeQXVyMTI5OTI2MjA1._V1_SX300.jpg",
@@ -302913,8 +303107,9 @@
         "Animation",
         "Short"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt16409868": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNjExYTQ5MTItZGVlYy00YzdmLWI5OWItMTBkOTJiYTFjODhiXkEyXkFqcGc@._V1_SX300.jpg",
@@ -303372,8 +303567,9 @@
       "director": "Wilhelm Thiele, Hans Torre",
       "actors": [],
       "genres": [],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1666013": {
       "poster_url": null,
@@ -303390,8 +303586,9 @@
         "Artur Ranzenhofer"
       ],
       "genres": [],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1666049": {
       "poster_url": null,
@@ -303737,8 +303934,9 @@
       "genres": [
         "Drama"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1706294": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZDc5MzA4ZjEtMzU2ZC00MTA0LWI5NDgtODYwNzUxZGY5NWM3XkEyXkFqcGdeQXVyMDU4MTQ0Ng@@._V1_SX300.jpg",
@@ -304026,8 +304224,9 @@
         "Documentary",
         "News"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1764657": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMmRjZjZkODQtMDhlNy00NjMyLTlkMjgtMTdlYzY3ZWU1YTcxXkEyXkFqcGc@._V1_SX300.jpg",
@@ -304254,8 +304453,9 @@
         "Short",
         "Sci-Fi"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1788993": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMmFhM2VkODItOWYwNC00YTYyLTkzNTYtMTc5NGE3YTFlNGE2XkEyXkFqcGc@._V1_SX300.jpg",
@@ -304316,8 +304516,9 @@
         "Short",
         "History"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1793259": {
       "poster_url": null,
@@ -304331,8 +304532,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1796396": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzI2ZjNiNWUtMjgwZC00YTk5LWEyYjAtZDMwZTlhYzhmOGQ4XkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_SX300.jpg",
@@ -304368,8 +304570,9 @@
         "Short",
         "Western"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1802146": {
       "poster_url": null,
@@ -304443,8 +304646,9 @@
       "genres": [
         "Drama"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1815802": {
       "poster_url": null,
@@ -304861,8 +305065,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1859488": {
       "poster_url": null,
@@ -304879,8 +305084,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1861297": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMjM1ZTk3NDYtZTcxZi00MWE5LWI1MzMtNDhlMGVlOTI2M2RjXkEyXkFqcGdeQXVyMDU4MTQ0Ng@@._V1_SX300.jpg",
@@ -304935,8 +305141,9 @@
         "Animation",
         "Short"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1874515": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BOTUyZmFjNmYtZDI0OC00MjMyLWE0YTAtODgwNGEwYTBkODJkXkEyXkFqcGc@._V1_QL75_UY562_CR232,0,380,562_.jpg",
@@ -305328,8 +305535,9 @@
         "Drama",
         "History"
       ],
-      "fetched_at": "2026-06-29T07:05:24Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt19056070": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMDhkYzRlOGUtMGE4OS00NzE5LTllMDItMmVmYTQwNzhkYjg0XkEyXkFqcGc@._V1_SX300.jpg",
@@ -306346,8 +306554,9 @@
         "Short",
         "Comedy"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1999845": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMjEyNjQ3ZjYtNWYxYi00Y2QwLTllYzktZTIxZTdmOTUxZGQxXkEyXkFqcGc@._V1_QL75_UY562_CR7,0,380,562_.jpg",
@@ -306584,8 +306793,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt2093172": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMGM4ZDkxMmUtZTFkYS00NDBjLWI4NTgtMGZkOTk5MGZlNTkwXkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_SX300.jpg",
@@ -307030,8 +307240,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt2194533": {
       "poster_url": null,
@@ -307307,8 +307518,9 @@
       "genres": [
         "Drama"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt2276724": {
       "poster_url": null,
@@ -307369,8 +307581,9 @@
       "genres": [
         "Drama"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt2303452": {
       "poster_url": null,
@@ -307428,8 +307641,9 @@
       "genres": [
         "Documentary"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt2308104": {
       "poster_url": null,
@@ -307449,8 +307663,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt23133488": {
       "poster_url": null,
@@ -307537,8 +307752,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt2338001": {
       "poster_url": null,
@@ -307575,8 +307791,9 @@
         "Animation",
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt2356250": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNDJhNDYyY2ItOGRkZS00ZTRkLTk5ODUtMTVmMDhlMjgzNzk5XkEyXkFqcGdeQXVyMDUyOTUyNQ@@._V1_SX300.jpg",
@@ -307595,8 +307812,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt2358462": {
       "poster_url": null,
@@ -307651,8 +307869,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt23633264": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BOTI4NDJlYjAtN2JiYy00YTE3LTgyOTAtMjAxYTkyNWZjYjU4XkEyXkFqcGc@._V1_SX300.jpg",
@@ -307713,8 +307932,9 @@
         "Short",
         "Sci-Fi"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt2391620": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BODFmYjkxZDgtMDYxOC00YjliLTg2MjQtMGI5ODZmMjRlNTI1XkEyXkFqcGdeQXVyOTE3NDAzMDU@._V1_SX300.jpg",
@@ -307733,8 +307953,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt2397556": {
       "poster_url": null,
@@ -307791,8 +308012,9 @@
       "genres": [
         "Drama"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt2417530": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMjAxNzc1OTQxOV5BMl5BanBnXkFtZTgwNzExMjU0NTE@._V1_SX300.jpg",
@@ -308213,8 +308435,9 @@
         "Family",
         "Sci-Fi"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt2626388": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNjAwNDdkNDItYTBhYy00MDExLWE2MDEtMjFmMjJhOTBmYjhjXkEyXkFqcGc@._V1_QL75_UY562_CR193,0,380,562_.jpg",
@@ -308371,8 +308594,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt26659378": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZGYzZGU5ZGMtYTI1Ni00NWRmLWI4MjktYTdmMjRiNWU2YTFkXkEyXkFqcGdeQXVyMDM3NjU0MA@@._V1_SX300.jpg",
@@ -308613,8 +308837,9 @@
       "genres": [
         "Comedy"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt2751334": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMTkwMzUxMDA1NV5BMl5BanBnXkFtZTgwNDk4MDA4MDE@._V1_SX300.jpg",
@@ -308763,8 +308988,9 @@
         "Short",
         "Thriller"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt2838818": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMzc1ZDllYTItNTcyNC00MDg1LTgyMWQtNjNlNWYyYTRjZjhiXkEyXkFqcGdeQXVyMTcyODY2NDQ@._V1_SX300.jpg",
@@ -308783,8 +309009,9 @@
         "Short",
         "Comedy"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt2866350": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMjc0NTA3MTI1Nl5BMl5BanBnXkFtZTgwNjAzNjI2MjE@._V1_SX300.jpg",
@@ -308839,8 +309066,9 @@
       "genres": [
         "Documentary"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt2977188": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNWNkNTRlMjYtYmI0YS00NGZlLWE2NTktNWU1MDQ4YjE2OGFlXkEyXkFqcGdeQXVyMjU1OTc2MTc@._V1_SX300.jpg",
@@ -309186,8 +309414,9 @@
         "Short",
         "Comedy"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt3037646": {
       "poster_url": null,
@@ -309206,8 +309435,9 @@
       "genres": [
         "Romance"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt30445556": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNjNhNzQ5NmQtY2Q1Ny00NzI0LTgyMmUtYjU2MmI5NDE3MGQ0XkEyXkFqcGc@._V1_SX300.jpg",
@@ -309245,8 +309475,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt30581051": {
       "poster_url": null,
@@ -309265,8 +309496,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt3063198": {
       "poster_url": null,
@@ -309285,8 +309517,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt3099936": {
       "poster_url": null,
@@ -309358,8 +309591,9 @@
       "genres": [
         "Action"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt3133210": {
       "poster_url": null,
@@ -309374,8 +309608,9 @@
         "Animation",
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt3133240": {
       "poster_url": null,
@@ -309482,8 +309717,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt32001464": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMDQ0NGE3ZTYtN2NiYy00MGQ0LTllYWEtNjZhMjBjNjEzZjAxXkEyXkFqcGc@._V1_SX300.jpg",
@@ -309599,8 +309835,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt3251338": {
       "poster_url": null,
@@ -309695,11 +309932,11 @@
       "schema": 4
     },
     "tt32555468": {
-      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjc4MWZmMmQtM2FhYS00YzAyLWJmZGYtZTZhZjdkMGZiMGM3XkEyXkFqcGc@._V1_SX300.jpg",
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMjc4MWZmMmQtM2FhYS00YzAyLWJmZGYtZTZhZjdkMGZiMGM3XkEyXkFqcGc@._V1_QL75_UY562_CR185,0,380,562_.jpg",
       "imdb_rating": null,
       "imdb_votes": null,
       "content_rating": null,
-      "plot": "Married Mike Jackson and Virginia Chase seem to love each other, but are constantly arguing, leading to Mike storming out of the house. While there are many associated issues, the primary item of contention is that Ginny works out...",
+      "plot": "Married Mike Jackson and Virginia Chase seem to love each other, but are constantly arguing, leading to Mike storming out of the house. While there are many associated issues, the primary item of contention is that Ginny works outside of the house, they working together at a newspaper, he a copy writer and she a photographer, often on the same articles. Because Ginny wants to work for various reasons, each feels that he/she is forced to give up something in their marriage, and that the other will not make accommodations for this fact. As such, their marriage has ended up being more like a competition about who's the boss. They as of yet have no children, children at this stage which would only complicate matters. They will have to figure out how to save their marriage by making those necessary accommodations, and if they are unwilling, it may mean divorce court.",
       "runtime_min": 16,
       "director": "Alexander Hammid",
       "actors": [],
@@ -309707,8 +309944,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt32572752": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNDE0ZTA5NWEtNDQyMi00MDk2LThiNTktNjZkYjE2ODFkYjBjXkEyXkFqcGc@._V1_SX300.jpg",
@@ -309723,8 +309961,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt32596967": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZTAyMWVlZjctZWNjMi00N2FhLTkzY2ItZDJkMDdkNTk5Yjc3XkEyXkFqcGc@._V1_SX300.jpg",
@@ -309794,8 +310033,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt32801387": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZTNmZGZmMmItMjA4ZC00YWJmLWEwYjgtNDIyMDQ3ZTUwZjk5XkEyXkFqcGc@._V1_SX300.jpg",
@@ -309965,8 +310205,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt33480983": {
       "poster_url": null,
@@ -310090,8 +310331,9 @@
         "Drama",
         "History"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt3425954": {
       "poster_url": null,
@@ -310111,8 +310353,9 @@
         "Drama",
         "History"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt3425972": {
       "poster_url": null,
@@ -310132,8 +310375,9 @@
         "Drama",
         "History"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt3433646": {
       "poster_url": null,
@@ -310395,7 +310639,7 @@
       "schema": 4
     },
     "tt35507989": {
-      "poster_url": "https://m.media-amazon.com/images/M/MV5BM2Y0NzJiN2UtNTI1YS00NTU0LWFiOGEtOWU4MDhmMjgxNDZmXkEyXkFqcGc@._V1_SX300.jpg",
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BM2Y0NzJiN2UtNTI1YS00NTU0LWFiOGEtOWU4MDhmMjgxNDZmXkEyXkFqcGc@._V1_QL75_UX380_CR0,4,380,562_.jpg",
       "imdb_rating": null,
       "imdb_votes": null,
       "content_rating": null,
@@ -310411,8 +310655,9 @@
         "Short",
         "Fantasy"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt3554462": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYTdhMWFhZDEtNGRjYS00YTZkLTlhZTAtMmNkZTJkZWNkMTUxXkEyXkFqcGdeQXVyMDU4MTQ0Ng@@._V1_SX300.jpg",
@@ -310619,8 +310864,9 @@
       "genres": [
         "Drama"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt37287335": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzc1NWUwMDgtNGZlMS00ZmYzLWIzMzktNmMxMmY1MTUzNWExXkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
@@ -310659,8 +310905,9 @@
       "genres": [
         "Sci-Fi"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt3881768": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMjEyOTU0OTA2Ml5BMl5BanBnXkFtZTgwMTMzMzI2NTE@._V1_SX300.jpg",
@@ -310898,8 +311145,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt4386570": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNGQ3ZjYxYzAtOWZhMC00OTg3LTk2ZGQtMzEyNjFjZTZhYmM1XkEyXkFqcGdeQXVyMDM0MzU2NA@@._V1_SX300.jpg",
@@ -311256,8 +311504,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt4600982": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNDg0MDg4YWEtYzUzNC00OGMyLWI5MDAtYTMwNmFiYmUwOWY5XkEyXkFqcGc@._V1_SX300.jpg",
@@ -311293,8 +311542,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt4620462": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BODIzYWY0Y2YtMjBmMi00Zjc2LWI5NmUtODUxZmU4ODQ1MjUxXkEyXkFqcGdeQXVyMTIyODQyNDU0._V1_SX300.jpg",
@@ -311352,8 +311602,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt4741972": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNTI1ODQ3NTgtMDE5MC00M2MwLWFiMzEtYjQ0OWQ4M2NlMzM2XkEyXkFqcGdeQXVyMjY2OTEzMjk@._V1_SX300.jpg",
@@ -311428,8 +311679,9 @@
         "Short",
         "Comedy"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt4915880": {
       "poster_url": null,
@@ -311463,8 +311715,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt4945978": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BODE3MDc4MTU1NF5BMl5BanBnXkFtZTgwNTgxOTA2OTE@._V1_SX300.jpg",
@@ -311524,8 +311777,9 @@
         "Animation",
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt5040012": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BY2FhZGE3NmEtNWJjOC00NDI1LWFhMTQtMjcxNmQzZmEwNGIzXkEyXkFqcGc@._V1_QL75_UX380_CR0,0,380,562_.jpg",
@@ -311867,8 +312121,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt5587450": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZTdmZDg3ZTEtODg1ZS00OGU4LWJmMTAtMjM1YjUyOTNiYTllL2ltYWdlL2ltYWdlXkEyXkFqcGdeQXVyNjMxMjkwMjI@._V1_SX300.jpg",
@@ -312087,8 +312342,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt6021616": {
       "poster_url": null,
@@ -312124,8 +312380,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt6045832": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BM2IxNTNkZmUtNzE1OC00YzUzLTkyOGItMGZmM2VhYWI3YTg1XkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_SX300.jpg",
@@ -312140,8 +312397,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt6056976": {
       "poster_url": null,
@@ -312174,8 +312432,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt6157580": {
       "poster_url": null,
@@ -312307,8 +312566,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt6303116": {
       "poster_url": null,
@@ -312418,8 +312678,9 @@
         "Chet Huntley"
       ],
       "genres": [],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt6436770": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMTc5ZjhkMTYtY2JjOS00ZjI0LWFlNTgtOTdlYmQ2MDBhMjRjL2ltYWdlXkEyXkFqcGdeQXVyNTc1OTYzNDQ@._V1_SX300.jpg",
@@ -312460,8 +312721,9 @@
         "Short",
         "Comedy"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt6576108": {
       "poster_url": null,
@@ -312530,8 +312792,9 @@
         "Documentary",
         "War"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt6824252": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BM2UyZDQ3ZjEtMjQxYS00NDE3LWE0OGUtNWQ3ODViNGU5ZGY0XkEyXkFqcGdeQXVyODE3MDk1OTk@._V1_SX300.jpg",
@@ -312580,8 +312843,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt6843392": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZDUyOThkZTQtMTMxOC00NGRkLThmOTktMTE5ZTFhNWYyZjU4XkEyXkFqcGdeQXVyNzUyNzIyNzA@._V1_SX300.jpg",
@@ -312600,8 +312864,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt6845940": {
       "poster_url": null,
@@ -312714,8 +312979,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt7078616": {
       "poster_url": null,
@@ -312829,8 +313095,9 @@
         "Animation",
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt7260562": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMDY3Zjg1MTItYWY3ZS00MGUyLThkMjUtZTUxNGY4Y2I4OGZiXkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_SX300.jpg",
@@ -312861,8 +313128,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt7279634": {
       "poster_url": null,
@@ -312877,8 +313145,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt7320714": {
       "poster_url": null,
@@ -312895,8 +313164,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt7320818": {
       "poster_url": null,
@@ -312912,8 +313182,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt7320904": {
       "poster_url": null,
@@ -312930,11 +313201,12 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt7321066": {
-      "poster_url": null,
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BZmJlNDA4N2ItZTdiYy00OWI4LThmZjMtNmY1ZjVmYmIzYzk5XkEyXkFqcGc@._V1_QL75_UX1000_CR0,146,1000,563_.jpg",
       "imdb_rating": null,
       "imdb_votes": null,
       "content_rating": null,
@@ -312948,8 +313220,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt7321098": {
       "poster_url": null,
@@ -313004,8 +313277,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt7321928": {
       "poster_url": null,
@@ -313022,8 +313296,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt7322114": {
       "poster_url": null,
@@ -313040,8 +313315,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt7358570": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZTUzNjc0ZmEtMGEyYS00ZTgxLWJiNGItODFmM2FhY2JmZTk0XkEyXkFqcGdeQXVyMDEwNTk0NA@@._V1_SX300.jpg",
@@ -313353,8 +313629,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt8244784": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMjVmMDY4NGMtZTk3Yi00Zjg1LTkxOWYtNGFmNTdjNzYzNDkwXkEyXkFqcGc@._V1_QL75_UX380_CR0,20,380,562_.jpg",
@@ -313394,8 +313671,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt8342194": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMTAxMjZmOWUtZDYyYy00YzA5LWE1OTItZWY4YTEwYzk1NTg4XkEyXkFqcGc@._V1_SX300.jpg",
@@ -313410,8 +313688,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt8406654": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZjZhYWE5NWItZjIwOC00ODQyLWExZTEtODZhZDRhYmMyYTYyXkEyXkFqcGc@._V1_SX300.jpg",
@@ -313546,8 +313825,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt8876486": {
       "poster_url": null,
@@ -313596,8 +313876,9 @@
         "Aleksandra Rebikova"
       ],
       "genres": [],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt8993482": {
       "poster_url": null,
@@ -313631,8 +313912,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt9214844": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BOTA5YmZiOTgtNDg2YS00OGNjLWJjZjEtNDVlMWIwYjM2YTQ4XkEyXkFqcGc@._V1_QL75_UY562_CR9,0,380,562_.jpg",
@@ -313692,8 +313974,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-06-30T06:33:48Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt9416532": {
       "poster_url": null,
@@ -334855,8 +335138,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-07-08T05:31:46Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1149968": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMWI0M2YzMTEtNjAyNS00ZjI5LWJjNmUtODM3NTlkYmMwNmEzXkEyXkFqcGdeQXVyMTExMjA3OTc@._V1_SX300.jpg",
@@ -334930,8 +335214,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-07-08T05:31:46Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt11719772": {
       "poster_url": null,
@@ -334950,8 +335235,9 @@
         "Short",
         "Fantasy"
       ],
-      "fetched_at": "2026-07-08T05:31:46Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1188696": {
       "poster_url": null,
@@ -335058,11 +335344,12 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-07-08T05:31:46Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt13038926": {
-      "poster_url": null,
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNjAxNDYxYjItOGYxMC00NDQ4LTk4NTEtMGNlZTgxOGZiMTljXkEyXkFqcGc@._V1_QL75_UX332_.jpg",
       "imdb_rating": null,
       "imdb_votes": null,
       "content_rating": null,
@@ -335076,8 +335363,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-07-08T05:31:46Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1307879": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMmJiY2IzZGItMzA4Ni00OWVkLWJjZGUtZDYzNDllNjY4OGEwXkEyXkFqcGc@._V1_QL75_UX1000_CR0,94,1000,563_.jpg",
@@ -335150,8 +335438,9 @@
         "Short",
         "Comedy"
       ],
-      "fetched_at": "2026-07-08T05:31:46Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt13854334": {
       "poster_url": null,
@@ -335220,8 +335509,9 @@
         "Animation",
         "Short"
       ],
-      "fetched_at": "2026-07-08T05:31:46Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt14444248": {
       "poster_url": null,
@@ -335276,8 +335566,9 @@
         "Short",
         "Thriller"
       ],
-      "fetched_at": "2026-07-08T05:31:46Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1487926": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMDVmN2IwZjItYmE4NS00OGMwLWE5OGQtZDQ0YzY2YmY0MTA0XkEyXkFqcGc@._V1_SX300.jpg",
@@ -335545,8 +335836,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-07-08T05:31:46Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1961322": {
       "poster_url": null,
@@ -335562,8 +335854,9 @@
       "genres": [
         "Documentary"
       ],
-      "fetched_at": "2026-07-08T05:31:46Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1964838": {
       "poster_url": null,
@@ -335754,8 +336047,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-07-08T05:31:46Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt3369930": {
       "poster_url": null,
@@ -335988,8 +336282,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-07-08T05:31:46Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt5192488": {
       "poster_url": null,
@@ -336138,8 +336433,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-07-08T05:31:46Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt7320862": {
       "poster_url": null,
@@ -336153,8 +336449,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-07-08T05:31:46Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt7320990": {
       "poster_url": null,
@@ -336170,8 +336467,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-07-08T05:31:46Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt7321012": {
       "poster_url": null,
@@ -336188,8 +336486,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-07-08T05:31:46Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt7321576": {
       "poster_url": null,
@@ -336203,8 +336502,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-07-08T05:31:46Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt7322076": {
       "poster_url": null,
@@ -336221,8 +336521,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-07-08T05:31:46Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt7322196": {
       "poster_url": null,
@@ -336240,8 +336541,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-07-08T05:31:46Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt7322220": {
       "poster_url": null,
@@ -336256,8 +336558,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-07-08T05:31:46Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt7386782": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNTkxNTBhYTEtNWRiYi00YTRhLWJkZjMtY2U0YTZiZDYxZDgzXkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_SX300.jpg",
@@ -336289,8 +336592,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-07-08T05:31:46Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt8086184": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYjNiODBiNTktZWYyNy00ZjhmLWJlMGQtOGRjMDEzOTgzZWQ3XkEyXkFqcGdeQXVyMzI2MDEwNA@@._V1_SX300.jpg",
@@ -336360,8 +336664,9 @@
         "Iren"
       ],
       "genres": [],
-      "fetched_at": "2026-07-08T05:31:46Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0013144": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNzRmNTA2MTctNWIyYS00N2JhLTg0MzEtYzUwZDJiMmY1ZjI2XkEyXkFqcGdeQXVyNjA5MTAzODY@._V1_SX300.jpg",
@@ -336497,8 +336802,9 @@
         "Short",
         "Musical"
       ],
-      "fetched_at": "2026-07-14T05:10:18Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt3241086": {
       "poster_url": null,
@@ -338183,8 +338489,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-07-17T05:23:32Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0449988": {
       "poster_url": null,
@@ -338289,8 +338596,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-07-17T05:23:32Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0462701": {
       "poster_url": null,
@@ -338308,8 +338616,9 @@
       "genres": [
         "Drama"
       ],
-      "fetched_at": "2026-07-17T05:23:32Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0477341": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BODU3MmJiMDktMTE4Ni00ZjY2LTk4YjAtOGI1NTU1MjI2YzYzXkEyXkFqcGdeQXVyNTM3MDMyMDQ@._V1_SX300.jpg",
@@ -338343,8 +338652,9 @@
         "Short",
         "Fantasy"
       ],
-      "fetched_at": "2026-07-17T05:23:32Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0860480": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMzg3YzdmMmItMmViYi00NjBhLWIwZWYtYjk4Y2Q0N2ViNmQzXkEyXkFqcGdeQXVyNjA5MTAzODY@._V1_SX300.jpg",
@@ -338385,8 +338695,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-07-17T05:23:32Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1003194": {
       "poster_url": null,
@@ -338472,8 +338783,9 @@
         "Short",
         "Comedy"
       ],
-      "fetched_at": "2026-07-17T05:23:32Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1228653": {
       "poster_url": null,
@@ -338508,8 +338820,9 @@
         "Short",
         "Comedy"
       ],
-      "fetched_at": "2026-07-17T05:23:32Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1663890": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BODZmZmQ2N2UtZDRjMC00N2JmLWEzMzktY2I2NTQ4ZWUyODRhXkEyXkFqcGdeQXVyNzUyMjQ3NTQ@._V1_SX300.jpg",
@@ -338578,8 +338891,9 @@
         "Short",
         "Drama"
       ],
-      "fetched_at": "2026-07-17T05:23:32Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt2150537": {
       "poster_url": null,
@@ -338693,8 +339007,9 @@
         "Short",
         "Sport"
       ],
-      "fetched_at": "2026-07-17T05:23:32Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt3186740": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BNTlkYWVmOTQtODRjNS00ZGQ2LWFmMWEtZDY3YzcyYjJmMzFmXkEyXkFqcGdeQXVyMDM0MzU2NA@@._V1_SX300.jpg",
@@ -339882,8 +340197,9 @@
         "Comedy",
         "Music"
       ],
-      "fetched_at": "2026-08-06T05:27:52Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt10676042": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BYzdmYWIyN2MtMTVjNC00MGQ4LTkzMWMtNDA0NDQ5MzZiMzI3XkEyXkFqcGc@._V1_SX300.jpg",
@@ -340105,8 +340421,9 @@
         "Crime",
         "Drama"
       ],
-      "fetched_at": "2026-08-06T05:27:52Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt29473923": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BMTYyMGQ1YzItYzhmZS00YzZjLWFjZWEtZGY2YWNiNTc2ZTA1XkEyXkFqcGdeQXVyMzUwMDU2MjM@._V1_SX300.jpg",
@@ -341445,8 +341762,9 @@
         "Animation",
         "Short"
       ],
-      "fetched_at": "2026-09-22T07:44:57Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt34499672": {
       "poster_url": null,
@@ -341712,8 +342030,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-09-25T02:55:08Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0019802": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BOTM1OWFkMWUtYjc4Ny00MzkzLWIxODEtMDkyOTUwMjdiMGYxXkEyXkFqcGdeQXVyNDg5MjMyMTM@._V1_SX300.jpg",
@@ -342103,8 +342422,9 @@
       "genres": [
         "Short"
       ],
-      "fetched_at": "2026-09-25T07:19:54Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt7010100": {
       "poster_url": null,
@@ -343041,8 +343361,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-09-25T07:53:16Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0496923": {
       "poster_url": null,
@@ -343090,8 +343411,9 @@
         "Short",
         "Comedy"
       ],
-      "fetched_at": "2026-09-25T07:53:16Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0855903": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZDJkYjUxYjMtZDExMi00M2E5LTkzZTctOTY3OGE4MWMxZDcwXkEyXkFqcGdeQXVyMDU0Mzg3Nw@@._V1_SX300.jpg",
@@ -343110,8 +343432,9 @@
         "Short",
         "Comedy"
       ],
-      "fetched_at": "2026-09-25T07:53:16Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1013774": {
       "poster_url": null,
@@ -343175,8 +343498,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-09-25T07:53:16Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt1964514": {
       "poster_url": null,
@@ -343241,8 +343565,9 @@
         "Animation",
         "Short"
       ],
-      "fetched_at": "2026-09-25T07:53:16Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt32793079": {
       "poster_url": "https://m.media-amazon.com/images/M/MV5BZDA1NDFkZGItMTZlYi00MWZkLWEyZWEtNjQ1NGJlYzcwZjAyXkEyXkFqcGc@._V1_SX300.jpg",
@@ -343260,8 +343585,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-09-25T07:53:16Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt4106976": {
       "poster_url": null,
@@ -343314,8 +343640,9 @@
         "Documentary",
         "Short"
       ],
-      "fetched_at": "2026-09-25T07:53:16Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt4902560": {
       "poster_url": null,
@@ -343378,8 +343705,9 @@
         "Animation",
         "Short"
       ],
-      "fetched_at": "2026-09-25T07:53:16Z",
-      "schema": 3
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
     },
     "tt0015357": {
       "poster_url": null,
@@ -393301,6 +393629,300 @@
       ],
       "critics": null,
       "fetched_at": "2026-10-27T07:55:53Z",
+      "schema": 4
+    },
+    "tt0031982": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNzA5ZTc0ZDctOWE0NS00NGUwLTlmNGUtY2YxMTBhODVlNDZmXkEyXkFqcGdeQXVyMDYxMTUwNg@@._V1_SX300.jpg",
+      "imdb_rating": 6.1,
+      "imdb_votes": 112,
+      "content_rating": "Approved",
+      "plot": "The story of the career of Alfred Nobel, who invented dynamite as a constructive force for good, and lived to see it become a maiming-and-killing weapon of war. A mother, whose son was maimed in war, brings Nobel to the son's bedside, where he realizes the horrific use his invention had been put to. He then created the Nobel Awards, for the outstanding annual achievement in the cause of world peace.",
+      "runtime_min": 11,
+      "director": "Joseph M. Newman",
+      "actors": [
+        "John Nesbitt",
+        "Gene Coogan",
+        "Lalo Encinas"
+      ],
+      "genres": [
+        "Short",
+        "Biography",
+        "Drama"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
+    },
+    "tt0035662": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMzJlNWFlYTUtYmViNC00N2YyLThhMzktM2NlYjRkN2UwMDZmXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 5.7,
+      "imdb_votes": 59,
+      "content_rating": null,
+      "plot": "Training film for the U.S. Army men preparing for their initial entry into the war against the Nazis. Teaching the techniques of enemy identification, combat and hand to hand fighting.",
+      "runtime_min": 36,
+      "director": "U.S. Army Signal Corps",
+      "actors": [
+        "Elisha Cook Jr.",
+        "Walter Sande",
+        "Peter Whitney"
+      ],
+      "genres": [
+        "Short",
+        "Drama",
+        "War"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
+    },
+    "tt0138056": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYmRiYzIxMjMtMTI5Zi00NWFkLThiNjktOWU2ZmY1OGVkYTM4XkEyXkFqcGdeQXVyMzg1ODEwNQ@@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": 32,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 29,
+      "director": "Jerzy Bossak, Waclaw Kazmierczak",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
+    },
+    "tt0232682": {
+      "poster_url": null,
+      "imdb_rating": 4.0,
+      "imdb_votes": 78,
+      "content_rating": null,
+      "plot": "There must have been millions of subjects for Edison's filmmakers to point there cameras at back in 1903 so why on earth they thought that the collection and disposal of New York City's rubbish would prove a suitable subject to present to their dwindling audiences is a mystery. Add to this the fact that the camera has been positioned about a dozen feet from the men and you're left with a film that's as dull as it is unmemorable. The men are apparently separating paper and other scrap materials from the rest of the waste for recycling. It's a subject that was probably as interesting to audiences in 1903 as a similar film would be to us today. Even at a minute-and-a-half long this really isn't worth your time.",
+      "runtime_min": 2,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
+    },
+    "tt0265225": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Short",
+        "Documentary"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
+    },
+    "tt14025290": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYWQzZGEyMGUtM2MyZi00YmQzLWFlNmYtYTVhZmVkZjk4Mjg0XkEyXkFqcGdeQXVyODg5ODAyODM@._V1_SX300.jpg",
+      "imdb_rating": 6.5,
+      "imdb_votes": 42,
+      "content_rating": null,
+      "plot": "Filmed form 2015 to 2020, the documentary follows the gender transition of Lily (formerly Llyr) Jones, a young trans woman from Wales.",
+      "runtime_min": 39,
+      "director": "Molly-Anna Woods",
+      "actors": [
+        "Lily Jones",
+        "Ian Rodgers",
+        "Huw Jones"
+      ],
+      "genres": [
+        "Documentary"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
+    },
+    "tt1877627": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BN2ZhMjJhOTMtOGJjZS00ZDZkLWIzZDktMDdmNmEyM2M3MWJjXkEyXkFqcGdeQXVyMTY2NTEyMTY@._V1_SX300.jpg",
+      "imdb_rating": 6.1,
+      "imdb_votes": 9,
+      "content_rating": null,
+      "plot": "This recruitment film for the Royal Navy's air adjunct -- the planes still carrying the tricolor bullseye of the RAF -- is a rather dull affair. I made the mistake, many years ago, of accepting a ride from a U. S. Navy pilot, and landing on a carrier deck was, well, not enjoyable; I took a launch back to land. This short does not seem exciting, more a matter of dull routine, even when a plane crash lands on deck.Still, it's always good to hear Ralph Richardson speak, his clear voice making even the most obviously polished bit of prose sound spontaneous.",
+      "runtime_min": 10,
+      "director": "Cyril Frankel",
+      "actors": [
+        "Ralph Richardson"
+      ],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
+    },
+    "tt26626631": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNGQ2NzUyN2YtNTA4MC00NjAxLWE0OGYtYzI4ZWU4N2IyOTIwXkEyXkFqcGc@._V1_QL75_UY562_CR9,0,380,562_.jpg",
+      "imdb_rating": 3.9,
+      "imdb_votes": 9,
+      "content_rating": null,
+      "plot": "Three beautiful scientists investigate possible alien sightings in the Nevada desert near Area 51. The women are kidnapped and experimented on until one of them finds herself pregnant and giving birth to an alien hybrid.",
+      "runtime_min": 78,
+      "director": null,
+      "actors": [
+        "Debbie D",
+        "Barbara Joyce",
+        "Pamela Sutch"
+      ],
+      "genres": [
+        "Horror",
+        "Sci-Fi"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
+    },
+    "tt29714073": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BNmViZDJhOWItMGRkMC00ZTlmLTg4ZGYtYjU5MzM2N2ZhNTZlXkEyXkFqcGc@._V1_QL75_UY562_CR0,0,380,562_.jpg",
+      "imdb_rating": 7.2,
+      "imdb_votes": 1165,
+      "content_rating": "R",
+      "plot": "Maria, a primary school teacher doing her best to inspire a class of 10-year-olds, but is stifled by one unruly and chaotic student. With her career in question and the child's behavior spiraling, she makes a series of bad decisions that lead to her accidentally taking and locking this \"bad apple\" in her home. Maria tries desperately to backtrack, but when the class starts flourishing and the staff and parents are thrilled with the improvement, she finds herself in a very complicated predicament.",
+      "runtime_min": 100,
+      "director": "Jonatan Etzler",
+      "actors": [
+        "Eddie Waller",
+        "Sean Gilder",
+        "Harvey Ip"
+      ],
+      "genres": [
+        "Comedy",
+        "Mystery",
+        "Thriller"
+      ],
+      "critics": {
+        "rt": 82,
+        "mc": 65
+      },
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
+    },
+    "tt3064208": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 22,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
+    },
+    "tt32460755": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 33,
+      "director": null,
+      "actors": [
+        "Russ Hodges",
+        "Jack McGrath",
+        "Bill Vukovich"
+      ],
+      "genres": [
+        "Short",
+        "Documentary"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
+    },
+    "tt4944550": {
+      "poster_url": null,
+      "imdb_rating": 6.8,
+      "imdb_votes": 9,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": 2,
+      "director": "Richard Massingham",
+      "actors": [
+        "Russell Waters"
+      ],
+      "genres": [
+        "Short",
+        "Fantasy"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
+    },
+    "tt6914742": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BMTBjODFmZTEtY2NmZS00ZjQwLTkxY2EtMGI2ZGY1ODQ4YTZkXkEyXkFqcGc@._V1_SX300.jpg",
+      "imdb_rating": 6.6,
+      "imdb_votes": 1582,
+      "content_rating": "TV-G",
+      "plot": "Sparks fly when a dog walker with hidden artistic talent becomes the subject of an art history professor's plans to Impress her employers at an art exhibition.",
+      "runtime_min": 83,
+      "director": "Kristoffer Tabori",
+      "actors": [
+        "Taylor Cole",
+        "Steve Lund",
+        "Brenda Crichlow"
+      ],
+      "genres": [
+        "Comedy",
+        "Drama",
+        "Romance"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
+    },
+    "tt7238404": {
+      "poster_url": "https://m.media-amazon.com/images/M/MV5BYWFmMzA4YTQtZmRkYS00ZTdiLTkxNWEtNDU5NTY1NmIxYWQwXkEyXkFqcGdeQXVyMTY2NTEyMTY@._V1_SX300.jpg",
+      "imdb_rating": null,
+      "imdb_votes": 7,
+      "content_rating": null,
+      "plot": "Theatrical advertisement for National Savings Stamps.",
+      "runtime_min": 1,
+      "director": null,
+      "actors": [],
+      "genres": [
+        "Short",
+        "Comedy",
+        "War"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
+      "schema": 4
+    },
+    "tt9209030": {
+      "poster_url": null,
+      "imdb_rating": null,
+      "imdb_votes": null,
+      "content_rating": null,
+      "plot": null,
+      "runtime_min": null,
+      "director": "Richard Lyford",
+      "actors": [],
+      "genres": [
+        "Documentary",
+        "Short"
+      ],
+      "critics": null,
+      "fetched_at": "2026-10-28T08:37:50Z",
       "schema": 4
     }
   },
