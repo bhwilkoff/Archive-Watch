@@ -426,6 +426,15 @@ def ship(aid, args):
         platform = PLATFORMS[name]
         print(f"  {name}")
         try:
+            # Wait for the new build BEFORE withdrawing the old one: a build that
+            # never finishes processing must not leave a version withdrawn.
+            if args.replace_in_flight and not args.dry_run:
+                await_build(aid, number, platform, args.wait_build_minutes)
+                b = find_build(aid, number, platform)
+                if not b or b["attributes"]["processingState"] != "VALID":
+                    print(f"    !! build {number} is not VALID; leaving the version in review as it is")
+                    failed.append(name)
+                    continue
             if args.replace_in_flight and not replace_in_flight(aid, platform, number, args.dry_run):
                 failed.append(name)
                 continue
