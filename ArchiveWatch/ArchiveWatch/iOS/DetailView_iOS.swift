@@ -184,6 +184,8 @@ struct DetailView: View {
             // The spoken name is the visible word, so Voice Control's
             // "tap More" reaches it.
             .accessibilityLabel("More")
+            // The synopsis's own "More" link shares the word; tests find the menu by id.
+            .accessibilityIdentifier("detail.more")
         }
         .task(id: item.archiveID) {
             chosenVersionName = ArchiveVersions.chosenName(for: item.archiveID)

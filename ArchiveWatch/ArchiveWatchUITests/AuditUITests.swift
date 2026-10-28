@@ -234,30 +234,20 @@ final class AuditUITests: XCTestCase {
             XCTFail("MISSING favourite button")
         }
 
-        // Every remaining action, by accessibility label. Each is dismissed
-        // and CONFIRMED gone before the next — a sheet left standing makes the
-        // next button unreachable and reads as a dead control.
-        for (label, hint) in [("Add to playlist", "playlist"),
-                              ("Get subtitles", "subtitles"),
-                              ("Create a clip or GIF", "clip"),
-                              ("Choose another copy", "versions"),
-                              ("Share and more", "share")] {
-            let b = app.buttons[label].firstMatch
-            guard b.waitForExistence(timeout: 6) else {
-                XCTFail("MISSING action: \(label)"); continue
-            }
-            guard scrollIntoView(b) else { continue }
-            b.tap(); sleep(3); snap("detail-\(hint)")
-            for _ in 0..<3 {
-                let cancel = app.buttons["Cancel"].firstMatch
-                if cancel.exists && cancel.isHittable { cancel.tap() }
-                else if app.sheets.count > 0 || app.otherElements["PopoverDismissRegion"].exists {
-                    app.otherElements["PopoverDismissRegion"].firstMatch.tap()
-                } else { app.swipeDown() }
-                sleep(2)
-                if app.buttons[label].firstMatch.isHittable { break }
+        // The rest of the actions live in the More menu (iPhone Detail redesign,
+        // v1.42.772): every one must be IN it. Opened by id — the synopsis's
+        // "More" link shares the word.
+        let more = app.buttons["detail.more"].firstMatch
+        XCTAssertTrue(more.waitForExistence(timeout: 10), "MISSING More on Detail")
+        _ = scrollIntoView(more)
+        for label in ["Add to Playlist", "Subtitles", "Create a Clip", "Choose Version", "Share Link…"] {
+            if !app.buttons[label].firstMatch.exists { more.tap(); sleep(2) }
+            if !app.buttons[label].firstMatch.waitForExistence(timeout: 4) {
+                XCTFail("MISSING action in More: \(label)")
             }
         }
+        snap("detail-more-menu")
+        app.coordinate(withNormalizedOffset: CGVector(dx: 0.5, dy: 0.1)).tap(); sleep(1)
         snap("detail-after-actions")
     }
 
@@ -385,7 +375,9 @@ final class AuditUITests: XCTestCase {
     /// Detail → More → Add to Playlist (it moved into the action row's More
     /// menu; the tests still looked for a top-level button).
     private func openAddToPlaylist() {
-        let more = app.buttons["More"].firstMatch
+        // By id: the synopsis's "More" link shares the label, and which of the
+        // two a label query found first decided whether this helper worked.
+        let more = app.buttons["detail.more"].firstMatch
         XCTAssertTrue(more.waitForExistence(timeout: 20), "MISSING More on Detail")
         sleep(2)   // Detail settles (its artwork and More Like This load) before a menu opens
         let add = app.buttons["Add to Playlist"].firstMatch

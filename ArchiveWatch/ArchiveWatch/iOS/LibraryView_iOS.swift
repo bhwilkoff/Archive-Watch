@@ -184,7 +184,10 @@ struct LibraryView: View {
 
     private var recent: [Catalog.Item] {
         var seen = Set<String>()
-        return historyRows.lazy.map(\.item).filter { seen.insert($0.archiveID).inserted }.prefix(12).map { $0 }
+        // Eager on purpose: a LAZY filter whose predicate mutates `seen` answers
+        // differently each time prefix walks it, and the index arithmetic trapped
+        // (Collection.prefix, Library on the iPhone 12, 2026-10-28).
+        return Array(historyRows.map(\.item).filter { seen.insert($0.archiveID).inserted }.prefix(12))
     }
 
     private var places: some View {
