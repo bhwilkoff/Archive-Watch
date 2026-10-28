@@ -4,7 +4,7 @@
   "tvmazeID": 4951,
   "title": "The Rebel",
   "yearStart": 1959,
-  "yearEnd": 1961,
+  "yearEnd": 1960,
   "overview": "Western starring Nick Adams as Johnny Yuma, a former Confederate soldier who headed west after the conclusion of the Civil War in search of adventure and himself. 76 episodes of The Rebel was filmed over the course of two seasons and country music legend Johnny Cash sang the show's haunting theme song.",
   "posterURL": "https://artworks.thetvdb.com/banners/posters/76434-2.jpg",
   "backdropURL": null,
@@ -22,6 +22,186 @@
       "seasonNumber": 1,
       "episodes": [
         {
+          "archiveID": "the-rebel-tv-1959-s01e01-johnny-yuma",
+          "seasonNumber": 1,
+          "episodeNumber": 1,
+          "title": "The Rebel TV 1959 colorized s01e01 Johnny Yuma",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-rebel-tv-1959-s01e01-johnny-yuma",
+          "airDate": null,
+          "year": 1959,
+          "runtimeSeconds": 1552,
+          "videoFile": {
+            "name": "The Rebel TV 1959 colorized s01e01 Johnny Yuma.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 161431000,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-rebel-tv-1959-s01e01-johnny-yuma/The%20Rebel%20TV%201959%20colorized%20s01e01%20Johnny%20Yuma.mp4"
+        },
+        {
+          "archiveID": "the-rebel-2021-ep-02",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "The Rebel 2021 EP 02",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-rebel-2021-ep-02",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2725,
+          "videoFile": {
+            "name": "TheRebel2021EP02.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1524242446,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-rebel-2021-ep-02/TheRebel2021EP02.mp4"
+        },
+        {
+          "archiveID": "the-rebel-2021-ep-04",
+          "seasonNumber": 1,
+          "episodeNumber": 4,
+          "title": "The Rebel 2021 EP 04",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-rebel-2021-ep-04",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2725,
+          "videoFile": {
+            "name": "TheRebel2021EP04.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1521497737,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-rebel-2021-ep-04/TheRebel2021EP04.mp4"
+        },
+        {
+          "archiveID": "the-rebel-2021-ep-05",
+          "seasonNumber": 1,
+          "episodeNumber": 5,
+          "title": "The Rebel 2021 EP 05",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-rebel-2021-ep-05",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2725,
+          "videoFile": {
+            "name": "TheRebel2021EP05.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1517609836,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-rebel-2021-ep-05/TheRebel2021EP05.mp4"
+        },
+        {
+          "archiveID": "the-rebel-2021-ep-06",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Rebel 2021 EP 06",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-rebel-2021-ep-06",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2725,
+          "videoFile": {
+            "name": "TheRebel2021EP05.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1517609836,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-rebel-2021-ep-06/TheRebel2021EP05.mp4"
+        },
+        {
+          "archiveID": "the-rebel-2021-ep-06_202106",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "The Rebel 2021 EP 06",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-rebel-2021-ep-06_202106",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2725,
+          "videoFile": {
+            "name": "TheRebel2021EP06.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1520575200,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-rebel-2021-ep-06_202106/TheRebel2021EP06.mp4"
+        },
+        {
+          "archiveID": "the-rebel-2021-ep-07",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Rebel 2021 EP 07",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-rebel-2021-ep-07",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2725,
+          "videoFile": {
+            "name": "TheRebel2021EP07.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1518226096,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-rebel-2021-ep-07/TheRebel2021EP07.mp4"
+        },
+        {
+          "archiveID": "the-rebel-2021-ep-08",
+          "seasonNumber": 1,
+          "episodeNumber": 8,
+          "title": "The Rebel 2021 EP 08",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-rebel-2021-ep-08",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2725,
+          "videoFile": {
+            "name": "TheRebel2021EP08.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1525541444,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-rebel-2021-ep-08/TheRebel2021EP08.mp4"
+        },
+        {
+          "archiveID": "the-rebel-2021-ep-11",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "The Rebel 2021 EP 11",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-rebel-2021-ep-11",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2725,
+          "videoFile": {
+            "name": "TheRebel2021EP11.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1532850621,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-rebel-2021-ep-11/TheRebel2021EP11.mp4"
+        },
+        {
+          "archiveID": "the-rebel-2021-ep-15",
+          "seasonNumber": 1,
+          "episodeNumber": 15,
+          "title": "The Rebel 2021 EP 15",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-rebel-2021-ep-15",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2725,
+          "videoFile": {
+            "name": "TheRebel2021EP15.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1521689346,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-rebel-2021-ep-15/TheRebel2021EP15.mp4"
+        },
+        {
           "archiveID": "the-rebel-tv-1959-s01e16-glory",
           "seasonNumber": 1,
           "episodeNumber": 16,
@@ -38,11 +218,191 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/the-rebel-tv-1959-s01e16-glory/The%20Rebel%20TV%201959%20colorized%20s01e16%20Glory.mp4"
+        },
+        {
+          "archiveID": "the-rebel-2021-ep-16",
+          "seasonNumber": 1,
+          "episodeNumber": 16,
+          "title": "The Rebel 2021 EP 16",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-rebel-2021-ep-16",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2725,
+          "videoFile": {
+            "name": "TheRebel2021EP16.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1517824711,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-rebel-2021-ep-16/TheRebel2021EP16.mp4"
+        },
+        {
+          "archiveID": "the-rebel-2021-ep-17",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "The Rebel 2021 EP 17",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-rebel-2021-ep-17",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2725,
+          "videoFile": {
+            "name": "TheRebel2021EP17.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1518925556,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-rebel-2021-ep-17/TheRebel2021EP17.mp4"
+        },
+        {
+          "archiveID": "the-rebel-2021-ep-18",
+          "seasonNumber": 1,
+          "episodeNumber": 18,
+          "title": "The Rebel 2021 EP 18",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-rebel-2021-ep-18",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2725,
+          "videoFile": {
+            "name": "TheRebel2021EP18.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1522966253,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-rebel-2021-ep-18/TheRebel2021EP18.mp4"
+        },
+        {
+          "archiveID": "the-rebel-in-memory-of-a-son-season-one-episode-thirty-one",
+          "seasonNumber": 1,
+          "episodeNumber": 31,
+          "title": "Jack Hogan, Nick Adams in The Rebel - In memory of a son",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-rebel-in-memory-of-a-son-season-one-episode-thirty-one",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 1551,
+          "videoFile": {
+            "name": "THE REBEL - IN MEMORY OF A SON - Season One - Episode Thirty-One.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 150894916,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-rebel-in-memory-of-a-son-season-one-episode-thirty-one/THE%20REBEL%20-%20IN%20MEMORY%20OF%20A%20SON%20-%20Season%20One%20-%20Episode%20Thirty-One.ia.mp4"
+        },
+        {
+          "archiveID": "the-rebel-2021-ep-33",
+          "seasonNumber": 1,
+          "episodeNumber": 33,
+          "title": "The Rebel 2021 EP 33",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-rebel-2021-ep-33",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2725,
+          "videoFile": {
+            "name": "TheRebel2021EP33.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1533156732,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-rebel-2021-ep-33/TheRebel2021EP33.mp4"
+        },
+        {
+          "archiveID": "the-rebel-2021-ep-34",
+          "seasonNumber": 1,
+          "episodeNumber": 34,
+          "title": "The Rebel 2021 EP 34",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-rebel-2021-ep-34",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2725,
+          "videoFile": {
+            "name": "TheRebel2021EP34.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1526405615,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-rebel-2021-ep-34/TheRebel2021EP34.mp4"
+        },
+        {
+          "archiveID": "the-rebel-2021-ep-35",
+          "seasonNumber": 1,
+          "episodeNumber": 35,
+          "title": "The Rebel 2021 EP 35",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-rebel-2021-ep-35",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2725,
+          "videoFile": {
+            "name": "TheRebel2021EP35.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1526393048,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-rebel-2021-ep-35/TheRebel2021EP35.mp4"
+        },
+        {
+          "archiveID": "the-rebel-2021-ep-36",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "The Rebel 2021 EP 36",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-rebel-2021-ep-36",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2725,
+          "videoFile": {
+            "name": "TheRebel2021EP36.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1524711133,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-rebel-2021-ep-36/TheRebel2021EP36.mp4"
+        },
+        {
+          "archiveID": "the-rebel-2021-ep-40",
+          "seasonNumber": 1,
+          "episodeNumber": 40,
+          "title": "The Rebel 2021 EP 40",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-rebel-2021-ep-40",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2725,
+          "videoFile": {
+            "name": "TheRebel2021EP40.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1523524919,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-rebel-2021-ep-40/TheRebel2021EP40.mp4"
+        },
+        {
+          "archiveID": "the-rebel-2021-ep-41",
+          "seasonNumber": 1,
+          "episodeNumber": 41,
+          "title": "The Rebel 2021 EP 41",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/the-rebel-2021-ep-41",
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": 2725,
+          "videoFile": {
+            "name": "TheRebel2021EP41.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 1523578111,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/the-rebel-2021-ep-41/TheRebel2021EP41.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 1,
+  "episodesCount": 21,
   "canonicalEpisodesCount": 76,
   "tvmazeRating": null,
   "tvdbID": "76434",
@@ -60,5 +420,8 @@
       "order": 1,
       "profilePath": "https://artworks.thetvdb.com/banners/actors/46199.jpg"
     }
-  ]
+  ],
+  "seriesImdbID": "tt0052505",
+  "canonicalEpisodeCount": 46,
+  "canonicalSeasons": 2
 }

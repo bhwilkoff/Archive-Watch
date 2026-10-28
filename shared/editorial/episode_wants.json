@@ -1,12 +1,12 @@
 {
   "schema": 1,
-  "updated_at": "2026-10-27T10:35:16Z",
+  "updated_at": "2026-10-28T14:08:26Z",
   "description": "Missing-episode queue: canonical episodes (from OMDb) that we don't yet have on Archive. Drained by tools/backfill_tv_episodes.py.",
   "stats": {
-    "total": 19167,
-    "wanted": 18905,
-    "fulfilled": 262,
-    "series_with_gaps": 389
+    "total": 19411,
+    "wanted": 19141,
+    "fulfilled": 270,
+    "series_with_gaps": 392
   },
   "wants": [
     {
@@ -28627,6 +28627,16 @@
       "episodeImdbID": "tt0544278",
       "status": "wanted",
       "added_at": "2026-10-05T11:14:26Z"
+    },
+    {
+      "seriesID": "colonel-march-of-scotland-yard-1956",
+      "seriesTitle": "Colonel March of Scotland Yard",
+      "season": 1,
+      "episode": 4,
+      "title": "At Night All Cats Are Gray",
+      "episodeImdbID": "tt0544271",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
     },
     {
       "seriesID": "colonel-march-of-scotland-yard-1956",
@@ -111395,6 +111405,1276 @@
       "added_at": "2026-06-05T16:31:07Z"
     },
     {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 1,
+      "episode": 1,
+      "title": "Sixty Feet Below",
+      "episodeImdbID": "tt0696785",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 1,
+      "episode": 2,
+      "title": "Flooded Mine",
+      "episodeImdbID": "tt0696733",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 1,
+      "episode": 3,
+      "title": "Rapture of the Deep",
+      "episodeImdbID": "tt0696775",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 1,
+      "episode": 5,
+      "title": "The Sea Sled",
+      "episodeImdbID": "tt0696831",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 1,
+      "episode": 6,
+      "title": "Female of the Species",
+      "episodeImdbID": "tt0696732",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 1,
+      "episode": 9,
+      "title": "Gold Below",
+      "episodeImdbID": "tt0696736",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 1,
+      "episode": 10,
+      "title": "Recovery",
+      "episodeImdbID": "tt0696777",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 1,
+      "episode": 11,
+      "title": "Killer Whale",
+      "episodeImdbID": "tt0696747",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 1,
+      "episode": 12,
+      "title": "Midget Submarine",
+      "episodeImdbID": "tt0696756",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 1,
+      "episode": 13,
+      "title": "The Shark Cage",
+      "episodeImdbID": "tt0696833",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 1,
+      "episode": 14,
+      "title": "Hard Hat",
+      "episodeImdbID": "tt0696737",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 1,
+      "episode": 15,
+      "title": "Marvelous Treasure Machine",
+      "episodeImdbID": "tt0696754",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 1,
+      "episode": 16,
+      "title": "The Poacher",
+      "episodeImdbID": "tt0696825",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 1,
+      "episode": 17,
+      "title": "Girl in the Trunk",
+      "episodeImdbID": "tt0696735",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 1,
+      "episode": 18,
+      "title": "The Sponge Divers",
+      "episodeImdbID": "tt0696836",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 1,
+      "episode": 19,
+      "title": "Diamond River",
+      "episodeImdbID": "tt0696726",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 1,
+      "episode": 20,
+      "title": "Alligator Story",
+      "episodeImdbID": "tt0696703",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 1,
+      "episode": 21,
+      "title": "Magnetic Mine",
+      "episodeImdbID": "tt0696751",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 1,
+      "episode": 24,
+      "title": "Pressure Suit",
+      "episodeImdbID": "tt0696770",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 1,
+      "episode": 25,
+      "title": "The Prospectors",
+      "episodeImdbID": "tt0696826",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 1,
+      "episode": 27,
+      "title": "Underwater Station",
+      "episodeImdbID": "tt0696851",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 1,
+      "episode": 28,
+      "title": "The Lost Ones",
+      "episodeImdbID": "tt0696819",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 1,
+      "episode": 29,
+      "title": "Capture of the Santa Rosa",
+      "episodeImdbID": "tt0696711",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 1,
+      "episode": 30,
+      "title": "The Shipwreck",
+      "episodeImdbID": "tt0696834",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 1,
+      "episode": 31,
+      "title": "The Big Dive",
+      "episodeImdbID": "tt0696804",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 1,
+      "episode": 32,
+      "title": "The Birthday Present",
+      "episodeImdbID": "tt0696805",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 1,
+      "episode": 33,
+      "title": "Dead Man's Cove",
+      "episodeImdbID": "tt0696724",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 1,
+      "episode": 34,
+      "title": "Killer Rock",
+      "episodeImdbID": "tt0696746",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 1,
+      "episode": 36,
+      "title": "Lord Cristobal",
+      "episodeImdbID": "tt0696749",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 1,
+      "episode": 37,
+      "title": "Decoy",
+      "episodeImdbID": "tt0696725",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 1,
+      "episode": 38,
+      "title": "The Sea Has Ears",
+      "episodeImdbID": "tt0696830",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 1,
+      "episode": 39,
+      "title": "The Manganese Story",
+      "episodeImdbID": "tt0696820",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 2,
+      "episode": 1,
+      "title": "The Alcatraz Story",
+      "episodeImdbID": "tt0696801",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 2,
+      "episode": 2,
+      "title": "Operation Greenback",
+      "episodeImdbID": "tt0696765",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 2,
+      "episode": 3,
+      "title": "Underwater Security",
+      "episodeImdbID": "tt0696849",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 2,
+      "episode": 4,
+      "title": "Underwater Labyrinth",
+      "episodeImdbID": "tt0696844",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 2,
+      "episode": 6,
+      "title": "The Stunt",
+      "episodeImdbID": "tt0696837",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 2,
+      "episode": 7,
+      "title": "Diving for the Moon",
+      "episodeImdbID": "tt0696728",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 2,
+      "episode": 8,
+      "title": "The Search",
+      "episodeImdbID": "tt0696832",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 2,
+      "episode": 9,
+      "title": "Jettisoned",
+      "episodeImdbID": "tt0696744",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 2,
+      "episode": 10,
+      "title": "Murder at Sixty Feet",
+      "episodeImdbID": "tt0696761",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 2,
+      "episode": 11,
+      "title": "Air Pockets",
+      "episodeImdbID": "tt0696702",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 2,
+      "episode": 12,
+      "title": "The Dam",
+      "episodeImdbID": "tt0696809",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 2,
+      "episode": 13,
+      "title": "Dock Fire",
+      "episodeImdbID": "tt0696729",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 2,
+      "episode": 14,
+      "title": "The Persuaders",
+      "episodeImdbID": "tt0696824",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 2,
+      "episode": 16,
+      "title": "Strange Salvage",
+      "episodeImdbID": "tt0696792",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 2,
+      "episode": 17,
+      "title": "Underwater Survey",
+      "episodeImdbID": "tt0696852",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 2,
+      "episode": 18,
+      "title": "Underwater Curtain",
+      "episodeImdbID": "tt0696841",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 2,
+      "episode": 19,
+      "title": "Hermes",
+      "episodeImdbID": "tt0696738",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 2,
+      "episode": 20,
+      "title": "The Briefcase",
+      "episodeImdbID": "tt0696806",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 2,
+      "episode": 21,
+      "title": "Cave Diving",
+      "episodeImdbID": "tt0696712",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 2,
+      "episode": 23,
+      "title": "Underwater Shrine",
+      "episodeImdbID": "tt0696850",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 2,
+      "episode": 24,
+      "title": "Chain of Evidence",
+      "episodeImdbID": "tt0696713",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 2,
+      "episode": 27,
+      "title": "The Getaway",
+      "episodeImdbID": "tt0696815",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 2,
+      "episode": 29,
+      "title": "The Female",
+      "episodeImdbID": "tt0696814",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 2,
+      "episode": 30,
+      "title": "Port Security",
+      "episodeImdbID": "tt0696769",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 2,
+      "episode": 31,
+      "title": "Underwater Park",
+      "episodeImdbID": "tt0696846",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 2,
+      "episode": 32,
+      "title": "Underwater Unit",
+      "episodeImdbID": "tt0696853",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 2,
+      "episode": 33,
+      "title": "Proof of Guilt",
+      "episodeImdbID": "tt0696772",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 2,
+      "episode": 34,
+      "title": "Chained",
+      "episodeImdbID": "tt0696714",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 2,
+      "episode": 35,
+      "title": "Ransom",
+      "episodeImdbID": "tt0696774",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 2,
+      "episode": 36,
+      "title": "Oil Island",
+      "episodeImdbID": "tt0696764",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 2,
+      "episode": 37,
+      "title": "Base of Operations",
+      "episodeImdbID": "tt0696707",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 2,
+      "episode": 38,
+      "title": "Kelp Forest",
+      "episodeImdbID": "tt0696745",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 2,
+      "episode": 39,
+      "title": "The Raft",
+      "episodeImdbID": "tt0696827",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 3,
+      "episode": 1,
+      "title": "Asylum",
+      "episodeImdbID": "tt0696705",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 3,
+      "episode": 2,
+      "title": "Water Nymphs",
+      "episodeImdbID": "tt0696855",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 3,
+      "episode": 3,
+      "title": "Mr. Big",
+      "episodeImdbID": "tt0696759",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 3,
+      "episode": 4,
+      "title": "Hot Cargo",
+      "episodeImdbID": "tt0696740",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 3,
+      "episode": 6,
+      "title": "Cobalt Bomb",
+      "episodeImdbID": "tt0696717",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 3,
+      "episode": 7,
+      "title": "Counterfeit",
+      "episodeImdbID": "tt0696720",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 3,
+      "episode": 8,
+      "title": "Missile Watch",
+      "episodeImdbID": "tt0696757",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 3,
+      "episode": 9,
+      "title": "Jade Cavern",
+      "episodeImdbID": "tt0696743",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 3,
+      "episode": 10,
+      "title": "Expatriate's Return",
+      "episodeImdbID": "tt0696730",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 3,
+      "episode": 13,
+      "title": "Revolutionary Spoils",
+      "episodeImdbID": "tt0696779",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 3,
+      "episode": 14,
+      "title": "Pirate Gold",
+      "episodeImdbID": "tt0696767",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 3,
+      "episode": 15,
+      "title": "The Living Fossil",
+      "episodeImdbID": "tt0696818",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 3,
+      "episode": 16,
+      "title": "Submarine Explosion",
+      "episodeImdbID": "tt0696795",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 3,
+      "episode": 17,
+      "title": "Sacred Pool",
+      "episodeImdbID": "tt0696783",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 3,
+      "episode": 19,
+      "title": "Cross Current",
+      "episodeImdbID": "tt0696722",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 3,
+      "episode": 20,
+      "title": "Synthetic Hero",
+      "episodeImdbID": "tt0696799",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 3,
+      "episode": 22,
+      "title": "Target",
+      "episodeImdbID": "tt0696800",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 3,
+      "episode": 23,
+      "title": "Ghost Light",
+      "episodeImdbID": "tt0696734",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 3,
+      "episode": 24,
+      "title": "Rebreather",
+      "episodeImdbID": "tt0696776",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 3,
+      "episode": 25,
+      "title": "Blind Spot",
+      "episodeImdbID": "tt0696710",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 3,
+      "episode": 26,
+      "title": "The Replacement",
+      "episodeImdbID": "tt0696828",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 3,
+      "episode": 27,
+      "title": "Underwater Beacon",
+      "episodeImdbID": "tt0696840",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 3,
+      "episode": 32,
+      "title": "The Catalyst",
+      "episodeImdbID": "tt0696807",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 3,
+      "episode": 33,
+      "title": "The Missing Link",
+      "episodeImdbID": "tt0696822",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 3,
+      "episode": 34,
+      "title": "Underwater Narcotics",
+      "episodeImdbID": "tt0696845",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 3,
+      "episode": 35,
+      "title": "The Sound of Nothing",
+      "episodeImdbID": "tt0696835",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 3,
+      "episode": 36,
+      "title": "Prima Donna",
+      "episodeImdbID": "tt0696771",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 3,
+      "episode": 37,
+      "title": "Beyond Limits",
+      "episodeImdbID": "tt0696708",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 3,
+      "episode": 38,
+      "title": "Diplomatic Pouch",
+      "episodeImdbID": "tt0696727",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 4,
+      "episode": 1,
+      "title": "Point of No Return",
+      "episodeImdbID": "tt0696768",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 4,
+      "episode": 2,
+      "title": "River Treasure",
+      "episodeImdbID": "tt0696780",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 4,
+      "episode": 3,
+      "title": "The Destroyers",
+      "episodeImdbID": "tt0696812",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 4,
+      "episode": 4,
+      "title": "Vital Error",
+      "episodeImdbID": "tt0696854",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 4,
+      "episode": 5,
+      "title": "The Dancer",
+      "episodeImdbID": "tt0696810",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 4,
+      "episode": 6,
+      "title": "Sperling of Lamatsue",
+      "episodeImdbID": "tt0696789",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 4,
+      "episode": 8,
+      "title": "Mercy Ship",
+      "episodeImdbID": "tt0696755",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 4,
+      "episode": 9,
+      "title": "Hot Tracer",
+      "episodeImdbID": "tt0696741",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 4,
+      "episode": 10,
+      "title": "Sonar Story",
+      "episodeImdbID": "tt0696788",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 4,
+      "episode": 11,
+      "title": "Amigo",
+      "episodeImdbID": "tt0696704",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 4,
+      "episode": 12,
+      "title": "The Aquanettes",
+      "episodeImdbID": "tt0696803",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 4,
+      "episode": 13,
+      "title": "Survival Kit",
+      "episodeImdbID": "tt0696798",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 4,
+      "episode": 14,
+      "title": "Expedition",
+      "episodeImdbID": "tt0696731",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 4,
+      "episode": 15,
+      "title": "Bionics",
+      "episodeImdbID": "tt0696709",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 4,
+      "episode": 17,
+      "title": "Niko",
+      "episodeImdbID": "tt0696763",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 4,
+      "episode": 18,
+      "title": "Cougar",
+      "episodeImdbID": "tt0696719",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 4,
+      "episode": 19,
+      "title": "Sub Hatch",
+      "episodeImdbID": "tt0696794",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 4,
+      "episode": 20,
+      "title": "The Octopus Story",
+      "episodeImdbID": "tt0696823",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 4,
+      "episode": 21,
+      "title": "Quicksand",
+      "episodeImdbID": "tt0696773",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 4,
+      "episode": 23,
+      "title": "Baby",
+      "episodeImdbID": "tt0696706",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 4,
+      "episode": 24,
+      "title": "Confidential Mission",
+      "episodeImdbID": "tt0696718",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 4,
+      "episode": 26,
+      "title": "The Meet",
+      "episodeImdbID": "tt0696821",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 4,
+      "episode": 27,
+      "title": "Dark Evil",
+      "episodeImdbID": "tt0696723",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 4,
+      "episode": 28,
+      "title": "Sunken Car",
+      "episodeImdbID": "tt0696796",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 4,
+      "episode": 29,
+      "title": "Hit and Run",
+      "episodeImdbID": "tt0696739",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 4,
+      "episode": 30,
+      "title": "The Saint Story",
+      "episodeImdbID": "tt0696829",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 4,
+      "episode": 31,
+      "title": "Imposter",
+      "episodeImdbID": "tt0696742",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 4,
+      "episode": 32,
+      "title": "Superman",
+      "episodeImdbID": "tt0696797",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 4,
+      "episode": 33,
+      "title": "Roustabout",
+      "episodeImdbID": "tt0696782",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 4,
+      "episode": 34,
+      "title": "P.T. Boat",
+      "episodeImdbID": "tt0696766",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 4,
+      "episode": 35,
+      "title": "Starting Signal",
+      "episodeImdbID": "tt0696790",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 4,
+      "episode": 36,
+      "title": "Skipper",
+      "episodeImdbID": "tt0696786",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "sea-hunt-1958",
+      "seriesTitle": "Sea Hunt",
+      "season": 4,
+      "episode": 37,
+      "title": "Crime at Sea",
+      "episodeImdbID": "tt0696721",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
       "seriesID": "sergeant-preston-of-the-yukon-1955",
       "seriesTitle": "Sergeant Preston of the Yukon",
       "season": 1,
@@ -132516,6 +133796,16 @@
       "added_at": "2026-06-20T07:57:19Z"
     },
     {
+      "seriesID": "tate-1960",
+      "seriesTitle": "Tate",
+      "season": 1,
+      "episode": 13,
+      "title": "The Return of Jessica Jackson",
+      "episodeImdbID": "tt0718119",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
       "seriesID": "telephone-time-1956",
       "seriesTitle": "Telephone Time",
       "season": 1,
@@ -143826,6 +145116,696 @@
       "episodeImdbID": "tt14210110",
       "status": "wanted",
       "added_at": "2026-10-25T09:13:00Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 1,
+      "episode": 1,
+      "title": "Calling Doctor Baxter",
+      "episodeImdbID": "tt0528098",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 1,
+      "episode": 3,
+      "title": "It's Later Than You Think",
+      "episodeImdbID": "tt1253615",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 1,
+      "episode": 5,
+      "title": "Bob Becomes a Genius",
+      "episodeImdbID": "tt1269095",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 1,
+      "episode": 8,
+      "title": "Eyes of Texas",
+      "episodeImdbID": "tt0528101",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 1,
+      "episode": 12,
+      "title": "Bachelor Apartment",
+      "episodeImdbID": "tt1261112",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 1,
+      "episode": 13,
+      "title": "Mrs. Montague's Niece",
+      "episodeImdbID": "tt0528109",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 1,
+      "episode": 16,
+      "title": "Air Corps vs. Marriage",
+      "episodeImdbID": "tt1268571",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 1,
+      "episode": 17,
+      "title": "Advice to the Lovelorn",
+      "episodeImdbID": "tt1269090",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 1,
+      "episode": 18,
+      "title": "Choosing Miss Coffee Break",
+      "episodeImdbID": "tt0528099",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 1,
+      "episode": 19,
+      "title": "Boyfriend for Schultzy",
+      "episodeImdbID": "tt1269091",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 1,
+      "episode": 20,
+      "title": "Bob Plays Cupid",
+      "episodeImdbID": "tt1269093",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 1,
+      "episode": 23,
+      "title": "The Silver Tongued Orator",
+      "episodeImdbID": "tt0528120",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 1,
+      "episode": 24,
+      "title": "Bob's Birthday",
+      "episodeImdbID": "tt1218366",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 1,
+      "episode": 28,
+      "title": "Bob Glamorizes Schultzy",
+      "episodeImdbID": "tt1269096",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 2,
+      "episode": 4,
+      "title": "Too Many Cooks",
+      "episodeImdbID": "tt0528124",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 2,
+      "episode": 7,
+      "title": "Hawaii Comes Calling",
+      "episodeImdbID": "tt1225940",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 2,
+      "episode": 9,
+      "title": "Wedding, Wedding, Who's Having a Wedding?",
+      "episodeImdbID": "tt1990828",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 2,
+      "episode": 12,
+      "title": "The Wolf Sitter",
+      "episodeImdbID": "tt0528122",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 2,
+      "episode": 14,
+      "title": "Grandpa's Christmas Visit",
+      "episodeImdbID": "tt0528104",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 2,
+      "episode": 16,
+      "title": "The Letter",
+      "episodeImdbID": "tt0528115",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 2,
+      "episode": 19,
+      "title": "The Acid Test",
+      "episodeImdbID": "tt1990826",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 2,
+      "episode": 22,
+      "title": "Snowbound",
+      "episodeImdbID": "tt1991749",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 2,
+      "episode": 26,
+      "title": "The Wolf Who Came to Dinner",
+      "episodeImdbID": "tt0528123",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 2,
+      "episode": 27,
+      "title": "Oh Hail To Thee, Oh Alma Mater",
+      "episodeImdbID": "tt1991753",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 2,
+      "episode": 28,
+      "title": "The Petticoat Derby",
+      "episodeImdbID": "tt0528117",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 2,
+      "episode": 30,
+      "title": "The Trouble with Henry",
+      "episodeImdbID": "tt0528121",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 2,
+      "episode": 31,
+      "title": "The Air Force vs. The Navy",
+      "episodeImdbID": "tt1991754",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 2,
+      "episode": 33,
+      "title": "The Sergeant Wore Skirts",
+      "episodeImdbID": "tt0528118",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 2,
+      "episode": 34,
+      "title": "Scramble for Grandpa",
+      "episodeImdbID": "tt0528111",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 2,
+      "episode": 35,
+      "title": "Masquerade Party",
+      "episodeImdbID": "tt1991756",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 2,
+      "episode": 37,
+      "title": "Margaret Becomes Sadie Thompson",
+      "episodeImdbID": "tt0528107",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 3,
+      "episode": 3,
+      "title": "Bob Batches It",
+      "episodeImdbID": "tt1990823",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 3,
+      "episode": 5,
+      "title": "The Boston Mother Returns",
+      "episodeImdbID": "tt1990827",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 3,
+      "episode": 7,
+      "title": "The Double Date",
+      "episodeImdbID": "tt0528114",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 3,
+      "episode": 8,
+      "title": "Schultzy Says No",
+      "episodeImdbID": "tt0528110",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 3,
+      "episode": 11,
+      "title": "How to Handle Women",
+      "episodeImdbID": "tt1276202",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 3,
+      "episode": 12,
+      "title": "Episode #3.12",
+      "episodeImdbID": "tt11597644",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 3,
+      "episode": 15,
+      "title": "Bob Gives Pamela the Bird",
+      "episodeImdbID": "tt1276509",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 3,
+      "episode": 16,
+      "title": "The Model's Revolt",
+      "episodeImdbID": "tt0528116",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 3,
+      "episode": 18,
+      "title": "Episode #3.18",
+      "episodeImdbID": "tt11597656",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 3,
+      "episode": 19,
+      "title": "Bob Tangles with Ruthie",
+      "episodeImdbID": "tt8506414",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 3,
+      "episode": 21,
+      "title": "Chuck at College",
+      "episodeImdbID": "tt1277789",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 3,
+      "episode": 24,
+      "title": "Bob Meets the Mortons",
+      "episodeImdbID": "tt0528085",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 3,
+      "episode": 26,
+      "title": "Episode #3.26",
+      "episodeImdbID": "tt3676766",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 3,
+      "episode": 27,
+      "title": "Bob Plays Gigolo",
+      "episodeImdbID": "tt0528086",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 4,
+      "episode": 3,
+      "title": "Bob Gets Neighborly",
+      "episodeImdbID": "tt0528077",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 4,
+      "episode": 4,
+      "title": "Bob for Mayor",
+      "episodeImdbID": "tt0871551",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 4,
+      "episode": 5,
+      "title": "Bob Hires a Maid",
+      "episodeImdbID": "tt0871550",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 4,
+      "episode": 7,
+      "title": "Bob the Body Builder",
+      "episodeImdbID": "tt0528097",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 4,
+      "episode": 11,
+      "title": "Bob the Gunslinger",
+      "episodeImdbID": "tt1215220",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 4,
+      "episode": 18,
+      "title": "Bob Goes Hillbilly",
+      "episodeImdbID": "tt1859319",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 4,
+      "episode": 24,
+      "title": "Bob Gets Harvey a Raise",
+      "episodeImdbID": "tt0528075",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 4,
+      "episode": 25,
+      "title": "Bob Saves Harvey",
+      "episodeImdbID": "tt0957647",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 4,
+      "episode": 28,
+      "title": "Bob Retrenches",
+      "episodeImdbID": "tt0528088",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 4,
+      "episode": 30,
+      "title": "Bob and Schultzy at Sea",
+      "episodeImdbID": "tt0528092",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 4,
+      "episode": 31,
+      "title": "Grandpa Attends the Convention",
+      "episodeImdbID": "tt0837286",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 4,
+      "episode": 35,
+      "title": "Bob Frees Schultzy",
+      "episodeImdbID": "tt0528074",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 4,
+      "episode": 36,
+      "title": "Bob's Forgotten Fiancée",
+      "episodeImdbID": "tt1084119",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 5,
+      "episode": 1,
+      "title": "Bob and Schultzy Reunite",
+      "episodeImdbID": "tt0528091",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 5,
+      "episode": 2,
+      "title": "Bob and the Dumb Blonde",
+      "episodeImdbID": "tt0528094",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 5,
+      "episode": 3,
+      "title": "Bob Helps Anna Maria",
+      "episodeImdbID": "tt0528080",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 5,
+      "episode": 4,
+      "title": "Bob and the Ravishing Realtor",
+      "episodeImdbID": "tt0528096",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 5,
+      "episode": 6,
+      "title": "Grandpa Clobbers the Airforce",
+      "episodeImdbID": "tt1986689",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 5,
+      "episode": 8,
+      "title": "Bob in Orbit",
+      "episodeImdbID": "tt0847612",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 5,
+      "episode": 11,
+      "title": "Collins the Crooner",
+      "episodeImdbID": "tt0837285",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 5,
+      "episode": 13,
+      "title": "Bob Plays Margaret's Game",
+      "episodeImdbID": "tt0867687",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 5,
+      "episode": 15,
+      "title": "Bob's Boyhood Love Image",
+      "episodeImdbID": "tt0867688",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 5,
+      "episode": 18,
+      "title": "Bob vs. Linkletter",
+      "episodeImdbID": "tt1138647",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-bob-cummings-show-1955",
+      "seriesTitle": "The Bob Cummings Show",
+      "season": 5,
+      "episode": 33,
+      "title": "Bob Helps von Zell",
+      "episodeImdbID": "tt3000982",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
     },
     {
       "seriesID": "the-bob-newhart-show-1972",
@@ -174644,6 +176624,474 @@
       "episodeImdbID": "tt0682668",
       "status": "wanted",
       "added_at": "2026-06-13T07:56:51Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 1,
+      "episode": 4,
+      "title": "Vicious Circle",
+      "episodeImdbID": "tt0684011",
+      "status": "fulfilled",
+      "added_at": "2026-10-28T13:41:43Z",
+      "fulfilled_at": "2026-10-28T14:08:26Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 1,
+      "episode": 5,
+      "title": "Panic",
+      "episodeImdbID": "tt0683971",
+      "status": "fulfilled",
+      "added_at": "2026-10-28T13:41:43Z",
+      "fulfilled_at": "2026-10-28T14:08:26Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 1,
+      "episode": 6,
+      "title": "The Scavengers",
+      "episodeImdbID": "tt0684002",
+      "status": "fulfilled",
+      "added_at": "2026-10-28T13:41:43Z",
+      "fulfilled_at": "2026-10-28T14:08:26Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 1,
+      "episode": 7,
+      "title": "School Days",
+      "episodeImdbID": "tt0683974",
+      "status": "fulfilled",
+      "added_at": "2026-10-28T13:41:43Z",
+      "fulfilled_at": "2026-10-28T14:08:26Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 1,
+      "episode": 8,
+      "title": "Dark Secret",
+      "episodeImdbID": "tt0683945",
+      "status": "fulfilled",
+      "added_at": "2026-10-28T13:41:43Z",
+      "fulfilled_at": "2026-10-28T14:08:26Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 1,
+      "episode": 11,
+      "title": "The Vagrants",
+      "episodeImdbID": "tt0684006",
+      "status": "fulfilled",
+      "added_at": "2026-10-28T13:41:43Z",
+      "fulfilled_at": "2026-10-28T14:08:26Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 1,
+      "episode": 12,
+      "title": "Gun City",
+      "episodeImdbID": "tt0683954",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 1,
+      "episode": 13,
+      "title": "The Death of Gray",
+      "episodeImdbID": "tt0683985",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 1,
+      "episode": 23,
+      "title": "The Rattler",
+      "episodeImdbID": "tt0683999",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 1,
+      "episode": 24,
+      "title": "You Steal My Eyes",
+      "episodeImdbID": "tt0684014",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 1,
+      "episode": 25,
+      "title": "Fair Game",
+      "episodeImdbID": "tt0683950",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 1,
+      "episode": 26,
+      "title": "Unsurrendered Sword",
+      "episodeImdbID": "tt0684010",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 1,
+      "episode": 28,
+      "title": "Blind Marriage",
+      "episodeImdbID": "tt0683944",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 1,
+      "episode": 30,
+      "title": "A Grave for Johnny Yuma",
+      "episodeImdbID": "tt0683939",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 1,
+      "episode": 31,
+      "title": "In Memory of a Son",
+      "episodeImdbID": "tt0683958",
+      "status": "fulfilled",
+      "added_at": "2026-10-28T13:41:43Z",
+      "fulfilled_at": "2026-10-28T14:08:26Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 1,
+      "episode": 32,
+      "title": "Paint a House with Scarlet",
+      "episodeImdbID": "tt0683970",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 1,
+      "episode": 34,
+      "title": "Night on a Rainbow",
+      "episodeImdbID": "tt0683968",
+      "status": "fulfilled",
+      "added_at": "2026-10-28T13:41:43Z",
+      "fulfilled_at": "2026-10-28T14:08:26Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 2,
+      "episode": 1,
+      "title": "Johnny Yuma at Appomattox",
+      "episodeImdbID": "tt0683961",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 2,
+      "episode": 2,
+      "title": "The Bequest",
+      "episodeImdbID": "tt0683979",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 2,
+      "episode": 4,
+      "title": "The Waiting",
+      "episodeImdbID": "tt0684007",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 2,
+      "episode": 5,
+      "title": "To See the Elephant",
+      "episodeImdbID": "tt0684008",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 2,
+      "episode": 6,
+      "title": "Deathwatch",
+      "episodeImdbID": "tt0683946",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 2,
+      "episode": 7,
+      "title": "Run, Killer, Run",
+      "episodeImdbID": "tt0683973",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 2,
+      "episode": 8,
+      "title": "The Hunted",
+      "episodeImdbID": "tt0683992",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 2,
+      "episode": 9,
+      "title": "The Legacy",
+      "episodeImdbID": "tt0683994",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 2,
+      "episode": 10,
+      "title": "Don Gringo",
+      "episodeImdbID": "tt0683948",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 2,
+      "episode": 12,
+      "title": "Vindication",
+      "episodeImdbID": "tt0684012",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 2,
+      "episode": 13,
+      "title": "The Scalp Hunter",
+      "episodeImdbID": "tt0684001",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 2,
+      "episode": 14,
+      "title": "Berserk",
+      "episodeImdbID": "tt0683943",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 2,
+      "episode": 15,
+      "title": "The Hope Chest",
+      "episodeImdbID": "tt0683990",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 2,
+      "episode": 18,
+      "title": "The Promise",
+      "episodeImdbID": "tt0683997",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 2,
+      "episode": 19,
+      "title": "Jerkwater",
+      "episodeImdbID": "tt0683959",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 2,
+      "episode": 21,
+      "title": "The Actress",
+      "episodeImdbID": "tt0683977",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 2,
+      "episode": 23,
+      "title": "The Road to Jericho",
+      "episodeImdbID": "tt0684000",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 2,
+      "episode": 24,
+      "title": "The Last Drink",
+      "episodeImdbID": "tt0683993",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 2,
+      "episode": 25,
+      "title": "The Burying of Sammy Hart",
+      "episodeImdbID": "tt0683980",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 2,
+      "episode": 28,
+      "title": "Two Weeks",
+      "episodeImdbID": "tt0684009",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 2,
+      "episode": 29,
+      "title": "Miz Purdy",
+      "episodeImdbID": "tt0683967",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 2,
+      "episode": 31,
+      "title": "The Proxy",
+      "episodeImdbID": "tt0683998",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 2,
+      "episode": 32,
+      "title": "Decision at Sweetwater",
+      "episodeImdbID": "tt0683947",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 2,
+      "episode": 33,
+      "title": "Helping Hand",
+      "episodeImdbID": "tt0683956",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 2,
+      "episode": 35,
+      "title": "Mission--Varina",
+      "episodeImdbID": "tt0683966",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 2,
+      "episode": 37,
+      "title": "Ben White",
+      "episodeImdbID": "tt0683942",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 2,
+      "episode": 38,
+      "title": "The Found",
+      "episodeImdbID": "tt0683988",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 2,
+      "episode": 39,
+      "title": "The Hostage",
+      "episodeImdbID": "tt0683991",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
+    },
+    {
+      "seriesID": "the-rebel-1959",
+      "seriesTitle": "The Rebel",
+      "season": 2,
+      "episode": 40,
+      "title": "The Executioner",
+      "episodeImdbID": "tt0683987",
+      "status": "wanted",
+      "added_at": "2026-10-28T13:41:43Z"
     },
     {
       "seriesID": "the-rifleman-1958",
