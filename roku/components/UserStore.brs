@@ -87,37 +87,77 @@ end function
 
 ' ----------------------------------------------------------------- progress
 
+' Parsed ONCE per registry value. An episode list asked twice per row and
+' every Home paint asked three times over, each a full split of up to 200
+' lines; the raw string is the cache key, so a write from any component
+' (each has its own `m`) is seen on the next read.
 function awProgressRows() as Object
+    raw = awReadKey("prog")
+    if m.awProgRaw <> invalid and m.awProgRows <> invalid
+        if m.awProgRaw = raw then return m.awProgRows
+    end if
     rows = []
-    for each line in awSplit(awReadKey("prog"), Chr(10))
+    byId = {}
+    for each line in awSplit(raw, Chr(10))
         parts = awSplit(line, "|")
         if parts.Count() >= 3
             ' A fourth field, added later, names the SERIES an episode belongs
-            ' to. Older rows have three fields and parse exactly as before.
+            ' to; a fifth, the EPISODE's own title (an episode is in no index
+            ' row, so Continue Watching has nowhere else to read it). Older
+            ' rows have three fields and parse exactly as before.
             own = ""
             if parts.Count() >= 4 then own = parts[3]
-            rows.Push({ id: parts[0], posn: Int(Val(parts[1])), dur: Int(Val(parts[2])), owner: own })
+            ttl = ""
+            if parts.Count() >= 5 then ttl = parts[4]
+            r = { id: parts[0], posn: Int(Val(parts[1])), dur: Int(Val(parts[2])), owner: own, title: ttl }
+            rows.Push(r)
+            if byId[r.id] = invalid then byId[r.id] = r
         end if
     end for
+    m.awProgRaw = raw
+    m.awProgRows = rows
+    m.awProgById = byId
     return rows
 end function
 
+function awProgressRow(id as String) as Dynamic
+    awProgressRows()
+    return m.awProgById[id]
+end function
+
 function awGetProgress(id as String) as Integer
-    for each r in awProgressRows()
-        if r.id = id then return r.posn
-    end for
-    return 0
+    r = awProgressRow(id)
+    if r = invalid then return 0
+    return r.posn
 end function
 
 function awGetDuration(id as String) as Integer
-    for each r in awProgressRows()
-        if r.id = id then return r.dur
+    r = awProgressRow(id)
+    if r = invalid then return 0
+    return r.dur
+end function
+
+' A title rides in a "|"- and newline-separated record, so neither may appear
+' in it, and it is capped: the whole store shares 32 KB.
+function awProgressTitle(t as String) as String
+    out = ""
+    for i = 1 to Len(t)
+        c = Mid(t, i, 1)
+        if c = "|" or c = Chr(10) or c = Chr(13) then c = " "
+        out = out + c
+        if Len(out) >= 60 then exit for
     end for
-    return 0
+    return out
+end function
+
+function awProgressLine(r as Object) as String
+    line = r.id + "|" + fmt(r.posn) + "|" + fmt(r.dur) + "|" + fmt(r.owner)
+    if r.title <> invalid and r.title <> "" then line = line + "|" + r.title
+    return line
 end function
 
 ' Newest first, so the oldest row is the one evicted when the budget runs out.
-sub awSetProgress(id as String, posn as Integer, dur as Integer, owner = "" as String)
+sub awSetProgress(id as String, posn as Integer, dur as Integer, owner = "" as String, title = "" as String)
     rows = awProgressRows()
     ' An episode carries no poster of its own in the web index — measured:
     ' 26Men-TheRecruit and adam-12.-s-01 both have an EMPTY poster field, so
@@ -126,18 +166,23 @@ sub awSetProgress(id as String, posn as Integer, dur as Integer, owner = "" as S
     ' a row, and Home borrows that series' poster. Written once at the start
     ' of playback; the 5-second bookmark ticks must not erase it.
     own = owner
-    if own = ""
-        for each r in rows
-            if r.id = id and r.owner <> "" then own = r.owner
-        end for
-    end if
-    out = [{ id: id, posn: posn, dur: dur, owner: own }]
+    ttl = ""
+    if own <> "" then ttl = awProgressTitle(title)
+    for each r in rows
+        if r.id = id
+            if own = "" and r.owner <> "" then own = r.owner
+            if ttl = "" and r.title <> "" then ttl = r.title
+        end if
+    end for
+    ' Only an episode keeps a title: a film's comes from the index.
+    if own = "" then ttl = ""
+    out = [{ id: id, posn: posn, dur: dur, owner: own, title: ttl }]
     for each r in rows
         if r.id <> id and out.Count() < awMaxProgress() then out.Push(r)
     end for
     lines = []
     for each r in out
-        lines.Push(r.id + "|" + fmt(r.posn) + "|" + fmt(r.dur) + "|" + r.owner)
+        lines.Push(awProgressLine(r))
     end for
     awWriteKey("prog", awJoin(lines, Chr(10)))
 end sub
@@ -191,7 +236,9 @@ sub awSetSetting(key as String, on as Boolean)
 end sub
 
 sub awClearProgress()
-    awWriteKey("progress", "")
+    ' "prog" is the key every reader uses. This wrote "progress", a key
+    ' nothing reads, so Clear progress cleared nothing.
+    awWriteKey("prog", "")
 end sub
 
 ' Mark a film watched WITHOUT playing it, and un-mark it. Watched is expressed
@@ -208,7 +255,7 @@ sub awClearProgressFor(id as String)
     rows = awProgressRows()
     out = []
     for each r in rows
-        if r.id <> id then out.Push(r.id + "|" + fmt(r.posn) + "|" + fmt(r.dur))
+        if r.id <> id then out.Push(awProgressLine(r))
     end for
     awWriteKey("prog", awJoin(out, Chr(10)))
 end sub

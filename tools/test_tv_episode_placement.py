@@ -127,5 +127,13 @@ served = [e["archiveID"] for s in (series or {}).get("seasons", []) for e in s["
 check("a not_films item is served by no spine", "LTT101@s1e01" in served, False)
 check("control: the show's other episodes are", "queen-was-in-the-parlor-1932" in served, True)
 
+T._TV_RIGHTS_REMOVED = {"queen-was-in-the-parlor-1932"}
+eps2 = [ep("queen-was-in-the-parlor-1932", "The Queen Was in the Parlor", "The Queen Was in the Parlor.mp4"),
+        ep("smile-darn-ya-smile-1931", "Smile, Darn Ya, Smile!", "Smile Darn Ya Smile.mp4")]
+series, _ = T.rebuild_show(show, eps2, repick=False)
+served = [e["archiveID"] for s in (series or {}).get("seasons", []) for e in s["episodes"]]
+check("an episode the TV rights audit removed is not written back", "queen-was-in-the-parlor-1932" in served, False)
+check("control: an episode it did not remove is", "smile-darn-ya-smile-1931" in served, True)
+
 print("PASS" if ok else "FAIL")
 sys.exit(0 if ok else 1)

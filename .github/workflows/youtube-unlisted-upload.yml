@@ -19,6 +19,12 @@ on:
         default: ""
 permissions:
   contents: read
+# Every `run:` is `bash -eo pipefail` (GitHub's explicit `shell: bash`;
+# the implicit default has no pipefail, so `tool | tee log` hid a crash).
+defaults:
+  run:
+    shell: bash
+
 jobs:
   upload:
     runs-on: ubuntu-latest

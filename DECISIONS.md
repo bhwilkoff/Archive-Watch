@@ -262,6 +262,8 @@ into every session and the index alone carries every title.)
 - 169 — A single-episode upload is placed by its own file name and id, and a person's "never serve this" binds every series
 - 170 — A sort is remembered per kind of grid and television starts A–Z; a playlist's place among playlists is synced, and every sync writer carries it
 - 171 — Top Rated ranks each title by the largest crowd that rated it, against that crowd's own average; every rating names its crowd
+- 172 — An identity must fit the file it is on, a fragment is never recommended, and a copyright claim belongs to the film, not the copy
+- 173 — The pipeline fails loudly: pipefail everywhere, nothing publishes from a cancelled or failed build, and a publish carries its deletions
 
 ---
 
@@ -629,4 +631,65 @@ spine and card, never in `rating10`.
 Popular order follows IMDb's audience too. Series ratings refresh every 30 days
 from `shared/editorial/omdb_series_cache.json`, apart from the films' OMDb
 cache so the weekly TV build and the daily film backfill never commit one file.
+
+## 172 — An identity must fit the file it is on, a fragment is never recommended, and a copyright claim belongs to the film, not the copy
+*Date: 2026-10-28*
+
+A title search with no year adopts a film only on an exact title whose TMDb
+runtime is within 25% of the file (`tmdb_lib.search_movie`,
+`omdb_lib.plausible_identity`); a dated search never takes a film released
+more than two years away. What a yearless search already took is cleared
+(`remediate_catalog.clear_yearless_match`, verdict `cleared_yearless_runtime`,
+the Decision 150 scrub) when the matched film's runtime contradicts the file
+(under half or over twice, at least 10 minutes apart). A card that plays a
+fragment of the film it names (`fragment_of`: under 60% of the film, or a
+part-named file under a whole-film title) keeps its identity and is
+`noRecommend` with the reason "fragment — 20 of 94 min". A copy sharing an
+imdbID with a copy hidden for a copyright claim is hidden under that copy's
+own bucket (`copyrightClaimFrom`), unless it is overridden, government, freely
+licensed on evidence, or the film is on the public-domain-by-defect list.
+Clusters of copies that disagree on an id are settled by evidence already in
+the build, and only when another member offers a positive alternative.
+
+**Why**: the owner, 2026-10-27, *"There is no reason to leave bad data rather
+than investigating and fixing it,"* and the audit of 2026-10-28, which
+measured on the live catalog: a 19-second `silence` wearing Scorsese's 2016
+film, a 14-minute reel as *Evolution* (2001), `74Help` as *Help!* (1965) on
+the New Arrivals shelf — 116 visible yearless matches cleared; ~1,107 visible
+cards headlining on the whole film's votes while playing 20 of 94 minutes
+(Nosferatu, Caligari); and Sunset Boulevard hidden in four English copies and
+served as its Mexican release *El ocaso de una vida* on three Home shelves,
+with Gilda and The Hidden Fortress the same — 40 visible copies hide.
+
+**How to apply**: never let a title search fill identity without a check the
+file can answer (runtime, year). A fragment comes back to recommendations by
+evidence (`runtime_match_keep.json`), never by loosening the ratio. A wrong
+copyright propagation is cleared in `copyright_evidence_overrides.json`.
+Tests: `test_yearless_match_identity.py`, `test_copyright_sibling.py`,
+`test_title_identity_evidence.py`, `test_merge_split_anchor.py`, each seen
+failing under a deliberate break.
+
+## 173 — The pipeline fails loudly: pipefail everywhere, nothing publishes from a cancelled or failed build, and a publish carries its deletions
+*Date: 2026-10-28*
+
+Every workflow sets `defaults: run: shell: bash` (pipefail), held by
+`tools/check_workflow_gates.py`; a step that tolerates a failure says so with
+`::warning::`. publish-db uploads only when not cancelled and the build
+succeeded, after checking the manifest's byte counts and the inflated `.zz`'s
+hash against `catalog.sqlite`; `build_sqlite` writes to `.tmp` and renames into
+place. tv-canonical drops `tv_rights_removed.csv` ids when it writes spines
+and commits only after the TV rights step succeeds. `catalog_release.publish`
+re-reads the release stamp just before upload, gzips the bytes it parsed,
+carries this run's deletions onto a newer catalog, refuses a run that removes
+more than 15%, and skips an unchanged upload.
+
+**Why**: no workflow had pipefail, so 38+ `python … | tee` steps were green
+when their script crashed; a cancelled publish-db's `always()` upload raced a
+`build_sqlite` still writing (run 40399715287), saved only by the manifest
+being written last; and the weekly TV rebuild re-added ~600 rights-removed
+episodes that only a later step removed, a step the designed build timeout
+could skip while the commit still pushed (ENGINEERING-PROCESS §2).
+
+**How to apply**: a new workflow inherits the bash default; a new publish step
+uses `!cancelled()` and an explicit success condition, never `always()`.
 

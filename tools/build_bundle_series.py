@@ -65,6 +65,12 @@ MIN_NUMBERED = 0.75      # share of works that must carry a number
 MIN_BYTES = 5_000_000    # the clients' own floor for a playable file
 RECHECK_DAYS = 60
 SIZE_RATIO = 3.0         # item size / default file size that makes a candidate
+# Bumped when the parser reads numbers differently: a cached "single" whose
+# reason was about numbering is asked again once (2: a name with no shared
+# prefix, "01 Murder on the Santa Fe Trail", and one bonus file among numbered
+# ones, both read as unnumbered).
+PARSE_RULE = 2
+_NUMBERING_REASON = re.compile(r"\d+ numbered of|only \d+ of|numbers do not|two works share")
 MIN_FILES = 45           # a three-episode item already lists ~60 (each video has thumbs)
 
 VIDEO_EXT = (".mp4", ".m4v", ".mov", ".mkv", ".avi", ".mpg", ".mpeg", ".ogv", ".webm", ".wmv", ".flv")
@@ -120,6 +126,25 @@ def _common_prefix(xs: list[str]) -> str:
     return p
 
 
+def _series_prefix(xs: list[str]) -> str:
+    """The name the numbered MAJORITY of files share. One bonus file
+    ("Interview.mp4") among "Red Circle 01 ..." used to collapse the common
+    prefix to "" and leave every file unnumbered."""
+    def lead(x):
+        m = re.search(r"\d", x)
+        return x[:m.start()] if m else None
+    groups: dict[str, list[str]] = {}
+    for x in xs:
+        k = lead(x)
+        if k is not None:
+            groups.setdefault(k, []).append(x)
+    if groups:
+        best = max(groups.values(), key=len)
+        if len(best) * 2 > len(xs):
+            return _common_prefix(best)
+    return _common_prefix(xs)
+
+
 def _common_suffix(xs: list[str]) -> str:
     return _common_prefix([x[::-1] for x in xs])[::-1] if xs else ""
 
@@ -142,7 +167,8 @@ def number_of(stem: str, prefix: str) -> tuple[int | None, int | None, str]:
     if m:
         w = m.group(1).lower()
         return None, int(m.group(2)), ("Chapter" if w.startswith("ch") else "Episode")
-    rest = stem[len(prefix):] if prefix and stem.startswith(prefix) else None
+    # no shared name ("01 Murder on the Santa Fe Trail") leaves the whole stem
+    rest = stem if not prefix else (stem[len(prefix):] if stem.startswith(prefix) else None)
     piece = _PIECE.search(prefix) if rest is not None else None
     if rest is not None and (not piece or _PART_NAME.match(piece.group(0) + "1")):
         m = _LEAD_NUM.match(rest)
@@ -183,7 +209,7 @@ def parse_bundle(files: list[dict]) -> tuple[list[dict] | None, str]:
     if len(picked) < MIN_WORKS:
         return None, f"{len(picked)} playable works"
     stems = {root: _stem(root) for root in picked}
-    prefix = _common_prefix(list(stems.values()))
+    prefix = _series_prefix(list(stems.values()))
     suffix = _common_suffix(list(stems.values()))
     eps, extras = [], []
     for root, f in picked.items():
@@ -466,6 +492,9 @@ def scan(items, cache, session, throttle=0.2, limit=None, save=None):
             continue
         fresh = prev.get("isize") == isize and prev.get("checkedAt") and \
             (now - datetime.fromisoformat(prev["checkedAt"]).replace(tzinfo=timezone.utc)).days < RECHECK_DAYS
+        if fresh and prev.get("verdict") == "single" and prev.get("rule", 1) < PARSE_RULE \
+                and _NUMBERING_REASON.match(prev.get("reason") or ""):
+            fresh = False
         if fresh:
             continue
         if limit is not None and fetched >= limit:
@@ -480,7 +509,7 @@ def scan(items, cache, session, throttle=0.2, limit=None, save=None):
         fetched += 1
         rows, why = parse_bundle(files)
         entry = {"isize": isize, "checkedAt": now.date().isoformat(),
-                 "verdict": "bundle" if rows else "single", "reason": why}
+                 "verdict": "bundle" if rows else "single", "reason": why, "rule": PARSE_RULE}
         if rows:
             # keep only what the spine needs, so the build needs no network
             entry["files"] = keep_for_spine(files, aid, rows)
@@ -511,7 +540,9 @@ def series_evidence(it: dict, rows: list[dict]) -> str | None:
         return "episode names"
     if typed_tv:
         return "typed television"
-    titles = {(r["title"] or "").lower() for r in eps if re.search(r"[a-z]{3}", r["title"] or "", re.I)}
+    # titles that differ only by their numbers ("EVA 2019 0821 1240158") are one title
+    titles = {re.sub(r"[\d\s._-]+", " ", (r["title"] or "").lower()).strip()
+              for r in eps if re.search(r"[a-z]{3}", r["title"] or "", re.I)}
     if len(eps) >= 4 and len(titles) >= 0.75 * len(eps):
         return "episode titles"
     if len(eps) >= MIN_RUN:

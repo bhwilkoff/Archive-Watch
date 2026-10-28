@@ -41,6 +41,7 @@ import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -73,11 +74,11 @@ private val TYPE_FILTERS = listOf(
 @Composable
 fun SearchScreen(container: AppContainer, nav: Nav) {
     val dbVersion by container.catalog.dbVersion.collectAsState()
-    var query by remember { mutableStateOf("") }
+    var query by rememberSaveable { mutableStateOf("") }
     var results by remember { mutableStateOf<List<CatalogItem>>(emptyList()) }
     var searched by remember { mutableStateOf(false) }
-    var typeFilter by remember { mutableStateOf<Pair<String, String>?>(null) }
-    var decadeFilter by remember { mutableStateOf<Int?>(null) }
+    var typeFilter by rememberSaveable { mutableStateOf<Pair<String, String>?>(null) }
+    var decadeFilter by rememberSaveable { mutableStateOf<Int?>(null) }
 
     // ~180 ms debounce, re-run on DB swap.
     LaunchedEffect(query, dbVersion) {

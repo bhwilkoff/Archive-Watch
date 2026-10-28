@@ -17,8 +17,14 @@ struct DetailView: View {
     @Environment(\.openWindow) private var openWindow
     @Environment(\.supportsMultipleWindows) private var supportsMultipleWindows
     @Query private var favorites: [Favorite]
-    @State private var playing = false
-    @State private var sceneStart: TimeInterval?
+    /// What the player cover plays, bound as an ITEM (§4.4): its start and
+    /// caption type travel with it, so the cover can never open before them.
+    @State private var playRequest: PlayRequest?
+    /// This card's id and the merged-away ids it replaced (Decision 040): a
+    /// favorite saved under an old id is THIS film's favorite.
+    @State private var aliasIDs: Set<String> = []
+    @State private var related: [Catalog.Item] = []
+    @State private var playerHandle = PlayerHandle()
     @State private var scenes: [ArchiveVersions.Scene] = []
     @State private var startingSharePlay = false
     @State private var goingLive = false
@@ -42,7 +48,8 @@ struct DetailView: View {
     @State private var captionPlaybackChoice: CaptionPlaybackChoice?
     @State private var playbackError: String?
 
-    private var isFav: Bool { favorites.contains { $0.archiveID == item.archiveID } }
+    private var ownIDs: Set<String> { aliasIDs.union([item.archiveID]) }
+    private var isFav: Bool { favorites.contains { ownIDs.contains($0.archiveID) } }
 
     /// One glyph carrying the whole download state, so the row does not grow a
     /// second control for a feature that is off most of the time.
@@ -182,7 +189,7 @@ struct DetailView: View {
             chosenVersionName = ArchiveVersions.chosenName(for: item.archiveID)
             guard item.videoURLParsed != nil, versions.isEmpty else { return }
             loadingVersions = true
-            versions = await ArchiveVersions.list(itemID: item.archiveID, defaultURL: item.videoURLParsed)
+            versions = await DetailMetadataCache.versions(for: item.archiveID, defaultURL: item.videoURLParsed)
             loadingVersions = false
         }
     }
@@ -239,7 +246,7 @@ struct DetailView: View {
                 // squeezed to one character per line. A row whose layout
                 // degrades as actions are added is a row that will break
                 // again, so the fix is structural rather than a tighter font.
-                Button { playing = true } label: {
+                Button { play() } label: {
                     Label(playLabel, systemImage: "play.fill")
                         .lineLimit(1)              // never wrap, whatever happens
                         // IPAD-DESIGN §2.2: capped at 480pt on regular width.
@@ -399,7 +406,7 @@ struct DetailView: View {
                                                         year: item.year)
             ) { started in
                 startingSharePlay = false
-                if started { playing = true }
+                if started { play() }
             }
             .ignoresSafeArea()
         }
@@ -417,17 +424,39 @@ struct DetailView: View {
             }
             .ignoresSafeArea()
         }
-        .fullScreenCover(isPresented: $playing, onDismiss: { sceneStart = nil }) {
-            PlayerView(item: item, autoplayIn: store, onUnplayable: { message in
-                playing = false
-                playbackError = message
-            }, captionChoice: captionPlaybackChoice, startAt: sceneStart).ignoresSafeArea()
+        .fullScreenCover(item: $playRequest, onDismiss: { refreshWatched() }) { req in
+            Group {
+                if let ep = req.episode {
+                    // An episode plays as part of its series: next episode,
+                    // prev/next, never a random film after it.
+                    EpisodePlayerContainer(start: ep.episode, in: ep.series,
+                                           startAt: req.startAt,
+                                           captionChoice: req.captionChoice,
+                                           onUnplayable: { message in
+                                               playRequest = nil
+                                               playbackError = message
+                                           })
+                } else {
+                    PlayerView(item: item, autoplayIn: store, onUnplayable: { message in
+                        playRequest = nil
+                        playbackError = message
+                    }, captionChoice: req.captionChoice, startAt: req.startAt)
+                    .controlled(by: playerHandle)
+                    .overlay(alignment: .topTrailing) {
+                        CaptionChoiceCapsule(handle: playerHandle)
+                            .padding(.top, 8).padding(.trailing, 16)
+                    }
+                }
+            }
+            .ignoresSafeArea()
             // A room guest's one line (SHAREPLAY §11.6.1).
             .overlay(alignment: .top) {
                 StudioRoomNotice().padding(.top, 12)
             }
         }
-        .alert("Can't play this title", isPresented: .constant(playbackError != nil)) {
+        .alert("Can't play this title", isPresented: Binding(
+            get: { playbackError != nil },
+            set: { if !$0 { playbackError = nil } })) {
             Button("OK") { playbackError = nil }
         } message: {
             Text(playbackError ?? "")
@@ -453,9 +482,12 @@ struct DetailView: View {
         // Dev affordance (with AW_START_ITEM): start playback immediately so
         // playback diagnostics can run unattended on the simulator.
         .task(id: item.archiveID) {
-            isWatchedState = store.completedArchiveIDs.contains(item.archiveID)
-                || WatchProgress.isWatched(archiveID: item.archiveID, in: ctx)
+            aliasIDs = Set(store.db?.mergedIDs(into: item.archiveID) ?? [])
+            refreshWatched()
         }
+        // Re-read when the page comes back into view: a film finished in the
+        // player, or marked on another screen, is watched here too.
+        .onAppear { refreshWatched() }
         // "Play a Surprise Film" (Go menu): the router names the film to play
         // as its page opens. Consumed once; after the screen settles, since a
         // cover presented with the push is dropped (the door's same wait).
@@ -463,7 +495,7 @@ struct DetailView: View {
             guard router.autoplayItemID == item.archiveID, item.videoURLParsed != nil else { return }
             router.autoplayItemID = nil
             try? await Task.sleep(for: .milliseconds(400))
-            playing = true
+            play()
         }
         .task {
             // Joining a SharePlay session must actually START the film, not just
@@ -474,7 +506,10 @@ struct DetailView: View {
             if WatchTogether.shared.pendingJoin == item.archiveID,
                item.videoURLParsed != nil {
                 WatchTogether.shared.consumePendingJoin()
-                playing = true
+                // After the screen settles: a cover requested with the push
+                // is dropped by the presentation machinery.
+                try? await Task.sleep(for: .milliseconds(400))
+                play()
             }
             // JOINING A ROOM STARTS THE FILM, the same as joining SharePlay
             // above. The code waits for the player (it is where the AVPlayer
@@ -490,7 +525,8 @@ struct DetailView: View {
                 if !StudioRoomCopy.isActive(for: item.archiveID) {
                     _ = await StudioRoomCopy.prime(code: code)
                 }
-                playing = true
+                try? await Task.sleep(for: .milliseconds(400))
+                play()
             }
             if ProcessInfo.processInfo.environment["AW_AUTOPLAY"] == "1",
                item.videoURLParsed != nil {
@@ -504,7 +540,7 @@ struct DetailView: View {
                     // After the screen settles: a cover requested during the
                     // first task can be dropped by the presentation machinery.
                     try? await Task.sleep(for: .seconds(1.5))
-                    playing = true
+                    play()
                 }
             }
             // Screen-audit hook (caption loop W6): present the subtitles sheet
@@ -557,6 +593,29 @@ struct DetailView: View {
         return URL(string: out) ?? url
     }
 
+    private func refreshWatched() {
+        isWatchedState = store.completedArchiveIDs.contains(item.archiveID)
+            || WatchProgress.isWatched(archiveID: item.archiveID, in: ctx)
+    }
+
+    /// Open the player. An episode first finds its place in its series, so it
+    /// plays on through the next episode; failing that, it plays alone.
+    private func play(from start: TimeInterval? = nil) {
+        let choice = captionPlaybackChoice
+        guard item.isEpisode, let sid = item.seriesID else {
+            playRequest = PlayRequest(startAt: start, captionChoice: choice)
+            return
+        }
+        let id = item.archiveID
+        Task {
+            let series = await SeriesStore.shared.load(seriesID: sid)
+            let ep = series?.flatEpisodes.first { $0.archiveID == id }
+            playRequest = PlayRequest(
+                startAt: start, captionChoice: choice,
+                episode: series.flatMap { s in ep.map { EpisodeContext(series: s, episode: $0) } })
+        }
+    }
+
     private func toggleWatched() {
         if WatchProgress.setWatched(!isWatchedState, in: ctx, archiveID: item.archiveID) {
             isWatchedState.toggle()
@@ -571,7 +630,7 @@ struct DetailView: View {
         Task {
             switch await WatchTogether.shared.share(
                 archiveID: item.archiveID, title: item.title, year: item.year) {
-            case .started: playing = true
+            case .started: play()
             case .needsCall: startingSharePlay = true
             case .cancelled: break
             }
@@ -583,7 +642,7 @@ struct DetailView: View {
         FilmMenuActions(
             title: item.title, isFavorite: isFav, isWatched: isWatchedState,
             canPlay: item.videoURLParsed != nil,
-            play: { playing = true },
+            play: { play() },
             toggleFavorite: { toggleFavorite() },
             addToPlaylist: { addingToPlaylist = true },
             toggleWatched: { toggleWatched() },
@@ -597,9 +656,14 @@ struct DetailView: View {
     }
 
     private func toggleFavorite() {
-        if let f = favorites.first(where: { $0.archiveID == item.archiveID }) {
-            ctx.delete(f)
-            SyncNudge.recordDeletion("fav:\(item.archiveID)", in: ctx)
+        // Every favorite this film is saved under, by the id it was STORED
+        // with: removing only the survivor's id left the old one, and the
+        // heart stayed full.
+        let saved = favorites.filter { ownIDs.contains($0.archiveID) }
+        if !saved.isEmpty {
+            let keys = saved.map(\.archiveID)
+            saved.forEach { ctx.delete($0) }
+            for key in Set(keys) { SyncNudge.recordDeletion("fav:\(key)", in: ctx) }
         } else {
             ctx.insert(Favorite(archiveID: item.archiveID)); try? ctx.save()
             SyncNudge.nudge(ctx)
@@ -615,8 +679,7 @@ struct DetailView: View {
                     LazyHStack(spacing: 14) {
                         ForEach(scenes, id: \.seconds) { s in
                             Button {
-                                sceneStart = TimeInterval(s.seconds)
-                                playing = true
+                                play(from: TimeInterval(s.seconds))
                             } label: {
                                 VStack(alignment: .leading, spacing: 4) {
                                     AsyncImage(url: s.image) { $0.resizable().scaledToFill() } placeholder: { Color.secondary.opacity(0.2) }
@@ -632,9 +695,9 @@ struct DetailView: View {
                 }.scrollIndicators(.hidden)
             }
         }
-        .task(id: item.archiveID) {
+        .task(id: "\(item.archiveID)|\(chosenVersionName ?? "")") {
             guard let url = item.videoURLParsed else { scenes = []; return }
-            scenes = await ArchiveVersions.scenes(for: item.archiveID, default: url)
+            scenes = await DetailMetadataCache.scenes(for: item.archiveID, default: url)
         }
     }
 
@@ -644,7 +707,18 @@ struct DetailView: View {
     }
 
     @ViewBuilder private var relatedSection: some View {
-        let related = store.related(to: item)
+        // A VStack, not a Group: an empty Group never appears, and its task
+        // would never run (scenesSection's same shape).
+        VStack(alignment: .leading, spacing: 0) {
+            if !related.isEmpty { relatedRow }
+        }
+        // Once per film and catalog, not on every render of the page.
+        .task(id: "\(item.archiveID)|\(store.dbVersion)") {
+            related = store.related(to: item)
+        }
+    }
+
+    @ViewBuilder private var relatedRow: some View {
         if !related.isEmpty {
             VStack(alignment: .leading, spacing: 8) {
                 Text("More Like This").font(.title3).fontWeight(.semibold).accessibilityAddTraits(.isHeader)
@@ -703,6 +777,7 @@ private struct CastRow: View {
     var director: String? = nil
     var directorProfilePath: String? = nil
     @Environment(Router.self) private var router
+    @ScaledMetric(relativeTo: .caption2) private var roleSize: CGFloat = 9
 
     /// TMDb profile paths are stored as "/abc.jpg"; full URLs pass through.
     static func profileURL(_ path: String?) -> URL? {
@@ -761,7 +836,7 @@ private struct CastRow: View {
                     .frame(width: 72).multilineTextAlignment(.center)
                     .foregroundStyle(.primary)
                 if let role, !role.isEmpty {
-                    Text(role).font(.system(size: 9)).foregroundStyle(.secondary)
+                    Text(role).font(.system(size: roleSize)).foregroundStyle(.secondary)
                         .lineLimit(1).frame(width: 72)
                 }
             }
@@ -815,6 +890,38 @@ private struct DetailFacts: View {
         if let dp = item.cinematographer, !dp.isEmpty { out.append(("Cinematography", dp)) }
         if let a = item.awards, !a.isEmpty { out.append(("Awards", a)) }
         return out
+    }
+}
+
+/// One request to play, carrying everything the player needs at creation.
+struct PlayRequest: Identifiable {
+    let id = UUID()
+    var startAt: TimeInterval? = nil
+    var captionChoice: CaptionPlaybackChoice? = nil
+    /// Set when the title is an episode found in its series.
+    var episode: EpisodeContext? = nil
+}
+
+/// archive.org's metadata for a film, fetched once a session: Detail asked
+/// for it twice per visit (copies, scenes) and again on every revisit.
+@MainActor
+enum DetailMetadataCache {
+    private static var versionsByID: [String: [ArchiveVersions.Version]] = [:]
+    private static var scenesByURL: [String: [ArchiveVersions.Scene]] = [:]
+
+    static func versions(for id: String, defaultURL: URL?) async -> [ArchiveVersions.Version] {
+        if let hit = versionsByID[id] { return hit }
+        let list = await ArchiveVersions.list(itemID: id, defaultURL: defaultURL)
+        if !list.isEmpty { versionsByID[id] = list }
+        return list
+    }
+
+    static func scenes(for id: String, default url: URL) async -> [ArchiveVersions.Scene] {
+        let key = ArchiveVersions.preferredURL(for: id, default: url).absoluteString
+        if let hit = scenesByURL[key] { return hit }
+        let list = await ArchiveVersions.scenes(for: id, default: url)
+        scenesByURL[key] = list
+        return list
     }
 }
 

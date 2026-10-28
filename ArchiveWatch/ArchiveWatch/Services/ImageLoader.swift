@@ -18,8 +18,8 @@ actor ImageLoader {
 
     enum Failure: Error { case decode, invalidURL, notAnImage, httpError(Int) }
 
-    private let cache = NSCache<NSURL, UIImage>()
-    private var inFlight: [URL: Task<UIImage, Error>] = [:]
+    private let cache = NSCache<NSString, UIImage>()
+    private var inFlight: [String: Task<UIImage, Error>] = [:]
     private let session: URLSession
 
     private init() {
@@ -39,8 +39,12 @@ actor ImageLoader {
     /// Load and decode an image at the given target display size. Returns
     /// a UIImage that's already decoded in memory (no draw-time hitch).
     func image(for url: URL, targetSize: CGSize, scale: CGFloat = 2) async throws -> UIImage {
-        if let hit = cache.object(forKey: url as NSURL) { return hit }
-        if let task = inFlight[url] { return try await task.value }
+        // Keyed by URL AND decoded size: a poster downsampled for a 200 pt
+        // tile must not be served stretched to a 1920 pt backdrop. Sizes are
+        // bucketed (256 px steps) so nearby tiles share a decode.
+        let key = Self.cacheKey(url, targetSize: targetSize, scale: scale)
+        if let hit = cache.object(forKey: key as NSString) { return hit }
+        if let task = inFlight[key] { return try await task.value }
 
         let task = Task<UIImage, Error> {
             // Upgrade plain HTTP to HTTPS — tvOS ATS blocks plain HTTP
@@ -78,12 +82,23 @@ actor ImageLoader {
 
             let image = try await Self.decode(data: data, targetSize: targetSize, scale: scale)
             let cost = Int(image.size.width * image.size.height * image.scale * image.scale * 4)
-            cache.setObject(image, forKey: url as NSURL, cost: cost)
+            cache.setObject(image, forKey: key as NSString, cost: cost)
             return image
         }
-        inFlight[url] = task
-        defer { inFlight[url] = nil }
+        inFlight[key] = task
+        defer { inFlight[key] = nil }
         return try await task.value
+    }
+
+    private static func cacheKey(_ url: URL, targetSize: CGSize, scale: CGFloat) -> String {
+        "\(bucket(targetSize, scale))|\(url.absoluteString)"
+    }
+
+    /// The pixel size an image is decoded at: the longest side, rounded up to a
+    /// multiple of 256, so a cached decode is never smaller than a request.
+    private static func bucket(_ targetSize: CGSize, _ scale: CGFloat) -> Int {
+        let px = max(1, Int((max(targetSize.width, targetSize.height) * scale).rounded(.up)))
+        return (px + 255) / 256 * 256
     }
 
     /// Best-effort prefetch — errors are swallowed. Used to warm the
@@ -98,7 +113,7 @@ actor ImageLoader {
     /// UIImage allocation at the source resolution.
     private static func decode(data: Data, targetSize: CGSize, scale: CGFloat) async throws -> UIImage {
         try await Task.detached(priority: .userInitiated) {
-            let maxDim = max(targetSize.width, targetSize.height) * scale
+            let maxDim = bucket(targetSize, scale)
             let options: [CFString: Any] = [
                 kCGImageSourceCreateThumbnailFromImageAlways: true,
                 kCGImageSourceCreateThumbnailWithTransform: true,

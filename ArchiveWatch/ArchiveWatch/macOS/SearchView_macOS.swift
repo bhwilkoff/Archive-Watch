@@ -30,12 +30,21 @@ struct SearchView: View {
     private var filtered: [Catalog.Item] {
         results.filter { item in
             !item.isEpisode &&
-            (contentType == nil || item.contentType == contentType) &&
+            matchesType(item) &&
             (decade == nil || item.year.map { ($0 / 10) * 10 == decade! } == true)
         }
     }
+    /// Documentary is a GENRE, not a content type (CatalogDB.browseSQL resolves
+    /// the category the same way), so no item ever carried that contentType.
+    private func matchesType(_ item: Catalog.Item) -> Bool {
+        guard let contentType else { return true }
+        if contentType == "documentary" {
+            return item.genres.contains { $0.caseInsensitiveCompare("Documentary") == .orderedSame }
+        }
+        return item.contentType == contentType
+    }
     private var filterActive: Bool { contentType != nil || decade != nil }
-    private var decades: [Int] { store.decadeCounts().keys.sorted(by: >) }
+    @State private var decades: [Int] = []
 
     var body: some View {
         ScrollView {
@@ -115,6 +124,7 @@ struct SearchView: View {
                 .help("Filter results by type or decade")
             }
         }
+        .task(id: store.dbVersion) { decades = store.decadeCounts().keys.sorted(by: >) }
         .task(id: query) {
             allEpisodes = false
             let q = query.trimmingCharacters(in: .whitespaces)

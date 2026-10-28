@@ -58,6 +58,12 @@ on:
 # multi-hour verify and starve it (the group keeps only one pending run). Only the
 # short ubuntu publish job mutates the catalog, and it alone holds the writers lock.
 
+# Every `run:` is `bash -eo pipefail` (GitHub's explicit `shell: bash`;
+# the implicit default has no pipefail, so `tool | tee log` hid a crash).
+defaults:
+  run:
+    shell: bash
+
 jobs:
   # Fan-out: each shard fetches the catalog, verifies its slice of the items, and
   # uploads ONLY a compact per-item verdict delta (not the whole catalog).

@@ -821,7 +821,8 @@ struct StudioWindowView: View {
                                   }(),
                                   captionsOff: CaptionChoiceSession.byItem[film.archiveID] == .off,
                                   publishedVTT: film.publishedVTTURL,
-                                  feedsProgram: true)
+                                  feedsProgram: true,
+                                  publishesControls: false)
                         .id("\(film.archiveID)#\(show.copyGeneration)")
                 }
             }

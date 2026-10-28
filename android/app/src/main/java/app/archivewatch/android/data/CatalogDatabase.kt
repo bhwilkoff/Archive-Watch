@@ -360,12 +360,12 @@ class CatalogDatabase private constructor(
     /** Each requested id -> the item it now names, following merged-away ids
      *  to their survivor (Decision 085). Keyed by the REQUESTED id, so a
      *  record saved under an old id (watch progress) still finds its card. */
-    suspend fun itemsByIDsKeyed(ids: List<String>): Map<String, CatalogItem> {
+    suspend fun itemsByIDsKeyed(ids: List<String>, lite: Boolean = false): Map<String, CatalogItem> {
         if (ids.isEmpty()) return emptyMap()
-        val found = itemsByIDsDirect(ids).associateBy { it.archiveID }.toMutableMap()
+        val found = itemsByIDsDirect(ids, lite).associateBy { it.archiveID }.toMutableMap()
         val missing = ids.filter { !found.containsKey(it) }
         if (missing.isNotEmpty()) {
-            for ((old, item) in resolveAliases(missing)) found[old] = item
+            for ((old, item) in resolveAliases(missing, lite)) found[old] = item
         }
         return found
     }
@@ -385,7 +385,7 @@ class CatalogDatabase private constructor(
      * Each call is its own dbCall and they run SEQUENTIALLY: the mutex in
      * dbCall is not reentrant, so nesting these would deadlock.
      */
-    private suspend fun resolveAliases(ids: List<String>): List<Pair<String, CatalogItem>> {
+    private suspend fun resolveAliases(ids: List<String>, lite: Boolean = false): List<Pair<String, CatalogItem>> {
         if (ids.isEmpty()) return emptyList()
         val marks = ids.joinToString(",") { "?" }
         // A cached DB published before the table existed simply has no aliases;
@@ -399,7 +399,7 @@ class CatalogDatabase private constructor(
             }.getOrDefault(emptyList())
         }
         if (pairs.isEmpty()) return emptyList()
-        val byNew = itemsByIDsDirect(pairs.map { it.second }).associateBy { it.archiveID }
+        val byNew = itemsByIDsDirect(pairs.map { it.second }, lite).associateBy { it.archiveID }
         return pairs.mapNotNull { (old, new) -> byNew[new]?.let { old to it } }
     }
 
@@ -411,10 +411,12 @@ class CatalogDatabase private constructor(
     }
 
     /** The un-aliased lookup, so alias resolution cannot recurse. */
-    private suspend fun itemsByIDsDirect(ids: List<String>): List<CatalogItem> {
+    /** `lite` reads the list-row columns only (a grid tile), not the blob. */
+    private suspend fun itemsByIDsDirect(ids: List<String>, lite: Boolean = false): List<CatalogItem> {
         if (ids.isEmpty()) return emptyList()
         val marks = ids.joinToString(",") { "?" }
-        return items("SELECT json FROM item_json WHERE archiveID IN ($marks)", ids)
+        return if (lite) itemsLite("$itemSelect WHERE i.archiveID IN ($marks)", ids)
+        else items("SELECT json FROM item_json WHERE archiveID IN ($marks)", ids)
     }
 
     suspend fun browse(

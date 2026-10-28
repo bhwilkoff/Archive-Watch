@@ -28,6 +28,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.rememberCoroutineScope
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
@@ -43,6 +44,7 @@ import androidx.compose.ui.platform.LocalContext
 import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.ui.Nav
 import app.archivewatch.android.ui.uniqueBy
+import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
 import java.text.NumberFormat
 
@@ -77,9 +79,9 @@ fun TvBrowseScreen(container: AppContainer, nav: Nav) {
     val dbVersion by container.catalog.dbVersion.collectAsState()
     val scope = rememberCoroutineScope()
 
-    var activeScope by remember { mutableStateOf(TvScope.All) }
-    var activeDecade by remember { mutableStateOf<Int?>(null) }
-    var activeRuntime by remember { mutableStateOf<app.archivewatch.android.data.RuntimeBand?>(null) }
+    var activeScope by rememberSaveable { mutableStateOf(TvScope.All) }
+    var activeDecade by rememberSaveable { mutableStateOf<Int?>(null) }
+    var activeRuntime by rememberSaveable { mutableStateOf<app.archivewatch.android.data.RuntimeBand?>(null) }
     // Remembered per kind of grid (SortMemory): the TV scope keeps its own.
     val context = LocalContext.current
     var filmSort by remember { mutableStateOf(SortMemory.sort(context, SortMemory.BROWSE)) }
@@ -89,6 +91,10 @@ fun TvBrowseScreen(container: AppContainer, nav: Nav) {
     var endReached by remember { mutableStateOf(false) }
     var loading by remember { mutableStateOf(true) }
     val items = remember { mutableStateListOf<CatalogItem>() }
+    // One page request at a time (every focused tile near the end asks), and
+    // a page asked for under the old filters is dropped when they change.
+    var paging by remember { mutableStateOf(false) }
+    var generation by remember { mutableIntStateOf(0) }
 
     val firstChip = remember { FocusRequester() }
     val firstTile = remember { FocusRequester() }
@@ -96,6 +102,7 @@ fun TvBrowseScreen(container: AppContainer, nav: Nav) {
     val chipState = rememberLazyListState()
 
     LaunchedEffect(dbVersion, activeScope, activeDecade, activeRuntime, activeSort) {
+        generation += 1
         loading = true
         items.clear()
         endReached = false
@@ -123,23 +130,40 @@ fun TvBrowseScreen(container: AppContainer, nav: Nav) {
     }
 
     suspend fun loadMore() {
-        if (endReached || loading || activeScope == TvScope.TV) return
+        if (endReached || loading || paging || activeScope == TvScope.TV) return
         val db = container.catalog.db ?: return
-        val page = db.browse(
-            contentType = activeScope.contentType,
-            decade = activeDecade,
-            runtime = activeRuntime,
-            sort = activeSort,
-            limit = PAGE_SIZE,
-            offset = items.size,
-        )
-        items.addAll(page)
-        if (page.size < PAGE_SIZE) endReached = true
+        val asked = generation
+        paging = true
+        try {
+            val page = db.browse(
+                contentType = activeScope.contentType,
+                decade = activeDecade,
+                runtime = activeRuntime,
+                sort = activeSort,
+                limit = PAGE_SIZE,
+                offset = items.size,
+            )
+            if (asked != generation) return
+            items.addAll(page)
+            if (page.size < PAGE_SIZE) endReached = true
+        } finally {
+            paging = false
+        }
     }
 
-    // §3.1 — exactly one claim, and it is the content. Re-claimed when the
-    // scope changes so the grid never comes back with nothing focused.
-    ClaimInitialFocus(if (items.isEmpty()) firstChip else firstTile, key = activeScope to items.isEmpty())
+    // §3.1 — exactly one claim, and it is the content: the first chip while
+    // the first page loads, then the first tile, ONCE. A later chip press
+    // reloads the grid under the chip, and focus stays on the chip the viewer
+    // pressed instead of being thrown to tile 0.
+    ClaimInitialFocus(firstChip)
+    var claimedTile by remember { mutableStateOf(false) }
+    LaunchedEffect(loading) {
+        if (claimedTile || loading || items.isEmpty()) return@LaunchedEffect
+        repeat(12) {
+            if (runCatching { firstTile.requestFocus() }.isSuccess) { claimedTile = true; return@LaunchedEffect }
+            delay(50)
+        }
+    }
 
     Column(Modifier.fillMaxSize()) {
         Text(
@@ -203,7 +227,8 @@ fun TvBrowseScreen(container: AppContainer, nav: Nav) {
             verticalArrangement = Arrangement.spacedBy(24.dp),
             modifier = Modifier.fillMaxSize(),
         ) {
-            itemsIndexed(items.uniqueBy { it.archiveID }, key = { _, it -> it.archiveID }) { index, item ->
+            val unique = items.uniqueBy { it.archiveID }
+            itemsIndexed(unique, key = { _, it -> it.archiveID }) { index, item ->
                 TvPosterTile(
                     item = item,
                     onClick = { nav.openItem(item.archiveID, item.seriesID, item.contentType) },
@@ -219,7 +244,7 @@ fun TvBrowseScreen(container: AppContainer, nav: Nav) {
                     onFocused = {
                         // Page in on FOCUS approach — the viewer's cursor is the
                         // signal on a TV, not the scroll offset.
-                        if (index >= items.size - 12) scope.launch { loadMore() }
+                        if (index >= unique.size - 12) scope.launch { loadMore() }
                     },
                 )
             }

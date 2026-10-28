@@ -384,8 +384,14 @@ sub onEpisodeSelected()
         titles.Push(c.title)
         urls.Push(fmt(c.url))
     end for
+    ' The series slug rides in the request, so the player files the bookmark
+    ' under THIS show whatever screen is behind it later.
+    own = ""
+    sid = fmt(m.top.seriesID)
+    if Left(sid, 7) = "series:" then own = Mid(sid, 8)
     m.top.playEpisode = { id: n.id, title: n.title, url: fmt(n.url),
                           meta: fmt(m.series.title) + "  ·  " + n.SHORTDESCRIPTIONLINE1,
+                          owner: own,
                           queue: ids, queueTitles: titles, queueUrls: urls, index: i }
 end sub
 

@@ -102,7 +102,10 @@ class AppContainer(private val application: Application) {
         scope.launch {
             catalog.initialize()
             catalog.applyFilters(settings.hideAdultContent.first(), settings.hiddenCategories.first())
-            catalog.refresh()
+            // Throttled like the foreground path: a process start minutes after
+            // the last check (a low-memory kill, a widget waking the app) does
+            // not need another conditional request.
+            catalog.refreshIfStale()
         }
         observeForeground()
         // Google Drive App Data sync (google flavor; a no-op stub on amazon).

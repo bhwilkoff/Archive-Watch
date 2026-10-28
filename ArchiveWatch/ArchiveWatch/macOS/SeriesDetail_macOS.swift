@@ -21,6 +21,9 @@ struct SeriesDetailView: View {
     @State private var upNext: SeriesUpNext?
     @Environment(\.modelContext) private var ctx
     @Query private var favorites: [Favorite]
+    /// Launch Services is asked once, not on every redraw.
+    @State private var callsheetTitle = ""
+    @State private var callsheetIcon = "person.text.rectangle"
 
     var body: some View {
         ScrollView {
@@ -42,6 +45,10 @@ struct SeriesDetailView: View {
         }
         .navigationTitle(series?.title ?? card.title)
         .task { await load() }
+        .task {
+            callsheetTitle = Callsheet.actionTitle
+            callsheetIcon = Callsheet.actionIcon
+        }
         .onAppear { if series != nil { upNext = SeriesUpNext.compute(for: series, in: ctx) } }
     }
 
@@ -138,7 +145,7 @@ struct SeriesDetailView: View {
     @ViewBuilder private var callsheetButton: some View {
         if Callsheet.supports(card) {
             Button { Callsheet.open(Callsheet.url(for: card)) } label: {
-                Label(Callsheet.actionTitle, systemImage: Callsheet.actionIcon)
+                Label(callsheetTitle, systemImage: callsheetIcon)
             }
             .help("Cast & crew in Callsheet")
             .fixedSize()
@@ -208,7 +215,7 @@ struct SeriesDetailView: View {
                                 Callsheet.open(Callsheet.episodeURL(
                                     seriesTitle: series?.title ?? card.title,
                                     season: ep.seasonNumber, episode: ep.episodeNumber))
-                            } label: { Label(Callsheet.actionTitle, systemImage: Callsheet.actionIcon) }
+                            } label: { Label(callsheetTitle, systemImage: callsheetIcon) }
                         }
                     }
             }

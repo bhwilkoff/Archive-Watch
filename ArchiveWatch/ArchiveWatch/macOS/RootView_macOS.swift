@@ -119,6 +119,8 @@ struct RootView: View {
             router.nowPlaying = nil
             router.nowPlayingEpisode = nil
             router.nowPlayingChannel = nil
+            // The screensaver would otherwise be up again, full screen, on reopen.
+            router.screensaverActive = false
         })
         // A SharePlay session someone else started names a film; open it and
         // start playing so the coordinator has a player to sync. Without this the
@@ -597,6 +599,9 @@ struct RootView: View {
                     .navigationDestination(for: PartyRoute.self) { _ in PartyPlayView() }
             }
         }
+        // A section is a new place: the previous section's drill-in must not
+        // follow the viewer there.
+        .onChange(of: router.section) { router.path = NavigationPath() }
     }
 
     private func exitScreensaver() {
@@ -753,19 +758,18 @@ private struct WatchTogetherLanding: View {
         .navigationTitle("Watch Together")
         .sheet(isPresented: $joining) {
             JoinRoomSheet { code, filmID in
-                joining = false
                 // The room names the film; open it and the follower takes
                 // over from there. If this device does not have that film in
-                // its catalog there is nothing to play, and saying so beats
-                // an empty player.
-                if let item = store.item(filmID) {
-                    RoomJoin.shared.pending = code
-                    RoomJoin.shared.pendingFilm = item.archiveID
-                    router.play(item)
-                } else {
-                    RoomJoin.shared.problem =
-                        "This room is watching a film that is not in this device's catalog yet."
+                // its catalog there is nothing to play, and the sheet says so
+                // rather than closing on nothing.
+                guard let item = store.item(filmID) else {
+                    return "This room is watching a film that is not in this device's catalog yet."
                 }
+                joining = false
+                RoomJoin.shared.pending = code
+                RoomJoin.shared.pendingFilm = item.archiveID
+                router.play(item)
+                return nil
             }
         }
     }
@@ -788,7 +792,8 @@ private struct WatchTogetherLanding: View {
 /// `StudioRoom.normalize`, the same function the Worker runs (§8.29).
 private struct JoinRoomSheet: View {
     @Environment(\.dismiss) private var dismiss
-    let onJoin: (String, String) -> Void
+    /// Returns the reason the room cannot be joined here, or nil once joined.
+    let onJoin: (String, String) -> String?
 
     @State private var typed = ""
     @State private var problem: String?
@@ -846,8 +851,11 @@ private struct JoinRoomSheet: View {
                 // The host's copy, remembered BEFORE the player is built.
                 StudioRoomCopy.set(film: state.filmID, copy: state.copy)
                 working = false
-                onJoin(code, state.filmID)
-                dismiss()
+                if let refusal = onJoin(code, state.filmID) {
+                    problem = refusal
+                } else {
+                    dismiss()
+                }
             } catch {
                 working = false
                 problem = StudioSyncFollower.sentence(for: error)
@@ -894,7 +902,7 @@ private struct CreationStudioLanding: View {
             Image(systemName: "movieclapper.fill")
                 .font(.system(size: 60)).foregroundStyle(.tint)
             Text("Creation Studio").font(.largeTitle.bold())
-            Text("Cut public-domain films into clips, montages and supercuts, then export them.")
+            Text("Cut films from the catalog into clips, montages and supercuts, then export them.")
                 .font(.title3).foregroundStyle(.secondary)
                 .multilineTextAlignment(.center).frame(maxWidth: 480)
 

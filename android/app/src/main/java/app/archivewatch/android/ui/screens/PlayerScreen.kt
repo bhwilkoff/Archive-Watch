@@ -209,20 +209,14 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
         ExoPlayer.Builder(context)
             .apply { studioTap?.let { setRenderersFactory(it.renderersFactory(context)) } }
             .setMediaSourceFactory(
-                // Production keeps the HTTP-only factory: every real film is
-                // an https URL, and a data source that can also open local
-                // files is reach the product has no use for.
-                //
-                // The §9.fff override is the exception. `aw_play_url` exists to
-                // play a LOCAL sync clip, and handing a `file://` URI to an
-                // HTTP factory produced `ExoPlaybackException: Source error` —
-                // a failure that reads exactly like a network problem and is
-                // not one. `DefaultDataSource.Factory` resolves file/asset/
-                // content itself and delegates http(s) to the same upstream.
+                // `DefaultDataSource.Factory` resolves file:// itself and hands
+                // http(s) to the same OkHttp upstream. The subtitles a viewer
+                // fetched with Get Subtitles are a FILE in the cache, and an
+                // HTTP-only factory fails a file:// URI with "Source error",
+                // which reads exactly like a network problem (as `aw_play_url`'s
+                // local sync clip showed, §9.fff).
                 DefaultMediaSourceFactory(
-                    if (app.archivewatch.android.ui.DeepLinks.pendingPlayURL.value != null)
-                        androidx.media3.datasource.DefaultDataSource.Factory(context, httpFactory)
-                    else httpFactory
+                    androidx.media3.datasource.DefaultDataSource.Factory(context, httpFactory)
                 ).setLoadErrorHandlingPolicy(policy),
             )
             .setLoadControl(loadControl)
@@ -233,10 +227,16 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                 // The viewer's per-title copy choice (ArchiveVersions, the
                 // tvOS picker's port) beats the pipeline's pick.
                 val mediaItems = if (spec.queue.isNotEmpty()) {
-                    spec.queue.map { e ->
+                    spec.queue.mapIndexed { i, e ->
+                        // A season queue is built from the spine, which carries
+                        // no tracks; the episode the viewer pressed Play on
+                        // brings its own, so it keeps them.
+                        val caps = if (e.captions.isEmpty() && i == spec.queueIndex && e.id == spec.id)
+                            spec.captions else e.captions
                         MediaItem.Builder()
                             .setUri(app.archivewatch.android.data.ArchiveVersions.preferredURL(context, e.id, e.url))
                             .setMediaId(e.id)
+                            .setSubtitleConfigurations(subtitleConfigurations(context, e.id, caps))
                             .setMediaMetadata(
                                 MediaMetadata.Builder()
                                     .setTitle(e.title)
@@ -254,21 +254,7 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                             // Side-loaded subtitles (Decision 039): Media3 plays
                             // SRT/VTT natively and lists them in the subtitle
                             // button. English (auto) defaults on.
-                            .setSubtitleConfigurations(
-                                spec.captions.map { c ->
-                                    MediaItem.SubtitleConfiguration.Builder(c.url.toUri())
-                                        .setMimeType(
-                                            if (c.format == "vtt") MimeTypes.TEXT_VTT
-                                            else MimeTypes.APPLICATION_SUBRIP,
-                                        )
-                                        .setLanguage(c.lang)
-                                        .setLabel(c.displayLabel)
-                                        .setSelectionFlags(
-                                            if (c.lang == "en") C.SELECTION_FLAG_DEFAULT else 0,
-                                        )
-                                        .build()
-                                },
-                            )
+                            .setSubtitleConfigurations(subtitleConfigurations(context, spec.id, spec.captions))
                             .setMediaMetadata(
                                 MediaMetadata.Builder()
                                     .setTitle(spec.title)
@@ -378,17 +364,57 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
         app.archivewatch.android.ui.DeepLinks.pendingPlayURL.value != null
     }
 
-    // Persist progress every 10s — against the CURRENT queue item, so each
-    // binged episode resumes independently.
+    // Persist progress against the CURRENT queue item, so each binged episode
+    // resumes independently. Every 5 s while PLAYING, written quietly; the
+    // rest of the app (and Drive sync) hears about it at most once a minute,
+    // and at once on a pause, an advance, or leaving the player (below).
     LaunchedEffect(spec.id) {
         if (!spec.persistProgress || playURLOverride) return@LaunchedEffect
-        while (true) {
-            delay(5_000)
-            val duration = player.duration
-            val id = player.currentMediaItem?.mediaId ?: spec.id
-            if (duration > 0) {
-                container.userState.saveProgress(id, player.currentPosition, duration)
+        var notifiedAt = 0L
+        var lastID: String? = null
+        var lastPos = 0L
+        var lastDur = 0L
+        val effect = this
+        val listener = object : Player.Listener {
+            override fun onIsPlayingChanged(isPlaying: Boolean) {
+                if (isPlaying) return
+                val d = player.duration
+                if (d <= 0) return
+                val id = player.currentMediaItem?.mediaId ?: spec.id
+                val pos = player.currentPosition
+                notifiedAt = System.currentTimeMillis()
+                effect.launch { container.userState.saveProgress(id, pos, d) }
             }
+
+            override fun onMediaItemTransition(item: MediaItem?, reason: Int) {
+                val prev = lastID ?: return
+                if (prev == item?.mediaId || lastDur <= 0) return
+                // An episode that played to its end is finished, not stuck at
+                // its last five-second mark.
+                val pos = if (reason == Player.MEDIA_ITEM_TRANSITION_REASON_AUTO) lastDur else lastPos
+                val d = lastDur
+                notifiedAt = System.currentTimeMillis()
+                effect.launch { container.userState.saveProgress(prev, pos, d) }
+            }
+        }
+        player.addListener(listener)
+        try {
+            while (true) {
+                delay(5_000)
+                if (!player.isPlaying) continue
+                val duration = player.duration
+                val id = player.currentMediaItem?.mediaId ?: spec.id
+                if (duration > 0) {
+                    val pos = player.currentPosition
+                    val now = System.currentTimeMillis()
+                    val notify = now - notifiedAt >= 60_000L
+                    if (notify) notifiedAt = now
+                    container.userState.saveProgress(id, pos, duration, notify = notify)
+                    lastID = id; lastPos = pos; lastDur = duration
+                }
+            }
+        } finally {
+            player.removeListener(listener)
         }
     }
 
@@ -583,18 +609,25 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                 delay(700)
                 val casting = CastSupport.isCasting()
                 if (casting && !handedOff) {
+                    // What is PLAYING, not what was opened: a binged episode, the
+                    // viewer's chosen copy, and that item's own tracks.
+                    val now = player.currentMediaItem
+                    val local = now?.localConfiguration
                     val ok = CastSupport.loadMedia(
-                        url = spec.url,
-                        title = spec.title,
-                        description = spec.description,
-                        // VTT only. The receiver is handed a URL it fetches
-                        // itself and parses as text/vtt; an .srt would simply
-                        // fail there. The pipeline publishes a vttURL for
-                        // essentially every caption, so this drops almost
-                        // nothing (Decision 039).
-                        captions = spec.captions
-                            .filter { it.format.equals("vtt", true) || it.url.endsWith(".vtt", true) }
-                            .map { CastCaption(it.lang, it.displayLabel, it.url) },
+                        url = local?.uri?.toString() ?: spec.url,
+                        title = now?.mediaMetadata?.title?.toString() ?: spec.title,
+                        description = (now?.mediaMetadata?.description ?: now?.mediaMetadata?.subtitle)
+                            ?.toString() ?: spec.description,
+                        // VTT over http(s) only. The receiver fetches the URL
+                        // itself and parses it as text/vtt, so an .srt fails
+                        // there and a cached file:// track cannot be reached
+                        // (Decision 039).
+                        captions = local?.subtitleConfigurations.orEmpty()
+                            .filter {
+                                (it.mimeType == MimeTypes.TEXT_VTT || it.uri.path?.endsWith(".vtt", true) == true) &&
+                                    it.uri.scheme?.startsWith("http") == true
+                            }
+                            .map { CastCaption(it.language ?: "und", it.label ?: (it.language ?: ""), it.uri.toString()) },
                         positionMs = player.currentPosition,
                     )
                     if (ok) {
@@ -733,8 +766,10 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
     }
     // Ending the show must not outlive the surface producing it — the lesson
     // that came out of a harness left running in someone's living room.
+    // container.scope: the composition scope is already cancelled in onDispose,
+    // so a launch on it never ran and the camera and broadcast outlived the player.
     DisposableEffect(spec.id) {
-        onDispose { scope.launch { StudioController.end() } }
+        onDispose { container.scope.launch(kotlinx.coroutines.Dispatchers.Main) { StudioController.end() } }
     }
 
     // Channel up/down (iOS-DESIGN §2.5d): the next channel replaces this
@@ -766,6 +801,7 @@ fun PlayerScreen(container: AppContainer, nav: Nav, spec: PlaySpec) {
                         onInteraction = { tvInteraction += 1 },
                         onMenu = { showTvMenu = true },
                         onChannel = surf,
+                        enabled = !showTvMenu && upNext == null,
                     )
                 } else Modifier,
             ),
@@ -1530,4 +1566,33 @@ private fun UpNextCard(
         }
     }
     if (isTv) LaunchedEffect(Unit) { runCatching { playFocus.requestFocus() } }
+}
+
+/**
+ * The published tracks (Decision 039), plus the OpenSubtitles file the viewer
+ * fetched with Get Subtitles, which lives in the cache as a VTT and was never
+ * handed to the player. English defaults on; a fetched file defaults on only
+ * when nothing published does.
+ */
+internal fun subtitleConfigurations(
+    context: android.content.Context,
+    archiveID: String,
+    captions: List<app.archivewatch.android.data.Caption>,
+): List<MediaItem.SubtitleConfiguration> {
+    val published = captions.map { c ->
+        MediaItem.SubtitleConfiguration.Builder(c.url.toUri())
+            .setMimeType(if (c.format == "vtt") MimeTypes.TEXT_VTT else MimeTypes.APPLICATION_SUBRIP)
+            .setLanguage(c.lang)
+            .setLabel(c.displayLabel)
+            .setSelectionFlags(if (c.lang == "en") C.SELECTION_FLAG_DEFAULT else 0)
+            .build()
+    }
+    val fetched = app.archivewatch.android.data.OpenSubtitlesClient.cachedVTT(context, archiveID)
+        ?: return published
+    return published + MediaItem.SubtitleConfiguration.Builder(android.net.Uri.fromFile(fetched))
+        .setMimeType(MimeTypes.TEXT_VTT)
+        .setLanguage("en")
+        .setLabel("English (OpenSubtitles)")
+        .setSelectionFlags(if (captions.none { it.lang == "en" }) C.SELECTION_FLAG_DEFAULT else 0)
+        .build()
 }

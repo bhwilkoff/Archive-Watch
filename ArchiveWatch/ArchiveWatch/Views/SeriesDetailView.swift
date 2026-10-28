@@ -73,6 +73,12 @@ struct SeriesDetailView: View {
             // fallback for older exports.
             let slug = seriesCard.seriesID
                 ?? seriesCard.archiveID.replacingOccurrences(of: "series:", with: "")
+            // `.task` runs again when the player's cover dismisses: keep the
+            // loaded show and the season the viewer was on, refresh Up Next.
+            if series?.seriesID == slug {
+                upNext = computeUpNext()
+                return
+            }
             isLoading = true
             loadError = false
             let loaded = await SeriesStore.shared.load(seriesID: slug)

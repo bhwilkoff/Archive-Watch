@@ -114,20 +114,22 @@ private struct SurpriseTile: View {
 
 // MARK: - Public Domain Day (#15)
 
-// The 95-year rule: a work published in year Y enters the US public domain on
-// January 1 of Y+95. Year chips pick the entry year; the grid shows that class.
+// A work published in year Y is protected through December 31 of Y+95 and
+// enters the US public domain on January 1 of Y+96 (Decision 137). Year chips
+// pick the entry year; the grid shows that class.
 struct PublicDomainRoute: Hashable {}
 
 struct PublicDomainView: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
 
-    private let thisYear = Calendar.current.component(.year, from: Date())
+    /// This year's entry year, on the rights audit's own calendar.
+    private let thisYear = StudioRights.lastPublicDomainYear() + 96
     @State private var entryYear = 0
     @State private var items: [Catalog.Item] = []
 
     private var entryYears: [Int] { Array(stride(from: thisYear, through: thisYear - 20, by: -1)) }
-    private var pubYear: Int { entryYear - 95 }
+    private var pubYear: Int { entryYear - 96 }
     private let cols = [GridItem(.adaptive(minimum: 110), spacing: 14)]
 
     var body: some View {
@@ -185,7 +187,8 @@ struct PublicDomainView: View {
 
     private func reload() {
         guard pubYear > 1870 else { items = []; return }
-        items = store.browse(year: pubYear, sort: .popular, limit: 200)
+        // A surface that picks films for the viewer (Decisions 149 / 156).
+        items = store.browse(year: pubYear, sort: .popular, limit: 200).filter(\.isRecommendable)
     }
 }
 

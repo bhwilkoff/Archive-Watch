@@ -16,6 +16,8 @@
     <function name="applyFilter" />
     <function name="applyChip" />
     <function name="applyCollection" />
+    <function name="openScope" />
+    <function name="showUnavailable" />
   </interface>
   <script type="text/brightscript" uri="pkg:/components/Capability.brs" />
   <script type="text/brightscript" uri="pkg:/components/Theme.brs" />

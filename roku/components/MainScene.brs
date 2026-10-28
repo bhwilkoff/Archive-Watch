@@ -27,35 +27,38 @@ sub init()
     m.pendingDeepLink = ""
     m.pendingDetailID = ""
     m.queuedDeepLink = ""
-    m.pendingCollections = false
-    m.collectionsBuilt = false
     m.pendingEpisode = invalid
     m.episodeQueue = invalid
-    m.pendingRandom = false
     m.pendingMarathon = false
     m.lineup = invalid
     m.chQueue = invalid
-    m.pendingUserItems = false
     m.userItems = invalid
-    m.pendingLike = ""
-    m.pendingUserChannel = invalid
-    m.pendingChCheck = invalid
-    m.pendingParty = false
-    m.pendingWall = false
     m.idLineup = invalid
     m.moreMode = "detail"
     m.autoPlay = false
     m.browseFrom = "home"
     m.cameFromSeries = "home"
-    m.pendingCards = false
     m.cardsBuilt = false
+    ' What each outstanding service query was FOR, by queryId. The results
+    ' carry the id they answer (awQid, on the node), so a reply is routed by what was
+    ' asked rather than by whichever pending flag happens to be set.
+    m.qKinds = {}
+    ' Where Detail was opened from (Back from Detail), kept apart from
+    ' cameFrom (Back from the PLAYER), which a film started on Detail sets to
+    ' "detail".
+    m.detailFrom = "home"
+    m.cameFrom = "home"
+    m.wantDetailID = ""
+    m.pendingNotice = ""
 
     m.rail.ObserveField("selected", "onRailSelected")
 
     m.svc = CreateObject("roSGNode", "CatalogService")
     m.svc.ObserveField("results", "onQueryResults")
     m.svc.ObserveField("lookupResult", "onLookup")
+    m.svc.ObserveField("resolvedResult", "onUserItemsResolved")
     m.svc.ObserveField("ready", "onSvcReady")
+    m.svc.ObserveField("loadError", "onSvcError")
     ' NOT STARTED YET. CatalogService downloads and parses the SAME 7 MB index
     ' HomeTask is already fetching, and on a single-core 600 MHz player the two
     ' parses fight for the only CPU there is during the exact window the screen
@@ -70,9 +73,7 @@ sub init()
     ' the first paint does not. Same shape as Decision 053 on Apple — first
     ' paint from what you already have, everything else after.
 
-    m.task = CreateObject("roSGNode", "HomeTask")
-    m.task.ObserveField("status", "onStatus")
-    m.task.control = "RUN"
+    startHomeTask()
 
     ' §1.4 / TV-DESIGN §3.1 — something is ALWAYS focused, or the remote does
     ' nothing at all and the viewer thinks the app has hung. Until content
@@ -237,6 +238,28 @@ sub onMemoryTick()
     end while
 end sub
 
+' A finished Task cannot be run twice, so a retry is a new one.
+sub startHomeTask()
+    if m.task <> invalid then m.task.UnobserveField("status")
+    m.task = CreateObject("roSGNode", "HomeTask")
+    m.task.ObserveField("status", "onStatus")
+    m.task.control = "RUN"
+end sub
+
+' OK on Home (or choosing Home from the rail) after the index could not be
+' fetched asks again. Until now the error line was the end of the session.
+sub retryHome()
+    print "AWROKU home retry"
+    m.loading.text = "Loading the archive…"
+    m.loading.visible = true
+    startHomeTask()
+end sub
+
+function homeFailed() as Boolean
+    if m.task = invalid then return false
+    return (m.task.status = "error")
+end function
+
 sub onStatus()
     s = m.task.status
     print "AWROKU home status="; s
@@ -317,6 +340,7 @@ sub onRailSelectedID(id as String)
         end if
         m.route = "home"
         focusContent()
+        if homeFailed() then retryHome()
     else if id = "movies" or id = "tv"
         openBrowse(id)
     else if id = "search"
@@ -354,7 +378,10 @@ sub openBrowse(scope as String)
     end if
     hideAllSurfaces()
     m.browse.visible = true
-    m.browse.scope = scope
+    ' openScope, not `scope = `: writing the scope it already holds fires no
+    ' onChange, so a tab left on a collection (chips hidden, the collection's
+    ' members) reopened as that collection.
+    m.browse.callFunc("openScope", scope)
     m.rail.focusOn = false
     ' Do NOT setFocus on the BrowseScreen Group here. Setting focusOn hands
     ' focus to a real Button inside it; taking it back to the Group afterwards
@@ -400,11 +427,7 @@ function libraryPayload() as Object
     cw = awContinueWatching()
     favs = awFavorites()
 
-    cwIDs = []
-    for each e in cw
-        cwIDs.Push(e.id)
-    end for
-    addLibRow(root, meta, "Continue Watching", cwIDs, "")
+    addCWRow(root, meta, cw)
     addLibRow(root, meta, "Favorites", favs, "")
     for each p in awPlaylists()
         addLibRow(root, meta, p.name, p.ids, p.id)
@@ -444,6 +467,80 @@ sub addLibRow(root as Object, meta as Object, title as String, ids as Object, pl
     end if
     meta.Push(plID)
 end sub
+
+' Continue Watching in Library, built by the same rule as Home's row (cwItem):
+' an episode is in no index row, so its card is its series'.
+sub addCWRow(root as Object, meta as Object, cw as Object)
+    if cw.Count() = 0 then return
+    byId = knownItems()
+    row = root.CreateChild("ContentNode")
+    row.title = "Continue Watching"
+    used = {}
+    for each e in cw
+        it = cwItem(e, byId)
+        if it <> invalid
+            if used[fmt(it.id)] = invalid
+                used[fmt(it.id)] = true
+                row.AppendChild(it)
+            end if
+        end if
+    end for
+    if row.GetChildCount() = 0
+        root.RemoveChild(row)
+        return
+    end if
+    meta.Push("")
+end sub
+
+' Every item this scene can name without asking the service: Home's shelves,
+' then the viewer's own resolved items over them.
+function knownItems() as Object
+    byId = {}
+    if m.task <> invalid and m.task.rows <> invalid
+        rows = m.task.rows
+        for i = 0 to rows.GetChildCount() - 1
+            row = rows.GetChild(i)
+            for j = 0 to row.GetChildCount() - 1
+                it = row.GetChild(j)
+                byId[it.id] = it
+            end for
+        end for
+    end if
+    if m.userItems <> invalid
+        for i = 0 to m.userItems.GetChildCount() - 1
+            it = m.userItems.GetChild(i)
+            byId[it.id] = it
+        end for
+    end if
+    return byId
+end function
+
+' One Continue Watching card. A film is its own card. An EPISODE is in no
+' index row (build_web_details' gate excludes tv-episode), so it was simply
+' missing from the row: its card is the SERIES card, titled with the episode
+' the progress row remembered, and Select opens the series, where the
+' episode's own resume bar is.
+function cwItem(e as Object, byId as Object) as Object
+    sp = invalid
+    if e.owner <> invalid and e.owner <> "" then sp = byId["series:" + e.owner]
+    src = byId[e.id]
+    if src <> invalid
+        it = src.Clone(false)
+        ' An episode carries no artwork in the web index, so it borrows the
+        ' spine's — the item stays the EPISODE, only the picture is borrowed.
+        if it.HDPOSTERURL = "" and sp <> invalid
+            if sp.HDPOSTERURL <> "" then it.HDPOSTERURL = sp.HDPOSTERURL
+        end if
+        return it
+    end if
+    if sp = invalid then return invalid
+    it = sp.Clone(false)
+    if e.title <> invalid and e.title <> ""
+        it.SHORTDESCRIPTIONLINE1 = sp.title
+        it.title = e.title
+    end if
+    return it
+end function
 
 ' The viewer's own resolved items first — they cover the whole 26,965-row
 ' index — then Home's shelves.
@@ -496,15 +593,16 @@ sub requestUserItems()
         ids.Push(w)
     end for
     if ids.Count() = 0 then return
-    m.pendingUserItems = true
-    m.svc.qIds = ids
-    m.svc.queryId = m.svc.queryId + 1
+    ' Its OWN field, never the query bag: a resolve coalesced with a search
+    ' keystroke or a Browse submit was answered as that query, and Continue
+    ' Watching never resolved.
+    m.svc.resolveIds = ids
 end sub
 
 sub onUserItemsResolved()
-    m.pendingUserItems = false
-    m.svc.qIds = []
-    m.userItems = m.svc.results
+    res = m.svc.resolvedResult
+    if res = invalid then return
+    m.userItems = res
     ' Home was painted before these arrived, so repaint it now that the row can
     ' actually be built.
     if m.task <> invalid and m.task.status = "ready"
@@ -529,42 +627,23 @@ function withContinueWatching(rows as Object) as Object
     if rows = invalid then return rows
     cw = awContinueWatching()
     if cw.Count() = 0 then return rows
-    byId = {}
-    for i = 0 to rows.GetChildCount() - 1
-        row = rows.GetChild(i)
-        for j = 0 to row.GetChildCount() - 1
-            it = row.GetChild(j)
-            byId[it.id] = it
-        end for
-    end for
     ' Anything resolved from the full index wins: it is the same item, and it
     ' is present for films Home's shelves never name.
-    if m.userItems <> invalid
-        for i = 0 to m.userItems.GetChildCount() - 1
-            it = m.userItems.GetChild(i)
-            byId[it.id] = it
-        end for
-    end if
+    byId = knownItems()
     out = CreateObject("roSGNode", "ContentNode")
     lead = out.CreateChild("ContentNode")
     lead.title = "Continue Watching"
     n = 0
+    used = {}
     for each e in cw
-        src = byId[e.id]
-        if src <> invalid
-            it = src.Clone(false)
-            ' An episode carries no artwork in the web index, so Continue
-            ' Watching drew a grey title card where every other platform shows
-            ' the series poster. Borrow the spine's art — the item stays the
-            ' EPISODE, only the picture comes from its series.
-            if (it.HDPOSTERURL = invalid or it.HDPOSTERURL = "") and e.owner <> invalid and e.owner <> ""
-                sp = byId["series:" + e.owner]
-                if sp <> invalid and sp.HDPOSTERURL <> invalid and sp.HDPOSTERURL <> ""
-                    it.HDPOSTERURL = sp.HDPOSTERURL
-                end if
+        it = cwItem(e, byId)
+        if it <> invalid
+            ' Two episodes of one series are one series card.
+            if used[fmt(it.id)] = invalid
+                used[fmt(it.id)] = true
+                lead.AppendChild(it)
+                n = n + 1
             end if
-            lead.AppendChild(it)
-            n = n + 1
         end if
     end for
     ' A row of one is still worth showing here: it is THE film they left.
@@ -717,18 +796,17 @@ sub onChannelDecadePicked(pick as String)
     label = prettyChTypeLabel(m.newChType)
     if dec > 0 then label = label + " · " + fmt(dec) + "s"
     if awCreateUserChannel(label, m.newChType, dec) = invalid
+        ' Nothing was made, so there is nothing to check: say so, rather than
+        ' reporting a match count for a channel that does not exist.
         print "AWCH channel limit reached"
+        refocus(m.channels)
+        m.channels.callFunc("sayNoMatch", "You have the most channels Roku can keep. Delete one to make another.")
+        return
     end if
     reloadChannels()
     ' Check it can actually play something, now, while the viewer is still
     ' here to change it — rather than letting them discover it on Play.
-    m.pendingChCheck = { type: m.newChType, decade: dec }
-    m.svc.qCollection = ""
-    m.svc.qType = m.newChType
-    m.svc.qDecade = dec
-    m.svc.qSort = "popular"
-    m.svc.qText = ""
-    m.svc.queryId = m.svc.queryId + 1
+    ask("chcheck", { qType: m.newChType, qDecade: dec, qSort: "popular" })
     refocus(m.channels)
 end sub
 
@@ -846,7 +924,20 @@ sub onLibraryOptionPicked(pick as String)
     plID = m.library.focusedPlaylist
     if pick = "playall"
         ids = m.library.callFunc("focusedRowIDs")
-        if ids <> invalid and ids.Count() > 0 then startIDLineup(ids, "library", "playlist")
+        ' A saved SERIES is a card, not a film: the id lineup resolves each id
+        ' through a detail shard, which has no `series:` rows, so a playlist
+        ' holding one stopped there. Films only; the titles ride along.
+        films = [] : names = []
+        if ids <> invalid
+            for each x in ids
+                if Left(fmt(x), 7) <> "series:"
+                    films.Push(fmt(x))
+                    src = findAnywhere(fmt(x))
+                    if src <> invalid then names.Push(fmt(src.title)) else names.Push("")
+                end if
+            end for
+        end if
+        if films.Count() > 0 then startIDLineup(films, "library", "playlist", names)
         return
     else if pick = "sharelist" and plID <> ""
         sh = awPlaylistShareURL(plID)
@@ -958,17 +1049,39 @@ sub onRoomFound()
     r = m.roomLookup.room
     m.roomLookup = invalid
     if r = invalid then return
-    print "AWROOM found film="; r.filmID; " at "; r.position
+    print "AWROOM found film="; r.filmID; " at "; r.position; " copy="; r.copy
     m.pendingEpisode = { id: r.filmID, title: "", meta: "Watch Together  ·  the host controls the film",
-                         queue: [r.filmID], queueTitles: [r.filmID], index: 0, fromLibrary: false,
+                         queue: [r.filmID], queueTitles: [""], index: 0, fromLibrary: false,
                          origin: "library", ephemeral: true, muted: false,
                          roomCode: m.roomJoinCode, roomStart: r.position }
-    if m.dtask = invalid
-        m.dtask = CreateObject("roSGNode", "DetailTask")
-        m.dtask.ObserveField("detail", "onDetailLoaded")
-        m.dtask.ObserveField("status", "onDetailTaskStatus")
+    ' SHAREPLAY §11.14: the host chooses the copy, and every guest plays THAT
+    ' file. A guest on the title's default copy is on another timeline (two
+    ' Scarecrows are 55 s apart), so every correction lands on the wrong
+    ' frame. A host that predates `copy` gets the title's default.
+    url = ""
+    if r.copy <> invalid then url = awRoomCopyURL(fmt(r.copy))
+    if url <> ""
+        print "AWROOMCOPY "; r.filmID; " plays the room's copy "; url
+        playPendingEpisode({ url: url })
+        return
     end if
-    m.dtask.archiveID = r.filmID
+    runDetail(r.filmID)
+end sub
+
+' Every detail fetch is a NEW task. A Task that is still running ignores a
+' second RUN, so reusing one node dropped the newer request: open a film while
+' the last one's shard was in flight and Detail painted the OLD film's record.
+' The old task is unobserved and left to finish into nothing.
+sub runDetail(id as String)
+    if m.dtask <> invalid
+        m.dtask.UnobserveField("detail")
+        m.dtask.UnobserveField("status")
+    end if
+    m.wantDetailID = id
+    m.dtask = CreateObject("roSGNode", "DetailTask")
+    m.dtask.ObserveField("detail", "onDetailLoaded")
+    m.dtask.ObserveField("status", "onDetailTaskStatus")
+    m.dtask.archiveID = id
     m.dtask.control = "RUN"
 end sub
 
@@ -987,8 +1100,18 @@ end function
 ' `kind` names it. A party is a CLOCK, like a channel (F17): it never writes
 ' resume progress — the owner's Continue Watching was filling with cartoons
 ' a party had shown the room — and it plays MUTED, as tvOS's does.
-sub startIDLineup(ids as Object, origin as String, kind as String)
-    m.idLineup = { ids: ids, index: 0, origin: origin, kind: kind }
+sub startIDLineup(ids as Object, origin as String, kind as String, titles = invalid as Dynamic)
+    ' The titles travel with the ids, so the player names each film from the
+    ' first frame rather than printing its archive.org id.
+    names = []
+    for i = 0 to ids.Count() - 1
+        t = ""
+        if titles <> invalid
+            if i < titles.Count() then t = fmt(titles[i])
+        end if
+        names.Push(t)
+    end for
+    m.idLineup = { ids: ids, titles: names, index: 0, origin: origin, kind: kind }
     playIDLineup()
 end sub
 
@@ -1003,16 +1126,14 @@ sub playIDLineup()
     if l.kind = "party" then label = "Party Play"
     if l.kind = "channel" then label = "Channel"
     ephemeral = (l.kind = "party" or l.kind = "channel")
-    m.pendingEpisode = { id: l.ids[l.index], title: "", meta: label + "  ·  " + fmt(l.index + 1) + " of " + fmt(l.ids.Count()),
-                         queue: l.ids, queueTitles: l.ids, index: l.index, fromLibrary: (l.kind = "playlist"),
-                         origin: l.origin, ephemeral: ephemeral, muted: (l.kind = "party") }
-    if m.dtask = invalid
-        m.dtask = CreateObject("roSGNode", "DetailTask")
-        m.dtask.ObserveField("detail", "onDetailLoaded")
-        m.dtask.ObserveField("status", "onDetailTaskStatus")
+    t = ""
+    if l.titles <> invalid
+        if l.index < l.titles.Count() then t = fmt(l.titles[l.index])
     end if
-    m.dtask.archiveID = l.ids[l.index]
-    m.dtask.control = "RUN"
+    m.pendingEpisode = { id: l.ids[l.index], title: t, meta: label + "  ·  " + fmt(l.index + 1) + " of " + fmt(l.ids.Count()),
+                         queue: l.ids, queueTitles: l.titles, index: l.index, fromLibrary: (l.kind = "playlist"),
+                         origin: l.origin, ephemeral: ephemeral, muted: (l.kind = "party") }
+    runDetail(l.ids[l.index])
 end sub
 
 ' The item's real files, fetched on demand. Not prefetched with the shard:
@@ -1020,10 +1141,12 @@ end sub
 ' archive.org's main host for a choice almost nobody makes (the -1004 lesson
 ' from the macOS Creation Studio).
 sub openVersions()
-    if m.vtask = invalid
-        m.vtask = CreateObject("roSGNode", "VersionsTask")
-        m.vtask.ObserveField("status", "onVersionsLoaded")
-    end if
+    if m.detail = invalid then return
+    if m.detail.item = invalid then return
+    ' A new task per lookup, for the same reason as runDetail.
+    if m.vtask <> invalid then m.vtask.UnobserveField("status")
+    m.vtask = CreateObject("roSGNode", "VersionsTask")
+    m.vtask.ObserveField("status", "onVersionsLoaded")
     m.detail.toast = "Looking up the copies on archive.org…"
     m.vtask.archiveID = m.detail.item.id
     m.vtask.fileName = episodeFileName()
@@ -1032,18 +1155,27 @@ end sub
 
 ' The file an `@` episode plays, from the url the episode index gave it.
 function episodeFileName() as String
+    it = m.detail.item
+    if it = invalid then return ""
     u = ""
-    for each src in [m.detail.item, m.detail.detail]
-        if u = "" and src <> invalid and src.url <> invalid then u = fmt(src.url)
+    for each src in [it, m.detail.detail]
+        if u = "" and src <> invalid
+            if src.url <> invalid then u = fmt(src.url)
+        end if
     end for
-    if u = "" or Instr(1, m.detail.item.id, "@") = 0 then return ""
+    if u = "" or Instr(1, it.id, "@") = 0 then return ""
     parts = u.Split("/")
     x = CreateObject("roUrlTransfer")
     return x.Unescape(parts[parts.Count() - 1])
 end function
 
 sub onVersionsLoaded()
-    if m.vtask.status <> "ready" or m.vtask.versions.Count() = 0
+    if m.vtask.status = "loading" then return
+    n = 0
+    if m.vtask.status = "ready"
+        if m.vtask.versions <> invalid then n = m.vtask.versions.Count()
+    end if
+    if n = 0
         m.detail.toast = "Could not read the file list for this item."
         return
     end if
@@ -1069,6 +1201,10 @@ sub onVersionPicked(pick as String)
             ' other url in this app is — a filename here can contain spaces,
             ' commas and semicolons.
             ' A merged upload's file lives on ITS item, not the title's.
+            if m.detail.item = invalid
+                refocus(m.detail)
+                return
+            end if
             vItem = m.detail.item.id
             if v.item <> invalid and v.item <> "" then vItem = v.item
             url = "https://archive.org/download/" + vItem + "/" + encodeName(v.name)
@@ -1203,9 +1339,15 @@ sub onNamerButton()
         ' created from a series used to receive the film on the Detail screen
         ' behind it.
         tid = m.plTargetID
-        if tid = invalid or tid = "" then tid = m.detail.item.id
-        id = awCreatePlaylist(k.text)
-        if id = invalid
+        if tid = invalid then tid = ""
+        if tid = "" and m.detail <> invalid
+            if m.detail.item <> invalid then tid = m.detail.item.id
+        end if
+        id = invalid
+        if tid <> "" then id = awCreatePlaylist(k.text)
+        if tid = ""
+            print "AWPL namer: nothing to add"
+        else if id = invalid
             if m.plFrom = "series"
                 print "AWSER playlist limit reached"
             else
@@ -1266,11 +1408,20 @@ end sub
 
 sub onWantLike()
     spec = m.detail.wantLike
-    if spec = invalid or spec.id = invalid then return
-    m.pendingLike = spec.id
-    m.svc.qLike = spec
-    m.svc.queryId = m.svc.queryId + 1
+    if spec = invalid then return
+    if spec.id = invalid then return
+    ask("like:" + fmt(spec.id), { qLike: spec })
 end sub
+
+' One query to the service: the WHOLE record (AWQuerySpec), then one bump,
+' and what it was for remembered by its id.
+function ask(kind as String, spec as Object) as Integer
+    m.svc.setFields(AWQuerySpec(spec))
+    id = m.svc.queryId + 1
+    m.qKinds[fmt(id)] = kind
+    m.svc.queryId = id
+    return id
+end function
 
 ' Selecting from "more like this" opens that film — which means Detail replaces
 ' itself. cameFrom is left alone so Back still returns where the viewer
@@ -1285,6 +1436,12 @@ sub onDetailMore()
         m.more = m.top.FindNode("options").CreateChild("OptionsList")
         m.more.ObserveField("chosen", "onMorePicked")
         m.more.ObserveField("closed", "onMoreClosed")
+    end if
+    ' A Detail whose id resolved to nothing has no film to act on: every
+    ' entry below reads the item, and one read crashed the channel.
+    if m.detail.item = invalid
+        m.detail.toast = "This title could not be loaded."
+        return
     end if
     id = m.detail.item.id
     opts = []
@@ -1347,7 +1504,14 @@ sub onPlaylistPicked(pick as String)
         ' m.detail.item.id unconditionally, which is why a playlist could only
         ' ever hold films: a series had no way to name itself as the subject.
         tid = m.plTargetID
-        if tid = invalid or tid = "" then tid = m.detail.item.id
+        if tid = invalid then tid = ""
+        if tid = "" and m.detail <> invalid
+            if m.detail.item <> invalid then tid = m.detail.item.id
+        end if
+        if tid = ""
+            refocus(m.detail)
+            return
+        end if
         ok = awAddToPlaylist(plID, tid)
         if m.plFrom = "series"
             if ok then print "AWSER added to playlist "; plID else print "AWSER playlist full"
@@ -1403,6 +1567,11 @@ sub onMorePicked()
     end if
     if m.moreMode = "library"
         onLibraryOptionPicked(pick)
+        return
+    end if
+    if m.detail = invalid then return
+    if m.detail.item = invalid
+        refocus(m.detail)
         return
     end if
     id = m.detail.item.id
@@ -1555,6 +1724,8 @@ sub onOptionsChanged()
     ' Clearing progress while Library is open must be visible immediately,
     ' not on the next visit.
     if m.options.changed = "hidewatched" then reapplyHomeFilter()
+    ' Continue Watching leads Home, so clearing progress repaints it too.
+    if m.options.changed = "progress" then reapplyHomeFilter()
     if m.options.changed = "progress" and m.route = "library" and m.library <> invalid
         m.library.callFunc("showRows", libraryPayload())
     end if
@@ -1571,7 +1742,11 @@ end sub
 sub hideAllSurfaces()
     if m.player <> invalid then m.player.visible = false
     if m.surprise <> invalid then m.surprise.visible = false
-    if m.wall <> invalid then m.wall.visible = false
+    ' focusOn too: a hidden wall kept swapping posters (and decoding them).
+    if m.wall <> invalid
+        m.wall.visible = false
+        m.wall.focusOn = false
+    end if
     closeBrowse()
     closeSearch()
     closeLibrary()
@@ -1588,7 +1763,13 @@ end sub
 
 sub openBrowseFiltered(wantType as String, decade as Integer)
     from = m.route
-    openBrowse("movies")
+    ' Classic TV is a TELEVISION door: on the Movies tab the scope refuses
+    ' every series, so the tile opened "All films".
+    if wantType = "tv-series"
+        openBrowse("tv")
+    else
+        openBrowse("movies")
+    end if
     m.browse.callFunc("applyFilter", { type: wantType, decade: decade })
     ' Back returns where the viewer actually came from — Home for a tile,
     ' Surprise for a door — not to whichever caller was written first.
@@ -1720,12 +1901,16 @@ sub playLineup()
     m.player.visible = true
     m.player.archiveID = ""
     m.player.ephemeral = false : m.player.currentID = ""   ' urls only, no id to open
+    m.player.progressOwner = "" : m.player.progressTitle = ""
+    m.player.muted = false : m.player.roomCode = ""
+    m.player.bifUrl = ""
     m.player.startAt = 0
     m.player.playTitle = l.titles[l.index]
     m.player.playMeta = "Cartoon Marathon  ·  " + fmt(l.index + 1) + " of " + fmt(l.urls.Count())
     m.player.captionUrl = ""
     setChromeVisible(false)
     m.player.playUrl = l.urls[l.index]
+    showPendingNotice()
     m.player.setFocus(true)
     m.cameFrom = "surprise"
     m.route = "player"
@@ -1764,43 +1949,31 @@ sub onSurpriseAction()
         ' The service picks; the results observer routes. A door that re-rolls
         ' has to go back to the service every press, which is why this is not
         ' cached anywhere.
-        m.pendingRandom = true
-        m.svc.qRandomType = Mid(a, 6)
-        m.svc.queryId = m.svc.queryId + 1
+        ask("random", { qRandomType: Mid(a, 6) })
     else if a = "browse:decade"
-        ' A decade is a place to wander, not a single film.
-        d = 1900 + Rnd(8) * 10
+        ' A decade is a place to wander, not a single film. Rnd(8) is 1..8,
+        ' so without the -1 this never chose the 1900s and could choose the
+        ' 1980s, which no chip offers.
+        d = 1900 + (Rnd(8) - 1) * 10
         openBrowseFiltered("", d)
     else if a = "cartoons"
         startCartoonMarathon()
     else if a = "cartoonmode"
         openCartoonMode()
     else if a = "party"
-        m.pendingParty = true
-        m.svc.qParty = true
-        m.svc.queryId = m.svc.queryId + 1
+        ask("party", { qParty: true })
     else if a = "wall"
         openWall()
     end if
 end sub
 
-sub onRandomPicked()
-    m.pendingRandom = false
-    m.pendingMarathon = false
-    m.lineup = invalid
-    m.chQueue = invalid
-    m.pendingUserItems = false
-    m.userItems = invalid
-    m.pendingLike = ""
-    m.pendingUserChannel = invalid
-    m.pendingChCheck = invalid
-    m.pendingParty = false
-    m.pendingWall = false
-    m.idLineup = invalid
-    m.moreMode = "detail"
-    m.svc.qRandomType = ""
-    res = m.svc.results
-    if res = invalid or res.GetChildCount() = 0
+' The init() block that was pasted in here reset every pending request and
+' threw away the viewer's resolved items (m.userItems), so a Surprise pick
+' emptied Continue Watching's lookup table until the next resolve.
+sub onRandomPicked(res as Object)
+    n = 0
+    if res <> invalid then n = res.GetChildCount()
+    if n = 0
         print "AWSURP nothing matched"
         return
     end if
@@ -1872,14 +2045,22 @@ sub startEpisode(e as Object)
         playPendingEpisode({ url: e.url })
         return
     end if
-    if m.dtask = invalid
-        m.dtask = CreateObject("roSGNode", "DetailTask")
-        m.dtask.ObserveField("detail", "onDetailLoaded")
-        m.dtask.ObserveField("status", "onDetailTaskStatus")
-    end if
-    m.dtask.archiveID = e.id
-    m.dtask.control = "RUN"
+    runDetail(e.id)
 end sub
+
+' The queue entry at position i, carrying everything the queue carries — the
+' series it belongs to included, so a bookmark names its owner whichever
+' screen happens to be behind the player.
+function queueStep(q as Object, i as Integer) as Object
+    t = ""
+    if q.queueTitles <> invalid
+        if i < q.queueTitles.Count() then t = fmt(q.queueTitles[i])
+    end if
+    return { id: q.queue[i], title: t,
+             url: queueURLAt(q, i), meta: q.meta, owner: q.owner,
+             queue: q.queue, queueTitles: q.queueTitles,
+             queueUrls: q.queueUrls, index: i }
+end function
 
 ' The url the queue holds for position i, or "" when the queue predates them.
 function queueURLAt(q as Object, i as Integer) as String
@@ -1891,7 +2072,12 @@ end function
 sub playPendingEpisode(d as Object)
     e = m.pendingEpisode
     m.pendingEpisode = invalid
-    if d = invalid or d.url = invalid or d.url = ""
+    if e = invalid then return
+    u = ""
+    if d <> invalid
+        if d.url <> invalid then u = fmt(d.url)
+    end if
+    if u = ""
         print "AWSER queued item has no playable url: "; e.id
         if e.roomCode <> invalid
             showRoomProblem("That room is watching a film this Roku cannot play.")
@@ -1899,11 +2085,11 @@ sub playPendingEpisode(d as Object)
         end if
         ' A dead item must not end the whole queue — skip to the next.
         if m.chQueue <> invalid
-        m.chQueue.index = m.chQueue.index + 1
-        playChannelItem()
-        return
-    end if
-    if m.idLineup <> invalid
+            m.chQueue.index = m.chQueue.index + 1
+            playChannelItem()
+            return
+        end if
+        if m.idLineup <> invalid
             m.idLineup.index = m.idLineup.index + 1
             playIDLineup()
             return
@@ -1934,25 +2120,31 @@ sub playPendingEpisode(d as Object)
     m.player.ephemeral = (e.ephemeral = true)
     m.player.currentID = e.id
     m.player.muted = (e.muted = true)
+    m.player.bifUrl = ""
     ' The spine this episode belongs to, so Continue Watching can borrow its
-    ' poster — an episode has none of its own in the web index.
-    if m.series <> invalid and m.series.seriesID <> invalid and Left(m.series.seriesID, 7) = "series:"
-        m.player.progressOwner = Mid(m.series.seriesID, 8)
-    else
-        m.player.progressOwner = ""
-    end if
-    m.player.startAt = awGetProgress(e.id)
+    ' poster — an episode has none of its own in the web index. It rides in
+    ' the request: reading it off m.series named whatever series screen was
+    ' last built, so a playlist's film was filed under an unrelated show.
+    own = ""
+    if e.owner <> invalid then own = fmt(e.owner)
+    m.player.progressOwner = own
+    t = fmt(e.title)
+    if t = "" and d.canonicalTitle <> invalid then t = fmt(d.canonicalTitle)
+    if own <> "" then m.player.progressTitle = t else m.player.progressTitle = ""
+    ' Resume only a bookmark that is RESUMABLE. A finished episode (>= 95%)
+    ' started at its credits, which then ended it at once and skipped on.
+    posn = awGetProgress(e.id)
+    if awIsResumable(posn, awGetDuration(e.id)) then m.player.startAt = posn else m.player.startAt = 0
     ' A ROOM starts where the room is, not where this viewer left off.
     if e.roomCode <> invalid then m.player.startAt = Int(e.roomStart)
-    t = e.title
-    if t = "" and d.canonicalTitle <> invalid then t = fmt(d.canonicalTitle)
     if t = "" then t = e.id
     m.player.playTitle = t
     m.player.playMeta = e.meta
     m.player.captionUrl = ""
     setChromeVisible(false)
-    m.player.playUrl = d.url
+    m.player.playUrl = u
     if e.roomCode <> invalid then m.player.roomCode = e.roomCode else m.player.roomCode = ""
+    showPendingNotice()
     m.player.setFocus(true)
     if e.origin <> invalid and e.origin <> ""
         m.cameFrom = e.origin
@@ -2014,12 +2206,16 @@ sub playChannelItem()
     ' not the advert.
     m.player.archiveID = ""
     m.player.ephemeral = false : m.player.currentID = ""   ' urls only, no id to open
+    m.player.progressOwner = "" : m.player.progressTitle = ""
+    m.player.muted = false : m.player.roomCode = ""
+    m.player.bifUrl = ""
     m.player.startAt = it.startAt
     m.player.playTitle = it.title
     m.player.playMeta = it.meta
     m.player.captionUrl = ""
     setChromeVisible(false)
     m.player.playUrl = it.url
+    showPendingNotice()
     m.player.setFocus(true)
     m.cameFrom = "channels"
     m.route = "player"
@@ -2042,6 +2238,12 @@ sub openChannels()
     print "AWFOCUS channels"
     if m.chtask = invalid or m.chtask.status = "error"
         retryChannels()
+    else if m.chtask.status = "ready"
+        ' Painted on EVERY visit: the guide is a clock, and a task that had
+        ' only ever fed a Cartoon Marathon had never painted it at all, so
+        ' Channels opened empty for the rest of the session.
+        m.channels.callFunc("showChannels", m.chtask.channels)
+        refocus(m.channels)
     else
         refocus(m.channels)
     end if
@@ -2056,11 +2258,15 @@ sub retryChannels()
 end sub
 
 sub onChannelsLoaded()
+    if m.chtask.status = "loading" or m.chtask.status = "" then return
     if m.pendingMarathon = true
         m.pendingMarathon = false
         if m.chtask.status = "ready" then buildMarathon()
+        ' The guide was never painted from this task; Channels paints it on
+        ' its next visit (openChannels).
         return
     end if
+    if m.channels = invalid then return
     if m.chtask.status = "ready"
         m.channels.callFunc("showChannels", m.chtask.channels)
         if m.route = "channels" then refocus(m.channels)
@@ -2089,13 +2295,7 @@ sub onTune()
     t = m.channels.tune
     if t = invalid then return
     if t.userChannel = true
-        m.pendingUserChannel = t
-        m.svc.qCollection = ""
-        m.svc.qType = t.type
-        m.svc.qDecade = t.decade
-        m.svc.qSort = "shuffle"
-        m.svc.qText = ""
-        m.svc.queryId = m.svc.queryId + 1
+        ask("userch", { qType: fmt(t.type), qDecade: Int(t.decade), qSort: "shuffle" })
         return
     end if
     if t.url = invalid or t.url = "" then return
@@ -2131,9 +2331,7 @@ sub openWall()
     m.rail.focusOn = false
     setChromeVisible(false)
     m.route = "wall"
-    m.pendingWall = true
-    m.svc.qWall = true
-    m.svc.queryId = m.svc.queryId + 1
+    ask("wall", { qWall: true })
     print "AWFOCUS wall"
 end sub
 
@@ -2156,11 +2354,7 @@ sub openCartoonMode()
     m.collections.callFunc("setHeading", { title: "Cartoons",
         empty: "No cartoon characters have enough films for a shelf yet." })
     m.lastShelf = "cartoons"
-    m.collectionsBuilt = false
-    m.pendingCollections = true
-    m.svc.qCollections = false
-    m.svc.qCartoons = true
-    m.svc.queryId = m.svc.queryId + 1
+    ask("shelves", { qCartoons: true })
 end sub
 
 ' Shows the shelf surface WITHOUT deciding what goes in it. Collections and
@@ -2180,15 +2374,10 @@ sub openShelfSurface()
     m.rail.focusOn = false
     m.route = "collections"
     print "AWFOCUS collections"
-    ' Built once per session: 26 rows over a 27,000-row index is a real scan,
-    ' and the membership cannot change while the channel is open.
-    if m.collectionsBuilt = true
-        refocus(m.collections)
-    else
-        m.pendingCollections = true
-        m.svc.qCollections = true
-        m.svc.queryId = m.svc.queryId + 1
-    end if
+    ' The caller asks for the rows (Cartoon Mode is the only one now). This
+    ' used to fire a collections query of its own, which the cartoon query
+    ' then had to outrun on the same shared record.
+    refocus(m.collections)
 end sub
 
 ' F16 — Collections is a grid of curated CARDS (ROKU-DESIGN §6.8, amended
@@ -2212,9 +2401,7 @@ sub openCollections()
     if m.cardsBuilt = true
         refocus(m.colCards)
     else
-        m.pendingCards = true
-        m.svc.qCollectionCards = true
-        m.svc.queryId = m.svc.queryId + 1
+        ask("cards", { qCollectionCards: true })
     end if
 end sub
 
@@ -2299,6 +2486,15 @@ sub onLibraryChosen()
 end sub
 
 sub openSearch()
+    ' Choosing Search while ON Search keeps the query: the rail's own
+    ' re-select (and a `go:search` door) used to wipe what was typed.
+    if m.route = "search" and m.search <> invalid
+        if m.search.visible
+            m.rail.focusOn = false
+            refocus(m.search)
+            return
+        end if
+    end if
     if m.search = invalid
         m.search = m.overlay.CreateChild("SearchScreen")
         m.search.translation = [m.t.railW, 0]
@@ -2341,8 +2537,8 @@ sub onSearchDoor()
         if id <> "" then openDetail(id)
         return
     end if
-    closeSearch()
-    if d = "tv-series" then openBrowse("tv") else openBrowse("movies")
+    ' Each door opens Browse ON its kind, not on the unfiltered tab.
+    openBrowseFiltered(d, 0)
 end sub
 
 ' Surprise picks from the rows Home already holds, which are the professionally
@@ -2358,61 +2554,78 @@ function randomArchiveID() as String
 end function
 
 sub onQueryResults()
-    ' A deep-link lookup borrows the same results field as Browse and Search,
-    ' so it is claimed FIRST and consumed — otherwise a one-row result would
-    ' repaint whichever of those happens to be visible.
-    if m.pendingChCheck <> invalid
-        m.pendingChCheck = invalid
-    m.pendingParty = false
-    m.pendingWall = false
-        if m.svc.total = 0
+    ' Routed by WHAT WAS ASKED. The results name the queryId they answer, and
+    ' every request this scene makes recorded its purpose under its id (ask).
+    ' The pending flags this replaces were cleared in each other's branches
+    ' (lines pasted from init), so one reply could be taken by the wrong
+    ' handler and the next consumed by none.
+    res = m.svc.results
+    if res = invalid then return
+    if not res.HasField("awQid") then return
+    rid = res.awQid
+    ' One notification can arrive after its node has already been replaced
+    ' by the next reply; that reply is handled once, by whichever runs first.
+    if m.lastResultsId <> invalid
+        if rid <= m.lastResultsId then return
+    end if
+    m.lastResultsId = rid
+    total = res.awTotal
+    kind = m.qKinds[fmt(rid)]
+    ' Anything older was served as part of this one, or superseded by it, and
+    ' will never be answered on its own.
+    stale = []
+    for each k in m.qKinds
+        if Int(Val(k)) <= rid then stale.Push(k)
+    end for
+    for each k in stale
+        m.qKinds.Delete(k)
+    end for
+    if kind = invalid then kind = ""
+    if kind = "chcheck"
+        if m.channels = invalid then return
+        if total = 0
             m.channels.callFunc("sayNoMatch", "Nothing in the catalog matches that combination — a wider one will.")
         else
-            m.channels.callFunc("sayNoMatch", "Channel created — " + fmt(m.svc.total) + " films match.")
+            m.channels.callFunc("sayNoMatch", "Channel created — " + fmt(total) + " films match.")
         end if
         return
     end if
-    if m.pendingWall = true
-        m.pendingWall = false
-        m.svc.qWall = false
-        m.wall.callFunc("showWall", m.svc.results)
+    if kind = "wall"
+        if m.wall = invalid or m.route <> "wall" then return
+        m.wall.callFunc("showWall", res)
         refocus(m.wall)
         return
     end if
-    if m.pendingParty = true
-        m.pendingParty = false
-        m.svc.qParty = false
-        m.surpriseLineup = true
-        res = m.svc.results
+    if kind = "party"
         ids = []
+        names = []
         if res <> invalid
             for i = 0 to res.GetChildCount() - 1
                 ids.Push(res.GetChild(i).id)
+                names.Push(res.GetChild(i).title)
             end for
         end if
         if ids.Count() > 0
+            m.surpriseLineup = true
             m.cameFrom = "surprise"
-            startIDLineup(ids, "surprise", "party")
+            startIDLineup(ids, "surprise", "party", names)
         end if
         return
     end if
-    if m.pendingUserChannel <> invalid
-        spec = m.pendingUserChannel
-        m.pendingUserChannel = invalid
-    m.pendingChCheck = invalid
-    m.pendingParty = false
-    m.pendingWall = false
-        res = m.svc.results
+    if kind = "userch"
         q = []
+        names = []
         if res <> invalid
             for i = 0 to res.GetChildCount() - 1
                 it = res.GetChild(i)
-                q.Push({ url: "", title: it.title, id: it.id })
+                q.Push(it.id)
+                names.Push(it.title)
                 if q.Count() >= 20 then exit for
             end for
         end if
         if q.Count() = 0
             print "AWCH user channel matched nothing"
+            if m.channels = invalid then return
             ' refocus FIRST: it repaints the focused channel, which would
             ' overwrite the message with the default description a frame later.
             refocus(m.channels)
@@ -2421,51 +2634,43 @@ sub onQueryResults()
         end if
         ' Urls are resolved as the queue advances, the same way a playlist does
         ' — 20 shard fetches to start one film would be absurd.
-        startIDLineup(idsOf(q), "channels", "channel")
+        startIDLineup(q, "channels", "channel", names)
         return
     end if
-    if m.pendingLike <> invalid and m.pendingLike <> ""
-        m.pendingLike = ""
-    m.pendingUserChannel = invalid
-    m.pendingChCheck = invalid
-    m.pendingParty = false
-    m.pendingWall = false
-        m.svc.qLike = {}
-        if m.detail <> invalid then m.detail.callFunc("showLike", m.svc.results)
+    if Left(kind, 5) = "like:"
+        ' Only for the film still on Detail: a slow reply must not fill the
+        ' next film's shelf with the last one's neighbours.
+        if m.detail = invalid then return
+        if m.detail.item = invalid then return
+        if m.detail.item.id <> Mid(kind, 6) then return
+        m.detail.callFunc("showLike", res)
         return
     end if
-    if m.pendingUserItems = true
-        onUserItemsResolved()
+    if kind = "random"
+        onRandomPicked(res)
         return
     end if
-    if m.pendingRandom = true
-        onRandomPicked()
-        return
-    end if
-    if m.pendingCards = true
-        m.pendingCards = false
-        m.svc.qCollectionCards = false
+    if kind = "cards"
         m.cardsBuilt = true
         if m.colCards <> invalid
-            m.colCards.callFunc("showCards", m.svc.results, m.svc.total)
+            m.colCards.callFunc("showCards", res, total)
             if m.route = "colcards" then refocus(m.colCards)
         end if
         return
     end if
-    if m.pendingCollections = true
-        m.pendingCollections = false
-        m.svc.qCollections = false
-        m.svc.qCartoons = false
-        m.collectionsBuilt = true
-        m.collections.callFunc("showResults", m.svc.results, m.svc.total)
-        refocus(m.collections)
+    if kind = "shelves"
+        if m.collections = invalid then return
+        m.collections.callFunc("showResults", res, total)
+        if m.route = "collections" then refocus(m.collections)
         return
     end if
+    if kind <> "" then return
+    ' Not one of the scene's: Browse's or Search's own submit.
     if m.browse <> invalid and m.browse.visible
-        m.browse.callFunc("showResults", m.svc.results, m.svc.total)
+        m.browse.callFunc("showResults", res, total)
     end if
     if m.search <> invalid and m.search.visible
-        m.search.callFunc("showResults", m.svc.results, m.svc.total)
+        m.search.callFunc("showResults", res, total)
     end if
 end sub
 
@@ -2506,8 +2711,16 @@ sub openDetail(archiveID as String)
         openSeries(Mid(archiveID, 8))
         return
     end if
-    if m.route <> "detail" then m.cameFrom = m.route
-    m.cameFromBrowse = (m.route = "browse")
+    ' Only a NEW Detail records where it came from. Detail replacing itself
+    ' (More Like This) kept cameFrom but reset cameFromBrowse, so Back from
+    ' the second film skipped the Browse grid the first was opened from.
+    if m.route <> "detail"
+        m.detailFrom = m.route
+        m.cameFromBrowse = (m.route = "browse")
+    end if
+    ' A deep link arms autoplay AFTER this call (startDeepLink); every other
+    ' open is a page the viewer browses to.
+    m.autoPlay = false
     m.surpriseLineup = false
     ' A surface that paints over the whole content column must clear the
     ' status label, or a stale line sits under the synopsis forever.
@@ -2550,6 +2763,11 @@ sub openDetail(archiveID as String)
     if m.channels <> invalid then m.channels.visible = false
     if m.series <> invalid then m.series.visible = false
     if m.surprise <> invalid then m.surprise.visible = false
+    if m.colCards <> invalid then m.colCards.visible = false
+    if m.wall <> invalid
+        m.wall.visible = false
+        m.wall.focusOn = false
+    end if
     m.detail.visible = true
     m.detail.item = it
     m.detail.detail = {}
@@ -2568,13 +2786,10 @@ sub openDetail(archiveID as String)
     m.route = "detail"
     print "AWFOCUS detail "; archiveID
 
-    if m.dtask = invalid
-        m.dtask = CreateObject("roSGNode", "DetailTask")
-        m.dtask.ObserveField("detail", "onDetailLoaded")
-        m.dtask.ObserveField("status", "onDetailTaskStatus")
-    end if
-    m.dtask.archiveID = archiveID
-    m.dtask.control = "RUN"
+    ' An episode or lineup request still pending is abandoned: this Detail is
+    ' what the viewer asked for last.
+    m.pendingEpisode = invalid
+    runDetail(archiveID)
 end sub
 
 ' The shard lookup can fail — a spine can name an episode the detail shards
@@ -2584,54 +2799,103 @@ end sub
 sub onDetailTaskStatus()
     if m.dtask.status <> "error" then return
     print "AWROKU detail task error for "; m.dtask.archiveID
+    m.autoPlay = false
     e = m.pendingEpisode
     m.pendingEpisode = invalid
-    q = m.episodeQueue
-    if e <> invalid and q <> invalid and q.queue <> invalid
-        ' Inside a queue a dead item skips rather than ending the run — the
-        ' rule the channel queue already follows.
-        nxt = e.index + 1
-        if nxt < q.queue.Count()
-            print "AWSER skipping unresolvable episode, advancing to "; nxt
-            startEpisode({ id: q.queue[nxt], title: q.queueTitles[nxt],
-                           url: queueURLAt(q, nxt), meta: q.meta,
-                           queue: q.queue, queueTitles: q.queueTitles,
-                           queueUrls: q.queueUrls, index: nxt })
+    if e <> invalid
+        if e.roomCode <> invalid
+            showRoomProblem("That room is watching a film this Roku cannot play.")
             return
+        end if
+    end if
+    ' An id lineup (a playlist, a party, a user channel) skips its dead film.
+    ' It used to fall through to the episode queue below, which only exists
+    ' once something has played, so a lineup whose FIRST film was dead
+    ' simply stopped.
+    if e <> invalid and m.idLineup <> invalid
+        m.idLineup.index = m.idLineup.index + 1
+        if m.idLineup.index < m.idLineup.ids.Count()
+            print "AWSER skipping unresolvable lineup item, advancing to "; m.idLineup.index
+            playIDLineup()
+            return
+        end if
+        ' The lineup ran out on a dead film: leave the finished one too.
+        m.idLineup = invalid
+        if m.route = "player"
+            closePlayer()
+            return
+        end if
+    end if
+    q = m.episodeQueue
+    if e <> invalid and q <> invalid
+        if q.queue <> invalid and e.index <> invalid
+            ' Inside a queue a dead item skips rather than ending the run — the
+            ' rule the channel queue already follows.
+            nxt = e.index + 1
+            if nxt < q.queue.Count()
+                print "AWSER skipping unresolvable episode, advancing to "; nxt
+                startEpisode(queueStep(q, nxt))
+                return
+            end if
         end if
     end if
     if m.route = "series" and m.series <> invalid
         m.series.callFunc("showNotice", "This episode is not in the catalog yet — archive.org has it under an id the index does not carry.")
         refocus(m.series)
     else if m.detail <> invalid and m.route = "detail"
-        m.detail.toast = "This title could not be loaded. Try another copy from More."
+        ' "Try another copy from More" only where More has a film to act on.
+        if m.detail.item = invalid
+            m.detail.toast = "This title could not be loaded."
+        else
+            m.detail.toast = "This title could not be loaded. Try another copy from More."
+        end if
     end if
 end sub
 
 sub onDetailLoaded()
+    d = m.dtask.detail
+    if d = invalid then return
+    ' The record names the id it is for (DetailTask). Anything but the id
+    ' asked for LAST is a reply to a request the viewer has moved on from.
+    if d.id = invalid or d.id <> m.wantDetailID
+        print "AWDETAIL stale shard ignored for "; d.id
+        return
+    end if
     ' The episode path borrows the same task, so it is claimed FIRST and
     ' consumed — otherwise an episode's payload would repaint the film Detail
     ' screen sitting behind it.
     if m.pendingEpisode <> invalid
-        playPendingEpisode(m.dtask.detail)
+        if m.pendingEpisode.id = d.id then playPendingEpisode(d)
         return
     end if
-    if m.detail <> invalid then m.detail.detail = m.dtask.detail
+    if m.detail <> invalid then m.detail.detail = d
+    tryAutoPlay()
+end sub
 
-    ' Direct-to-Play. Roku certification wants a deep link to land ON the
-    ' content, not next to it, and the url only exists once the shard has
-    ' answered — so the intent is held until here rather than fired at launch.
-    if m.autoPlay = true
+' Direct-to-Play. Roku certification wants a deep link to land ON the content,
+' not next to it. That needs BOTH halves: the shard (the url) and the index row
+' (the item the player is named from). A cold-start link now fetches the shard
+' at once instead of waiting for the index, so whichever arrives second plays.
+sub tryAutoPlay()
+    if m.autoPlay <> true then return
+    if m.detail = invalid then return
+    d = m.detail.detail
+    if d = invalid then return
+    if d.id = invalid then return
+    it = m.detail.item
+    if it = invalid
+        ' The index lookup is still out: it calls back here when it lands.
+        if m.pendingDetailID <> "" then return
         m.autoPlay = false
-        d = m.dtask.detail
-        if m.detail = invalid or m.detail.item = invalid
-            print "AWDEEP autoplay ABANDONED — "; m.dtask.archiveID; " is not in the index"
-        else if d <> invalid and d.url <> invalid and d.url <> ""
-            print "AWDEEP autoplay "; m.dtask.archiveID
-            m.detail.play = d.url
-        else
-            print "AWDEEP autoplay ABANDONED — no playable url for "; m.dtask.archiveID
-        end if
+        print "AWDEEP autoplay ABANDONED — "; d.id; " is not in the index"
+        return
+    end if
+    m.autoPlay = false
+    if d.url <> invalid and d.url <> ""
+        print "AWDEEP autoplay "; d.id
+        m.detail.play = d.url
+    else
+        print "AWDEEP autoplay ABANDONED — no playable url for "; d.id
     end if
 end sub
 
@@ -2680,12 +2944,28 @@ sub onDeepLink()
         return
     end if
     print "AWDEEP contentId="; id; " mediaType="; m.top.deepLinkMediaType
-    if m.svc = invalid or not m.svc.ready
-        m.queuedDeepLink = id
-        return
+    ' Straight to Detail. The shard fetch starts NOW, beside the index load,
+    ' rather than after it: on a Roku 2 XD the index alone is 13 s, and a
+    ' certification deep link waited all of it before asking for the url.
+    ' openDetail resolves the row from the index on its own (lookupId is
+    ' answered as soon as the service has parsed it), and tryAutoPlay plays
+    ' once both halves are in.
+    m.deepLinkItem = invalid
+    startDeepLink(id)
+end sub
+
+' The service could not fetch the index; it keeps trying (CatalogService),
+' and a surface waiting on it says so instead of sitting empty.
+sub onSvcError()
+    e = m.svc.loadError
+    if e = invalid or e = "" then return
+    print "AWSVC error "; e
+    if m.browse <> invalid
+        if m.browse.visible then m.browse.callFunc("showUnavailable")
     end if
-    m.pendingDeepLink = id
-    m.svc.lookupId = id
+    if m.search <> invalid
+        if m.search.visible then m.search.callFunc("showUnavailable")
+    end if
 end sub
 
 sub onSvcReady()
@@ -2720,13 +3000,51 @@ sub onLookup()
         m.pendingDetailID = ""
         if found = invalid
             print "AWDETAIL could not resolve "; id
-        else if m.detail <> invalid and m.route = "detail" and m.detail.item = invalid
+            ' Decision 085: a merged-away id forwards to its survivor. Asked
+            ' only on a miss, so aliases.json (~470 KB) is fetched by the few
+            ' launches that need it. Autoplay waits for the answer.
+            if m.route = "detail" and m.wantDetailID = id
+                askAlias(id)
+                return
+            end if
+        else if m.detail <> invalid and m.route = "detail" and m.detail.item = invalid and m.wantDetailID = id
             ' Only if the viewer is still on the film they asked for — a slow
             ' lookup must never repaint a Detail they have already left.
             m.detail.item = found
             print "AWDETAIL resolved "; id
         end if
+        tryAutoPlay()
     end if
+end sub
+
+sub askAlias(id as String)
+    if m.atask <> invalid then m.atask.UnobserveField("target")
+    m.aliasFor = id
+    m.aliasPlay = (m.autoPlay = true)
+    ' Held, not abandoned, while the alias is asked.
+    m.pendingDetailID = id
+    m.atask = CreateObject("roSGNode", "AliasTask")
+    m.atask.ObserveField("target", "onAliasAnswered")
+    m.atask.archiveID = id
+    m.atask.control = "RUN"
+end sub
+
+sub onAliasAnswered()
+    target = m.atask.target
+    id = m.aliasFor
+    if m.pendingDetailID = id then m.pendingDetailID = ""
+    if m.route <> "detail" or m.wantDetailID <> id
+        m.autoPlay = false
+        return
+    end if
+    if target = invalid or target = "" or target = id
+        tryAutoPlay()
+        return
+    end if
+    print "AWDETAIL "; id; " was merged into "; target
+    replay = m.aliasPlay
+    openDetail(target)
+    m.autoPlay = replay
 end sub
 
 sub startDeepLink(id as String)
@@ -2738,12 +3056,13 @@ sub startDeepLink(id as String)
     ' and an unknown id fails on the Detail screen with a reason rather than
     ' on a blank one.
     mt = LCase(m.top.deepLinkMediaType)
+    openDetail(id)
     ' Roku sends tvSpecial for a one-off programme and requires it to play
     ' directly, exactly like a movie ("Deep linking", MediaType behavior).
     ' The search feed emits that type once this build is the one in the
-    ' store (build_roku_search_feed.py --tv-specials).
+    ' store (build_roku_search_feed.py --tv-specials). Armed AFTER openDetail,
+    ' which disarms it for every ordinary open.
     m.autoPlay = (mt = "movie" or mt = "episode" or mt = "shortformvideo" or mt = "tvspecial")
-    openDetail(id)
 end sub
 
 ' Walk the rows we already hold rather than re-querying: the Home content tree
@@ -2808,7 +3127,8 @@ sub onPlay()
     m.detail.visible = false
     m.player.archiveID = m.detail.item.id
     m.player.ephemeral = false : m.player.currentID = m.detail.item.id
-    m.player.progressOwner = ""
+    m.player.progressOwner = "" : m.player.progressTitle = ""
+    m.player.muted = false : m.player.roomCode = ""
     ' Trick-play thumbnails by convention: a film the index flags (`bif`,
     ' column 15, schema 12+) has `archivewatch-bifs/<id>.bif` on archive.org.
     ' The flag exists so no play ever pays a HEAD probe for a file that is
@@ -2826,6 +3146,10 @@ sub onPlay()
     setChromeVisible(false)
     m.player.playUrl = url
     m.player.setFocus(true)
+    ' Back from a film started HERE is this Detail, wherever Detail itself
+    ' came from. A Detail opened from Library used to send Back from the film
+    ' straight past the Detail to Library.
+    m.cameFrom = "detail"
     m.route = "player"
     print "AWFOCUS player"
 end sub
@@ -2836,11 +3160,68 @@ sub onPlaybackFailed()
     msg = m.player.failed
     if msg = invalid or msg = "" then return
     print "AWPLAY failed-notice "; msg
+    ' Inside a lineup a copy that will not play SKIPS, the rule a dead id
+    ' already follows; the next film carries a line saying why it began.
+    skipped = "The last film would not play — archive.org would not serve it."
+    if m.lineup <> invalid
+        if m.lineup.index + 1 < m.lineup.urls.Count()
+            m.lineup.index = m.lineup.index + 1
+            m.pendingNotice = skipped
+            playLineup()
+            return
+        end if
+    end if
+    if m.chQueue <> invalid
+        if m.chQueue.index + 1 < m.chQueue.items.Count()
+            m.chQueue.index = m.chQueue.index + 1
+            m.pendingNotice = skipped
+            playChannelItem()
+            return
+        end if
+    end if
+    if m.idLineup <> invalid
+        if m.idLineup.index + 1 < m.idLineup.ids.Count()
+            m.idLineup.index = m.idLineup.index + 1
+            m.pendingNotice = skipped
+            playIDLineup()
+            return
+        end if
+    end if
+    q = m.episodeQueue
+    if q <> invalid and m.idLineup = invalid and m.lineup = invalid and m.chQueue = invalid
+        if q.queue <> invalid and q.index <> invalid
+            if q.index + 1 < q.queue.Count()
+                m.pendingNotice = skipped
+                startEpisode(queueStep(q, q.index + 1))
+                return
+            end if
+        end if
+    end if
     closePlayer()
-    ' A film started from a deep link or a channel has no Detail behind it,
-    ' and `m.detail.toast` on invalid crashed the channel inside its own
-    ' error handler (Roku App Health, 1.0.75: MainScene.brs(2695), 2 devices).
-    if m.detail <> invalid then m.detail.toast = msg
+    noticeOnRoute(msg)
+end sub
+
+' The notice goes to the surface the viewer LANDS on. It went to Detail
+' always, so a film failing from a series, a channel or a playlist told
+' nobody: Detail was hidden behind wherever Back had gone.
+sub noticeOnRoute(msg as String)
+    if m.route = "detail" and m.detail <> invalid
+        m.detail.toast = msg
+    else if m.route = "series" and m.series <> invalid
+        m.series.callFunc("showNotice", msg)
+    else if m.route = "channels" and m.channels <> invalid
+        m.channels.callFunc("sayNoMatch", msg)
+    else
+        print "AWPLAY notice with nowhere to show it (route="; m.route; "): "; msg
+    end if
+end sub
+
+' A skip's notice, on the film that replaced the one that failed. Written
+' after playUrl, because a new url resets the player's notice line.
+sub showPendingNotice()
+    if m.pendingNotice = invalid or m.pendingNotice = "" then return
+    if m.player <> invalid then m.player.callFunc("showNotice", m.pendingNotice)
+    m.pendingNotice = ""
 end sub
 
 sub onPlaybackEnded()
@@ -2865,10 +3246,7 @@ sub onPlaybackEnded()
         nxt = q.index + 1
         if nxt < q.queue.Count()
             print "AWSER autoplay next episode "; q.queue[nxt]
-            startEpisode({ id: q.queue[nxt], title: q.queueTitles[nxt],
-                           url: queueURLAt(q, nxt), meta: q.meta,
-                           queue: q.queue, queueTitles: q.queueTitles,
-                           queueUrls: q.queueUrls, index: nxt })
+            startEpisode(queueStep(q, nxt))
             return
         end if
     end if
@@ -2883,7 +3261,18 @@ sub closePlayer()
     m.chQueue = invalid
     m.player.callFunc("stopPlayback")
     m.player.visible = false
+    ' The node is reused by every launch site. A Party's mute and a room's
+    ' code outlived the film they belonged to: the next film chosen on
+    ' Detail started silent, and a guest who left a room kept following it.
+    m.player.muted = false
+    m.player.roomCode = ""
+    m.pendingEpisode = invalid
+    m.pendingNotice = ""
     setChromeVisible(true)
+    ' Continue Watching is the first thing Home shows, and the bookmark was
+    ' just written: repaint it now, and resolve the film if no shelf names it.
+    reapplyHomeFilter()
+    requestUserItems()
 
     ' A channel has no Detail screen to go back to. Returning to one anyway
     ' left the viewer on a BLANK screen with the rail focused — nothing hidden
@@ -2941,36 +3330,44 @@ sub closeDetail()
     end if
     ' Back returns to the screen the viewer CAME FROM (§2.6), which is Browse
     ' when Detail was opened from a grid.
-    if m.surprise <> invalid and m.cameFrom = "surprise"
+    ' detailFrom, not cameFrom: cameFrom is where the PLAYER returns, and a
+    ' film started on this Detail sets it to "detail".
+    if m.surprise <> invalid and m.detailFrom = "surprise"
         m.surprise.visible = true
         refocus(m.surprise)
         m.route = "surprise"
         return
     end if
-    if m.channels <> invalid and m.cameFrom = "channels"
+    if m.channels <> invalid and m.detailFrom = "channels"
         m.channels.visible = true
         refocus(m.channels)
         m.route = "channels"
         return
     end if
-    if m.collections <> invalid and m.cameFrom = "collections"
+    if m.collections <> invalid and m.detailFrom = "collections"
         m.collections.visible = true
         refocus(m.collections)
         m.route = "collections"
         return
     end if
-    if m.colCards <> invalid and m.cameFrom = "colcards"
+    if m.colCards <> invalid and m.detailFrom = "colcards"
         openCollections()
         return
     end if
-    if m.library <> invalid and m.cameFrom = "library"
+    if m.library <> invalid and m.detailFrom = "library"
         m.library.visible = true
         m.library.callFunc("showRows", libraryPayload())
         refocus(m.library)
         m.route = "library"
         return
     end if
-    if m.search <> invalid and m.cameFrom = "search"
+    if m.series <> invalid and m.detailFrom = "series"
+        m.series.visible = true
+        refocus(m.series)
+        m.route = "series"
+        return
+    end if
+    if m.search <> invalid and m.detailFrom = "search"
         m.search.visible = true
         refocus(m.search)
         m.route = "search"
@@ -3051,8 +3448,31 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     ' this, and several Roku channels use them the same way. tvOS puts prev and
     ' next on screen; here they are keys, and the player says so once.
     if m.route = "player" and (key = "up" or key = "down")
+        ' An id lineup (a playlist, a party, a user channel) moves through
+        ' ITSELF. It used to fall to the episode queue below, which rebuilt
+        ' each step as a bare episode: a party lost its mute and its menu,
+        ' and the lineup's own index never moved, so the next film to end
+        ' jumped back.
+        l = m.idLineup
+        if l <> invalid
+            delta = 1
+            if key = "up" then delta = -1
+            nxt = l.index + delta
+            if nxt >= 0 and nxt < l.ids.Count()
+                print "AWSER lineup move "; l.index; " -> "; nxt
+                m.idLineup.index = nxt
+                playIDLineup()
+            else
+                print "AWSER lineup move refused at edge "; l.index
+            end if
+            return true
+        end if
         q = m.episodeQueue
-        if q <> invalid and q.queue <> invalid
+        hasQueue = false
+        if q <> invalid
+            if q.queue <> invalid and q.index <> invalid then hasQueue = true
+        end if
+        if hasQueue
             ' `step` is reserved (ROKU-PARITY lesson 44) — written down two
             ' ticks ago and repeated here anyway.
             delta = 1
@@ -3060,16 +3480,18 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             nxt = q.index + delta
             if nxt >= 0 and nxt < q.queue.Count()
                 print "AWSER queue move "; q.index; " -> "; nxt
-                startEpisode({ id: q.queue[nxt], title: q.queueTitles[nxt],
-                               url: queueURLAt(q, nxt), meta: q.meta,
-                               queue: q.queue, queueTitles: q.queueTitles,
-                               queueUrls: q.queueUrls, index: nxt })
+                startEpisode(queueStep(q, nxt))
                 return true
             end if
             print "AWSER queue move refused at edge "; q.index
             return true
         end if
         return false
+    end if
+    ' The index could not be fetched: OK on Home asks again.
+    if key = "OK" and m.route = "home" and homeFailed()
+        retryHome()
+        return true
     end if
     if key = "back"
         if m.route = "player"

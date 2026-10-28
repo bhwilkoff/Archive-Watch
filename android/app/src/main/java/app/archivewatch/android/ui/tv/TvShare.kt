@@ -88,8 +88,12 @@ fun TvShareOverlay(title: String, url: String, onDone: () -> Unit, reportUrl: St
                     modifier = Modifier.padding(top = 16.dp),
                 )
             }
+            // The overlay holds focus itself: with no focusable of its own
+            // (a series or a playlist has no report link) focus stayed on the
+            // Share button behind the scrim and the D-pad drove the page
+            // underneath.
+            val focus = remember { androidx.compose.ui.focus.FocusRequester() }
             if (reportUrl != null) {
-                val focus = remember { androidx.compose.ui.focus.FocusRequester() }
                 Box(
                     Modifier
                         .padding(top = 18.dp)
@@ -99,13 +103,17 @@ fun TvShareOverlay(title: String, url: String, onDone: () -> Unit, reportUrl: St
                     Text(if (reporting) "Share this film" else "Report a problem",
                         fontSize = 14.sp, color = Color.White)
                 }
-                androidx.compose.runtime.LaunchedEffect(Unit) { runCatching { focus.requestFocus() } }
             }
-            Text(
-                "Press Back to close",
-                fontSize = 12.sp, color = Color(0xFF707070),
-                modifier = Modifier.padding(top = 14.dp),
-            )
+            val closeFocus = remember { androidx.compose.ui.focus.FocusRequester() }
+            Box(
+                Modifier
+                    .padding(top = 14.dp)
+                    .tvFocusable(onClick = onDone, focusRequester = closeFocus)
+                    .padding(horizontal = 18.dp, vertical = 8.dp),
+            ) {
+                Text("Close", fontSize = 14.sp, color = Color.White)
+            }
+            ClaimInitialFocus(if (reportUrl != null) focus else closeFocus)
         }
     }
 }

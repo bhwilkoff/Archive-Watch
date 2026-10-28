@@ -6,15 +6,13 @@
 //
 // Runs the shipped js/drivesync.js (Google Drive appData, Android's island)
 // and js/cloudkitsync.js (Apple's AWSync records) against an in-memory
-// IndexedDB stand-in and a fake CloudKit, then the SAME checks against the
-// committed (HEAD) copies as a control: the control must fail, or the checks
-// prove nothing.
+// IndexedDB stand-in and a fake CloudKit, then the SAME checks against copies
+// with the sortIndex carry cut out as a control: the control must fail, or the
+// checks prove nothing.
 import { readFileSync } from 'node:fs';
-import { execSync } from 'node:child_process';
 
 const root = new URL('..', import.meta.url);
 const read = f => readFileSync(new URL(f, root), 'utf8');
-const atHead = f => { try { return execSync(`git show HEAD:${f}`, { cwd: root, encoding: 'utf8' }); } catch { return null; } };
 
 function fakeDB(seed = {}) {
   const st = { favorites: new Map(), playlists: new Map(), channels: new Map(), progress: new Map(), tombstones: new Map() };
@@ -147,12 +145,21 @@ let fails = 0;
 const cur = await run(read('js/drivesync.js'), read('js/cloudkitsync.js'));
 for (const [ok, msg] of cur) { console.log((ok ? '  ok   ' : '  FAIL ') + msg); if (!ok) fails++; }
 
-const hd = atHead('js/drivesync.js'), hc = atHead('js/cloudkitsync.js');
-if (hd && hc && (hd !== read('js/drivesync.js') || hc !== read('js/cloudkitsync.js'))) {
-  const ctl = await run(hd, hc);
+// Control: the shipped writers with the sortIndex carry cut out — the
+// writer that rebuilds an entry from the fields it knows. The checks must
+// catch it. (A HEAD-vs-working control stopped meaning anything once the
+// carry was committed: any unrelated edit made it compare two good files.)
+const strip = src => src
+  .replace(/\n\s*if \(Number\.isInteger\(p\.sortIndex\)\) pl\.sortIndex = p\.sortIndex;/g, '')
+  .replace(/\n\s*\.\.\.\(Number\.isInteger\(p\.sortIndex\) \? \{ sortIndex: p\.sortIndex \} : \{\}\),/g, '');
+const cutD = strip(read('js/drivesync.js')), cutC = strip(read('js/cloudkitsync.js'));
+if (cutD === read('js/drivesync.js') || cutC === read('js/cloudkitsync.js')) {
+  console.log('  FAIL control: the sortIndex carry was not found to cut out'); fails++;
+} else {
+  const ctl = await run(cutD, cutC);
   const caught = ctl.filter(r => !r[0]).length;
-  console.log(caught ? `  ok   control: the committed writers fail ${caught}/${ctl.length} checks`
-                     : '  FAIL control: the committed writers pass every check, so the checks prove nothing');
+  console.log(caught ? `  ok   control: writers without the carry fail ${caught}/${ctl.length} checks`
+                     : '  FAIL control: writers without the carry pass every check, so the checks prove nothing');
   if (!caught) fails++;
 }
 console.log(`sync sortIndex: ${cur.length - cur.filter(r => !r[0]).length}/${cur.length} pass`);

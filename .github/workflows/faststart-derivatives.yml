@@ -38,6 +38,12 @@ concurrency:
   group: catalog-writers     # serialise with the other catalog writers
   cancel-in-progress: false
 
+# Every `run:` is `bash -eo pipefail` (GitHub's explicit `shell: bash`;
+# the implicit default has no pipefail, so `tool | tee log` hid a crash).
+defaults:
+  run:
+    shell: bash
+
 jobs:
   faststart:
     runs-on: ubuntu-latest
@@ -68,7 +74,8 @@ jobs:
           python tools/repair_derivatives.py --needs-faststart-only --skip-series \
             --throttle ${{ github.event.inputs.throttle || '0.15' }} \
             --max-minutes 60 \
-            | tee faststart-flagged.log
+            | tee faststart-flagged.log \
+            || echo "::warning::the needsFaststart pass did not complete — the full pass still runs"
           # 2) Full monthly pass (exotic-format originals + any flagged items).
           # Budgets, because both prior runs hit the 360-minute wall and were
           # reported as "cancelled" with the catalog never written.

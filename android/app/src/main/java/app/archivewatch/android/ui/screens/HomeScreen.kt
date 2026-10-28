@@ -54,7 +54,6 @@ import app.archivewatch.android.ui.Route
 import app.archivewatch.android.ui.ShelfRow
 import coil3.compose.AsyncImage
 import kotlinx.coroutines.delay
-import java.util.Calendar
 import kotlin.random.Random
 
 internal data class HomePayload(
@@ -251,7 +250,7 @@ internal fun rememberHomePayload(container: AppContainer): State<HomePayload> {
             listOf(tonight) + hero.filter { it.archiveID != tonight.archiveID }.take(5)
         } else hero
 
-        val pdYear = Calendar.getInstance().get(Calendar.YEAR) - 95
+        val pdYear = app.archivewatch.android.studio.StudioRights.lastPublicDomainYear()   // Decision 137: 1930 on 2026-01-01
         // Category tiles count-gate >=30 (the apps' rule — a near-empty grid
         // never ships behind a tile).
         val categories = featured?.categories.orEmpty()
@@ -380,7 +379,7 @@ fun HomeScreen(container: AppContainer, nav: Nav) {
                     ShelfRow(
                         "Hidden Gems",
                         payload.hiddenGems,
-                        subtitle = "Lesser-known finds worth a look",
+                        subtitle = "Rarely watched on archive.org",
                         onItem = { nav.openItem(it.archiveID, it.seriesID, it.contentType) },
                     )
                 }
@@ -397,7 +396,7 @@ fun HomeScreen(container: AppContainer, nav: Nav) {
                     ShelfRow(
                         "Public Domain Day: ${payload.publicDomainYear}",
                         payload.publicDomainDay,
-                        subtitle = "Newly free for everyone this year — tap to explore past years",
+                        subtitle = "Newly free for everyone this year",
                         onHeader = {
                             nav.push(
                                 Route.Filtered(

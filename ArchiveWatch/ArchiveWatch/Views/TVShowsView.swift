@@ -34,13 +34,9 @@ struct TVShowsView: View {
         }
         switch sort {
         case .popular:
-            // Series carry no popularityScore, so fall back to how complete a
-            // show is (available episodes) — the richest series lead the grid.
-            return pool.sorted { a, b in
-                let pa = a.popularityScore ?? 0, pb = b.popularityScore ?? 0
-                if pa != pb { return pa > pb }
-                return (a.episodesCount ?? 0) > (b.episodesCount ?? 0)
-            }
+            // The query's own order: demoted shows last, designed art first,
+            // then episode depth. Re-sorting here dropped the first two terms.
+            return pool
         case .rating:
             // Rated shows lead by the pipeline's rank (Decision 171); the rest
             // keep their episode-depth order behind them.
@@ -74,7 +70,7 @@ struct TVShowsView: View {
                     .focusSection()
 
                 if items.isEmpty {
-                    EmptyState()
+                    EmptyState(offersFilters: false)
                         .frame(maxWidth: .infinity)
                         .padding(.top, 80)
                 } else {

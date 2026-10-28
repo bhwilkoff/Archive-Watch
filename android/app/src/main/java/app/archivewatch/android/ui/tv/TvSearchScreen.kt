@@ -28,6 +28,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
@@ -74,13 +75,13 @@ private val KEY_ROWS = listOf(
 @Composable
 fun TvSearchScreen(container: AppContainer, nav: Nav) {
     val dbVersion by container.catalog.dbVersion.collectAsState()
-    var query by remember { mutableStateOf("") }
+    var query by rememberSaveable { mutableStateOf("") }
     var results by remember { mutableStateOf<List<CatalogItem>>(emptyList()) }
     var total by remember { mutableIntStateOf(0) }
     // Result filters (tvOS audit fix #4 parity): only facets PRESENT in the
     // results are offered; the active chip clears itself; reset on new query.
-    var typeFilter by remember { mutableStateOf<String?>(null) }
-    var decadeFilter by remember { mutableStateOf<Int?>(null) }
+    var typeFilter by rememberSaveable { mutableStateOf<String?>(null) }
+    var decadeFilter by rememberSaveable { mutableStateOf<Int?>(null) }
     var decades by remember { mutableStateOf<List<Pair<Int, Int>>>(emptyList()) }
     var keywords by remember { mutableStateOf<List<String>>(emptyList()) }
 

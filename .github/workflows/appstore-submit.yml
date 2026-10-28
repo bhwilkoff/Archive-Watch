@@ -64,6 +64,12 @@ concurrency:
   group: appstore-submit
   cancel-in-progress: false
 
+# Every `run:` is `bash -eo pipefail` (GitHub's explicit `shell: bash`;
+# the implicit default has no pipefail, so `tool | tee log` hid a crash).
+defaults:
+  run:
+    shell: bash
+
 jobs:
   submit:
     runs-on: ubuntu-latest        # pure REST — no Xcode, no macOS runner needed

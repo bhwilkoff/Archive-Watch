@@ -36,7 +36,15 @@ window.AWDriveSync = (() => {
   let ui = null;
 
   const configured = () => !!CLIENT_ID;
-  const signedIn = () => !!localStorage.getItem('aw_gsync');
+  // Storage can refuse outright (blocked site data); sync then stays off.
+  const flag = (op, v) => {
+    try {
+      if (op === 'get') return localStorage.getItem('aw_gsync');
+      if (op === 'set') localStorage.setItem('aw_gsync', v); else localStorage.removeItem('aw_gsync');
+    } catch { /* storage refused */ }
+    return null;
+  };
+  const signedIn = () => !!flag('get');
 
   function loadGIS() {
     return new Promise((resolve, reject) => {
@@ -70,7 +78,7 @@ window.AWDriveSync = (() => {
         if (resp.access_token) {
           token = resp.access_token;
           lastError = null;
-          localStorage.setItem('aw_gsync', '1');
+          flag('set', '1');
         } else if (resp.error) {
           lastError = 'Google sign-in failed: ' + resp.error;
         }
@@ -90,34 +98,43 @@ window.AWDriveSync = (() => {
     return r;
   }
 
+  // A READ THAT FAILED IS NOT AN EMPTY CLOUD. These used to answer a 5xx or a
+  // 403 quota error with "no file" / "no data", and the merge then wrote this
+  // browser's state over the phone's: a new file beside the old one, or a
+  // PATCH of a blob that never saw the cloud's. Only an OK answer is data.
   async function findFile() {
     const r = await drive(
       `/drive/v3/files?spaces=appDataFolder&q=name%3D%27${FILE}%27&fields=files(id)`);
+    if (!r.ok) throw new Error(`Drive ${r.status}`);
     const d = await r.json();
-    return d.files?.[0]?.id || null;
+    if (!d || !Array.isArray(d.files)) throw new Error('Drive answered without a file list');
+    return d.files[0]?.id || null;
   }
 
   async function pull(fileId) {
     const r = await drive(`/drive/v3/files/${fileId}?alt=media`);
-    return r.ok ? r.json().catch(() => null) : null;
+    if (!r.ok) throw new Error(`Drive ${r.status}`);
+    return r.json();
   }
 
   async function push(fileId, blob) {
     const body = JSON.stringify(blob);
+    let r;
     if (fileId) {
-      await drive(`/upload/drive/v3/files/${fileId}?uploadType=media`, {
+      r = await drive(`/upload/drive/v3/files/${fileId}?uploadType=media`, {
         method: 'PATCH', headers: { 'Content-Type': 'application/json' }, body,
       });
     } else {
       const meta = { name: FILE, parents: ['appDataFolder'] };
       const boundary = 'awsyncb';
-      await drive(`/upload/drive/v3/files?uploadType=multipart`, {
+      r = await drive(`/upload/drive/v3/files?uploadType=multipart`, {
         method: 'POST',
         headers: { 'Content-Type': `multipart/related; boundary=${boundary}` },
         body: `--${boundary}\r\nContent-Type: application/json\r\n\r\n${JSON.stringify(meta)}` +
               `\r\n--${boundary}\r\nContent-Type: application/json\r\n\r\n${body}\r\n--${boundary}--`,
       });
     }
+    if (!r.ok) throw new Error(`Drive ${r.status}`);
   }
 
   // Merge cloud state into IndexedDB and return the union blob to push
@@ -239,10 +256,15 @@ window.AWDriveSync = (() => {
   // (2026-09-15).
   let needsReconnect = false;
 
+  let syncing = false;
   async function syncNow(interactive = false) {
     if (!configured() || !DB) return;
     if (!signedIn() && !interactive) return;
     if (!token && !interactive) { needsReconnect = true; render(); return; }
+    // One sync at a time: two overlapping runs each read the cloud before
+    // the other wrote it, and the second write erased the first.
+    if (syncing) { again = true; return; }
+    syncing = true;
     try {
       if (!token && !(await getToken(interactive))) return;
       needsReconnect = false;
@@ -251,18 +273,38 @@ window.AWDriveSync = (() => {
       const mergedBlob = await merge(cloud);
       await push(fileId, mergedBlob);
       lastSync = Date.now();
+      lastNudged = lastSync;
+      lastError = null;
       render();
       window.dispatchEvent(new CustomEvent('aw-sync-done'));
     } catch (e) {
       if (e.message === 'auth') { token = null; }
+      // Never "Synced" over a sync that did not finish.
+      lastSync = 0;
       lastError = e.message === 'auth' ? 'Google Drive access expired — sign in again.' : ('Sync failed: ' + e.message);
       render();
       console.warn('[sync]', e);
+    } finally {
+      syncing = false;
+      if (again) { again = false; nudge(); }
     }
   }
 
+  // An edit asks for a sync; at most one a minute reaches Drive, and one
+  // that arrives inside the minute waits for its end rather than vanishing.
+  const NUDGE_GAP = 60_000;
+  let again = false;
+  let lastNudged = 0;
+  let nudgeTimer = null;
+  function nudge() {
+    if (!configured() || !signedIn() || nudgeTimer) return;
+    const wait = lastNudged + NUDGE_GAP - Date.now();
+    if (wait <= 0) { lastNudged = Date.now(); syncNow(false); return; }
+    nudgeTimer = setTimeout(() => { nudgeTimer = null; lastNudged = Date.now(); syncNow(false); }, wait);
+  }
+
   function signOut() {
-    localStorage.removeItem('aw_gsync');
+    flag('remove');
     token = null;
     render();
   }
@@ -331,7 +373,7 @@ window.AWDriveSync = (() => {
       });
       setInterval(() => { if (!document.hidden) syncNow(false); }, 90_000);
     },
-    nudge() { if (configured() && signedIn()) syncNow(false); },
+    nudge,
     // Read by the shared-playlist view: an import needs somewhere to put
     // the list, and signed out there is nowhere. Exposed rather than
     // letting a caller reach for the module's internals.

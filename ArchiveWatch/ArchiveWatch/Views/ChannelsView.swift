@@ -20,7 +20,12 @@ struct ChannelsView: View {
     @State private var showCommercialOptions = false
     @State private var guide: [GuideChannel] = []
     @State private var builtAt = Date()
+    /// The guide's NOW, advanced each minute so the now line and "on now"
+    /// follow the clock while the page stays open.
+    @State private var clock = Date()
     @State private var scheduleMissing = false
+    @State private var deletingChannel: GuideChannel?
+    @State private var showDeleteChannel = false
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {
@@ -42,13 +47,35 @@ struct ChannelsView: View {
                     .frame(maxWidth: .infinity)
                 Spacer()
             } else {
-                ChannelGuide(channels: guide, now: builtAt,
+                ChannelGuide(channels: guide, now: clock,
                              onTune: { ch, slot in tune(ch, from: slot) },
-                             onDeleteChannel: { ch in deleteUserChannel(ch) })
+                             onDeleteChannel: { ch in deletingChannel = ch; showDeleteChannel = true })
             }
         }
         .background(Color.black.ignoresSafeArea())
         .task { await load() }
+        .task {
+            while !Task.isCancelled {
+                let second = Calendar.current.component(.second, from: Date())
+                try? await Task.sleep(for: .seconds(60 - second))
+                guard !Task.isCancelled else { return }
+                clock = Date()
+                // The schedule was laid out for a window from `builtAt`; lay it
+                // out again before the guide's window runs past it.
+                if clock.timeIntervalSince(builtAt) > 3600, playing == nil { rebuild() }
+            }
+        }
+        .confirmationDialog("Delete \u{201C}\(deletingChannel?.title ?? "")\u{201D}?",
+                            isPresented: $showDeleteChannel,
+                            titleVisibility: .visible) {
+            Button("Delete Channel", role: .destructive) {
+                if let ch = deletingChannel { deleteUserChannel(ch) }
+                deletingChannel = nil
+            }
+            Button("Cancel", role: .cancel) { deletingChannel = nil }
+        } message: {
+            Text("It is removed from your other devices too.")
+        }
         .fullScreenCover(item: $playing) { box in
             if let cid = box.channelID, let start = guide.firstIndex(where: { $0.id == cid }) {
                 TVSurfPlayer(channels: guide, index: start, first: box,
@@ -146,6 +173,7 @@ struct ChannelsView: View {
             out += ChannelSchedule.guide(file, store: store, firstNumber: number, now: now)
         }
         builtAt = now
+        clock = now
         guide = out
     }
 

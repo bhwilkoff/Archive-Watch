@@ -24,7 +24,9 @@ enum BackgroundRefresh {
     /// Runs when the system grants background time: refresh the catalog
     /// cache, then re-arm for next time.
     static func run() async {
-        _ = await CatalogRefreshService.shared.downloadDatabase()
+        // Not handed out: the running app keeps its open file, and adopts this
+        // one at the next foreground (CatalogRefreshService.refreshIfStale).
+        _ = await CatalogRefreshService.shared.downloadDatabase(handOut: false)
         schedule()
     }
 }

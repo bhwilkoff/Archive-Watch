@@ -25,6 +25,12 @@ concurrency:
   group: publish-db
   cancel-in-progress: true
 
+# Every `run:` is `bash -eo pipefail` (GitHub's explicit `shell: bash`;
+# the implicit default has no pipefail, so `tool | tee log` hid a crash).
+defaults:
+  run:
+    shell: bash
+
 jobs:
   publish:
     runs-on: ubuntu-latest
@@ -41,7 +47,9 @@ jobs:
       # good database live rather than publishing a regression.
       - name: Pipeline tests
         run: |
-          pip install requests
+          # pillow: measure_image_dims reads image headers with PIL; without it
+          # every measurement came back "transient" and the cache never grew.
+          pip install requests pillow
           bash tools/run_pipeline_tests.sh
 
       # Pull the full catalog from its release (Decision 018) so build_sqlite
@@ -90,7 +98,9 @@ jobs:
         # first byte against 0.7s for a healthy film, and the player reported
         # `fallbackInHand=0` at the 25s mark. Size is not what makes a film
         # unstartable; the node is.
-        run: python tools/bake_fallbacks.py --limit 300 --min-bytes 300000000 || true
+        run: |
+          python tools/bake_fallbacks.py --limit 300 --min-bytes 300000000 \
+            || echo "::warning::bake_fallbacks did not complete — no new fallback copies this run"
 
       # A film carrying subtitleHLS PROMISES captions — tvOS fetches the VTT and
       # renders it, web and Android side-load it — and 1.7% of the advertised
@@ -118,6 +128,7 @@ jobs:
       # From The Train") drifted back onto the homepage. Applying every build closes
       # that drift so a copyrighted title can never reach an app surface.
       - name: Enforce rights gate (apply confirmed hides)
+        id: rights
         run: |
           python tools/audit_rights.py --apply | tee rights-apply.log
           echo "## Rights gate" >> $GITHUB_STEP_SUMMARY
@@ -132,6 +143,7 @@ jobs:
       # on the store index while the audit had correctly judged every one of
       # them a hide. The audit was right; its answer was thrown away.
       - name: Persist the rights decisions
+        id: persist
         # `catalog_release.py publish` reaches the catalog-source release
         # through `gh`, so it needs a token like every other gh step here.
         # Without one it exits 1 on "cannot reach release 'catalog-source'",
@@ -159,7 +171,9 @@ jobs:
 
       - name: Metadata quality audit (report)
         run: |
-          python tools/audit_metadata.py --top 2000 | tee audit.log
+          # A report: its crash must not stop the DB build below.
+          python tools/audit_metadata.py --top 2000 | tee audit.log \
+            || echo "::warning::metadata quality audit did not complete"
           echo "## Metadata quality" >> $GITHUB_STEP_SUMMARY
           echo '```' >> $GITHUB_STEP_SUMMARY; head -28 audit.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
 
@@ -170,6 +184,7 @@ jobs:
         run: python tools/coverage_report.py --json coverage.json || echo "::warning::coverage report did not run"
 
       - name: Build SQLite catalog
+        id: build
         run: python tools/build_sqlite.py --aliases-out aliases.json | tee db.log
 
       # A ranking regression is SILENT: search still returns results, only their
@@ -209,13 +224,45 @@ jobs:
       # to abort the job before this ran, leaving a STALE shipping DB on the
       # release (e.g. a concurrent writer/local push landed first).
       - name: Upload to rolling release
-        # Publish what finished. A killed compute step above must not
-        # discard the run's work, which is how faststart-derivatives lost
-        # two monthly passes in a row.
-        if: always()
+        # Publish what finished: a failed REPORT step after the build must not
+        # discard the DB. But never on a cancelled run (a cancel can land in
+        # the middle of build_sqlite's writes), and never a DB whose build
+        # failed — `always()` uploaded whatever was on disk in both cases.
+        if: ${{ !cancelled() && steps.build.outcome == 'success' }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
+          # The manifest is what the app trusts: it fetches it first and
+          # inflates the .zz against dbBytes. Refuse to upload a set whose
+          # files are not the ones the manifest describes (a truncated write,
+          # a DB from an earlier build left beside a new manifest).
+          python3 - <<'PY'
+          import hashlib, json, os, sys, zlib
+          m = json.load(open("catalog-manifest.json"))
+          bad = []
+          for name, key in (("catalog.sqlite", "dbBytes"), ("catalog.sqlite.zz", "zzBytes")):
+              want = m.get(key)
+              have = os.path.getsize(name) if os.path.exists(name) else None
+              if not want or have != want:
+                  bad.append(f"{name}: manifest {key}={want}, on disk {have}")
+          if not bad:
+              d, h, n = zlib.decompressobj(-15), hashlib.sha256(), 0
+              with open("catalog.sqlite.zz", "rb") as f:
+                  while chunk := f.read(1 << 20):
+                      out = d.decompress(chunk); h.update(out); n += len(out)
+              out = d.flush(); h.update(out); n += len(out)
+              db = hashlib.sha256()
+              with open("catalog.sqlite", "rb") as f:
+                  while chunk := f.read(1 << 20):
+                      db.update(chunk)
+              if n != m["dbBytes"] or h.digest() != db.digest():
+                  bad.append(f"catalog.sqlite.zz inflates to {n} bytes that are not catalog.sqlite")
+          for b in bad:
+              print(f"::error::{b}")
+          if bad:
+              sys.exit("refusing to upload a DB that does not match its manifest")
+          print(f"manifest ok: {m['dbBytes']} db bytes, {m['zzBytes']} zz bytes, {m.get('itemCount')} items")
+          PY
           # Ensure the rolling tag exists, then clobber the assets.
           gh release view catalog-db >/dev/null 2>&1 || \
             gh release create catalog-db --title "Catalog database (rolling)" \
@@ -237,7 +284,11 @@ jobs:
       # the COMMIT/PUSH below is non-fatal, because that is the part that
       # races other writers.
       - name: Build catalog search index + shards
-        if: always()
+        # Built from the runner's catalog.json, so only once the rights gate
+        # was applied AND persisted: a failed persist can leave a re-fetched,
+        # UNAPPLIED catalog on disk, which is how Dr. Strangelove reached the
+        # store index (see "Persist the rights decisions"). Never on cancel.
+        if: ${{ !cancelled() && steps.rights.outcome == 'success' && steps.persist.outcome == 'success' }}
         run: |
           python tools/build_catalog_index.py
           python tools/build_web_details.py
@@ -251,13 +302,23 @@ jobs:
           # Pixel sizes of the images the Roku Search feed publishes, so the
           # feed can refuse posters Roku's validator refuses (2:3 / 16:9
           # only). Budgeted, resumable, transient failures re-asked next run.
-          python tools/measure_image_dims.py --limit 3000 || echo "::warning::image dims measurement did not complete"
+          python -c "import PIL" || { echo "::error::pillow is not installed; measure_image_dims cannot read a single image"; exit 1; }
+          python tools/measure_image_dims.py --limit 3000 | tee dims.log \
+            || echo "::warning::image dims measurement did not complete"
+          # Every URL transient = nothing could be read at all (an image
+          # library missing, the runner refused by every host), not a throttle.
+          python3 - <<'PY' || echo "::warning::measure_image_dims measured nothing: every URL it asked was transient"
+          import ast, re, sys
+          m = re.search(r"\[dims\] done: (\{.*?\})", open("dims.log").read())
+          c = ast.literal_eval(m.group(1)) if m else None
+          sys.exit(1 if (c and c["transient"] and not (c["sized"] or c["dead"])) else 0)
+          PY
 
       - name: Commit catalog search index
         # Publish what finished. A killed compute step above must not
         # discard the run's work, which is how faststart-derivatives lost
-        # two monthly passes in a row.
-        if: always()
+        # two monthly passes in a row. Never on a cancelled run.
+        if: ${{ !cancelled() }}
         continue-on-error: true
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}

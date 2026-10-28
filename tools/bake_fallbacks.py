@@ -27,9 +27,15 @@ Usage (inside the usual fetch/publish wrap):
   python tools/bake_fallbacks.py [--min-bytes N] [--limit N] [--dry-run]
   python tools/catalog_release.py publish
 """
-import argparse, json, time, urllib.parse, urllib.request
+import argparse, datetime, json, time, urllib.parse, urllib.request
 
 CATALOG = "catalog.json"
+# A heavy film with no lighter copy is asked again after this many days, not
+# every run: the top of the popularity list was re-probed hourly and the
+# --limit window never reached anything below it.
+MISS_FIELD = "fallbackMissAt"
+MISS_TTL_DAYS = 30
+UNKNOWN = object()   # archive.org did not answer: not evidence of "no copy"
 UA = {"User-Agent": "ArchiveWatch-pipeline (fallbacks; contact ben@learningischange.com)"}
 
 
@@ -55,7 +61,9 @@ def same_item_derivative(item_id, current_name, current_size):
     try:
         meta = http_json(f"https://archive.org/metadata/{item_id}")
     except Exception:
-        return None
+        return UNKNOWN
+    if not isinstance(meta, dict) or not meta.get("files"):
+        return UNKNOWN
     best = None
     for f in meta.get("files", []):
         name = f.get("name", "")
@@ -74,6 +82,14 @@ def same_item_derivative(item_id, current_name, current_size):
         return None
     return (f"https://archive.org/download/{item_id}/"
             + urllib.parse.quote(best[0]))
+
+
+def miss_is_fresh(it, today):
+    try:
+        then = datetime.date.fromisoformat(str(it.get(MISS_FIELD))[:10])
+    except ValueError:
+        return False
+    return (today - then).days < MISS_TTL_DAYS
 
 
 def main():
@@ -104,11 +120,14 @@ def main():
             size = None
         by_imdb.setdefault(imdb, []).append((size, it))
 
+    today = datetime.date.today()
     heavy = []
     for it in items:
         if it.get("excluded") or not it.get("downloadURL"):
             continue
         if it.get("fallbackVideoURL") and not args.refresh:
+            continue
+        if not args.refresh and miss_is_fresh(it, today):
             continue
         size = (it.get("videoFile") or {}).get("sizeBytes")
         try:
@@ -139,13 +158,22 @@ def main():
                 return (it, cand, "sibling")
         name = urllib.parse.unquote(it["downloadURL"].rsplit("/", 1)[-1])
         cand = same_item_derivative(it["archiveID"], name, size)
+        if cand is UNKNOWN:
+            return (it, None, None)
         if cand and head_size(cand) is not None:
             return (it, cand, "derivative")
-        return (it, None, None)
+        # a candidate that did not answer may be a blip; only "there is none" is a miss
+        return (it, None, "miss" if cand is None else None)
 
-    baked = sibling = derivative = 0
+    baked = sibling = derivative = missed = 0
     with ThreadPoolExecutor(max_workers=6) as pool:
         for n, (it, fb, kind) in enumerate(pool.map(resolve, heavy)):
+            if kind == "miss":
+                missed += 1
+                if not args.dry_run:
+                    it[MISS_FIELD] = today.isoformat()
+            elif fb and not args.dry_run:
+                it.pop(MISS_FIELD, None)
             if fb:
                 if kind == "sibling": sibling += 1
                 else: derivative += 1
@@ -191,8 +219,9 @@ def main():
         if n % 100 == 99:
             print(f"  ... {n+1}/{len(heavy)} scanned, {baked} baked")
 
-    print(f"baked {baked} fallbacks ({sibling} imdb-siblings, {derivative} same-item derivatives)")
-    if not args.dry_run and baked:
+    print(f"baked {baked} fallbacks ({sibling} imdb-siblings, {derivative} same-item derivatives); "
+          f"{missed} have no lighter copy (asked again after {MISS_TTL_DAYS} days)")
+    if not args.dry_run and (baked or missed):
         with open(CATALOG, "w") as f:
             json.dump(catalog, f, separators=(",", ":"))
         print("catalog written")

@@ -654,6 +654,63 @@ HIDE_BUCKETS = {"modern_copyright_confirmed", "modern_noyear_risk", "uploader_li
                 "no_evidence", "uploader_cannot_dedicate", "uploader_copyright_claim",
                 "copyright_claim_evidence", "likely_modern_unidentified"}
 
+# A COPYRIGHT CLAIM BELONGS TO THE FILM, NOT TO ONE UPLOAD OF IT. The renewal
+# match (corroborate_copyright) and the commercial-footprint tiers judge each
+# copy by its own record, so a film with several uploads was hidden in one
+# and served in the others: Gilda (1946, renewed by Columbia) was hidden as
+# `gilda-1946` and served as `gilda-1946_202106`; The Hidden Fortress and El
+# ocaso de una vida likewise (audit 2026-10-28). An imdbID is the film; a copy
+# that shares it carries the claim unless a person has listed it in
+# copyright_evidence_overrides.json, or it sits in a government collection
+# (a government work cannot be copyrighted), or it carries a corroborated
+# free licence.
+COPYRIGHT_CLASS = {"copyright_claim_evidence", "renewed_copyright_classic",
+                   "renewal_zone_commercial", "modern_copyright_confirmed"}
+
+
+def copyright_siblings(items):
+    """imdbID -> (bucket, archiveID) of a copy the audit hides on a copyright claim."""
+    # The PD-by-defect list is the film's too: a copy dated a few years off
+    # misses it (horror_express_ipod is dated 1976, the list says 1972), and
+    # its footprint hide must not then take every correctly dated copy.
+    pd_defect = {it.get("imdbID") for it in items if it.get("imdbID") and pd_renewal_allowed(it)}
+    out = {}
+    for it in items:
+        imdb = it.get("imdbID")
+        if not imdb or it.get("archiveID") in copyright_overrides():
+            continue
+        b = bucket(it)[0]
+        if b == "renewal_zone_commercial" and imdb in pd_defect:
+            continue
+        if b in COPYRIGHT_CLASS and imdb not in out:
+            out[imdb] = (b, it.get("archiveID"))
+    return out
+
+
+def sibling_claim(it, siblings):
+    """(bucket, archiveID) of the copy whose copyright claim this copy carries, or None."""
+    claim = (siblings or {}).get(it.get("imdbID") or "")
+    if not claim or claim[1] == it.get("archiveID") or it.get("archiveID") in copyright_overrides():
+        return None
+    if colls(it) & (GOV - CURATED_PD):
+        return None
+    if it.get("rightsCorroborated") and free_culture_license(it.get("archiveLicense")):
+        return None
+    return claim
+
+
+def bucket_in(it, siblings):
+    """bucket(it), or the film's copyright bucket when a sibling copy carries
+    the claim. The sibling's OWN bucket name is used (all four are registered
+    hides with a host sentence), so nothing downstream learns a new name; the
+    apply records which copy it came from in `copyrightClaimFrom`."""
+    b, act = bucket(it)
+    if act == "hide":
+        return b, act
+    claim = sibling_claim(it, siblings)
+    return (claim[0], "hide") if claim else (b, act)
+
+
 _OVERRIDES = Path(__file__).resolve().parent.parent / "shared" / "editorial" / "copyright_evidence_overrides.json"
 
 
@@ -684,7 +741,9 @@ def evidence_for(it, b):
     """Human-reviewable 'why this is rejected', from the item's OWN signals."""
     parts = []
     y, ad = it.get("year"), it.get("archiveDate")
-    if b == "modern_copyright_confirmed":
+    if it.get("copyrightClaimFrom"):
+        parts.append(f"another copy of {it.get('imdbID')} ({it['copyrightClaimFrom']}) is hidden as {b}")
+    elif b == "modern_copyright_confirmed":
         parts.append(f"year {y} >= {MODERN} (born copyrighted)")
         parts.append(f"archive_date={ad}" if ad is not None else "archive_date=unknown")
         parts.append(f"license={it.get('archiveLicense') or 'NONE'} (no CC0/CC dedication)")
@@ -726,13 +785,15 @@ def evidence_for(it, b):
     return "; ".join(parts)
 
 
-def write_rejected_report(items, path):
+def write_rejected_report(items, path, siblings=None):
     """CSV manifest of every item that WOULD be / IS hidden, with the Archive's
     own evidence per row so a human can open the page and confirm the video is
     the modern/copyrighted title we claim. Sorted by popularity (most-seen first)
     + a SUSPECT flag on rows whose Archive date looks OLD (possible wrong hide)."""
     import csv
-    rejected = [(it, bucket(it)[0]) for it in items if bucket(it)[0] in HIDE_BUCKETS]
+    if siblings is None:
+        siblings = copyright_siblings(items)
+    rejected = [(it, b) for it in items for b in [bucket_in(it, siblings)[0]] if b in HIDE_BUCKETS]
     rejected.sort(key=lambda r: (r[0].get("popularityScore") or 0), reverse=True)
     suspect = 0
     with open(path, "w", newline="", encoding="utf-8") as f:
@@ -929,8 +990,9 @@ def main():
     actions = collections.Counter()
     samples = collections.defaultdict(list)
     bucket_action = {}
+    siblings = copyright_siblings(items)
     for it in items:
-        b, act = bucket(it)
+        b, act = bucket_in(it, siblings)
         counts[b] += 1
         actions[act] += 1
         bucket_action[b] = act
@@ -970,7 +1032,7 @@ def main():
         print(f"\n[json] wrote {args.json}")
 
     if args.report_rejected:
-        write_rejected_report(items, args.report_rejected)
+        write_rejected_report(items, args.report_rejected, siblings)
 
     if not args.apply:
         unconf = counts.get("modern_copyright_unconfirmed", 0)
@@ -1023,7 +1085,7 @@ def main():
     hidden = 0
     unhid = 0
     for it in items:
-        b, _ = bucket(it)
+        b, _ = bucket_in(it, siblings)
         # A modern year with no licence is under copyright until the confirm
         # pass finds evidence otherwise, and a question still open (a fix or
         # confirm bucket) never re-shows what is already hidden. Until
@@ -1031,6 +1093,11 @@ def main():
         # silent-era years moved Sybil (2007) and Silas Marner (1988) from a
         # hide bucket to "unconfirmed", and the next publish served them.
         pending = b == "modern_copyright_unconfirmed" or (b in NEED_CONFIRM and it.get("excluded"))
+        claim = sibling_claim(it, siblings) if b in COPYRIGHT_CLASS and bucket(it)[1] != "hide" else None
+        if claim:
+            it["copyrightClaimFrom"] = claim[1]
+        else:
+            it.pop("copyrightClaimFrom", None)
         if b in HIDE or pending:
             it["excluded"] = True
             it["rightsAudit"] = b
@@ -1061,7 +1128,7 @@ def main():
     CATALOG.write_text(json.dumps(cat, ensure_ascii=False), encoding="utf-8")
     # Always emit the final rejection manifest alongside an apply.
     default_report = REPO / "tools" / "rejected_audit.csv"
-    write_rejected_report(items, args.report_rejected or str(default_report))
+    write_rejected_report(items, args.report_rejected or str(default_report), siblings)
     print(f"\n[apply] excluded={hidden} un-hidden={unhid} -> wrote {CATALOG.name}")
     print("[apply] now: build_sqlite.py && catalog_release.py publish && publish-db")
     return 0

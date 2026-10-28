@@ -80,7 +80,8 @@ final class WatchProgress {
     @MainActor
     static func record(in ctx: ModelContext, archiveID: String,
                        position: Double, duration: Double?,
-                       historyOnly: Bool = false) {
+                       historyOnly: Bool = false,
+                       seriesID: String? = nil, episodeTitle: String? = nil) {
         guard position.isFinite, position > 0 else { return }
         // For `historyOnly`, `position` is the seconds WATCHED, not the
         // playhead: a channel joins its program minutes in.
@@ -104,13 +105,16 @@ final class WatchProgress {
                         w.completedAt = now
                     }
                 }
+                if let seriesID { w.seriesID = seriesID }
+                if let episodeTitle { w.episodeTitle = episodeTitle }
                 w.lastWatchedAt = now
             } else {
                 let w = WatchProgress(
                     archiveID: archiveID,
                     positionSeconds: historyOnly ? 0 : position,
                     durationSeconds: historyOnly ? 0
-                        : ((duration?.isFinite == true) ? (duration ?? 0) : 0))
+                        : ((duration?.isFinite == true) ? (duration ?? 0) : 0),
+                    seriesID: seriesID, episodeTitle: episodeTitle)
                 w.firstWatchedAt = now
                 w.playCount = 1
                 if w.isComplete { w.everCompleted = true; w.completedAt = now }

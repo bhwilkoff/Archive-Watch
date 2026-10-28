@@ -77,8 +77,14 @@ try {
   check('an unknown item says "Not in Archive Watch"', s?.title === "Not in Archive Watch", JSON.stringify(s));
   check("and links to it on archive.org",
         s?.link === "https://archive.org/details/aw-not-a-real-item-9f3", String(s?.link));
-  // 4. A pasted link in search goes the same way.
-  await cdp("Page.navigate", { url: `${SITE}#/search?q=${encodeURIComponent("https://archive.org/details/the-scarecrow")}` });
+  // 4. A pasted link in search goes the same way — as it is PASTED. A URL
+  // that already carries it (#/search?q=<link>, where Back lands after the
+  // paste) must not forward again, or Back can never leave the page.
+  const LINK = "https://archive.org/details/the-scarecrow";
+  await cdp("Page.navigate", { url: `${SITE}#/search` });
+  for (let i = 0; i < 40 && !(await evaluate("!!document.getElementById('search-input') && !document.getElementById('view-search').hidden")); i++) await sleep(250);
+  await evaluate(`(() => { const i = document.getElementById('search-input');
+    i.value = ${JSON.stringify(LINK)}; i.dispatchEvent(new Event('input')); })()`);
   let h = null;
   for (let i = 0; i < 60; i++) {
     await sleep(500);
@@ -86,6 +92,21 @@ try {
     if (h === "#/item/TheScarecrow1920") break;
   }
   check("a pasted archive.org link in search opens the film", h === "#/item/TheScarecrow1920", String(h));
+  await cdp("Page.navigate", { url: `${SITE}#/search?q=${encodeURIComponent(LINK)}` });
+  await sleep(3000);
+  h = await evaluate("location.hash");
+  check("...and the search URL Back returns to stays put (no forward loop)",
+        String(h).startsWith("#/search"), String(h));
+  // 5. A title the catalog does not serve is never drawn from archive.org on
+  // its Detail page: #/item/<id> says what #/details/<id> says.
+  await cdp("Page.navigate", { url: `${SITE}#/item/aw-not-a-real-item-9f3` });
+  for (let i = 0; i < 40; i++) {
+    await sleep(500);
+    s = await evaluate(STATE);
+    if (s && s.title) break;
+  }
+  check("an item the catalog does not serve opens the not-in-catalog page",
+        s?.hash === "#/details/aw-not-a-real-item-9f3" && s?.title === "Not in Archive Watch", JSON.stringify(s));
 } catch (e) {
   console.log("FAIL", e.message); failures++;
 } finally {

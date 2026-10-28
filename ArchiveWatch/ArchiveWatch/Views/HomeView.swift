@@ -180,7 +180,7 @@ struct HomeView: View {
     /// wanted shelves (NASA, 1950s/60s TV) is growing those collections in
     /// the catalog pipeline — this just guarantees Home never looks ragged.
     private let minPerShelf = 9
-    private let pdYear = Calendar.current.component(.year, from: Date()) - 95
+    private let pdYear = PublicDomainDay.currentClass()
 
     /// Build the whole Home page in render order through ONE shared seen-set so no
     /// title appears in more than one shelf (keyed on dedupKey, not archiveID — also

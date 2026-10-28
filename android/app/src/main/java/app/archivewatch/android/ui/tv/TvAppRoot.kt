@@ -55,6 +55,7 @@ import app.archivewatch.android.ui.DeepLinks
 import app.archivewatch.android.ui.Nav
 import app.archivewatch.android.ui.collectStartDoors
 import app.archivewatch.android.ui.Route
+import app.archivewatch.android.ui.RouteEntry
 import app.archivewatch.android.ui.Tab
 import app.archivewatch.android.ui.screens.CartoonScreen
 import app.archivewatch.android.ui.screens.ChannelsScreen
@@ -189,6 +190,7 @@ fun TvAppRoot(container: AppContainer) {
     val railFocus = remember { FocusRequester() }
 
     val tabStates = androidx.compose.runtime.saveable.rememberSaveableStateHolder()
+    val routeStates = app.archivewatch.android.ui.rememberRouteStates(nav)
     CompositionLocalProvider(LocalTvRailFocus provides railFocus) {
     Surface(color = MaterialTheme.colorScheme.background) {
         Row(Modifier.fillMaxSize()) {
@@ -250,6 +252,7 @@ fun TvAppRoot(container: AppContainer) {
                             .focusRequester(routeFocus)
                             .focusGroup(),
                     ) {
+                        RouteEntry(nav, routeStates, route) {
                         when (route) {
                             is Route.Detail -> TvDetailScreen(container, nav, route.archiveID)
                             is Route.Series -> TvSeriesScreen(container, nav, route.slug)
@@ -279,6 +282,7 @@ fun TvAppRoot(container: AppContainer) {
                             Route.Party -> TvPartyScreen(container, nav)
                             Route.Surprise -> TvSurpriseScreen(container, nav)
                             Route.Settings -> SettingsScreen(container, nav)
+                        }
                         }
                     }
                 }

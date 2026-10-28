@@ -49,10 +49,10 @@ struct PublishSheet: View {
                 Form {
                     TextField("Title", text: $title, prompt: Text("Name your edit"))
                     TextField("Description", text: $desc, axis: .vertical).lineLimit(2...5)
-                    LabeledContent("Sources", value: "\(sources.count) public-domain title\(sources.count == 1 ? "" : "s")")
+                    LabeledContent("Sources", value: "\(sources.count) title\(sources.count == 1 ? "" : "s")")
                 }
                 .formStyle(.grouped)
-                Text("Your edit is dedicated to the public domain (CC0) and credits its archive.org sources.")
+                Text("Your edit is published as fair use and credits its archive.org sources.")
                     .font(.caption).foregroundStyle(.secondary)
                 HStack {
                     Spacer()

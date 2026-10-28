@@ -1,5 +1,6 @@
 #if os(macOS)
 import SwiftUI
+import AppKit
 
 // Mac-native navigation model (docs/macOS-DESIGN.md §7): a sidebar SECTION selection +
 // one NavigationPath for drill-in. NOT the iOS per-tab-stack Router — the Mac uses a
@@ -58,8 +59,41 @@ final class AppRouter {
     func openPerson(_ name: String) { path.append(PersonRoute(name: name)) }
     func openCollection(_ id: String, _ title: String) { path.append(CollectionRoute(id: id, title: title)) }
     func play(_ item: Catalog.Item, at start: TimeInterval? = nil) {
+        // ONE FILM, ONE PLAYER (§D7). While the Studio window holds a film, a
+        // film played here would tear its surface down as a "projection" —
+        // during a show, the audience's picture.
+        let show = StudioMacShow.shared
+        if let held = show.film,
+           Self.studioWindow != nil || nowPlaying?.archiveID == held.archiveID {
+            if held.archiveID == item.archiveID {
+                // The Studio's own film, asked for in a window of its own (the
+                // Studio's "Open in a separate window"); never mid-show.
+                guard !StudioSession.shared.isLive else { Self.refuseDuringShow(); return }
+            } else {
+                guard !StudioSession.shared.isLive else { Self.refuseDuringShow(); return }
+                show.take(item, from: self)
+                Self.bringStudioForward()
+                return
+            }
+        }
         playStart = start
         nowPlaying = item
+    }
+
+    private static var studioWindow: NSWindow? {
+        NSApp.windows.first {
+            $0.isVisible && ($0.identifier?.rawValue.hasPrefix(StudioWindowID.studio) ?? false)
+        }
+    }
+
+    private static func bringStudioForward() { studioWindow?.makeKeyAndOrderFront(nil) }
+
+    private static func refuseDuringShow() {
+        let alert = NSAlert()
+        alert.messageText = "A show is running in the Studio"
+        alert.informativeText = "End the broadcast before playing another film."
+        alert.addButton(withTitle: "OK")
+        alert.runModal()
     }
     func playEpisode(_ episode: Episode, in series: Series?) {
         guard let series else { return }

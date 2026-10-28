@@ -190,13 +190,12 @@ class MainActivity : androidx.fragment.app.FragmentActivity() {
         //
         // It still goes through the RIGHTS GATE — a verification hook that
         // skipped the gate would be testing something the product cannot do.
-        intent?.getStringExtra("aw_studio_item")?.let { DeepLinks.pendingStudioItem.value = it }
-        intent?.getStringExtra("aw_studio_chat")?.let { DeepLinks.pendingStudioChat.value = it }
-        // A bench destination for the Studio — DEBUG ONLY. See
-        // DeepLinks.pendingStudioDest: honouring this in a release build would
-        // let any app redirect a host's broadcast. The values are never
-        // logged (§5).
+        // DEBUG ONLY, with the bench destination below: honoring these in a
+        // release build would let any app on the device open the host's Studio
+        // on a film and channel of its choosing. The values are never logged (§5).
         if (BuildConfig.DEBUG) {
+            intent?.getStringExtra("aw_studio_item")?.let { DeepLinks.pendingStudioItem.value = it }
+            intent?.getStringExtra("aw_studio_chat")?.let { DeepLinks.pendingStudioChat.value = it }
             // Every player this process builds plays at volume 0, so a test
             // on the owner's television is silent (Apple's AW_MUTE).
             if (intent?.getBooleanExtra("aw_mute", false) == true) DeepLinks.forceMute = true

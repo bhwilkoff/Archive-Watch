@@ -27,6 +27,12 @@ concurrency:
   group: catalog-writers      # serialize with every catalog-mutating workflow (Decision 018/020)
   cancel-in-progress: false
 
+# Every `run:` is `bash -eo pipefail` (GitHub's explicit `shell: bash`;
+# the implicit default has no pipefail, so `tool | tee log` hid a crash).
+defaults:
+  run:
+    shell: bash
+
 jobs:
   backfill:
     runs-on: ubuntu-latest
@@ -55,7 +61,8 @@ jobs:
           python tools/backfill_language.py \
             ${{ github.event.inputs.refresh == 'true' && '--refresh' || '' }} \
             ${{ github.event.inputs.limit != '0' && format('--limit {0}', github.event.inputs.limit) || '' }} \
-            | tee lang.log
+            | tee lang.log \
+            || echo "::warning::backfill_language exited non-zero — publishing what it set (read the log above)"
           # Publish only when something was actually set (tmdb or omdb > 0).
           if grep -qE 'DONE tmdb=0 omdb=0 ' lang.log; then
             echo "changed=false" >> "$GITHUB_OUTPUT"

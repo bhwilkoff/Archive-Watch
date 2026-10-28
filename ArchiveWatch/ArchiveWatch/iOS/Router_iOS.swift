@@ -58,6 +58,34 @@ final class Router {
     var searchPath = NavigationPath()
     var libraryPath = NavigationPath()
 
+    /// False in a compact window: its tab bar has no sidebar places, so a
+    /// place chosen from the menu bar goes to the tab that holds it.
+    var showsSidebarPlaces = true
+    /// A film's own window (IPAD-DESIGN §9.1) has no places to go to.
+    var isFilmWindow = false
+
+    /// Go to a place from the menu bar, wherever this window can show it.
+    func go(to place: Tab) {
+        guard !showsSidebarPlaces else { tab = place; return }
+        switch place {
+        case .films, .tv, .collections:
+            tab = .browse
+        case .downloads, .favorites, .history, .playlists, .clips:
+            tab = .library
+            if let section = LibraryView.Section(rawValue: place.rawValue) {
+                libraryPath = NavigationPath()
+                libraryPath.append(LibraryPlaceRoute(place: section))
+            }
+        case .surprise:
+            tab = .home
+            homePath.append(SurpriseRoute())
+        case .together, .settings:
+            tab = .home
+        default:
+            tab = place
+        }
+    }
+
     /// The sidebar-only places' stacks, one per place.
     var sidePaths: [Tab: NavigationPath] = [:]
     func path(for tab: Tab) -> Binding<NavigationPath> {
@@ -71,10 +99,12 @@ final class Router {
     /// (2026-10-27).
     @ObservationIgnored private var lastPushAt = Date.distantPast
 
-    /// Push any registered destination onto the active tab's stack.
-    func push<V: Hashable>(_ value: V) {
+    /// Push any registered destination onto the active tab's stack. False
+    /// when the tap was dropped as a repeat of one still landing.
+    @discardableResult
+    func push<V: Hashable>(_ value: V) -> Bool {
         let now = Date()
-        guard now.timeIntervalSince(lastPushAt) > 0.5 else { return }
+        guard now.timeIntervalSince(lastPushAt) > 0.5 else { return false }
         lastPushAt = now
         switch tab {
         case .home: homePath.append(value)
@@ -84,10 +114,18 @@ final class Router {
         case .library: libraryPath.append(value)
         default: sidePaths[tab, default: NavigationPath()].append(value)
         }
+        return true
     }
 
-    /// Route any catalog item to Detail from whichever tab is active.
-    func openDetail(_ item: Catalog.Item) { push(item) }
+    /// Route any catalog item to Detail from whichever tab is active. A
+    /// dropped push disarms the autoplay it carried, or the film would start
+    /// by itself the next time its page opened.
+    @discardableResult
+    func openDetail(_ item: Catalog.Item) -> Bool {
+        let pushed = push(item)
+        if !pushed, autoplayItemID == item.archiveID { autoplayItemID = nil }
+        return pushed
+    }
 
     /// True when the active tab shows its root (nothing to go Back to).
     var activeTabAtRoot: Bool {

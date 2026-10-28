@@ -77,7 +77,7 @@ macOS) since they share the Swift Core.
 | "New to Archive Watch" shelf | ✅ | ✅ | ✅ | ✅ | ✅ | owner 2026-09-25, all platforms. `new-arrivals` in featured.json (type `computed`); membership = `addedAt` within 45 days, computed in `build_sqlite._shelf_ids_for` for every platform (D050). Second featured shelf in the canonical order; Roku by featured.json file order |
 | Continue Watching | ✅ | ✅ | ✅ progress + widget + Home shelf | ✅ | ✅ | progress store (§6) |
 | Modes row | ✅ | ➖ removed (Channels tab; modes via Surprise grid) | ➖ (Cartoon via Modes; Channels/Surprise are sidebar) | ➖ removed, as on iOS/macOS — Channels is top-level nav and the modes live on Surprise (Cartoon Mode, Party Play) | ➖ as on the others — the modes open from Surprise (Cartoons on phone and TV, Party Play on TV), 2026-09-29 | links to §5 |
-| Public Domain Day section | ✅ | ✅ Home shelf + year-chip explorer | ⏳ | ✅ Home shelf | ✅ Home row | seasonal, shared |
+| Public Domain Day section | 🚧 class of year − 96 (Decision 137; it showed year − 95, 1931 in 2026), recommendable titles only — fixed 2026-10-28, not yet seen on device | 🚧 same | 🚧 Home shelf + Surprise ▸ Public Domain Day explorer, same fix | 🚧 Home shelf, same fix | 🚧 Home row, same fix | seasonal, shared; Roku 🚧 same fix (`HomeTask` pdYear) |
 
 ## 3. Discover — Movies / TV / Collections / Search
 
@@ -97,10 +97,10 @@ macOS) since they share the Swift Core.
 | TV Specials surface | ✅ | ✅ | ✅ TVBrowseView | ✅ | ✅ | Decision 036 |
 | Orphan episodes fold into spines | ✅ pipeline | — | — | — | — | Decision 036; pipeline-side, benefits all via `series/*.json` |
 | Series held in one item | ✅ | ✅ | ✅ | ✅ | ✅ | Decision 166 (2026-10-18). An archive.org item whose FILES are a whole series or serial (`UFO.complete`, Leave It to Beaver, Spy Smasher's 12 chapters) becomes a spine: 141 shows, 3,589 episodes, ids `<item>@<token>`. Each episode plays its own file, keeps its own progress and next/previous, and lists only its own file's copies. Roku: the queue and episode titles split at `@`. Live with the next tv-canonical run (series) and publish-db; Apple/Android client changes ship with the next store builds — before then an older app shows the series card but cannot open archive.org details for an `@` id. |
-| Prev/next episode in player | ✅ | ✅ | 🚧 | ✅ | ✅ | EpisodeQueue / PlaybackQueue (macOS wiring pending) |
+| Prev/next episode in player | 🚧 series page ✅; an episode played from its own Detail now loads its series and plays in the episode player (2026-10-28, not yet seen on device) | 🚧 same (EpisodePlayerContainer) | 🚧 series page `EpisodePlayer` (⏮⏭, ⇧⌘←/→); from Detail via `router.playEpisode` (2026-10-28) | 🚧 Detail's Play queues the rest of the season (lost 2026-06-26, ce960cc67; restored 2026-10-28) | ✅ | EpisodeQueue / PlaybackQueue. Before 2026-10-28 an episode opened from its own Detail played alone, or autoplayed a random episode of another show, on every Apple platform and the web |
 | Collections landing + blurbs | ✅ | ✅ | ✅ `CollectionsList` | ✅ `#/collections` | ✅ | `collection_metadata.json` shared. **Film series** (2026-09-24): 19 `series-*` entries (Rathbone Holmes, Our Gang silents, Superman cartoons, Why We Fight…) whose members are films carrying a listed `franchise`; Apple/Android via `item_collections`, web/Roku via the index. Apps show them after an app update (bundled metadata); web on deploy; Roku on package. Carry On withheld (Decision 114 band). **Member lists** (2026-09-26): 18 `list-*` entries harvested weekly from archive.org members' own public lists (`tools/harvest_member_lists.py`), titled in the maker's words and credited to them; same delivery as the series. Collection grids sort like Browse (Popular / Top Rated / A–Z / Newest / Oldest) on iOS and macOS since 2026-09-25; tvOS reaches a collection through Browse. |
 | Full-text search (FTS5) | ✅ | ✅ | ✅ `SearchView` over FTS5 | 🚧 title + keyword/AKA/writer/studio blob + **director**, accent-folded. plus **cast** via the lazily-fetched `people.json` sidecar (the `aliases.json` pattern, D085) — 27,490 people, 1.4 MB gzipped, fetched only on the first person search | ✅ debounced FTS5 | same FTS5 index |
-| Search result filters | ⏳ | ✅ type/decade menu | ✅ type/decade menu | ✅ type + decade chips over the results, each facet computed against the other's selection | ✅ chips | |
+| Search result filters | ✅ type + era chips over the results, only for facets present (SearchView) | ✅ type/decade menu | ✅ type/decade menu | ✅ type + decade chips over the results, each facet computed against the other's selection | ✅ chips | |
 | Search ranking (title/director first) | ✅ `CatalogDB.search` | ✅ | ✅ | ✅ `searchRank` in watch.js (all matches ranked, then capped at 200) | ✅ `CatalogDatabase.SEARCH_ORDER` | exact title, title prefix (or "the " + it), title or director containing the query, designed art, popularity; FTS rank breaks ties (tvOS-DESIGN §3.3b). `tools/test_search_rank_parity.py` holds Swift = Kotlin; `tools/test_web_search_rank.mjs` the web. Roku not changed |
 
 ## 4. Detail + Playback
@@ -432,7 +432,7 @@ same sentence that offers what it CAN do.
 | Surprise / random actions | ✅ | ✅ | ✅ `SurpriseView` | ✅ `#/surprise` | ✅ | shared random queries |
 | Channels (EPG guide) | ✅ | ✅ touch EPG; on a phone On Now list + Guide grid (iOS-DESIGN §2.5c, 2026-09-27) | ✅ `ChannelsView` (shared `ChannelSchedule` loader) | ✅ CSS listing | ✅ Compose guide | **ONE CLOCK since 2026-09-27** (Decision 144): preset channels play `channel-schedule.json`, one UTC timeline per channel from the pipeline, drawn in the viewer's local time; user channels keep the per-device scheduler. Verified the same minute (12:06-12:11 UTC) on the web in two zones (headless Chrome, LA and Kiritimati), the Ben Bedroom Apple TV, the Pixel 8a, the Google TV and both Rokus (Stick 4K and the Roku 2 XD floor, 228 KB parsed in 1.3 s): Drama on Fantômas, Comedy on The Bold Caballero, Sci-Fi on Zontar everywhere. iPhone/iPad and Mac: built, not seen (iPad locked, iPhone behind Screen Time, no pointer automation on the Mac); Fire TV compiled, not run. XMLTV: /feeds/guide.xml |
 | Channel surfing (up / down) | ✅ up/down CLICKS on the clickpad, a four-second banner (tvOS-DESIGN §9.1c). **Pressed on Fireplace (4K 2nd gen) with pyatv**: down, down, down, up = Comedy Hour, Crime & Mystery, Thriller, Crime & Mystery; select still pauses and resumes and right still skips 10 s (read from the playhead log) | ✅ ▲/▼ strip over the picture, iPhone and iPad (iOS-DESIGN §2.5d) | ✅ the channel is the WINDOW ROOT like a film: title bar = channel, subtitle = program; Mail's ▲▼ pair in the toolbar; bare ↑/↓; Controls ▸ Previous / Next Channel ⇧⌘↑ / ⇧⌘↓ (macOS-DESIGN §B8b, redesigned 2026-09-29 after the owner found the sheet + capsule not native). Seen on the Mac; the keys not pressed (the permission check refuses synthesized keys) | ⏳ | ✅ phone: a ▲ channel ▼ capsule under the top bar, shown with the controls; TV: D-pad Up/Down and CH+/CH−, the channel named over the program, and a held Select (or Menu) opens Player Options (TV-DESIGN §5.2a). Pressed on the Google TV (down, down, up = Comedy Hour, Crime & Mystery, Comedy Hour) and tapped on the Pixel, muted (`aw_mute`). `ChannelSurf.kt` | One rule, `GuideChannel.surf`: the neighboring channel's program where it is now |
-| Create / user channels | ✅ synced | ✅ synced | ⏳ | ✅ local | ✅ local | |
+| Create / user channels | ✅ synced; delete confirms (2026-10-28) | 🚧 synced; Delete Channel… on the schedule page (added 2026-10-28; none existed) | ✅ synced — New Channel + right-click Delete Channel (`ch:` tombstone) | ✅ local | ✅ synced (Drive, google flavor; local on Fire TV) | |
 | Cartoon / Kids mode | ✅ | ✅ | ✅ `Modes_macOS` | ✅ | ✅ | color/B&W flags shared |
 | Commercial-break controls | ✅ | ✅ toggle | ⏳ | ✅ About → Preferences, default on (a channel without them is not a channel) | ✅ Settings → Commercial breaks, default on, phone and TV (2026-09-29) | |
 | Party Play (muted) | ✅ | 🚫 iPhone and iPad, owner 2026-09-28 (IPAD-DESIGN §13) | ✅ `Modes_macOS` | ✅ Surprise → Party Play; muted lineup from the channel pools, never persisted | ✅ Surprise → Party Play, `TvPartyScreen` (TV only) | ambient mode; Roku ✅ (Surprise door, whole-catalog color pool) |
@@ -481,7 +481,7 @@ same sentence that offers what it CAN do.
 | TMDb attribution (required) | ✅ | ✅ | ✅ verbatim notice | ✅ | ✅ | Decision 007 |
 | Donate to Internet Archive | ✅ | ✅ | ✅ | ✅ | ✅ | Decision 010 |
 | Sign-in (sync gate, optional) | ✅ Apple | ✅ Apple | ✅ Sign in with Apple | ✅ Google (+ ⏳ Apple) | ✅ Google (phone AND TV) | only gates sync; status row shows account / last sync / last error / Sync now |
-| Account deletion | ✅ | ✅ | ⏳ | 🔮 | 🔮 | review requirement |
+| Account deletion | 🚧 final since 2026-10-28: sync refuses to run signed out (it ran for any iCloud account, so the next 60 s sync re-uploaded a deleted library) | 🚧 same | 🚧 Settings ▸ Delete Account… (added 2026-10-28) | 🔮 | 🔮 | review requirement |
 
 ## 8. Platform reach + integration
 
@@ -571,6 +571,19 @@ remaining ten-foot passes + device QA).
 | `excluded` (rights) + `isAdult` flags | copyright + mature filtering | baked into `catalog.sqlite` | every client filters for free |
 
 ---
+
+## 2026-10-28 full audit (every platform, every surface)
+
+Seven read-only audits, then seven fix passes (owner, 2026-10-27: *"a full audit of all platforms, all surfaces, for parity, coding inefficiencies, and other bugs"*). Cells above that the code had contradicted are corrected; everything changed is 🚧 until it is seen on a device. The largest corrections:
+
+- **Resume points**: advancing (Next, autoplay, channels) saved the outgoing title's position under the incoming one on tvOS and the Mac — fixed.
+- **Sync ran signed out** on every Apple platform (SyncNudge never checked), so Sign Out stopped nothing and Delete Account was undone within a minute — gated inside `CloudKitSyncService.sync`. Playback syncs at most once a minute (it was every 5 s on Apple, Android Drive and web Drive).
+- **Collections on tvOS**: 43 of 62 opened empty (top 2,000 filtered by the blob) — `dbByCollection`.
+- **Merged ids**: favorites, playlists and history act on the STORED id on Apple, Android and web (Decision 085); a shared playlist with a merged pair crashed Android.
+- **Android**: a launch extra could start a live broadcast with no Go Live confirmation in release builds (now DEBUG-only); leaving the player while live never ended the show.
+- **Web**: an HTML sink fed by archive.org descriptions (DOMParser now); an imported shared playlist broke Apple playlist sync (no `createdAt`); Drive read "couldn't read" as "empty"; Home never showed the Classic TV shelves; hidden titles played from a direct link.
+- **Roku**: two crash paths (More on an unresolved Detail; four list items without init guards), Clear Continue Watching wrote the wrong key, Party Play's mute leaked, the guest played the default copy instead of the room's.
+- **Data** (Decisions 172/173): yearless title matches wearing famous films, fragments recommended on the whole film's votes, copyright claims that reached one copy only, and a pipeline with no pipefail.
 
 ## Maintenance protocol
 1. Find the feature's row; add one under the right section if new.

@@ -79,14 +79,17 @@ fun LibraryScreen(container: AppContainer, nav: Nav) {
     val scope = rememberCoroutineScope()
     var removeFromHistory by remember { mutableStateOf<CatalogItem?>(null) }
 
-    val favorites by produceState<List<CatalogItem>>(emptyList(), dbVersion, userChanges) {
-        val db = container.catalog.awaitDb()
-        value = db.itemsByIDs(container.userState.favoriteIDs())
+    // Only the tab on screen is read, and as grid rows (I3): a tile needs no blob.
+    val favoritesList by produceState(app.archivewatch.android.ui.ResolvedList(emptyList(), 0), dbVersion, userChanges, tabIndex) {
+        if (tabIndex != 0) return@produceState
+        val ids = container.userState.favoriteIDs()
+        value = app.archivewatch.android.ui.resolveListRows(ids, container.catalog.awaitDb().itemsByIDsKeyed(ids, lite = true))
     }
+    val favorites = favoritesList.rows
     // With each card's progress, as on Home (time left and a bar).
     val continueState by produceState<Pair<List<CatalogItem>, Map<String, app.archivewatch.android.data.WatchProgress>>>(
-        emptyList<CatalogItem>() to emptyMap(), dbVersion, userChanges,
-    ) { value = continueWithProgress(container) }
+        emptyList<CatalogItem>() to emptyMap(), dbVersion, userChanges, tabIndex,
+    ) { if (tabIndex == 1) value = continueWithProgress(container) }
     val continueWatching = continueState.first
     val continueProgress = continueState.second
     val allPlaylists by produceState<List<UserPlaylist>>(emptyList(), userChanges) {
@@ -103,10 +106,12 @@ fun LibraryScreen(container: AppContainer, nav: Nav) {
     }
     // The complete watch record (Decision 078 parity): everything ever
     // played, newest first — finished or not.
-    val history by produceState<List<CatalogItem>>(emptyList(), dbVersion, userChanges) {
-        val db = container.catalog.awaitDb()
-        value = db.itemsByIDs(container.userState.history().map { it.archiveID })
+    val historyList by produceState(app.archivewatch.android.ui.ResolvedList(emptyList(), 0), dbVersion, userChanges, tabIndex) {
+        if (tabIndex != 3) return@produceState
+        val ids = container.userState.history().map { it.archiveID }
+        value = app.archivewatch.android.ui.resolveListRows(ids, container.catalog.awaitDb().itemsByIDsKeyed(ids, lite = true))
     }
+    val history = historyList.rows
 
     if (joining) {
         JoinRoomDialog(
@@ -262,7 +267,9 @@ fun LibraryScreen(container: AppContainer, nav: Nav) {
                     confirmButton = {
                         androidx.compose.material3.TextButton(onClick = {
                             removeFromHistory = null
-                            scope.launch { container.userState.removeFromHistory(item.archiveID) }
+                            scope.launch {
+                                historyList.storedIDs(item).forEach { container.userState.removeFromHistory(it) }
+                            }
                         }) { Text("Remove") }
                     },
                     dismissButton = {

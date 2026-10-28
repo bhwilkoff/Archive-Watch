@@ -227,13 +227,16 @@ fun SettingsScreen(container: AppContainer, nav: Nav) {
             // page. ACTION_CAPTIONING_SETTINGS is the public, stable entry
             // point; Live Caption itself has no documented deep link, and it is
             // toggled from the volume rocker, so that is spelled out.
-            Text(
-                "Android's Live Caption captions any film, offline: press a volume key " +
-                    "while a film plays and tap the Live Caption button.",
-                style = MaterialTheme.typography.bodySmall,
-                color = MaterialTheme.colorScheme.onSurfaceVariant,
-            )
-            Spacer(Modifier.height(8.dp))
+            // Not on a television: its remote has no volume rocker to press.
+            if (!isTv) {
+                Text(
+                    "Android's Live Caption captions any film, offline: press a volume key " +
+                        "while a film plays and tap the Live Caption button.",
+                    style = MaterialTheme.typography.bodySmall,
+                    color = MaterialTheme.colorScheme.onSurfaceVariant,
+                )
+                Spacer(Modifier.height(8.dp))
+            }
             Text(
                 "Open caption settings",
                 style = MaterialTheme.typography.bodyLarge,
@@ -544,9 +547,6 @@ private fun OpenSubtitlesSection(container: AppContainer) {
                     }
                 },
             ) { Text(if (working) "Connecting…" else "Connect") }
-            TextButton(onClick = {
-                // create-account door, in the browser
-            }) { }
         }
         error?.let {
             Text(it, style = MaterialTheme.typography.bodySmall,

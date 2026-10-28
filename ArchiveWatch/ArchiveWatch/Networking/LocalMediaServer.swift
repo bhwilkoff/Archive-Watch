@@ -51,6 +51,10 @@ final class LocalMediaServer: @unchecked Sendable {
     private let token = UUID().uuidString.replacingOccurrences(of: "-", with: "")
     /// key (stable hash of origin URL) -> origin resource
     private var resources: [String: MediaResource] = [:]
+    /// Keys by last use, oldest first. A resource can hold a parsed movie and
+    /// its fragment plan, so only the most recent few are kept.
+    private var resourceOrder: [String] = []
+    private static let maxResources = 16
     /// Live connections. The handler must be RETAINED for the connection's
     /// life — NWConnection callbacks hold it weakly, and an unretained
     /// handler deallocates the instant `handle()` returns, leaving every
@@ -71,6 +75,11 @@ final class LocalMediaServer: @unchecked Sendable {
                 resources[key] = MediaResource(origin: origin, durationSeconds: durationSeconds)
             } else if let d = durationSeconds, resources[key]?.durationSeconds == nil {
                 resources[key]?.durationSeconds = d
+            }
+            resourceOrder.removeAll { $0 == key }
+            resourceOrder.append(key)
+            while resourceOrder.count > Self.maxResources {
+                resources[resourceOrder.removeFirst()] = nil
             }
             return URL(string: "http://127.0.0.1:\(port)/v/\(token)/\(key).mp4")
         }
@@ -141,10 +150,14 @@ final class LocalMediaServer: @unchecked Sendable {
         }
     }
 
+    /// Called on the listener's queue; `handlers` belongs to `queue`, the
+    /// same queue `connectionEnded` removes from.
     private func handle(_ conn: NWConnection) {
         let handler = ConnectionHandler(conn: conn, server: self)
-        handlers[ObjectIdentifier(handler)] = handler
-        handler.start()
+        queue.async {
+            self.handlers[ObjectIdentifier(handler)] = handler
+            handler.start()
+        }
     }
 
     fileprivate func connectionEnded(_ handler: ConnectionHandler) {
@@ -486,7 +499,13 @@ private final class ConnectionHandler: @unchecked Sendable {
     private let conn: NWConnection
     private unowned let server: LocalMediaServer
     private var buffer = Data()
-    private var pump: StreamPump?
+    /// Set by the serving task, cancelled from the connection's queue.
+    private let pumpLock = NSLock()
+    private var _pump: StreamPump?
+    private var pump: StreamPump? {
+        get { pumpLock.lock(); defer { pumpLock.unlock() }; return _pump }
+        set { pumpLock.lock(); _pump = newValue; pumpLock.unlock() }
+    }
 
     init(conn: NWConnection, server: LocalMediaServer) {
         self.conn = conn
@@ -941,7 +960,8 @@ final class StreamPump: @unchecked Sendable {
         req.timeoutInterval = 30
         do {
             let (d, resp) = try await session.data(for: req)
-            if let http = resp as? HTTPURLResponse, (200...299).contains(http.statusCode) {
+            if let http = resp as? HTTPURLResponse,
+               RangeResponse.isUsable(http, requestedStart: Int64(lo)) {
                 if let final = http.url, final != origin { pins.pin(final, for: origin) }
                 return d
             }
@@ -969,6 +989,32 @@ final class StreamPump: @unchecked Sendable {
             return http.expectedContentLength > 0 ? http.expectedContentLength : nil
         }
         return nil
+    }
+}
+
+/// Whether a response to a ranged GET carries the bytes that were asked for.
+/// A node that ignores `Range` answers 200 with the file from byte 0; spliced
+/// in at a later offset, that is a corrupt stream, so only a request that
+/// started at 0 may accept a 200, and a 206 must start where it was asked.
+enum RangeResponse {
+    static func requestedStart(_ req: URLRequest?) -> Int64 {
+        guard let spec = req?.value(forHTTPHeaderField: "Range"),
+              let eq = spec.firstIndex(of: "=") else { return 0 }
+        let lo = spec[spec.index(after: eq)...].split(separator: "-", omittingEmptySubsequences: false).first
+        return lo.flatMap { Int64($0) } ?? 0
+    }
+
+    static func isUsable(_ response: URLResponse, requestedStart start: Int64) -> Bool {
+        guard let http = response as? HTTPURLResponse else { return false }
+        switch http.statusCode {
+        case 206:
+            guard let cr = http.value(forHTTPHeaderField: "Content-Range") else { return start == 0 }
+            return cr.hasPrefix("bytes \(start)-")
+        case 200...299:
+            return start == 0
+        default:
+            return false
+        }
     }
 }
 
@@ -1047,6 +1093,13 @@ private final class PumpChunk: NSObject, URLSessionDataDelegate, @unchecked Send
         finalURL = response.url
         let code = (response as? HTTPURLResponse)?.statusCode ?? 0
         status = code
+        if (200...299).contains(code),
+           !RangeResponse.isUsable(response, requestedStart: RangeResponse.requestedStart(dataTask.originalRequest)) {
+            // Wrong bytes for this offset: refuse, and the pump retries.
+            status = 0
+            completionHandler(.cancel)
+            return
+        }
         completionHandler((200...299).contains(code) ? .allow : .cancel)
     }
 

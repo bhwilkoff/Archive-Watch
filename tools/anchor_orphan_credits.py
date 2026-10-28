@@ -95,7 +95,8 @@ def main() -> int:
         try:
             tid = T.search_movie(title, year, token, s) if year else None
             if not tid:
-                tid = T.search_movie(title, None, token, s)
+                # Verified below by cast overlap (>= 3 names), not by runtime.
+                tid = T.search_movie(title, None, token, s, trust_yearless=True)
             if not tid:
                 return aid, None, "no search hit"
             r = s.get(f"{T.TMDB_API}/movie/{tid}", params={"append_to_response": "credits"},

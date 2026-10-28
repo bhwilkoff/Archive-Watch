@@ -545,6 +545,19 @@ end sub
 ' cannot forgive.
 function AWQRBox() as Integer : return 520 : end function
 
+' Two independent polynomial hashes of the text, small enough to stay inside
+' a 32-bit Integer at every step: a file name, not a security property.
+function qrTextKey(text as String) as String
+    h1 = 7
+    h2 = 11
+    for i = 1 to Len(text)
+        b = Asc(Mid(text, i, 1))
+        h1 = (h1 * 31 + b) mod 1000003
+        h2 = (h2 * 131 + b) mod 999983
+    end for
+    return fmt(h1) + "_" + fmt(h2) + "_" + fmt(Len(text))
+end function
+
 function AWQRPng(text as String, scale as Integer) as String
     ' The COST, not just the shape. Mask selection scores all eight candidates
     ' over the whole matrix, so the work grows with the square of the version —
@@ -634,7 +647,11 @@ function AWQRPng(text as String, scale as Integer) as String
     pngChunk(png, "IHDR", ihdr)
     pngChunk(png, "IDAT", z)
     pngChunk(png, "IEND", CreateObject("roByteArray"))
-    path = "tmp:/qr_" + fmt(Len(text)) + "_" + fmt(size) + "_" + fmt(q.mask) + ".png"
+    ' Named by the TEXT. Length + version + mask named two different links the
+    ' same file whenever those three agreed, and a Poster holding that uri
+    ' kept drawing the first code: a second film's share card showed the
+    ' first film's link.
+    path = "tmp:/qr_" + qrTextKey(text) + "_" + fmt(px) + ".png"
     png.WriteFile(path)
     print "AWQR v"; q.version; " size="; size; " mask="; q.mask; " px="; px; " bytes="; png.Count(); " encodeMs="; encodeMs; " totalMs="; t0.TotalMilliseconds(); " -> "; path
     ' Proven 2026-09-05: the matrix, dumped from this console, matched the

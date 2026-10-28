@@ -34,12 +34,16 @@ enum ContinuousPlayback {
         case .surprise:
             for _ in 0..<5 {
                 if let r = store.dbRandomPlayable(),
-                   r.archiveID != item.archiveID, r.videoURLParsed != nil {
+                   r.archiveID != item.archiveID, r.videoURLParsed != nil,
+                   r.isRecommendable, !r.isEpisode {
                     return r
                 }
             }
             return nil
         case .sameCategory:
+            // An episode's "next" is the next episode, which the series queue
+            // plays; a random episode of another show is never it.
+            if item.isEpisode { return nil }
             return pick(store.dbBrowse(contentType: item.contentType, sort: .popular, limit: 80),
                         excluding: item, store: store)
         case .sameYear:
@@ -54,6 +58,8 @@ enum ContinuousPlayback {
         pool.filter {
             $0.archiveID != item.archiveID &&
             $0.videoURLParsed != nil &&
+            $0.isRecommendable &&
+            !$0.isEpisode &&
             !store.completedArchiveIDs.contains($0.archiveID)
         }.randomElement()
     }

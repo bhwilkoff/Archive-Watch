@@ -513,6 +513,30 @@ def _not_films():
     return _NOT_FILMS
 
 
+_TV_RIGHTS_REMOVED = None
+
+
+def _tv_rights_removed():
+    """archiveIDs audit_tv_rights removed (shared/editorial/tv_rights_removed.csv).
+    The audit re-removes them after this build, but a spine written here and
+    committed before the audit ran (or when it failed) served them again, so
+    the build drops them itself. Same reading rule as audit_tv_rights.manifest_ids:
+    the archiveID is the third field from the END (old rows have six fields,
+    newer ones seven)."""
+    global _TV_RIGHTS_REMOVED
+    if _TV_RIGHTS_REMOVED is None:
+        import csv
+        p = REPO / "shared" / "editorial" / "tv_rights_removed.csv"
+        out = set()
+        if p.exists():
+            with p.open(newline="", encoding="utf-8") as fh:
+                for r in list(csv.reader(fh))[1:]:
+                    if len(r) >= 6 and r[-3]:
+                        out.add(r[-3])
+        _TV_RIGHTS_REMOVED = out
+    return _TV_RIGHTS_REMOVED
+
+
 _EPISODE_REJECTS = None
 
 
@@ -785,8 +809,10 @@ def rebuild_show(show, our_eps, *, repick, deadline=None):
     prem0 = (show.get("premiered") or "")[:4]
     slug = slugify(show.get("name"), prem0 if prem0.isdigit() else None)
     rej = _episode_rejects()
+    gone = _tv_rights_removed()
     our_eps = [e for e in our_eps
-               if (rej.get(e.get("archiveID")) or {}).get("notIn") not in ("*", slug)]
+               if (rej.get(e.get("archiveID")) or {}).get("notIn") not in ("*", slug)
+               and e.get("archiveID") not in gone]
     row = {"slug": slug, "tvmazeID": show.get("id"),
            "title": show.get("name"), "matched": True,
            "canonEps": len(canon), "ourItems": len(our_eps),

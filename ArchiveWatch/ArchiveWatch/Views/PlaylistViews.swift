@@ -131,7 +131,12 @@ struct PlaylistDetailView: View {
     @State private var shareURL: String?
 
     private var playlist: Playlist? { playlists.first { $0.id == playlistID } }
-    private var items: [Catalog.Item] { (playlist?.archiveIDs ?? []).compactMap { store.dbItem($0) } }
+    /// Each title with the id the list stores it under (a merged-away id
+    /// resolves to its survivor), so Remove takes out the stored entry.
+    private var entries: [(storedID: String, item: Catalog.Item)] {
+        _ = store.dbGeneration
+        return store.dbStoredItems(playlist?.archiveIDs ?? [])
+    }
     private let cols = Array(repeating: GridItem(.fixed(210), spacing: 24), count: 6)
 
     private func remove(_ archiveID: String) {
@@ -144,6 +149,8 @@ struct PlaylistDetailView: View {
     }
 
     var body: some View {
+        let entries = self.entries
+        let items = entries.map(\.item)
         ScrollView(.vertical, showsIndicators: false) {
             VStack(alignment: .leading, spacing: 24) {
                 HStack(spacing: 24) {
@@ -182,14 +189,15 @@ struct PlaylistDetailView: View {
                         .font(.title3).foregroundStyle(.white.opacity(0.5))
                 } else {
                     LazyVGrid(columns: cols, spacing: 36) {
-                        ForEach(items) { item in
+                        ForEach(entries, id: \.item.archiveID) { entry in
+                            let item = entry.item
                             PosterTile(item: item) { router.push(item) }
                                 // Long-press → remove. The only remove path was
                                 // re-opening the add-sheet from the film's own
                                 // Detail and un-ticking — functional, invisible.
                                 .contextMenu {
                                     Button(role: .destructive) {
-                                        remove(item.archiveID)
+                                        remove(entry.storedID)
                                     } label: {
                                         Label("Remove from Playlist", systemImage: "minus.circle")
                                     }
@@ -235,14 +243,19 @@ struct HistorySection: View {
     @Environment(\.modelContext) private var ctx
     @Query(sort: \WatchProgress.lastWatchedAt, order: .reverse) private var progress: [WatchProgress]
 
+    /// Keyed by the id each record is STORED under: a merged-away id resolves
+    /// to its survivor, whose archiveID differs, and Remove deletes the record.
     private var rows: [(item: Catalog.Item, record: WatchProgress)] {
-        let byID = Dictionary(uniqueKeysWithValues: progress.map { ($0.archiveID, $0) })
-        return store.dbItemsByIDs(progress.map { $0.archiveID }).compactMap { item in
-            byID[item.archiveID].map { (item, $0) }
+        _ = store.dbGeneration
+        let byID = Dictionary(progress.map { ($0.archiveID, $0) }, uniquingKeysWith: { a, _ in a })
+        return store.dbStoredItems(progress.map { $0.archiveID }).compactMap { entry in
+            byID[entry.storedID].map { (entry.item, $0) }
         }
     }
 
     var body: some View {
+        // Resolved once per render, not once per use.
+        let rows = self.rows
         if !rows.isEmpty {
             VStack(alignment: .leading, spacing: 16) {
                 Text("History")
@@ -297,6 +310,10 @@ struct PlaylistsSection: View {
     @Environment(Router.self) private var router
     @Environment(\.modelContext) private var ctx
     @Query(sort: \Playlist.createdAt, order: .reverse) private var playlists: [Playlist]
+    // A separate Bool and a stored target (the iPhone's pattern): a dialog
+    // bound to the optional alone can present before the target is committed.
+    @State private var deleting: Playlist?
+    @State private var showDelete = false
 
     var body: some View {
         if !playlists.isEmpty {
@@ -313,8 +330,8 @@ struct PlaylistsSection: View {
                                 // tombstone. Long-press is the tvOS idiom.
                                 .contextMenu {
                                     Button(role: .destructive) {
-                                        ctx.delete(pl)
-                                        SyncNudge.recordDeletion("pl:\(pl.id)", in: ctx)
+                                        deleting = pl
+                                        showDelete = true
                                     } label: {
                                         Label("Delete \u{201C}\(pl.name)\u{201D}",
                                               systemImage: "trash")
@@ -328,7 +345,23 @@ struct PlaylistsSection: View {
                 .scrollClipDisabled()
             }
             .focusSection()
+            .confirmationDialog("Delete \u{201C}\(deleting?.name ?? "")\u{201D}?",
+                                isPresented: $showDelete,
+                                titleVisibility: .visible) {
+                Button("Delete Playlist", role: .destructive) { deletePlaylist() }
+                Button("Cancel", role: .cancel) { deleting = nil }
+            } message: {
+                Text("It is removed from your other devices too.")
+            }
         }
+    }
+
+    private func deletePlaylist() {
+        guard let pl = deleting else { return }
+        let id = pl.id
+        ctx.delete(pl)
+        SyncNudge.recordDeletion("pl:\(id)", in: ctx)
+        deleting = nil
     }
 }
 

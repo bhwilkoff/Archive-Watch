@@ -53,7 +53,11 @@ sub showRows(payload as Object)
     m.rowMeta = payload.meta
     n = 0
     if root <> invalid then n = root.GetChildCount()
+    ' Every repaint (a film removed, the return from a film) sent the viewer
+    ' to the first tile of the first row; back to the row they were in.
+    was = AWRowFocusBefore(m.rows)
     m.rows.content = root
+    AWRowFocusRestore(m.rows, was)
     m.rows.visible = (n > 0)
     m.empty.visible = (n = 0)
     if n = 0

@@ -116,12 +116,27 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
     val ctx = androidx.compose.ui.platform.LocalContext.current
     var favorite by remember { mutableStateOf(false) }
     var watched by remember { mutableStateOf(false) }
-    LaunchedEffect(archiveID) {
-        favorite = container.userState.isFavorite(archiveID)
+    var aliases by remember(archiveID) { mutableStateOf(setOf(archiveID)) }
+    LaunchedEffect(archiveID, dbVersion) {
+        aliases = app.archivewatch.android.ui.storedAliases(container, archiveID)
+        favorite = app.archivewatch.android.ui.isFavoriteStored(container, aliases)
         watched = container.userState.isWatched(archiveID)
     }
 
     val playFocus = remember { FocusRequester() }
+    // Closing an overlay hands focus back to the button that opened it; left
+    // alone it fell to the nav rail or to nothing.
+    val shareFocus = remember { FocusRequester() }
+    val versionFocus = remember { FocusRequester() }
+    var restoreFocus by remember { mutableStateOf<FocusRequester?>(null) }
+    LaunchedEffect(restoreFocus) {
+        val target = restoreFocus ?: return@LaunchedEffect
+        repeat(12) {
+            if (runCatching { target.requestFocus() }.isSuccess) { restoreFocus = null; return@LaunchedEffect }
+            kotlinx.coroutines.delay(50)
+        }
+        restoreFocus = null
+    }
     val anchor = remember { FocusRequester() }
 
     val current = item
@@ -360,7 +375,7 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                     },
                     accent = current.accentColor,
                 ) {
-                    scope.launch { favorite = container.userState.toggleFavorite(current.archiveID) }
+                    scope.launch { favorite = app.archivewatch.android.ui.toggleFavoriteStored(container, current.archiveID, aliases) }
                 }
                 TvActionButton(
                     label = if (watched) "Watched" else "Mark Watched",
@@ -387,6 +402,7 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                     label = "Share",
                     icon = { Icon(Icons.Default.Share, null, tint = Color.White, modifier = Modifier.size(18.dp)) },
                     accent = current.accentColor,
+                    focusRequester = shareFocus,
                 ) { showShare = true }
                 // ANDROID-DESIGN §9.2 — ONE entry, meaning the WORLD half: there
                 // is no GroupActivities equivalent on Android, so "Watch
@@ -422,6 +438,7 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                     label = "Version",
                     icon = { Icon(Icons.Default.Tune, null, tint = Color.White, modifier = Modifier.size(18.dp)) },
                     accent = current.accentColor,
+                    focusRequester = versionFocus,
                 ) { showVersions = true }
                 // Decision 045 — an episode is a door back to its series.
                 if (current.isEpisode && current.seriesID != null) {
@@ -687,7 +704,7 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
             url = if (current.contentType == "tv-series")
                 "https://archivewatch.org/series/" + current.archiveID.removePrefix("series:")
             else "https://archivewatch.org/item/" + current.archiveID,
-            onDone = { showShare = false },
+            onDone = { showShare = false; restoreFocus = shareFocus },
             reportUrl = if (current.contentType == "tv-series") null
                 else app.archivewatch.android.data.FilmProblem.url(current.archiveID, television = true),
         )
@@ -697,7 +714,7 @@ fun TvDetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
             archiveID = current.archiveID,
             ownURL = current.downloadURL,
             accent = current.accentColor,
-            onDone = { showVersions = false },
+            onDone = { showVersions = false; restoreFocus = versionFocus },
         )
     }
     if (showPlaylists) {
@@ -729,6 +746,9 @@ private fun TvPlaylistOverlay(
     val playlists by produceState<List<app.archivewatch.android.data.UserPlaylist>>(emptyList(), version) {
         value = container.userState.playlists()
     }
+    val aliases by produceState(setOf(archiveID), archiveID) {
+        value = app.archivewatch.android.ui.storedAliases(container, archiveID)
+    }
     var newName by remember { mutableStateOf("") }
     val firstFocus = remember { FocusRequester() }
     val doneFocus = remember { FocusRequester() }
@@ -759,7 +779,7 @@ private fun TvPlaylistOverlay(
                 modifier = Modifier.padding(bottom = 20.dp))
             LazyColumn(Modifier.weight(1f)) {
                 itemsIndexed(playlists, key = { _, pl -> pl.id }) { index, pl ->
-                    val contains = archiveID in pl.archiveIDs
+                    val contains = app.archivewatch.android.ui.storedInPlaylist(pl, aliases).isNotEmpty()
                     Row(
                         Modifier
                             .fillMaxWidth()
@@ -767,7 +787,7 @@ private fun TvPlaylistOverlay(
                             .tvFocusable(
                                 onClick = {
                                     scope.launch {
-                                        container.userState.togglePlaylistItem(pl.id, archiveID)
+                                        app.archivewatch.android.ui.togglePlaylistStored(container, pl, archiveID, aliases)
                                         version += 1
                                     }
                                 },
@@ -935,7 +955,7 @@ private fun TvVersionOverlay(
                 else -> LazyColumn(Modifier.weight(1f)) {
                     item(key = "default") {
                         TvVersionRow(
-                            label = "Pipeline pick (default)",
+                            label = "Standard copy",
                             selected = chosen == null,
                             accent = accent,
                             focusRequester = firstFocus,

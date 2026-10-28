@@ -39,6 +39,12 @@ concurrency:
   group: catalog-writers
   cancel-in-progress: false
 
+# Every `run:` is `bash -eo pipefail` (GitHub's explicit `shell: bash`;
+# the implicit default has no pipefail, so `tool | tee log` hid a crash).
+defaults:
+  run:
+    shell: bash
+
 jobs:
   backfill:
     runs-on: ubuntu-latest
@@ -80,7 +86,8 @@ jobs:
           python tools/omdb_backfill.py \
             --max-calls ${{ github.event.inputs.max_calls || '600' }} \
             ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }} \
-            | tee backfill.log
+            | tee backfill.log \
+            || echo "::warning::omdb_backfill exited non-zero — committing and publishing what it fetched (the OMDb quota is spent either way)"
         id: backfill
 
       - name: Enrich archive-only movies (title -> metadata resolution)

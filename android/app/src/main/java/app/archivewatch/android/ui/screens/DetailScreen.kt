@@ -121,8 +121,10 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
     var showGetSubs by remember { mutableStateOf(false) }
     var showPlaylists by remember { mutableStateOf(false) }
     var showGoLive by remember { mutableStateOf(false) }
-    LaunchedEffect(archiveID) {
-        favorite = container.userState.isFavorite(archiveID)
+    var aliases by remember(archiveID) { mutableStateOf(setOf(archiveID)) }
+    LaunchedEffect(archiveID, dbVersion) {
+        aliases = app.archivewatch.android.ui.storedAliases(container, archiveID)
+        favorite = app.archivewatch.android.ui.isFavoriteStored(container, aliases)
         watched = container.userState.isWatched(archiveID)
     }
 
@@ -308,7 +310,7 @@ fun DetailScreen(container: AppContainer, nav: Nav, archiveID: String) {
                     "Favorite",
                     if (favorite) Icons.Default.Favorite else Icons.Default.FavoriteBorder,
                     MaterialTheme.colorScheme.primary,
-                ) { scope.launch { favorite = container.userState.toggleFavorite(current.archiveID) } })
+                ) { scope.launch { favorite = app.archivewatch.android.ui.toggleFavoriteStored(container, current.archiveID, aliases) } })
                 add(DetailAction("Add to playlist", Icons.AutoMirrored.Filled.PlaylistAdd) { showPlaylists = true })
                 // Create (Clip Studio) — rights-gated (CREATE-STUDIO-PLAN §2).
                 // Hidden, not disabled, when the item isn't clippable.
@@ -701,6 +703,9 @@ private fun AddToPlaylistDialog(
     val playlists by produceState<List<UserPlaylist>>(emptyList(), userChanges) {
         value = container.userState.playlists()
     }
+    val aliases by produceState(setOf(archiveID), archiveID) {
+        value = app.archivewatch.android.ui.storedAliases(container, archiveID)
+    }
     var newName by remember { mutableStateOf("") }
 
     AlertDialog(
@@ -710,9 +715,9 @@ private fun AddToPlaylistDialog(
         text = {
             Column {
                 playlists.forEach { pl ->
-                    val inList = archiveID in pl.archiveIDs
+                    val inList = app.archivewatch.android.ui.storedInPlaylist(pl, aliases).isNotEmpty()
                     TextButton(onClick = {
-                        scope.launch { container.userState.togglePlaylistItem(pl.id, archiveID) }
+                        scope.launch { app.archivewatch.android.ui.togglePlaylistStored(container, pl, archiveID, aliases) }
                     }) {
                         Text("${if (inList) "✓ " else ""}${pl.name} (${pl.archiveIDs.size})")
                     }
@@ -780,7 +785,7 @@ private fun VersionSheet(archiveID: String, ownURL: String?, onDone: () -> Unit)
                 )
                 else -> {
                     androidx.compose.material3.ListItem(
-                        headlineContent = { Text("Pipeline pick (default)") },
+                        headlineContent = { Text("Standard copy") },
                         trailingContent = {
                             if (chosen == null) Icon(Icons.Default.Check, null)
                         },

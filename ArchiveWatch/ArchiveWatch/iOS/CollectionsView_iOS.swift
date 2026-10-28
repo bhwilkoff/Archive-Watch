@@ -63,6 +63,7 @@ struct CollectionGridView: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
     @State private var loaded: [Catalog.Item] = []
+    @State private var didLoad = false
     @State private var sort = SortMemory.sort(for: SortMemory.collection)
     @Environment(\.horizontalSizeClass) private var hSize
     private let cols = [GridItem(.adaptive(minimum: 110), spacing: 14)]
@@ -99,7 +100,15 @@ struct CollectionGridView: View {
                 }
             }
         }
-        .task(id: store.dbVersion) { loaded = store.byCollection(ref.id) }
+        .overlay {
+            if didLoad, loaded.isEmpty {
+                ContentUnavailableView("Nothing here yet", systemImage: "square.stack.3d.up")
+            }
+        }
+        .task(id: store.dbVersion) {
+            loaded = store.byCollection(ref.id)
+            didLoad = true
+        }
         .onChange(of: sort) { SortMemory.remember(sort, for: SortMemory.collection) }
     }
 }

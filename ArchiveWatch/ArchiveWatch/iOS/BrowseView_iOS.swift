@@ -42,6 +42,11 @@ struct BrowseView: View {
     // Metadata-expansion facets (Decision 046) for the filter menu.
     @State private var keywordFacets: [String] = []
     @State private var studioFacets: [String] = []
+    /// The catalog version this screen last loaded from. This view's own
+    /// state outlives `.id(store.dbVersion)` (that resets only its content),
+    /// so an is-empty guard kept the seed catalog's results after the full
+    /// catalog arrived.
+    @State private var loadedVersion: Int?
 
     private let types: [(String, String?)] = [
         ("All", nil), ("Films", "feature-film"), ("Silent", "silent-film"),
@@ -76,7 +81,7 @@ struct BrowseView: View {
             }
         }
         .navigationTitle(fixedScope?.rawValue ?? "Browse")
-        .task {
+        .task(id: store.dbVersion) {
             #if DEBUG
             // Harness door: AW_BROWSE_FILTER="type=silent-film,decade=1920"
             // sets chips so the sweep can photograph a filtered grid.
@@ -93,11 +98,13 @@ struct BrowseView: View {
                 }
             }
             #endif
-            if items.isEmpty { reload() }
-            if series.isEmpty { series = CatalogDB.ordered(store.seriesCards(), by: tvSort) }
+            guard loadedVersion != store.dbVersion else { return }
+            reload()
+            series = CatalogDB.ordered(store.seriesCards(), by: tvSort)
             specialsCount = store.tvSpecialsCount()
-            if keywordFacets.isEmpty { keywordFacets = store.topKeywords() }
-            if studioFacets.isEmpty { studioFacets = store.topStudios() }
+            keywordFacets = store.topKeywords()
+            studioFacets = store.topStudios()
+            loadedVersion = store.dbVersion
         }
         .id(store.dbVersion)
     }
@@ -281,7 +288,7 @@ struct BrowseView: View {
             }.padding()
         }
         .overlay {
-            if series.isEmpty {
+            if series.isEmpty, loadedVersion != nil {
                 ContentUnavailableView("No series yet", systemImage: "tv")
             }
         }

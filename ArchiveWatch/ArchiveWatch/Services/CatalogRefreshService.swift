@@ -77,15 +77,32 @@ actor CatalogRefreshService {
     /// The ETag MUST go with the file. Keeping it means the next request is
     /// answered 304 Not Modified and we keep the corruption forever.
     func discardCachedDatabase(reason: String) {
-        let path = cachedDatabasePath()
+        let path = currentDatabasePath()
         UserDefaults.standard.removeObject(forKey: Self.dbETagKey)
         UserDefaults.standard.removeObject(forKey: Self.dbFilenameKey)
         if let path { try? FileManager.default.removeItem(atPath: path) }
         print("[AppStore] discarded cached catalog (\(reason)) — next launch refetches")
     }
 
-    /// Path to the already-downloaded DB, if present.
+    /// Every catalog file handed to the app in this process. Any of them may
+    /// be the one a `CatalogDB` has open, so the sweep never deletes them.
+    private var handedOut: Set<String> = []
+    /// The newest file handed to the app: what it has open, as far as this
+    /// service can know. A download made in the background (BackgroundRefresh)
+    /// is not handed out, so the next foreground adopts it.
+    private var lastHandedOut: String?
+
+    private func record(_ path: String?) -> String? {
+        if let path { handedOut.insert(path); lastHandedOut = path }
+        return path
+    }
+
+    /// Path to the already-downloaded DB, if present — the path the app opens.
     func cachedDatabasePath() -> String? {
+        record(currentDatabasePath())
+    }
+
+    private func currentDatabasePath() -> String? {
         if let name = UserDefaults.standard.string(forKey: Self.dbFilenameKey) {
             let url = cachesDirectory.appendingPathComponent(name)
             if FileManager.default.fileExists(atPath: url.path) { return url.path }
@@ -105,8 +122,11 @@ actor CatalogRefreshService {
         // open (a just-updated install reads it at launch) — deleting it here
         // would recreate the very use-after-unlink this scheme removes.
         let inUse = keep ?? legacyDBURL.lastPathComponent
+        // ...and whatever this process opened, which a background download may
+        // since have superseded without the app swapping yet.
+        let open = Set(handedOut.map { ($0 as NSString).lastPathComponent })
         let files = (try? FileManager.default.contentsOfDirectory(atPath: cachesDirectory.path)) ?? []
-        for name in files where name.hasPrefix("catalog") && name != inUse
+        for name in files where name.hasPrefix("catalog") && name != inUse && !open.contains(name)
             && (name.hasSuffix(".sqlite") || name.hasSuffix(".inflating")) {
             try? FileManager.default.removeItem(at: cachesDirectory.appendingPathComponent(name))
         }
@@ -135,7 +155,13 @@ actor CatalogRefreshService {
     /// callers bump `dbGeneration` (re-querying every view) exactly once per
     /// real update rather than on every foreground.
     func refreshIfStale(ttl: TimeInterval = defaultStaleAfter) async -> String? {
-        guard !isDownloading, isStale(ttl: ttl) else { return nil }
+        guard !isDownloading else { return nil }
+        // A newer DB already on disk (downloaded in the background) is adopted
+        // now, whether or not the release is due another check.
+        if let newest = currentDatabasePath(), let open = lastHandedOut, newest != open {
+            return record(newest)
+        }
+        guard isStale(ttl: ttl) else { return nil }
         return await downloadDatabase(onlyIfChanged: true)
     }
 
@@ -147,8 +173,13 @@ actor CatalogRefreshService {
     /// `onlyIfChanged` returns nil instead of the cached path when the release
     /// is unchanged or unreachable — the resume path uses it to distinguish
     /// "nothing new" from "here is a newer DB".
-    func downloadDatabase(onlyIfChanged: Bool = false) async -> String? {
-        func unchanged() -> String? { onlyIfChanged ? nil : cachedDatabasePath() }
+    ///
+    /// `handOut: false` is for a download nobody opens (the background
+    /// refresh): its file is adopted at the next foreground instead.
+    func downloadDatabase(onlyIfChanged: Bool = false, handOut: Bool = true) async -> String? {
+        let giving = handOut
+        func give(_ path: String?) -> String? { giving ? record(path) : path }
+        func unchanged() -> String? { onlyIfChanged ? nil : give(currentDatabasePath()) }
         isDownloading = true
         defer { isDownloading = false }
         // Safe point to reclaim superseded generations — nothing holds them now.
@@ -156,7 +187,7 @@ actor CatalogRefreshService {
         var request = URLRequest(url: dbURL)
         request.cachePolicy = .reloadRevalidatingCacheData
         if let etag = UserDefaults.standard.string(forKey: Self.dbETagKey),
-           cachedDatabasePath() != nil {
+           currentDatabasePath() != nil {
             request.setValue(etag, forHTTPHeaderField: "If-None-Match")
         }
         do {
@@ -187,7 +218,7 @@ actor CatalogRefreshService {
             if let etag = http.value(forHTTPHeaderField: "ETag") {
                 UserDefaults.standard.set(etag, forKey: Self.dbETagKey)
             }
-            return destination.path
+            return give(destination.path)
         } catch {
             return unchanged()
         }

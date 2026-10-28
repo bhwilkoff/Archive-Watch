@@ -295,12 +295,14 @@ def main() -> int:
             # Fuzzy (title-based) accept gate — abstain-over-wrong for old/generic titles.
             if rec and src != "archive-id" and not _fuzzy_accept(it, rec, gate_year):
                 rec = src = None
+            if rec and src != "archive-id" and not O.plausible_identity(it, rec):
+                rec = src = None
             cache[aid] = {"rec": rec, "src": src}
             if i % 100 == 0:
                 CACHE.write_text(json.dumps(cache))
 
         if rec and src and not args.dry_run:
-            O.apply_identity(it, rec)            # imdbID/director/genres/year/cast (empty-only)
+            O.apply_identity(it, rec, authoritative=(src == "archive-id"))  # empty-only
             if src in ("tmdb", "archive-id"):
                 O.apply_rich(it, rec)            # poster/plot/runtime
                 if rec.get("tmdb_id"):

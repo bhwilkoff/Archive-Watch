@@ -46,8 +46,9 @@ struct PlayerView: UIViewControllerRepresentable {
     /// Called when the title will never play, so the host can close the player
     /// and say so instead of leaving a spinner up indefinitely.
     var onUnplayable: ((String) -> Void)? = nil
-    /// Transcribe the streaming audio when the film carries no subtitle track.
-    var liveCaptionsEnabled: Bool = true
+    /// Transcribe the streaming audio when the film carries no subtitle track —
+    /// the viewer's own Settings switch (SubtitleAccountSection).
+    private var liveCaptionsEnabled: Bool { LiveCaptions.transcribeWhenMissing }
     /// The viewer's caption-type choice from the subtitles sheet; nil = the
     /// default path (file when published, else automatic).
     var captionChoice: CaptionPlaybackChoice? = nil
@@ -61,10 +62,19 @@ struct PlayerView: UIViewControllerRepresentable {
     /// cancels them): Channels shows its channel strip with the controls
     /// (iOS-DESIGN §2.5d).
     var onTap: (() -> Void)? = nil
+    /// Reaches the coordinator from SwiftUI, for the in-player caption
+    /// capsule (§8.5's overlay pattern).
+    var handle: PlayerHandle? = nil
 
     func onTapVideo(_ action: @escaping () -> Void) -> PlayerView {
         var copy = self
         copy.onTap = action
+        return copy
+    }
+
+    func controlled(by handle: PlayerHandle) -> PlayerView {
+        var copy = self
+        copy.handle = handle
         return copy
     }
 
@@ -97,7 +107,14 @@ struct PlayerView: UIViewControllerRepresentable {
     /// Play a TV episode. Pass `series` to binge-advance to the next episode on
     /// end; `onAdvance` reports the new archiveID so a host view's episode state
     /// stays truthful (manual prev/next relies on it).
-    init(episode: Episode, in series: Series? = nil, onAdvance: ((String) -> Void)? = nil) {
+    init(episode: Episode, in series: Series? = nil,
+         startAt: TimeInterval? = nil,
+         captionChoice: CaptionPlaybackChoice? = nil,
+         onUnplayable: ((String) -> Void)? = nil,
+         onAdvance: ((String) -> Void)? = nil) {
+        startOffset = startAt
+        self.captionChoice = captionChoice
+        self.onUnplayable = onUnplayable
         archiveID = episode.archiveID
         videoURL = episode.videoURLParsed
         queue = series.map { EpisodeQueue(series: $0, start: episode) }
@@ -134,6 +151,7 @@ struct PlayerView: UIViewControllerRepresentable {
         // A captioned film that drops to the plain MP4 loses its subtitle track
         // with it; live captions are what should take over there.
         c.liveCaptionsAllowed = liveCaptionsEnabled
+        c.inStudio = onPlayerReady != nil
         return c
     }
 
@@ -150,6 +168,9 @@ struct PlayerView: UIViewControllerRepresentable {
         vc.updatesNowPlayingInfoCenter = true             // lock-screen / Control Center
         vc.delegate = context.coordinator
         context.coordinator.playerVC = vc
+        context.coordinator.handle = handle
+        handle?.coordinator = context.coordinator
+        context.coordinator.markLive()
         // In-app picture-in-picture (iOS-DESIGN §4.4a): a new film ends the
         // one floating in PiP, and this player can step aside for its own.
         PiPKeeper.shared.endFloating()
@@ -191,6 +212,7 @@ struct PlayerView: UIViewControllerRepresentable {
         context.coordinator.fullSubtitleHLS = subtitleHLSURL
         context.coordinator.publishedVTT = publishedVTTURL
         context.coordinator.currentChoice = captionChoice ?? (subtitleHLSURL != nil ? .file : .automatic)
+        context.coordinator.publishChoice()
 
         // DOWNLOADED FIRST (Decision 099). A film on disk is a plain local file:
         // no resilient loader, no HLS wrapper, no node resolution — none of that
@@ -457,14 +479,21 @@ struct PlayerView: UIViewControllerRepresentable {
     func updateUIViewController(_ vc: AVPlayerViewController, context: Context) {}
 
     static func dismantleUIViewController(_ vc: AVPlayerViewController, coordinator: Coordinator) {
-        coordinator.persist(vc.player)
+        coordinator.persist(vc.player, syncNow: true)
+        // Home refreshes Continue Watching and the widgets' snapshot.
+        NotificationCenter.default.post(name: .awPlayerClosed, object: nil)
         // The screen closed BECAUSE picture-in-picture started: the film goes
         // on in the floating window, held by PiPKeeper, not paused here.
         if coordinator.isPiPActive { return }
         vc.player?.pause()
+        // The engine's loop holds the coordinator strongly while it runs, so
+        // it is stopped here or it transcribes a closed film (and its scout
+        // keeps downloading it).
+        coordinator.stopCaptions()
         // Closing the player leaves the room, as the Mac does — or it went on
         // polling and telling the host "I'm here" (audit A16).
         StudioSyncFollower.shared.leaveIfFollowing()
+        coordinator.releaseAudioSession()
     }
 
     @MainActor
@@ -486,6 +515,12 @@ struct PlayerView: UIViewControllerRepresentable {
         private var foregroundObserver: NSObjectProtocol?
         private var interruptionObserver: NSObjectProtocol?
         private(set) var isPiPActive = false
+        /// The Studio owns its own recording session (§8.2's exception).
+        var inStudio = false
+        weak var handle: PlayerHandle?
+        /// The live engine's render loop, cancelled with the engine.
+        private var liveCaptionsTask: Task<Void, Never>?
+        private var rateObs: NSKeyValueObservation?
         /// Closes the SwiftUI screen the player sits in (its presenter's
         /// `dismiss`), so picture-in-picture leaves the app to browse.
         var dismissScreen: (() -> Void)?
@@ -527,12 +562,13 @@ struct PlayerView: UIViewControllerRepresentable {
         func setCaptionChoice(_ choice: CaptionPlaybackChoice, on vc: AVPlayerViewController) {
             guard choice != (currentChoice ?? .file) || currentChoice == nil else { return }
             currentChoice = choice
+            publishChoice()
             guard let player = vc.player else { return }
             let pos = player.currentTime()
             directHLSURL = (choice == .file) ? fullSubtitleHLS : nil
             switch choice {
             case .file:
-                liveCaptions?.stop(); liveCaptions = nil
+                stopLiveEngine()
                 offlineSubtitleTask?.cancel(); offlineSubtitleTask = nil
                 publishedSubtitleTask?.cancel(); publishedSubtitleTask = nil
                 if let item = makeLocalItem() { swap(to: item, resumingAt: pos, on: player) }
@@ -548,23 +584,72 @@ struct PlayerView: UIViewControllerRepresentable {
             case .automatic:
                 offlineSubtitleTask?.cancel(); offlineSubtitleTask = nil
                 publishedSubtitleTask?.cancel(); publishedSubtitleTask = nil
+                showsPublishedOverlay = false
+                captionLabel?.isHidden = true
                 if let item = makeLocalItem() { swap(to: item, resumingAt: pos, on: player) }
                 // iOS 27+: the system captions the plain asset natively; our
                 // engine would double-caption (the flashing). Engine only
                 // where the system cannot (iOS 26).
                 // The downloaded file is the source when there is one — the
                 // remote URL is unreachable in the case this feature exists for.
-                if !SystemCaptions.isAvailable,
+                if !SystemCaptions.isAvailable, liveCaptions == nil, LiveCaptions.isSupported,
                    let src = OfflineLibrary.videoURL(for: archiveID) ?? directVideoURL {
                     startLiveCaptions(url: src, in: vc)
                 }
             case .off:
-                liveCaptions?.stop(); liveCaptions = nil
+                stopLiveEngine()
                 offlineSubtitleTask?.cancel(); offlineSubtitleTask = nil
                 publishedSubtitleTask?.cancel(); publishedSubtitleTask = nil
                 showsPublishedOverlay = false
                 captionLabel?.isHidden = true
                 if let item = makeLocalItem() { swap(to: item, resumingAt: pos, on: player) }
+            }
+        }
+
+        /// Whether this title has a subtitle FILE to choose, for the capsule.
+        var hasCaptionFile: Bool {
+            fullSubtitleHLS != nil || publishedVTT != nil
+                || SubtitleStore.cachedVTT(for: archiveID) != nil
+                || OfflineLibrary.subtitleURL(for: archiveID) != nil
+        }
+
+        func publishChoice() {
+            handle?.choice = currentChoice ?? (hasCaptionFile ? .file : .automatic)
+            handle?.hasFile = hasCaptionFile
+        }
+
+        private func stopLiveEngine() {
+            liveCaptionsTask?.cancel(); liveCaptionsTask = nil
+            liveCaptions?.stop(); liveCaptions = nil
+        }
+
+        /// Every caption renderer off: the screen closed, or the title changed.
+        func stopCaptions() {
+            stopLiveEngine()
+            offlineSubtitleTask?.cancel(); offlineSubtitleTask = nil
+            publishedSubtitleTask?.cancel(); publishedSubtitleTask = nil
+        }
+
+        /// Players on screen or floating. A player rebuilt in place (an
+        /// episode chevron, a channel change) can be made before the old one
+        /// is dismantled, so the session is released only when none is left.
+        private static var livePlayers = 0
+        private var countedLive = false
+
+        func markLive() {
+            guard !countedLive else { return }
+            countedLive = true
+            Self.livePlayers += 1
+        }
+
+        /// Give the session back so music another app was playing can resume.
+        /// Not in the Studio, which restores its own (§8.2).
+        func releaseAudioSession() {
+            if countedLive { countedLive = false; Self.livePlayers -= 1 }
+            guard !inStudio else { return }
+            DispatchQueue.main.asyncAfter(deadline: .now() + 0.5) {
+                guard Self.livePlayers <= 0 else { return }
+                try? AVAudioSession.sharedInstance().setActive(false, options: .notifyOthersOnDeactivation)
             }
         }
 
@@ -622,6 +707,11 @@ struct PlayerView: UIViewControllerRepresentable {
             timeObserver = player.addPeriodicTimeObserver(
                 forInterval: CMTime(seconds: 5, preferredTimescale: 1), queue: .main) { [weak self] _ in
                 MainActor.assumeIsolated { self?.persistCurrent() }
+            }
+            // A pause pushes progress at once, so another device resumes here.
+            rateObs = player.observe(\.timeControlStatus, options: [.new]) { [weak self] p, _ in
+                let paused = p.timeControlStatus == .paused
+                MainActor.assumeIsolated { if paused { self?.persist(self?.player, syncNow: true) } }
             }
             registerEnd(for: playerItem)
 
@@ -894,11 +984,12 @@ struct PlayerView: UIViewControllerRepresentable {
         func startLiveCaptions(url: URL, in vc: AVPlayerViewController,
                                showsImmediately: Bool = true) {
             showsCaptionOverlay = showsImmediately
+            stopLiveEngine()
             let captions = LiveCaptions()
             liveCaptions = captions
             _ = installCaptionLabel(in: vc)
 
-            Task { @MainActor [weak self] in
+            liveCaptionsTask = Task { @MainActor [weak self] in
                 guard let self else { return }
                 // Let the system speak first: from iOS 27 it captions this film
                 // itself, and ours would be a second, differently timed copy
@@ -968,8 +1059,7 @@ struct PlayerView: UIViewControllerRepresentable {
                     self.showsPublishedOverlay = false
                     self.showsCaptionOverlay = true
                 } else {
-                    self.liveCaptions?.stop()              // the file is good; stop listening
-                    self.liveCaptions = nil
+                    self.stopLiveEngine()                  // the file is good; stop listening
                 }
             }
         }
@@ -1111,7 +1201,7 @@ struct PlayerView: UIViewControllerRepresentable {
             if vc.allowsPictureInPicturePlayback, vc.canStartPictureInPictureAutomaticallyFromInline,
                AVPictureInPictureController.isPictureInPictureSupported(),
                (player?.rate ?? 0) > 0 { return }
-            persist(player)
+            persist(player, syncNow: true)
             vc.player = nil
         }
 
@@ -1180,35 +1270,62 @@ struct PlayerView: UIViewControllerRepresentable {
         }
 
         private func advance() {
-            persist(player)   // captures end position → WatchProgress marks complete
+            persist(player, syncNow: true)   // captures end position → WatchProgress marks complete
             guard let player, let nxt = queue?.next(afterFinishing: archiveID) else { return }
             archiveID = nxt.id
             onAdvance?(nxt.id)
-            let (asset, loader) = ResilientStreamLoader.makeAsset(for: nxt.url)
-            self.loader = loader
-            let item = AVPlayerItem(asset: asset)
-            item.externalMetadata = playerExternalMetadata(title: nxt.title, description: nxt.description)
-            item.preferredForwardBufferDuration = 300
-            player.replaceCurrentItem(with: item)
-            registerEnd(for: item)
-            // Resume the next item if it was partially watched before.
-            if let p = savedProgress(), p > 10 {
-                player.seek(to: CMTime(seconds: p, preferredTimescale: 600))
+            // Everything below belonged to the title that just ended: its
+            // recovery URL, its caption renderers, its stall monitor and its
+            // AirPlay targets. Carried over, a reconnect replayed the PREVIOUS
+            // film and AirPlay handed the receiver the wrong one.
+            fallbackWork?.cancel(); fallbackWork = nil
+            statusObs = nil
+            captionStall.detach()
+            recoveryReset?.cancel(); recoveryReset = nil
+            recoveryAttempts = 0
+            stopCaptions()
+            captionLabel?.removeFromSuperview(); captionLabel = nil
+            showsCaptionOverlay = true
+            showsPublishedOverlay = true
+            let local = OfflineLibrary.videoURL(for: nxt.id)
+            directVideoURL = nxt.url
+            directHLSURL = nil
+            fullSubtitleHLS = nil
+            publishedVTT = nil
+            fallbackVideoURL = local == nil ? nxt.url : nil
+            loaderIsPrimary = local == nil
+            currentChoice = nil
+            fallbackMetadata = playerExternalMetadata(title: nxt.title, description: nxt.description)
+            guard let item = makeLocalItem() else { return }
+            let resume = savedProgress().flatMap { $0 > 10 ? CMTime(seconds: $0, preferredTimescale: 600) : nil }
+            swap(to: item, resumingAt: resume ?? .zero, on: player)
+            if fallbackVideoURL != nil { armRecovery(on: item) }
+            publishChoice()
+            guard let vc = playerVC else { return }
+            if let vtt = SubtitleStore.cachedVTT(for: nxt.id) {
+                startPublishedSubtitles(vtt: vtt, in: vc)
+            } else if !SystemCaptions.isAvailable, liveCaptionsAllowed, LiveCaptions.isSupported {
+                startLiveCaptions(url: local ?? nxt.url, in: vc)
             }
-            player.play()
         }
 
         /// Persist the player we're holding (avoids capturing an AVPlayer in the
         /// Sendable observer closures).
         func persistCurrent() { persist(player) }
 
+        /// Where to resume — nil for a title already finished, which starts
+        /// over rather than at its credits.
         func savedProgress() -> Double? {
             let id = archiveID
-            return (try? ctx.fetch(FetchDescriptor<WatchProgress>(
-                predicate: #Predicate { $0.archiveID == id })))?.first?.positionSeconds
+            guard let wp = (try? ctx.fetch(FetchDescriptor<WatchProgress>(
+                predicate: #Predicate { $0.archiveID == id })))?.first,
+                  !wp.isComplete else { return nil }
+            return wp.positionSeconds
         }
 
-        func persist(_ player: AVPlayer?) {
+        /// `syncNow` for a close, a pause, a background or an advance; the
+        /// five-second tick pushes at most once a minute.
+        func persist(_ player: AVPlayer?, syncNow: Bool = false) {
             guard persistsProgress, let player, let cur = player.currentItem else { return }
             let pos = player.currentTime().seconds
             let dur = cur.duration.seconds
@@ -1217,13 +1334,17 @@ struct PlayerView: UIViewControllerRepresentable {
             // session count, durable everCompleted) live in ONE place.
             WatchProgress.record(in: ctx, archiveID: archiveID,
                                  position: pos, duration: dur)
-            SyncNudge.nudge(ctx)   // push progress promptly (debounced) for cross-device resume
+            SyncNudge.nudge(ctx, periodic: !syncNow)
         }
 
         // isolated deinit (SE-0371): touch the MainActor-isolated observers natively under
         // the Swift 6 language mode without a nonisolated(unsafe) escape hatch.
         isolated deinit {
             offlineSubtitleTask?.cancel()
+            publishedSubtitleTask?.cancel()
+            liveCaptionsTask?.cancel()
+            liveCaptions?.stop()
+            rateObs = nil
             captionStall.detach()
             externalObs = nil
             resumeObs = nil
@@ -1291,7 +1412,10 @@ final class MovieAutoplayQueue: PlaybackQueue {
     init(start: Catalog.Item, store: AppStore) { self.current = start; self.store = store }
 
     func next(afterFinishing _: String) -> (id: String, url: URL, title: String, description: String?)? {
-        guard let n = ContinuousPlayback.next(after: current, mode: store.autoplayMode, store: store),
+        // An episode continues through its series (EpisodeQueue), never into
+        // a random film.
+        guard !current.isEpisode,
+              let n = ContinuousPlayback.next(after: current, mode: store.autoplayMode, store: store),
               let u = n.videoURLParsed else { return nil }
         current = n
         return (n.archiveID, u, n.title, n.synopsis)
@@ -1335,6 +1459,49 @@ final class EpisodeQueue: PlaybackQueue {
 }
 
 
+/// SwiftUI's line to a live player's coordinator: the caption capsule reads
+/// the current choice from it and switches through it.
+@MainActor
+@Observable
+final class PlayerHandle {
+    @ObservationIgnored weak var coordinator: PlayerView.Coordinator?
+    var choice: CaptionPlaybackChoice = .automatic
+    var hasFile = false
+
+    func setCaptionChoice(_ choice: CaptionPlaybackChoice) {
+        guard let c = coordinator, let vc = c.playerVC else { return }
+        c.setCaptionChoice(choice, on: vc)
+    }
+}
+
+/// The caption-type switch over a playing film — File, Automatic, Off — in
+/// the §8.5 overlay capsule. The choice reshapes the asset, so it is applied
+/// as an item swap at position by the coordinator.
+struct CaptionChoiceCapsule: View {
+    let handle: PlayerHandle
+
+    var body: some View {
+        Menu {
+            Picker("Captions", selection: Binding(
+                get: { handle.choice },
+                set: { handle.setCaptionChoice($0) })) {
+                if handle.hasFile {
+                    Text("Subtitle File").tag(CaptionPlaybackChoice.file)
+                }
+                Text("Automatic").tag(CaptionPlaybackChoice.automatic)
+                Text("Off").tag(CaptionPlaybackChoice.off)
+            }
+        } label: {
+            Image(systemName: handle.choice == .off ? "captions.bubble" : "captions.bubble.fill")
+                .font(.body)
+                .foregroundStyle(.white)
+                .padding(.horizontal, 14).padding(.vertical, 8)
+                .background(.black.opacity(0.45), in: .capsule)
+        }
+        .accessibilityLabel("Captions")
+    }
+}
+
 /// Holds the one player that is floating in picture-in-picture while the app
 /// is browsed underneath it (iOS-DESIGN §4.4a). SwiftUI tears a screen's
 /// controller down when the screen closes, so something has to keep the
@@ -1370,8 +1537,11 @@ final class PiPKeeper {
     /// Saved and stopped: the window was closed, or the restored player was.
     func finish(_ vc: AVPlayerViewController) {
         guard self.vc === vc else { return }
-        coordinator?.persist(vc.player)
+        coordinator?.persist(vc.player, syncNow: true)
+        NotificationCenter.default.post(name: .awPlayerClosed, object: nil)
         vc.player?.pause()
+        coordinator?.stopCaptions()
+        coordinator?.releaseAudioSession()
         self.vc = nil
         coordinator = nil
     }

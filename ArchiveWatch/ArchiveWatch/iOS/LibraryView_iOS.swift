@@ -30,6 +30,13 @@ struct LibraryView: View {
     @State private var newName = ""
     @State private var deleting: Playlist?
     @State private var showDelete = false
+    /// History and Favorites resolved to cards once per change of the records
+    /// or the catalog — not a query per row on every render — keyed by the
+    /// id each record is STORED under (a merged-away id reaches its survivor).
+    @State private var historyByStored: [String: Catalog.Item] = [:]
+    @State private var favoriteItems: [Catalog.Item] = []
+    @State private var resolved = false
+    @State private var favoritesResolved = false
 
     /// The lists in the order the viewer chose (My Order: their arrangement).
     private var playlists: [Playlist] {
@@ -86,24 +93,60 @@ struct LibraryView: View {
                     .toolbar {
                         ToolbarItem(placement: .topBarTrailing) { JoinRoomButton_iOS() }
                     }
-                    .task {
-                        // Offline, Downloads is the only place that can play
-                        // anything, so the tab opens there (Decision 099).
-                        if !NetworkMonitor.shared.isOnline, !downloads.isEmpty,
-                           router.libraryPath.isEmpty {
-                            router.push(LibraryPlaceRoute(place: .downloads))
-                        }
-                    }
+                    .task { openDownloadsIfOffline() }
+                    .onChange(of: NetworkMonitor.shared.isOnline) { openDownloadsIfOffline() }
             }
         }
         .id(store.dbVersion)
+        .task(id: historyKey) {
+            historyByStored = Dictionary(store.storedItems(historyKeyIDs).map { ($0.storedID, $0.item) },
+                                         uniquingKeysWith: { a, _ in a })
+            resolved = true
+        }
+        .task(id: favoritesKey) {
+            favoriteItems = store.storedItems(favorites.map(\.archiveID)).map(\.item)
+            favoritesResolved = true
+        }
+    }
+
+    /// Offline, Downloads is the only place that can play anything, so the
+    /// tab opens there (Decision 099) — ONCE per time the network goes away.
+    /// On every appearance it was a trap: Back from Downloads came straight
+    /// back to Downloads.
+    private func openDownloadsIfOffline() {
+        if NetworkMonitor.shared.isOnline { OfflineDoor.opened = false; return }
+        guard !OfflineDoor.opened, !downloads.isEmpty, router.libraryPath.isEmpty else { return }
+        OfflineDoor.opened = true
+        router.push(LibraryPlaceRoute(place: .downloads))
+    }
+
+    private var historyKeyIDs: [String] { progress.map(\.archiveID).sorted() }
+    /// Changes when a record is added or removed, not when a playing film
+    /// moves its position.
+    private var historyKey: String { "\(store.dbVersion)|" + historyKeyIDs.joined(separator: "\u{1F}") }
+    private var favoritesKey: String {
+        "\(store.dbVersion)|" + favorites.map(\.archiveID).joined(separator: "\u{1F}")
+    }
+
+    /// History, most recent first, for the records that reach a card.
+    private struct HistoryRow: Identifiable {
+        let record: WatchProgress
+        let item: Catalog.Item
+        var id: String { record.archiveID }
+    }
+
+    private var historyRows: [HistoryRow] {
+        progress.sorted { $0.lastWatchedAt > $1.lastWatchedAt }
+            .compactMap { w in historyByStored[w.archiveID].map { HistoryRow(record: w, item: $0) } }
     }
 
     @ViewBuilder private func content(_ place: Section) -> some View {
         switch place {
         case .downloads: downloadsList
-        case .favorites: grid(store.itemsByIDs(favorites.map(\.archiveID)),
-                              empty: "No favorites yet", icon: "heart")
+        case .favorites:
+            if favoritesResolved || favorites.isEmpty {
+                grid(favoriteItems, empty: "No favorites yet", icon: "heart")
+            }
         case .history: historyList
         case .playlists: playlistList
         case .clips: clipsList
@@ -140,8 +183,8 @@ struct LibraryView: View {
     }
 
     private var recent: [Catalog.Item] {
-        let ids = progress.sorted { $0.lastWatchedAt > $1.lastWatchedAt }.prefix(12).map(\.archiveID)
-        return store.itemsByIDs(Array(ids))
+        var seen = Set<String>()
+        return historyRows.lazy.map(\.item).filter { seen.insert($0.archiveID).inserted }.prefix(12).map { $0 }
     }
 
     private var places: some View {
@@ -314,14 +357,18 @@ struct LibraryView: View {
     // The complete watch record (Decision 078): every title ever played on any
     // synced device — finished or not — most recent first, with when and how far.
     @ViewBuilder private var historyList: some View {
-        let rows = progress.sorted { $0.lastWatchedAt > $1.lastWatchedAt }
-        if rows.isEmpty {
+        let rows = historyRows
+        if !resolved && !progress.isEmpty {
+            Color.clear
+        } else if rows.isEmpty {
             ContentUnavailableView("No history yet", systemImage: "clock.arrow.circlepath",
                 description: Text("Everything you watch, on any device, shows up here."))
         } else {
             List {
-                ForEach(rows, id: \.archiveID) { w in
-                    if let item = store.item(w.archiveID) {
+                ForEach(rows) { row in
+                    let w = row.record
+                    let item = row.item
+                    Group {
                         Button { router.openDetail(item) } label: {
                             HStack(spacing: 12) {
                                 PosterThumb(item: item)
@@ -341,7 +388,7 @@ struct LibraryView: View {
                 }
                 .onDelete { offsets in
                     for i in offsets {
-                        let w = rows[i]
+                        let w = rows[i].record
                         SyncNudge.recordDeletion("wp:\(w.archiveID)", in: ctx)
                         ctx.delete(w)
                     }
@@ -597,6 +644,12 @@ struct PosterThumb: View {
         .frame(width: 44, height: 66)
         .clipShape(RoundedRectangle(cornerRadius: 6))
     }
+}
+
+/// Whether Library has already opened Downloads for this stretch offline.
+@MainActor
+private enum OfflineDoor {
+    static var opened = false
 }
 
 #endif

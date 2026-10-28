@@ -27,19 +27,42 @@ struct HomeView: View {
     @State private var mostDiscussed: [Catalog.Item] = []
     @State private var pdItems: [Catalog.Item] = []
     @State private var directorShelves: [(name: String, items: [Catalog.Item])] = []
+    /// Continue Watching, resolved once per change of the progress records
+    /// (not on every render), each card with the id its progress is STORED
+    /// under — a merged-away id resolves to its survivor (Decision 040).
+    @State private var continueEntries: [(storedID: String, item: Catalog.Item)] = []
+    /// Top Rated as `rebuild` last read it, so a snapshot asks the DB once.
+    @State private var widgetTopRated: [Catalog.Item] = []
     @Environment(\.horizontalSizeClass) private var hSize
+    @Environment(\.scenePhase) private var scenePhase
 
-    private let pdYear = Calendar.current.component(.year, from: Date()) - 95
+    /// The films that entered the public domain this January 1 (Decision 137:
+    /// year + 96, following the calendar).
+    private let pdYear = StudioRights.lastPublicDomainYear()
 
     // Phone shelves are narrow (~3 tiles visible). Below this a row reads as a
     // half-empty stub, so drop it rather than show a ragged shelf.
     private let minPerShelf = 6
 
     private var shelves: [Featured.Shelf] { store.featured?.shelves ?? [] }
-    private var continueItems: [Catalog.Item] {
-        if Showcase.isOn { return [] }
-        return store.itemsByIDs(progress.filter { !$0.isComplete && $0.positionSeconds > 2 }
-            .prefix(12).map(\.archiveID))
+    private var continueItems: [Catalog.Item] { continueEntries.map(\.item) }
+
+    private func resolveContinue() {
+        if Showcase.isOn { continueEntries = []; return }
+        continueEntries = store.storedItems(continueKey)
+    }
+
+    /// Progress keyed by the CARD's id, from the record stored under any id.
+    private var continueProgress: [String: WatchProgress] {
+        let byStored = Dictionary(progress.map { ($0.archiveID, $0) }, uniquingKeysWith: { a, _ in a })
+        return Dictionary(continueEntries.compactMap { e in byStored[e.storedID].map { (e.item.archiveID, $0) } },
+                          uniquingKeysWith: { a, _ in a })
+    }
+
+    /// Changes when a title enters or leaves Continue Watching — not on the
+    /// five-second position writes of a playing film.
+    private var continueKey: [String] {
+        progress.filter { !$0.isComplete && $0.positionSeconds > 2 }.prefix(12).map(\.archiveID)
     }
 
     var body: some View {
@@ -51,8 +74,7 @@ struct HomeView: View {
                 }
                 if !continueItems.isEmpty {
                     Shelf(title: "Continue Watching", subtitle: nil, items: continueItems,
-                          progressByID: Dictionary(progress.map { ($0.archiveID, $0) },
-                                                   uniquingKeysWith: { a, _ in a }))
+                          progressByID: continueProgress)
                 }
                 CategoryTilesRow().id("categories")
                 // Featured shelves (canonical order), then the dynamic block in the SAME order as
@@ -122,6 +144,16 @@ struct HomeView: View {
         }
         .id(store.dbVersion)   // re-query when the DB swaps (seed → full)
         .task(id: store.dbVersion) { rebuild() }
+        .onChange(of: continueKey) { resolveContinue() }
+        // The widgets read a snapshot; refresh it when a film closes (its
+        // progress has just been written) and as the app leaves the screen.
+        .onReceive(NotificationCenter.default.publisher(for: .awPlayerClosed)) { _ in
+            resolveContinue()
+            writeWidgetSnapshot()
+        }
+        .onChange(of: scenePhase) { _, phase in
+            if phase == .background { writeWidgetSnapshot() }
+        }
         .task {
             if !Showcase.isOn, let id = await Tonight.load() {
                 heroItems = Tonight.lead(heroItems, with: store.item(id))
@@ -165,6 +197,7 @@ struct HomeView: View {
         // isWatched (durable), not isComplete — a rewatch must not un-mark it.
         store.completedArchiveIDs = Set(progress.filter(\.isWatched).map(\.archiveID))
         heroItems = loadHero()
+        resolveContinue()
 
         // ONE ordered seen-set across EVERY home shelf so no title repeats anywhere
         // (keyed on dedupKey, not archiveID — also collapses re-uploads of the same
@@ -192,14 +225,25 @@ struct HomeView: View {
             return taken
         }
 
+        // A featured shelf is chosen from LIGHT rows (id + dedup key, the art
+        // gate in SQL) and only the twenty it shows are decoded.
+        let hidden = store.hideWatchedOnHome ? store.completedArchiveIDs : []
         func featuredPayload(_ shelf: Featured.Shelf) -> ShelfPayload? {
-            var raw = store.filteringWatched(store.items(forShelf: shelf.id,
-                                                         allowStandaloneTV: shelf.isTV))
-                .filter(\.hasProfessionalArtwork)
+            var keys = store.shelfKeys(shelf.id, allowStandaloneTV: shelf.isTV)
+                .filter { !hidden.contains($0.id) }
             var rng = SplitMix(seed: shelfSeed &+ UInt64(bitPattern: Int64(shelf.id.hashValue)))
-            raw.shuffle(using: &rng)
-            let items = take(raw)
-            return items.isEmpty ? nil : ShelfPayload(shelf: shelf, items: items)
+            keys.shuffle(using: &rng)
+            var chosen: [String] = []
+            var seen = Set<String>()
+            for k in keys where !used.contains(k.dedupKey) && !seen.contains(k.dedupKey) {
+                seen.insert(k.dedupKey); chosen.append(k.id)
+                if chosen.count >= 20 { break }
+            }
+            guard chosen.count >= minPerShelf else { return nil }
+            let items = store.itemsByIDs(chosen)
+            guard items.count >= minPerShelf else { return nil }
+            used.formUnion(seen)
+            return ShelfPayload(shelf: shelf, items: items)
         }
 
         // Claim in render order (tvOS parity): ALL featured shelves first (canonical order), then the
@@ -208,7 +252,8 @@ struct HomeView: View {
         featuredPayloads = (store.featured?.orderedHomeShelves ?? []).compactMap(featuredPayload)
         pdItems = take(store.filteringWatched(
             store.browse(year: pdYear, sort: .popular, limit: 120).filter { $0.hasProfessionalArtwork && $0.isRecommendable }))
-        topRated = take(store.filteringWatched(store.topRated().filter(\.hasProfessionalArtwork)))
+        let rated = store.topRated()
+        topRated = take(store.filteringWatched(rated.filter(\.hasProfessionalArtwork)))
         watchingNow = take(store.filteringWatched(store.watchingNow().filter(\.hasProfessionalArtwork)))
         communityFavorites = take(store.filteringWatched(store.communityFavorites().filter(\.hasProfessionalArtwork)))
         mostDiscussed = take(store.filteringWatched(store.mostDiscussed().filter(\.hasProfessionalArtwork)))
@@ -217,28 +262,34 @@ struct HomeView: View {
             let items = take(store.filteringWatched(store.byDirector(d.name).filter(\.hasProfessionalArtwork)))
             return items.isEmpty ? nil : (name: d.name, items: items)
         }
+        widgetTopRated = rated
         writeWidgetSnapshot()
     }
 
     /// Feed the home-screen + Lock Screen + Control widgets (App Group snapshot).
     private func writeWidgetSnapshot() {
+        let rated = widgetTopRated.isEmpty ? store.topRated() : widgetTopRated
         // Continue Watching progress fractions, keyed by id (timecode "min left").
         let progressByID = Dictionary(
             progress.compactMap { p -> (String, Double)? in
                 guard p.durationSeconds > 0 else { return nil }
                 return (p.archiveID, min(0.98, max(0.02, p.positionSeconds / p.durationSeconds)))
             }, uniquingKeysWith: { a, _ in a })
+            .merging(continueProgress.compactMap { id, p -> (String, Double)? in
+                guard p.durationSeconds > 0 else { return nil }
+                return (id, min(0.98, max(0.02, p.positionSeconds / p.durationSeconds)))
+            }, uniquingKeysWith: { a, _ in a })
 
         // Pick of the Day: a deterministic daily rotation through designed-art picks
         // (an editorial invitation the user can predict — not an opaque "for you").
-        let pickPool = (store.items(forShelf: "editors-picks") + store.topRated())
+        let pickPool = (store.items(forShelf: "editors-picks") + rated)
             .filter { $0.hasProfessionalArtwork && ($0.backdropURL != nil || $0.posterURL != nil) }
         let day = Int(Date().timeIntervalSince1970 / 86_400)
         let pick = WidgetSnapshotWriter.pickOfDay(from: pickPool, dayNumber: day)
 
         let favItems = store.itemsByIDs(favorites.prefix(8).map(\.archiveID))
             .filter(\.hasDesignedArtwork)
-        let surprise = store.topRated().filter(\.hasProfessionalArtwork)
+        let surprise = rated.filter(\.hasProfessionalArtwork)
 
         WidgetSnapshotWriter.write(continueWatching: continueItems,
                                    progressByID: progressByID,
@@ -375,6 +426,11 @@ private struct Shelf: View {
             .scrollIndicators(.hidden)
         }
     }
+}
+
+extension Notification.Name {
+    /// Posted when a player screen closes; its progress is already saved.
+    static let awPlayerClosed = Notification.Name("AWPlayerClosed")
 }
 
 #endif

@@ -603,8 +603,11 @@ fun PlaylistScreen(container: AppContainer, nav: Nav, playlistID: String) {
                 verticalArrangement = Arrangement.spacedBy(14.dp),
                 modifier = Modifier.fillMaxSize().padding(padding),
             ) {
-                val shown = PlaylistOrder.sortedFilms(films, sort) { it.second }
-                items(shown, key = { it.second.archiveID }) { (storedID, item) ->
+                // Keyed by the STORED id: two uploads merged into one film are
+                // two stored ids and one card id, and a repeated card id is a
+                // duplicate lazy key, which crashes the grid.
+                val shown = PlaylistOrder.sortedFilms(films, sort) { it.second }.uniqueBy { it.first }
+                items(shown, key = { it.first }) { (storedID, item) ->
                     // Long-press, as History removes a film (§4.5). Arranging
                     // happens in My Order only: in any other order a move has
                     // no meaning.

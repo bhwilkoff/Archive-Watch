@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<!-- Decision 085: a merged-away id forwards to its survivor. Asked only when
+     an id resolves to nothing, so aliases.json (the same file the web reads)
+     is fetched by the few sessions that hold an old id: a favorite saved
+     before a merge, a shared link, a Roku Search entry from an older feed. -->
+<component name="AliasTask" extends="Task">
+  <interface>
+    <field id="archiveID" type="string" />
+    <!-- The survivor, or "" when the id is not a merged-away one. -->
+    <field id="target" type="string" alwaysNotify="true" />
+  </interface>
+  <script type="text/brightscript" uri="pkg:/components/Capability.brs" />
+  <script type="text/brightscript" uri="pkg:/components/Theme.brs" />
+  <script type="text/brightscript" uri="pkg:/components/AliasTask.brs" />
+</component>

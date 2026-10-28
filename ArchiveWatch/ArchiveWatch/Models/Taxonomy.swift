@@ -256,3 +256,27 @@ enum ContentTypeClassifier {
         return .featureFilm
     }
 }
+
+// MARK: - Public Domain Day
+
+/// The Public Domain Day calendar, one rule for every platform (Decision 137):
+/// a work published in year Y is protected through December 31 of Y + 95 and
+/// enters the US public domain on January 1 of Y + 96.
+enum PublicDomainDay {
+    /// The publication year of the class that entered on January 1 of `entryYear`.
+    static func classYear(entering entryYear: Int) -> Int { entryYear - 96 }
+
+    /// This year's class: the newest publication year in the public domain.
+    static func currentClass(now: Date = Date()) -> Int {
+        StudioRights.lastPublicDomainYear(now: now)
+    }
+
+    /// The January 1 this year's class entered.
+    static func currentEntryYear(now: Date = Date()) -> Int { currentClass(now: now) + 96 }
+
+    /// A class as the explorer and the Home shelf show it: never a title the
+    /// catalog keeps out of recommendations (Decisions 149/156).
+    static func titles(_ items: [Catalog.Item]) -> [Catalog.Item] {
+        items.filter(\.isRecommendable)
+    }
+}

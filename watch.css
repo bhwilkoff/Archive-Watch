@@ -390,6 +390,12 @@ a { color: var(--color-accent); }
   overflow: hidden; display: -webkit-box;
   -webkit-line-clamp: 6; -webkit-box-orient: vertical;
 }
+/* Chromium 85 (Samsung 2022, Decision 162) has no aspect-ratio, and an empty
+   placeholder collapsed to its padding. A zero-width flex item whose padding
+   is 150% of the card's width holds it at 2:3. */
+@supports not (aspect-ratio: 1) {
+  .card-ph::after { content: ""; display: block; flex: none; width: 0; padding-top: 150%; }
+}
 
 .sentinel { height: 1px; }
 

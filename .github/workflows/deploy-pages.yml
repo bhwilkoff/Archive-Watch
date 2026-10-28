@@ -49,6 +49,12 @@ concurrency:
   # queued deploy also avoids the Pages-API "deployment in progress" collision when two overlap.
   cancel-in-progress: true
 
+# Every `run:` is `bash -eo pipefail` (GitHub's explicit `shell: bash`;
+# the implicit default has no pipefail, so `tool | tee log` hid a crash).
+defaults:
+  run:
+    shell: bash
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
@@ -128,7 +134,9 @@ jobs:
           # for: the pages would silently revert to 404 while the deploy
           # stayed green. The floor is well under the real count (~26,700) so
           # ordinary catalog movement never trips it.
-          n=$(find _site/item _site/series -name index.html 2>/dev/null | wc -l)
+          # A missing directory is a count of 0 for the guard below, not a
+          # silent pipefail exit before it can say why.
+          n=$( { find _site/item _site/series -name index.html 2>/dev/null || true; } | wc -l)
           echo "share pages: $n"
           if [ "$n" -lt 20000 ]; then
             echo "::error::only $n share pages built (expected >20000) — every"

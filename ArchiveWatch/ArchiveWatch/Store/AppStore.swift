@@ -213,7 +213,8 @@ final class AppStore {
             guard let path = await CatalogRefreshService.shared.downloadDatabase(onlyIfChanged: true),
                   let fullDB = CatalogDB(path: path) else { return }
             await MainActor.run {
-                guard let self, fullDB.itemCount >= (self.db?.itemCount ?? 0) else { return }
+                guard let self, CatalogDB.isPlausibleReplacement(
+                    itemCount: fullDB.itemCount, replacing: self.db?.itemCount ?? 0) else { return }
                 self.swapDB(fullDB, path: path)
                 print("[AppStore] swapped to full DB: \(fullDB.itemCount) items")
             }
@@ -237,7 +238,8 @@ final class AppStore {
         }
         guard let path = await CatalogRefreshService.shared.refreshIfStale(),
               let fullDB = CatalogDB(path: path),
-              fullDB.itemCount >= (db?.itemCount ?? 0) else { return }
+              CatalogDB.isPlausibleReplacement(itemCount: fullDB.itemCount,
+                                                replacing: db?.itemCount ?? 0) else { return }
         swapDB(fullDB, path: path)
         print("[AppStore] refreshed catalog on resume: \(fullDB.itemCount) items")
     }
@@ -292,6 +294,10 @@ final class AppStore {
     func dbByKeyword(_ keyword: String) -> [Catalog.Item] { db?.byKeyword(keyword) ?? [] }
     func dbByStudio(_ studio: String) -> [Catalog.Item] { db?.byStudio(studio) ?? [] }
     func dbItemsByIDs(_ ids: [String]) -> [Catalog.Item] { db?.itemsByIDs(ids) ?? [] }
+    /// `CatalogDB.storedItems`: titles for saved ids, with the id as stored.
+    func dbStoredItems(_ ids: [String]) -> [(storedID: String, item: Catalog.Item)] {
+        db?.storedItems(ids) ?? []
+    }
     func dbShelfKeys(_ shelfID: String, allowStandaloneTV: Bool = false) -> [CatalogDB.ShelfKey] {
         db?.shelfKeys(shelfID, allowStandaloneTV: allowStandaloneTV) ?? []
     }
@@ -318,6 +324,7 @@ final class AppStore {
                         runtime: runtime) ?? 0
     }
     func dbByCollection(_ id: String, limit: Int = 2000) -> [Catalog.Item] { db?.byCollection(id, limit: limit) ?? [] }
+    func dbCollectionPosters(_ id: String) -> [URL] { db?.collectionPosters(id) ?? [] }
     func dbCollectionCount(_ id: String) -> Int { db?.collectionCount(id) ?? 0 }
     func dbRandomPlayable(contentType: String? = nil) -> Catalog.Item? { db?.randomPlayable(contentType: contentType) }
     func dbRandomFeatureFilm() -> Catalog.Item? { db?.randomFeatureFilm() }

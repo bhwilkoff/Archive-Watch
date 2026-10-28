@@ -24,8 +24,11 @@ function copiesOn(aid as String, other as Boolean) as Dynamic
     out = []
     for each f in d.files
         n = LCase(fmt(f.name))
+        ' MP4 only. The player opens every copy as streamFormat "mp4", and a
+        ' Roku Video node plays neither WebM nor Matroska: offering them was
+        ' offering a copy that fails the moment it is chosen.
         isVid = false
-        if Right(n, 4) = ".mp4" or Right(n, 4) = ".m4v" or Right(n, 5) = ".webm" or Right(n, 4) = ".mkv" then isVid = true
+        if Right(n, 4) = ".mp4" or Right(n, 4) = ".m4v" then isVid = true
         awSkip = (not isVid)
         ' Decision 104 — a private file can never be fetched, so it is never
         ' offered. Showing one would be offering a copy that cannot play.

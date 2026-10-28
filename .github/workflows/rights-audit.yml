@@ -40,6 +40,12 @@ concurrency:
   group: catalog-writers
   cancel-in-progress: false
 
+# Every `run:` is `bash -eo pipefail` (GitHub's explicit `shell: bash`;
+# the implicit default has no pipefail, so `tool | tee log` hid a crash).
+defaults:
+  run:
+    shell: bash
+
 jobs:
   confirm:
     runs-on: ubuntu-latest

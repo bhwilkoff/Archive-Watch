@@ -33,6 +33,12 @@ concurrency:
   group: catalog-writers      # serialise with the daily writers
   cancel-in-progress: false
 
+# Every `run:` is `bash -eo pipefail` (GitHub's explicit `shell: bash`;
+# the implicit default has no pipefail, so `tool | tee log` hid a crash).
+defaults:
+  run:
+    shell: bash
+
 jobs:
   canonical-tv:
     runs-on: ubuntu-latest
@@ -60,7 +66,8 @@ jobs:
         run: |
           python tools/discover_tv_shows.py \
             --per-collection ${{ github.event.inputs.tv_discover_per_collection || '1500' }} \
-            | tee tvdisc.log
+            | tee tvdisc.log \
+            || echo "::warning::discover_tv_shows did not complete — the rebuild drains the queue it already has"
 
       # Exclude orphan-episode DUPLICATES (an episode already mapped in a spine)
       # BEFORE the canonical build, so build_canonical_tv's orphan-fold-in skips
@@ -111,7 +118,10 @@ jobs:
       - name: Re-apply TheTVDB posters/cast to series
         env:
           THETVDB_API_KEY: ${{ secrets.THETVDB_API_KEY }}
-        run: python tools/enrich_tvdb_tv.py | tail -5
+        # Upgrade-only and best-effort (a TheTVDB login failure returns 1).
+        run: |
+          python tools/enrich_tvdb_tv.py | tail -5 \
+            || echo "::warning::TheTVDB re-apply did not complete — series keep TVmaze art this run"
 
       # The canonical builder writes each series file WITHOUT a `cast` field, so
       # a rebuilt series loses the cast Series Detail shows; TheTVDB has none for
@@ -122,10 +132,18 @@ jobs:
       # a failing episode is REMOVED from its spine (manifest + git history are
       # the undo). Runs after the rebuild so nothing it re-adds survives.
       - name: Apply the rights audit to television episodes
+        # Runs whatever happened above (a build that hit its budget still
+        # wrote spines), and its OUTCOME gates the series commit below: a
+        # spine the audit did not finish judging is never committed. Under
+        # the workflow's pipefail a crash is not hidden by `tail`.
+        id: tvrights
+        if: ${{ !cancelled() }}
         run: python tools/audit_tv_rights.py --apply | tail -8
 
       - name: Fill missing series cast from TVmaze
-        run: python tools/enrich_tv_cast.py | tail -2
+        run: |
+          python tools/enrich_tv_cast.py | tail -2 \
+            || echo "::warning::TVmaze series cast fill did not complete"
 
       # Decision 171: IMDb's own rating of each series TVmaze (or
       # build_episode_wants) can name on IMDb. The rebuild drops it, so it is
@@ -167,8 +185,10 @@ jobs:
       - name: Commit TV series to main
         # Publish what finished. A killed compute step above must not
         # discard the run's work, which is how faststart-derivatives lost
-        # two monthly passes in a row.
-        if: always()
+        # two monthly passes in a row. But never spines the TV rights audit
+        # did not pass (owner, 2026-09-25: the film audit applies to TV), and
+        # never on a cancelled run.
+        if: ${{ !cancelled() && steps.tvrights.outcome == 'success' }}
         run: |
           git config user.name  "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -207,8 +227,8 @@ jobs:
       - name: Publish catalog to release
         # Publish what finished. A killed compute step above must not
         # discard the run's work, which is how faststart-derivatives lost
-        # two monthly passes in a row.
-        if: always()
+        # two monthly passes in a row. Never on a cancelled run.
+        if: ${{ !cancelled() }}
         env:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: python tools/catalog_release.py publish

@@ -1860,6 +1860,7 @@ public final class StudioSession {
         // into a Task: a host who presses End and quits should not race a
         // network call that ends their broadcast.
         await completeArmedBroadcast()
+        armedDestination = nil
         armedYouTubeChatID = nil
         sharedFilmAt = nil
         readingYouTubeChat = false

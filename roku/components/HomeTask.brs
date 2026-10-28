@@ -41,7 +41,21 @@ sub run()
     ' was measured reading a copy from before a mature-content republish. I
     ' removed it while chasing load time and put it back — first paint is not
     ' worth showing a viewer something the catalog has already withdrawn.
-    body = getBody("https://archivewatch.org/catalog-index.json?t=" + fmt(CreateObject("roDateTime").AsSeconds()))
+    ' Asked three times, backing off, before the screen says it failed: one
+    ' dropped request on a launch used to be the whole session's error line.
+    body = ""
+    waitMs = 2000
+    stamp = CreateObject("roDateTime")
+    for attempt = 1 to 3
+        if body = ""
+            body = getBody("https://archivewatch.org/catalog-index.json?t=" + fmt(stamp.AsSeconds()))
+            if body = "" and attempt < 3
+                print "AWROKU index fetch failed (attempt "; attempt; "); retrying in "; waitMs; "ms"
+                sleep(waitMs)
+                waitMs = waitMs * 2
+            end if
+        end if
+    end for
     downloadMs = dl.TotalMilliseconds()
     dl.Mark()
     index = invalid
@@ -49,11 +63,22 @@ sub run()
     parseMs = dl.TotalMilliseconds()
     print "AWROKU index bytes="; Len(body); " downloadMs="; downloadMs; " parseMs="; parseMs
 
-    if index = invalid or index.items = invalid
+    ok = (index <> invalid)
+    if ok then ok = (GetInterface(index, "ifAssociativeArray") <> invalid)
+    if ok then ok = (index.items <> invalid)
+    if not ok
         m.top.status = "error"
         print "AWROKU home: index unavailable"
         return
     end if
+    ' The SAME bytes for CatalogService, which starts once Home is painted:
+    ' it read them over the network a second time, 7 MB on every launch.
+    if WriteAsciiFile("tmp:/catalog-index.json", body)
+        print "AWROKU index saved for the service"
+    else
+        print "AWROKU index NOT saved; the service will fetch its own"
+    end if
+    body = ""
     fetchMs = span.TotalMilliseconds()
 
     ' Shelf order and titles come from featured.json, which is the same
@@ -112,11 +137,14 @@ sub run()
     topRated = []
     pdDay = []
     heroCand = []
-    ' Public Domain Day: the films entering the US public domain THIS year, which
-    ' is the current year minus 95. Derived from the index rather than curated,
-    ' so it is right on the 1st of January without anyone editing a file.
+    ' Public Domain Day: the films that entered the US public domain on the 1st
+    ' of January THIS year — a work's term runs through the end of its 95th
+    ' year, so on 1 January 2026 the works of 1930 arrived (Decision 137:
+    ' the calendar, never a literal year). This was "minus 95", a year early:
+    ' the shelf held films still under copyright. Derived from the index, so
+    ' it is right on the 1st of January without anyone editing a file.
     dt = CreateObject("roDateTime")
-    pdYear = dt.GetYear() - 95
+    pdYear = dt.GetYear() - 96
     ' Tonight (ROKU-DESIGN §6.1e): the index's rule-picked film for this LOCAL
     ' date leads the hero, the same one every platform shows today.
     lt = CreateObject("roDateTime")
@@ -291,7 +319,7 @@ sub run()
     ' Top Rated and Public Domain Day, both from the same single pass.
     topRated.SortBy("s", "r")
     addRankedRow(root, "Top Rated", topRated, 20)
-    addPlainRow(root, "Public Domain Day " + fmt(pdYear + 95), pdDay)
+    addPlainRow(root, "Public Domain Day " + fmt(pdYear + 96), pdDay)
 
     ' Director shelves, from index column 12 (schema 10). Built in the SAME
     ' pass that already walked every row — a second walk to count directors
@@ -558,6 +586,7 @@ function prettyType(t as String) as String
     if t = "documentary" then return "Documentary"
     if t = "ephemeral" then return "Ephemeral"
     if t = "commercial" then return "Commercial"
+    if t = "home-movie" then return "Home Movie"
     return t
 end function
 

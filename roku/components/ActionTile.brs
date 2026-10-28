@@ -25,11 +25,14 @@ sub init()
     m.sub.font = m.t.uMeta : m.sub.color = m.t.textSec
     m.sub.translation = [30, 114] : m.sub.width = 468
     m.sub.maxLines = 1 : m.sub.ellipsizeOnBoundary = true
+    if m.top.itemContent <> invalid then onContent()
+    onFocus()
 end sub
 
 sub onContent()
     c = m.top.itemContent
     if c = invalid then return
+    if m.label = invalid or m.sub = invalid or m.rule = invalid then return
     m.label.text = c.title
     m.sub.text = c.SHORTDESCRIPTIONLINE1
     if c.SHORTDESCRIPTIONLINE2 <> invalid and c.SHORTDESCRIPTIONLINE2 <> ""
@@ -38,6 +41,7 @@ sub onContent()
 end sub
 
 sub onFocus()
+    if m.plate = invalid or m.frame = invalid then return
     lit = (m.top.focusPercent > 0.5)
     if lit then m.plate.color = "0x26262EFF" else m.plate.color = "0x1C1C22FF"
     AWFramePlace(m.frame, m.plate, lit)

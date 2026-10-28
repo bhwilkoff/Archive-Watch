@@ -197,7 +197,7 @@ struct DownloadSheet: View {
         } header: {
             Text("Choose a copy")
         } footer: {
-            Text("Downloads use wifi only unless you turn on cellular downloads in Settings.")
+            Text("Downloads use Wi-Fi only unless you turn on cellular downloads in Settings.")
         }
     }
 

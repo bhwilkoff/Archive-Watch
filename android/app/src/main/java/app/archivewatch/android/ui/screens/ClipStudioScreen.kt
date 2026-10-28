@@ -800,10 +800,15 @@ private fun ResultPhase(
             }
         }
         Row(Modifier.fillMaxWidth(), horizontalArrangement = Arrangement.spacedBy(12.dp)) {
-            OutlinedButton(onClick = onSave, enabled = !saved, modifier = Modifier.weight(1f)) {
-                Icon(Icons.Default.Download, contentDescription = null)
-                Spacer(Modifier.width(8.dp))
-                Text(if (saved) "Saved" else "Save")
+            // Below Android 10 a MediaStore insert into shared storage needs
+            // WRITE_EXTERNAL_STORAGE, which the app does not hold, so Save
+            // would always fail there; Share still hands the file on.
+            if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.Q) {
+                OutlinedButton(onClick = onSave, enabled = !saved, modifier = Modifier.weight(1f)) {
+                    Icon(Icons.Default.Download, contentDescription = null)
+                    Spacer(Modifier.width(8.dp))
+                    Text(if (saved) "Saved" else "Save")
+                }
             }
             Button(onClick = onShare, modifier = Modifier.weight(1f)) {
                 Icon(Icons.Default.Share, contentDescription = null)

@@ -358,10 +358,19 @@ struct RootView: View {
             router.homePath.append(item)
         }
         if let item = store.dbItem(id) { land(item); return }
+        // Wait for the CATALOG, not for a fixed time: a cold launch on a slow
+        // link can take far longer than five seconds to swap the full DB in.
+        // Each swap bumps dbGeneration; give up once the full catalog is open
+        // and still has no such title, or after two minutes.
         Task {
-            for _ in 0..<25 {
+            var seen = store.dbGeneration
+            for _ in 0..<600 {
                 try? await Task.sleep(for: .milliseconds(200))
+                guard store.dbGeneration != seen else { continue }
+                seen = store.dbGeneration
                 if let item = store.dbItem(id) { land(item); return }
+                let onSeed = store.dbPath.map { $0.hasSuffix("/seed.sqlite") } ?? true
+                if !onSeed { return }
             }
         }
     }

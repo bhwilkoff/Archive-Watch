@@ -81,9 +81,13 @@ struct SeriesDetailView: View {
 
     @ViewBuilder private var stackedHeader: some View {
         VStack(alignment: .leading, spacing: 16) {
-            PosterImage(url: artURL)
-                .aspectRatio(16/9, contentMode: .fill)
-                .frame(maxWidth: .infinity).frame(height: 220).clipped()
+            // The art is a BACKGROUND of a sized clear frame: a fill-mode
+            // image inside frame(maxWidth: .infinity) reports its cover size
+            // and drags the column off both edges (DetailHero's trap).
+            Color.clear
+                .frame(maxWidth: .infinity).frame(height: 220)
+                .background { PosterImage(url: artURL) }
+                .clipped()
             VStack(alignment: .leading, spacing: 12) { identityColumn }
                 .frame(maxWidth: hSize == .regular ? 700 : .infinity, alignment: .leading)
                 .padding(.horizontal)
@@ -99,9 +103,9 @@ struct SeriesDetailView: View {
                 if hSize == .regular {
                     ViewThatFits(in: .horizontal) {
                         HStack(alignment: .top, spacing: 28) {
-                            PosterImage(url: artURL)
-                                .aspectRatio(16/9, contentMode: .fill)
-                                .frame(width: 460, height: 259).clipped()
+                            Color.clear
+                                .frame(width: 460, height: 259)
+                                .background { PosterImage(url: artURL) }
                                 .clipShape(.rect(cornerRadius: 12))
                             VStack(alignment: .leading, spacing: 12) { identityColumn }
                                 .frame(minWidth: 360, maxWidth: 520, alignment: .leading)
@@ -117,6 +121,16 @@ struct SeriesDetailView: View {
                 VStack(alignment: .leading, spacing: 12) {
                     if loading {
                         ProgressView().frame(maxWidth: .infinity).padding(.vertical, 24)
+                    } else if series == nil {
+                        // Nothing came back, from the network or the cache:
+                        // a failed fetch, not a show without episodes.
+                        ContentUnavailableView {
+                            Label("Couldn't load episodes", systemImage: "wifi.exclamationmark")
+                        } actions: {
+                            Button("Retry") { Task { await load() } }
+                                .buttonStyle(.bordered)
+                        }
+                        .frame(maxWidth: .infinity).padding(.vertical, 16)
                     } else if shownEpisodes.isEmpty {
                         ContentUnavailableView("No episodes yet", systemImage: "tv",
                             description: Text("This series is in the catalog, but no playable episodes have been matched yet."))
@@ -160,6 +174,7 @@ struct SeriesDetailView: View {
     }
 
     private func load() async {
+        loading = true
         // Series cards use "series:<slug>" as their archiveID, but the per-series
         // JSON lives at /series/<slug>.json. Use the clean seriesID; strip the
         // "series:" prefix as a fallback (matches the tvOS SeriesDetailView).
@@ -174,11 +189,13 @@ struct SeriesDetailView: View {
     private func toggleFavorite() {
         if let f = favorites.first(where: { $0.archiveID == card.archiveID }) {
             modelContext.delete(f)
+            // A tombstone, or the next pull brings the favorite back.
+            SyncNudge.recordDeletion("fav:\(card.archiveID)", in: modelContext)
         } else {
             modelContext.insert(Favorite(archiveID: card.archiveID))
+            try? modelContext.save()
+            SyncNudge.nudge(modelContext)
         }
-        try? modelContext.save()
-        SyncNudge.nudge(modelContext)
     }
 
     /// The series page on archivewatch.org (slugs can be non-ASCII — encode).
@@ -262,46 +279,68 @@ struct SeriesDetailView: View {
 // so the chevrons live in a small overlay capsule; switching recreates the player
 // via .id, and each episode keeps its own resume position. Auto-advance (binge)
 // reports back through onAdvance so the chevrons stay anchored to what's playing.
-private struct EpisodePlayerContainer: View {
+struct EpisodePlayerContainer: View {
     let series: Series?
+    /// Where the FIRST episode starts (a scene from its Detail), and the
+    /// caption type chosen there; a chevron or a binge advance starts fresh.
+    var startAt: TimeInterval? = nil
+    var captionChoice: CaptionPlaybackChoice? = nil
+    var onUnplayable: ((String) -> Void)? = nil
     @State private var episode: Episode
+    @State private var firstID: String
+    @State private var handle = PlayerHandle()
 
-    init(start: Episode, in series: Series?) {
+    init(start: Episode, in series: Series?, startAt: TimeInterval? = nil,
+         captionChoice: CaptionPlaybackChoice? = nil,
+         onUnplayable: ((String) -> Void)? = nil) {
         self.series = series
+        self.startAt = startAt
+        self.captionChoice = captionChoice
+        self.onUnplayable = onUnplayable
         _episode = State(initialValue: start)
+        _firstID = State(initialValue: start.archiveID)
     }
 
     private var prev: Episode? { series?.episode(before: episode) }
     private var next: Episode? { series?.episode(after: episode) }
 
     var body: some View {
-        PlayerView(episode: episode, in: series) { advancedID in
+        let isFirst = episode.archiveID == firstID
+        PlayerView(episode: episode, in: series,
+                   startAt: isFirst ? startAt : nil,
+                   captionChoice: isFirst ? captionChoice : nil,
+                   onUnplayable: onUnplayable) { advancedID in
             if let e = series?.flatEpisodes.first(where: { $0.archiveID == advancedID }) {
+                firstID = ""
                 episode = e
             }
         }
+        .controlled(by: handle)
         .id(episode.archiveID)
         .overlay(alignment: .topTrailing) {
-            if series != nil, prev != nil || next != nil {
-                HStack(spacing: 18) {
-                    Button { if let p = prev { episode = p } } label: {
-                        Image(systemName: "backward.end.fill")
+            HStack(spacing: 10) {
+                CaptionChoiceCapsule(handle: handle)
+                if series != nil, prev != nil || next != nil {
+                    HStack(spacing: 18) {
+                        Button { if let p = prev { firstID = ""; episode = p } } label: {
+                            Image(systemName: "backward.end.fill")
+                        }
+                        .disabled(prev == nil)
+                        if let n = episode.numberLabel {
+                            Text(n).font(.caption.weight(.semibold)).foregroundStyle(.white)
+                        }
+                        Button { if let n = next { firstID = ""; episode = n } } label: {
+                            Image(systemName: "forward.end.fill")
+                        }
+                        .disabled(next == nil)
                     }
-                    .disabled(prev == nil)
-                    if let n = episode.numberLabel {
-                        Text(n).font(.caption.weight(.semibold)).foregroundStyle(.white)
-                    }
-                    Button { if let n = next { episode = n } } label: {
-                        Image(systemName: "forward.end.fill")
-                    }
-                    .disabled(next == nil)
+                    .font(.body)
+                    .tint(.white)
+                    .padding(.horizontal, 14).padding(.vertical, 8)
+                    .background(.black.opacity(0.45), in: .capsule)
                 }
-                .font(.body)
-                .tint(.white)
-                .padding(.horizontal, 14).padding(.vertical, 8)
-                .background(.black.opacity(0.45), in: .capsule)
-                .padding(.top, 8).padding(.trailing, 16)
             }
+            .padding(.top, 8).padding(.trailing, 16)
         }
     }
 }

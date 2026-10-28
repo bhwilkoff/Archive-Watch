@@ -32,7 +32,6 @@ import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import app.archivewatch.android.app.AppContainer
-import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.ui.EmptyState
 import app.archivewatch.android.ui.LoadingBox
 import app.archivewatch.android.ui.Nav
@@ -67,8 +66,9 @@ fun SharedListScreen(
     val userChanges by container.userState.changes.collectAsState()
     val scope = rememberCoroutineScope()
 
-    val items by produceState<List<CatalogItem>?>(null, dbVersion) {
-        value = container.catalog.awaitDb().itemsByIDs(archiveIDs)
+    val resolved by produceState<app.archivewatch.android.ui.ResolvedList?>(null, dbVersion) {
+        value = app.archivewatch.android.ui.resolveListRows(
+            archiveIDs, container.catalog.awaitDb().itemsByIDsKeyed(archiveIDs))
     }
 
     // Matched on CONTENTS, not name: the same collection sent under two names
@@ -109,7 +109,7 @@ fun SharedListScreen(
         },
         containerColor = MaterialTheme.colorScheme.background,
     ) { padding ->
-        val rows = items
+        val rows = resolved?.rows
         when {
             rows == null -> LoadingBox(Modifier.padding(padding))
             rows.isEmpty() -> Box(Modifier.padding(padding)) {
@@ -121,10 +121,10 @@ fun SharedListScreen(
                 // viewer are looking at different collections and neither can
                 // tell. Every other platform says this; leaving it off here
                 // would have made Android the one that quietly lies.
-                val missing = archiveIDs.size - rows.size
+                val missing = resolved?.missing ?: 0
                 Text(
                     if (missing > 0)
-                        "Shared playlist · ${rows.size} of ${archiveIDs.size} titles — " +
+                        "Shared playlist · ${rows.size} of ${rows.size + missing} titles — " +
                             "$missing ${if (missing == 1) "is" else "are"} no longer in the catalog."
                     else "Shared playlist · ${rows.size} ${if (rows.size == 1) "title" else "titles"}",
                     style = MaterialTheme.typography.bodyMedium,

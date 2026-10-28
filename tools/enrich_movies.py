@@ -147,7 +147,8 @@ def main():
             return (it, None, "skip")
         try:
             if source == "tmdb":
-                return (it, T.resolve(q, it.get("year"), tmdb, sess()), "ok")
+                return (it, T.resolve(q, it.get("year"), tmdb, sess(),
+                                      file_runtime_s=O._file_runtime(it)), "ok")
             return (it, O.fetch_omdb_full(key, sess(), title=q, year=it.get("year")), "ok")
         except RuntimeError:
             return (it, None, "fatal")   # auth/quota — stop after this chunk
@@ -179,7 +180,10 @@ def main():
             if status == "fatal":
                 stop = True
                 continue
-            if not rec or rec.get("omdb_type") == "episode":
+            # A searched record that fails the identity test (years more than
+            # two apart; a yearless item whose title or runtime disagrees) is a
+            # miss, so apply_rich cannot take its poster either.
+            if not rec or rec.get("omdb_type") == "episode" or not O.plausible_identity(it, rec):
                 cache[it["archiveID"]] = {"imdb_id": None, "fetched_at": now}
                 continue
             hits += 1

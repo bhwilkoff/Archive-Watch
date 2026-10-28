@@ -62,7 +62,9 @@ sub run()
     ' Record order (build_web_details.py): url, synopsis, director, cast,
     ' genres, runtimeSeconds, backdrop, captions, community, extras.
     r = shard[aid]
-    d = {}
+    ' The id travels with the record, so the Scene can tell this reply from
+    ' one to a request it has since replaced.
+    d = { id: aid }
     if r.Count() > 0 then d.url = r[0]
     if r.Count() > 1 then d.synopsis = r[1]
     if r.Count() > 2 then d.director = r[2]

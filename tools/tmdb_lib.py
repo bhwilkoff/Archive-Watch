@@ -48,9 +48,40 @@ def _headers(token):
             "accept": "application/json"}
 
 
-def search_movie(title, year, token, session, *, timeout=20):
+# A title search with no year is how "Silence" (a 19-second clip) became
+# Scorsese's 2016 film and a 14-minute Prelinger reel became Ivan Reitman's
+# Evolution (2001): with nothing to disambiguate, the most popular film of that
+# name wins. So a yearless search is accepted only when the title is EXACT and
+# the film's own runtime agrees with the file's, and a dated search never takes
+# a film released more than MAX_YEAR_GAP years from the item's year.
+MAX_YEAR_GAP = 2
+YEARLESS_RUNTIME_TOLERANCE = 0.25
+
+
+def year_gap_ok(year, release_year):
+    """False only when both years are known and further apart than MAX_YEAR_GAP."""
+    if not year or not release_year:
+        return True
+    return abs(int(release_year) - int(year)) <= MAX_YEAR_GAP
+
+
+def runtime_agrees(runtime_min, file_runtime_s, tol=YEARLESS_RUNTIME_TOLERANCE):
+    """The film's runtime (minutes) is within `tol` of the file's (seconds)."""
+    if not runtime_min or not file_runtime_s:
+        return False
+    film = runtime_min * 60.0
+    return abs(file_runtime_s - film) <= tol * film
+
+
+def search_movie(title, year, token, session, *, timeout=20, file_runtime_s=None,
+                 trust_yearless=False):
     """Return the best-matching TMDb movie id for title+year, or None.
-    Guards against wrong matches with a title-similarity floor."""
+    Guards against wrong matches with a title-similarity floor.
+
+    With no year, abstains unless exactly one result has the exact title and
+    its runtime is within 25% of `file_runtime_s`. `trust_yearless=True` is for
+    a caller that verifies the result by evidence of its own (cast overlap) and
+    keeps the old behavior."""
     params = {"query": title, "include_adult": "false"}
     if year:
         params["year"] = str(year)
@@ -78,9 +109,23 @@ def search_movie(title, year, token, session, *, timeout=20):
         pop = min(0.1, (m.get("popularity") or 0) / 1000.0)
         return sim + ybonus + pop
 
+    if not year and not trust_yearless:
+        exact = [m for m in results
+                 if want and want in (_norm(m.get("title")), _norm(m.get("original_title")))]
+        if len(exact) != 1 or not file_runtime_s:
+            return None
+        d = session.get(f"{TMDB_API}/movie/{exact[0].get('id')}",
+                        headers=_headers(token), timeout=timeout)
+        if not d.ok or not runtime_agrees((d.json() or {}).get("runtime"), file_runtime_s):
+            return None
+        return exact[0].get("id")
+
     best = max(results, key=score)
     best_norm = _norm(best.get("title") or best.get("original_title"))
     if difflib.SequenceMatcher(None, want, best_norm).ratio() < 0.6:
+        return None
+    rd = (best.get("release_date") or "")[:4]
+    if year and rd.isdigit() and not year_gap_ok(year, int(rd)):
         return None
     # Abstain on ambiguity (Decision 026): if >=2 results share the winning
     # normalized title within the ±2yr window, a common title can't be
@@ -150,9 +195,12 @@ def find_by_imdb(imdb_id, token, session, *, timeout=20):
     return mr[0]["id"] if mr else None
 
 
-def resolve(title, year, token, session):
+def resolve(title, year, token, session, *, file_runtime_s=None):
     """title+year -> normalized detail record, or None."""
-    mid = search_movie(title, year, token, session)
+    mid = search_movie(title, year, token, session, file_runtime_s=file_runtime_s)
     if not mid:
         return None
-    return movie_detail(mid, token, session)
+    rec = movie_detail(mid, token, session)
+    if rec and not year_gap_ok(year, rec.get("year")):
+        return None
+    return rec

@@ -177,9 +177,10 @@
   function stripTags(s) {
     // Archive descriptions sometimes contain HTML. Render text only,
     // so a stray <script> or weird formatting can't bleed through.
-    const d = document.createElement('div');
-    d.innerHTML = String(s);
-    return escHtml(d.textContent || '');
+    // Parsed into an INERT document: innerHTML on an element of this page
+    // runs the markup's handlers even while detached (<img onerror=…>).
+    const doc = new DOMParser().parseFromString(String(s), 'text/html');
+    return escHtml(doc.body.textContent || '');
   }
 
   let toastTimer = null;

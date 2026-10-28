@@ -16,16 +16,19 @@ struct HomeView: View {
     // Stable per-Home-lifetime seed so the hero pool doesn't reshuffle on every reload tick.
     @State private var heroSeed = UInt64.random(in: 0..<UInt64.max)
 
-    private let pdYear = Calendar.current.component(.year, from: Date()) - 95
+    // Decision 137: this year's class is the newest year in the public domain.
+    private let pdYear = StudioRights.lastPublicDomainYear()
     // A shelf needs this many professional-art items (after cross-shelf dedup) to earn a row.
     // Matches the tvOS `minPerShelf` so a thin/redundant shelf HIDES (parity: on Apple TV the
     // overlapping community shelves end up empty after dedup, so they don't appear).
     private let minPerShelf = 9
 
-    private var continueItems: [Catalog.Item] {
+    @State private var continueItems: [Catalog.Item] = []
+    /// A title with no designed art still continues: PosterCard draws its
+    /// typographic card, and dropping it lost the viewer's place on Home.
+    private var continueIDs: [String] {
         if Showcase.isOn { return [] }
-        return store.itemsByIDs(progress.filter { !$0.isComplete && $0.positionSeconds > 2 }
-            .prefix(12).map(\.archiveID)).filter(\.hasProfessionalArtwork)
+        return progress.filter { !$0.isComplete && $0.positionSeconds > 2 }.prefix(12).map(\.archiveID)
     }
 
     var body: some View {
@@ -44,7 +47,10 @@ struct HomeView: View {
             .padding(24)
         }
         .navigationTitle("Home")
-        .task(id: store.dbVersion) { reload() }
+        .task(id: "\(store.dbVersion)|\(continueIDs.joined(separator: ","))") {
+            continueItems = store.itemsByIDs(continueIDs)
+            reload()
+        }
         .task {
             if !Showcase.isOn, let id = await Tonight.load() {
                 heroItems = Tonight.lead(heroItems, with: store.item(id))
@@ -87,6 +93,18 @@ struct HomeView: View {
         continueItems.forEach { used.insert($0.dedupKey) }   // don't resurface Continue Watching
 
         var built: [HomeShelf] = []
+        // Curated shelves are deduplicated on light rows and only the films
+        // shown are decoded (CatalogDB.shelfKeys, as tvOS does).
+        func addKeys(_ id: String, _ title: String, _ keys: [CatalogDB.ShelfKey]) {
+            let fresh = keys.filter { !used.contains($0.dedupKey) && !hidden.contains($0.id) }
+            var seen = Set<String>()
+            let ids = fresh.filter { seen.insert($0.dedupKey).inserted }.prefix(24).map(\.id)
+            guard ids.count >= minPerShelf else { return }
+            let taken = store.itemsByIDs(Array(ids))
+            guard taken.count >= minPerShelf else { return }
+            taken.forEach { used.insert($0.dedupKey) }
+            built.append(HomeShelf(id: id, title: title, items: taken))
+        }
         func add(_ id: String, _ title: String, _ pool: [Catalog.Item], accent: Color = .primary) {
             let fresh = store.filteringWatched(pool)
                 .filter { $0.hasProfessionalArtwork && !used.contains($0.dedupKey) }
@@ -97,8 +115,10 @@ struct HomeView: View {
         }
 
         // Curated shelves in the CANONICAL Apple-TV order (Featured.homeShelfPriority), not file order.
-        for shelf in (store.featured?.orderedHomeShelves ?? []) { add(shelf.id, shelf.title, store.items(forShelf: shelf.id,
-                                                   allowStandaloneTV: shelf.isTV)) }
+        for shelf in (store.featured?.orderedHomeShelves ?? []) {
+            addKeys(shelf.id, shelf.title,
+                    store.db?.shelfKeys(shelf.id, allowStandaloneTV: shelf.isTV) ?? [])
+        }
         // Then the dynamic shelves, in tvOS order.
         add("public-domain-day", "Public Domain Day", store.browse(year: pdYear, sort: .popular, limit: 120).filter(\.isRecommendable))
         add("top-rated", "Top Rated", store.topRated(), accent: .orange)

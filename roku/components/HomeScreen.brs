@@ -195,7 +195,12 @@ end sub
 
 sub onRows()
     if m.top.rowsContent = invalid then return
+    ' A repaint (Continue Watching after a film, the user items resolving)
+    ' sent the RowList back to its first tile; the viewer returns to the row
+    ' they were in, found by its title, since the lead row comes and goes.
+    was = AWRowFocusBefore(m.rows)
     m.rows.content = m.top.rowsContent
+    AWRowFocusRestore(m.rows, was)
 end sub
 
 sub onHero()
@@ -527,8 +532,10 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
             if m.heroId <> invalid and m.heroId <> ""
                 print "AWROKU hero-select id="; m.heroId
                 m.top.chosen = m.heroId
+                return true
             end if
-            return true
+            ' Nothing to open: Home never loaded. The Scene's OK asks again.
+            return false
         end if
         return false
     end if

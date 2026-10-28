@@ -31,6 +31,12 @@ def css_problems(name, s):
             out.append(f'{name}: color-mix() outside @supports (Chromium 111)')
     if re.search(r'overflow\s*:\s*clip', s) and not re.search(r'@supports\s*\(overflow:\s*clip\)', s):
         out.append(f'{name}: overflow: clip outside @supports (Chromium 90)')
+    # aspect-ratio is Chromium 88: an EMPTY box sized only by it (the
+    # typographic placeholder card) collapses on a 2022 Samsung, so it needs
+    # an @supports not (aspect-ratio) fallback that names it.
+    if (re.search(r'\.card-ph\s*\{[^}]*aspect-ratio', s)
+            and not re.search(r'@supports\s+not\s*\(\s*aspect-ratio[^{]*\{[^@]*?\.card-ph', s)):
+        out.append(f'{name}: .card-ph sized by aspect-ratio with no @supports not (aspect-ratio) fallback (Chromium 88)')
     return out
 
 def js_problems():
@@ -51,7 +57,8 @@ def main():
         probs += css_problems(f, (ROOT / f).read_text())
     # control: each planted feature must be caught
     plants = ['.a{inset:0}', '.a{padding-inline:4px}', '.a:focus-visible,.b{x:1}',
-              '.a{background:color-mix(in srgb,red 5%,blue)}', '.a{overflow:clip}']
+              '.a{background:color-mix(in srgb,red 5%,blue)}', '.a{overflow:clip}',
+              '.card-ph{width:100%;aspect-ratio:2/3}']
     missed = [p for p in plants if not css_problems('control.css', p)]
     if missed:
         print('FAIL control: these plants went undetected:', missed); return 1

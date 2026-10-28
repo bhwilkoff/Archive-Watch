@@ -23,6 +23,12 @@ on:
 concurrency:
   group: catalog-writers
   cancel-in-progress: false
+# Every `run:` is `bash -eo pipefail` (GitHub's explicit `shell: bash`;
+# the implicit default has no pipefail, so `tool | tee log` hid a crash).
+defaults:
+  run:
+    shell: bash
+
 jobs:
   match:
     runs-on: ubuntu-latest
@@ -44,7 +50,8 @@ jobs:
           OMDB_KEY: ${{ secrets.OMDB_KEY }}
         run: |
           if [ -z "$TMDB_BEARER_TOKEN" ]; then echo "no token — skip"; echo "changed=false" >>"$GITHUB_OUTPUT"; exit 0; fi
-          python tools/match_unmatched.py ${{ github.event.inputs.limit != '0' && format('--limit {0}', github.event.inputs.limit) || '' }} | tee m.log
+          python tools/match_unmatched.py ${{ github.event.inputs.limit != '0' && format('--limit {0}', github.event.inputs.limit) || '' }} | tee m.log \
+            || echo "::warning::match_unmatched exited non-zero — publishing what it matched (read the log above)"
           grep -qE 'DONE tmdb=0 omdb=0 wikidata=0 ' m.log && echo "changed=false" >>"$GITHUB_OUTPUT" || echo "changed=true" >>"$GITHUB_OUTPUT"
           echo "## Match unmatched"; echo '```' >>"$GITHUB_STEP_SUMMARY"; tail -3 m.log >>"$GITHUB_STEP_SUMMARY"; echo '```' >>"$GITHUB_STEP_SUMMARY"
       - name: Publish + rebuild

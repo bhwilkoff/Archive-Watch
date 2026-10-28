@@ -32,7 +32,8 @@ struct FavoritesView: View {
     // again when the user returned — `items` stayed []. Deriving it live fixes that.
     private var items: [Catalog.Item] {
         _ = store.dbGeneration
-        return store.dbItemsByIDs(favorites.map(\.archiveID))
+        // One tile per title, even when a merge left it saved under two ids.
+        return store.dbStoredItems(favorites.map(\.archiveID)).map(\.item)
     }
 
     private let cols = Array(repeating: GridItem(.fixed(210), spacing: 24), count: 6)

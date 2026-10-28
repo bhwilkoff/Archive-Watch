@@ -7,6 +7,23 @@ import SwiftData
 // because it names a file on this Mac (iOS-DESIGN §9.7, Decision 099).
 // archiveIDs resolve to items via the shared store.
 
+/// A saved id and the card it resolves to. A merged-away copy resolves to its
+/// survivor (Decision 085), so the card's id is not always the saved one, and a
+/// removal must use the saved one.
+struct LibraryEntry {
+    let storedID: String
+    let item: Catalog.Item
+}
+
+/// The shelves the Library draws, resolved once per change rather than every
+/// redraw.
+private struct LibraryShelves {
+    var continueWatching: [LibraryEntry] = []
+    var favorites: [LibraryEntry] = []
+    var history: [LibraryEntry] = []
+    var playlists: [String: [LibraryEntry]] = [:]
+}
+
 struct LibraryView: View {
     @Environment(AppStore.self) private var store
     @Query(sort: \WatchProgress.lastWatchedAt, order: .reverse) private var progress: [WatchProgress]
@@ -17,33 +34,56 @@ struct LibraryView: View {
     @State private var renaming: Playlist?
     @State private var showRename = false   // the target outlives the dialog (iOS LibraryView)
     @State private var newName = ""
-    @Query(sort: \DownloadedFilm.addedAt, order: .reverse) private var downloads: [DownloadedFilm]
-    @Environment(AppRouter.self) private var router
+    @Query private var downloads: [DownloadedFilm]
     @Environment(\.modelContext) private var ctx
     /// The playlist a "Delete Playlist…" is asking about.
     @State private var deleting: Playlist?
     @State private var showDelete = false
+    @State private var shelves = LibraryShelves()
+
+    /// Home's rule (HomeView_macOS.continueIDs), so the two rows agree.
+    private var continueIDs: [String] {
+        progress.filter { !$0.isComplete && $0.positionSeconds > 2 }.map(\.archiveID)
+    }
+
+    private var libraryIsEmpty: Bool {
+        progress.isEmpty && favorites.isEmpty && playlists.isEmpty && downloads.isEmpty
+    }
+
+    /// Everything the shelves are computed from; a change re-resolves them.
+    private var shelfKey: String {
+        [String(store.dbVersion),
+         continueIDs.joined(separator: ","),
+         favorites.map(\.archiveID).joined(separator: ","),
+         progress.map(\.archiveID).joined(separator: ","),
+         playlists.map { $0.id + ":" + $0.archiveIDs.joined(separator: ",") }.joined(separator: ";")]
+            .joined(separator: "|")
+    }
 
     var body: some View {
         ScrollView {
             VStack(alignment: .leading, spacing: 26) {
-                if !downloads.isEmpty { downloadsSection }
-                let continueItems = store.itemsByIDs(progress.filter { !$0.isComplete }.map(\.archiveID))
-                ShelfRow(title: "Continue Watching", items: continueItems)
+                if !downloads.isEmpty { LibraryDownloadsSection() }
+                shelf("Continue Watching", shelves.continueWatching, progress: true)
 
-                let favItems = store.itemsByIDs(favorites.map(\.archiveID))
-                ShelfRow(title: "Favorites", items: favItems)
+                // Kept on screen when empty, so a film can still be dropped on it.
+                shelf("Favorites", shelves.favorites,
+                      emptyText: libraryIsEmpty ? nil
+                          : favorites.isEmpty ? "No favorites yet."
+                          : "These favorites are no longer in the catalog.")
                     // §B15: a film dropped on Favorites is favorited.
                     .dropDestination(for: URL.self) { urls, _ in _ = addFavorites(urls) }
 
                 ForEach(playlists) { pl in
                     let url = PlaylistShare.url(name: pl.name, archiveIDs: pl.archiveIDs)
+                    let entries = shelves.playlists[pl.id] ?? []
                     // SHARE. The playlist travels inside the link (PlaylistShare)
                     // — no account for whoever receives it and nothing hosted by
                     // us. A visible icon beside the shelf title, because a verb
                     // that exists only under right-click cannot be found (the
                     // owner could not find the iOS swipe; same defect here).
-                    ShelfRow(title: pl.name, items: store.itemsByIDs(pl.archiveIDs),
+                    ShelfRow(title: pl.name, items: entries.map(\.item),
+                             storedIDs: Self.storedIDs(entries),
                              emptyText: "Empty playlist") {
                         if let url {
                             ShareLink(item: url) { Image(systemName: "square.and.arrow.up") }
@@ -81,11 +121,9 @@ struct LibraryView: View {
                 // above this holding the completed SUBSET of the same records,
                 // so a finished film appeared in both and the rows could
                 // disagree. Completion is a badge on the tile now.
-                let historyItems = store.itemsByIDs(progress.map(\.archiveID))
-                ShelfRow(title: "History", items: historyItems)
+                shelf("History", shelves.history)
 
-                if continueItems.isEmpty && favItems.isEmpty && playlists.isEmpty
-                    && downloads.isEmpty {
+                if libraryIsEmpty {
                     ContentUnavailableView("Your library is empty",
                                            systemImage: "books.vertical",
                                            description: Text("Favorite a film or start watching to see it here."))
@@ -95,6 +133,7 @@ struct LibraryView: View {
             .padding(24)
         }
         .navigationTitle("Library")
+        .task(id: shelfKey) { resolveShelves() }
         .confirmationDialog("Delete \u{201C}\(deleting?.name ?? "")\u{201D}?",
                             isPresented: $showDelete,
                             titleVisibility: .visible) {
@@ -121,21 +160,61 @@ struct LibraryView: View {
         }
     }
 
-    private func move(_ pl: Playlist, by step: Int) {
-        var ordered = playlists
-        guard let i = ordered.firstIndex(where: { $0.id == pl.id }),
-              ordered.indices.contains(i + step) else { return }
-        ordered.swapAt(i, i + step)
-        Playlist.arrange(ordered)
-        try? ctx.save()
-        SyncNudge.nudge(ctx)
+    private func shelf(_ title: String, _ entries: [LibraryEntry], progress showsProgress: Bool = false,
+                       emptyText: String? = nil) -> some View {
+        let byStored = showsProgress
+            ? Dictionary(progress.map { ($0.archiveID, $0) }, uniquingKeysWith: { a, _ in a }) : [:]
+        var progressByID: [String: WatchProgress] = [:]
+        for e in entries { if let p = byStored[e.storedID] { progressByID[e.item.archiveID] = p } }
+        return ShelfRow(title: title, items: entries.map(\.item), progressByID: progressByID,
+                        storedIDs: Self.storedIDs(entries), emptyText: emptyText)
     }
 
-    // MARK: - Downloads (Decision 099)
+    private static func storedIDs(_ entries: [LibraryEntry]) -> [String: String] {
+        Dictionary(entries.filter { $0.storedID != $0.item.archiveID }
+            .map { ($0.item.archiveID, $0.storedID) }, uniquingKeysWith: { a, _ in a })
+    }
 
-    /// Rows, not a poster shelf: a download has a state and a size, and a shelf
-    /// of artwork can show neither. Kept in the same ScrollView as the shelves
-    /// rather than a List, so the page stays one scrolling surface.
+    private func resolveShelves() {
+        var next = LibraryShelves()
+        next.continueWatching = resolve(continueIDs)
+        next.favorites = resolve(favorites.map(\.archiveID))
+        next.history = resolve(progress.map(\.archiveID))
+        for pl in playlists { next.playlists[pl.id] = resolve(pl.archiveIDs) }
+        shelves = next
+    }
+
+    /// Saved ids paired with the cards they resolve to, in saved order. One
+    /// batch query; only an id that is not a card's own (a merged-away copy)
+    /// is resolved on its own.
+    private func resolve(_ ids: [String]) -> [LibraryEntry] {
+        guard !ids.isEmpty else { return [] }
+        let direct = Dictionary(store.itemsByIDs(ids).map { ($0.archiveID, $0) },
+                                uniquingKeysWith: { a, _ in a })
+        var seen = Set<String>()
+        return ids.compactMap { id -> LibraryEntry? in
+            guard let item = direct[id] ?? store.itemsByIDs([id]).first,
+                  seen.insert(item.archiveID).inserted else { return nil }
+            return LibraryEntry(storedID: id, item: item)
+        }
+    }
+
+    /// Pull first: an order built from a stale copy of the lists would push
+    /// over a rename or a move made on another device a moment ago.
+    private func move(_ pl: Playlist, by step: Int) {
+        let targetID = pl.id
+        Task {
+            await CloudKitSyncService.shared.sync(ctx)
+            var ordered = Playlist.inMyOrder((try? ctx.fetch(FetchDescriptor<Playlist>())) ?? [])
+            guard let i = ordered.firstIndex(where: { $0.id == targetID }),
+                  ordered.indices.contains(i + step) else { return }
+            ordered.swapAt(i, i + step)
+            Playlist.arrange(ordered)
+            try? ctx.save()
+            SyncNudge.nudge(ctx)
+        }
+    }
+
     private func addFavorites(_ urls: [URL]) -> Bool {
         let have = Set(favorites.map(\.archiveID))
         let ids = urls.compactMap(FilmTransfer.archiveID(from:))
@@ -155,8 +234,19 @@ struct LibraryView: View {
         try? ctx.save()
         return true
     }
+}
 
-    @ViewBuilder private var downloadsSection: some View {
+// MARK: - Downloads (Decision 099)
+
+/// Rows, not a poster shelf: a download has a state and a size, and a shelf
+/// of artwork can show neither. Its own view, so a transfer's progress
+/// redraws these rows and not every shelf in the Library.
+private struct LibraryDownloadsSection: View {
+    @Environment(AppStore.self) private var store
+    @Environment(AppRouter.self) private var router
+    @Query(sort: \DownloadedFilm.addedAt, order: .reverse) private var downloads: [DownloadedFilm]
+
+    var body: some View {
         VStack(alignment: .leading, spacing: 10) {
             HStack(alignment: .firstTextBaseline) {
                 Text("Downloads").font(.title2.weight(.semibold)).accessibilityAddTraits(.isHeader)

@@ -51,7 +51,12 @@ struct PlayerWindow: View {
                           // projection a show is about to attach to feeds the
                           // program as surely as one already attached.
                           feedsProgram: studio.isLive || studio.armedFilmID == item.archiveID,
-                          startAt: router.playStart)
+                          startAt: router.playStart,
+                          onClose: { router.nowPlaying = nil })
+                // A new film is a new player: without this the surface kept
+                // the old AVPlayer, and its periodic save wrote the old film's
+                // position under the new film's id.
+                .id(item.archiveID)
                 // §B13d: health is pinned over the player, OUTSIDE
                 // AVPlayerView's floating HUD, because the HUD auto-hides and
                 // health may not (WATCH-TOGETHER §4).
@@ -206,7 +211,8 @@ struct EpisodePlayer: View {
             PlayerSurface(archiveID: episode.archiveID,
                           videoURL: episode.videoURLParsed,
                           subtitleHLS: nil,
-                          onEnded: { if let n = next { episode = n } })   // binge auto-advance
+                          onEnded: { if let n = next { episode = n } },   // binge auto-advance
+                          onClose: { router.nowPlayingEpisode = nil })
                 .id(episode.archiveID)
                 .navigationTitle(episode.title)
                 .toolbar {
@@ -260,6 +266,13 @@ struct PlayerSurface: View {
     var feedsProgram: Bool = false
     /// A Scenes frame's second (§B7c); beats the saved resume position.
     var startAt: TimeInterval? = nil
+    /// The error screen's Close. Without one there is no Close: it used to
+    /// call `onEnded`, which autoplayed the next film instead of closing.
+    var onClose: (() -> Void)? = nil
+    /// Publish Controls ▸ for the menu bar. The Studio has its own ⇧⌘Space,
+    /// and Controls ▸ Play/Pause is a bare Space that took the space bar from
+    /// the Studio's text fields.
+    var publishesControls: Bool = true
 
     @Environment(\.modelContext) private var ctx
     @State private var player: AVPlayer?
@@ -286,6 +299,8 @@ struct PlayerSurface: View {
     @State private var loadWatchdog: DispatchWorkItem?
     @State private var loadError: String?
     @State private var liveCaptions: LiveCaptions?
+    /// The engine's line loop, cancelled with the surface.
+    @State private var liveCaptionTask: Task<Void, Never>?
     @State private var liveLine: String = ""
     /// Drives the downloaded-subtitle overlay; cancelled with the window.
     @State private var offlineSubtitleTask: Task<Void, Never>?
@@ -318,7 +333,9 @@ struct PlayerSurface: View {
                     Text(loadError)
                         .font(.callout).foregroundStyle(.secondary)
                         .multilineTextAlignment(.center).frame(maxWidth: 420)
-                    Button("Close") { onEnded?() }.keyboardShortcut(.defaultAction)
+                    if let onClose {
+                        Button("Close", action: onClose).keyboardShortcut(.defaultAction)
+                    }
                 }
                 .foregroundStyle(.white)
             } else if let player {
@@ -352,7 +369,8 @@ struct PlayerSurface: View {
         .onAppear(perform: setup)
         .onDisappear(perform: teardown)
         // Controls ▸ (Rule B14).
-        .focusedSceneValue(\.playbackControls, player.map { PlaybackControls(player: $0) })
+        .focusedSceneValue(\.playbackControls,
+                           publishesControls ? player.map { PlaybackControls(player: $0) } : nil)
     }
 
     private func setup() {
@@ -633,7 +651,7 @@ struct PlayerSurface: View {
 
         timeObserver = p.addPeriodicTimeObserver(
             forInterval: CMTime(seconds: 5, preferredTimescale: 1), queue: .main) { _ in
-            MainActor.assumeIsolated { persist() }
+            MainActor.assumeIsolated { persist(periodic: true) }
         }
     }
 
@@ -801,7 +819,8 @@ struct PlayerSurface: View {
         // the copy on disk works with no network, the remote one does not.
         guard liveCaptions == nil, LiveCaptions.isSupported,
               let src = source ?? videoURL else { return }
-        Task { @MainActor in
+        liveCaptionTask?.cancel()
+        liveCaptionTask = Task { @MainActor in
             // From macOS 27 the system captions this film itself; ours would
             // double up on it. But ONLY when the film has no track of its own:
             // `draws == false` means the job is to JUDGE a published track
@@ -809,10 +828,11 @@ struct PlayerSurface: View {
             // on every 27 device — the published track emits text, handOver
             // reports "captioning", and the review never ran.
             if draws, await SystemCaptions.handOver(to: p, directURL: src) { return }
+            guard !Task.isCancelled else { return }
             let lc = LiveCaptions()
             liveCaptions = lc
             await lc.start(url: src, from: p.currentTime())
-            while lc.isRunning, player != nil {
+            while lc.isRunning, player != nil, !Task.isCancelled {
                 let now = p.currentTime()
                 lc.throttle(playhead: now)
                 // Between captions, say why there are none.
@@ -858,6 +878,7 @@ struct PlayerSurface: View {
         resumeObs = nil
         unplayableObs = nil
         loadWatchdog?.cancel(); loadWatchdog = nil
+        liveCaptionTask?.cancel(); liveCaptionTask = nil
         liveCaptions?.stop(); liveCaptions = nil
         offlineSubtitleTask?.cancel(); offlineSubtitleTask = nil
         publishedSubtitleTask?.cancel(); publishedSubtitleTask = nil
@@ -908,7 +929,7 @@ struct PlayerSurface: View {
         return wp.positionSeconds
     }
 
-    private func persist() {
+    private func persist(periodic: Bool = false) {
         guard let p = player, let cur = p.currentItem else { return }
         let pos = p.currentTime().seconds
         // Save even a brief view (>1s) and even before duration is known (backfill it later) — the
@@ -918,7 +939,9 @@ struct PlayerSurface: View {
         let dur = (d0.isFinite && d0 > 0) ? d0 : 0
         // Shared write path — watch-history semantics live in ONE place.
         WatchProgress.record(in: ctx, archiveID: archiveID, position: pos, duration: dur)
-        SyncNudge.nudge(ctx)   // push progress promptly (debounced) so other devices converge fast
+        // The 5-second tick syncs at most once a minute while playing; a pause
+        // or closing the film pushes at once.
+        SyncNudge.nudge(ctx, periodic: periodic && p.rate > 0)
     }
 }
 
@@ -977,6 +1000,11 @@ final class ChannelEngine {
     private var idx = 0
     private var loader: ResilientStreamLoader?   // retained for the asset's lifetime
     private var endObserver: NSObjectProtocol?
+    private var statusObs: NSKeyValueObservation?
+    /// Programs that failed in a row. A dead copy skips to the next program;
+    /// this many in a row means the channel itself cannot be played.
+    private var consecutiveFailures = 0
+    private static let maxConsecutiveFailures = 3
 
     func start(lineup: [Catalog.Item], startOffset: TimeInterval, muted: Bool = false) {
         guard player == nil else { return }   // onAppear can fire more than once
@@ -1000,7 +1028,30 @@ final class ChannelEngine {
         let item = AVPlayerItem(asset: asset)
         item.preferredForwardBufferDuration = 300
         registerEnd(for: item)
+        statusObs = item.observe(\.status, options: [.new]) { [weak self] it, _ in
+            let status = it.status
+            MainActor.assumeIsolated { self?.statusChanged(status) }
+        }
         return item
+    }
+
+    private func statusChanged(_ status: AVPlayerItem.Status) {
+        switch status {
+        case .readyToPlay:
+            consecutiveFailures = 0
+        case .failed:
+            consecutiveFailures += 1
+            if consecutiveFailures >= Self.maxConsecutiveFailures { giveUp(); return }
+            advance()
+            if idx >= items.count { giveUp() }
+        default:
+            break
+        }
+    }
+
+    private func giveUp() {
+        stop()
+        failed = true
     }
 
     private func registerEnd(for item: AVPlayerItem) {
@@ -1028,6 +1079,7 @@ final class ChannelEngine {
 
     func stop() {
         if let e = endObserver { NotificationCenter.default.removeObserver(e); endObserver = nil }
+        statusObs = nil
         player?.pause()
         player = nil
     }

@@ -138,7 +138,7 @@ object DeepLinks {
     val pendingRoute = MutableStateFlow<String?>(null)
     /** DEBUG `--ez aw_mute true`: every player plays at volume 0. */
     @Volatile var forceMute = false
-    /** `--es aw_studio_item <archiveID>` — arm Watch Together Studio on it. */
+    /** DEBUG `--es aw_studio_item <archiveID>` — arm Watch Together Studio on it. */
     val pendingStudioItem = MutableStateFlow<String?>(null)
 
     /**
@@ -161,9 +161,9 @@ object DeepLinks {
      * so `System.getenv` here reads nothing and the feature looks broken on a
      * device while working perfectly in a unit test.
      *
-     * Not DEBUG-gated, unlike the destination: naming a public channel to READ
-     * grants nothing and sends nothing. The destination extra is gated because
-     * it decides where a broadcast GOES.
+     * DEBUG BUILDS ONLY, enforced in `MainActivity`, like the item and the
+     * destination: an exported activity must not let another app arm the
+     * host's Studio.
      */
     val pendingStudioChat = MutableStateFlow<String?>(null)
 

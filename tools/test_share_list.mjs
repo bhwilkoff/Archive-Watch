@@ -64,7 +64,25 @@ if (long) {
 }
 check(ShareList.LIMIT === 50, "the app refuses to share past the measured limit");
 
+// A TELEVISION WITH NO RAW DEFLATE (Chromium 85, Samsung 2022) still shares:
+// the encoder falls back to the '0'-prefixed uncompressed form every decoder
+// already reads. Control: the real CompressionStream gives the compressed form.
+{
+  const real = globalThis.CompressionStream;
+  globalThis.CompressionStream = function () { throw new TypeError("Unsupported compression format: 'deflate-raw'"); };
+  let plain = null;
+  try { plain = await ShareList.encode("Fordy Things", ids); } catch { plain = null; }
+  globalThis.CompressionStream = real;
+  check(plain && plain.startsWith("0") && /^[A-Za-z0-9_-]+$/.test(plain),
+        "no deflate-raw: the link is the uncompressed '0' form", String(plain).slice(0, 30));
+  const round = plain && await ShareList.decode(plain);
+  check(round && JSON.stringify(round.ids) === JSON.stringify(ids) && round.name === "Fordy Things",
+        "...and it decodes to the same list");
+  check(!blob.startsWith("0"), "control: with deflate-raw the link is compressed");
+}
+
 globalThis.location = { origin: "https://archivewatch.org", pathname: "/" };
+globalThis.PAGES_ROOT = new URL("https://archivewatch.org/");
 /* THE SHAPE IS LOAD-BEARING, so it is asserted rather than left to drift.
  * `/list/` is a PATH, and the blob rides the FRAGMENT:
  *   - a browser never sends a fragment to a server, so a shared playlist stays
@@ -78,6 +96,14 @@ globalThis.location = { origin: "https://archivewatch.org", pathname: "/" };
  * permanent and some are already in the wild. */
 check(ShareList.url("ABC") === "https://archivewatch.org/list/#ABC",
       "the share URL is /list/ with the playlist in the fragment", ShareList.url("ABC"));
+// A PACKAGED TV APP runs from file://, whose origin is "null": the link is
+// built from the site root (PAGES_ROOT falls back to archivewatch.org there),
+// never from the page's own origin.
+globalThis.location = { origin: "null", protocol: "file:", pathname: "/index.html" };
+check(ShareList.url("ABC") === "https://archivewatch.org/list/#ABC",
+      "a packaged TV app's link opens archivewatch.org, not null/list/", ShareList.url("ABC"));
+check(`${location.origin}/list/#ABC` !== ShareList.url("ABC"),
+      "control: the old location.origin link is null/list/ there");
 
 // THE PRIVACY RULE. The playlist lives in the URL, so the analytics beacon
 // must never be handed the route verbatim: that would send the whole list to
@@ -88,8 +114,24 @@ globalThis.location = { hash: "#/list/" + blob, pathname: "/" };
 check(awRoute() === "/list",
       "the beacon reports /list and NEVER the playlist blob", awRoute().slice(0, 48));
 globalThis.location = { hash: "#/browse?type=silent-film", pathname: "/" };
-check(awRoute() === "/browse?type=silent-film",
-      "...while every other route is unchanged", awRoute());
+check(awRoute() === "/browse", "a route's query string is never sent", awRoute());
+globalThis.location = { hash: "#/search?q=my%20private%20words", pathname: "/" };
+check(awRoute() === "/search", "...so a search is counted and what was typed is not", awRoute());
+globalThis.location = { hash: "#/together/K7PQ-hog-wild_1930", pathname: "/" };
+check(awRoute() === "/together", "a room code never leaves the browser", awRoute());
+globalThis.location = { hash: "#/item/hog-wild_1930", pathname: "/" };
+check(awRoute() === "/item/hog-wild_1930", "...while a film route is unchanged", awRoute());
+// control: a rule that passes the hash route through as it is would have
+// sent the query and the room code.
+{
+  const verbatim = () => { const h = location.hash.replace(/^#/, ""); return h.startsWith("/list/") ? "/list" : h; };
+  globalThis.location = { hash: "#/search?q=my%20private%20words", pathname: "/" };
+  const a = verbatim();
+  globalThis.location = { hash: "#/together/K7PQ-hog-wild_1930", pathname: "/" };
+  const b = verbatim();
+  check(a.includes("private") && b.includes("K7PQ"),
+        "control: the verbatim route carries the words and the code");
+}
 
 console.log(`\n${pass} passed, ${fail} failed`);
 process.exit(fail ? 1 : 0);

@@ -22,6 +22,12 @@ concurrency:
   group: stock-index            # share with stock-index.yml — both mutate clips.sqlite
   cancel-in-progress: false
 
+# Every `run:` is `bash -eo pipefail` (GitHub's explicit `shell: bash`;
+# the implicit default has no pipefail, so `tool | tee log` hid a crash).
+defaults:
+  run:
+    shell: bash
+
 jobs:
   tag:
     runs-on: ubuntu-latest
@@ -103,7 +109,10 @@ jobs:
         # firing without an alert email (Decision 093).
         if: always() && steps.tag.outcome == 'failure' && steps.restore.outcome == 'success'
         run: |
-          if python3 tools/sqlite_publish_guard.py check clips.sqlite --baseline .stock_baseline.json | grep -q 'changed: none'; then
+          # Read whole, then matched: `guard | grep -q` under pipefail can fail on
+          # SIGPIPE and read as "work was published".
+          guard=$(python3 tools/sqlite_publish_guard.py check clips.sqlite --baseline .stock_baseline.json || true)
+          if grep -q 'changed: none' <<<"$guard"; then
             echo "::error::Tag shots was killed by its backstop timeout and produced NOTHING."
             exit 1
           fi

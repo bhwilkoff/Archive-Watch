@@ -29,6 +29,12 @@ concurrency:
 permissions:
   contents: write
 
+# Every `run:` is `bash -eo pipefail` (GitHub's explicit `shell: bash`;
+# the implicit default has no pipefail, so `tool | tee log` hid a crash).
+defaults:
+  run:
+    shell: bash
+
 jobs:
   delete:
     runs-on: ubuntu-latest

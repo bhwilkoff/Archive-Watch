@@ -6,8 +6,9 @@ import Observation
 // Publish a finished edit to the Internet Archive (Decision 042 Phase 5 / feature #7).
 // archive.org-first because YouTube uploads from an unverified OAuth app are forced Private +
 // 100-user-capped; the Archive is on-brand and accepts the user's own IAS3 ("S3-like") keys.
-// Creates a NEW community item, uploads the exported file, and stamps provenance + a free
-// license — the create→edit→SHARE loop that is the whole point of the Mac app.
+// Creates a NEW community item, uploads the exported file, and stamps provenance — the
+// create→edit→SHARE loop that is the whole point of the Mac app. No license is claimed
+// (Decision 153): an edit of films the apps show is fair use, never a CC0 dedication.
 //
 // The actual upload needs the user's real keys (Settings ▸ Publishing) and creates a public
 // item, so it can't run in CI — but every request (identifier, URL, headers, auth) is built by
@@ -61,7 +62,7 @@ final class PublishService {
     var phase: Phase = .idle
     var hasCredentials: Bool { IAS3Keychain.load() != nil }
 
-    /// One public-domain source that went into the edit, kept so the uploaded item links back to
+    /// One source that went into the edit, kept so the uploaded item links back to
     /// the originals (owner #10) — archivewatch.org (preferred) and the archive.org item page.
     struct Source: Sendable, Hashable {
         let id: String          // archive.org item id == our catalogItemID
@@ -95,14 +96,14 @@ final class PublishService {
     static func metaHeaders(title: String, description: String, sources: [Source]) -> [String: String] {
         var desc = description.isEmpty ? "A fan edit assembled in Archive Watch." : description
         if !sources.isEmpty {
-            // Clickable links back to every public-domain source — archivewatch.org (preferred)
+            // Clickable links back to every source — archivewatch.org (preferred)
             // and the archive.org item. archive.org renders HTML in descriptions; <br> (not "\n")
             // also keeps the value a valid single-line HTTP header.
             let lines = sources.map { s -> String in
                 let name = htmlEscape(s.title.isEmpty ? s.id : s.title)
                 return "<a href=\"\(s.archiveWatchURL)\">\(name)</a> (<a href=\"\(s.archiveOrgURL)\">archive.org</a>)"
             }
-            desc += "<br><br>Sources (public domain):<br>" + lines.joined(separator: "<br>")
+            desc += "<br><br>Sources:<br>" + lines.joined(separator: "<br>")
         }
         var headers: [String: String] = [
             "x-amz-auto-make-bucket": "1",
@@ -110,8 +111,7 @@ final class PublishService {
             "x-archive-meta-collection": "opensource_movies",
             "x-archive-meta-title": title.isEmpty ? "Archive Watch edit" : title,
             "x-archive-meta-creator": "Archive Watch",
-            "x-archive-meta-subject": "Archive Watch; fan edit; public domain; remix",
-            "x-archive-meta-licenseurl": "https://creativecommons.org/publicdomain/zero/1.0/",
+            "x-archive-meta-subject": "Archive Watch; fan edit; fair use; remix",
             "x-archive-meta-description": desc,
             // Point provenance at the first source's archivewatch.org page (preferred), else the app.
             "x-archive-meta-originalurl": sources.first?.archiveWatchURL ?? "https://archivewatch.org",

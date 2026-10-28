@@ -517,3 +517,60 @@ function AWEncodeSpaces(u as String) as String
     end for
     return out
 end function
+
+' Every field of a CatalogService query, at its default, overlaid by `over`.
+' The query fields are one shared record and the service serves the newest
+' queryId, so a request that sets only its own fields inherits whatever the
+' last request left behind (a Wall flag, a genre, a Like spec). Every request
+' writes the whole record in one setFields, in the same render callback as its
+' queryId bump, so the record the service snapshots is always one request.
+function AWQuerySpec(over as Object) as Object
+    q = {
+        qType: "", qScope: "", qDecade: 0, qSort: "popular", qText: "",
+        qGenre: "", qLength: "", qCartoons: false, qParty: false, qWall: false,
+        qCollections: false, qRandomType: "", qCollectionCards: false,
+        qCollection: "", qLike: {}
+    }
+    if over <> invalid
+        for each k in over
+            q[k] = over[k]
+        end for
+    end if
+    return q
+end function
+
+' A RowList jumps to [0, 0] whenever its content is replaced. These two find
+' the row the viewer stood in again, by its title, after a repaint.
+function AWRowFocusBefore(rl as Object) as Object
+    if rl = invalid then return invalid
+    idx = rl.rowItemFocused
+    c = rl.content
+    if idx = invalid or c = invalid then return invalid
+    if idx.Count() < 2 then return invalid
+    row = c.GetChild(idx[0])
+    if row = invalid then return invalid
+    return { title: fmt(row.title), row: idx[0], col: idx[1] }
+end function
+
+sub AWRowFocusRestore(rl as Object, was as Object)
+    if rl = invalid or was = invalid then return
+    c = rl.content
+    if c = invalid then return
+    n = c.GetChildCount()
+    if n = 0 then return
+    r = -1
+    for i = 0 to n - 1
+        if r < 0
+            if fmt(c.GetChild(i).title) = was.title then r = i
+        end if
+    end for
+    if r < 0 then r = was.row
+    if r >= n then r = n - 1
+    if r < 0 then r = 0
+    cols = c.GetChild(r).GetChildCount()
+    col = was.col
+    if col >= cols then col = cols - 1
+    if col < 0 then col = 0
+    if r = 0 and col = 0 then return
+    rl.jumpToRowItem = [r, col]
+end sub

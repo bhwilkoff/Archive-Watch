@@ -411,3 +411,27 @@ fun <T, K> List<T>.uniqueBy(key: (T) -> K): List<T> {
     val seen = HashSet<K>(size)
     return filter { seen.add(key(it)) }
 }
+
+/**
+ * A shared list's ids resolved to the cards it can show. Two ids can name one
+ * card (a merged-away id forwards to its survivor, Decision 085), so the rows
+ * are unique by card, and `missing` counts the requested ids that resolved to
+ * nothing — never the difference between two lists of different shapes.
+ */
+data class ResolvedList(
+    val rows: List<CatalogItem>,
+    val missing: Int,
+    /** Each shown card -> the ids the viewer's records hold for it, so an edit
+     *  made on the card reaches the record (a history removal, an unfavorite). */
+    val stored: Map<String, List<String>> = emptyMap(),
+) {
+    fun storedIDs(item: CatalogItem): List<String> = stored[item.archiveID] ?: listOf(item.archiveID)
+}
+
+fun resolveListRows(ids: List<String>, keyed: Map<String, CatalogItem>): ResolvedList {
+    val distinct = ids.distinct()
+    val rows = distinct.mapNotNull { keyed[it] }.uniqueBy { it.archiveID }
+    val stored = LinkedHashMap<String, MutableList<String>>()
+    for (id in distinct) keyed[id]?.let { stored.getOrPut(it.archiveID) { mutableListOf() }.add(id) }
+    return ResolvedList(rows, distinct.count { keyed[it] == null }, stored)
+}

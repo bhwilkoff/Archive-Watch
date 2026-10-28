@@ -28,6 +28,10 @@ sub init()
             p.translation = [c * (m.tw + gapX), r * (m.th + gapY)]
             ' Decision 097 — fitted, never cropped, even on a wall.
             p.loadDisplayMode = "scaleToFit"
+            ' Decoded at the cell's size. 27 cells swapping three every four
+            ' seconds decoded each poster at its full 780 px (tmdb w780) — the
+            ' largest steady texture load in the channel.
+            p.loadWidth = m.tw : p.loadHeight = m.th
             m.cells.Push(p)
         end for
     end for
@@ -54,7 +58,6 @@ sub init()
     m.frameTick.duration = 1
     m.frameTick.repeat = true
     m.frameTick.ObserveField("fire", "placeFrames")
-    m.frameTick.control = "start"
     m.pool = invalid
     m.slots = []
     m.cursor = 0
@@ -72,6 +75,7 @@ sub showWall(items as Object)
     end for
     m.cursor = m.cells.Count()
     m.swap.control = "start"
+    m.frameTick.control = "start"
 end sub
 
 ' Three tiles every four seconds. Swapping the whole wall at once reads as a
@@ -91,8 +95,12 @@ sub onFocusOn()
     if m.top.focusOn
         m.top.setFocus(true)
         m.swap.control = "start"
+        m.frameTick.control = "start"
     else
+        ' Both timers stop when the wall is left: the frame tick ran from
+        ' init() for the life of the channel, under every other screen.
         m.swap.control = "stop"
+        m.frameTick.control = "stop"
     end if
 end sub
 
@@ -103,6 +111,7 @@ function onKeyEvent(key as String, press as Boolean) as Boolean
     if not m.top.focusOn then return false
     if key = "back"
         m.swap.control = "stop"
+        m.frameTick.control = "stop"
         m.top.exit = true
         return true
     end if

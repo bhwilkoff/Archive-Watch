@@ -25,7 +25,10 @@ sub pollLoop()
         else if room.DoesExist("ended")
             m.top.problem = "No room with that code. It may have ended, or a character may have been misheard."
         else
-            m.top.room = { filmID: room.filmID, position: awRoomExpectedPosition(room), paused: (room.paused = true) }
+            ' The host's COPY travels with the film (SHAREPLAY §11.14).
+            cp = ""
+            if room.copy <> invalid then cp = room.copy
+            m.top.room = { filmID: room.filmID, position: awRoomExpectedPosition(room), paused: (room.paused = true), copy: cp }
         end if
         return
     end if

@@ -148,6 +148,7 @@ struct StudioPlayerContainer: View {
                 layout: $layout, filmGain: $filmGain, micGain: $micGain,
                 filmMuted: $filmMuted, micMuted: $micMuted,
                 card: $card, showLowerThird: $showLowerThird,
+                duckEnabled: $duckEnabled,
                 apply: { await applyControls() }))
     }
 
@@ -556,6 +557,7 @@ private struct StudioBindings: ViewModifier {
     @Binding var micMuted: Bool
     @Binding var card: StudioOverlay.Card?
     @Binding var showLowerThird: Bool
+    @Binding var duckEnabled: Bool
     let apply: () async -> Void
 
     func body(content: Content) -> some View {
@@ -567,6 +569,7 @@ private struct StudioBindings: ViewModifier {
             .onChange(of: micMuted) { _, _ in Task { await apply() } }
             .onChange(of: card) { _, _ in Task { await apply() } }
             .onChange(of: showLowerThird) { _, _ in Task { await apply() } }
+            .onChange(of: duckEnabled) { _, _ in Task { await apply() } }
     }
 }
 #endif

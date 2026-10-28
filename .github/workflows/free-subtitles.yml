@@ -34,6 +34,12 @@ on:
         required: false
         default: 'false'
 
+# Every `run:` is `bash -eo pipefail` (GitHub's explicit `shell: bash`;
+# the implicit default has no pipefail, so `tool | tee log` hid a crash).
+defaults:
+  run:
+    shell: bash
+
 jobs:
   free-subs:
     runs-on: ubuntu-latest
@@ -113,10 +119,12 @@ jobs:
               --limit ${{ github.event.inputs.limit || '2000' }} \
               --sleep 1.5 \
               --max-minutes ${{ github.event.inputs.max_minutes || '110' }} \
-              ${{ github.event.inputs.upgrade == 'true' && '--upgrade' || '' }} | tee -a subs.log
+              ${{ github.event.inputs.upgrade == 'true' && '--upgrade' || '' }} | tee -a subs.log \
+            || echo "::warning::free_subtitles ($P) exited non-zero — the next provider still runs (read the log above)"
             echo "### $P" >> $GITHUB_STEP_SUMMARY
             echo '```' >> $GITHUB_STEP_SUMMARY
-            grep -E "targets|built|no-match|rejected|sync-reject" subs.log | tail -5 >> $GITHUB_STEP_SUMMARY
+            # A provider with no matching lines is not a failed harvest.
+            { grep -E "targets|built|no-match|rejected|sync-reject" subs.log || true; } | tail -5 >> $GITHUB_STEP_SUMMARY
             echo '```' >> $GITHUB_STEP_SUMMARY
           done
 
@@ -253,7 +261,8 @@ jobs:
           LIMIT="${{ github.event.inputs.limit || '2000' }}"
           # One line PER PROVIDER now — the backlog is drained only when every
           # provider is drained, so take the largest, not the first.
-          N=$(grep -oE 'AWSUBS_TARGETS=[0-9]+' subs.log | grep -oE '[0-9]+' | sort -rn | head -1)
+          # No AWSUBS_TARGETS line leaves N empty (handled below), not a pipefail exit.
+          N=$( { grep -oE 'AWSUBS_TARGETS=[0-9]+' subs.log || true; } | grep -oE '[0-9]+' | sort -rn | head -1 || true)
           echo "targets=$N limit=$LIMIT"
           if [ -n "$N" ] && [ "$N" -ge "$LIMIT" ]; then
             echo "Backlog remains (>= one batch) — the daily cron continues the drain."

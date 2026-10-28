@@ -112,7 +112,7 @@ struct ClipBrowserSheet: View {
         if results.isEmpty {
             ContentUnavailableView(query.isEmpty ? "Browse for a clip" : "No clippable results",
                                    systemImage: "magnifyingglass",
-                                   description: Text("Search the public-domain catalog, then mark an in/out point."))
+                                   description: Text("Search the catalog, then mark an in/out point."))
                 .padding(.top, 60)
         } else {
             LazyVGrid(columns: cols, spacing: 16) {
@@ -132,8 +132,8 @@ struct ClipBrowserSheet: View {
             ContentUnavailableView(query.isEmpty ? "Search for stock shots" : "No stock shots",
                 systemImage: "square.grid.3x3",
                 description: Text(query.isEmpty
-                    ? "Type a topic — e.g. “city”, “ocean”, “factory” — to pull candidate shots from across the public-domain archive. Tap one to add it."
-                    : "No clippable public-domain shots matched “\(query)”. Try a broader topic."))
+                    ? "Type a topic — e.g. “city”, “ocean”, “factory” — to pull candidate shots from across the archive. Tap one to add it."
+                    : "No clippable shots matched “\(query)”. Try a broader topic."))
                 .padding(.top, 60)
         } else {
             LazyVGrid(columns: cols, spacing: 16) {

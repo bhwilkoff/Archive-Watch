@@ -1,5 +1,6 @@
 #if os(macOS)
 import SwiftUI
+import SwiftData
 
 // macOS Settings scene: account (CloudKit sync gate), content filter (Decision 012),
 // the REQUIRED TMDb attribution (Decision 007), donate, version.
@@ -7,6 +8,9 @@ import SwiftUI
 struct SettingsView: View {
     @Environment(AppStore.self) private var store
     @Environment(AccountStore.self) private var account
+    @Environment(\.modelContext) private var ctx
+    @State private var showDeleteAccount = false
+    @State private var showRemoveDownloads = false
 
     var body: some View {
         @Bindable var store = store
@@ -15,14 +19,30 @@ struct SettingsView: View {
                 Section("Account") {
                     if account.isSignedIn {
                         LabeledContent("Signed in", value: "iCloud sync on")
-                        Button("Sign Out") { account.signOut() }
+                        // A failing sync must be visible, not swallowed.
+                        if let err = CloudKitSyncService.shared.lastError {
+                            Label(err, systemImage: "exclamationmark.triangle.fill")
+                                .font(.footnote).foregroundStyle(.orange)
+                        } else if let sync = CloudKitSyncService.shared.lastSyncAt {
+                            LabeledContent("Last sync", value: sync.formatted(date: .abbreviated, time: .shortened))
+                        }
+                        HStack {
+                            Button("Sync Now") {
+                                Task { await CloudKitSyncService.shared.sync(ctx) }
+                            }
+                            Button("Sign Out") { account.signOut() }
+                            Spacer()
+                            // App Review 5.1.1(v): account creation requires in-app deletion.
+                            Button("Delete Account…", role: .destructive) { showDeleteAccount = true }
+                        }
                     } else {
                         Text("Sign in to sync favorites, playlists, and progress across your Apple devices.")
                             .foregroundStyle(.secondary)
                         Button("Sign in with Apple") { account.startSignIn() }
-                    }
-                    if let sync = CloudKitSyncService.shared.lastSyncAt {
-                        LabeledContent("Last sync", value: sync.formatted(date: .abbreviated, time: .shortened))
+                        if let err = account.signInError {
+                            Label(err, systemImage: "exclamationmark.triangle.fill")
+                                .font(.footnote).foregroundStyle(.orange)
+                        }
                     }
                 }
                 SubtitleAccountSection()
@@ -33,8 +53,8 @@ struct SettingsView: View {
                     let used = OfflineLibrary.bytesUsed()
                     if used > 0 {
                         LabeledContent("Space used", value: OfflineLibrary.byteText(used))
-                        Button("Remove All Downloads", role: .destructive) {
-                            DownloadManager.shared.removeAll()
+                        Button("Remove All Downloads…", role: .destructive) {
+                            showRemoveDownloads = true
                         }
                         Text("Favorites, playlists and watch history are not affected.")
                             .font(.footnote).foregroundStyle(.secondary)
@@ -92,6 +112,23 @@ struct SettingsView: View {
                 .tabItem { Label("Publishing", systemImage: "square.and.arrow.up") }
         }
         .frame(width: 480, height: 420)
+        .alert("Delete Account?", isPresented: $showDeleteAccount) {
+            Button("Cancel", role: .cancel) { }
+            Button("Delete Account", role: .destructive) {
+                Task {
+                    _ = await CloudKitSyncService.shared.deleteAllCloudData()
+                    account.signOut()
+                }
+            }
+        } message: {
+            Text("This permanently deletes your synced favorites, playlists, and watch "
+                 + "progress from iCloud and signs you out. Titles saved on this Mac stay here.")
+        }
+        .confirmationDialog("Remove all downloads?", isPresented: $showRemoveDownloads) {
+            Button("Remove All Downloads", role: .destructive) { DownloadManager.shared.removeAll() }
+        } message: {
+            Text("Frees \(OfflineLibrary.byteText(OfflineLibrary.bytesUsed())) on this Mac.")
+        }
         // AppKit gives a new window's first text field the focus, which here is the
         // OpenSubtitles username: opening Settings raised the Passwords autofill
         // over the window (with the account's email) and it floated over every tab.
@@ -148,7 +185,7 @@ private struct PublishingSettingsView: View {
             } header: {
                 Text("Internet Archive S3 keys")
             } footer: {
-                Text("Uploaded edits are dedicated to the public domain (CC0) and stamped with their archive.org sources.")
+                Text("Uploaded edits are published as fair use and credit their archive.org sources.")
                     .font(.caption).foregroundStyle(.secondary)
             }
         }

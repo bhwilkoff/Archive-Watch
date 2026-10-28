@@ -44,6 +44,7 @@ sub init()
     ' Clear of the blurb's descenders — at 132 it read as an underline of the
     ' text above it rather than as progress.
     m.bar.translation = [240, 126] : m.bar.height = 5 : m.bar.color = m.t.marquee
+    if m.top.itemContent <> invalid then onContent()
 end sub
 
 sub onStillLoaded()
@@ -53,6 +54,7 @@ end sub
 sub onContent()
     c = m.top.itemContent
     if c = invalid then return
+    if m.still = invalid or m.card = invalid or m.cardText = invalid or m.bar = invalid or m.blurb = invalid then return
     art = fmt(c.HDPOSTERURL)
     m.still.uri = art
     ' Most spines here publish no episode stills. Rather than leave a hole,
@@ -87,6 +89,7 @@ sub onContent()
 end sub
 
 sub onFocus()
+    if m.title = invalid then return
     if m.top.focusPercent > 0.5
         m.title.color = m.t.textPri
     else

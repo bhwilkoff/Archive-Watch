@@ -57,6 +57,9 @@ struct GoCommands_iOS: Commands {
         (.surprise, nil), (.together, nil),
     ]
 
+    /// A film's own window has no sidebar to go to.
+    private var noPlaces: Bool { router == nil || router?.isFilmWindow == true }
+
     var body: some Commands {
         CommandMenu("Go") {
             // The sidebar's places in its order. ⌘1-⌘5 only on the five a
@@ -65,16 +68,16 @@ struct GoCommands_iOS: Commands {
                 if place.tab == .search {
                     // Once, in its place, with ⌘F — it had a number here and
                     // a second "Search" below the divider.
-                    Button("Search") { router?.tab = .search }
+                    Button("Search") { router?.go(to: .search) }
                         .keyboardShortcut("f", modifiers: .command)
-                        .disabled(router == nil)
+                        .disabled(noPlaces)
                 } else if let key = place.key {
-                    Button(place.tab.title) { router?.tab = place.tab }
+                    Button(place.tab.title) { router?.go(to: place.tab) }
                         .keyboardShortcut(key, modifiers: .command)
-                        .disabled(router == nil)
+                        .disabled(noPlaces)
                 } else {
-                    Button(place.tab.title) { router?.tab = place.tab }
-                        .disabled(router == nil)
+                    Button(place.tab.title) { router?.go(to: place.tab) }
+                        .disabled(noPlaces)
                 }
             }
             Divider()

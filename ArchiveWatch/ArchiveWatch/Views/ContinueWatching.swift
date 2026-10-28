@@ -44,10 +44,14 @@ struct ContinueWatchingRow: View {
     @Query(sort: \WatchProgress.lastWatchedAt, order: .reverse) private var progressRecords: [WatchProgress]
 
     private var entries: [(item: Catalog.Item, progress: WatchProgress)] {
+        _ = store.dbGeneration
+        // One tile per title: two episodes of a show both resolve to its card,
+        // and a merged-away id to its survivor. The most recent record wins.
+        var seen = Set<String>()
         // Resolve each in-progress record against the DB (Decision 017): TV
         // episodes via their parent series card (looked up by the raw slug
         // EpisodePlayerScreen wrote to WatchProgress.seriesID), films by id.
-        Array(
+        return Array(
             progressRecords
                 .filter { !$0.isComplete && $0.positionSeconds > 2 }
                 .prefix(24)
@@ -63,6 +67,7 @@ struct ContinueWatchingRow: View {
                     // turned on.
                     if store.hideAdultContent, item.isAdult == true { return nil }
                     if AppStore.contentTypes(for: store.hiddenCategories).contains(item.contentType) { return nil }
+                    guard seen.insert(item.archiveID).inserted else { return nil }
                     return (item, record)
                 }
                 .prefix(12)
@@ -70,6 +75,7 @@ struct ContinueWatchingRow: View {
     }
 
     var body: some View {
+        let entries = self.entries
         if entries.isEmpty {
             EmptyView()
         } else {

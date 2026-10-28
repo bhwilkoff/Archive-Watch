@@ -30,6 +30,12 @@ on:
         required: false
         default: '6'
 
+# Every `run:` is `bash -eo pipefail` (GitHub's explicit `shell: bash`;
+# the implicit default has no pipefail, so `tool | tee log` hid a crash).
+defaults:
+  run:
+    shell: bash
+
 jobs:
   probe:
     runs-on: ubuntu-latest

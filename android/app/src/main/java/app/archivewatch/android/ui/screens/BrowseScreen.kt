@@ -31,6 +31,7 @@ import androidx.compose.runtime.mutableIntStateOf
 import androidx.compose.runtime.mutableStateListOf
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.setValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
@@ -66,13 +67,13 @@ private enum class Scope(val label: String, val contentType: String?) {
 fun BrowseScreen(container: AppContainer, nav: Nav) {
     val dbVersion by container.catalog.dbVersion.collectAsState()
 
-    var scope by remember { mutableStateOf(Scope.All) }
+    var scope by rememberSaveable { mutableStateOf(Scope.All) }
     val hiddenCategories by container.settings.hiddenCategories.collectAsState(initial = emptySet())
-    var decade by remember { mutableStateOf<Int?>(null) }
-    var runtime by remember { mutableStateOf<app.archivewatch.android.data.RuntimeBand?>(null) }
+    var decade by rememberSaveable { mutableStateOf<Int?>(null) }
+    var runtime by rememberSaveable { mutableStateOf<app.archivewatch.android.data.RuntimeBand?>(null) }
     // Metadata-expansion facets (Decision 046): keyword (thematic) + studio filters.
-    var keyword by remember { mutableStateOf<String?>(null) }
-    var studio by remember { mutableStateOf<String?>(null) }
+    var keyword by rememberSaveable { mutableStateOf<String?>(null) }
+    var studio by rememberSaveable { mutableStateOf<String?>(null) }
     // Remembered per kind of grid (SortMemory): the TV scope keeps its own.
     val context = LocalContext.current
     var filmSort by remember { mutableStateOf(SortMemory.sort(context, SortMemory.BROWSE)) }
@@ -90,6 +91,11 @@ fun BrowseScreen(container: AppContainer, nav: Nav) {
     var keywordChoices by remember { mutableStateOf<List<String>>(emptyList()) }
     var studioChoices by remember { mutableStateOf<List<String>>(emptyList()) }
     var specialsCount by remember { mutableIntStateOf(0) }
+    // Every tile in the last stretch of the grid asks for the next page, so
+    // one request is allowed at a time, and a page asked for under the old
+    // filters is dropped when they change underneath it.
+    var paging by remember { mutableStateOf(false) }
+    var generation by remember { mutableIntStateOf(0) }
 
     // Facet menus only need loading once per DB (independent of the active filters).
     LaunchedEffect(dbVersion) {
@@ -101,6 +107,7 @@ fun BrowseScreen(container: AppContainer, nav: Nav) {
 
     // Reset + first page whenever a facet, sort, or the DB changes.
     LaunchedEffect(dbVersion, scope, decade, runtime, keyword, studio, sort) {
+        generation += 1
         loading = true
         items.clear()
         endReached = false
@@ -128,15 +135,22 @@ fun BrowseScreen(container: AppContainer, nav: Nav) {
     }
 
     suspend fun loadMore() {
-        if (endReached || loading || scope == Scope.TV) return
+        if (endReached || loading || paging || scope == Scope.TV) return
         val db = container.catalog.db ?: return
-        val page = db.browse(
-            contentType = scope.contentType, decade = decade,
-            keyword = keyword, studio = studio, runtime = runtime,
-            sort = sort, limit = PAGE_SIZE, offset = items.size,
-        )
-        items.addAll(page)
-        if (page.size < PAGE_SIZE) endReached = true
+        val asked = generation
+        paging = true
+        try {
+            val page = db.browse(
+                contentType = scope.contentType, decade = decade,
+                keyword = keyword, studio = studio, runtime = runtime,
+                sort = sort, limit = PAGE_SIZE, offset = items.size,
+            )
+            if (asked != generation) return
+            items.addAll(page)
+            if (page.size < PAGE_SIZE) endReached = true
+        } finally {
+            paging = false
+        }
     }
 
     Scaffold(
@@ -186,8 +200,12 @@ fun BrowseScreen(container: AppContainer, nav: Nav) {
                 horizontalArrangement = Arrangement.spacedBy(8.dp),
                 verticalAlignment = androidx.compose.ui.Alignment.CenterVertically,
             ) {
-                DecadeMenu(decade, decades) { decade = it }
-                if (scope != Scope.TV) LengthMenu(runtime) { runtime = it }
+                // Series cards carry no decade filter (seriesCards ignores it),
+                // so the menu would change nothing on the TV scope.
+                if (scope != Scope.TV) {
+                    DecadeMenu(decade, decades) { decade = it }
+                    LengthMenu(runtime) { runtime = it }
+                }
                 SortMenu(sort, onSort)
                 // Keyword/studio facets don't apply to the TV scope (series cards).
                 if (scope != Scope.TV) {
@@ -224,8 +242,9 @@ fun BrowseScreen(container: AppContainer, nav: Nav) {
                     horizontalArrangement = Arrangement.spacedBy(10.dp),
                     verticalArrangement = Arrangement.spacedBy(14.dp),
                 ) {
-                    itemsIndexed(items.uniqueBy { it.archiveID }, key = { _, item -> item.archiveID }) { index, item ->
-                        if (index >= items.size - 12) {
+                    val unique = items.uniqueBy { it.archiveID }
+                    itemsIndexed(unique, key = { _, item -> item.archiveID }) { index, item ->
+                        if (index >= unique.size - 12) {
                             LaunchedEffect(items.size) { loadMore() }
                         }
                         PosterTile(item, onClick = {

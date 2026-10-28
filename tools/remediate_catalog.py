@@ -387,6 +387,115 @@ def runtime_contradicts_match(it):
     return own, film
 
 
+# A YEARLESS SEARCH that took a famous film of the same name. The year was
+# the match's own (`yearSource == "omdb"`: omdb_lib.apply_identity filled it
+# because the item had none), so nothing about the item corroborated the
+# match, and the runtime contradicts it: "Silence" is a 19-second clip wearing
+# Scorsese's 2016 film, "Evolution" a 14-minute Prelinger reel wearing Ivan
+# Reitman's (2001), "Help!" (74Help) a 17-minute reel wearing the Beatles'
+# 1965 feature. runtime_contradicts_match spares them all because the TITLES
+# agree, which is how a title search finds anything. tmdb_lib/omdb_lib now
+# refuse this match at the source; this clears what is already in the
+# catalog. A piece of a pre-1978 film (a reel, a chapter, surviving footage)
+# keeps its identity: that is a fragment of the right film (fragment_of).
+YEARLESS_SHORT_RATIO = 0.5
+YEARLESS_LONG_RATIO = 2.0
+YEARLESS_MIN_GAP = 600          # seconds; OMDb rounds a 2-second film to 1 min
+YEARLESS_PIECE_BEFORE = 1978
+_FRAGMENT_WORDS = re.compile(r"\b(surviving|footage|abridg\w*|condensed|highlights?|"
+                             r"rolls?|[ab]-roll|r\d+[a-z]?|cuts?|pt\d*|part\d*)\b", re.I)
+
+
+def _is_piece(it):
+    raw = it.get("archiveID") or ""
+    camel = re.sub(r"([a-z])([A-Z])", r"\1 \2", raw)
+    digits = re.sub(r"(\d)([A-Za-z])", r"\1 \2", camel)      # "all13Chapters"
+    title = it.get("title") or ""
+    return any(_PIECE.search(t) or _FRAGMENT_WORDS.search(t)
+               for t in (f"{title} {re.sub(r'[_.-]', ' ', a)}" for a in (camel, digits)))
+
+
+def yearless_match_conflict(it):
+    """(own seconds, film seconds) when a match found by a yearless search is
+    contradicted by the file's runtime, else None. Pure; reads the OMDb cache."""
+    if not (it.get("imdbID") or it.get("tmdbID")) or it.get("contentType") in ("tv-series", "tv-episode"):
+        return None
+    if it.get("yearSource") != "omdb":
+        return None
+    if it.get("matchVerdict") == "verified" or it.get("archiveID") in _runtime_keep():
+        return None
+    rec = _omdb_cache().get(it.get("imdbID") or "")
+    film = (rec.get("runtime_min") or 0) * 60 if isinstance(rec, dict) else 0
+    own = _own_runtime(it) or it.get("runtimeSeconds")
+    if not (own and film):
+        return None
+    r = own / film
+    if not (r < YEARLESS_SHORT_RATIO or r > YEARLESS_LONG_RATIO) or abs(own - film) < YEARLESS_MIN_GAP:
+        return None
+    y = it.get("year")
+    if _is_piece(it) and isinstance(y, int) and y < YEARLESS_PIECE_BEFORE:
+        return None
+    return own, film
+
+
+def clear_yearless_match(it, conflict):
+    """Clear the identity through the Decision 150 path, and the year with it:
+    its provenance says the match supplied it."""
+    _clear_wrong_artwork(it, None)
+    it["matchVerdict"] = "cleared_yearless_runtime"
+    it["matchVerified"] = True
+    it["matchRuntimeConflict"] = [int(conflict[0]), int(conflict[1])]
+    strip_unanchored_tmdb_residue(it)
+    y = it.get("year")
+    if it.get("yearSource") == "omdb" and y is not None and not _names_year(it, y):
+        it["yearWas"] = y
+        it["year"] = None
+        it["decade"] = None
+        it["isSilentFilm"] = False
+        it["yearSource"] = None
+        it["scrubbedFields"] = sorted(set(it.get("scrubbedFields") or []) | {"year"})
+        if it.get("contentType") == "silent-film" and not it.get("contentTypeSource"):
+            it["contentTypeWas"] = "silent-film"
+            it["contentType"] = _content_type.classify(
+                it.get("collections") or [], it.get("subjects") or [],
+                _own_runtime(it) or it.get("runtimeSeconds"), None)
+
+
+# A FRAGMENT of the right film. The identity is true (the title and the
+# item's own year agree with the match), but the card plays a piece of it: 20
+# minutes of Nosferatu, one reel of a serial, a file named "part 2" under a
+# title that is not. Decisions 052/163 keep a surviving fragment as an
+# archival object, and Decision 150 removes only what nothing vouches for, so
+# the identity stays and the card is never CHOSEN for a viewer (Decision 149's
+# noRecommend, reason "fragment"): it no longer headlines a most-voted row on
+# the whole film's votes, and stays findable by search and browse.
+FRAGMENT_RATIO = 0.6
+FRAGMENT_MIN_GAP = 300          # seconds
+_PART_FILE = re.compile(r"(?:\b|_)(?:part|pt|reel|cd|disc|disk|chapter)[ _.-]?0*\d+(?:\b|_|of)"
+                        r"|\b\d+\s*of\s*\d+\b|_\d+of\d+", re.I)
+
+
+def fragment_of(it):
+    """-> a short reason when the card plays a piece of its matched film, else None."""
+    if it.get("excluded") or not it.get("imdbID") or it.get("contentType") in ("tv-series", "tv-episode"):
+        return None
+    if it.get("archiveID") in _runtime_keep():
+        return None
+    own = _own_runtime(it)
+    rec = _omdb_cache().get(it.get("imdbID") or "")
+    omdb = (rec.get("runtime_min") or 0) * 60 if isinstance(rec, dict) else 0
+    film = max(it.get("runtimeWasSeconds") or 0, omdb)
+    if own and film and own / film < FRAGMENT_RATIO and film - own >= FRAGMENT_MIN_GAP:
+        return f"{round(own / 60)} of {round(film / 60)} min"
+    vf = (it.get("videoFile") or {}).get("name") or ""
+    stem = re.sub(r"\.[A-Za-z0-9]{2,4}$", "", vf)
+    title = it.get("title") or ""
+    if stem and _PART_FILE.search(stem) and not _PART_FILE.search(title) \
+            and not _PIECE.search(title) and not _PART_FILE.search(it.get("archiveID") or ""):
+        return f"file {vf}"
+    return None
+
+
 def _clear_wrong_artwork(it, new_year):
     """Strip a wrong external (TMDb/OMDb) match: drop its poster/backdrop, NULL the
     wrong identity (imdbID/tmdbID — otherwise the next enrichment cron re-fetches
@@ -589,7 +698,7 @@ _TV_RESIDUE_KINDS = {"tv-special", "tv-episode"}
 # and vote count (121). The marker means the verifier will never revisit them,
 # so the repair has to happen here, on every build.
 _CLEARED = ("cleared_modern", "cleared_year", "cleared_bw", "cleared_era",
-            "cleared_runtime", "cleared_editorial")
+            "cleared_runtime", "cleared_editorial", "cleared_yearless_runtime")
 _MATCH_ART = {"tmdb", "omdb", "fanart", "tvdb", "external"}
 _MATCH_FIELDS = ("imdbID", "tmdbID", "backdropURL", "tagline", "keywords",
                  "canonicalTitle", "akaTitles", "originalTitle", "imdbRating",
@@ -2880,6 +2989,7 @@ def flag_propaganda(items, stats, table=None):
     for it in items:
         why = propaganda_evidence(it, table)
         uraa = None if why else uraa_restored(it)
+        frag = None if (why or uraa) else fragment_of(it)
         if why:
             if not it.get("noRecommend"):
                 stats["propaganda_flagged"] += 1
@@ -2890,10 +3000,18 @@ def flag_propaganda(items, stats, table=None):
                 stats["uraa_flagged"] += 1
             it["noRecommend"] = True
             it["noRecommendReason"] = "URAA — " + uraa
+        elif frag:
+            if not it.get("noRecommend"):
+                stats["fragment_flagged"] += 1
+            it["noRecommend"] = True
+            it["noRecommendReason"] = "fragment — " + frag
+            it["fragmentOf"] = it.get("imdbID")
         elif it.get("noRecommend"):
             it.pop("noRecommend", None)
             it.pop("noRecommendReason", None)
             stats["propaganda_unflagged"] += 1
+        if not frag:
+            it.pop("fragmentOf", None)
 
 
 # --- Trailers posing as the feature -------------------------------------------
@@ -3783,6 +3901,11 @@ def remediate(items):
             it["matchVerified"] = True
             strip_unanchored_tmdb_residue(it)
             stats["editorial_match_cleared"] += 1
+
+        yc = yearless_match_conflict(it)
+        if yc:
+            clear_yearless_match(it, yc)
+            stats["yearless_match_cleared"] += 1
 
         rc = runtime_contradicts_match(it)
         if rc:

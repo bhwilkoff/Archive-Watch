@@ -38,6 +38,12 @@ concurrency:
   group: catalog-writers
   cancel-in-progress: false
 
+# Every `run:` is `bash -eo pipefail` (GitHub's explicit `shell: bash`;
+# the implicit default has no pipefail, so `tool | tee log` hid a crash).
+defaults:
+  run:
+    shell: bash
+
 jobs:
   subtitles:
     runs-on: ubuntu-latest
@@ -97,7 +103,8 @@ jobs:
         if: ${{ github.event.inputs.build_assets == 'true' }}
         run: |
           python tools/build_subtitle_assets.py \
-            --limit ${{ github.event.inputs.limit || '8000' }} | tee subsbuild.log
+            --limit ${{ github.event.inputs.limit || '8000' }} | tee subsbuild.log \
+            || echo "::warning::build_subtitle_assets exited non-zero — publishing the assets it built (the shrink guard still applies)"
           echo '```' >> $GITHUB_STEP_SUMMARY; tail -3 subsbuild.log >> $GITHUB_STEP_SUMMARY; echo '```' >> $GITHUB_STEP_SUMMARY
 
       - name: Publish subtitle assets to release
@@ -149,7 +156,8 @@ jobs:
           GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           LIMIT="${{ github.event.inputs.limit || '8000' }}"
-          SCANNED=$(grep -oE '\[subs\] [0-9]+ items to scan' subs.log | grep -oE '[0-9]+' | head -1)
+          # No scan line leaves SCANNED empty (handled below), not a pipefail exit.
+          SCANNED=$( { grep -oE '\[subs\] [0-9]+ items to scan' subs.log || true; } | grep -oE '[0-9]+' | head -1 || true)
           echo "scanned=$SCANNED limit=$LIMIT"
           if [ "$LIMIT" -gt 0 ] && [ -n "$SCANNED" ] && [ "$SCANNED" -ge "$LIMIT" ]; then
             echo "Full batch scanned — backlog remains; queuing next run."

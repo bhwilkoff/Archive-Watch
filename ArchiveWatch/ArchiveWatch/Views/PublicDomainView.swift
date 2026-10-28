@@ -2,9 +2,9 @@
 import SwiftUI
 
 // #15 Public Domain Day (tvOS-DESIGN §2.3): browse the films/TV that entered the
-// US public domain in a given year. The 95-year rule: a work published in year Y
-// enters the public domain on January 1 of Y+95 — so the "Class of Y" is shown by
-// picking the entry year (Y+95). Learning-oriented: it teaches the PD calendar and
+// US public domain in a given year. A work published in year Y is protected for
+// 95 years and enters the public domain on January 1 of Y+96 (PublicDomainDay) —
+// so the "Class of Y" is shown by picking the entry year (Y+96). Learning-oriented: it teaches the PD calendar and
 // celebrates each new class. Reached as a route (e.g. from Surprise).
 struct PublicDomainRoute: Hashable {}
 
@@ -12,13 +12,13 @@ struct PublicDomainView: View {
     @Environment(AppStore.self) private var store
     @Environment(Router.self) private var router
 
-    private let thisYear = Calendar.current.component(.year, from: Date())
+    private let thisYear = PublicDomainDay.currentEntryYear()
     @State private var entryYear = 0          // the Jan-1 the class entered PD
     @State private var items: [Catalog.Item] = []
 
-    /// Most-recent entry years first; 95-year rule means pubYear = entryYear - 95.
+    /// Most-recent entry years first.
     private var entryYears: [Int] { Array(stride(from: thisYear, through: thisYear - 20, by: -1)) }
-    private var pubYear: Int { entryYear - 95 }
+    private var pubYear: Int { PublicDomainDay.classYear(entering: entryYear) }
 
     private let cols = Array(repeating: GridItem(.fixed(210), spacing: 24), count: 6)
 
@@ -88,7 +88,7 @@ struct PublicDomainView: View {
 
     private func reload() {
         guard pubYear > 1870 else { items = []; return }
-        items = store.dbBrowse(year: pubYear, sort: .popular, limit: 200)
+        items = PublicDomainDay.titles(store.dbBrowse(year: pubYear, sort: .popular, limit: 200))
     }
 
     // Year as a bare 4-digit string (no locale grouping comma — playbook §7.6).
@@ -102,7 +102,7 @@ struct PublicDomainShelf: View {
     @Environment(AppStore.self) private var store
     @State private var items: [Catalog.Item] = []
 
-    private let pubYear = Calendar.current.component(.year, from: Date()) - 95
+    private let pubYear = PublicDomainDay.currentClass()
 
     private var shelfDef: Featured.Shelf {
         Featured.Shelf(
@@ -124,7 +124,7 @@ struct PublicDomainShelf: View {
             }
         }
         .task(id: store.dbGeneration) {
-            items = store.dbBrowse(year: pubYear, sort: .popular, limit: 24)
+            items = PublicDomainDay.titles(store.dbBrowse(year: pubYear, sort: .popular, limit: 24))
                 .filter { $0.hasDesignedArtwork }
         }
     }

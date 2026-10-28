@@ -16,15 +16,9 @@ struct CollectionsView: View {
         CollectionMetadata.all.compactMap { entry in
             let count = store.dbCollectionCount(entry.id)
             guard count >= 10 else { return nil }   // needs enough to browse
-            // #6: prefer designed art, but never render a blank card — fall back
-            // to ANY available poster (generated covers, archive thumbs) so a
-            // collection always shows images.
-            let pool = store.dbByCollection(entry.id, limit: 40)
-            var posters = pool.compactMap { $0.hasDesignedArtwork ? $0.posterURLParsed : nil }
-                .prefix(3).map { $0 }
-            if posters.isEmpty {
-                posters = pool.compactMap { $0.posterURLParsed }.prefix(3).map { $0 }
-            }
+            // #6: designed art first, but never a blank card — any poster
+            // (generated covers, archive thumbs) fills in behind it.
+            let posters = store.dbCollectionPosters(entry.id)
             return CollectionCardData(
                 id: entry.id, title: entry.title, blurb: entry.blurb,
                 accent: Color(hex: entry.accent) ?? .accentColor,

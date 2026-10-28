@@ -237,6 +237,10 @@ final class ClipStudioModel {
         if playheadSeconds < inSeconds || playheadSeconds >= outSeconds - 0.05 {
             seek(to: inSeconds); playheadSeconds = inSeconds
         }
+        // §8.2: a .playback session, or the preview is silent behind the
+        // ringer switch.
+        try? AVAudioSession.sharedInstance().setCategory(.playback, mode: .moviePlayback)
+        try? AVAudioSession.sharedInstance().setActive(true)
         p.play(); isPlaying = true
     }
 

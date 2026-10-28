@@ -69,7 +69,7 @@ struct SettingsView: View {
         } header: {
             Text("Show on Home & Browse")
         } footer: {
-            Text("Favorites and Continue Watching still show hidden categories.")
+            Text("Your Library still shows titles from hidden categories.")
         }
     }
 
@@ -247,7 +247,7 @@ struct SettingsView: View {
             // (owner, 2026-08-28: everything should be viewable, even without
             // a toggle to flip).
             ReadableTextBlock(
-                text: "Posters, backdrops, cast, and synopses come from The Movie Database (TMDb), with Wikidata, Wikimedia Commons, and the Library of Congress as fallbacks. Films, television, and ephemera are served by the Internet Archive. Every title is public domain or otherwise free to share.",
+                text: "Posters, backdrops, cast, and synopses come from The Movie Database (TMDb), with Wikidata, Wikimedia Commons, and the Library of Congress as fallbacks. Films, television, and ephemera are served by the Internet Archive.",
                 collapsedLines: nil, dimmed: 0.6)
                 .font(.callout)
                 .fixedSize(horizontal: false, vertical: true)
@@ -289,7 +289,7 @@ struct SettingsView: View {
     private var aboutSection: some View {
         Section {
             LabeledContent("Version", value: versionString)
-            Text("No account, no sign-in, no tracking. Nothing leaves this device except requests to the public services above.")
+            Text("No tracking. Apart from sync once you sign in, nothing leaves this device except requests to the public services above.")
                 .font(.callout)
                 .foregroundStyle(.white.opacity(0.6))
                 .fixedSize(horizontal: false, vertical: true)

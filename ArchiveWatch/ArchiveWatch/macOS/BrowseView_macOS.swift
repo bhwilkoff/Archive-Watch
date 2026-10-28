@@ -105,6 +105,7 @@ struct BrowseView: View {
         }
         .task(id: store.dbVersion) {
             reset()
+            decadeList = (store.db?.decadeCounts().keys.sorted(by: >)) ?? []
             keywordFacets = store.db?.topKeywords() ?? []
             studioFacets = store.db?.topStudios() ?? []
         }
@@ -114,7 +115,7 @@ struct BrowseView: View {
         .onChange(of: sort) { _, _ in SortMemory.remember(sort, for: SortMemory.browse); reset() }
     }
 
-    private var decadeList: [Int] { (store.db?.decadeCounts().keys.sorted(by: >)) ?? [] }
+    @State private var decadeList: [Int] = []
 
     private func reset() {
         offset = 0

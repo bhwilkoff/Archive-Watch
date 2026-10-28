@@ -147,5 +147,32 @@ dup = B.build_spine({"archiveID": "bwbb3", "title": "Battling with Buffalo Bill"
 check("control: a second copy of the same chapters adds nothing",
       B.merge_uploads([sp1, dup])["episodesCount"] == 5 and "sourceIDs" not in B.merge_uploads([sp1, dup]))
 
+# Names with no shared prefix (adventures-of-red-ryder: "01 Murder on the Santa
+# Fe Trail.mp4"), in season folders (georgeburnsandgracieallen_202307), and a
+# numbered run with one bonus file whose name shares nothing with the rest.
+ryder = ["Murder on the Santa Fe Trail", "Horsemen of Death", "Trail's End", "Water Rustlers",
+         "Avalanche", "Hangman's Noose", "Framed", "Blazing Walls", "Records of Doom",
+         "One Second to Live", "The Devil's Marksman", "Frontier Justice"]
+rows, why = B.parse_bundle(files([f"{i:02d} {t}.mp4" for i, t in enumerate(ryder, 1)]))
+check("no shared prefix: the whole name carries the number",
+      why == "ok" and [B.token_of(r) for r in rows] == [f"e{i:02d}" for i in range(1, 13)]
+      and rows[0]["title"] == "Murder on the Santa Fe Trail")
+burns = [f"The George Burns and Gracie Allen Show/Season {s}/{e:02d} Episode Title {s}{e}.mp4"
+         for s in (1, 2) for e in range(1, 6)]
+rows, why = B.parse_bundle(files(burns))
+check("season folders with bare-numbered names",
+      why == "ok" and B.token_of(rows[0]) == "s1e01" and B.token_of(rows[-1]) == "s2e05")
+red = [f"Red Circle {i:02d} {t}.mp4" for i, t in
+       [(1, "The Mystery of the Red Circle"), (2, "Weird Shadows"), (3, "The Hidden Hand"),
+        (4, "Conspiracy"), (5, "Hands of Fate"), (6, "Doom Ahead")]]
+rows, why = B.parse_bundle(files(red + ["Interview with the Restorer.mp4"]))
+check("one off-pattern file does not unnumber the rest",
+      why == "ok" and [B.token_of(r) for r in rows if r["episode"] is not None] == [f"e{i:02d}" for i in range(1, 7)]
+      and rows[0]["title"] == "The Mystery of the Red Circle"
+      and any(B.token_of(r).startswith("x-") for r in rows))
+rows, _ = B.parse_bundle(files([f"EVA {i:02d} Spacewalk 2019 1011 12588{i}.mp4" for i in range(1, 6)]))
+check("control: titles that differ only by numbers are not episode titles",
+      rows is not None and B.series_evidence({"contentType": "feature-film"}, rows) is None)
+
 print("PASS" if ok else "FAIL")
 sys.exit(0 if ok else 1)

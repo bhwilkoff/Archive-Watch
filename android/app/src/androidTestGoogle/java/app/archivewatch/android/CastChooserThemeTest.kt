@@ -18,6 +18,18 @@ import org.junit.runner.RunWith
 @RunWith(AndroidJUnit4::class)
 class CastChooserThemeTest {
 
+    /** Dialog.create() runs onCreate. Called through android.app.Dialog because
+     *  AppCompat (the chooser's superclass) reaches this module only at runtime,
+     *  through mediarouter; the cause of a failure is unwrapped. */
+    private fun createAndDismiss(dialog: Any) {
+        try {
+            android.app.Dialog::class.java.getMethod("create").invoke(dialog)
+            android.app.Dialog::class.java.getMethod("dismiss").invoke(dialog)
+        } catch (e: java.lang.reflect.InvocationTargetException) {
+            throw e.targetException
+        }
+    }
+
     @Test
     fun theChooserBuildsUnderTheActivityTheme() {
         ActivityScenario.launch(MainActivity::class.java).use { scenario ->
@@ -26,6 +38,38 @@ class CastChooserThemeTest {
                 error = runCatching { MediaRouteChooserDialog(activity) }.exceptionOrNull()
             }
             assertTrue("chooser threw: $error", error == null)
+        }
+    }
+
+    /** The v69 cluster: past the constructor, onCreate's setContentView is
+     *  AppCompatDialog's, and it refuses a non-AppCompat theme ("You need to
+     *  use a Theme.AppCompat theme", Android 12). create() runs onCreate. */
+    @Test
+    fun theChooserCreatesItsContentUnderTheActivityTheme() {
+        ActivityScenario.launch(MainActivity::class.java).use { scenario ->
+            var error: Throwable? = null
+            scenario.onActivity { activity ->
+                error = runCatching {
+                    createAndDismiss(MediaRouteChooserDialog(activity))
+                }.exceptionOrNull()
+            }
+            assertTrue("chooser onCreate threw: $error", error == null)
+        }
+    }
+
+    @Test
+    fun controlTheMaterialBaseThemeFailsOnCreate() {
+        ActivityScenario.launch(MainActivity::class.java).use { scenario ->
+            var error: Throwable? = null
+            scenario.onActivity { activity ->
+                val old = activity.resources.newTheme().apply {
+                    applyStyle(R.style.Theme_ArchiveWatch_Base, true)
+                }
+                error = runCatching {
+                    createAndDismiss(MediaRouteChooserDialog(ContextThemeWrapper(activity, old)))
+                }.exceptionOrNull()
+            }
+            assertTrue("expected the old theme to fail building the chooser", error != null)
         }
     }
 

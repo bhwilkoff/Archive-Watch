@@ -100,8 +100,10 @@ final class CastController {
         }
         client?.disconnect()
         let id = item.archiveID
+        // A finished film starts over, not at its credits.
         let saved = (try? ctx.fetch(FetchDescriptor<WatchProgress>(
-            predicate: #Predicate { $0.archiveID == id })))?.first?.positionSeconds ?? 0
+            predicate: #Predicate { $0.archiveID == id })))?.first
+            .flatMap { $0.isComplete ? nil : $0.positionSeconds } ?? 0
         let media = CastMedia(url: url, title: item.title,
                               subtitle: item.year.map(String.init),
                               posterURL: item.posterURLParsed,

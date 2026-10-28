@@ -255,12 +255,59 @@ def is_placeholder_title(title) -> bool:
     return (title or "").strip().lower() in _PLACEHOLDER_TITLES
 
 
-def apply_identity(item, rec):
+def _ident_title(t):
+    t = re.sub(r"\([^)]*\)|\[[^\]]*\]", " ", t or "")
+    t = re.sub(r"\b(19|20)\d{2}\b", " ", t)
+    t = re.sub(r"[^a-z0-9]+", " ", t.lower()).strip()
+    m = re.match(r"^(.*?)\s+(the|a|an)$", t)          # "Strip, The"
+    if m:
+        t = f"{m.group(2)} {m.group(1)}"
+    return t
+
+
+def _file_runtime(item):
+    for k in ("trueRuntimeSeconds", "fileRuntimeSeconds"):
+        if item.get(k):
+            return item[k]
+    if item.get("runtimeSource") in ("archive_file", "measured-ffprobe"):
+        return item.get("runtimeSeconds")
+    return None
+
+
+def plausible_identity(item, rec):
+    """May a SEARCHED record (title+year, not the item's own declared id) be
+    adopted as this item's identity? Never when the years are more than two
+    apart; and for an item with no year of its own, only when the title is
+    exact and the record's runtime is within 25% of the file's. "Silence" (a
+    19-second clip) wore Scorsese's 2016 film and "Help!" (a 17-minute reel)
+    the Beatles' 1965 one on exactly this path."""
+    if not rec:
+        return False
+    y, ry = item.get("year"), rec.get("year")
+    if y and ry and abs(int(y) - int(ry)) > 2:
+        return False
+    if y:
+        return True
+    own = _file_runtime(item)
+    rt = rec.get("runtime_min")
+    want = _ident_title(item.get("title"))
+    if not (want and want == _ident_title(rec.get("title")) and own and rt):
+        return False
+    return abs(own - rt * 60.0) <= 0.25 * rt * 60.0
+
+
+def apply_identity(item, rec, *, authoritative=False):
     """Fill an item's IDENTITY fields (imdbID, cast, director, genres, year)
     from an OMDb record — only where currently empty, so we never clobber
     better data. Pairs with apply_rich (poster/rating/plot/runtime). Returns
-    True if anything changed."""
+    True if anything changed.
+
+    A record found by SEARCH (the item had no imdbID) must pass
+    plausible_identity; `authoritative=True` is for a record fetched by an id
+    the archive.org item itself declared."""
     if not rec:
+        return False
+    if not authoritative and not item.get("imdbID") and not plausible_identity(item, rec):
         return False
     changed = False
     # Title is adopted only over a GENERIC PLACEHOLDER (not the usual empty-only rule) — a real

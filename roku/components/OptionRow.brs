@@ -18,15 +18,19 @@ sub init()
     m.label.font = m.t.uItem
     m.label.color = m.t.textPri
     m.label.maxLines = 1 : m.label.ellipsizeOnBoundary = true
+    if m.top.itemContent <> invalid then onContent()
+    onFocus()
 end sub
 
 sub onContent()
     c = m.top.itemContent
     if c = invalid then return
+    if m.label = invalid then return
     m.label.text = c.title
 end sub
 
 sub onFocus()
+    if m.pill = invalid or m.label = invalid then return
     lit = (m.top.focusPercent > 0.5)
     if lit
         m.pill.opacity = 1

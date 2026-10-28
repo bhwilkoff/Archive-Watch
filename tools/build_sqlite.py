@@ -34,6 +34,7 @@ import datetime as _dt
 import gzip
 import json
 import math
+import os
 import random
 import re
 import shutil
@@ -911,6 +912,29 @@ def _consistent(group):
     return True
 
 
+def _split_by_anchor(group):
+    """An inconsistent component that is inconsistent ONLY because bare copies
+    bridged two imdb anchors (A — bare — B) is split into one sub-group per
+    anchor: each anchored copy goes with its own id, and a bare copy joins the
+    one anchor it is the same film as. A bare copy that matches more than one
+    anchor is ambiguous and joins none. Discarding the whole component, as this
+    did until 2026-10-28, left every copy of BOTH films unmerged. The color and
+    year vetoes (Decisions 084/158) still judge each sub-group in _consistent."""
+    anchors = {}
+    for m in group:
+        if m.get("imdbID"):
+            anchors.setdefault(m["imdbID"], []).append(m)
+    if len(anchors) < 2:
+        return []
+    for m in group:
+        if m.get("imdbID"):
+            continue
+        linked = [k for k, ms in anchors.items() if any(_same_film(m, a) for a in ms)]
+        if len(linked) == 1:
+            anchors[linked[0]].append(m)
+    return list(anchors.values())
+
+
 def merge_film_duplicates(items, spine_aids=frozenset()):
     """Collapse re-uploads of the SAME film — across single-imdb, multi-imdb, AND
     no-imdb cases — into ONE best card, grafting best-of-everything onto it.
@@ -978,7 +1002,12 @@ def merge_film_duplicates(items, spine_aids=frozenset()):
         for i in range(len(members)):
             comps.setdefault(find(i), []).append(members[i])
 
+        subs = []
         for group in comps.values():
+            if len(group) < 2:
+                continue
+            subs.extend([group] if _consistent(group) else _split_by_anchor(group))
+        for group in subs:
             if len(group) < 2 or not _consistent(group):
                 continue
             # VIDEO QUALITY OUTRANKS POPULARITY. Summing them let a well-
@@ -1674,6 +1703,10 @@ def build_db_obj(cat, out_db, rotate_seed="0", materialize_episodes=True,
     cards = series_cards(cat["items"])
     spine_aids = _playable_episode_aids(cards) if materialize_episodes else frozenset()
     deduped = merge_film_duplicates(deduped, spine_aids=spine_aids)
+    # Built beside its destination and renamed into place only when complete,
+    # so a build that dies part-way never leaves a truncated DB where the
+    # publish step (or the next run) will find it.
+    final_db, out_db = out_db, out_db.with_name(out_db.name + ".tmp")
     if out_db.exists():
         out_db.unlink()
     db = sqlite3.connect(out_db)
@@ -1706,8 +1739,8 @@ def build_db_obj(cat, out_db, rotate_seed="0", materialize_episodes=True,
         # The SQLite table keeps them: the apps gate display by their setting.
         adult_ids = {it["archiveID"] for it in deduped if _is_adult(it)}
         web_rows = [(o, n) for o, n in rows if n not in adult_ids]
-        Path(aliases_out).write_text(
-            json.dumps(dict(web_rows), separators=(",", ":")), encoding="utf-8")
+        _atomic_write_text(Path(aliases_out),
+                           json.dumps(dict(web_rows), separators=(",", ":")))
         print(f"[dedup] wrote {aliases_out} ({len(web_rows)} pairs) for the web viewer"
               f" ({len(rows) - len(web_rows)} mature survivors withheld)")
     n_series, n_eps = populate_series(db, materialize_episode_items=materialize_episodes)
@@ -1722,9 +1755,17 @@ def build_db_obj(cat, out_db, rotate_seed="0", materialize_episodes=True,
     db.execute("PRAGMA optimize")
     db.execute("VACUUM")
     db.close()
+    os.replace(out_db, final_db)
+    out_db = final_db
     print(f"[sqlite] wrote {out_db.name}: {out_db.stat().st_size/1e6:.1f} MB "
           f"({n_items:,} items, {n_series:,} series, {n_eps:,} episodes)", flush=True)
     return cat, n_items, n_series, n_eps
+
+
+def _atomic_write_text(path, text):
+    tmp = path.with_name(path.name + ".tmp")
+    tmp.write_text(text, encoding="utf-8")
+    os.replace(tmp, path)
 
 
 def build_db(catalog_path, out_db, rotate_seed="0", aliases_out=None):
@@ -1804,10 +1845,12 @@ def main():
         # Raw DEFLATE (wbits=-15: no zlib/gzip wrapper) — the app's native
         # Compression-framework inflate consumes this directly (Decision 019).
         comp = zlib.compressobj(9, zlib.DEFLATED, -15)
-        with open(OUT_DB, "rb") as fi, open(OUT_ZZ, "wb") as fo:
+        zz_tmp = OUT_ZZ.with_name(OUT_ZZ.name + ".tmp")
+        with open(OUT_DB, "rb") as fi, open(zz_tmp, "wb") as fo:
             while chunk := fi.read(1 << 20):
                 fo.write(comp.compress(chunk))
             fo.write(comp.flush())
+        os.replace(zz_tmp, OUT_ZZ)
         zz_mb = OUT_ZZ.stat().st_size / 1e6
         print(f"[sqlite] wrote {OUT_ZZ.name}: {zz_mb:.1f} MB raw-deflate", flush=True)
 
@@ -1819,7 +1862,7 @@ def main():
         "zzBytes": (OUT_ZZ.stat().st_size if zz_mb else None),
         "asset": "catalog.sqlite.zz",
     }
-    OUT_MANIFEST.write_text(json.dumps(manifest, indent=2), encoding="utf-8")
+    _atomic_write_text(OUT_MANIFEST, json.dumps(manifest, indent=2))
     print(f"[sqlite] wrote {OUT_MANIFEST.name}", flush=True)
     return 0
 

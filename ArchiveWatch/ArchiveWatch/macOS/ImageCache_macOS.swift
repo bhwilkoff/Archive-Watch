@@ -12,9 +12,20 @@ import ImageIO
 // sRGB RGBA before it reaches SwiftUI. Covers grayscale + CMYK + 16-bit + exotic profiles for
 // every RemoteImage call site (poster, cast circles, cards).
 private func decodedRGBImage(_ data: Data) -> NSImage? {
-    guard let src = CGImageSourceCreateWithData(data as CFData, nil),
-          let cg = CGImageSourceCreateImageAtIndex(src, 0, nil) else {
+    guard let src = CGImageSourceCreateWithData(data as CFData, nil) else {
         return NSImage(data: data)            // fallback: let AppKit try
+    }
+    // Downsampled at decode: a 2000x3000 TMDb original drawn in a 240x360 well
+    // held ~24 MB decoded per poster.
+    let opts: [CFString: Any] = [
+        kCGImageSourceCreateThumbnailFromImageAlways: true,
+        kCGImageSourceCreateThumbnailWithTransform: true,
+        kCGImageSourceShouldCacheImmediately: true,
+        kCGImageSourceThumbnailMaxPixelSize: 2048,
+    ]
+    guard let cg = CGImageSourceCreateThumbnailAtIndex(src, 0, opts as CFDictionary)
+            ?? CGImageSourceCreateImageAtIndex(src, 0, nil) else {
+        return NSImage(data: data)
     }
     if cg.colorSpace?.model == .rgb && cg.bitsPerComponent == 8 {
         return NSImage(cgImage: cg, size: NSSize(width: cg.width, height: cg.height))
@@ -30,6 +41,10 @@ private func decodedRGBImage(_ data: Data) -> NSImage? {
     guard let out = ctx.makeImage() else { return NSImage(data: data) }
     return NSImage(cgImage: out, size: NSSize(width: w, height: h))
 }
+
+/// An NSImage crossing from the decode task to the main actor. It is created
+/// there and never mutated after, which is what makes the hand-off safe.
+private struct DecodedImage: @unchecked Sendable { let image: NSImage? }
 
 // App-wide poster/still loader for the BROWSE/PLAY face (the Creation Studio grids have their
 // own StudioNet pool). Bare `AsyncImage(url:)` was the cause of the "posters load extremely
@@ -57,7 +72,10 @@ final class ImagePipeline {
     private let cache = NSCache<NSURL, NSImage>()
     private var inflight: [URL: Task<NSImage?, Never>] = [:]
 
-    private init() { cache.countLimit = 800 }
+    private init() {
+        cache.countLimit = 800
+        cache.totalCostLimit = 256 * 1024 * 1024
+    }
 
     /// The decoded image for a URL, served from the in-memory cache when present, otherwise
     /// downloaded once (concurrent callers for the same URL share one fetch). nil on failure.
@@ -67,12 +85,19 @@ final class ImagePipeline {
         let task = Task<NSImage?, Never> { [session] in
             guard let (data, resp) = try? await session.data(from: url) else { return nil }
             if let http = resp as? HTTPURLResponse, !(200...299).contains(http.statusCode) { return nil }
-            return decodedRGBImage(data)
+            // Off the main actor: decoding a poster grid there stalled scrolling.
+            let decoded = await Task.detached(priority: .userInitiated) {
+                DecodedImage(image: decodedRGBImage(data))
+            }.value
+            return decoded.image
         }
         inflight[url] = task
         let image = await task.value
         inflight[url] = nil
-        if let image { cache.setObject(image, forKey: url as NSURL) }
+        if let image {
+            let px = image.representations.first.map { $0.pixelsWide * $0.pixelsHigh } ?? 0
+            cache.setObject(image, forKey: url as NSURL, cost: max(1, px) * 4)
+        }
         return image
     }
 }

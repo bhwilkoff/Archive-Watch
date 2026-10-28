@@ -314,7 +314,8 @@ struct RootView: View {
             }
             // A window narrowed to compact width loses the sidebar places, so
             // a selected place hands over to the tab that holds it.
-            .onChange(of: hSize) { _, size in
+            .onChange(of: hSize, initial: true) { _, size in
+                router.showsSidebarPlaces = size == .regular
                 guard size != .regular else { return }
                 switch router.tab {
                 case .films, .tv, .collections: router.tab = .browse

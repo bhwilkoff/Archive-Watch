@@ -57,6 +57,9 @@ struct FilteredGridView: View {
     // sort features like by year browsing through film noir". Browse itself
     // has had the control all along; the grid a CATEGORY opens never did.
     @State private var sort: CatalogDB.Sort
+    /// The catalog version last loaded from (see BrowseView's same field):
+    /// an is-empty guard kept the seed's results once the full catalog came.
+    @State private var loadedVersion: Int?
     private let pageSize = 60
     private var sortSurface: String { SortMemory.surface(contentType: route.contentType) }
 
@@ -97,30 +100,33 @@ struct FilteredGridView: View {
         }
         .onChange(of: sort) { SortMemory.remember(sort, for: sortSurface); reload() }
         .overlay {
-            if items.isEmpty {
+            if items.isEmpty, loadedVersion != nil {
                 ContentUnavailableView("Nothing here yet", systemImage: "film",
                     description: Text("No titles match this filter in the catalog."))
             }
         }
-        .task {
-            if items.isEmpty {
-                if let person = route.person {
-                    // Person browse rides the FTS names index — single capped
-                    // fetch, not paginable (same shape as tvOS BrowseFilter).
-                    items = store.byPerson(person)
-                    total = items.count
-                } else if let keyword = route.keyword {   // Decision 046
-                    items = store.byKeyword(keyword)
-                    total = items.count
-                } else if let studio = route.studio {     // Decision 046
-                    items = store.byStudio(studio)
-                    total = items.count
-                } else {
-                    items = fetch(offset: 0)
-                    total = store.browseCount(contentType: route.contentType, decade: route.decade,
-                                              genre: route.genre, year: route.year)
-                }
+        .task(id: store.dbVersion) {
+            guard loadedVersion != store.dbVersion else { return }
+            page = 0
+            // The single capped fetches arrive in their own order; they are
+            // shown in the remembered one, as a re-sort would show them.
+            if let person = route.person {
+                // Person browse rides the FTS names index — single capped
+                // fetch, not paginable (same shape as tvOS BrowseFilter).
+                items = CatalogDB.ordered(store.byPerson(person), by: sort)
+                total = items.count
+            } else if let keyword = route.keyword {   // Decision 046
+                items = CatalogDB.ordered(store.byKeyword(keyword), by: sort)
+                total = items.count
+            } else if let studio = route.studio {     // Decision 046
+                items = CatalogDB.ordered(store.byStudio(studio), by: sort)
+                total = items.count
+            } else {
+                items = fetch(offset: 0)
+                total = store.browseCount(contentType: route.contentType, decade: route.decade,
+                                          genre: route.genre, year: route.year)
             }
+            loadedVersion = store.dbVersion
         }
         .id(store.dbVersion)
     }

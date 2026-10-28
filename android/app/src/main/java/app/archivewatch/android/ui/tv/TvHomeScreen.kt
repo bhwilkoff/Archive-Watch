@@ -240,7 +240,7 @@ fun TvHomeScreen(container: AppContainer, nav: Nav) {
             shelf("watchingnow", "Watching Now", "Most-viewed on archive.org this month", payload.watchingNow, nav, onItemFocused, focusFor)
             shelf("commfav", "Community Favorites", "Most-favorited by archive.org viewers", payload.communityFavorites, nav, onItemFocused, focusFor)
             shelf("discussed", "Most Discussed", "Most-reviewed on archive.org", payload.mostDiscussed, nav, onItemFocused, focusFor)
-            shelf("gems", "Hidden Gems", "Overlooked, and worth your time", payload.hiddenGems, nav, onItemFocused, focusFor)
+            shelf("gems", "Hidden Gems", "Rarely watched on archive.org", payload.hiddenGems, nav, onItemFocused, focusFor)
 
             payload.directorShelves.forEach { (director, films) ->
                 shelf("dir-$director", director, "Films by this director", films, nav, onItemFocused, focusFor)

@@ -43,14 +43,15 @@ private struct FilmContextMenu: ViewModifier {
     @Environment(\.openWindow) private var openWindow
     @Environment(\.supportsMultipleWindows) private var supportsMultipleWindows
     @Environment(\.removeFromPlaylist) private var removeFromPlaylist
+    @Environment(AppStore.self) private var store
 
     /// Read when the menu opens, so a grid of tiles does not each observe
-    /// every favorite.
-    private var favorite: Favorite? {
-        let id = archiveID
-        var d = FetchDescriptor<Favorite>(predicate: #Predicate { $0.archiveID == id })
-        d.fetchLimit = 1
-        return try? ctx.fetch(d).first
+    /// every favorite. By every id the film may be SAVED under: a favorite
+    /// stored under a merged-away id is this film's favorite (Decision 040).
+    private var savedFavorites: [Favorite] {
+        let ids = Array(store.storedIDs(for: archiveID))
+        let d = FetchDescriptor<Favorite>(predicate: #Predicate { ids.contains($0.archiveID) })
+        return (try? ctx.fetch(d)) ?? []
     }
 
     func body(content: Content) -> some View {
@@ -60,10 +61,12 @@ private struct FilmContextMenu: ViewModifier {
                     Label("Open in New Window", systemImage: "macwindow.badge.plus")
                 }
             }
-            if let f = favorite {
+            let saved = savedFavorites
+            if !saved.isEmpty {
                 Button {
-                    ctx.delete(f)
-                    SyncNudge.recordDeletion("fav:\(archiveID)", in: ctx)
+                    let keys = Set(saved.map(\.archiveID))
+                    saved.forEach { ctx.delete($0) }
+                    for key in keys { SyncNudge.recordDeletion("fav:\(key)", in: ctx) }
                 } label: { Label("Remove from Favorites", systemImage: "heart.slash") }
             } else {
                 Button {

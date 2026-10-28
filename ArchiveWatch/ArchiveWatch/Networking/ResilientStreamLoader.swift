@@ -1004,6 +1004,13 @@ private final class ChunkStream: NSObject, URLSessionDataDelegate, @unchecked Se
         finalURL = response.url
         let code = (response as? HTTPURLResponse)?.statusCode ?? 0
         status = code
+        if (200...299).contains(code),
+           !RangeResponse.isUsable(response, requestedStart: RangeResponse.requestedStart(dataTask.originalRequest)) {
+            // A node that ignored Range would splice byte 0 in at this offset.
+            status = 0
+            completionHandler(.cancel)
+            return
+        }
         completionHandler((200...299).contains(code) ? .allow : .cancel)
     }
 

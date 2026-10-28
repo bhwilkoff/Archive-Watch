@@ -349,10 +349,12 @@ struct ProjectEditorView: View {
 
     private var transportBar: some View {
         HStack(spacing: 14) {
+            // No bare Space here: a window-wide shortcut took the space bar
+            // from every text field in the editor. The timeline's keyDown and
+            // Mark ▸ Play (bound only while the timeline has focus) own it.
             Button { model.togglePlay() } label: {
                 Image(systemName: model.isPlaying ? "pause.fill" : "play.fill")
             }
-            .keyboardShortcut(.space, modifiers: [])
             .help(model.isPlaying ? "Pause (Space)" : "Play (Space)")
             .accessibilityLabel(model.isPlaying ? "Pause" : "Play")
             Text(timecode(model.playheadSeconds) + " / " + timecode(model.totalDuration))

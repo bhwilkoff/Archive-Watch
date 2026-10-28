@@ -26,8 +26,16 @@ final class AccountStore {
     // Last sign-in failure, surfaced in Settings.
     private(set) var signInError: String?
 
-    private let key = "appleUserID"
+    private let key = AccountStore.userIDKey
     private let coordinator = SignInCoordinator()
+
+    nonisolated static let userIDKey = "appleUserID"
+
+    /// Whether this device holds a Sign in with Apple identity — the one gate
+    /// cloud sync checks, read from storage so no caller has to pass a store.
+    nonisolated static var hasStoredSignIn: Bool {
+        UserDefaults.standard.string(forKey: userIDKey) != nil
+    }
 
     init() { appleUserID = UserDefaults.standard.string(forKey: key) }
 

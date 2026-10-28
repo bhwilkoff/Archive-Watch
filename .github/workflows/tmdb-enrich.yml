@@ -23,6 +23,12 @@ concurrency:
   group: catalog-writers
   cancel-in-progress: false
 
+# Every `run:` is `bash -eo pipefail` (GitHub's explicit `shell: bash`;
+# the implicit default has no pipefail, so `tool | tee log` hid a crash).
+defaults:
+  run:
+    shell: bash
+
 jobs:
   enrich:
     runs-on: ubuntu-latest
@@ -56,11 +62,15 @@ jobs:
             echo "## TMDb enrich: skipped (no TMDB_BEARER_TOKEN)" >> "$GITHUB_STEP_SUMMARY"
             exit 0
           fi
-          python tools/tmdb_fill_metadata.py | tee fill.log
+          python tools/tmdb_fill_metadata.py | tee fill.log \
+            || echo "::warning::tmdb_fill_metadata exited non-zero — publishing what it filled (read the log above)"
           # Decision 124: TMDb's overview replaces an uploader's text on every
           # matched film. The tool ran once by hand (2026-09-16), so 1,045 titles
           # matched since kept the uploader's notes until 2026-09-29.
-          python tools/synopsis_provenance.py --apply | grep -vE '^\s+(was|now):|^  \S+$' | tee -a fill.log
+          # grep -v exits 1 when it filters EVERY line; that is not a failure.
+          { python tools/synopsis_provenance.py --apply \
+              || echo "::warning::synopsis_provenance exited non-zero (read the log above)"; } \
+            | { grep -vE '^\s+(was|now):|^  \S+$' || true; } | tee -a fill.log
           # Only publish when something was actually filled — avoids needless
           # DB rebuilds on days the population is already drained.
           if grep -qE 'filled synopsis=0 cast=0 director=0' fill.log && grep -qE 'tmdb overview adopted: 0 · omdb plot adopted: 0 ' fill.log; then

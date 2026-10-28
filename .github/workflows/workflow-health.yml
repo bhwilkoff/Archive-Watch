@@ -30,6 +30,12 @@ permissions:
   # The auditor reports through an issue rather than through a red X.
   issues: write
 
+# Every `run:` is `bash -eo pipefail` (GitHub's explicit `shell: bash`;
+# the implicit default has no pipefail, so `tool | tee log` hid a crash).
+defaults:
+  run:
+    shell: bash
+
 jobs:
   audit:
     runs-on: ubuntu-latest

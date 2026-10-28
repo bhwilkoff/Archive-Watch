@@ -152,6 +152,10 @@ fun AppRoot(container: AppContainer) {
     // most of the video (user report, 2026-09-03, with screenshots). A film
     // gets the whole window; the tabs come back when it is popped.
     val playerRoute = nav.stack.lastOrNull() as? Route.Player
+    // Above the player's early return, so the full-screen player does not
+    // discard the tabs' and the routes' saved state.
+    val tabStates = androidx.compose.runtime.saveable.rememberSaveableStateHolder()
+    val routeStates = app.archivewatch.android.ui.rememberRouteStates(nav)
     if (playerRoute != null) {
         Surface(color = androidx.compose.ui.graphics.Color.Black, modifier = Modifier.fillMaxSize()) {
             androidx.compose.runtime.key(playerRoute.spec) { PlayerScreen(container, nav, playerRoute.spec) }
@@ -159,7 +163,6 @@ fun AppRoot(container: AppContainer) {
         return
     }
 
-    val tabStates = androidx.compose.runtime.saveable.rememberSaveableStateHolder()
     Surface(color = MaterialTheme.colorScheme.background) {
         NavigationSuiteScaffold(
             navigationSuiteItems = {
@@ -220,6 +223,7 @@ fun AppRoot(container: AppContainer) {
                         color = MaterialTheme.colorScheme.background,
                         modifier = Modifier.fillMaxSize(),
                     ) {
+                        RouteEntry(nav, routeStates, route) {
                         when (route) {
                             is Route.Detail -> DetailScreen(container, nav, route.archiveID)
                             is Route.Series -> SeriesDetailScreen(container, nav, route.slug)
@@ -236,6 +240,7 @@ fun AppRoot(container: AppContainer) {
                             Route.Party -> CartoonScreen(container, nav) // TV-only mode; unreachable on phone
                             Route.Surprise -> SurpriseScreen(container, nav)
                             Route.Settings -> SettingsScreen(container, nav)
+                        }
                         }
                     }
                 }

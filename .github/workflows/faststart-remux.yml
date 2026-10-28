@@ -44,6 +44,12 @@ on:
     workflows: ["Verify playback (strict / AVFoundation)"]
     types: [completed]
 
+# Every `run:` is `bash -eo pipefail` (GitHub's explicit `shell: bash`;
+# the implicit default has no pipefail, so `tool | tee log` hid a crash).
+defaults:
+  run:
+    shell: bash
+
 jobs:
   # 1) Remux + host + re-point. This job mutates + publishes the catalog, so it
   #    holds the catalog-writers lock.
@@ -89,7 +95,10 @@ jobs:
           IDS='${{ github.event.inputs.ids }}'
           ARGS="--limit ${{ github.event.inputs.limit || '25' }}"
           if [ -n "$IDS" ]; then ARGS="--ids $IDS"; fi
-          python tools/faststart_remux.py $ARGS | tee remux.log
+          # A crash after hosting some files must still signal hosted=1 below, or
+          # the swapped set is published (next step) and never re-verified.
+          python tools/faststart_remux.py $ARGS | tee remux.log \
+            || echo "::warning::faststart_remux exited non-zero — publishing and re-verifying what it hosted"
           # Signal downstream whether anything was actually hosted (skip re-verify if not).
           if grep -q "hosted + re-pointed" remux.log; then echo "hosted=1" >> "$GITHUB_OUTPUT"; fi
           echo "## Faststart remux" >> $GITHUB_STEP_SUMMARY

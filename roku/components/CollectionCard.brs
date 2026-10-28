@@ -46,11 +46,16 @@ sub init()
     ' §13.3 / §13.4 — rounded, and the ring lights on focus.
     m.frame = AWFrameBuild(m.top.FindNode("frame"))
     AWFramePlace(m.frame, m.plate, false)
+    ' itemContent can land before init() has found the nodes (the GridTile
+    ' crash, 1.0.77); onContent refuses until then, so replay it here.
+    if m.top.itemContent <> invalid then onContent()
+    onFocus()
 end sub
 
 sub onContent()
     c = m.top.itemContent
     if c = invalid then return
+    if m.title = invalid or m.posters = invalid or m.blurb = invalid or m.count = invalid then return
     m.title.text = c.title
     acc = m.t.marquee
     if c.awAccent <> invalid and c.awAccent <> "" then acc = c.awAccent
@@ -82,6 +87,7 @@ sub onContent()
 end sub
 
 sub onFocus()
+    if m.frame = invalid or m.plate = invalid then return
     lit = (m.top.focusPercent > 0.5)
     AWFramePlace(m.frame, m.plate, lit)
 end sub

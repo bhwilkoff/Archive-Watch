@@ -94,6 +94,85 @@ def wrong_members(year: int, mem: list) -> list:
     return modern
 
 
+# EVIDENCE ALREADY IN THE BUILD names the wrong copy in the clusters the id
+# ranges cannot decide (audit 2026-10-28: 25 of 25 open clusters were two LOW
+# ids). Each test needs a POSITIVE alternative inside the cluster, not just a
+# doubt about one member, so a surviving fragment of the right film (31 of
+# Isn't Life Wonderful's 115 minutes) is never cleared:
+#   runtime   its match's runtime contradicts its own file (<0.5x or >2x, at
+#             least 5 minutes apart) while ANOTHER member's match runs within
+#             25% of its file: Radio Ranch (69 min) wore The Phantom Empire
+#             serial (245); "The Magician" (79 min) a 1-minute Méliès;
+#             "Cinderella" (7 min) Kenneth Branagh's.
+#   director  its own id or title names another member's director and not its
+#             own: BRONCHOBILLYANDTHEGREASERG.M.Anderson... wore Raoul Walsh.
+#   year      its match's release year (tmdb_verify_cache) is more than two
+#             years from the cluster's, while another member's agrees.
+# An upload that declared its own id (matchVerdict "verified") is never named.
+SHORT, LONG, MIN_GAP, AGREE = 0.5, 2.0, 300, 0.25
+
+
+def _load(path):
+    try:
+        d = json.loads(open(path, encoding="utf-8").read())
+        return d.get("entries", d)
+    except Exception:  # noqa: BLE001
+        return {}
+
+
+def _own_runtime(it):
+    return it.get("trueRuntimeSeconds") or it.get("fileRuntimeSeconds") or (
+        it.get("runtimeSeconds") if it.get("runtimeSource") in ("archive_file", "measured-ffprobe") else None)
+
+
+def _surnames(names):
+    out = set()
+    for n in re.split(r",|&| and ", names or ""):
+        w = re.sub(r"[^a-z ]", " ", n.lower()).split()
+        if w and len(w[-1]) >= 4:
+            out.add(w[-1])
+    return out
+
+
+def _own_text(it):
+    t = f"{it.get('archiveID') or ''} {it.get('title') or ''}"
+    return re.sub(r"[^a-z]", "", t.lower())
+
+
+def evidenced_wrong(year, mem, omdb, verify):
+    """[(member, reason)] the cluster's own evidence names as the wrong film."""
+    ided = [i for i in mem if i.get("imdbID")]
+    if len({i["imdbID"] for i in ided}) < 2:
+        return []
+    film_rt = {i["imdbID"]: ((omdb.get(i["imdbID"]) or {}).get("runtime_min") or 0) * 60 for i in ided}
+    out = []
+    for it in ided:
+        if it.get("matchVerdict") == "verified":
+            continue
+        mine, others = it["imdbID"], {i["imdbID"] for i in ided} - {it["imdbID"]}
+        own, rt = _own_runtime(it), film_rt.get(mine)
+        if own and rt and (own / rt < SHORT or own / rt > LONG) and abs(own - rt) >= MIN_GAP:
+            alt = [o for o in others if film_rt.get(o) and abs(own - film_rt[o]) <= AGREE * film_rt[o]]
+            if alt:
+                out.append((it, f"runtime {own // 60} min vs its match's {rt // 60}; "
+                                f"{alt[0]} runs {film_rt[alt[0]] // 60}"))
+                continue
+        text = _own_text(it)
+        mine_dir = _surnames(it.get("director"))
+        other_dirs = set().union(*(_surnames(i.get("director")) for i in ided if i["imdbID"] in others)) - mine_dir
+        if mine_dir and not any(s in text for s in mine_dir) and any(s in text for s in other_dirs):
+            out.append((it, f"its own id/title names {sorted(s for s in other_dirs if s in text)[0]}, "
+                            f"not {it.get('director')}"))
+            continue
+        my = (verify.get(str(it.get("tmdbID"))) or {}).get("year") if it.get("tmdbID") else None
+        if isinstance(my, int) and year and abs(my - year) > 2:
+            agree = [i for i in ided if i["imdbID"] in others and i.get("tmdbID")
+                     and abs(((verify.get(str(i["tmdbID"])) or {}).get("year") or -99) - year) <= 2]
+            if agree:
+                out.append((it, f"its match was released {my}, the film {year}"))
+    return out
+
+
 def clear_match(it: dict) -> list[str]:
     """Strip a wrong external identity + everything derived from it."""
     cleared = []
@@ -125,6 +204,8 @@ def clear_match(it: dict) -> list[str]:
 def main() -> int:
     ap = argparse.ArgumentParser()
     ap.add_argument("--catalog", default="catalog.json")
+    ap.add_argument("--omdb-cache", default="shared/editorial/omdb_cache.json")
+    ap.add_argument("--verify-cache", default="shared/editorial/tmdb_verify_cache.json")
     ap.add_argument("--apply", action="store_true",
                     help="clear the matches this evidence can name (default: report only)")
     a = ap.parse_args()
@@ -132,10 +213,16 @@ def main() -> int:
     cat = json.loads(open(a.catalog, encoding="utf-8").read())
     items = cat["items"] if isinstance(cat, dict) else cat
 
+    omdb, verify = _load(a.omdb_cache), _load(a.verify_cache)
     bad = conflicts(items)
     acted = ambiguous = 0
     for t, y, mem in bad:
         wrong = wrong_members(y, mem)
+        if not wrong:
+            named = evidenced_wrong(y, mem, omdb, verify)
+            for it, why in named:
+                print(f"  EVIDENCE {t[:36]:38} ({y})  {it['archiveID'][:40]}: {why}")
+            wrong = [it for it, _ in named]
         if not wrong:
             ambiguous += 1
             ids = " | ".join(f"{i.get('imdbID')}/{(i.get('director') or '?')[:18]}" for i in mem)

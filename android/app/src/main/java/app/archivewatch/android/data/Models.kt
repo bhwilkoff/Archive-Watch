@@ -439,6 +439,7 @@ data class QueueEntry(
     val title: String,
     val subtitle: String? = null,
     val url: String,
+    val captions: List<Caption> = emptyList(),
 )
 
 

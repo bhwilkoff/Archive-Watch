@@ -238,13 +238,22 @@ struct ControlsCommands: Commands {
                 .keyboardShortcut(.downArrow, modifiers: [.command, .option])
                 .disabled(playback == nil)
             Divider()
-            Button("Close Player") {
-                router.nowPlaying = nil
-                router.nowPlayingEpisode = nil
-            }
-            .keyboardShortcut(".", modifiers: .command)
-            .disabled(playback == nil)
+            Button("Close Player") { closePlayer() }
+                .keyboardShortcut(".", modifiers: .command)
+                .disabled(playback == nil && channels == nil)
         }
+    }
+
+    /// The same as the player window's ✕: a film that may be feeding a show
+    /// asks before it ends the broadcast (§D37).
+    private func closePlayer() {
+        if router.nowPlaying != nil {
+            guard StudioEndConfirmation.confirm() else { return }
+            Task { await StudioSession.shared.end() }
+        }
+        router.nowPlaying = nil
+        router.nowPlayingEpisode = nil
+        router.nowPlayingChannel = nil
     }
 
     private func skip(_ seconds: Double) {

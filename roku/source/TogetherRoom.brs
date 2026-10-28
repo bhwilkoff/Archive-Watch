@@ -163,3 +163,51 @@ sub awRoomSayHere(code as String, token as String)
     x.AddHeader("content-type", "application/json")
     x.PostFromString(FormatJson({ token: token }))
 end sub
+
+' The host's copy (SHAREPLAY §11.14): `<archive item>/<file name>`, built into
+' an archive.org download url by the same rules as Swift and Kotlin's
+' StudioRoomCopy and the web's Together.copyURL, so a room can never send a
+' guest's player anywhere but archive.org. "" when the path is not one.
+function awRoomCopyURL(path as String) as String
+    if path = "" or Len(path) > 520 then return ""
+    slash = Instr(1, path, "/")
+    if slash < 2 then return ""
+    item = Left(path, slash - 1)
+    name = Mid(path, slash + 1)
+    if Len(item) > 120 or name = "" or Left(name, 1) = "/" then return ""
+    okItem = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789._@:+-"
+    for i = 1 to Len(item)
+        if Instr(1, okItem, Mid(item, i, 1)) = 0 then return ""
+    end for
+    if Instr(1, name, "..") > 0 or Instr(1, name, "\") > 0 then return ""
+    for i = 1 to Len(name)
+        if Asc(Mid(name, i, 1)) < 32 then return ""
+    end for
+    out = "https://archive.org/download/" + awRoomEnc(item) + "/"
+    parts = name.Split("/")
+    for i = 0 to parts.Count() - 1
+        if i > 0 then out = out + "/"
+        out = out + awRoomEnc(parts[i])
+    end for
+    return out
+end function
+
+' encodeURIComponent, over the string's UTF-8 BYTES (roByteArray), so a
+' non-ASCII file name is encoded the way the other four platforms encode it.
+function awRoomEnc(s as String) as String
+    keep = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789-_.!~*'()"
+    hex = "0123456789ABCDEF"
+    ba = CreateObject("roByteArray")
+    ba.FromAsciiString(s)
+    out = ""
+    for i = 0 to ba.Count() - 1
+        b = ba[i]
+        c = Chr(b)
+        if b < 128 and Instr(1, keep, c) > 0
+            out = out + c
+        else
+            out = out + "%" + Mid(hex, Int(b / 16) + 1, 1) + Mid(hex, (b mod 16) + 1, 1)
+        end if
+    end for
+    return out
+end function

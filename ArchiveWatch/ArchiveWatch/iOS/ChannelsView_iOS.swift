@@ -103,8 +103,8 @@ struct ChannelsView: View {
         #endif
         .onChange(of: userChannels.count) { rebuild() }
         .fullScreenCover(item: $playing) { box in
-            if let cid = box.channelID, let start = guide.firstIndex(where: { $0.id == cid }) {
-                SurfPlayer(channels: guide, index: start, first: box,
+            if let cid = box.channelID, guide.contains(where: { $0.id == cid }) {
+                SurfPlayer(channels: guide, channelID: cid, first: box,
                            weave: weaveCommercials(into:))
             } else if let player = PlayerView(lineup: box.items, startOffset: box.startOffset) {
                 player.ignoresSafeArea()
@@ -196,18 +196,6 @@ struct ChannelsView: View {
             if i < programs.count - 1 { out.append(ads[i % ads.count]) }
         }
         return out
-    }
-
-    private func deleteUserChannels(at offsets: IndexSet) {
-        let userGuide = guide.filter { $0.id.hasPrefix("user-") }
-        for i in offsets {
-            let gid = userGuide[i].id.replacingOccurrences(of: "user-", with: "")
-            if let uc = userChannels.first(where: { $0.id == gid }) {
-                ctx.delete(uc)
-                SyncNudge.recordDeletion("ch:\(uc.id)", in: ctx)
-            }
-        }
-        rebuild()
     }
 }
 
@@ -323,17 +311,20 @@ private struct OnNowList: View {
 
 private struct SurfPlayer: View {
     let channels: [GuideChannel]
-    @State var index: Int
+    /// The channel on screen, by ID: the guide can rebuild while the player
+    /// is up (a new catalog, a channel created or deleted), and a position in
+    /// the old array then names a different channel in the new one.
+    @State private var channelID: String
     @State private var lineup: ChannelLineup
     @State private var stripVisible = true
     @Environment(\.horizontalSizeClass) private var hSize
     @State private var hideTask: Task<Void, Never>?
     let weave: ([Catalog.Item]) -> [Catalog.Item]
 
-    init(channels: [GuideChannel], index: Int, first: ChannelLineup,
+    init(channels: [GuideChannel], channelID: String, first: ChannelLineup,
          weave: @escaping ([Catalog.Item]) -> [Catalog.Item]) {
         self.channels = channels
-        _index = State(initialValue: index)
+        _channelID = State(initialValue: channelID)
         _lineup = State(initialValue: first)
         self.weave = weave
     }
@@ -362,6 +353,7 @@ private struct SurfPlayer: View {
         #endif
     }
 
+    private var index: Int { channels.firstIndex { $0.id == channelID } ?? 0 }
     private var channel: GuideChannel { channels[index] }
 
     private var strip: some View {
@@ -411,7 +403,7 @@ private struct SurfPlayer: View {
     /// The shared rule (GuideChannel.surf).
     private func surf(_ step: Int) {
         guard let hop = GuideChannel.surf(channels, from: index, step: step) else { return }
-        index = hop.index
+        channelID = channels[hop.index].id
         lineup = ChannelLineup(items: weave(hop.programs), startOffset: hop.offset,
                                channelID: channels[hop.index].id)
         showStrip()
@@ -678,6 +670,12 @@ struct ChannelScheduleView: View {
     @Environment(\.modelContext) private var ctx
     @State private var channel: GuideChannel?
     @State private var playing: ChannelLineup?
+    @State private var confirmDelete = false
+    @Environment(\.dismiss) private var dismiss
+
+    private var userChannelID: String? {
+        channelID.hasPrefix("user-") ? String(channelID.dropFirst("user-".count)) : nil
+    }
 
     var body: some View {
         ScrollViewReader { proxy in
@@ -723,6 +721,25 @@ struct ChannelScheduleView: View {
         }
         .navigationTitle(channel?.title ?? "Schedule")
         .navigationBarTitleDisplayMode(.inline)
+        .toolbar {
+            if userChannelID != nil {
+                ToolbarItem(placement: .topBarTrailing) {
+                    Menu {
+                        Button(role: .destructive) { confirmDelete = true } label: {
+                            Label("Delete Channel…", systemImage: "trash")
+                        }
+                    } label: {
+                        Label("More", systemImage: "ellipsis.circle")
+                    }
+                }
+            }
+        }
+        .confirmationDialog("Delete “\(channel?.title ?? "this channel")”?",
+                            isPresented: $confirmDelete, titleVisibility: .visible) {
+            Button("Delete Channel", role: .destructive) { deleteChannel() }
+        } message: {
+            Text("It is removed from your other devices too.")
+        }
         .task(id: store.dbVersion) {
             if Channel.all.contains(where: { $0.id == channelID }) { _ = await ChannelSchedule.load() }
             build()
@@ -778,22 +795,39 @@ struct ChannelScheduleView: View {
         if Channel.all.contains(where: { $0.id == channelID }) {
             // The same published timeline as the guide, so the list and the
             // grid can never disagree about what is on.
-            channel = ChannelSchedule.current.flatMap {
-                ChannelSchedule.guide($0, store: store, firstNumber: 0, now: now)
-                    .first { $0.id == channelID }
+            // Only this channel's programs are resolved, not the whole guide's.
+            channel = ChannelSchedule.current.flatMap { file in
+                let one = ChannelSchedule.Published(
+                    gap: file.gap, programs: file.programs,
+                    channels: file.channels.filter { $0.id == channelID })
+                return ChannelSchedule.guide(one, store: store, firstNumber: 0, now: now).first
             }
         } else if channelID.hasPrefix("user-") {
             let gid = channelID.replacingOccurrences(of: "user-", with: "")
             let ucs = (try? ctx.fetch(FetchDescriptor<UserChannel>())) ?? []
             guard let uc = ucs.first(where: { $0.id == gid }) else { return }
+            // The guide's own pool (ChannelsView.rebuild), or the list and the
+            // grid name different programs for the same hour.
             let pool = store.dbBrowse(contentType: uc.contentType, decade: uc.decade,
                                       genre: uc.genre, sort: .popular, limit: 150)
-                .filter { $0.videoURLParsed != nil }
+                .filter { $0.videoURLParsed != nil && $0.isRecommendable }
             let slots = ChannelScheduler.schedule(channelID: channelID, programs: pool, now: now)
             channel = GuideChannel(id: channelID, number: 0, title: uc.name,
                                    accent: Color(hex: "#0047FF") ?? .blue,
                                    icon: "dot.radiowaves.left.and.right", slots: slots)
         }
+    }
+
+    /// Keyed by the channel's own id, with a tombstone so another device's
+    /// copy does not bring it back.
+    private func deleteChannel() {
+        guard let gid = userChannelID else { return }
+        let ucs = (try? ctx.fetch(FetchDescriptor<UserChannel>())) ?? []
+        for uc in ucs where uc.id == gid {
+            ctx.delete(uc)
+            SyncNudge.recordDeletion("ch:\(uc.id)", in: ctx)
+        }
+        dismiss()
     }
 }
 

@@ -49,6 +49,10 @@ final class CloudKitSyncService {
     private(set) var lastError: String?
 
     private var isSyncing = false
+    /// True while Delete Account purges the cloud copy: no sync may start, and
+    /// one already running may not push the data back up.
+    private var isPurging = false
+    private var purgeEpoch = 0
     /// Attempts per sync call, including the first.
     private static let maxSyncAttempts = 3
 
@@ -95,9 +99,13 @@ final class CloudKitSyncService {
     /// account. Reentrancy-guarded so overlapping triggers (foreground + timer +
     /// post-edit) don't run concurrently.
     func sync(_ context: ModelContext) async {
+        // Sync is the signed-in viewer's choice (Decision 022): nothing leaves
+        // the device without a Sign in with Apple identity, whichever caller asks.
+        guard AccountStore.hasStoredSignIn, !isPurging else { return }
         guard let database, !isSyncing else { return }
         isSyncing = true
         defer { isSyncing = false }
+        let epoch = purgeEpoch
         // Retry transient failures here rather than dropping them. Previously a
         // single network blip set lastError and returned, leaving the user
         // unsynced until the next 60s tick or foreground event — and if the
@@ -107,7 +115,7 @@ final class CloudKitSyncService {
         var attempt = 0
         while true {
             do {
-                try await performSync(context, database: database)
+                try await performSync(context, database: database, epoch: epoch)
                 lastSyncAt = Date()
                 lastError = nil
                 return
@@ -140,7 +148,8 @@ final class CloudKitSyncService {
         }
     }
 
-    private func performSync(_ context: ModelContext, database: CKDatabase) async throws {
+    private func performSync(_ context: ModelContext, database: CKDatabase,
+                             epoch: Int) async throws {
         do {
             let status = try await CKContainer(identifier: CloudSync.containerID).accountStatus()
             guard status == .available else {
@@ -161,6 +170,9 @@ final class CloudKitSyncService {
             let progress = mergeProgress(context, decode(records[.progress]!), tombs)
             let channels = mergeChannels(context, decode(records[.channels]!), tombs)
             try context.save()
+            // A purge or a sign-out that landed while this sync was fetching
+            // must not be undone by pushing the merged copy back.
+            guard epoch == purgeEpoch, AccountStore.hasStoredSignIn else { return }
             // 3. Push the merged truth back.
             try await save(database, records[.tombstones]!, encode(tombs))
             try await save(database, records[.favorites]!, encode(favs))
@@ -177,6 +189,15 @@ final class CloudKitSyncService {
     /// when CloudKit isn't configured/available (nothing stored). Best-effort.
     func deleteAllCloudData() async -> Bool {
         guard let database else { return true }
+        isPurging = true
+        purgeEpoch += 1
+        defer { isPurging = false }
+        SyncNudge.cancelPending()
+        // Let a sync already in flight finish (its push is refused by the epoch
+        // check) before the records are deleted, so nothing lands after them.
+        for _ in 0..<300 where isSyncing {
+            try? await Task.sleep(nanoseconds: 100_000_000)
+        }
         do {
             let status = try await CKContainer(identifier: CloudSync.containerID).accountStatus()
             guard status == .available else { return true }
@@ -309,7 +330,9 @@ final class CloudKitSyncService {
         for e in cloud {
             if let dead = tombByKey["fav:\(e.archiveID)"], dead >= e.addedAt { continue }
             if merged[e.archiveID] == nil {
-                ctx.insert(Favorite(archiveID: e.archiveID))
+                let f = Favorite(archiveID: e.archiveID)
+                f.addedAt = e.addedAt
+                ctx.insert(f)
                 merged[e.archiveID] = e.addedAt
             } else {
                 merged[e.archiveID] = max(merged[e.archiveID]!, e.addedAt)
@@ -485,15 +508,35 @@ enum SyncNudge {
     }
 
     private static var pending: Task<Void, Never>?
+    private static var lastPeriodic: Date = .distantPast
+    private static let periodicInterval: TimeInterval = 60
 
     /// Debounced push/pull after a local edit (~2 s) so rapid edits coalesce.
-    static func nudge(_ ctx: ModelContext) {
-        guard CloudSync.entitlementConfigured else { return }
+    ///
+    /// `periodic: true` is for writes a player makes every few seconds while a
+    /// film plays: those sync at most once a minute. Call it with the default
+    /// on pause, dismiss and advance, so the position other devices resume
+    /// from is the one the viewer left.
+    static func nudge(_ ctx: ModelContext, periodic: Bool = false) {
+        guard CloudSync.entitlementConfigured, AccountStore.hasStoredSignIn else { return }
+        if periodic {
+            let now = Date()
+            let recent = CloudKitSyncService.shared.lastSyncAt.map {
+                now.timeIntervalSince($0) < periodicInterval
+            } ?? false
+            guard !recent, now.timeIntervalSince(lastPeriodic) >= periodicInterval else { return }
+            lastPeriodic = now
+        }
         pending?.cancel()
         pending = Task { @MainActor in
             try? await Task.sleep(nanoseconds: 2_000_000_000)
             if Task.isCancelled { return }
             await CloudKitSyncService.shared.sync(ctx)
         }
+    }
+
+    static func cancelPending() {
+        pending?.cancel()
+        pending = nil
     }
 }

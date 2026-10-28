@@ -11,6 +11,9 @@ struct PosterCard: View {
     /// Continue Watching: a bar along the poster's foot and the time left in
     /// place of the year (the Apple TV card's two facts, tvOS v1.42.858).
     var progress: WatchProgress? = nil
+    /// The id the viewer's record was saved under, when it is not the card's
+    /// own (a merged-away copy, Decision 085): the menu acts on that record.
+    var storedID: String? = nil
     @Environment(AppRouter.self) private var router
     @State private var hovering = false
 
@@ -24,7 +27,7 @@ struct PosterCard: View {
             .animation(.easeOut(duration: 0.12), value: hovering)
             .accessibilityLabel([item.title, item.year.map(String.init)].compactMap { $0 }.joined(separator: ", "))
             .draggable(FilmTransfer(archiveID: item.archiveID))   // §B15
-            .filmContextMenu(item)
+            .filmContextMenu(item, storedID: storedID)
             .help(item.title)
     }
 
@@ -75,27 +78,29 @@ extension View {
     /// Right-click on a film anywhere it appears as a card or a guide block:
     /// Open, Play, Favorites, Share — the menu iPhone and iPad offer on a
     /// poster (IPAD-DESIGN §11.2), in the Mac's Title Case.
-    func filmContextMenu(_ item: Catalog.Item) -> some View {
-        modifier(FilmContextMenuMac(item: item))
+    func filmContextMenu(_ item: Catalog.Item, storedID: String? = nil) -> some View {
+        modifier(FilmContextMenuMac(item: item, storedID: storedID))
     }
 }
 
 private struct FilmContextMenuMac: ViewModifier {
     let item: Catalog.Item
+    var storedID: String? = nil
+    private var recordID: String { storedID ?? item.archiveID }
     @Environment(AppRouter.self) private var router
     @Environment(\.modelContext) private var ctx
 
     /// Read when the menu opens, so a grid of cards does not each observe
     /// every favorite.
     private var favorite: Favorite? {
-        let id = item.archiveID
+        let id = recordID
         var d = FetchDescriptor<Favorite>(predicate: #Predicate { $0.archiveID == id })
         d.fetchLimit = 1
         return try? ctx.fetch(d).first
     }
 
     private var watchRecord: WatchProgress? {
-        let id = item.archiveID
+        let id = recordID
         var d = FetchDescriptor<WatchProgress>(predicate: #Predicate { $0.archiveID == id })
         d.fetchLimit = 1
         return try? ctx.fetch(d).first
@@ -111,7 +116,7 @@ private struct FilmContextMenuMac: ViewModifier {
             if let f = favorite {
                 Button("Remove from Favorites") {
                     ctx.delete(f)
-                    ctx.insert(Tombstone(key: "fav:\(item.archiveID)"))
+                    ctx.insert(Tombstone(key: "fav:\(recordID)"))
                     try? ctx.save()
                 }
             } else {
@@ -124,7 +129,7 @@ private struct FilmContextMenuMac: ViewModifier {
             // history if you want." The "wp" stone carries it to every device.
             if let w = watchRecord {
                 Button("Remove from History") {
-                    SyncNudge.recordDeletion("wp:\(item.archiveID)", in: ctx)
+                    SyncNudge.recordDeletion("wp:\(recordID)", in: ctx)
                     ctx.delete(w)
                     try? ctx.save()
                 }
@@ -233,6 +238,8 @@ struct ShelfRow<Trailing: View>: View {
     let items: [Catalog.Item]
     var accent: Color = .primary
     var progressByID: [String: WatchProgress] = [:]
+    /// Card id → the id the viewer's record is stored under (Library only).
+    var storedIDs: [String: String] = [:]
     /// Shown in place of the posters when there are none; nil hides the shelf.
     /// A playlist uses it: hidden, a playlist whose films all left the catalog
     /// could not be seen, added to (§B15) or deleted.
@@ -243,10 +250,12 @@ struct ShelfRow<Trailing: View>: View {
     @ViewBuilder var trailing: () -> Trailing
 
     init(title: String, items: [Catalog.Item], accent: Color = .primary,
-         progressByID: [String: WatchProgress] = [:], emptyText: String? = nil,
+         progressByID: [String: WatchProgress] = [:], storedIDs: [String: String] = [:],
+         emptyText: String? = nil,
          @ViewBuilder trailing: @escaping () -> Trailing) {
         self.title = title; self.items = items; self.accent = accent
-        self.progressByID = progressByID; self.emptyText = emptyText; self.trailing = trailing
+        self.progressByID = progressByID; self.storedIDs = storedIDs
+        self.emptyText = emptyText; self.trailing = trailing
     }
 
     var body: some View {
@@ -265,7 +274,10 @@ struct ShelfRow<Trailing: View>: View {
                 } else {
                     ScrollView(.horizontal, showsIndicators: false) {
                         LazyHStack(spacing: 14) {
-                            ForEach(items) { PosterCard(item: $0, progress: progressByID[$0.archiveID]).frame(width: 150) }
+                            ForEach(items) {
+                                PosterCard(item: $0, progress: progressByID[$0.archiveID],
+                                           storedID: storedIDs[$0.archiveID]).frame(width: 150)
+                            }
                         }
                         .padding(.horizontal, 2)
                     }
@@ -277,8 +289,10 @@ struct ShelfRow<Trailing: View>: View {
 
 extension ShelfRow where Trailing == EmptyView {
     init(title: String, items: [Catalog.Item], accent: Color = .primary,
-         progressByID: [String: WatchProgress] = [:]) {
-        self.init(title: title, items: items, accent: accent, progressByID: progressByID) { EmptyView() }
+         progressByID: [String: WatchProgress] = [:], storedIDs: [String: String] = [:],
+         emptyText: String? = nil) {
+        self.init(title: title, items: items, accent: accent, progressByID: progressByID,
+                  storedIDs: storedIDs, emptyText: emptyText) { EmptyView() }
     }
 }
 #endif

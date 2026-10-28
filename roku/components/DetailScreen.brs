@@ -372,8 +372,25 @@ function blurSrc(url as String) as String
     return url + "?aw=blur"
 end function
 
+' What Play would do, cleared for a new film. Detail is one node reused for
+' every film, and the url, runtime, captions and resume point lived on from
+' the last one until its shard answered, so Play pressed in that window
+' played the PREVIOUS film (and an id with no shard kept it forever).
+sub resetPlay()
+    m.playUrl = ""
+    m.runtime = 0
+    m.top.runtimeSeconds = 0
+    m.top.captionUrl = ""
+    m.top.playFrom = 0
+    if m.buttons <> invalid
+        m.buttons[0].label.text = "Play"
+        layoutButtons()
+    end if
+end sub
+
 sub onItem()
     it = m.top.item
+    resetPlay()
     if it = invalid
         ' NEVER keep the previous film on screen. Returning early here is how
         ' an unresolvable id left the last film's poster, title and Play
@@ -779,7 +796,8 @@ sub onDetail()
     m.top.runtimeSeconds = dur
     paintPlayLabel()
     layoutButtons()
-    m.playUrl = d.url
+    m.playUrl = ""
+    if d.url <> invalid then m.playUrl = fmt(d.url)
 
     ' Cast as one honest line rather than a row of faces: the shard carries
     ' TMDb profile paths, but a row of six portraits under a 1959 Argentine
@@ -896,6 +914,12 @@ sub paintPlayLabel()
     else if dur > 0
         mins = Int(dur / 60)
         m.buttons[0].label.text = "Play  ·  " + fmt(mins) + "m"
+        m.top.playFrom = 0
+    else
+        ' No runtime and nothing to resume: start at the top. This branch
+        ' was missing, so "Start from the beginning" on a film with no
+        ' runtime kept the old resume point.
+        m.buttons[0].label.text = "Play"
         m.top.playFrom = 0
     end if
     ' F6 — a longer label ("Resume · 83m left") in a pill measured for

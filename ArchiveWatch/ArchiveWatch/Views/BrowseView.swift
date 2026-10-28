@@ -70,6 +70,9 @@ struct BrowseView: View {
     // only a page is loaded). Pagination appends pages as you scroll (#infinite).
     @State private var totalCount = 0
     @State private var loadingMore = false
+    /// Bumped by every reload, so a page fetched for an older filter or sort
+    /// is dropped instead of appended.
+    @State private var queryGeneration = 0
     private let pageSize = 300
     @FocusState private var focusedArchiveID: String?
     // True when the view was pushed with a specific filter (from a
@@ -113,11 +116,16 @@ struct BrowseView: View {
     /// Load the first page (or the whole capped set for non-paginable filters)
     /// plus the REAL total for the header — so the page shows "36,944 titles"
     /// even though only a page is in memory.
-    private func reload() {
+    /// `keepPosition` (a catalog swap under the same query) refetches as many
+    /// rows as are already loaded, so the focused tile is still there.
+    private func reload(keepPosition: Bool = false) {
+        queryGeneration &+= 1
+        loadingMore = false
         if paginable {
+            let limit = Showcase.isOn ? 2000 : (keepPosition ? max(pageSize, items.count) : pageSize)
             items = store.dbBrowse(contentType: filter.category, decade: filter.decade,
                                    genre: filter.genre, sort: dbSort,
-                                   limit: Showcase.isOn ? 2000 : pageSize, offset: 0,
+                                   limit: limit, offset: 0,
                                    runtime: filter.runtime)
             if Showcase.isOn { items = Showcase.ranked(items) }
             totalCount = store.dbBrowseCount(contentType: filter.category,
@@ -135,51 +143,43 @@ struct BrowseView: View {
     private func loadMore() {
         guard paginable, !Showcase.isOn, !loadingMore, items.count < totalCount else { return }
         loadingMore = true
+        let generation = queryGeneration
         let jsons = store.dbBrowsePageJSON(contentType: filter.category, decade: filter.decade,
                                            genre: filter.genre, sort: dbSort,
                                            limit: pageSize, offset: items.count,
                                            runtime: filter.runtime)
         Task { @MainActor in
             let decoded = await Task.detached { CatalogDB.decodeItems(jsons) }.value
+            guard generation == queryGeneration else { return }
             let have = Set(items.map(\.archiveID))
             items.append(contentsOf: decoded.filter { have.contains($0.archiveID) == false })
             loadingMore = false
         }
     }
 
-    /// Single capped fetch for the non-paginable cases (collection / person / random).
+    /// Single capped fetch for the non-paginable cases (collection / person /
+    /// keyword / studio / random). Those queries come back popular-first, so
+    /// the chosen sort is applied in memory (`CatalogDB.ordered`).
     private func computeItems() -> [Catalog.Item] {
-        if let p = filter.person {   // #4: person browse uses the FTS names index
-            var page = store.dbByPerson(p)
-            if sort == .random {
-                var rng = SplitMix(seed: UInt64(shuffleSeed)); page.shuffle(using: &rng)
-            }
-            return page
-        }
-        if let k = filter.keyword {   // Decision 046: thematic keyword facet
-            var page = store.dbByKeyword(k)
-            if sort == .random {
-                var rng = SplitMix(seed: UInt64(shuffleSeed)); page.shuffle(using: &rng)
-            }
-            return page
-        }
-        if let s = filter.studio {    // Decision 046: production-company facet
-            var page = store.dbByStudio(s)
-            if sort == .random {
-                var rng = SplitMix(seed: UInt64(shuffleSeed)); page.shuffle(using: &rng)
-            }
-            return page
-        }
-        var page = store.dbBrowse(contentType: filter.category, decade: filter.decade,
+        var page: [Catalog.Item]
+        if let p = filter.person {            // #4: the FTS names index
+            page = store.dbByPerson(p)
+        } else if let k = filter.keyword {    // Decision 046: thematic keyword facet
+            page = store.dbByKeyword(k)
+        } else if let s = filter.studio {     // Decision 046: production-company facet
+            page = store.dbByStudio(s)
+        } else if let c = filter.collection {
+            // The collection's own membership table, not a filter over the
+            // first 2,000 popular titles (which left most collections empty).
+            page = store.dbByCollection(c, limit: Self.filteredGridCap)
+        } else {
+            page = store.dbBrowse(contentType: filter.category, decade: filter.decade,
                                   genre: filter.genre, sort: dbSort, limit: Self.filteredGridCap,
                                   runtime: filter.runtime)
-        if let k = filter.collection {
-            page = page.filter { $0.collections.contains(k) }
         }
-        if sort == .random {
-            var rng = SplitMix(seed: UInt64(shuffleSeed))
-            page.shuffle(using: &rng)
-        }
+        if sort != .random { return CatalogDB.ordered(page, by: dbSort) }
+        var rng = SplitMix(seed: UInt64(shuffleSeed))
+        page.shuffle(using: &rng)
         return page
     }
 
@@ -239,7 +239,7 @@ struct BrowseView: View {
                 }
 
                 if items.isEmpty {
-                    EmptyState()
+                    EmptyState(offersFilters: !isPreFiltered)
                         .frame(maxWidth: .infinity)
                         .padding(.top, 80)
                 } else {
@@ -272,8 +272,9 @@ struct BrowseView: View {
         .onChange(of: filter) { _, _ in reload() }
         .onChange(of: sort) { _, _ in sort.remember(for: filter.sortSurface); reload() }
         .onChange(of: shuffleSeed) { _, _ in reload() }
-        // Re-query when the DB swaps (seed → full) or the adult toggle flips.
-        .onChange(of: store.dbGeneration) { _, _ in reload() }
+        // Re-query when the DB swaps (seed → full) or the adult toggle flips,
+        // keeping as many rows as are loaded so the viewer's place survives.
+        .onChange(of: store.dbGeneration) { _, _ in reload(keepPosition: true) }
     }
 
     private var headline: String {
@@ -560,6 +561,9 @@ struct CompactTile: View {
 // MARK: - Empty state
 
 struct EmptyState: View {
+    /// Only a grid with filters to change may suggest changing them.
+    var offersFilters = true
+
     var body: some View {
         VStack(spacing: 16) {
             Image(systemName: "film.stack")
@@ -568,9 +572,11 @@ struct EmptyState: View {
             Text("Nothing here yet")
                 .font(.title2)
                 .foregroundStyle(.white.opacity(0.6))
-            Text("Try a different filter combination.")
-                .font(.callout)
-                .foregroundStyle(.white.opacity(0.4))
+            if offersFilters {
+                Text("Try a different filter combination.")
+                    .font(.callout)
+                    .foregroundStyle(.white.opacity(0.4))
+            }
         }
     }
 }

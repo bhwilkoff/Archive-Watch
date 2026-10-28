@@ -21,6 +21,12 @@ concurrency:
   group: subtitle-index           # share with subtitle-index.yml — both mutate subtitle.sqlite
   cancel-in-progress: false
 
+# Every `run:` is `bash -eo pipefail` (GitHub's explicit `shell: bash`;
+# the implicit default has no pipefail, so `tool | tee log` hid a crash).
+defaults:
+  run:
+    shell: bash
+
 jobs:
   align:
     runs-on: ubuntu-latest
@@ -103,7 +109,10 @@ jobs:
         # annotation records the backstop firing without an alert email.
         if: always() && steps.align.outcome == 'failure' && steps.restore.outcome == 'success'
         run: |
-          if python tools/sqlite_publish_guard.py check subtitle.sqlite --baseline .index_baseline.json | grep -q 'changed: none'; then
+          # Read whole, then matched: `guard | grep -q` under pipefail can fail on
+          # SIGPIPE and read as "work was published".
+          guard=$(python tools/sqlite_publish_guard.py check subtitle.sqlite --baseline .index_baseline.json || true)
+          if grep -q 'changed: none' <<<"$guard"; then
             echo "::error::Align words was killed by its backstop timeout and produced NOTHING."
             exit 1
           fi

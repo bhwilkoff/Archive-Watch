@@ -108,6 +108,15 @@ fun ChannelsScreen(container: AppContainer, nav: Nav) {
     // rows are replaced by a Retry row.
     var scheduleFloorMs by remember { mutableStateOf<Long?>(null) }
     var scheduleMissing by remember { mutableStateOf(false) }
+    // The guide's clock, on the minute: read once at composition, the now line
+    // and the live window froze for as long as the screen stayed open.
+    var clockMs by remember { androidx.compose.runtime.mutableLongStateOf(System.currentTimeMillis()) }
+    androidx.compose.runtime.LaunchedEffect(Unit) {
+        while (true) {
+            kotlinx.coroutines.delay(60_000L - System.currentTimeMillis() % 60_000L)
+            clockMs = System.currentTimeMillis()
+        }
+    }
 
     val guide by produceState<List<GuideChannel>?>(null, dbVersion, userChanges, retry) {
         val db = container.catalog.awaitDb()
@@ -181,7 +190,7 @@ fun ChannelsScreen(container: AppContainer, nav: Nav) {
         }
         val fmt = rememberTimeFormat()
 
-        val nowMs = System.currentTimeMillis()
+        val nowMs = clockMs
         val isCompact = with(androidx.compose.ui.platform.LocalDensity.current) {
             androidx.compose.ui.platform.LocalWindowInfo.current.containerSize.width.toDp()
         } < 600.dp

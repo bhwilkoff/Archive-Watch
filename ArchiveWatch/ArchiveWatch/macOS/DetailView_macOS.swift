@@ -24,6 +24,13 @@ struct DetailView: View {
     @State private var showGetSubtitles = false
     @State private var downloadError: String?
     @Query private var downloads: [DownloadedFilm]
+    @Environment(\.openWindow) private var openWindow
+    /// Read in `.task`, not in `body`: each is a query or a Launch Services call.
+    @State private var related: [Catalog.Item] = []
+    @State private var callsheetSupported = false
+    @State private var callsheetTitle = ""
+    @State private var callsheetIcon = "person.text.rectangle"
+    @State private var callsheetInstalled = false
     /// The live show, shared with the player surface — Detail is gone from the
     /// window by the time a player exists (§B2a), so the session holds it.
     private var studio: StudioSession { StudioSession.shared }
@@ -52,12 +59,25 @@ struct DetailView: View {
     /// (macOS-DESIGN §B13a). The rights gate runs FIRST and its refusal is a
     /// sentence, never a greyed-out row — `StudioSession.arm` owns both.
     private func startStudio() {
-        if StudioSession.shared.arm(film: item) {
-            router.play(item)
+        // The Studio holds the film (§D7) and runs the rights gate when the
+        // host starts; arming here and playing in this window left an armed
+        // destination nothing would ever clear.
+        StudioMacShow.shared.take(item, from: router)
+        openWindow(id: StudioWindowID.studio)
+    }
+
+    /// An episode plays in the episode player, with its series as the queue.
+    private func playItem(at start: TimeInterval? = nil) {
+        guard item.isEpisode, let sid = item.seriesID else { router.play(item, at: start); return }
+        let id = item.archiveID
+        Task {
+            if let series = await SeriesStore.shared.load(seriesID: sid),
+               let ep = series.flatEpisodes.first(where: { $0.archiveID == id }) {
+                router.playEpisode(ep, in: series)
+            } else {
+                router.play(item, at: start)
+            }
         }
-        // A refusal set by `arm` is drawn by the alert below; nothing else to
-        // do here, and deliberately no fallback to ordinary playback — a host
-        // who asked to broadcast has not asked to watch alone.
     }
 
     private var isFav: Bool { favorites.contains { $0.archiveID == item.archiveID } }
@@ -78,7 +98,6 @@ struct DetailView: View {
                 }
                 if !item.cast.isEmpty { castRow }
                 if !scenes.isEmpty { scenesRow }
-                let related = store.related(to: item)
                 if !related.isEmpty {
                     VStack(alignment: .leading, spacing: 8) {
                         Text("More Like This").font(.title3).fontWeight(.semibold).accessibilityAddTraits(.isHeader)
@@ -105,6 +124,19 @@ struct DetailView: View {
         .task(id: item.archiveID) {
             guard let url = item.videoURLParsed else { scenes = []; return }
             scenes = await ArchiveVersions.scenes(for: item.archiveID, default: url)
+        }
+        .task(id: "\(item.archiveID)#\(store.dbVersion)") {
+            related = store.related(to: item)
+            callsheetSupported = Callsheet.supports(item)
+            callsheetInstalled = Callsheet.isInstalled
+            callsheetTitle = Callsheet.actionTitle
+            callsheetIcon = Callsheet.actionIcon
+        }
+        // The copies feed both the Version and Download menus, which may be
+        // folded into More; a task on a control that is not drawn never ran.
+        .task(id: item.archiveID) {
+            guard item.videoURLParsed != nil else { return }
+            await loadVersions()
         }
         .sheet(isPresented: $showPlaylistSheet) {
             AddToPlaylistSheet(archiveID: item.archiveID)
@@ -135,7 +167,7 @@ struct DetailView: View {
         FilmActions(
             title: item.title,
             isFavorite: isFav,
-            play: { router.play(item) },
+            play: { playItem() },
             toggleFavorite: { toggleFavorite() },
             addToPlaylist: { showPlaylistSheet = true },
             subtitles: item.videoURLParsed == nil ? nil : { showGetSubtitles = true },
@@ -409,7 +441,7 @@ struct DetailView: View {
                            inMenu: [DetailAction] = []) -> some View {
         HStack(spacing: 10) {
             if item.videoURLParsed != nil {
-                Button { router.play(item) } label: {
+                Button { playItem() } label: {
                     Label("Play", systemImage: "play.fill")
                 }
                 .buttonStyle(.borderedProminent).controlSize(.large).fixedSize()
@@ -484,7 +516,6 @@ struct DetailView: View {
             }
             .controlSize(.large).fixedSize()
             .help("Choose which copy of this film to play")
-            .task(id: item.archiveID) { await loadVersions() }
         case .download:
             // Keep it on this Mac (Decision 099). A menu rather than iOS's
             // sheet: the copies are already loaded for the Version control
@@ -522,7 +553,6 @@ struct DetailView: View {
             Menu { versionMenuContents } label: {
                 Label("Choose Version", systemImage: "rectangle.stack")
             }
-            .task(id: item.archiveID) { await loadVersions() }
         case .download:
             Menu { downloadMenuContents } label: {
                 Label(downloadRow?.state == .completed ? "Downloaded" : "Download",
@@ -552,9 +582,9 @@ struct DetailView: View {
             }
             Divider()
         }
-        if Callsheet.supports(item) {
+        if callsheetSupported {
             Button { Callsheet.open(Callsheet.url(for: item)) } label: {
-                Label(Callsheet.actionTitle, systemImage: Callsheet.actionIcon)
+                Label(callsheetTitle, systemImage: callsheetIcon)
             }
         }
         // Watch Together is ONE name with TWO halves (the owner's framing,
@@ -601,10 +631,11 @@ struct DetailView: View {
             ScrollView(.horizontal, showsIndicators: false) {
                 LazyHStack(spacing: 14) {
                     ForEach(scenes, id: \.seconds) { s in
-                        Button { router.play(item, at: TimeInterval(s.seconds)) } label: {
+                        Button { playItem(at: TimeInterval(s.seconds)) } label: {
                             VStack(alignment: .leading, spacing: 4) {
-                                AsyncImage(url: s.image) { $0.resizable().scaledToFill() } placeholder: { Color.secondary.opacity(0.2) }
+                                Color.secondary.opacity(0.2)
                                     .frame(width: 180, height: 135)
+                                    .overlay { RemoteImage(url: s.image, contentMode: .fill) }
                                     .clipShape(.rect(cornerRadius: 8))
                                 Text(Self.clock(s.seconds)).font(.caption).foregroundStyle(.secondary)
                             }
@@ -698,7 +729,7 @@ struct DetailView: View {
         // unblocks the person deep-link via tmdbPersonID; the primary click still
         // browses their other titles).
         .contextMenu {
-            if let pid = personID, Callsheet.isInstalled,
+            if let pid = personID, callsheetInstalled,
                let url = Callsheet.personURL(tmdbPersonID: pid) {
                 Button { Callsheet.open(url) } label: {
                     Label("Open in Callsheet", systemImage: "person.text.rectangle")

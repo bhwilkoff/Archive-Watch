@@ -71,6 +71,16 @@ struct ChannelsView: View {
             }
         }
         .task(id: store.dbVersion) { await load() }
+        // The now line and the airing highlight move with the clock, on the
+        // minute, rather than standing where the guide was first drawn.
+        .task {
+            while !Task.isCancelled {
+                let secs = 60 - Calendar.current.component(.second, from: Date())
+                try? await Task.sleep(for: .seconds(max(1, secs)))
+                if Task.isCancelled { break }
+                nowTick = Date()
+            }
+        }
         .onChange(of: userChannels.count) { rebuild() }
         .sheet(item: $playing) { box in
             ChannelPlayer(lineup: box.items, startOffset: box.startOffset)

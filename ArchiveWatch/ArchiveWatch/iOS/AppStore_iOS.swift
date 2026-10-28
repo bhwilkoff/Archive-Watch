@@ -200,7 +200,26 @@ final class AppStore {
     /// The hero's candidates as one query (ids + playability), as on tvOS.
     func dbHeroCandidates() -> [(id: String, playable: Bool)] { db?.heroCandidates() ?? [] }
     func itemsByIDs(_ ids: [String]) -> [Catalog.Item] { db?.itemsByIDs(ids) ?? [] }
+
+    /// Saved ids resolved to the cards that serve them, each paired with the
+    /// id it was STORED under. A merged-away id (Decision 040) resolves to
+    /// its survivor, so removing, moving or un-favoriting must act on the
+    /// stored id, or nothing changes. One card appears once, at the first
+    /// stored id that reaches it.
+    func storedItems(_ ids: [String]) -> [(storedID: String, item: Catalog.Item)] {
+        db?.storedItems(ids) ?? []
+    }
+
+    /// Every id a card may be saved under: its own and the uploads merged into it.
+    func storedIDs(for archiveID: String) -> Set<String> {
+        Set(db?.mergedIDs(into: archiveID) ?? []).union([archiveID])
+    }
     func related(to item: Catalog.Item) -> [Catalog.Item] { db?.related(to: item) ?? [] }
+    /// A shelf's members as light rows (id + dedup key), for Home to choose
+    /// from before it decodes anything.
+    func shelfKeys(_ shelfID: String, allowStandaloneTV: Bool = false) -> [CatalogDB.ShelfKey] {
+        db?.shelfKeys(shelfID, allowStandaloneTV: allowStandaloneTV) ?? []
+    }
     func seriesCards() -> [Catalog.Item] { db?.seriesCards() ?? [] }
     func tvSpecialsCount() -> Int { db?.tvSpecialsCount() ?? 0 }
     func hiddenGems() -> [Catalog.Item] { db?.hiddenGems() ?? [] }

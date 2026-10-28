@@ -73,7 +73,10 @@ struct ArchiveWatchMacApp: App {
     }
 
     var body: some Scene {
-        WindowGroup("Archive Watch") {
+        // ONE browse window: the router, the player it presents and the Studio
+        // hand-off are app-wide, so a second Library window shared them and two
+        // windows drove one `nowPlaying`.
+        Window("Archive Watch", id: "library") {
             RootView()
                 .environment(store)
                 .environment(router)
@@ -105,6 +108,13 @@ struct ArchiveWatchMacApp: App {
                 .task(id: account.isSignedIn) {
                     guard account.isSignedIn else { return }
                     await CloudKitSyncService.shared.sync(modelContainer.mainContext)
+                    // Every 60 s while signed in, as on iPhone: edits made on
+                    // another device arrive without the Mac being re-activated.
+                    while !Task.isCancelled {
+                        try? await Task.sleep(for: .seconds(60))
+                        guard !Task.isCancelled, account.isSignedIn else { break }
+                        await CloudKitSyncService.shared.sync(modelContainer.mainContext)
+                    }
                 }
                 .onChange(of: scenePhase) { _, phase in
                     guard phase == .active else { return }
@@ -201,6 +211,8 @@ struct ArchiveWatchMacApp: App {
                 .environment(store)
                 .environment(account)
         }
+        // Sync Now and Delete Account need the store the sync merges into.
+        .modelContainer(modelContainer)
     }
 
     /// Route a deep link / universal link into the detail column. Handles item links
@@ -226,6 +238,16 @@ struct ArchiveWatchMacApp: App {
         // archivewatch://play/{id}: a widget's Continue Watching tile.
         if host == "play", let first = parts.first, let item = store.item(first) {
             router.play(item)
+            return
+        }
+        // archivewatch://series/{slug}  or  https://archivewatch.org/series/{slug}
+        var slug: String?
+        if let i = parts.firstIndex(of: "series"), i + 1 < parts.count { slug = parts[i + 1] }
+        else if host == "series", let first = parts.first { slug = first }
+        if let slug {
+            if let card = store.seriesCard(seriesID: slug) ?? store.item("series:" + slug) {
+                router.openDetail(card)
+            }
             return
         }
         // archivewatch://item/{id}  or  https://archivewatch.org/item/{id}

@@ -13,15 +13,28 @@ struct SearchView: View {
     @State private var typeFilter: String? = nil
     @State private var decadeFilter: Int? = nil
     @State private var allEpisodes = false
+    @State private var searchTask: Task<Void, Never>?
 
     /// FTS5 search over the on-disk catalog (Decision 017) — title, cast, crew,
     /// genre, series, country, and synopsis (the broadened FTS `extra` column).
     /// Individual TV episodes are first-class items now (Decision 045), so they
     /// come back in `results` and are simply grouped into their own section.
-    private func runSearch() {
+    ///
+    /// Debounced so each keystroke does not run a query, and the rows are
+    /// decoded off the main thread; a newer query cancels an older one.
+    private func runSearch(debounce: Bool = true) {
+        searchTask?.cancel()
         let q = query.trimmingCharacters(in: .whitespacesAndNewlines)
         guard q.count >= 2, let db = store.db else { results = []; return }
-        results = db.search(q)
+        searchTask = Task { @MainActor in
+            if debounce { try? await Task.sleep(for: .milliseconds(250)) }
+            guard !Task.isCancelled else { return }
+            if ArchiveLink.id(from: q) != nil { results = db.search(q); return }
+            let jsons = db.searchJSON(q)
+            let decoded = await Task.detached { CatalogDB.decodeItems(jsons) }.value
+            guard !Task.isCancelled else { return }
+            results = decoded
+        }
     }
 
     private var filtered: [Catalog.Item] {
@@ -63,7 +76,7 @@ struct SearchView: View {
                 if query.trimmingCharacters(in: .whitespaces).count < 2 {
                     placeholder
                 } else if results.isEmpty {
-                    EmptyState()
+                    EmptyState(offersFilters: false)
                         .frame(maxWidth: .infinity)
                         .padding(.top, 60)
                 } else {
@@ -128,7 +141,7 @@ struct SearchView: View {
             if query.isEmpty, let q = ProcessInfo.processInfo.environment["AW_SEARCH"] { query = q }
         }
         #endif
-        .onChange(of: store.dbGeneration) { _, _ in runSearch() }
+        .onChange(of: store.dbGeneration) { _, _ in runSearch(debounce: false) }
     }
 
     /// Type + era chips over the results (Browse's own chip control). Offered

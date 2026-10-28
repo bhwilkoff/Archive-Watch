@@ -106,11 +106,37 @@ for f in sorted(pathlib.Path(".github/workflows").glob("*.yml")):
             untokened.append(f"{f.stem} [{jname}]: '{step.get('name')}' "
                              f"runs gh with no GH_TOKEN in scope")
 
-for b in bad + untokened + reporting_fails:
+# Every workflow runs its steps under `bash -eo pipefail`. GitHub's IMPLICIT
+# default shell is `bash -e {0}` with no pipefail, so `python tool.py | tee
+# log` reported tee's exit status: a crashed rights apply or a crashed DB
+# build went green and the next step published what it left behind. An
+# explicit `shell: bash` is the documented way to get pipefail, and a step or
+# job that sets another shell must say so on purpose.
+no_pipefail = []
+for f in sorted(pathlib.Path(".github/workflows").glob("*.yml")):
+    doc = yaml.safe_load(f.read_text()) or {}
+    shell = (((doc.get("defaults") or {}).get("run") or {}).get("shell"))
+    if shell != "bash":
+        no_pipefail.append(f"{f.stem}: no top-level `defaults: run: shell: bash` "
+                           f"(implicit shell has no pipefail)")
+    for jname, job in (doc.get("jobs") or {}).items():
+        jshell = (((job.get("defaults") or {}).get("run") or {}).get("shell"))
+        if jshell not in (None, "bash"):
+            no_pipefail.append(f"{f.stem} [{jname}]: job shell {jshell!r} overrides bash")
+        for step in job.get("steps", []):
+            s = step.get("shell")
+            if "run" in step and s not in (None, "bash") and "pipefail" not in str(s) \
+                    and not str(s).startswith("python"):
+                no_pipefail.append(f"{f.stem} [{jname}]: '{step.get('name')}' shell {s!r} "
+                                   f"has no pipefail")
+
+for b in bad + untokened + reporting_fails + no_pipefail:
     print("  " + b)
 print(f"{len(bad)} ungated step(s)" if bad else "every apply job is fully gated")
 print(f"{len(untokened)} gh step(s) with no token"
       if untokened else "every gh step has a token")
 print(f"{len(reporting_fails)} reporting step(s) that can fail a run"
       if reporting_fails else "no reporting workflow fails on its findings")
-sys.exit(1 if (bad or untokened or reporting_fails) else 0)
+print(f"{len(no_pipefail)} workflow(s)/step(s) without pipefail"
+      if no_pipefail else "every workflow runs bash with pipefail")
+sys.exit(1 if (bad or untokened or reporting_fails or no_pipefail) else 0)

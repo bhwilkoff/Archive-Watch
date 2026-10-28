@@ -28,10 +28,11 @@ import androidx.compose.ui.text.font.FontWeight
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import app.archivewatch.android.app.AppContainer
-import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.data.PlaySpec
 import app.archivewatch.android.data.QueueEntry
 import app.archivewatch.android.ui.Nav
+import app.archivewatch.android.ui.ResolvedList
+import app.archivewatch.android.ui.resolveListRows
 import app.archivewatch.android.ui.Route
 import kotlinx.coroutines.launch
 
@@ -87,8 +88,8 @@ fun TvSharedListScreen(
     val userChanges by container.userState.changes.collectAsState()
     val scope = rememberCoroutineScope()
 
-    val items by produceState<List<CatalogItem>?>(null, dbVersion) {
-        value = container.catalog.awaitDb().itemsByIDs(archiveIDs)
+    val resolved by produceState<ResolvedList?>(null, dbVersion) {
+        value = resolveListRows(archiveIDs, container.catalog.awaitDb().itemsByIDsKeyed(archiveIDs))
     }
     val alreadyHave by produceState(false, userChanges) {
         value = container.userState.playlists().any { it.archiveIDs == archiveIDs }
@@ -98,13 +99,13 @@ fun TvSharedListScreen(
     val playButton = remember { FocusRequester() }
     val addButton = remember { FocusRequester() }
 
-    val rows = items.orEmpty()
+    val rows = resolved?.rows.orEmpty()
     // Claim onto the PRIMARY action once the rows are in. Keyed on the row
     // count because the button does not exist until there is something to
     // play — claiming focus on a FocusRequester that is not attached throws.
     val canPlay = rows.any { it.downloadURL != null }
     ClaimInitialFocus(if (canPlay) playButton else addButton, key = canPlay)
-    val missing = archiveIDs.size - rows.size
+    val missing = resolved?.missing ?: 0
 
     Column(Modifier.fillMaxSize()) {
         Text(
@@ -126,10 +127,10 @@ fun TvSharedListScreen(
         // looking at different collections and neither can tell.
         Text(
             when {
-                items == null -> "Loading…"
+                resolved == null -> "Loading…"
                 rows.isEmpty() -> "None of these titles are in the catalog any more."
                 missing > 0 ->
-                    "${rows.size} of ${archiveIDs.size} titles — $missing " +
+                    "${rows.size} of ${rows.size + missing} titles — $missing " +
                         "${if (missing == 1) "is" else "are"} no longer in the catalog."
                 else -> "${rows.size} ${if (rows.size == 1) "title" else "titles"}"
             },

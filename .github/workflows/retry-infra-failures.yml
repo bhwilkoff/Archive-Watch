@@ -31,6 +31,12 @@ concurrency:
   group: "retry-infra-failures"
   cancel-in-progress: false
 
+# Every `run:` is `bash -eo pipefail` (GitHub's explicit `shell: bash`;
+# the implicit default has no pipefail, so `tool | tee log` hid a crash).
+defaults:
+  run:
+    shell: bash
+
 jobs:
   sweep:
     runs-on: ubuntu-latest

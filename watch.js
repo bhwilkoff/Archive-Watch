@@ -190,10 +190,12 @@
 
     loadedAt: 0,
 
+    // Resolves once episodes-index.json has been read (or failed). Home never
+    // waits for it; a surface that resolves an episode id awaits it.
+    episodesReady: Promise.resolve(),
+
     async load() {
-      const [idxR, featR, epR] = await Promise.all([
-        fetch(INDEX_URL), fetch(FEATURED_URL), fetch(EPISODES_URL).catch(() => null),
-      ]);
+      const [idxR, featR] = await Promise.all([fetch(INDEX_URL), fetch(FEATURED_URL)]);
       if (!idxR.ok) throw new Error(`catalog index ${idxR.status}`);
       const idx = await idxR.json();
       this.byID.clear();          // a reload re-populates; never accumulate
@@ -208,10 +210,19 @@
       this.facets = idx.facets || { keywords: [], studios: [] };
       this.rows.forEach(r => this.byID.set(r[0], r));
       if (featR.ok) this.featured = await featR.json();
-      // Episodes are first-class items (Decision 045): resolve by archiveID like
-      // any film (favorites / playlists / share / Detail), but stay OUT of
-      // Data.rows so Home/Browse film grids never include them.
-      if (epR && epR.ok) {
+      this.loadedAt = Date.now();
+      // ~3 MB the first paint does not need: read after the index, in the
+      // background.
+      this.episodesReady = this.loadEpisodes();
+    },
+
+    // Episodes are first-class items (Decision 045): resolve by archiveID like
+    // any film (favorites / playlists / share / Detail), but stay OUT of
+    // Data.rows so Home/Browse film grids never include them.
+    async loadEpisodes() {
+      try {
+        const epR = await fetch(EPISODES_URL);
+        if (!epR.ok) return;
         const eps = (await epR.json()).episodes || [];
         this.episodes = eps;
         for (const [aid, slug, series, season, episode, title, still, year, url] of eps) {
@@ -219,8 +230,7 @@
           this.byID.set(aid, [aid, title, year, 'tv-episode', still, 1]);
           this.episodeMeta.set(aid, { slug, series, season, episode, url: url || null });
         }
-      }
-      this.loadedAt = Date.now();
+      } catch { /* episodes are an enrichment; films still resolve */ }
     },
 
     /**
@@ -276,6 +286,16 @@
       return !TV_TYPES.has(row[3]);
     },
 
+    /** A featured shelf's row on Home. A Classic TV shelf is series cards
+        by construction (shelfRows), and a series card is a spine, not a file:
+        the film test and the byte-verified test (col 8 is 0 on every series)
+        would each empty it. */
+    homeShelfAdmits(shelf, row) {
+      if (!this.isPro(row)) return false;
+      return shelf.category === 'tv-series' ? row[3] === 'tv-series'
+        : this.isFilm(row) && this.plays(row);
+    },
+
     /** Recommendable (index col 18, Decision 149). Propaganda stays findable by
         Search and Browse, but no surface may CHOOSE it for the viewer. Older
         rows have no column 18 and pass. */
@@ -287,7 +307,9 @@
     // genre, so a contentType match would show almost nothing. Every other
     // category is still a plain contentType match. Matches the apps.
     matchesCategory(row, type) {
-      if (!type) return !TV_TYPES.has(row[3]);
+      // "All" is films: never television, and never a commercial, which is
+      // reached by its own chip (the apps' notCommercial rule).
+      if (!type) return !TV_TYPES.has(row[3]) && row[3] !== 'commercial';
       if (type === 'documentary') return row[9] === 1 && row[3] !== "animation";
       return row[3] === type;
     },
@@ -330,6 +352,24 @@
    * choice is per title and per browser: the right copy depends on this *
    * screen and this network.                                            *
    * ---------------------------------------------------------------- */
+  /** archive.org metadata, read once per item per visit: Detail's scenes,
+   *  its copies and the player's no-picture fallback all read the same item.
+   *  A failed read is forgotten, so the next asks again. Kept small — one
+   *  item's file list can run to megabytes. */
+  const Meta = {
+    cache: new Map(),
+    MAX: 12,
+    get(id, opts) {
+      let p = this.cache.get(id);
+      if (p) { this.cache.delete(id); this.cache.set(id, p); return p; }
+      p = API.fetchMetadata(id, opts);
+      this.cache.set(id, p);
+      p.catch(() => { if (this.cache.get(id) === p) this.cache.delete(id); });
+      while (this.cache.size > this.MAX) this.cache.delete(this.cache.keys().next().value);
+      return p;
+    },
+  };
+
   const Versions = {
     KEY: 'aw.versionChoice',
     // What every engine this site supports can play. .mov/.avi are left out:
@@ -341,9 +381,10 @@
       return `https://archive.org/download/${encodeURIComponent(item)}/` +
         name.split('/').map(encodeURIComponent).join('/');
     },
+    /** The playable files of one item, or null when archive.org did not answer. */
     async files(item, other) {
       try {
-        const meta = await API.fetchMetadata(item, { timeoutMs: 12000 });
+        const meta = await Meta.get(item, { timeoutMs: 12000 });
         return (meta.files || [])
           .filter(f => this.PLAYABLE.some(x => String(f.name).toLowerCase().endsWith(x)))
           .filter(f => Number(f.size) > 5000000)            // stubs, samples, thumbnails
@@ -353,7 +394,7 @@
             format: (f.format || '').replace(/h\.264/i, 'H.264'),
             derivative: f.source === 'derivative',
           }));
-      } catch { return []; }
+      } catch { return null; }
     },
     /** {item, name} of an archive.org download URL, or null. */
     parse(url) {
@@ -369,19 +410,28 @@
           if (id.includes('@')) {
             const own = this.parse(Data.episodeMeta.get(id)?.url);
             if (!own) return [];
-            return (await this.files(own.item, false))
+            const files = await this.files(own.item, false);
+            if (!files) { this.cache.delete(id); return []; }
+            return files
               .filter(v => v.name === own.name || v.original === own.name)
               .sort((a, b) => (b.height - a.height) || (b.size - a.size));
           }
-          const map = await Aliases.all();
-          const merged = Object.keys(map).filter(k => map[k] === id && k !== id);
-          const all = (await Promise.all([this.files(id, false),
-            ...merged.map(m => this.files(m, true))])).flat();
+          const merged = await this.merged(id);
+          const got = await Promise.all([this.files(id, false),
+            ...merged.map(m => this.files(m, true))]);
+          // A read that failed is not "no copies": ask again next time.
+          if (got.some(g => g === null)) this.cache.delete(id);
+          const all = got.filter(Boolean).flat();
           // Resolution first, size to break ties: bytes measure the encoder.
           return all.sort((a, b) => (b.height - a.height) || (b.size - a.size));
         })());
       }
       return this.cache.get(id);
+    },
+    /** The uploads the catalog merged into this title (aliases.json). */
+    async merged(id) {
+      const map = await Aliases.all();
+      return Object.keys(map).filter(k => map[k] === id && k !== id);
     },
     label(v) {
       const mb = v.size >= 1e9 ? `${(v.size / 1e9).toFixed(1)} GB` : `${Math.round(v.size / 1e6)} MB`;
@@ -416,10 +466,14 @@
     map: null,
     async all() {
       if (!this.map) {
-        this.map = fetch(new URL('aliases.json', PAGES_ROOT),
+        const p = this.map = fetch(new URL('aliases.json', PAGES_ROOT),
           { signal: AbortSignal.timeout(10000) })
-          .then(r => (r.ok ? r.json() : {}))
-          .catch(() => ({}));
+          .then(r => {
+            if (r.status === 404) return {};
+            if (!r.ok) throw new Error(String(r.status));
+            return r.json();
+          })
+          .catch(() => { if (this.map === p) this.map = null; return {}; });
       }
       return this.map;
     },
@@ -456,10 +510,17 @@
     async get(id) {
       const shard = this.shardOf(id);
       if (!this.cache.has(shard)) {
-        this.cache.set(shard, fetch(new URL(`details/${shard}.json`, PAGES_ROOT),
+        const p = fetch(new URL(`details/${shard}.json`, PAGES_ROOT),
           { signal: AbortSignal.timeout(10000) })
-          .then(r => (r.ok ? r.json() : {}))
-          .catch(() => ({})));
+          .then(r => {
+            if (!r.ok) throw new Error(String(r.status));
+            return r.json();
+          })
+          // A shard that did not arrive is not an empty shard: forget it so
+          // the next visit asks again instead of showing nothing for 1/256th
+          // of the catalog until a reload.
+          .catch(() => { if (this.cache.get(shard) === p) this.cache.delete(shard); return {}; });
+        this.cache.set(shard, p);
       }
       const data = await this.cache.get(shard);
       // A bundle episode has no shard record; its own file is in the index.
@@ -602,7 +663,7 @@
       img.loading = 'lazy';
       img.decoding = 'async';
       img.alt = '';
-      wireArt(img, artChain, null, () => img.replaceWith(placeholderArt(row)));
+      wireArt(img, artChain, null, () => img.replaceWith(placeholderArt(row)), CARD_ART_PX);
       art = img;
     }
     const t = document.createElement('span'); t.className = 't'; t.textContent = title;
@@ -634,10 +695,12 @@
     if (y) y.textContent = leftLabel(p);
   }
 
+  // An uploader's HTML is parsed into an INERT document: markup set as
+  // innerHTML on an element of this page runs its handlers even detached
+  // (<img src=x onerror=...>), and these strings are anyone's.
   function stripHTML(s) {
-    const d = document.createElement('div');
-    d.innerHTML = s || '';
-    return (d.textContent || '').trim();
+    const doc = new DOMParser().parseFromString(String(s || ''), 'text/html');
+    return (doc.body.textContent || '').trim();
   }
 
   /** archive.org throttles image bursts (transient 503s on /services/img and
@@ -663,10 +726,14 @@
     return url.replace(/\/t\/p\/(w\d+|original)\//, `/t/p/${step === 'original' ? 'original' : 'w' + step}/`);
   }
 
-  function wireArt(img, urls, onLoad, onFail) {
+  // A card's poster is wired before it is in the page, so it has no box to
+  // measure; the widest tile it is drawn at (tv.css) stands in.
+  const CARD_ART_PX = 200;
+
+  function wireArt(img, urls, onLoad, onFail, cssWidth = 0) {
     // Ask for the rendition this element will actually draw at. Falls back to
     // the original url untouched when the box has not been laid out yet.
-    const box = Math.round(img.getBoundingClientRect().width);
+    const box = cssWidth || Math.round(img.getBoundingClientRect().width);
     if (box > 0) urls = urls.map(u => tmdbAtWidth(u, box));
     const chain = [...new Set(urls.filter(Boolean))];
     if (!chain.length) { if (onFail) onFail(); return; }
@@ -710,7 +777,7 @@
     async load() {
       if (this.map || this.failed) return this.map;
       try {
-        const r = await fetch('people.json');
+        const r = await fetch(new URL('people.json', PAGES_ROOT));
         if (!r.ok) throw new Error(String(r.status));
         const raw = await r.json();
         // Fold once, on load, so a keystroke never folds 27,000 names.
@@ -911,7 +978,9 @@
     async render(id) {
       const title = $('details-title'), link = $('details-archive');
       title.textContent = ''; link.hidden = true;
-      // route() runs only after Data.load(), so the index is here already.
+      // route() runs only after Data.load(), so the index is here already;
+      // episodes arrive just after it.
+      await Data.episodesReady;
       const here = Data.byID.get(id) ? id : await Aliases.survivor(id);
       if (here) { location.replace(`#/item/${encodeURIComponent(here)}`); return; }
       title.textContent = 'Not in Archive Watch';
@@ -1269,7 +1338,7 @@
         const shelf = shelfById[sid];
         if (!shelf) continue;
         const rows = Data.shelfRows(shelf, 32)
-          .filter(r => Data.isPro(r) && Data.isFilm(r) && Data.plays(r) && !used.has(dedupKey(r))).slice(0, 16);
+          .filter(r => Data.homeShelfAdmits(shelf, r) && !used.has(dedupKey(r))).slice(0, 16);
         if (rows.length < 4) continue;
         rows.forEach(r => used.add(dedupKey(r)));
         host.append(shelfSection(shelf.title, shelf.subtitle, rows));
@@ -1404,7 +1473,8 @@
     eraTiles() {
       const counts = {};
       for (const r of Data.rows) {
-        if (!r[2]) continue;
+        // The count the tile's grid will show: #/browse?decade=d is "All".
+        if (!r[2] || !Data.matchesCategory(r, '')) continue;
         const d = Math.floor(r[2] / 10) * 10;
         if (d >= 1890 && d <= 2020) counts[d] = (counts[d] || 0) + 1;
       }
@@ -1501,7 +1571,8 @@
         // cache entry), so a throttled poster can't strand a blank backdrop.
         wireArt(poster, wideArt ? [row[7]] : [Data.poster(row), API.thumbnailURL(id)],
           src => { ambient.style.backgroundImage = `url("${src}")`; },
-          () => { const ph = placeholderArt(row); ph.classList.add('hero-poster'); poster.replaceWith(ph); });
+          () => { const ph = placeholderArt(row); ph.classList.add('hero-poster'); poster.replaceWith(ph); },
+          wideArt ? 560 : 230);   // .hero-poster's widest (watch.css)
 
         const copy = document.createElement('div');
         copy.className = 'hero-copy';
@@ -1583,7 +1654,7 @@
   ];
   // TV never appears in the "All" film grid (owner directive 2026-06-18) — both
   // series cards and standalone tv-specials are reachable only via their chips.
-  const TV_TYPES = new Set(['tv-series', 'tv-special']);
+  const TV_TYPES = new Set(['tv-series', 'tv-special', 'tv-episode']);
 
   // How long a film runs (2026-09-26): the SAME bands as Apple and Android's
   // RuntimeBand, over index column 17 (minutes; 0 = unknown, never matched).
@@ -1824,7 +1895,7 @@
             const qs = input.value.trim();
             history.replaceState(null, '',
               qs ? `#/search?q=${encodeURIComponent(qs)}` : '#/search');
-            this.run(qs);
+            this.run(qs, true);
           }, 180);
         });
       }
@@ -1862,13 +1933,24 @@
       return box;
     },
 
-    async run(qs) {
+    async run(qs, fromInput = false) {
       const grid = $('search-grid');
-      if (!qs) { grid.replaceChildren(this.doors()); this.renderEpisodes([]); return; }
-      // A pasted archive.org link opens what it points at (ArchiveAddress).
-      const pasted = ArchiveAddress.idFrom(qs);
+      if (!qs) {
+        // A run still in flight for the last query must not paint over this.
+        this._serial++;
+        this.hits = [];
+        const f = $('search-filters');
+        if (f) { f.hidden = true; f.replaceChildren(); }
+        grid.replaceChildren(this.doors()); this.renderEpisodes([]); return;
+      }
+      // A pasted archive.org link opens what it points at (ArchiveAddress) —
+      // only as it is pasted. Forwarding from the URL too made Back land on
+      // #/search?q=<link>, which forwarded again: a page Back could not leave.
+      const pasted = fromInput && ArchiveAddress.idFrom(qs);
       if (pasted) { location.hash = `#/details/${encodeURIComponent(pasted)}`; return; }
       const terms = foldText(qs).split(/\s+/).filter(Boolean);
+      // Commercials stay out of search unless the viewer asks for them.
+      const adsAsked = terms.some(t => t.startsWith('commercial'));
       const hits = [];
       // Title + the rich-metadata search blob (Decision 046, schema 6: TMDb
       // keyword, AKA/original title, writer, studio) + the DIRECTOR, which the
@@ -1890,7 +1972,9 @@
       }
       for (let i = 0; i < Data.rows.length; i++) {
         const hay = Data._hay[i];
-        if (terms.every(t => hay.includes(t))) hits.push(Data.rows[i]);
+        if ((adsAsked || Data.rows[i][3] !== 'commercial') && terms.every(t => hay.includes(t))) {
+          hits.push(Data.rows[i]);
+        }
       }
       // Rank ALL matches before capping: stopping at the first 200 in index
       // order left "metro" leading with a park film (see searchRank).
@@ -1909,13 +1993,14 @@
       // has already moved on from.
       const serial = ++this._serial;
       const castIDs = await People.filmIDs(terms);
+      await Data.episodesReady;
       if (serial !== this._serial) return;
       if (castIDs.size) {
         const seen = new Set(hits.map(r => r[0]));
         for (const id of castIDs) {
           if (hits.length >= 200) break;
           const r = Data.byID.get(id);
-          if (r && !seen.has(id)) { hits.push(r); seen.add(id); }
+          if (r && !seen.has(id) && (adsAsked || r[3] !== 'commercial')) { hits.push(r); seen.add(id); }
         }
       }
       // Episode items (Decision 045): match the episode title OR its series name.
@@ -2160,6 +2245,7 @@
     },
 
     async render() {
+      await Data.episodesReady;
       const progress = (await DB.progress())
         .filter(p => p.duration > 0 && p.position > 10 && p.position / p.duration < 0.95)
         .sort((a, b) => b.at - a.at);
@@ -2191,7 +2277,10 @@
       const histAlias = await Aliases.rows(all.map(p => p.id));
       const hist = all.map(p => Data.byID.get(p.id) || histAlias.get(p.id)
         || [p.id, p.title || p.id, null, '', null]);
-      $('library-history').replaceChildren(...hist.map(row => {
+      $('library-history').replaceChildren(...hist.map((row, i) => {
+        // The id the history holds: a merged-away title DRAWS as its survivor,
+        // and removing the survivor's id would leave this record in place.
+        const heldID = all[i].id;
         const wrap = document.createElement('div');
         wrap.className = 'hist-item';
         const drop = document.createElement('button');
@@ -2200,7 +2289,7 @@
         drop.textContent = '\u00D7';
         drop.setAttribute('aria-label', `Remove ${row[1]} from history`);
         const remove = async () => {
-          await DB.removeFromHistory(row[0]).catch(() => {});
+          await DB.removeFromHistory(heldID).catch(() => {});
           wrap.remove();
           const left = $('library-history').children.length;
           $('library-history').hidden = !left;
@@ -2239,7 +2328,7 @@
       // designed-art random draw, fresh on every visit/re-roll.
       const byType = {};
       for (const r of Data.rows) {
-        if (!Data.isPro(r) || !Data.isFilm(r) || !Data.rec(r)) continue;   // Random Film never lands on TV
+        if (!Data.isPro(r) || !Data.matchesCategory(r, '') || !Data.rec(r)) continue;   // Random Film never lands on TV or an ad
         (byType[r[3]] ??= []).push(r);
       }
       const picks = [];
@@ -2249,7 +2338,7 @@
         const pick = pool[Math.floor(Math.random() * pool.length)];
         if (pick && !seen.has(pick[0])) { seen.add(pick[0]); picks.push(pick); }
       }
-      const pro = Data.rows.filter(r => Data.isPro(r) && Data.isFilm(r) && Data.rec(r) && !seen.has(r[0]));
+      const pro = Data.rows.filter(r => Data.isPro(r) && Data.matchesCategory(r, '') && Data.rec(r) && !seen.has(r[0]));
       while (picks.length < 12 && pro.length) {
         const pick = pro.splice(Math.floor(Math.random() * pro.length), 1)[0];
         seen.add(pick[0]); picks.push(pick);
@@ -2285,7 +2374,11 @@
     async encode(name, ids) {
       const body = new TextEncoder().encode(
         JSON.stringify({ n: String(name || '').slice(0, 80), i: ids }));
-      const cs = new CompressionStream('deflate-raw');
+      // A television's engine may have no raw deflate (Chromium 85 has none):
+      // the uncompressed form every decoder already reads (see decode).
+      let cs;
+      try { cs = new CompressionStream('deflate-raw'); }
+      catch { return '0' + ShareList.b64url(body); }
       const w = cs.writable.getWriter();
       // The writer's promises must be OWNED. Left dangling they reject
       // unhandled when the stream errors — which on a malformed link is a
@@ -2293,6 +2386,11 @@
       const wrote = w.write(body).then(() => w.close());
       const buf = new Uint8Array(await new Response(cs.readable).arrayBuffer());
       await wrote;
+      return ShareList.b64url(buf);
+    },
+
+    /** bytes -> base64url, no padding. */
+    b64url(buf) {
       let bin = ''; for (const b of buf) bin += String.fromCharCode(b);
       return btoa(bin).replace(/\+/g, '-').replace(/\//g, '_').replace(/=+$/, '');
     },
@@ -2331,7 +2429,9 @@
     },
 
     /** The share link. the PATH is /list/ and the playlist rides the FRAGMENT: a browser never sends a fragment to a server, so the list stays off ours, while the path is what a native app can match (an Android intent filter cannot see a fragment at all). /list/ is also a real 200 page, and several crawlers decline to preview a 404 — which matters for a link made to be posted. */
-    url(blob) { return `${location.origin}/list/#${blob}`; },
+    // From the site root, never location.origin: a packaged TV app's origin is
+    // file:// ("null"), and the link would open nowhere on the phone.
+    url(blob) { return `${new URL('list/', PAGES_ROOT)}#${blob}`; },
   };
 
   const SharedList = {
@@ -2348,6 +2448,7 @@
         return;
       }
       title.textContent = pl.name;
+      await Data.episodesReady;
       const alias = await Aliases.rows(pl.ids);
       const rows = pl.ids.map(aid => Data.byID.get(aid) || alias.get(aid)).filter(Boolean);
       fillGrid($('list-grid'), rows);
@@ -2372,9 +2473,12 @@
       imp.onclick = async () => {
         imp.disabled = true; imp.textContent = 'Adding…';
         try {
+          const now = Date.now();
+          // createdAt too: Apple's PlaylistEntry requires it, and a list
+          // without one sorts as the oldest everywhere.
           await DB.savePlaylistRaw({
-            id: (crypto.randomUUID?.() || String(Date.now())),
-            name: pl.name, archiveIDs: pl.ids, modifiedAt: Date.now(),
+            id: (crypto.randomUUID?.() || String(now)),
+            name: pl.name, archiveIDs: pl.ids, createdAt: now, modifiedAt: now,
           });
           window.AWDriveSync?.nudge?.();
           window.AWCloudKitSync?.nudge?.();
@@ -2399,7 +2503,10 @@
 
     async render(id) {
       const pl = (await DB.playlists().catch(() => [])).find(p => p.id === id);
-      if (!pl) { location.hash = '#/library'; return; }
+      // replace, not a new entry: Back from the Library must not return to
+      // a list that no longer exists and be sent forward again.
+      if (!pl) { location.replace('#/library'); return; }
+      await Data.episodesReady;
       $('playlist-title').textContent = pl.name;
       const plAlias = await Aliases.rows(pl.archiveIDs);
       // [the list's own id, the row to draw]: a merged-away id draws as its
@@ -2522,14 +2629,14 @@
             'Delete Playlist', async () => {
               await DB.deletePlaylist(id).catch(() => {});
               syncNudge();
-              location.hash = '#/library';
+              location.replace('#/library');
             });
           return;
         }
         if (!confirm(`Delete “${pl.name}”?\n\nIt is removed from your other devices too.`)) return;
         await DB.deletePlaylist(id).catch(() => {});
         syncNudge();
-        location.hash = '#/library';
+        location.replace('#/library');
       };
     },
   };
@@ -2576,18 +2683,28 @@
    * ---------------------------------------------------------------- */
   const Collections = {
     meta: null,
+    /** The collections' titles and blurbs, or null when they did not arrive
+     *  (not cached, so the next visit asks again). */
     async loadMeta() {
       if (this.meta) return this.meta;
       try {
         const r = await fetch(new URL('ArchiveWatch/ArchiveWatch/collection_metadata.json',
-                                      PAGES_ROOT));
+                                      PAGES_ROOT), { signal: AbortSignal.timeout(10000) });
+        if (!r.ok) throw new Error(String(r.status));
         this.meta = (await r.json()).collections || [];
-      } catch { this.meta = []; }
+      } catch { return null; }
       return this.meta;
+    },
+    failed(which, meta) {
+      const e = $(which);
+      e.hidden = !!meta;
+      if (!meta) e.textContent = "Collections couldn't load. Check your connection and try again.";
+      return !meta;
     },
     async renderList() {
       const metas = await this.loadMeta();
       const host = $('collections-list');
+      if (this.failed('collections-error', metas)) { host.replaceChildren(); return; }
       const available = metas.filter(m => (Data.collections[m.id] || []).length >= 6);
       host.replaceChildren(...available.map(m => {
         const a = document.createElement('a');
@@ -2604,7 +2721,8 @@
     },
     async renderOne(id) {
       const metas = await this.loadMeta();
-      const m = metas.find(x => x.id === id);
+      this.failed('collection-error', metas);
+      const m = (metas || []).find(x => x.id === id);
       $('collection-title').textContent = m?.title || id;
       $('collection-blurb').textContent = m?.blurb || '';
       const rows = (Data.collections[id] || [])
@@ -2642,6 +2760,7 @@
                                         lineup: 'marathon' });
       };
       const host = $('cartoons-shelves');
+      host.replaceChildren();          // a catalog reload renders it afresh
       const animation = Data.rows.filter(r => r[3] === 'animation' && Data.rec(r));
       for (const [name, terms] of CARTOON_CHARACTERS) {
         const rows = animation.filter(r =>
@@ -2789,6 +2908,7 @@
         $('channels-error').hidden = false;
         return;
       }
+      $('channels-error').hidden = true;     // a retry that worked
       $('channels-create').onclick = () => this.createDialog();
       this.built = true;
       const now = new Date();
@@ -3023,6 +3143,7 @@
         location.replace(`#/series/${encodeURIComponent(id.slice(7))}`);
         return;
       }
+      if (!Data.byID.get(id)) await Data.episodesReady;
       if (!Data.byID.get(id)) {
         // A shared or saved link to a copy the build merged away: send it to
         // the card that replaced it, so playback and Details resolve too.
@@ -3031,8 +3152,12 @@
           location.replace(`#/item/${encodeURIComponent(survivor)}`);
           return;
         }
+        // Not served at all — hidden by the rights audit, or never here. This
+        // page drew it from archive.org and played it; it now says what it is.
+        location.replace(`#/details/${encodeURIComponent(id)}`);
+        return;
       }
-      const row = Data.byID.get(id) || [id, id, null, '', null];
+      const row = Data.byID.get(id);
       this.current = { id, row, summary: null, detail: null };
 
       $('item-title').textContent = row[1];
@@ -3127,10 +3252,15 @@
       $('item-scenes').hidden = true;
       $('item-scenes-row').replaceChildren();
       this.related(row);
-      $('item-play').onclick = () => {
+      $('item-play').onclick = async () => {
         const d = this.current.detail;
         if (d?.downloadURL) {
-          Player.start({ id, title: row[1], url: Versions.preferred(id, d.downloadURL) });
+          const url = Versions.preferred(id, d.downloadURL);
+          // An episode plays on into the rest of its season (the series
+          // page's binge), not as a film that ends alone.
+          const q = epMeta ? await this.seasonQueue(id, epMeta.slug) : null;
+          if (this.current.id !== id) return;
+          Player.start({ id, title: row[1], url, ...(q || {}) });
         } else {
           Player.play(this.current);
         }
@@ -3198,7 +3328,7 @@
       // Fallback (item not in the shards yet, or no baked URL): resolve via
       // the metadata API, bounded so a hung response can't strand the page.
       try {
-        const meta = await API.fetchMetadata(id, { timeoutMs: 12000 });
+        const meta = await Meta.get(id, { timeoutMs: 12000 });
         const s = API.summarize(meta);
         if (this.current.id !== id) return;
         this.current.summary = s;
@@ -3215,6 +3345,16 @@
         this.fail(`Couldn't reach archive.org for this title (${err.message}). ` +
                   'Playback and synopsis are unavailable right now.');
       }
+    },
+
+    /** {queue, queueIndex} for an episode's season, or null. */
+    async seasonQueue(id, slug) {
+      try {
+        const r = await fetch(new URL(`series/${encodeURIComponent(slug)}.json`, PAGES_ROOT),
+          { signal: AbortSignal.timeout(10000) });
+        if (!r.ok) return null;
+        return episodeQueue(await r.json(), id, Versions.preferred.bind(Versions));
+      } catch { return null; }
     },
 
     /** Cast & crew bubbles (the iOS CastRow's web twin): TMDb w185 photos,
@@ -3406,7 +3546,7 @@
       const file = m[2].split('/').map(decodeURIComponent).join('/');
       let frames;
       try {
-        const meta = await API.fetchMetadata(item, { timeoutMs: 12000 });
+        const meta = await Meta.get(item, { timeoutMs: 12000 });
         frames = (meta.files || [])
           .filter(f => f.format === 'Thumbnail' && f.original === file)
           .map(f => ({ name: f.name, t: Number((/_(\d{6})\.jpg$/.exec(f.name) || [])[1]) }))
@@ -3442,15 +3582,16 @@
       $('item-related').hidden = rows.length < 4;
     },
 
-    /** Version appears only when there is a choice to make — the apps' rule.
-     *  Fetched after the page is up, so archive.org can never hold it back. */
+    /** Version appears only when there is a choice to make — the apps' rule:
+     *  another upload merged into this title (aliases.json). The copies are
+     *  read from archive.org when the menu opens, not on every Detail. */
     async versionButton(id) {
-      const list = await Versions.list(id);
-      if (this.current.id !== id || list.length < 2) return;
+      const merged = await Versions.merged(id);
+      if (this.current.id !== id || !merged.length) return;
       const btn = $('item-version');
       btn.hidden = false;
       btn.closest('.detail-actions').classList.add('has-version');
-      btn.onclick = () => this.versionMenu(id, list);
+      btn.onclick = async () => this.versionMenu(id, await Versions.list(id));
     },
 
     versionMenu(id, list) {
@@ -3537,7 +3678,24 @@
     async render(slug) {
       if (!slug) { location.hash = '#/'; return; }
       this.current = slug;
+      await Data.episodesReady;
+      if (this.current !== slug) return;
       const card = Data.byID.get(`series:${slug}`);
+      // A spine on Pages is not a series the catalog serves: only a series
+      // card, or episodes the episodes index still lists, open this page.
+      const known = !!card || Data.episodes.some(e => e[1] === slug);
+      $('series-share').hidden = !known;
+      if (!known) {
+        $('series-title').textContent = 'Not in Archive Watch';
+        $('series-meta').textContent = '';
+        $('series-overview').textContent = '';
+        $('series-poster').removeAttribute('src');
+        $('series-season').hidden = true;
+        $('series-loading').hidden = true;
+        $('series-episodes').replaceChildren();
+        $('series-error').hidden = true;
+        return;
+      }
       $('series-title').textContent = card ? card[1] : slug;
       $('series-meta').textContent = '';
       $('series-overview').textContent = '';
@@ -3552,6 +3710,11 @@
       $('series-episodes').replaceChildren();
       $('series-share').onclick = async () => {
         const url = `${PAGES_ROOT}series/${encodeURIComponent(slug)}`;
+        // A television hands the link to a phone as a code (Item.shareMenu).
+        if (window.AWTV?.shareQR && document.documentElement.classList.contains('tv')) {
+          window.AWTV.shareQR(url, $('series-title').textContent, 'series');
+          return;
+        }
         try {
           if (navigator.share) { await navigator.share({ title: $('series-title').textContent, url }); return; }
         } catch { /* fall through */ }
@@ -3686,6 +3849,25 @@
     },
   };
 
+  // --- episode queue ---
+  /** The playable episodes of the season holding `id`, as a player queue
+   *  starting at `id`, or null. `preferred(id, url)` is the viewer's copy. */
+  function episodeQueue(series, id, preferred) {
+    for (const season of (series && series.seasons) || []) {
+      const eps = (season.episodes || []).filter(e => e.downloadURL);
+      const at = eps.findIndex(e => e.archiveID === id);
+      if (at < 0) continue;
+      if (eps.length < 2) return null;
+      const queue = eps.map(e => ({
+        id: e.archiveID, title: e.title || e.archiveID,
+        url: preferred ? preferred(e.archiveID, e.downloadURL) : e.downloadURL,
+      }));
+      return { queue, queueIndex: at };
+    }
+    return null;
+  }
+  // --- end episode queue ---
+
   function epLabel(ep) {
     if (ep.seasonNumber != null && ep.episodeNumber != null) {
       return `S${ep.seasonNumber} · E${ep.episodeNumber}`;
@@ -3799,6 +3981,7 @@
       }
 
       const id = state.filmID;
+      await Data.episodesReady;
       const row = Data.byID.get(id);
       if (!row) {
         note.textContent = '';
@@ -3824,7 +4007,7 @@
           url = det.downloadURL;
         } else if (!id.includes('@')) {
           try {
-            const s = API.summarize(await API.fetchMetadata(id, { timeoutMs: 12000 }));
+            const s = API.summarize(await Meta.get(id, { timeoutMs: 12000 }));
             if (s?.videoFile) {
               url = 'https://archive.org/download/' + encodeURIComponent(id) + '/' +
                 encodeURIComponent(s.videoFile.name).replace(/%2F/g, '/');
@@ -3873,6 +4056,13 @@
       if (this.session) { this.session.stop(); this.session = null; }
     },
   };
+
+  function savedRate() {
+    try { return Number(localStorage.getItem('aw_rate')) || 1; } catch { return 1; }
+  }
+  function saveRate(r) {
+    try { localStorage.setItem('aw_rate', String(r)); } catch { /* storage refused */ }
+  }
 
   const Player = {
     saveTimer: null,
@@ -3959,7 +4149,9 @@
       if (startAt > 0) {
         seekTo = startAt;
       } else if (persist) {
-        const saved = await DB.progressFor(id);
+        // Storage can refuse (a blocked site, a private window): the film
+        // still plays, from the start.
+        const saved = await DB.progressFor(id).catch(() => null);
         if (saved && saved.position > 10 && (!saved.duration ||
             saved.position / saved.duration < 0.95)) {
           seekTo = saved.position;
@@ -3974,8 +4166,7 @@
       $('player').showModal();
       // A room plays at the host's rate; a TV whose player cannot change rate
       // (Tizen: AWTV.fixedRate) never has a saved speed applied.
-      video.playbackRate = (room || window.AWTV?.fixedRate) ? 1
-        : Number(localStorage.getItem('aw_rate') || 1);
+      video.playbackRate = (room || window.AWTV?.fixedRate) ? 1 : savedRate();
       if (!$('player-rate').hidden) $('player-rate').value = String(video.playbackRate);
       try { await video.play(); } catch { /* user gesture rules; controls remain */ }
 
@@ -3990,18 +4181,13 @@
           () => { video.currentTime = Math.max(0, video.currentTime - 10); });
         navigator.mediaSession.setActionHandler('seekforward',
           () => { video.currentTime += 10; });
-        const hasNext = queue && queueIndex + 1 < queue.length;
-        navigator.mediaSession.setActionHandler('nexttrack', hasNext ? () => {
-          this.persist();
-          this.start({ ...queue[queueIndex + 1], queue,
-                       queueIndex: queueIndex + 1, persist });
-        } : null);
-        navigator.mediaSession.setActionHandler('previoustrack',
-          queue && queueIndex > 0 ? () => {
-            this.persist();
-            this.start({ ...queue[queueIndex - 1], queue,
-                         queueIndex: queueIndex - 1, persist });
-          } : null);
+        // The hardware next/previous keys take the SAME verbs as the TV's
+        // remote: a lineup stays muted and stays a lineup, a channel changes
+        // channel rather than skipping its own schedule.
+        const stepper = d => (channel ? () => ChannelsView.surf(d)
+          : (window.AWPlayer.canStep(d) ? () => window.AWPlayer.step(d) : null));
+        navigator.mediaSession.setActionHandler('nexttrack', stepper(1));
+        navigator.mediaSession.setActionHandler('previoustrack', stepper(-1));
       }
 
       clearInterval(this.saveTimer);
@@ -4055,6 +4241,7 @@
         if (this.ctx?.finished) return;        // the error path may also call this
         if (this.ctx) this.ctx.finished = true;
         this.persist();
+        syncNudge();                           // a film's end is worth telling the cloud
         const { queue, queueIndex, persist } = this.ctx || {};
         if (queue && queueIndex + 1 < queue.length) {
           const next = queue[queueIndex + 1];
@@ -4256,8 +4443,8 @@
           && !/Commercial break/.test(this.ctx.title || '')) this.remember();
       if (!this.ctx || this.ctx.persist === false) return;
       if (!video.duration || !isFinite(video.duration)) return;
-      DB.saveProgress(this.ctx.id, video.currentTime, video.duration, this.ctx.title);
-      window.AWDriveSync?.nudge();
+      DB.saveProgress(this.ctx.id, video.currentTime, video.duration, this.ctx.title)
+        .catch(() => {});
     },
 
     /** Write the history record now, keeping any resume position it had. */
@@ -4267,8 +4454,7 @@
       this.ctx.remembered = true;
       const prior = await DB.progressFor(id).catch(() => null);
       await DB.saveProgress(id, prior?.position || 0, prior?.duration || 0,
-                            (title || '').replace(/ · .*$/, ''));
-      window.AWDriveSync?.nudge();
+                            (title || '').replace(/ · .*$/, '')).catch(() => {});
     },
 
     /** Show the title/description overlay and mirror the native controls'
@@ -4302,6 +4488,7 @@
     close() {
       const video = $('video');
       this.persist();
+      if (this.ctx) syncNudge();
       clearInterval(this.saveTimer);
       clearInterval(this.watchdog);
       clearTimeout(this.stallTimer);
@@ -4341,6 +4528,9 @@
     },
     surf: d => ChannelsView.surf(d),
     remember: () => Player.remember(),
+    /** Leave the player the way the close button does: progress saved, the
+     *  stream stopped, timers and the room left behind. */
+    close: () => Player.close(),
     openTitle() {
       const id = Player.ctx?.id;
       if (!id) return;
@@ -4376,7 +4566,7 @@
     $('player-rate').onchange = () => {
       const rate = Number($('player-rate').value) || 1;
       $('video').playbackRate = rate;
-      localStorage.setItem('aw_rate', String(rate));
+      saveRate(rate);
     };
     const video = $('video');
 
@@ -4407,9 +4597,10 @@
     video.addEventListener('ratechange', () => {
       // A room nudges the rate to 0.97/1.03 to stay in step; saving that
       // made the viewer's NEXT films play 3% off speed.
-      if (TogetherView.session) return;
+      // A room's own 1x (set before the session exists) is not a choice either.
+      if (TogetherView.session || Player.ctx?.room) return;
       const r = video.playbackRate;
-      if (r > 0) localStorage.setItem('aw_rate', String(r));
+      if (r > 0) saveRate(r);
     });
     $('player-rate').hidden = native.speed;
 
@@ -4493,7 +4684,17 @@
       resuming = true;
       try {
         swRegistration?.update().catch(() => {});   // pick up a new build
-        if (await Data.reloadIfStale() && !$('player').open) route();
+        if (await Data.reloadIfStale()) {
+          // Every surface drawn once from the old rows draws again from the
+          // new ones on its next visit.
+          Home.rendered = false;
+          Cartoons.rendered = false;
+          ChannelsView.built = false;
+          ChannelsView.data = null;
+          ChannelsView.schedule = null;
+          $('channels-error').hidden = true;
+          if (!$('player').open) route();
+        }
       } finally {
         resuming = false;
       }
@@ -4575,7 +4776,11 @@ function awRoute() {
   // path per playlist, which is not a measurement of anything. The blob is
   // dropped HERE, in the browser, rather than trusting the worker to discard
   // what it should never have been given.
-  return r.startsWith("/list/") ? "/list" : r;
+  if (r.startsWith("/list/")) return "/list";
+  // Neither is a surface: a query is what someone typed (#/search?q=…), and
+  // a room code is a key to somebody's show.
+  const path = r.split("?")[0];
+  return path.startsWith("/together/") ? "/together" : path;
 }
 /* A VISIT and a ROUTE VIEW are different things and must never be added
    together: one page load that walks six surfaces is one visit and seven

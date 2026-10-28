@@ -21,6 +21,10 @@ struct PlaylistDetailView: View {
     @State private var editMode: EditMode = .inactive
     @State private var confirmDelete = false
     @State private var lastName: String
+    /// The list's films, resolved once per change of the list or catalog —
+    /// not on every render — each with the id it is STORED under.
+    @State private var entries: [Entry] = []
+    @State private var resolved = false
     private let cols = [GridItem(.adaptive(minimum: 110), spacing: 14)]
 
     init(playlist: Playlist) {
@@ -29,8 +33,18 @@ struct PlaylistDetailView: View {
         _lastName = State(initialValue: playlist.name)
     }
 
+    struct Entry: Identifiable {
+        let storedID: String
+        let item: Catalog.Item
+        var id: String { storedID }
+    }
+
     /// The films this list names that the catalog still serves, in My Order.
-    private var films: [Catalog.Item] { store.itemsByIDs(playlist.archiveIDs) }
+    private var films: [Catalog.Item] { entries.map(\.item) }
+
+    private var resolveKey: String {
+        "\(store.dbVersion)|" + playlist.archiveIDs.joined(separator: "\u{1F}")
+    }
 
     private var shown: [Catalog.Item] {
         switch sort {
@@ -48,7 +62,9 @@ struct PlaylistDetailView: View {
 
     var body: some View {
         Group {
-            if films.isEmpty {
+            if !resolved {
+                Color.clear
+            } else if films.isEmpty {
                 ContentUnavailableView("Empty playlist", systemImage: "rectangle.stack")
             } else if editMode.isEditing {
                 arrangeList
@@ -108,11 +124,16 @@ struct PlaylistDetailView: View {
         .onChange(of: editMode) { if editMode.isEditing { sort = .myOrder } }
         .onChange(of: sort) { sort.remember(PlaylistSort.contentsKey(playlist.id)) }
         .onChange(of: playlist.name) { rename() }
+        .task(id: resolveKey) {
+            entries = store.storedItems(playlist.archiveIDs).map { Entry(storedID: $0.storedID, item: $0.item) }
+            resolved = true
+        }
     }
 
     private var arrangeList: some View {
         List {
-            ForEach(films) { item in
+            ForEach(entries) { entry in
+                let item = entry.item
                 HStack(spacing: 12) {
                     PosterThumb(item: item)
                     VStack(alignment: .leading, spacing: 3) {
@@ -123,7 +144,7 @@ struct PlaylistDetailView: View {
             }
             .onMove(perform: move)
             .onDelete { offsets in
-                let ids = offsets.map { films[$0].archiveID }
+                let ids = offsets.map { entries[$0].storedID }
                 ids.forEach(remove)
             }
         }
@@ -137,17 +158,23 @@ struct PlaylistDetailView: View {
         SyncNudge.nudge(ctx)
     }
 
+    /// By the id the list STORES. A tile's menu passes the card's id, which
+    /// for a merged upload is the survivor's — every stored id reaching that
+    /// card goes.
     private func remove(_ archiveID: String) {
-        playlist.archiveIDs.removeAll { $0 == archiveID }
+        let stored = Set(entries.filter { $0.storedID == archiveID || $0.item.archiveID == archiveID }
+            .map(\.storedID)).union(store.storedIDs(for: archiveID))
+        playlist.archiveIDs.removeAll { stored.contains($0) }
         save()
     }
 
     /// A move among the films shown. A film the catalog no longer serves is
     /// not shown, so it cannot be placed; it keeps its place after the rest.
     private func move(from: IndexSet, to: Int) {
-        var ids = films.map(\.archiveID)
+        var ids = entries.map(\.storedID)
         ids.move(fromOffsets: from, toOffset: to)
-        let unseen = playlist.archiveIDs.filter { !Set(ids).contains($0) }
+        let placed = Set(ids)
+        let unseen = playlist.archiveIDs.filter { !placed.contains($0) }
         playlist.archiveIDs = ids + unseen
         save()
     }
@@ -162,11 +189,18 @@ struct PlaylistDetailView: View {
         save()
     }
 
+    /// Leave the page first: deleting the model while this view still
+    /// renders it reads a deleted object.
     private func deletePlaylist() {
         let id = playlist.id
-        ctx.delete(playlist)
-        SyncNudge.recordDeletion("pl:\(id)", in: ctx)
+        let doomed = playlist
+        let context = ctx
         dismiss()
+        Task { @MainActor in
+            try? await Task.sleep(for: .milliseconds(400))
+            context.delete(doomed)
+            SyncNudge.recordDeletion("pl:\(id)", in: context)
+        }
     }
 }
 

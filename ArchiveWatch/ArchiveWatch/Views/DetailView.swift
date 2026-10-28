@@ -42,6 +42,11 @@ struct DetailView: View {
     @State private var showShare = false
     @State private var showAddPlaylist = false
     @State private var showGetSubtitles = false
+    /// An episode's own show, so Play continues through the series.
+    @State private var episodeSeries: Series?
+    /// More Like This, computed once per title and catalog rather than on
+    /// every render of this page.
+    @State private var related: [Catalog.Item] = []
     @FocusState private var focusTarget: DetailFocusTarget?
 
     private var accent: Color {
@@ -96,10 +101,20 @@ struct DetailView: View {
                 activity.isEligibleForSearch = true
             }
             .fullScreenCover(isPresented: $isPlaying, onDismiss: { sceneStart = nil }) {
-                if let url = item.videoURLParsed {
+                if sceneStart == nil, let series = episodeSeries,
+                   let episode = series.flatEpisodes.first(where: { $0.archiveID == item.archiveID }) {
+                    EpisodePlayerScreen(series: series, initialEpisode: episode)
+                } else if let url = item.videoURLParsed {
                     PlayerScreen(url: url, archiveID: item.archiveID, catalogItem: item,
                                  sceneStart: sceneStart)
                 }
+            }
+            .task(id: "\(item.archiveID)#\(store.dbGeneration)") {
+                related = relatedItems
+            }
+            .task(id: item.archiveID) {
+                guard item.isEpisode, let sid = item.seriesID else { episodeSeries = nil; return }
+                episodeSeries = await SeriesStore.shared.load(seriesID: sid)
             }
             .task(id: item.archiveID) {
                 guard let url = item.videoURLParsed else { scenes = []; return }
@@ -636,7 +651,6 @@ struct DetailView: View {
 
     @ViewBuilder
     private var relatedSection: some View {
-        let related = relatedItems
         if !related.isEmpty {
             VStack(alignment: .leading, spacing: 20) {
                 Text("More Like This")
@@ -676,7 +690,8 @@ struct DetailView: View {
         // same director — then scored in-view for the best matches, instead
         // of scanning the whole catalog.
         var pool = store.dbRelated(to: item)
-        if let d = item.director, !d.isEmpty { pool += store.dbByDirector(d) }
+        // The director's other titles are a recommendation too (Decision 149).
+        if let d = item.director, !d.isEmpty { pool += store.dbByDirector(d).filter(\.isRecommendable) }
         var seen = Set([item.archiveID]); pool = pool.filter { seen.insert($0.archiveID).inserted }
         var scored: [(Catalog.Item, Int)] = []
         for other in pool where other.archiveID != item.archiveID {
@@ -1717,6 +1732,10 @@ struct PlayerScreen: View {
     /// sixty seconds watched (Decision 078), and a channel joins its program
     /// minutes in, so the playhead recorded every tune-in at once.
     @State private var lineupWatchedSeconds: Double = 0
+    /// The title the CURRENT player was built for. `current` has already moved
+    /// on when the rebuild tears the old player down, so its last position is
+    /// saved under this id, never the next title's.
+    @State private var playerArchiveID: String?
     // A Scenes frame the viewer chose (§2.5c): it beats every resume position.
     @State private var sceneStartAt: TimeInterval?
     @Environment(\.dismiss) private var dismiss
@@ -2691,6 +2710,7 @@ struct PlayerScreen: View {
         tunePlaybackBuffering(item: playerItem, player: p)
         p.isMuted = muted   // #3 party play (persists across lineup advances)
         player = p
+        playerArchiveID = activeArchiveID
         if PlaybackDiag.enabled {
             // Time from building the player to the picture moving (the viewer's
             // wait), for the 2nd-gen speed pass.
@@ -2886,10 +2906,15 @@ struct PlayerScreen: View {
 
         let interval = CMTime(seconds: 5, preferredTimescale: 600)
         lineupWatchedSeconds = 0
+        let observedID = activeArchiveID
         timeObserver = p.addPeriodicTimeObserver(forInterval: interval, queue: .main) { time in
             Task { @MainActor in
+                // A tick queued before a rebuild belongs to the old player.
+                guard player === p else { return }
                 if p.rate > 0 { lineupWatchedSeconds += 5 }
-                persistProgress(at: time.seconds, duration: p.currentItem?.duration.seconds)
+                persistProgress(at: time.seconds, duration: p.currentItem?.duration.seconds,
+                                archiveID: observedID)
+                SyncNudge.nudge(modelContext, periodic: p.rate > 0)
             }
         }
 
@@ -2925,8 +2950,11 @@ struct PlayerScreen: View {
         captionStall.detach()
         nowPlaying.end()
         if persist, let p = player {
-            persistProgress(at: p.currentTime().seconds, duration: p.currentItem?.duration.seconds)
+            persistProgress(at: p.currentTime().seconds, duration: p.currentItem?.duration.seconds,
+                            archiveID: playerArchiveID ?? activeArchiveID)
+            SyncNudge.nudge(modelContext)
         }
+        playerArchiveID = nil
         player?.pause()
         // Detach the item as well: pause() alone left a torn-down player UNDEAD
         // on tvOS — clock advancing, pipeline active, rate reading NaN — for the
@@ -2955,7 +2983,7 @@ struct PlayerScreen: View {
         dismiss()
     }
 
-    private func persistProgress(at position: Double, duration: Double?) {
+    private func persistProgress(at position: Double, duration: Double?, archiveID: String) {
         // A held resume seek means the CURRENT position is not the viewer's
         // position — persisting it is how "Resume" destroyed the very place
         // it promised to return to.
@@ -2968,7 +2996,7 @@ struct PlayerScreen: View {
         // gets its dates and play count while position/duration stay
         // untouched, so Continue Watching (position > 10) never sees it.
         guard position.isFinite, position > 0 else { return }
-        WatchProgress.record(in: modelContext, archiveID: activeArchiveID,
+        WatchProgress.record(in: modelContext, archiveID: archiveID,
                              position: ephemeralLineup ? lineupWatchedSeconds : position,
                              duration: duration,
                              historyOnly: ephemeralLineup)

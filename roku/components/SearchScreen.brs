@@ -132,18 +132,21 @@ sub onText()
     svc = m.top.service
     if svc = invalid then return
     if Len(q) < 2
-        ' Below two characters the results are noise; the doors stay.
+        ' Below two characters the results are noise; the doors stay. The
+        ' facet chips go with the results: left up, they sat over the doors
+        ' offering filters for a search that was no longer there.
         m.grid.visible = false
+        m.chipGroup.visible = false
+        m.chipIndex = [0, 0]
+        m.allResults = invalid
         m.doorGroup.visible = true
         m.doorsLabel.visible = true
         m.status.text = "Type to search 26,965 titles — or pick a door."
         return
     end if
-    svc.qCollection = ""
-    svc.qType = ""
-    svc.qDecade = 0
-    svc.qSort = "popular"
-    svc.qText = q
+    ' The whole query record in one write (AWQuerySpec): a Browse tab's scope,
+    ' genre or length must not narrow a search.
+    svc.setFields(AWQuerySpec({ qText: q, qSort: "popular" }))
     svc.queryId = svc.queryId + 1
     m.status.text = "Searching for “" + q + "”…"
 end sub
@@ -205,13 +208,35 @@ function prettyFacet(t as String) as String
     if t = "tv-episode" then return "TV Episode"
     if t = "silent-film" then return "Silent Era"
     if t = "short-film" then return "Short Film"
+    if t = "home-movie" then return "Home Movie"
     return titleFacet(t)
 end function
 
+' A slug the table above does not name still reads as words: every hyphen a
+' space, every word capitalized ("home-movie" printed as "Home-movie").
 function titleFacet(t as String) as String
     if t = "" then return t
-    return UCase(Left(t, 1)) + Mid(t, 2)
+    out = ""
+    up = true
+    for i = 1 to Len(t)
+        c = Mid(t, i, 1)
+        if c = "-" or c = "_"
+            out = out + " "
+            up = true
+        else
+            if up then out = out + UCase(c) else out = out + c
+            up = false
+        end if
+    end for
+    return out
 end function
+
+' The catalog could not be fetched (the service keeps asking).
+sub showUnavailable()
+    if Len(m.kb.text) < 2 then return
+    m.grid.visible = false
+    m.status.text = "The catalog could not be reached. Check the network; it will keep trying."
+end sub
 
 sub paintChips()
     for i = 0 to m.chips.Count() - 1

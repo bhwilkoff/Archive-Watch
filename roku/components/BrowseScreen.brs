@@ -46,12 +46,12 @@ sub init()
     ' which is the owner's report. "All" is scoped too, by qScope in the
     ' service, so it means "all television" on the TV tab.
     m.typeValues = {
-        movies: ["All", "Feature Film", "Silent Era", "Animation", "Short Film", "Newsreel", "Documentary"],
+        movies: ["All", "Feature Film", "Silent Era", "Animation", "Short Film", "Newsreel", "Documentary", "Ephemeral"],
         tv:     ["All", "Series", "Specials"]
     }
     m.scopeNow = "movies"
     m.chipDefs = [
-        { id: "type",   label: "Type",   values: ["All", "Feature Film", "Silent Era", "Animation", "Short Film", "Newsreel", "Documentary"] },
+        { id: "type",   label: "Type",   values: ["All", "Feature Film", "Silent Era", "Animation", "Short Film", "Newsreel", "Documentary", "Ephemeral"] },
         { id: "decade", label: "Decade", values: ["All", "1900s", "1910s", "1920s", "1930s", "1940s", "1950s", "1960s", "1970s"] },
         { id: "genre",  label: "Genre",  values: ["All", "Drama", "Comedy", "Animation", "Crime", "Romance", "Action", "Western", "Documentary", "Thriller", "Horror", "Mystery", "Adventure", "War", "Family", "Fantasy"] },
         { id: "sort",   label: "Sort",   values: ["Popular", "Newest", "Oldest", "A-Z", "Z-A", "Top Rated", "Shuffle"] },
@@ -217,28 +217,69 @@ sub applyFilter(spec as Object)
     m.collectionID = ""
     m.chipGroup.visible = true
     m.focusRow = 0
+    m.focusChip = 0
+    ' A door opens on ITS filter and nothing else: a genre or a length left
+    ' over from the last visit narrowed "Animation" to whatever was chosen
+    ' then, and the heading still named the tab or the last decade.
+    m.chipIndex[2] = 0
+    m.chipIndex[4] = 0
+    m.chipIndex[0] = 0
+    head = ""
     if spec.type <> invalid and spec.type <> ""
         for i = 0 to m.chipDefs[0].values.Count() - 1
-            if typeValueToId(m.chipDefs[0].values[i]) = spec.type then m.chipIndex[0] = i
+            if typeValueToId(m.chipDefs[0].values[i]) = spec.type
+                m.chipIndex[0] = i
+                head = KindHeading(spec.type)
+            end if
         end for
-    else
-        m.chipIndex[0] = 0
     end if
     if spec.decade <> invalid and spec.decade > 0
         want = fmt(spec.decade) + "s"
         for i = 0 to m.chipDefs[1].values.Count() - 1
             if m.chipDefs[1].values[i] = want then m.chipIndex[1] = i
         end for
-        m.heading.text = "The " + fmt(spec.decade) + "s"
+        head = "The " + fmt(spec.decade) + "s"
     else
         m.chipIndex[1] = 0
     end if
+    if head = ""
+        if m.scopeNow = "tv" then head = "TV" else head = "Movies"
+    end if
+    m.heading.text = head
     paintChips()
     submit()
 end sub
 
+' The heading a door gives the grid, in the words the Home tiles use.
+function KindHeading(t as String) as String
+    if t = "feature-film" then return "Feature Films"
+    if t = "tv-series" then return "Classic TV"
+    if t = "tv-special" then return "TV Specials"
+    if t = "silent-film" then return "Silent Era"
+    if t = "animation" then return "Animation"
+    if t = "short-film" then return "Short Films"
+    if t = "newsreel" then return "Newsreels"
+    if t = "documentary" then return "Documentary"
+    if t = "ephemeral" then return "Ephemeral"
+    return "Movies"
+end function
+
 sub onScope()
-    s = m.top.scope
+    applyScope(m.top.scope)
+end sub
+
+' The Scene's way in. Writing the scope the field already holds fires no
+' onChange, so the tab a collection was browsed on reopened as that
+' collection — chips hidden, its members still on the grid.
+sub openScope(s as String)
+    if s <> m.top.scope
+        m.top.scope = s
+    else if m.collectionID <> ""
+        applyScope(s)
+    end if
+end sub
+
+sub applyScope(s as String)
     ' F14 — "the filters should reset when you go from films to tv": decade,
     ' genre and sort carried over, so TV opened pre-narrowed by a Movies pick.
     m.chipIndex[1] = 0 : m.chipIndex[2] = 0 : m.chipIndex[4] = 0
@@ -280,6 +321,7 @@ function typeValueToId(v as String) as String
     if v = "Short Film" then return "short-film"
     if v = "Newsreel" then return "newsreel"
     if v = "Documentary" then return "documentary"
+    if v = "Ephemeral" then return "ephemeral"
     return ""
 end function
 
@@ -289,23 +331,26 @@ sub submit()
         print "AWBROWSE submit ABORTED — no service node"
         return
     end if
-    svc.qCollection = m.collectionID
+    ' The WHOLE query record in one write (AWQuerySpec), so nothing another
+    ' request left set (a Wall flag, a Like spec) rides along with this one.
+    q = {}
+    q.qCollection = m.collectionID
     ' A collection spans both kinds, so it is browsed unscoped.
-    if m.collectionID <> "" then svc.qScope = "" else svc.qScope = m.scopeNow
-    svc.qType = typeValueToId(m.chipDefs[0].values[m.chipIndex[0]])
+    if m.collectionID <> "" then q.qScope = "" else q.qScope = m.scopeNow
+    q.qType = typeValueToId(m.chipDefs[0].values[m.chipIndex[0]])
     dv = m.chipDefs[1].values[m.chipIndex[1]]
     if dv = "All"
-        svc.qDecade = 0
+        q.qDecade = 0
     else
         ' Int(Val(x)), not Val(x).ToInt(). Val returns a Float PRIMITIVE,
         ' which has no member functions, so the method form compiles and then
         ' dies at runtime with "Member function not found" — the third variant
         ' of BrightScript's no-methods-on-return-values rule seen today.
-        svc.qDecade = Int(Val(Left(dv, 4)))
+        q.qDecade = Int(Val(Left(dv, 4)))
     end if
     g = m.chipDefs[2].values[m.chipIndex[2]]
     if g = "All" then g = ""
-    svc.qGenre = g
+    q.qGenre = g
     label = m.chipDefs[3].values[m.chipIndex[3]]
     ' Shuffle is a request for this visit, not a preference.
     if m.collectionID = "" and label <> "Shuffle" then bsWriteSort(sortKey(), label)
@@ -313,13 +358,13 @@ sub submit()
     if sv = "a-z" then sv = "alpha"
     if sv = "z-a" then sv = "alpha_desc"
     if sv = "top rated" then sv = "rating"
-    svc.qSort = sv
+    q.qSort = sv
+    q.qLength = ""
     lv = m.chipDefs[4].values[m.chipIndex[4]]
-    if lv = "Under 60 minutes" then svc.qLength = "under"
-    if lv = "60 to 90 minutes" then svc.qLength = "hour"
-    if lv = "Over 90 minutes" then svc.qLength = "over"
-    if lv = "All" then svc.qLength = ""
-    svc.qText = ""
+    if lv = "Under 60 minutes" then q.qLength = "under"
+    if lv = "60 to 90 minutes" then q.qLength = "hour"
+    if lv = "Over 90 minutes" then q.qLength = "over"
+    svc.setFields(AWQuerySpec(q))
     ' One bump, after every field is set — the service triggers on this alone.
     print "AWBROWSE submit sort="; sv; " qid="; svc.queryId
     svc.queryId = svc.queryId + 1
@@ -358,17 +403,13 @@ sub bsWriteSort(key as String, label as String)
 end sub
 
 sub showResults(root as Object, total as Integer)
-    ' Top Rated needs index columns that only exist from schema 10. A device
-    ' holding an older cached index gets an empty result, and an empty result
-    ' with no explanation is the dead control this build keeps re-learning.
-    if total = 0 and m.chipDefs[3].values[m.chipIndex[3]] = "Top Rated"
-        m.grid.content = invalid
-        m.grid.visible = false
-        m.empty.visible = true
-        m.empty.text = "Ratings are not in this catalog yet. They arrive with the next catalog refresh — try another sort in the meantime."
-        return
-    end if
+    ' An empty Top Rated is an empty RESULT like any other: the rank
+    ' (Decision 171) and the vote-floor fallback both rate every index this
+    ' channel can read, so "ratings are not in this catalog yet" was false.
     m.grid.content = root
+    ' The grid hides when empty. Left visible after a filter emptied it, it
+    ' kept focus on nothing and the empty line drew under the last results.
+    m.grid.visible = (total > 0)
     m.empty.visible = (total = 0)
     if total = 0
         m.empty.text = "Nothing matches those filters yet. Try widening the decade, or set Type to All."
@@ -378,7 +419,22 @@ sub showResults(root as Object, total as Integer)
     base = m.heading.text
     if Instr(1, base, "  ·  ") > 0 then base = Left(base, Instr(1, base, "  ·  ") - 1)
     m.heading.text = base
-    m.count.text = AWGroup(total) + " titles"
+    m.count.text = AWPlural(total, "title")
+    if total = 0 and m.focusRow = 1 and m.top.focusOn
+        if m.chipGroup.visible
+            m.focusRow = 0
+            focusHere()
+        end if
+    end if
+end sub
+
+' The catalog could not be fetched (the service keeps asking).
+sub showUnavailable()
+    m.grid.content = invalid
+    m.grid.visible = false
+    m.empty.visible = true
+    m.empty.text = "The catalog could not be reached. Check the network; it will keep trying."
+    m.count.text = ""
 end sub
 
 sub onSelected()

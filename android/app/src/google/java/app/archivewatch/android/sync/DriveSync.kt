@@ -341,9 +341,12 @@ object DriveSync {
             if (at > (favs[id] ?: -1L)) favs[id] = at
         }
         for (id in favs.keys.toList()) if (dead("fav", id, favs[id]!!)) favs.remove(id)
+        // Whether this merge changed anything the viewer can see: only then do
+        // screens need a `changes` bump (I1).
+        var wrote = false
         val localFavIDs = store.favoritesWithTime().map { it.first }.toSet()
-        for ((id, at) in favs) if (id !in localFavIDs) store.putFavoriteRaw(id, at)
-        for (id in localFavIDs) if (id !in favs) store.removeFavoriteRaw(id)
+        for ((id, at) in favs) if (id !in localFavIDs) { store.putFavoriteRaw(id, at); wrote = true }
+        for (id in localFavIDs) if (id !in favs) { store.removeFavoriteRaw(id); wrote = true }
 
         // Playlists: last writer wins by modifiedAt, minus tombstones.
         val pls = LinkedHashMap<String, UserPlaylist>()
@@ -357,8 +360,8 @@ object DriveSync {
         }
         for (id in pls.keys.toList()) if (dead("pl", id, pls[id]!!.modifiedAt)) pls.remove(id)
         val localPl = store.playlists().associateBy { it.id }
-        for ((id, p) in pls) if (localPl[id] != p) store.putPlaylistRaw(p)
-        for (id in localPl.keys) if (id !in pls) store.removePlaylistRaw(id)
+        for ((id, p) in pls) if (localPl[id] != p) { store.putPlaylistRaw(p); wrote = true }
+        for (id in localPl.keys) if (id !in pls) { store.removePlaylistRaw(id); wrote = true }
 
         // Channels: union minus tombstones. The web calls contentType "type".
         val chans = LinkedHashMap<String, UserChannelRec>()
@@ -376,8 +379,8 @@ object DriveSync {
         }
         for (id in chans.keys.toList()) if (dead("ch", id, chans[id]!!.createdAt)) chans.remove(id)
         val localCh = store.userChannels().associateBy { it.id }
-        for ((id, c) in chans) if (localCh[id] == null) store.putChannelRaw(c)
-        for (id in localCh.keys) if (id !in chans) store.removeChannelRaw(id)
+        for ((id, c) in chans) if (localCh[id] == null) { store.putChannelRaw(c); wrote = true }
+        for (id in localCh.keys) if (id !in chans) { store.removeChannelRaw(id); wrote = true }
 
         // Progress: position LWW by `at`, history UNION (Decision 078).
         val byId = store.history(limit = 10_000).associateBy { it.archiveID }
@@ -393,7 +396,10 @@ object DriveSync {
                               p.optLong("firstAt").takeIf { it > 0 } ?: Long.MAX_VALUE)
                 .takeIf { it != Long.MAX_VALUE } ?: cAt
             val plays = maxOf(mine?.playCount ?: 1, p.optInt("plays", 1))
-            val done = (mine?.everCompleted == true) || p.optBoolean("everDone", false)
+            val done = UserStateStore.mergedEverDone(
+                mine?.everCompleted, mine?.updatedAt ?: 0L,
+                if (p.has("everDone")) p.optBoolean("everDone", false) else null, cAt,
+            )
             val useCloudPos = mine == null || cAt > mine.updatedAt
             if (mine != null && !useCloudPos && first == mine.firstWatchedAt &&
                 plays == mine.playCount && done == mine.everCompleted) continue
@@ -403,15 +409,16 @@ object DriveSync {
                 if (useCloudPos) cDurMs else mine.durationMs,
                 maxOf(cAt, mine?.updatedAt ?: 0), first, plays, done,
             )
+            wrote = true
         }
         for (w in store.history(limit = 10_000)) {
-            if (dead("wp", w.archiveID, w.updatedAt)) store.removeProgressRaw(w.archiveID)
+            if (dead("wp", w.archiveID, w.updatedAt)) { store.removeProgressRaw(w.archiveID); wrote = true }
         }
         for ((key, at) in tombs) {
             val (kind, id) = key.split(":", limit = 2)
             store.putTombstoneRaw(UserStateStore.Tombstone(kind, id, at))
         }
-        store.endRemoteApply()
+        store.endRemoteApply(wrote)
 
         // Rebuild the union blob from the store (now merged).
         val out = JSONObject().put("v", 2).put("at", now)

@@ -255,6 +255,11 @@ object ArchiveVersions {
                         ?: return@mapNotNull null
                     Scene(t, downloadURL(item, f.optString("name")))
                 }.sortedBy { it.seconds }
+                    // An item can publish two thumbnail sets for one file, and
+                    // the Scenes rows key on the second: a repeated second was
+                    // a duplicate lazy key (Play: Compose IllegalArgumentException
+                    // inside a row inside a list, v69, TV and phone).
+                    .distinctBy { it.seconds }
                 frames
             }.getOrDefault(emptyList())
         }

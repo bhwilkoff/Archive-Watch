@@ -59,6 +59,7 @@ function matches(el, sel) {
     else if (base === 'input') hit = el.tagName === 'INPUT';
     else if (base === 'select') hit = el.tagName === 'SELECT';
     else if (base === '[tabindex]') hit = 'tabindex' in el.attrs;
+    else if (base === 'dialog[open]') hit = el.tagName === 'DIALOG' && 'open' in el.attrs;
     else hit = false;
     if (!hit) return false;
     return !nots.some(c => notClause(el, c));
@@ -486,6 +487,33 @@ check('Tizen back (10009) navigates', global._wentBack, true);
   nodes.splice(nodes.indexOf(narrow), 1);
   nodes.splice(nodes.indexOf(wide), 1);
   nodes.splice(nodes.indexOf(decoy), 1);
+}
+
+/* BACK FROM THE PLAYER IS THE PLAYER'S OWN CLOSE. goBack closed the <dialog>
+   and paused the video, and nothing else: the stream kept downloading, the
+   save and stall timers kept running, progress went unsaved and a Watch
+   Together room stayed joined. Asserted both ways: with AWPlayer.close it is
+   the one call made and the dialog is left to it; the control (an older
+   watch.js with no close verb) still closes the dialog, so Back is never dead. */
+{
+  const dlg = new El('dialog', { left: 0, top: 0, width: 1920, height: 1080 }, { id: 'player', open: '' });
+  dlg.id = 'player';
+  let dialogClosed = 0, playerClosed = 0;
+  dlg.close = () => { dialogClosed++; delete dlg.attrs.open; };
+  dlg.querySelector = () => ({ pause() {} });
+  nodes.push(dlg);
+  global.window.AWPlayer = { close: () => { playerClosed++; delete dlg.attrs.open; }, ctx: () => null };
+  global._wentBack = false;
+  press(K.BACK_TIZEN);
+  check('Back on the player calls AWPlayer.close', playerClosed, 1);
+  check('...and not the bare dialog close, nor history.back',
+        dialogClosed === 0 && global._wentBack === false, true);
+  dlg.attrs.open = '';
+  delete global.window.AWPlayer.close;
+  press(K.BACK_WEBOS);
+  check('control: with no close verb Back still closes the dialog', dialogClosed, 1);
+  delete global.window.AWPlayer;
+  nodes.splice(nodes.indexOf(dlg), 1);
 }
 
 check('the hero steps films from its own CTA',

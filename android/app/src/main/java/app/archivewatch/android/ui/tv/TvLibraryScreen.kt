@@ -10,6 +10,8 @@ import androidx.compose.foundation.layout.Row
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.padding
+import androidx.compose.foundation.lazy.LazyColumn
+import androidx.compose.foundation.lazy.items
 import androidx.compose.foundation.lazy.grid.GridCells
 import androidx.compose.foundation.lazy.grid.LazyVerticalGrid
 import androidx.compose.foundation.lazy.grid.itemsIndexed
@@ -21,6 +23,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.runtime.mutableStateOf
 import androidx.compose.runtime.produceState
 import androidx.compose.runtime.remember
+import androidx.compose.runtime.saveable.rememberSaveable
 import androidx.compose.runtime.LaunchedEffect
 import kotlinx.coroutines.launch
 import androidx.compose.runtime.setValue
@@ -35,6 +38,8 @@ import app.archivewatch.android.data.CatalogItem
 import app.archivewatch.android.data.UserPlaylist
 import app.archivewatch.android.ui.Nav
 import app.archivewatch.android.ui.uniqueBy
+import app.archivewatch.android.ui.ResolvedList
+import app.archivewatch.android.ui.resolveListRows
 import app.archivewatch.android.ui.Route
 
 private const val TV_GRID_COLUMNS = 6
@@ -70,7 +75,7 @@ private enum class LibSection(val label: String) {
 fun TvLibraryScreen(container: AppContainer, nav: Nav) {
     val dbVersion by container.catalog.dbVersion.collectAsState()
     val userChanges by container.userState.changes.collectAsState()
-    var section by remember { mutableStateOf(LibSection.Favorites) }
+    var section by rememberSaveable { mutableStateOf(LibSection.Favorites) }
     val scope = androidx.compose.runtime.rememberCoroutineScope()
     val context = androidx.compose.ui.platform.LocalContext.current
     var removeFromHistory by remember { mutableStateOf<CatalogItem?>(null) }
@@ -79,21 +84,26 @@ fun TvLibraryScreen(container: AppContainer, nav: Nav) {
     val tileFocus = remember { mutableMapOf<String, FocusRequester>() }
     var focusAfter by remember { mutableStateOf<String?>(null) }
 
-    val favorites by produceState<List<CatalogItem>>(emptyList(), dbVersion, userChanges) {
-        val db = container.catalog.awaitDb()
-        value = db.itemsByIDs(container.userState.favoriteIDs())
+    // Only the section on screen is read, and as grid rows (I3).
+    val favoritesList by produceState(ResolvedList(emptyList(), 0), dbVersion, userChanges, section) {
+        if (section != LibSection.Favorites) return@produceState
+        val ids = container.userState.favoriteIDs()
+        value = resolveListRows(ids, container.catalog.awaitDb().itemsByIDsKeyed(ids, lite = true))
     }
+    val favorites = favoritesList.rows
     // With each card's progress, as on Home (time left and a bar).
     val continueState by produceState<Pair<List<CatalogItem>, Map<String, app.archivewatch.android.data.WatchProgress>>>(
-        emptyList<CatalogItem>() to emptyMap(), dbVersion, userChanges,
-    ) { value = continueWithProgress(container) }
+        emptyList<CatalogItem>() to emptyMap(), dbVersion, userChanges, section,
+    ) { if (section == LibSection.Continue) value = continueWithProgress(container) }
     val continueWatching = continueState.first
     val continueProgress = continueState.second
     // D078 — the durable ever-watched record, not just resumable progress.
-    val history by produceState<List<CatalogItem>>(emptyList(), dbVersion, userChanges) {
-        val db = container.catalog.awaitDb()
-        value = db.itemsByIDs(container.userState.history().map { it.archiveID })
+    val historyList by produceState(ResolvedList(emptyList(), 0), dbVersion, userChanges, section) {
+        if (section != LibSection.History) return@produceState
+        val ids = container.userState.history().map { it.archiveID }
+        value = resolveListRows(ids, container.catalog.awaitDb().itemsByIDsKeyed(ids, lite = true))
     }
+    val history = historyList.rows
     val playlists by produceState<List<UserPlaylist>>(emptyList(), userChanges) {
         value = container.userState.playlists()
     }
@@ -164,11 +174,16 @@ fun TvLibraryScreen(container: AppContainer, nav: Nav) {
                 // for something the remote in their hand does.
                 TvEmpty("No playlists yet — open any film and choose Add to Playlist.")
             } else {
-                Column(
-                    Modifier.padding(horizontal = TvDims.OverscanH),
+                // Lazy, so a long list scrolls to keep the focused row on screen
+                // (§3 rule 5); a Column ran past the bottom of the panel.
+                LazyColumn(
+                    contentPadding = PaddingValues(
+                        start = TvDims.OverscanH, end = TvDims.OverscanH, bottom = TvDims.OverscanV * 2,
+                    ),
                     verticalArrangement = Arrangement.spacedBy(12.dp),
+                    modifier = Modifier.fillMaxSize(),
                 ) {
-                    playlists.forEach { pl ->
+                    items(playlists, key = { it.id }) { pl ->
                         Box(
                             Modifier
                                 .fillMaxWidth()
@@ -252,10 +267,12 @@ fun TvLibraryScreen(container: AppContainer, nav: Nav) {
                 focusAfter = ids.getOrNull(i + 1) ?: ids.getOrNull(i - 1)
                 removeFromHistory = null
                 scope.launch {
-                    container.userState.removeFromHistory(item.archiveID)
+                    // By the STORED id: a merged-away id shows as its survivor.
+                    val stored = historyList.storedIDs(item)
+                    stored.forEach { container.userState.removeFromHistory(it) }
                     // And from the launcher's Continue row, which it would outlive.
                     kotlinx.coroutines.withContext(kotlinx.coroutines.Dispatchers.IO) {
-                        app.archivewatch.android.data.TvWatchNext.remove(context, item.archiveID)
+                        stored.forEach { app.archivewatch.android.data.TvWatchNext.remove(context, it) }
                     }
                 }
             },

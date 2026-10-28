@@ -180,7 +180,10 @@ class UserStateStore(context: Context) {
 
     // ONE write path with history semantics (Decision 078): first-watch
     // date, session counting (>6h gap = new session), durable everCompleted.
-    suspend fun saveProgress(id: String, positionMs: Long, durationMs: Long) {
+    /** `notify = false` writes without bumping `changes`: the player's
+     *  periodic save, so playing a film does not re-query every screen and
+     *  schedule a Drive round trip every five seconds (I2). */
+    suspend fun saveProgress(id: String, positionMs: Long, durationMs: Long, notify: Boolean = true) {
         if (durationMs <= 0) return
         val now = System.currentTimeMillis()
         dbCall {
@@ -200,7 +203,7 @@ class UserStateStore(context: Context) {
                 listOf(id, positionMs, durationMs, now, firstAt, plays, done),
             )
         }
-        _changes.value += 1
+        if (notify) _changes.value += 1
     }
 
     /**
@@ -282,7 +285,6 @@ class UserStateStore(context: Context) {
                        if (everDone) 1L else 0L),
             )
         }
-        _changes.value += 1
     }
 
     /** The complete watch record, newest first (Decision 078 parity). */
@@ -298,13 +300,10 @@ class UserStateStore(context: Context) {
 
     /** Resumable items, most recent first — the Continue Watching source. */
     suspend fun continueWatching(limit: Int = 30): List<WatchProgress> = dbCall {
-        query(
-            "SELECT id, position, duration, at FROM progress ORDER BY at DESC LIMIT ?",
-            listOf(limit.toLong() * 4),
-        ) {
+        query(CONTINUE_WATCHING_SQL, listOf(limit.toLong())) {
             WatchProgress(it.getText(0), it.getLong(1), it.getLong(2), it.getLong(3))
         }
-    }.filter { it.isResumable }.take(limit)
+    }
 
     // --- playlists ---
 
@@ -417,7 +416,8 @@ class UserStateStore(context: Context) {
                 listOf(archiveID),
             ) { c -> listOf(c.getLong(0), c.getLong(1), c.getLong(2), c.getLong(3), c.getLong(4)) }
                 .firstOrNull()
-            val (pos, dur, at, firstAt, plays) = existing ?: listOf(0L, 0L, now, now, 0L)
+            val (pos0, dur, at0, firstAt, plays) = existing ?: listOf(0L, 0L, now, now, 0L)
+            val (pos, at) = if (watched) pos0 to at0 else unmarkedProgress(pos0, dur, now)
             exec(
                 "INSERT OR REPLACE INTO progress (id, position, duration, at, firstAt, plays, everDone) " +
                     "VALUES (?, ?, ?, ?, ?, ?, ?)",
@@ -425,6 +425,42 @@ class UserStateStore(context: Context) {
             )
         }
         _changes.value += 1
+    }
+
+    companion object {
+        /**
+         * `WatchProgress.isResumable`, asked in SQL. It was read as the newest
+         * `limit * 4` rows filtered in Kotlin, so a history with many finished
+         * or merely recorded films (recordHistory writes position 0) pushed
+         * every resumable film out of the window and the row came back empty.
+         */
+        const val CONTINUE_WATCHING_SQL =
+            "SELECT id, position, duration, at FROM progress " +
+                "WHERE position > 2000 AND duration > 0 AND position < duration * 95 / 100 " +
+                "ORDER BY at DESC LIMIT ?"
+
+        /**
+         * An un-mark: a position at 95% or more still reads as watched
+         * (isWatched, completedIDs), so it starts over, and the record is
+         * stamped now so the sync merge lets this edit win over older copies.
+         */
+        fun unmarkedProgress(positionMs: Long, durationMs: Long, now: Long): Pair<Long, Long> {
+            val complete = durationMs > 0 && positionMs >= durationMs * 95 / 100
+            return (if (complete) 0L else positionMs) to now
+        }
+
+        /**
+         * The merged "ever completed" flag. It was a union, so an un-mark
+         * (Mark Unwatched) came back on the next sync. When both records carry
+         * the flag the newer one wins; every writer keeps the flag it already
+         * has, so a newer false is an un-mark. A record without the field (an
+         * older writer) only ever adds (Decision 078).
+         */
+        fun mergedEverDone(mineDone: Boolean?, mineAt: Long, cloudDone: Boolean?, cloudAt: Long): Boolean {
+            if (mineDone == null) return cloudDone == true
+            if (cloudDone == null) return mineDone
+            return if (cloudAt > mineAt) cloudDone else mineDone
+        }
     }
 
     suspend fun isWatched(archiveID: String): Boolean = dbCall {
@@ -534,7 +570,8 @@ class UserStateStore(context: Context) {
      *  its own write from the viewer's. */
     @Volatile var lastRemoteApplyChange: Int = -1
         private set
-    fun endRemoteApply() {
+    fun endRemoteApply(wrote: Boolean = true) {
+        if (!wrote) return
         _changes.value += 1
         lastRemoteApplyChange = _changes.value
     }

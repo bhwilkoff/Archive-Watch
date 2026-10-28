@@ -1497,6 +1497,14 @@
     // and an automatic fail on LG's and Samsung's Back-behaviour tests.
     // Verified in Chrome; close the overlay and stop playback first.
     const openDialog = document.querySelector('dialog[open]');
+    // The PLAYER closes through its own verb: closing the dialog alone left
+    // the stream downloading, the save and stall timers running, the
+    // progress unsaved and a Watch Together room still joined.
+    if (openDialog && openDialog.id === 'player' && window.AWPlayer && window.AWPlayer.close) {
+      window.AWPlayer.close();
+      claimFocus();
+      return;
+    }
     if (openDialog) {
       const vid = openDialog.querySelector('video');
       if (vid) { try { vid.pause(); } catch (e) { /* ignore */ } }

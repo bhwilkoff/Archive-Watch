@@ -91,6 +91,12 @@ concurrency:
   group: catalog-writers
   cancel-in-progress: false
 
+# Every `run:` is `bash -eo pipefail` (GitHub's explicit `shell: bash`;
+# the implicit default has no pipefail, so `tool | tee log` hid a crash).
+defaults:
+  run:
+    shell: bash
+
 jobs:
   discover-ingest:
     runs-on: ubuntu-latest
@@ -121,7 +127,8 @@ jobs:
         run: |
           python tools/discover_wikidata_pd.py \
             --limit ${{ github.event.inputs.discover_limit || '8000' }} \
-            | tee discover.log
+            | tee discover.log \
+            || echo "::warning::discover_wikidata_pd did not complete — ingest drains the queue it already has"
 
       - name: Discover PD wants (title-first — Wikipedia US-PD list + TMDb pre-cutoff + Wikidata age)
         env:
@@ -133,7 +140,8 @@ jobs:
           # archive.org for each by title+year (archive_lib.resolve_title).
           python tools/discover_pd_wants.py \
             --tmdb-pages ${{ github.event.inputs.wants_tmdb_pages || '40' }} \
-            | tee wants.log
+            | tee wants.log \
+            || echo "::warning::discover_pd_wants did not complete — ingest drains the queue it already has"
 
       - name: Discover candidates (Archive collections + Public Domain Day)
         run: |
@@ -158,7 +166,8 @@ jobs:
           # excluded — wrong rights for a public app). Tagged contentTypeHint=
           # commercial so ingest groups them under the Commercials collection;
           # they never appear on Home. See docs/design/channels-tv-guide.md.
-          python tools/discover_commercials.py | tee commercials_discover.log
+          python tools/discover_commercials.py | tee commercials_discover.log \
+          || echo "::warning::discover_commercials did not complete — ingest drains the queue it already has"
 
       - name: Discover new TV shows (grow the canonical-TV queue)
         run: |
@@ -167,7 +176,8 @@ jobs:
           # weekly tv-canonical workflow drains this into canonical series.
           python tools/discover_tv_shows.py \
             --per-collection ${{ github.event.inputs.tv_discover_per_collection || '800' }} \
-            | tee tvdisc.log
+            | tee tvdisc.log \
+            || echo "::warning::discover_tv_shows did not complete — the TV queue keeps what it has"
 
       - name: Ingest a daily batch (parallel; title resolver)
         run: |
@@ -209,7 +219,8 @@ jobs:
           # after first resolve, so this drains the unresolved ones daily.
           python tools/build_episode_wants.py \
             --max-series ${{ github.event.inputs.wants_max_series || '40' }} \
-            | tee wants.log
+            | tee wants.log \
+            || echo "::warning::build_episode_wants did not complete — the backfill below uses the wants it has"
 
       - name: Backfill TV episodes (prune junk + grow under-populated series)
         run: |
@@ -220,7 +231,8 @@ jobs:
             --prune \
             --min-episodes 8 \
             --max-series ${{ github.event.inputs.tv_max_series || '40' }} \
-            | tee tv.log
+            | tee tv.log \
+            || echo "::warning::backfill_tv_episodes did not complete (read the log above)"
 
       - name: Audit series episodes (wrong-show / parody / review content)
         run: |
@@ -231,7 +243,8 @@ jobs:
           # confirmed against the Archive item's own metadata + TVmaze
           # before anything is removed; every action lands in the CSV.
           python tools/audit_series_episodes.py --confirm --apply \
-            | tee episode_audit.log
+            | tee episode_audit.log \
+            || echo "::warning::audit_series_episodes did not complete — no episodes removed this run"
 
       - name: Upload episode-audit manifest
         # Publish what finished. A killed compute step above must not
@@ -252,16 +265,21 @@ jobs:
           # it catches up over subsequent runs.
           python tools/repair_derivatives.py \
             --limit ${{ github.event.inputs.repair_limit || '500' }} \
-            | tee repair.log
+            | tee repair.log \
+            || echo "::warning::repair_derivatives did not complete — the remaining items are repaired next run"
 
       - name: Stamp public-domain rights evidence
         run: |
           # Records WHY each title is PD (pre-1930 = by age; source-flagged;
           # or source-unverified for the 1929-63 non-renewal window). Sound
           # + conservative — see tools/rights_evidence.py.
-          python tools/rights_evidence.py | tee rights.log
+          python tools/rights_evidence.py | tee rights.log \
+          || echo "::warning::rights_evidence did not complete — the rights audit re-judges every title anyway"
 
       - name: Vet freshly-ingested items (targeted liveness + playability probe)
+        # Runs even when the ingest above failed part-way: what it DID ingest
+        # is published below (always), so it must be vetted first.
+        if: ${{ !cancelled() }}
         run: |
           # A non-working new title must not surface. ingest_candidates bakes a
           # downloadURL but never verifies playability, and discover-content does
@@ -336,7 +354,9 @@ jobs:
       # misclass, adult flags) before the catalog goes to the release.
       - name: Repair titles the cleaner reduced to a parenthetical
         # Idempotent: a no-op once the 2026-09-25 damage ("(Part I)") is gone.
-        run: python tools/repair_bracket_titles.py | tail -3
+        run: |
+          python tools/repair_bracket_titles.py | tail -3 \
+            || echo "::warning::repair_bracket_titles did not complete"
 
       - name: Remediate catalog data quality
         run: python tools/remediate_catalog.py

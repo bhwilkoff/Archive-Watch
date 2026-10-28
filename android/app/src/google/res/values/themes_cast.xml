@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<resources>
+<resources xmlns:tools="http://schemas.android.com/tools">
     <!-- The Cast button's own theme (google flavor: mediarouter brings AppCompat).
          MediaRouteButton refuses to build under a translucent colorBackground,
          which the app theme has — "background can not be translucent: #0" —
@@ -16,7 +16,19 @@
          colorPrimary from it: unset, it is 0, and calculateContrast threw
          "background can not be translucent: #0" when a viewer tapped Cast
          (Play cluster d8f3f3a4, Android 11-12 phones, v66). -->
-    <style name="Theme.ArchiveWatch" parent="Theme.ArchiveWatch.Base">
+    <!-- And the dialog itself is an AppCompatDialog, which refuses any theme
+         that is not AppCompat: "You need to use a Theme.AppCompat theme (or
+         descendant)" (Play cluster, Android 12, v69, after colorPrimary fixed
+         the first throw). So this flavor's app theme IS AppCompat, carrying
+         the base theme's window items; Compose draws everything else. -->
+    <style name="Theme.ArchiveWatch" parent="Theme.AppCompat.NoActionBar">
         <item name="colorPrimary">#FFFF5C35</item>
+        <item name="colorAccent">#FFFF5C35</item>
+        <item name="android:windowBackground">@color/brand_background</item>
+        <item name="android:colorBackground">@color/brand_background</item>
+        <item name="android:statusBarColor">@android:color/transparent</item>
+        <item name="android:navigationBarColor">@android:color/transparent</item>
+        <item name="android:enforceNavigationBarContrast" tools:targetApi="q">false</item>
+        <item name="android:enforceStatusBarContrast" tools:targetApi="q">false</item>
     </style>
 </resources>

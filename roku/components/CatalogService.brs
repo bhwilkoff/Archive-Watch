@@ -13,29 +13,38 @@ sub run()
     ' into (or answered by) a query. Served from the EVENT's data, not the
     ' field: two ids set back to back are two answers.
     m.top.ObserveField("lookupId", port)
+    ' The viewer's own ids (Continue Watching, Library) ride their own field
+    ' for the same reason lookupId does: merged into the query bag they were
+    ' answered as whatever search or Browse submit landed beside them.
+    m.top.ObserveField("resolveIds", port)
 
-    x = CreateObject("roUrlTransfer")
-    ' A per-launch cache-buster: the Pages CDN holds the index for ten
-    ' minutes per variant, and a device that fetches ONCE per launch was
-    ' reading a copy from before the mature-content republish (measured:
-    ' 9 hits on the device against 7 in the fresh file). The origin serves
-    ' the current file for any query string.
-    x.SetUrl("https://archivewatch.org/catalog-index.json?t=" + fmt(CreateObject("roDateTime").AsSeconds()))
-    x.SetCertificatesFile("common:/certs/ca-bundle.crt")
-    x.InitClientCertificates()
-    x.AddHeader("User-Agent", "ArchiveWatch-Roku/0.4 (+https://archivewatch.org)")
-    x.EnableEncodings(true)
-    body = x.GetToString()
-    if body = ""
-        print "AWSVC index fetch failed"
-        return
+    ' ONE download per launch. HomeTask has already fetched these exact bytes
+    ' for the first paint and left them in tmp:/ (HomeTask.saveIndex); reading
+    ' them back costs the parse, not a second 7 MB transfer.
+    idx = invalid
+    body = ReadAsciiFile("tmp:/catalog-index.json")
+    if body <> ""
+        DeleteFile("tmp:/catalog-index.json")
+        idx = ParseJson(body)
+        body = ""
+        print "AWSVC index from HomeTask's copy ok="; (idx <> invalid)
     end if
-    idx = ParseJson(body)
-    body = ""
-    if idx = invalid or idx.items = invalid
-        print "AWSVC index parse failed"
-        return
-    end if
+    ' A fetch that fails is asked again, backing off, for as long as the
+    ' channel is open. It used to `return`, which ended this task for the
+    ' session: Browse, Search, Collections and every deep link sat empty with
+    ' nothing on screen saying why. `error` says it to the Scene.
+    waitMs = 2000
+    while not indexUsable(idx)
+        idx = fetchIndex()
+        if not indexUsable(idx)
+            print "AWSVC index unavailable; retrying in "; waitMs; "ms"
+            m.top.loadError = "index"
+            sleep(waitMs)
+            waitMs = waitMs * 2
+            if waitMs > 60000 then waitMs = 60000
+        end if
+    end while
+    m.top.loadError = ""
     m.items = idx.items
     m.collections = idx.collections
     ' The curated titles and blurbs ride in the package (see tools/roku.py),
@@ -59,19 +68,74 @@ sub run()
     ' and in the port; serve it once and let its event pass.
     caughtUp = m.top.lookupId
     if caughtUp <> "" then lookupOne(caughtUp)
+    ' The newest resolve set before this line; its event (if any) carries the
+    ' same list and answers it again, which repaints nothing new.
+    pendingIds = m.top.resolveIds
+    if pendingIds <> invalid
+        if pendingIds.Count() > 0 then resolveIds(pendingIds)
+    end if
     while true
         msg = wait(0, port)
         if type(msg) = "roSGNodeEvent"
-            if msg.GetField() = "queryId" and m.top.queryId > m.served then runQuery()
-            if msg.GetField() = "lookupId"
+            f = msg.GetField()
+            if f = "queryId" and m.top.queryId > m.served then runQuery()
+            if f = "lookupId"
                 if msg.GetData() = caughtUp
                     caughtUp = ""
                 else
                     lookupOne(msg.GetData())
                 end if
             end if
+            if f = "resolveIds"
+                ids = msg.GetData()
+                if ids <> invalid
+                    if ids.Count() > 0 then resolveIds(ids)
+                end if
+            end if
         end if
     end while
+end sub
+
+function indexUsable(idx as Dynamic) as Boolean
+    if idx = invalid then return false
+    if GetInterface(idx, "ifAssociativeArray") = invalid then return false
+    return (idx.items <> invalid)
+end function
+
+function fetchIndex() as Object
+    x = CreateObject("roUrlTransfer")
+    ' A per-launch cache-buster: the Pages CDN holds the index for ten
+    ' minutes per variant, and a device that fetches ONCE per launch was
+    ' reading a copy from before the mature-content republish (measured:
+    ' 9 hits on the device against 7 in the fresh file). The origin serves
+    ' the current file for any query string.
+    dt = CreateObject("roDateTime")
+    x.SetUrl("https://archivewatch.org/catalog-index.json?t=" + fmt(dt.AsSeconds()))
+    x.SetCertificatesFile("common:/certs/ca-bundle.crt")
+    x.InitClientCertificates()
+    x.AddHeader("User-Agent", "ArchiveWatch-Roku/0.4 (+https://archivewatch.org)")
+    x.EnableEncodings(true)
+    body = x.GetToString()
+    if body = ""
+        print "AWSVC index fetch failed"
+        return invalid
+    end if
+    idx = ParseJson(body)
+    body = ""
+    if idx = invalid then print "AWSVC index parse failed"
+    return idx
+end function
+
+' Every reply carries the queryId it answers and its own total ON THE NODE.
+' Read off the service's fields instead, both could already belong to the
+' next query by the time the Scene's observer ran.
+sub publish(root as Object, total as Integer)
+    root.AddField("awQid", "integer", false)
+    root.AddField("awTotal", "integer", false)
+    root.awQid = m.served
+    root.awTotal = total
+    m.top.total = total
+    m.top.results = root
 end sub
 
 ' Index row order (build_catalog_index.py fields):
@@ -152,8 +216,7 @@ sub buildParty()
         end if
     end while
     print "AWSVC party color="; colour.Count(); " bw="; rest.Count(); " picked="; n
-    m.top.total = n
-    m.top.results = root
+    publish(root, n)
 end sub
 
 ' Cover Art Wall: as many professionally-presented posters as the wall needs.
@@ -178,8 +241,7 @@ sub buildWall()
         end if
     end while
     print "AWSVC wall pool="; pool.Count(); " picked="; n
-    m.top.total = n
-    m.top.results = root
+    publish(root, n)
 end sub
 
 sub buildCartoons()
@@ -243,16 +305,14 @@ sub buildCartoons()
         shown = shown + 1
     end if
     print "AWSVC cartoons rows="; shown; " in "; span.TotalMilliseconds(); "ms"
-    m.top.total = shown
-    m.top.results = root
+    publish(root, shown)
 end sub
 
 sub buildCollections()
     span = CreateObject("roTimespan")
     span.Mark()
     if m.collections = invalid or m.colMeta.Count() = 0
-        m.top.results = CreateObject("roSGNode", "ContentNode")
-        m.top.total = 0
+        publish(CreateObject("roSGNode", "ContentNode"), 0)
         return
     end if
 
@@ -303,8 +363,7 @@ sub buildCollections()
         end if
     end for
     print "AWSVC collections rows="; shown; " of "; m.colMeta.Count(); " in "; span.TotalMilliseconds(); "ms"
-    m.top.total = shown
-    m.top.results = root
+    publish(root, shown)
 end sub
 
 
@@ -318,8 +377,7 @@ sub buildCollectionCards()
     span.Mark()
     root = CreateObject("roSGNode", "ContentNode")
     if m.collections = invalid or m.colMeta.Count() = 0
-        m.top.total = 0
-        m.top.results = root
+        publish(root, 0)
         return
     end if
     want = {}
@@ -374,8 +432,7 @@ sub buildCollectionCards()
         end if
     end for
     print "AWSVC collection cards="; shown; " of "; m.colMeta.Count(); " in "; span.TotalMilliseconds(); "ms"
-    m.top.total = shown
-    m.top.results = root
+    publish(root, shown)
 end sub
 
 ' A collection's members as a Browse result, in the index's own order (which
@@ -386,8 +443,7 @@ sub browseCollection(cid as String)
     if m.collections <> invalid then order = m.collections[cid]
     if order = invalid
         print "AWSVC collection '"; cid; "' unknown"
-        m.top.total = 0
-        m.top.results = root
+        publish(root, 0)
         return
     end if
     want = {}
@@ -418,8 +474,7 @@ sub browseCollection(cid as String)
         appendRow(root, r)
     end for
     print "AWSVC collection '"; cid; "' members="; root.GetChildCount()
-    m.top.total = root.GetChildCount()
-    m.top.results = root
+    publish(root, root.GetChildCount())
 end sub
 
 ' Reservoir sampling: one pass, one row kept, no second array of 26,965
@@ -451,8 +506,7 @@ sub pickRandom(spec as String)
     root = CreateObject("roSGNode", "ContentNode")
     if keep <> invalid then appendRow(root, keep)
     print "AWSVC random type='"; want; "' pool="; seen; " picked="; root.GetChildCount()
-    m.top.total = seen
-    m.top.results = root
+    publish(root, seen)
 end sub
 
 ' One pass, results returned in the ORDER ASKED — a Continue Watching row is
@@ -518,8 +572,7 @@ sub moreLike(spec as Object)
         end if
     end while
     print "AWSVC moreLike type='"; want; "' ranked="; ranked.Count(); " pool="; n; " shown="; root.GetChildCount()
-    m.top.total = n
-    m.top.results = root
+    publish(root, n)
 end sub
 
 ' Normalised for matching: letters and digits only, lower case. "Adam 12
@@ -594,8 +647,7 @@ sub resolveIds(ids as Object)
         end if
     end for
     print "AWSVC resolveIds asked="; ids.Count(); " found="; root.GetChildCount()
-    m.top.total = root.GetChildCount()
-    m.top.results = root
+    m.top.resolvedResult = root
 end sub
 
 ' A copy of the row with the spine's poster attached. The ITEM stays the
@@ -639,73 +691,74 @@ sub appendRow(root as Object, r as Object)
 end sub
 
 sub runQuery()
-    m.served = m.top.queryId
+    ' ONE read of the whole record. Field by field, a request the Scene made
+    ' between two reads was half-served: the flags of one query and the text
+    ' of the next. Every requester writes every field (AWQuerySpec), so
+    ' nothing a previous query set can leak into this one — which is also why
+    ' nothing here clears a field after reading it: a clear from this thread
+    ' could land after the NEXT request's write and erase it.
+    q = m.top.getFields()
+    m.served = q.queryId
     span = CreateObject("roTimespan")
     span.Mark()
-    nIds = 0
-    if m.top.qIds <> invalid then nIds = m.top.qIds.Count()
-    print "AWSVC query #"; m.top.queryId; " coll="; m.top.qCollections; " party="; m.top.qParty; " wall="; m.top.qWall; " cartoons="; m.top.qCartoons; " random="; m.top.qRandomType; " ids="; nIds; " cards="; m.top.qCollectionCards
+    print "AWSVC query #"; m.served; " coll="; q.qCollections; " party="; q.qParty; " wall="; q.qWall; " cartoons="; q.qCartoons; " random="; q.qRandomType; " cards="; q.qCollectionCards
 
-    if m.top.qCollections
+    if q.qCollections = true
         buildCollections()
         return
     end if
 
-    if m.top.qParty
+    if q.qParty = true
         buildParty()
         return
     end if
 
-    if m.top.qWall
+    if q.qWall = true
         buildWall()
         return
     end if
 
-    if m.top.qCartoons
+    if q.qCartoons = true
         buildCartoons()
         return
     end if
 
-    if m.top.qRandomType <> ""
-        pickRandom(m.top.qRandomType)
+    rt = fmt(q.qRandomType)
+    if rt <> ""
+        pickRandom(rt)
         return
     end if
 
-    lk = m.top.qLike
-    if lk <> invalid and lk.id <> invalid and lk.id <> ""
-        moreLike(lk)
-        return
+    lk = q.qLike
+    if lk <> invalid
+        if lk.id <> invalid
+            if fmt(lk.id) <> ""
+                moreLike(lk)
+                return
+            end if
+        end if
     end if
 
-    ids = m.top.qIds
-    if ids <> invalid and ids.Count() > 0
-        resolveIds(ids)
-        return
-    end if
-
-    if m.top.qCollectionCards
+    if q.qCollectionCards = true
         buildCollectionCards()
         return
     end if
-    if m.top.qCollection <> ""
-        browseCollection(m.top.qCollection)
+    if fmt(q.qCollection) <> ""
+        browseCollection(fmt(q.qCollection))
         return
     end if
 
-    wantType = LCase(m.top.qType)
-    ' Consumed, then CLEARED. This one function serves Browse, Search,
-    ' Collections and the Surprise doors, so a scope left set by the TV tab
-    ' would silently narrow the next search to television. It applies to the
-    ' query that asked for it and to nothing else; BrowseScreen sets it on
-    ' every submit, so the tabs keep theirs.
-    wantScope = LCase(m.top.qScope)
-    m.top.qScope = ""
-    decade = m.top.qDecade
-    text = LCase(m.top.qText)
-    wantGenre = m.top.qGenre
-    sort = m.top.qSort
-    wantLength = m.top.qLength
-    m.top.qLength = ""
+    wantType = LCase(fmt(q.qType))
+    ' This one function serves Browse, Search, Collections and the Surprise
+    ' doors; the scope is the TAB the grid belongs to, written by every
+    ' request ("" when it has none).
+    wantScope = LCase(fmt(q.qScope))
+    decade = 0
+    if q.qDecade <> invalid then decade = q.qDecade
+    text = LCase(fmt(q.qText))
+    wantGenre = fmt(q.qGenre)
+    sort = fmt(q.qSort)
+    wantLength = fmt(q.qLength)
 
     hits = []
     for each r in m.items
@@ -732,7 +785,19 @@ sub runQuery()
             ' one and, being more popular, filled the whole grid: Browse -> TV
             ' looked exactly like a shelf of films, which is what the owner
             ' reported. Specials stay reachable under their own chip value.
-            awSkip = (t <> wantType)
+            if wantType = "documentary"
+                ' Documentary is a GENRE flag (index column 9), the same rule
+                ' as the apps and the web: ~8 items are TYPED documentary
+                ' against ~1,100 that are one, so the type test found almost
+                ' nothing. A cartoon carrying the tag is not one.
+                isDoc = false
+                if r.Count() > 9
+                    if r[9] = 1 and t <> "animation" then isDoc = true
+                end if
+                awSkip = not (isDoc or t = "documentary")
+            else
+                awSkip = (t <> wantType)
+            end if
         end if
         ' Genres arrived at schema 10 as a pipe-joined string. 17,726 of 26,960
         ' items carry one, so the facet is worth having and the two thirds
@@ -893,8 +958,7 @@ sub runQuery()
         appendRow(root, hits[i])
     end for
     print "AWSVC query type="; wantType; " decade="; decade; " genre='"; wantGenre; "' sort="; sort; " text='"; text; "' hits="; total; " in "; span.TotalMilliseconds(); "ms"
-    m.top.total = total
-    m.top.results = root
+    publish(root, total)
 end sub
 
 ' Insertion sort is fine here: the filtered set is what gets sorted, not the
@@ -981,5 +1045,6 @@ function prettyType(t as String) as String
     if t = "documentary" then return "Documentary"
     if t = "ephemeral" then return "Ephemeral"
     if t = "commercial" then return "Commercial"
+    if t = "home-movie" then return "Home Movie"
     return t
 end function

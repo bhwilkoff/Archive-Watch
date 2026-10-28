@@ -21,11 +21,16 @@ struct FilteredGridView: View {
     let route: BrowseFilterRoute
     @Environment(AppStore.self) private var store
     @State private var items: [Catalog.Item] = []
+    @State private var total = 0
     // The grid a category tile opens had no ordering of its own — it was
     // pinned to `.popular`. Reported on the iPad and fixed on every platform
     // at once (2026-09-11); Browse has offered the control for months.
     @State private var sort: CatalogDB.Sort
+    private let pageSize = 120
     private var sortSurface: String { SortMemory.surface(contentType: route.contentType) }
+    /// Keyword and studio routes are single capped fetches (Decision 046).
+    private var isPaged: Bool { route.keyword == nil && route.studio == nil }
+    private let columns = [GridItem(.adaptive(minimum: 150, maximum: 200), spacing: 16)]
 
     init(route: BrowseFilterRoute) {
         self.route = route
@@ -33,17 +38,32 @@ struct FilteredGridView: View {
     }
 
     var body: some View {
-        GridView(title: route.title, items: items)
-            .toolbar {
-                ToolbarItem {
-                    Picker("Sort", selection: $sort) {
-                        ForEach(CatalogDB.Sort.allCases, id: \.self) { Text($0.label).tag($0) }
+        ScrollView {
+            if items.isEmpty && store.isReady {
+                ContentUnavailableView("Nothing here yet", systemImage: "film.stack")
+                    .padding(.top, 80)
+            } else {
+                LazyVGrid(columns: columns, spacing: 18) {
+                    ForEach(items) { item in
+                        PosterCard(item: item)
+                            .onAppear { if item.id == items.last?.id { loadMore() } }
                     }
-                    .pickerStyle(.menu)
                 }
+                .padding()
             }
-            .task(id: store.dbVersion) { load() }
-            .onChange(of: sort) { SortMemory.remember(sort, for: sortSurface); load() }
+        }
+        .navigationTitle(route.title)
+        .navigationSubtitle(total > 0 ? "\(total.formatted()) titles" : "")
+        .toolbar {
+            ToolbarItem {
+                Picker("Sort", selection: $sort) {
+                    ForEach(CatalogDB.Sort.allCases, id: \.self) { Text($0.label).tag($0) }
+                }
+                .pickerStyle(.menu)
+            }
+        }
+        .task(id: store.dbVersion) { load() }
+        .onChange(of: sort) { SortMemory.remember(sort, for: sortSurface); load() }
     }
 
     /// Capped routes (Decision 046) hold their whole result set already, so they
@@ -52,13 +72,28 @@ struct FilteredGridView: View {
     private func load() {
         if let keyword = route.keyword {            // Decision 046
             items = CatalogDB.ordered(store.db?.byKeyword(keyword) ?? [], by: sort)
+            total = items.count
         } else if let studio = route.studio {       // Decision 046
             items = CatalogDB.ordered(store.db?.byStudio(studio) ?? [], by: sort)
+            total = items.count
         } else {
-            items = store.browse(contentType: route.contentType, decade: route.decade,
-                                 genre: route.genre, year: route.year,
-                                 sort: sort, limit: 300, offset: 0)
+            items = fetch(offset: 0)
+            total = store.browseCount(contentType: route.contentType, decade: route.decade,
+                                      genre: route.genre, year: route.year)
         }
+    }
+
+    private func fetch(offset: Int) -> [Catalog.Item] {
+        store.browse(contentType: route.contentType, decade: route.decade,
+                     genre: route.genre, year: route.year,
+                     sort: sort, limit: pageSize, offset: offset)
+    }
+
+    private func loadMore() {
+        guard isPaged, items.count < total else { return }
+        let next = fetch(offset: items.count)
+        guard !next.isEmpty else { total = items.count; return }
+        items.append(contentsOf: next)
     }
 }
 
@@ -123,7 +158,10 @@ private struct CollectionRow: View {
         .contentShape(Rectangle())
         .onHover { hovering = $0 }
         .task(id: store.dbVersion) {
-            if posters.isEmpty { posters = Array(store.byCollection(entry.id).prefix(5)) }
+            // A few rows, designed art first, rather than decoding up to
+            // 2,000 items per row to show five.
+            let few = store.db?.byCollection(entry.id, limit: 24) ?? []
+            posters = Array((few.filter(\.hasDesignedArtwork) + few.filter { !$0.hasDesignedArtwork }).prefix(5))
         }
     }
 }
@@ -226,7 +264,7 @@ private struct SurpriseTile: View {
 
 // MARK: - Public Domain Day (#15)
 
-// A work published in year Y enters the US public domain on Jan 1 of Y+95.
+// A work published in year Y enters the US public domain on Jan 1 of Y+96 (Decision 137).
 struct PublicDomainRoute: Hashable {}
 
 struct PublicDomainView: View {
@@ -237,7 +275,7 @@ struct PublicDomainView: View {
     @State private var items: [Catalog.Item] = []
 
     private var entryYears: [Int] { Array(stride(from: thisYear, through: thisYear - 20, by: -1)) }
-    private var pubYear: Int { entryYear - 95 }
+    private var pubYear: Int { entryYear - 96 }
 
     var body: some View {
         VStack(alignment: .leading, spacing: 0) {

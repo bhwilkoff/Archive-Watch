@@ -24,6 +24,14 @@ struct EpisodePlayerScreen: View {
     @State private var player: AVPlayer?
     @State private var timeObserver: Any?
     @State private var promptObserver: Any?      // #1: 1s tick to gate the Next-Episode prompt
+    @State private var endObserver: NSObjectProtocol?
+    /// The episode the CURRENT player was built for. `currentEpisode` has
+    /// already advanced when the old player is torn down, so its position is
+    /// saved under this one, never the next episode's.
+    @State private var playingEpisode: Episode?
+    /// A resume position applied once the item is ready (a seek before then
+    /// can be dropped by a resource-loader-backed item).
+    @State private var pendingSeek: Double?
     @State private var showNextPrompt = false
     @State private var freezeGuard = PlaybackFreezeGuard()
     @State private var nowPlaying = NowPlayingController()
@@ -71,7 +79,6 @@ struct EpisodePlayerScreen: View {
                     onNext: { if let n = series.episode(after: currentEpisode) { currentEpisode = n } }
                 )
                     .ignoresSafeArea()
-                    .onAppear { player.play() }
             } else {
                 ProgressView()
                     .controlSize(.large)
@@ -163,15 +170,35 @@ struct EpisodePlayerScreen: View {
         nowPlaying.begin(posterURL: episode.stillURLParsed ?? series.posterURLParsed,
                          item: item)
 
+        playingEpisode = episode
+
+        // Resume position for this particular episode, applied once ready.
+        let archiveID = episode.archiveID
+        let descriptor = FetchDescriptor<WatchProgress>(
+            predicate: #Predicate<WatchProgress> { $0.archiveID == archiveID }
+        )
+        pendingSeek = nil
+        if let existing = try? modelContext.fetch(descriptor).first,
+           existing.positionSeconds > 10,
+           !existing.isComplete {
+            pendingSeek = existing.positionSeconds
+        }
+
         // Watch the item reach readyToPlay or fail, so a broken stream becomes
         // a visible error instead of a forever-spinner. KVO can fire off-main;
         // hop back to the main actor before touching view state.
         statusObserver = item.observe(\.status, options: [.new]) { observed, _ in
             Task { @MainActor in
+                guard player === p else { return }
                 switch observed.status {
                 case .readyToPlay:
                     playback = .ready
                     timeoutTask?.cancel()
+                    if let at = pendingSeek {
+                        _ = await p.seek(to: CMTime(seconds: at, preferredTimescale: 600))
+                        guard player === p else { return }
+                        pendingSeek = nil
+                    }
                     p.play()   // start on ready — robust across Next/Prev episode
                                // swaps where .onAppear { play() } won't re-fire
                 case .failed:
@@ -195,27 +222,19 @@ struct EpisodePlayerScreen: View {
             }
         }
 
-        // Seek to last-known progress for this particular episode
-        let archiveID = episode.archiveID
-        let descriptor = FetchDescriptor<WatchProgress>(
-            predicate: #Predicate<WatchProgress> { $0.archiveID == archiveID }
-        )
-        if let existing = try? modelContext.fetch(descriptor).first,
-           existing.positionSeconds > 10,
-           !existing.isComplete {
-            p.seek(to: CMTime(seconds: existing.positionSeconds, preferredTimescale: 600))
-        }
-
         let interval = CMTime(seconds: 5, preferredTimescale: 600)
         let seriesID = series.seriesID
         let episodeTitle = episode.title
         timeObserver = p.addPeriodicTimeObserver(forInterval: interval, queue: .main) { time in
             Task { @MainActor in
+                // A tick queued before a rebuild belongs to the old player.
+                guard player === p else { return }
                 persistProgress(at: time.seconds,
                                 duration: p.currentItem?.duration.seconds,
                                 for: archiveID,
                                 seriesID: seriesID,
                                 episodeTitle: episodeTitle)
+                SyncNudge.nudge(modelContext, periodic: p.rate > 0)
             }
         }
 
@@ -233,7 +252,7 @@ struct EpisodePlayerScreen: View {
         }
 
         // Auto-advance when the current item finishes.
-        NotificationCenter.default.addObserver(
+        endObserver = NotificationCenter.default.addObserver(
             forName: .AVPlayerItemDidPlayToEndTime,
             object: item, queue: .main,
         ) { _ in
@@ -248,17 +267,24 @@ struct EpisodePlayerScreen: View {
     private func teardownPlayer(finalPersist: Bool) {
         if let obs = timeObserver { player?.removeTimeObserver(obs) }
         if let obs = promptObserver { player?.removeTimeObserver(obs); promptObserver = nil }
+        if let e = endObserver { NotificationCenter.default.removeObserver(e); endObserver = nil }
         showNextPrompt = false
         freezeGuard.detach()
         nowPlaying.end()
-        if finalPersist, let p = player {
+        if finalPersist, let p = player, pendingSeek == nil {
+            let ep = playingEpisode ?? currentEpisode
             persistProgress(at: p.currentTime().seconds,
                             duration: p.currentItem?.duration.seconds,
-                            for: currentEpisode.archiveID,
+                            for: ep.archiveID,
                             seriesID: series.seriesID,
-                            episodeTitle: currentEpisode.title)
+                            episodeTitle: ep.title)
+            SyncNudge.nudge(modelContext)
         }
+        playingEpisode = nil
+        pendingSeek = nil
         player?.pause()
+        // No item, no pipeline: a paused player keeps streaming on tvOS.
+        player?.replaceCurrentItem(with: nil)
         player = nil
         timeObserver = nil
         streamLoader = nil
@@ -272,30 +298,13 @@ struct EpisodePlayerScreen: View {
                                  for archiveID: String,
                                  seriesID: String,
                                  episodeTitle: String) {
-        guard position.isFinite, position > 0 else { return }
-        let descriptor = FetchDescriptor<WatchProgress>(
-            predicate: #Predicate<WatchProgress> { $0.archiveID == archiveID }
-        )
-        do {
-            if let existing = try modelContext.fetch(descriptor).first {
-                existing.positionSeconds = position
-                if let d = duration, d.isFinite, d > 0 { existing.durationSeconds = d }
-                existing.lastWatchedAt = Date()
-                existing.seriesID = seriesID
-                existing.episodeTitle = episodeTitle
-            } else {
-                let record = WatchProgress(
-                    archiveID: archiveID,
-                    positionSeconds: position,
-                    durationSeconds: duration ?? 0,
-                    seriesID: seriesID,
-                    episodeTitle: episodeTitle,
-                )
-                modelContext.insert(record)
-            }
-            try? modelContext.save()
-            SyncNudge.nudge(modelContext)   // push progress promptly (debounced) for cross-device resume
-        } catch {}
+        // A held resume seek means the playhead is not the viewer's position.
+        guard pendingSeek == nil else { return }
+        // The shared write path: history (first watch, play count, completed)
+        // is kept the same way as for films.
+        WatchProgress.record(in: modelContext, archiveID: archiveID,
+                             position: position, duration: duration,
+                             seriesID: seriesID, episodeTitle: episodeTitle)
     }
 }
 

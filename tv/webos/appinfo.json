@@ -10,7 +10,7 @@
   "splashBackground": "splash.png",
   "bgColor": "#0A0A0A",
   "iconColor": "#FF5C35",
-  "disableBackHistoryAPI": false,
+  "disableBackHistoryAPI": true,
   "supportPortraitMode": false,
   "requiredMemory": 150
 }

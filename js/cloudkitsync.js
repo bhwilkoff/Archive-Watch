@@ -29,6 +29,14 @@ window.AWCloudKitSync = (() => {
   let syncing = false;
 
   const configured = () => !!TOKEN;
+  // Storage can refuse outright (blocked site data); sync then stays off.
+  const flag = (op) => {
+    try {
+      if (op === 'get') return localStorage.getItem('aw_cksync');
+      if (op === 'set') localStorage.setItem('aw_cksync', '1'); else localStorage.removeItem('aw_cksync');
+    } catch { /* storage refused */ }
+    return null;
+  };
 
   function loadCK() {
     return new Promise((resolve, reject) => {
@@ -69,7 +77,16 @@ window.AWCloudKitSync = (() => {
     try { return JSON.parse(new TextDecoder().decode(Uint8Array.from(atob(b64), c => c.charCodeAt(0)))); }
     catch { return []; }
   };
-  const enc = (arr) => btoa(String.fromCharCode(...new TextEncoder().encode(JSON.stringify(arr))));
+  // In chunks: spreading a long history into one fromCharCode call passes
+  // every byte as an argument, and past the engine's limit it throws.
+  const enc = (arr) => {
+    const bytes = new TextEncoder().encode(JSON.stringify(arr));
+    let bin = '';
+    for (let i = 0; i < bytes.length; i += 0x8000) {
+      bin += String.fromCharCode.apply(null, bytes.subarray(i, i + 0x8000));
+    }
+    return btoa(bin);
+  };
   const sec = (ms) => (ms ? ms / 1000 : undefined);
   const ms = (s) => (s ? Math.round(s * 1000) : 0);
 
@@ -80,7 +97,7 @@ window.AWCloudKitSync = (() => {
       favorites: dec(by.favorites).map(f => ({ id: f.archiveID, addedAt: ms(f.addedAt) })),
       playlists: dec(by.playlists).map(p => ({
         id: p.id, name: p.name, archiveIDs: p.archiveIDs || [],
-        createdAt: ms(p.createdAt), modifiedAt: ms(p.modifiedAt),
+        createdAt: ms(p.createdAt || p.modifiedAt), modifiedAt: ms(p.modifiedAt || p.createdAt),
         ...(Number.isInteger(p.sortIndex) ? { sortIndex: p.sortIndex } : {}),
       })),
       channels: dec(by.channels).map(c => ({
@@ -113,7 +130,10 @@ window.AWCloudKitSync = (() => {
       rec('favorites', blob.favorites.map(f => ({ archiveID: f.id, addedAt: sec(f.addedAt) }))),
       rec('playlists', blob.playlists.map(p => ({
         id: p.id, name: p.name, archiveIDs: p.archiveIDs,
-        createdAt: sec(p.createdAt), modifiedAt: sec(p.modifiedAt),
+        // Both are required by Apple's PlaylistEntry: a list missing one
+        // fails to decode there and the whole playlists record with it.
+        createdAt: sec(p.createdAt || p.modifiedAt || Date.now()),
+        modifiedAt: sec(p.modifiedAt || p.createdAt || Date.now()),
         // "My Order" (PlaylistEntry.sortIndex on Apple): dropped here, it
         // would erase the viewer's arrangement on every Apple device.
         ...(Number.isInteger(p.sortIndex) ? { sortIndex: p.sortIndex } : {}),
@@ -152,7 +172,7 @@ window.AWCloudKitSync = (() => {
       if (saved.hasErrors) throw new Error(saved.errors[0].reason || saved.errors[0].ckErrorCode);
       lastSync = Date.now();
       lastError = null;
-      localStorage.setItem('aw_cksync', '1');
+      flag('set');
       render();
       window.dispatchEvent(new CustomEvent('aw-sync-done'));
     } catch (e) {
@@ -175,7 +195,7 @@ window.AWCloudKitSync = (() => {
     ui.append(inBtn, outBtn);
     // A status line only once signed in; never a caption under the button
     // (WEB-DESIGN §4.5).
-    if (lastSync || localStorage.getItem('aw_cksync')) {
+    if (lastSync || flag('get')) {
       const status = document.createElement('span');
       status.className = 'sync-hint';
       status.textContent = lastSync
@@ -190,24 +210,35 @@ window.AWCloudKitSync = (() => {
     }
   }
 
+  // Apple's script (~1 MB) loads only for someone who has signed in here, or
+  // who opens the Library, where its button lives — never on every visit.
+  let activated = false;
+  function activate() {
+    if (activated) return;
+    activated = true;
+    setup().then(c => {
+      c.setUpAuth().then(user => { if (user) syncNow(); });
+      c.whenUserSignsIn().then(() => syncNow());
+      c.whenUserSignsOut().then(() => { flag('remove'); lastSync = 0; render(); });
+    }).catch(e => { lastError = e.message; render(); });
+  }
+
   return {
     init(db, uiHost) {
       DB = db; ui = uiHost;
       if (!configured()) return;   // silent until the CloudKit token is configured
       render();
-      setup().then(c => {
-        c.setUpAuth().then(user => { if (user) syncNow(); });
-        c.whenUserSignsIn().then(() => syncNow());
-        c.whenUserSignsOut().then(() => { localStorage.removeItem('aw_cksync'); lastSync = 0; render(); });
-      }).catch(e => { lastError = e.message; render(); });
+      const onLibrary = () => /^#\/library/.test((window.location && window.location.hash) || '');
+      if (flag('get') || onLibrary()) activate();
+      else window.addEventListener('hashchange', () => { if (onLibrary()) activate(); });
       document.addEventListener('visibilitychange', () => {
-        if (!document.hidden && localStorage.getItem('aw_cksync')) syncNow();
+        if (!document.hidden && flag('get')) syncNow();
       });
-      setInterval(() => { if (!document.hidden && localStorage.getItem('aw_cksync')) syncNow(); }, 90_000);
+      setInterval(() => { if (!document.hidden && flag('get')) syncNow(); }, 90_000);
     },
-    nudge() { if (configured() && localStorage.getItem('aw_cksync')) syncNow(); },
+    nudge() { if (configured() && flag('get')) syncNow(); },
     // See the note in js/drivesync.js — the shared-playlist view asks both
     // islands whether there is anywhere to import into.
-    isSignedIn() { return Boolean(configured() && localStorage.getItem('aw_cksync')); },
+    isSignedIn() { return Boolean(configured() && flag('get')); },
   };
 })();

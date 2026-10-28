@@ -43,6 +43,12 @@ concurrency:
   group: catalog-writers
   cancel-in-progress: false
 
+# Every `run:` is `bash -eo pipefail` (GitHub's explicit `shell: bash`;
+# the implicit default has no pipefail, so `tool | tee log` hid a crash).
+defaults:
+  run:
+    shell: bash
+
 jobs:
   resource-posters:
     runs-on: ubuntu-latest
@@ -78,7 +84,8 @@ jobs:
             --limit ${{ github.event.inputs.limit || '2000' }} \
             --reprobe-days ${{ github.event.inputs.reprobe_days || '30' }} \
             ${{ github.event.inputs.dry_run == 'true' && '--dry-run' || '' }} \
-            | tee resource-posters.log
+            | tee resource-posters.log \
+            || echo "::warning::resource_posters_tmdb exited non-zero — verifying and publishing what it re-sourced (read the log above)"
 
       - name: Fill backdrops from TMDb
         if: github.event.inputs.dry_run != 'true'
@@ -88,7 +95,8 @@ jobs:
           # A film matched while its poster was already professional never asked
           # TMDb for a backdrop (4,468 filled by hand on 2026-09-29).
           if [ -z "$TMDB_BEARER_TOKEN" ]; then exit 0; fi
-          python tools/fill_backdrops_tmdb.py | tee -a resource-posters.log
+          python tools/fill_backdrops_tmdb.py | tee -a resource-posters.log \
+            || echo "::warning::fill_backdrops_tmdb did not complete"
 
       - name: Record production countries (URAA)
         if: github.event.inputs.dry_run != 'true'
@@ -98,7 +106,8 @@ jobs:
           # Where each matched film was made, for remediate's URAA rule. The
           # cache is committed so the build (no network) can read it.
           if [ -z "$TMDB_BEARER_TOKEN" ]; then exit 0; fi
-          python tools/fetch_origin_countries.py | tail -2 | tee -a resource-posters.log
+          python tools/fetch_origin_countries.py | tail -2 | tee -a resource-posters.log \
+            || echo "::warning::fetch_origin_countries did not complete — committing the cache it wrote"
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
           git add shared/editorial/origin_cache.json

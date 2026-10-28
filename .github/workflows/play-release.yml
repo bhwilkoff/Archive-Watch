@@ -51,6 +51,12 @@ concurrency:
   group: play-release
   cancel-in-progress: false
 
+# Every `run:` is `bash -eo pipefail` (GitHub's explicit `shell: bash`;
+# the implicit default has no pipefail, so `tool | tee log` hid a crash).
+defaults:
+  run:
+    shell: bash
+
 jobs:
   release:
     runs-on: ubuntu-latest
@@ -159,7 +165,10 @@ jobs:
           AAB=android/app/build/outputs/bundle/googleRelease/app-google-release.aab
           [ -f "$AAB" ] || { echo "::error::no bundle was produced"; exit 1; }
           # An unsigned AAB uploads and then fails review; catch it here.
-          unzip -l "$AAB" | grep -q "META-INF/.*\.RSA\|META-INF/.*\.EC" \
+          # Listed to a file first: `unzip | grep -q` under pipefail fails on
+          # SIGPIPE when grep stops reading a long listing at its first match.
+          unzip -l "$AAB" > aab-listing.txt
+          grep -q "META-INF/.*\.RSA\|META-INF/.*\.EC" aab-listing.txt \
             || { echo "::error::the bundle is not signed — the keystore step did not take"; exit 1; }
           echo "signed bundle: $(du -h "$AAB" | cut -f1)"
 

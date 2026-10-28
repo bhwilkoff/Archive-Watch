@@ -133,6 +133,7 @@ struct FilmWindow: View {
             }
             .withItemDestination()
         }
+        .onAppear { router.isFilmWindow = true }
     }
 }
 

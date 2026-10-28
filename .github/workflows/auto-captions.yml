@@ -58,6 +58,12 @@ concurrency:
   group: auto-captions
   cancel-in-progress: false
 
+# Every `run:` is `bash -eo pipefail` (GitHub's explicit `shell: bash`;
+# the implicit default has no pipefail, so `tool | tee log` hid a crash).
+defaults:
+  run:
+    shell: bash
+
 jobs:
   select:
     runs-on: ubuntu-latest
@@ -106,7 +112,9 @@ jobs:
         run: brew install ffmpeg || true
       - name: Build the generator against the shipped engine
         run: |
-          XC="$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1)"
+          # No Xcode_26 is allowed (the image default is used): `|| true` keeps
+          # pipefail from ending the step on ls finding nothing.
+          XC="$(ls -d /Applications/Xcode_26*.app 2>/dev/null | sort -V | tail -1 || true)"
           [ -n "$XC" ] && sudo xcode-select -s "$XC"
           xcrun swiftc -O \
             ArchiveWatch/ArchiveWatch/Services/AutoCaptions.swift \

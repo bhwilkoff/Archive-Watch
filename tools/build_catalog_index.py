@@ -149,12 +149,15 @@ def main():
     # duplicate upload as its own card — five visible copies of Till the Clouds
     # Roll By while the apps showed one (Decision 040's merge never applied
     # here). Import rather than reimplement so the two surfaces cannot drift.
-    from build_sqlite import dedupe_by_imdb, merge_film_duplicates
+    from build_sqlite import dedupe_by_imdb, merge_film_duplicates, _playable_episode_aids
     # Measured BEFORE the merge, over the population build_sqlite measures, so
     # a title ranks identically on the web, on Roku and in the apps.
     rating_stats = best_rating.crowd_stats(items)
     before = len(items)
-    items = merge_film_duplicates(dedupe_by_imdb(items))
+    # Spine-owned episodes are never films to merge (build_sqlite does the
+    # same): three seasons of one show share a title, runtime and year span.
+    spine_aids = _playable_episode_aids(series_cards(items))
+    items = merge_film_duplicates(dedupe_by_imdb(items), spine_aids=spine_aids)
     print(f"[index] dedup: {before:,} -> {len(items):,} items", flush=True)
 
     # Curated collection ids (collection_metadata.json) → membership map, so

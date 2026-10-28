@@ -92,7 +92,9 @@ struct SearchView: View {
 
     var body: some View {
         Group {
-            if query.isEmpty {
+            // One letter is never searched (see the task), so it has no
+            // results to report as missing.
+            if query.count < 2 {
                 ContentUnavailableView("Search the archive", systemImage: "magnifyingglass")
             } else if filtered.isEmpty && !showEpisodes {
                 if filterActive && !results.isEmpty {
@@ -174,7 +176,7 @@ struct SearchView: View {
 
     private func open(_ item: Catalog.Item) {
         if item.contentType == "tv-series" {
-            router.searchPath.append(SeriesRef(card: item))
+            router.push(SeriesRef(card: item))
         } else {
             router.openDetail(item)   // episode items included — their Detail has all the actions
         }

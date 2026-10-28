@@ -44,11 +44,38 @@ sub init()
     m.capReported = false
     m.stalls = 0
     m.recoveries = 0
+    m.bookID = ""
+    m.bookTicks = 0
+end sub
+
+' A bookmark is a registry write, and the registry is flushed to flash on every
+' write. Every 30 s (six watchdog ticks), on pause, at the end and on stop is
+' what Roku asks for; every 5 s was six times the flash wear for nothing.
+' The id is the one captured when THIS film started: a lineup reuses the node,
+' and by the time the next url lands archiveID already names the next film.
+sub writeBookmark(why as String)
+    if m.bookID = "" then return
+    posn = m.video.position
+    if posn <= 0 then return
+    d = Int(m.video.duration)
+    if d <= 0 then return
+    awSetProgress(m.bookID, Int(posn), d, m.bookOwner, m.bookTitle)
+    ' Printed so an external audit can SEE the bookmark being written. The
+    ' registry cannot be read over ECP, so the console is the only account of
+    ' it that does not come from the app asking itself.
+    print "AWPLAY bookmark"; why; " "; m.bookID; " "; Int(posn); "/"; d
 end sub
 
 sub onUrl()
     url = m.top.playUrl
     if url = invalid or url = "" then return
+    ' The film this replaces keeps its last few seconds (a lineup advancing,
+    ' an Up/Down move) before the node forgets which film it was.
+    if m.video.content <> invalid then writeBookmark("-final")
+    m.bookID = m.top.archiveID
+    m.bookOwner = m.top.progressOwner
+    m.bookTitle = m.top.progressTitle
+    m.bookTicks = 0
     ' Whatever the last film said about itself does not apply to this one.
     m.diag.visible = false
     ' A url with a raw space is not a url, and the Video node will not open
@@ -137,8 +164,11 @@ sub onState()
         ' The HUD behaves like the transport: it appears on interaction and
         ' leaves once the film is actually running.
         m.hudHideAt = nowSeconds() + 4
+    else if s = "paused"
+        writeBookmark("-pause")
     else if s = "finished"
         m.dog.control = "stop"
+        writeBookmark("-end")
         m.top.ended = true
     else if s = "error"
         ' Say WHY. A silent failure here is the single most expensive thing on
@@ -194,18 +224,13 @@ sub onWatchdog()
     end if
     m.lastPosn = posn
 
-    ' Bookmark on the same 5s tick the watchdog already runs on, so playback
-    ' costs one timer rather than two. Roku wants bookmarks for VOD over 15
-    ' minutes retained 30 days; the registry keeps them until it is full.
-    if m.top.archiveID <> "" and posn > 0
-        d = Int(m.video.duration)
-        if d > 0
-            awSetProgress(m.top.archiveID, Int(posn), d, m.top.progressOwner)
-            ' Printed so an external audit can SEE the bookmark being written.
-            ' The registry cannot be read over ECP, so the console is the only
-            ' account of it that does not come from the app asking itself.
-            print "AWPLAY bookmark "; m.top.archiveID; " "; Int(posn); "/"; d
-        end if
+    ' Bookmark on the watchdog's own tick, so playback costs one timer rather
+    ' than two. Roku wants bookmarks for VOD over 15 minutes retained 30 days;
+    ' the registry keeps them until it is full.
+    m.bookTicks = m.bookTicks + 1
+    if m.bookTicks >= 6 and st = "playing"
+        m.bookTicks = 0
+        writeBookmark("")
     end if
 
     if m.hudHideAt <> invalid and nowSeconds() >= m.hudHideAt
@@ -244,7 +269,7 @@ sub rememberFilm()
     if id = invalid or id = "" then return
     d = Int(m.video.duration)
     if d <= 0 then d = 1
-    awSetProgress(id, d, d, m.top.progressOwner)
+    awSetProgress(id, d, d, m.top.progressOwner, m.top.progressTitle)
     print "AWPLAY remembered "; id; " as watched "; d; "/"; d
     showNotice("Added to Watched in your Library")
 end sub
@@ -257,13 +282,8 @@ sub stopPlayback()
     ' Write the final position BEFORE tearing the player down — the tick may be
     ' up to five seconds stale, and the last thing a viewer did is the thing
     ' they most expect to be remembered.
-    if m.top.archiveID <> "" and m.video.position > 0
-        d = Int(m.video.duration)
-        if d > 0
-            awSetProgress(m.top.archiveID, Int(m.video.position), d, m.top.progressOwner)
-            print "AWPLAY bookmark-final "; m.top.archiveID; " "; Int(m.video.position); "/"; d
-        end if
-    end if
+    writeBookmark("-final")
+    m.bookID = ""
     m.dog.control = "stop"
     stopRoom()
     m.video.control = "stop"

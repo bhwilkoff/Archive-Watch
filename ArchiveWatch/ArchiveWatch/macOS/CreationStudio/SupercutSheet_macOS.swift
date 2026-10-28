@@ -183,7 +183,7 @@ struct SupercutSheet: View {
         if searching {
             VStack(spacing: 12) {
                 ProgressView()
-                Text("Searching the public-domain catalog…").foregroundStyle(.secondary)
+                Text("Searching the catalog…").foregroundStyle(.secondary)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)
         } else if results.isEmpty {
@@ -275,7 +275,7 @@ struct SupercutSheet: View {
                 ProgressView().controlSize(.large)
                 Text("Finding clips for your line — \(compose.done) of \(compose.total) words")
                     .font(.callout).foregroundStyle(.secondary)
-                Text("Searching every spoken line in the public-domain catalog.")
+                Text("Searching every spoken line in the catalog.")
                     .font(.caption).foregroundStyle(.tertiary)
             }
             .frame(maxWidth: .infinity, maxHeight: .infinity)

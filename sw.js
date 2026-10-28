@@ -10,7 +10,7 @@
    existing install permanently, because nothing ever re-fetched the asset.
    Serving from cache while refreshing in the background keeps the instant open
    and makes the next load correct without depending on a version bump. */
-const SHELL = 'aw-root-shell-v107';
+const SHELL = 'aw-root-shell-v108';
 const DATA = 'aw-root-data-v1';
 const SHELL_URLS = [
   './', 'index.html', 'watch.css', 'watch.js', 'tv.css', 'tv.js', 'cast-sender.js',
@@ -54,8 +54,12 @@ self.addEventListener('fetch', e => {
     e.respondWith((async () => {
       try {
         const fresh = await fetch(e.request);
-        const cache = await caches.open(DATA);
-        cache.put(e.request, fresh.clone());
+        // Only a good answer replaces the last-good copy: a 404 or 503 cached
+        // here would be served as "the catalog" the next time we are offline.
+        if (fresh.ok) {
+          const cache = await caches.open(DATA);
+          cache.put(e.request, fresh.clone());
+        }
         return fresh;
       } catch {
         const hit = await caches.match(e.request);

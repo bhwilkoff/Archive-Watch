@@ -106,6 +106,7 @@ final class CatalogDB {
         hasNoRecommendColumn = Self.columnExists(h, table: "items", column: "noRecommend")
         hasTVmazeRatingColumn = Self.columnExists(h, table: "items", column: "tvmazeRating")
         hasRatingRankColumn = Self.columnExists(h, table: "items", column: "ratingRank")
+        hasRightsBucketColumn = Self.columnExists(h, table: "items", column: "rightsBucket")
         // Fail fast if it isn't actually our schema.
         guard metaInt("itemCount") != nil else {
             sqlite3_close(h); return nil
@@ -131,6 +132,10 @@ final class CatalogDB {
     private let hasNoRecommendColumn: Bool
     private let hasTVmazeRatingColumn: Bool
     private let hasRatingRankColumn: Bool
+    /// The bundled seed DB (first launch only) predates the rights audit's
+    /// column; the rights clauses fall back to the calendar there instead of
+    /// failing to prepare and emptying Home.
+    private let hasRightsBucketColumn: Bool
 
     /// Decision 149: never CHOSEN for the viewer (propaganda). Every surface
     /// that picks films carries this; Search, Detail and Browse do not.
@@ -145,6 +150,14 @@ final class CatalogDB {
     private var verifiedAnd: String { hasPlayableColumn ? "AND i.playable = 1" : "" }
 
     deinit { sqlite3_close(handle) }
+
+    /// Whether a downloaded catalog may replace the open one. A floor, not
+    /// "at least as many": a rights audit that hides titles makes a correct
+    /// catalog SMALLER, and requiring growth kept the old one forever. What it
+    /// refuses is a catalog too small to be a real one.
+    static func isPlausibleReplacement(itemCount new: Int, replacing current: Int) -> Bool {
+        new >= min(current, 5_000)
+    }
 
     // MARK: - Decoding
 
@@ -354,7 +367,17 @@ final class CatalogDB {
     /// Home only. Browse and Search still carry the whole catalogue, and
     /// nothing is hidden: this is about what the app PUTS IN FRONT of someone.
     private var homeAnd: String { homeRightsAnd + " " + noRecAnd }
-    private let homeRightsAnd =
+    private var homeRightsAnd: String {
+        guard hasRightsBucketColumn else {
+            // The audit's keep buckets by era: by age, the presumed band, undated.
+            return "AND (i.year IS NULL OR i.year <= 1963) " +
+                "AND NOT (COALESCE(i.year, 0) > \(StudioRights.lastPublicDomainYear()) " +
+                "AND i.language IS NOT NULL AND i.language <> '' " +
+                "AND lower(i.language) NOT IN ('en','eng','english'))"
+        }
+        return homeRightsAuditAnd
+    }
+    private let homeRightsAuditAnd =
         "AND i.rightsBucket IN ('safe_pd_age','safe_gov','safe_archive_license'," +
         "'safe_cc','presumed_pd','unknown_year') " +
         "AND NOT (i.rightsBucket = 'presumed_pd' " +
@@ -376,6 +399,11 @@ final class CatalogDB {
     private let heroRightsAnd =
         "AND i.rightsBucket IN ('safe_pd_age','safe_gov','safe_cc') " +
         "AND NOT (i.year >= 1978 AND i.rightsBucket <> 'safe_pd_age')"
+    /// `heroRightsAnd`, or by age alone on a DB without the audit's column.
+    private var heroRights: String {
+        hasRightsBucketColumn ? heroRightsAnd
+            : "AND i.year IS NOT NULL AND i.year <= \(StudioRights.lastPublicDomainYear())"
+    }
 
     /// Standalone/atomic TV — tv-special (specials + un-folded episodes) and
     /// tv-episode (first-class episode items, Decision 045) — must NEVER appear
@@ -486,6 +514,28 @@ final class CatalogDB {
         return ids.compactMap { byID[$0] }
     }
 
+    /// Saved ids (favorites, playlists, history) resolved to their titles, each
+    /// paired with the id AS STORED: a merged-away id resolves to its survivor,
+    /// whose archiveID differs, and a remove or a lookup must use the stored
+    /// one. A title saved under two ids appears once, at its first place.
+    func storedItems(_ ids: [String]) -> [(storedID: String, item: Catalog.Item)] {
+        guard !ids.isEmpty else { return [] }
+        let placeholders = ids.map { _ in "?" }.joined(separator: ",")
+        let rows = items("SELECT json FROM item_json WHERE archiveID IN (\(placeholders))", ids)
+        var byID = Dictionary(rows.map { ($0.archiveID, $0) }, uniquingKeysWith: { a, _ in a })
+        let missing = ids.filter { byID[$0] == nil }
+        if !missing.isEmpty {
+            for (old, item) in resolveAliases(missing) { byID[old] = item }
+        }
+        var seen = Set<String>()
+        var out: [(storedID: String, item: Catalog.Item)] = []
+        for id in ids {
+            guard let item = byID[id], seen.insert(item.archiveID).inserted else { continue }
+            out.append((storedID: id, item: item))
+        }
+        return out
+    }
+
     /// The uploads merged INTO a title (Decision 040), for its versions picker.
     func mergedIDs(into archiveID: String) -> [String] {
         pairRows("SELECT oldID, newID FROM item_aliases WHERE newID = ?", [archiveID]).map(\.0)
@@ -511,11 +561,10 @@ final class CatalogDB {
         return items("SELECT json FROM item_json WHERE archiveID IN (\(placeholders))", ids)
     }
 
-    /// Shared WHERE/ORDER builder so browse() and the off-main paging path
-    /// (browsePageJSON) stay in lockstep.
-    private func browseSQL(contentType: String?, decade: Int?, genre: String?, year: Int?,
-                           sort: Sort, limit: Int, offset: Int, homeOnly: Bool,
-                           runtime: RuntimeBand? = nil) -> (String, [String]) {
+    /// The one FROM/WHERE for a browse filter, shared by `browseSQL` and
+    /// `browseCount` so a grid's header count is the grid's own size.
+    private func browseFilter(contentType: String?, decade: Int?, genre: String?, year: Int?,
+                              runtime: RuntimeBand?) -> (join: String, where_: [String], binds: [String]) {
         // Series cards are excluded from general browse grids — but when the
         // caller EXPLICITLY asks for tv-series (the Classic TV category tile),
         // they ARE the result set. The old unconditional exclusion contradicted
@@ -576,10 +625,22 @@ final class CatalogDB {
         if let runtime { where_.append(runtime.sql) }
         if let year { where_.append("i.year = \(year)") }   // #15 Public Domain Day (exact year)
         var join = ""
+        var joinBinds: [String] = []
         if let genre {
             join = "JOIN item_genres g ON g.archiveID = i.archiveID AND g.genre = ?"
-            binds.append(genre)
+            joinBinds.append(genre)
         }
+        // The JOIN's placeholder comes before the WHERE's in the SQL text.
+        return (join, where_, joinBinds + binds)
+    }
+
+    /// Shared WHERE/ORDER builder so browse() and the off-main paging path
+    /// (browsePageJSON) stay in lockstep.
+    private func browseSQL(contentType: String?, decade: Int?, genre: String?, year: Int?,
+                           sort: Sort, limit: Int, offset: Int, homeOnly: Bool,
+                           runtime: RuntimeBand? = nil) -> (String, [String]) {
+        let (join, where_, binds) = browseFilter(contentType: contentType, decade: decade,
+                                                 genre: genre, year: year, runtime: runtime)
         let order: String
         switch sort {
         case .popular:
@@ -648,7 +709,8 @@ final class CatalogDB {
         let inner = browse.replacingOccurrences(
             of: "SELECT j.json FROM items i",
             with: "SELECT i.archiveID, i.playable, i.hasRealArtwork, i.artworkSource, "
-                + "i.rightsBucket, i.year FROM items i")
+                + (hasRightsBucketColumn ? "i.rightsBucket" : "NULL AS rightsBucket")
+                + ", i.year FROM items i")
             .replacingOccurrences(of: "JOIN item_json j USING(archiveID)", with: "")
         // The backdrop lives only in the JSON blob, so it is read LAST, for the
         // rows every column gate has already let through.
@@ -657,7 +719,7 @@ final class CatalogDB {
             JOIN item_json j USING(archiveID)
             WHERE COALESCE(i.hasRealArtwork, COALESCE(i.artworkSource, '') <> 'archive') = 1
               AND COALESCE(i.artworkSource, '') <> 'generated'
-              \(heroRightsAnd)
+              \(heroRights)
               AND COALESCE(json_extract(j.json, '$.backdropURL'), '') <> ''
             """
         return scalarRows(sql, binds).map { (id: $0.0, playable: $0.1 == 1) }
@@ -703,34 +765,12 @@ final class CatalogDB {
 
     /// True total matching a browse filter, ignoring the page limit — so the grid
     /// header can show the real catalog size ("36,944 titles") while only a page
-    /// is loaded. Mirrors browse()'s WHERE exactly.
+    /// is loaded. Uses browse()'s own filter (`browseFilter`).
     func browseCount(contentType: String? = nil, decade: Int? = nil,
                      genre: String? = nil, year: Int? = nil,
                      runtime: RuntimeBand? = nil) -> Int {
-        // Same explicit-tv-series rule as browseSQL (see comment there).
-        var where_: [String] = []
-        var binds: [String] = []
-        if contentType == "tv-series" {
-            where_.append("i.contentType = 'tv-series'")
-            where_.append("i.hasRealArtwork = 1")   // match browseSQL's poster gate
-        } else if contentType == "tv-special" {
-            where_.append("i.contentType = 'tv-special'")
-        } else if contentType == "tv-episode" {
-            where_.append("i.contentType = 'tv-episode'")
-        } else {
-            where_.append("i.contentType NOT IN ('tv-series','tv-special','tv-episode')")
-            if let contentType { where_.append("i.contentType = ?"); binds.append(contentType) }
-        }
-        if hideAdult { where_.append("i.isAdult = 0") }
-        if contentType != "commercial" { where_.append("i.contentType != 'commercial'") }
-        if let decade { where_.append("i.decade = \(decade)") }
-        if let runtime { where_.append(runtime.sql) }
-        if let year { where_.append("i.year = \(year)") }
-        var join = ""
-        if let genre {
-            join = "JOIN item_genres g ON g.archiveID = i.archiveID AND g.genre = ?"
-            binds.append(genre)
-        }
+        let (join, where_, binds) = browseFilter(contentType: contentType, decade: decade,
+                                                 genre: genre, year: year, runtime: runtime)
         return scalarRows("""
             SELECT '', COUNT(*) FROM items i \(join)
             WHERE \(where_.joined(separator: " AND ")) \(typeAnd)
@@ -755,13 +795,26 @@ final class CatalogDB {
         // the film a merged upload became (itemsByIDs follows item_aliases).
         // Anything else is simply not here — no results, never a guess.
         if let id = ArchiveLink.id(from: query) { return itemsByIDs([id]) }
+        guard let built = searchSQL(query, limit: limit) else { return [] }
+        return items(built.sql, built.binds)
+    }
+
+    /// `search`'s rows as raw item_json, for a caller that decodes off the main
+    /// thread (`CatalogDB.decodeItems`). A pasted archive.org link is not a
+    /// text search: route it through `search`, which follows merged ids.
+    func searchJSON(_ query: String, limit: Int = 200) -> [String] {
+        guard let built = searchSQL(query, limit: limit) else { return [] }
+        return rawColumn(built.sql, built.binds)
+    }
+
+    private func searchSQL(_ query: String, limit: Int) -> (sql: String, binds: [String])? {
         let q = ftsQuery(query)
-        guard !q.isEmpty else { return [] }
+        guard !q.isEmpty else { return nil }
         // The title (or director) the viewer typed leads, then designed art and
         // popularity; FTS rank only breaks ties. Rank alone favored short records
         // that merely contained the word: "metro" led with a 1896 park film, not
         // Metropolis, and "his girl" with a cartoon (tvOS-DESIGN §3.3b).
-        return items("""
+        return ("""
             SELECT j.json FROM items_fts f
             JOIN item_json j ON j.archiveID = f.archiveID
             JOIN items i ON i.archiveID = f.archiveID
@@ -927,7 +980,7 @@ final class CatalogDB {
         items("""
             SELECT j.json FROM items i JOIN item_json j USING(archiveID)
             WHERE COALESCE(i.numReviews, 0) > 0 AND COALESCE(i.imdbVotes, 0) >= \(minVotes)
-              AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd) \(verifiedAnd) \(heroRightsAnd)
+              AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd) \(verifiedAnd) \(heroRights)
             ORDER BY i.numReviews DESC LIMIT \(limit)
         """)
     }
@@ -937,7 +990,7 @@ final class CatalogDB {
         items("""
             SELECT j.json FROM items i JOIN item_json j USING(archiveID)
             WHERE COALESCE(i.numFavorites, 0) > 0 AND COALESCE(i.imdbVotes, 0) >= \(minVotes)
-              AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd) \(verifiedAnd) \(heroRightsAnd)
+              AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd) \(verifiedAnd) \(heroRights)
             ORDER BY i.numFavorites DESC LIMIT \(limit)
         """)
     }
@@ -947,7 +1000,7 @@ final class CatalogDB {
         items("""
             SELECT j.json FROM items i JOIN item_json j USING(archiveID)
             WHERE COALESCE(i.views30d, 0) > 0 AND COALESCE(i.imdbVotes, 0) >= \(minVotes)
-              AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd) \(verifiedAnd) \(heroRightsAnd)
+              AND i.hasRealArtwork = 1 \(adultAnd) \(homeAnd) \(notCommercial) \(notStandaloneTV) \(typeAnd) \(verifiedAnd) \(heroRights)
             ORDER BY i.views30d DESC LIMIT \(limit)
         """)
     }
@@ -1043,6 +1096,19 @@ final class CatalogDB {
         """, [collection]).first?.1 ?? 0
     }
 
+    /// A collection card's cover: the first posters of its most popular titles,
+    /// designed art first, read from the `items` columns without decoding a
+    /// single item.
+    func collectionPosters(_ collection: String, limit: Int = 3) -> [URL] {
+        rawColumn("""
+            SELECT i.posterURL FROM item_collections c JOIN items i USING(archiveID)
+            WHERE c.collection = ? AND COALESCE(i.posterURL, '') <> '' \(adultAnd)
+            ORDER BY COALESCE(i.hasRealArtwork, COALESCE(i.artworkSource, '') <> 'archive') DESC,
+              i.popularityScore DESC
+            LIMIT \(limit)
+        """, [collection]).compactMap(URL.init(string:))
+    }
+
     /// A random playable (non-series) item, optionally of a content type.
     func randomPlayable(contentType: String? = nil) -> Catalog.Item? {
         var where_ = ["i.contentType NOT IN ('tv-series','tv-special','tv-episode')"]
@@ -1123,10 +1189,12 @@ final class CatalogDB {
         var out: [Int: Int] = [:]
         // Clamp to plausible film history (cinema began ~1888; nothing
         // post-2029). Guards against bad source years surfacing nonsense eras
-        // like "1060s" or future decades in the Browse-by-Era row (#8).
+        // like "1060s" or future decades in the Browse-by-Era row (#8). Counted
+        // as the film grid it opens counts: no television, no hidden category.
         for (k, v) in scalarRows("""
             SELECT i.decade, COUNT(*) FROM items i
             WHERE i.decade BETWEEN 1890 AND 2029 \(adultAnd) \(notCommercial)
+              \(notStandaloneTV) AND i.contentType != 'tv-series' \(typeAnd)
             GROUP BY i.decade
         """) {
             if let d = Int(k) { out[d] = v }

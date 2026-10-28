@@ -17,7 +17,12 @@ for t in tools/test_web_search.mjs \
          tools/test_tmdb_rendition.mjs \
          tools/test_view_transition.mjs \
          tools/test_web_sort_rules.mjs \
-         tools/test_sync_sortindex.mjs; do
+         tools/test_sync_sortindex.mjs \
+         tools/test_share_list.mjs \
+         tools/test_drivesync_no_popup.mjs \
+         tools/test_tv_focus.mjs \
+         tools/test_web_audit_fixes.mjs \
+         tools/test_web_sync_failures.mjs; do
   out=$(node "$t" 2>&1)
   last=$(printf '%s\n' "$out" | tail -1)
   if [ $? -ne 0 ] || printf '%s' "$out" | grep -q FAIL; then
@@ -29,12 +34,15 @@ for t in tools/test_web_search.mjs \
   fi
 done
 
-# watch.js must at least parse; a syntax error here breaks the whole viewer.
-if node --check watch.js 2>/dev/null; then
-  printf '  ok    %-32s parses\n' watch.js
-else
-  printf '  FAIL  %-32s SYNTAX ERROR\n' watch.js; fail=1
-fi
+# Every script the viewer loads must at least parse; a syntax error in any of
+# them breaks the whole viewer.
+for f in watch.js tv.js sw.js cast-sender.js js/*.js; do
+  if node --check "$f" 2>/dev/null; then
+    printf '  ok    %-32s parses\n' "$f"
+  else
+    printf '  FAIL  %-32s SYNTAX ERROR\n' "$f"; fail=1
+  fi
+done
 
 # Balanced braces catch a truncated CSS append, which silently drops every
 # rule after it — the failure mode of appending to a stylesheet with cat >>.

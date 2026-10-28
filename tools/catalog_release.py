@@ -205,10 +205,12 @@ def _merge_onto_newer():
     with open(CATALOG, "rb") as fi:
         mine_doc = json.load(fi)
     changes, removals = {}, {}
+    mine_ids = set()
     for it in mine_doc.get("items") or []:
         k = it.get("archiveID")
         if not k:
             continue
+        mine_ids.add(k)
         old = base.get(k)
         if old is None:
             changes[k] = it
@@ -219,6 +221,14 @@ def _merge_onto_newer():
             changes[k] = d
         if gone:
             removals[k] = gone
+    # An item this run REMOVED (junk, a reconciled episode card) is removed
+    # from the newer catalog too; merging used to resurrect it. A removal that
+    # is most of the file is a truncated write, not a curation.
+    deleted = set(base) - mine_ids
+    if len(deleted) > len(base) * (1 - SHRINK_FLOOR):
+        print(f"[catalog] this run removed {len(deleted)} of {len(base)} items; "
+              f"refusing to carry that onto the newer catalog", file=sys.stderr)
+        return 3
     r = _gh_net("release", "download", TAG, "--pattern", ASSET, "--clobber", "--dir", str(REPO))
     if r.returncode != 0 or not GZ.exists():
         print(f"[catalog] release moved and the newer catalog could not be fetched to merge "
@@ -226,7 +236,9 @@ def _merge_onto_newer():
         return 3
     with gzip.open(GZ, "rb") as fi:
         theirs = json.load(fi)
-    GZ.unlink()
+    # what was merged onto becomes the base, so a second merge (the release
+    # moved again before the upload) carries only this run's changes
+    GZ.replace(BASE)
     by_id = {i.get("archiveID"): i for i in theirs.get("items") or [] if i.get("archiveID")}
     added = 0
     for k, d in changes.items():
@@ -238,13 +250,40 @@ def _merge_onto_newer():
     for k, fs in removals.items():
         for f in fs:
             by_id.get(k, {}).pop(f, None)
+    # a removed item another writer changed since the fetch stays; the tool
+    # that removed it judges the newer copy on its next run
+    dropped = {k for k in deleted if k in by_id and by_id[k] == base[k]}
+    kept_back = len(deleted & set(by_id)) - len(dropped)
+    if dropped:
+        theirs["items"] = [i for i in theirs.get("items") or [] if i.get("archiveID") not in dropped]
     tmp = CATALOG.with_suffix(".json.tmp")
     with open(tmp, "w", encoding="utf-8") as fo:
         json.dump(theirs, fo, ensure_ascii=False, separators=(",", ":"))
     tmp.replace(CATALOG)
     print(f"[catalog] release moved since this fetch; merged this run's changes to "
-          f"{len(changes)} items ({added} new, {len(removals)} with removed fields) onto it")
+          f"{len(changes)} items ({added} new, {len(removals)} with removed fields, "
+          f"{len(dropped)} removed"
+          f"{f', {kept_back} removals kept back: changed since the fetch' if kept_back else ''}) onto it")
     return 0
+
+
+def _same_as_base(raw: bytes, doc: dict) -> bool:
+    """Is what is about to be published what this checkout fetched? The
+    generation stamp alone does not count as a change."""
+    if not BASE.exists():
+        return False
+    with gzip.open(BASE, "rb") as fi:
+        base_raw = fi.read()
+    if base_raw == raw:
+        return True
+    try:
+        base = json.loads(base_raw)
+    except Exception:
+        return False
+    del base_raw
+    skip = ("generatedAt",)
+    return {k: v for k, v in base.items() if k not in skip} == \
+        {k: v for k, v in doc.items() if k not in skip}
 
 
 def publish(if_unchanged=False):
@@ -259,51 +298,77 @@ def publish(if_unchanged=False):
     # can re-fetch and re-apply instead of clobbering.
     then = STAMP.read_text().strip() if STAMP.exists() else ""
     now = _asset_stamp()
-    if then and now and then != now:
-        if if_unchanged:
-            print(f"[catalog] release '{TAG}' moved since this fetch ({then} -> {now}); "
-                  f"refusing to publish over it", file=sys.stderr)
-            return 3
-        # EVERY OTHER PUBLISH MERGES. 24 workflows published the whole file
-        # they fetched, so anything published after their fetch — a review
-        # batch, a hand fix, another writer outside the lock — was reverted
-        # without a trace (2026-09-30: review batch E16 lost between 05:50 and
-        # 12:20 UTC). Carry only what THIS run changed onto the newer catalog.
-        rc = _merge_onto_newer()
-        if rc:
-            return rc
-    # A catalog written by two processes at once (2026-09-17: a backgrounded
-    # overlay publish woke during a local apply) is a byte-spliced file that
-    # still gzips and uploads; every reader downstream then fails. Parse
-    # before shipping — the only copy of the previous asset is destroyed by
-    # --clobber, so a bad upload has nothing to roll back to.
-    try:
-        with open(CATALOG, "rb") as fi:
-            n = len(json.load(fi).get("items") or [])
-    except Exception as e:
-        print(f"[catalog] refusing to publish: {CATALOG} does not parse ({e})", file=sys.stderr)
-        return 4
-    if n < 1000:
-        print(f"[catalog] refusing to publish: only {n} items", file=sys.stderr)
-        return 4
-    with open(CATALOG, "rb") as fi, gzip.open(GZ, "wb", compresslevel=9) as fo:
-        shutil.copyfileobj(fi, fo)
-    print(f"[catalog] {CATALOG.stat().st_size/1e6:.1f} MB -> {GZ.stat().st_size/1e6:.1f} MB gzipped")
+    merged = False
+    for _attempt in range(3):
+        if then and now and then != now:
+            if if_unchanged:
+                print(f"[catalog] release '{TAG}' moved since this fetch ({then} -> {now}); "
+                      f"refusing to publish over it", file=sys.stderr)
+                return 3
+            # EVERY OTHER PUBLISH MERGES. 24 workflows published the whole file
+            # they fetched, so anything published after their fetch — a review
+            # batch, a hand fix, another writer outside the lock — was reverted
+            # without a trace (2026-09-30: review batch E16 lost between 05:50 and
+            # 12:20 UTC). Carry only what THIS run changed onto the newer catalog.
+            rc = _merge_onto_newer()
+            if rc:
+                return rc
+            merged = True
+            then = now
+        # A catalog written by two processes at once (2026-09-17: a backgrounded
+        # overlay publish woke during a local apply) is a byte-spliced file that
+        # still gzips and uploads; every reader downstream then fails. Parse
+        # before shipping — the only copy of the previous asset is destroyed by
+        # --clobber, so a bad upload has nothing to roll back to. The bytes
+        # parsed are the bytes gzipped: a second read could see another write.
+        raw = CATALOG.read_bytes()
+        try:
+            doc = json.loads(raw)
+            n = len(doc.get("items") or [])
+        except Exception as e:
+            print(f"[catalog] refusing to publish: {CATALOG} does not parse ({e})", file=sys.stderr)
+            return 4
+        if n < 1000:
+            print(f"[catalog] refusing to publish: only {n} items", file=sys.stderr)
+            return 4
+        # NOTHING CHANGED, NOTHING UPLOADED: re-uploading an identical catalog
+        # only moves the stamp, and a moved stamp makes every concurrent
+        # writer merge.
+        if not merged and then and now == then and _same_as_base(raw, doc):
+            print(f"[catalog] {CATALOG.name} is unchanged since this fetch; not uploading")
+            return 0
+        del doc
+        with gzip.open(GZ, "wb", compresslevel=9) as fo:
+            fo.write(raw)
+        print(f"[catalog] {len(raw)/1e6:.1f} MB -> {GZ.stat().st_size/1e6:.1f} MB gzipped")
 
-    # REFUSE A SHRUNKEN CATALOG. The publish steps now run even when a compute
-    # step above them was killed (so a timeout stops discarding a whole run's
-    # work) — which means this can be reached with a catalog that was being
-    # written when the kill landed, and uploading that would clobber the real
-    # one. Decision 020's lesson, applied at the last gate rather than only at
-    # the merge: a catalog that suddenly halves is a bug, not a result.
-    existing = _asset_size()
-    if existing and GZ.stat().st_size < existing * SHRINK_FLOOR:
-        print(f"[catalog] REFUSING to publish: {GZ.stat().st_size/1e6:.1f} MB is under "
-              f"{SHRINK_FLOOR:.0%} of the {existing/1e6:.1f} MB already published. "
-              f"A catalog does not shrink like that; something upstream was "
-              f"interrupted mid-write.", file=sys.stderr)
+        # REFUSE A SHRUNKEN CATALOG. The publish steps now run even when a compute
+        # step above them was killed (so a timeout stops discarding a whole run's
+        # work) — which means this can be reached with a catalog that was being
+        # written when the kill landed, and uploading that would clobber the real
+        # one. Decision 020's lesson, applied at the last gate rather than only at
+        # the merge: a catalog that suddenly halves is a bug, not a result.
+        existing = _asset_size()
+        if existing and GZ.stat().st_size < existing * SHRINK_FLOOR:
+            print(f"[catalog] REFUSING to publish: {GZ.stat().st_size/1e6:.1f} MB is under "
+                  f"{SHRINK_FLOOR:.0%} of the {existing/1e6:.1f} MB already published. "
+                  f"A catalog does not shrink like that; something upstream was "
+                  f"interrupted mid-write.", file=sys.stderr)
+            GZ.unlink()
+            return 1
+        # THE SECOND LOOK. The merge, parse and gzip take minutes on a 250 MB
+        # file; a writer that published in that window is clobbered by an
+        # upload that only checked at the start.
+        latest = _asset_stamp()
+        if not (then and latest and latest != then):
+            break
         GZ.unlink()
-        return 1
+        print(f"[catalog] release moved again before the upload ({then} -> {latest})",
+              file=sys.stderr)
+        now = latest
+    else:
+        print("[catalog] the release kept moving; refusing to publish over it", file=sys.stderr)
+        return 3
 
     state = _release_state()
     if state == "absent":

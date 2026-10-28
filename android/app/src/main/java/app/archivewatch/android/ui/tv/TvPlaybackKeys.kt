@@ -36,6 +36,10 @@ fun Modifier.tvPlaybackKeys(
     /** A channel is playing: Up/Down (and CH+/CH-) change channel, -1 the
      *  row above, +1 the row below, as on Apple TV. */
     onChannel: ((Int) -> Unit)? = null,
+    /** False while an overlay (the options menu, Up Next) holds the remote:
+     *  its unconsumed keys bubble up to this surface and would toggle and seek
+     *  the film underneath it. */
+    enabled: Boolean = true,
 ): Modifier {
     val requester = remember { FocusRequester() }
     // A held Select opens the options panel (the Android TV long-press), and
@@ -49,6 +53,7 @@ fun Modifier.tvPlaybackKeys(
         .focusRequester(requester)
         .focusable()
         .onKeyEvent { ev ->
+            if (!enabled) return@onKeyEvent false
             val select = ev.key == Key.DirectionCenter || ev.key == Key.Enter || ev.key == Key.NumPadEnter
             if (ev.type == KeyEventType.KeyDown && select && ev.nativeKeyEvent.repeatCount == 1) {
                 heldSelect[0] = true
