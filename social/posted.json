@@ -3337,6 +3337,66 @@
    "kind": "animation",
    "mediaId": null,
    "reviewer": null
+  },
+  {
+   "at": "2026-10-28T20:16:00.157753+00:00",
+   "id": "1921Camille",
+   "title": "Camille",
+   "slot": "double-bill",
+   "platform": "bluesky",
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3myxl2lejpw22",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": "I Am Gen X"
+  },
+  {
+   "at": "2026-10-28T20:16:00.157753+00:00",
+   "id": "1921Camille",
+   "title": "Camille",
+   "slot": "double-bill",
+   "platform": "mastodon",
+   "url": "https://mastodon.social/@archivewatch/117520378991151983",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": "I Am Gen X"
+  },
+  {
+   "at": "2026-10-28T20:16:00.157753+00:00",
+   "id": "1921Camille",
+   "title": "Camille",
+   "slot": "double-bill",
+   "platform": "threads",
+   "url": "https://www.threads.com/@archivewatchapp/post/DfDRbXGn_Qj",
+   "format": "card",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": "I Am Gen X"
+  },
+  {
+   "at": "2026-10-28T20:16:00.157753+00:00",
+   "id": "1921Camille",
+   "title": "Camille",
+   "slot": "double-bill",
+   "platform": "instagram",
+   "url": "https://www.instagram.com/p/DfDRgPEn3Ew/",
+   "format": "card",
+   "kind": "silent-film",
+   "mediaId": "117520378096952565",
+   "reviewer": "I Am Gen X"
+  },
+  {
+   "at": "2026-10-28T20:16:00.157753+00:00",
+   "id": "1921Camille",
+   "title": "Camille",
+   "slot": "double-bill",
+   "platform": "youtube",
+   "url": "https://youtube.com/watch?v=k0CSFDouvpc",
+   "format": "video",
+   "kind": "silent-film",
+   "mediaId": null,
+   "reviewer": "I Am Gen X"
   }
  ]
 }

@@ -4417,6 +4417,68 @@
     "replies": 0,
     "quotes": 0
    }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3myigt6ncem2u",
+   "platform": "bluesky",
+   "id": "Algiers_868",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-22T19:51:48.603010+00:00",
+   "sampled": "2026-10-28T20:18:52.475872+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117486304309209326",
+   "platform": "mastodon",
+   "id": "Algiers_868",
+   "slot": "now-showing",
+   "format": "video",
+   "window": "7d",
+   "posted": "2026-10-22T19:51:48.603010+00:00",
+   "sampled": "2026-10-28T20:18:52.475872+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
+  },
+  {
+   "url": "https://bsky.app/profile/archivewatch.bsky.social/post/3myuzomvkai2i",
+   "platform": "bluesky",
+   "id": "TheDentist_817",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-27T20:01:09.019705+00:00",
+   "sampled": "2026-10-28T20:18:52.475872+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0,
+    "quotes": 0
+   }
+  },
+  {
+   "url": "https://mastodon.social/@archivewatch/117514654435913268",
+   "platform": "mastodon",
+   "id": "TheDentist_817",
+   "slot": "viewer-said",
+   "format": "video",
+   "window": "24h",
+   "posted": "2026-10-27T20:01:09.019705+00:00",
+   "sampled": "2026-10-28T20:18:52.475872+00:00",
+   "metrics": {
+    "likes": 0,
+    "reposts": 0,
+    "replies": 0
+   }
   }
  ]
 }
