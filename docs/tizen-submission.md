@@ -195,7 +195,7 @@ rounds up. The archive's appeal is that it is an archive.
 | 4 | ~~build + package~~ **DONE** — `TIZEN_PROFILE=archivewatchSamsung bash tv/build-tv-packages.sh tizen` produces a signed `tv/dist/ArchiveWatch.wgt` |
 | 5 | ~~Enable Developer Mode and side-load~~ **DONE** — verified installed and launched on a QN65S90CDFXZA (2023 S90C, Tizen 9.0) at 10.0.0.203 |
 | 5b | **Confirm the side-loaded app actually shows films before submitting.** A packaged app runs from `file://`, where a relative data URL resolves inside the package instead of to the server — fixed 2026-08-05, but invisible in the browser build. An empty Home means the data plane regressed; `node tools/test_packaged_origin.mjs` guards it |
-| 6 | ~~Submit through Seller Office~~ **SUBMITTED 2026-10-03**: v1.45.10, app id 3202610049114, 45 model groups 2022-2026 (incl. 4 licensed `_LIC`), 12+, free. Expect ~1–2 weeks and possibly several cycles |
+| 6 | ~~Submit through Seller Office~~ **SUBMITTED 2026-10-03, DROPPED 2026-10-28 and resubmitted as v1.47.7 (below)**: v1.45.10, app id 3202610049114, 45 model groups 2022-2026 (incl. 4 licensed `_LIC`), 12+, free. Expect ~1–2 weeks and possibly several cycles |
 
 **Seller Office traps met on the first submission** (2026-10-03): the pre-test
 refuses a package naming no screen size (`config.xml` now declares
@@ -205,3 +205,22 @@ screenshots); the screenshot slots share ONE file input, chosen by the slot's
 edit icon; the App Description File is Samsung's PowerPoint template, filled
 copy at `tv/dist/store/ArchiveWatch_App_Description_v1.45.8.pptx` (regenerate
 it for the next version).
+
+**The first submission stalled, 2026-10-03 to 2026-10-28, and was dropped.**
+After 25 days, 29 groups (2024-2026, plus the 2023 `_LIC` pair) had sat in
+Testing since 10-17. The 16 others (all 2022 groups and the non-licensed 2023
+groups) never left Submitted, which means Samsung's basic review never finished
+for them. The one defect visible in Seller Office was in App Images: Samsung had
+added a REQUIRED **Background Image** (section 2, 1920x1080 JPG under 2 MB,
+with a dark gradient over the left ~40%, separate from the screenshots, plus an
+image-copyright agreement checkbox) AFTER we submitted. Ours was empty, and the
+field is locked while a version is in certification. Samsung's own guide adds
+that test information changed after a release request never reaches QA, and
+the documented remedy is to drop and request again. Recipe:
+Distribute -> App Service -> "App Version" view -> **Drop** (one per status
+set; a reason is required; this takes effect at once, no Samsung approval
+needed). Then fill App Images section 2 from
+`tv/dist/store/samsung-detail-background-1920x1080.jpg` (the icon still, kept
+right of the overlay), tick the agreement, Save, upload the new `.wgt`,
+replace the App Description File, and Request Release. In the Note for Tester,
+avoid double quotes: Seller Office stored them as `&amp;quot;`.

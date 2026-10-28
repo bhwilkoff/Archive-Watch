@@ -64,14 +64,16 @@ because the loop was stopped mid-stride for a Claude update.
    open and partly-folded Duo poses need the owner's Duo (Device Hub's pose
    buttons did not respond). Duo screenshots required from April 2027.
 
-0-NEW-2026-10-03. **SAMSUNG TV v1.45.10 IS SUBMITTED** (TV Seller Office, app
-   3202610049114, Public Seller, US). 45 model groups 2022-2026 incl. four
-   licensed `_LIC` groups (owner: "everything from 2022 onward"), rated 12+,
-   free, optional update, "release with minor defects" = Yes (owner approved
-   each). Samsung certifies by hand, ~1-2 weeks, possibly several cycles;
-   watch Seller Office notifications. Still worth one pass with the PHYSICAL
-   remote (Return at Home, media and channel keys). The 2022 floor is
-   Decision 162 and a build gate (`tools/test_tv_compat.py`).
+0-NEW-2026-10-28. **SAMSUNG TV v1.47.7 IS SUBMITTED** (TV Seller Office, app
+   3202610049114, Public Seller, US), 46 model groups 2022-2026 incl. four
+   `_LIC` and the new 26TV_BASIC2; optional update, minor defects = Yes.
+   v1.45.10 (submitted 10-03) stalled 25 days: 16 groups never left Submitted,
+   29 sat in Testing since 10-17, and Samsung had since added a REQUIRED
+   Background Image that was locked while certifying. Dropped all 45 groups,
+   filled the image (owner ticked the image-copyright agreement), new .wgt +
+   App Description, re-requested (docs/tizen-submission.md, end). Samsung
+   certifies by hand, ~1-2 weeks; watch Seller Office notifications. Still
+   worth one pass with the PHYSICAL remote. The 2022 floor is Decision 162.
 
 0-NEW-2026-09-29. **FROM THE ANDROID LOOP.** (a) **No new Android version until
    the one in Play review is approved** (owner) — Android fixes since v1.42.932
