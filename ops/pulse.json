@@ -46,9 +46,9 @@
    "store": "Google Play",
    "platform": "Production",
    "state": "COMPLETED",
-   "version": "1.46.16",
-   "live": "1.46.16",
-   "build": "69",
+   "version": "1.47.2",
+   "live": "1.47.2",
+   "build": "70",
    "url": "https://play.google.com/console/developers/app/com.archivewatch.app"
   },
   {
@@ -124,8 +124,8 @@
    "store": "Web (PWA)",
    "platform": "archivewatch.org",
    "state": "LIVE",
-   "version": "4f024a4",
-   "since": "2026-10-28T14:14:32Z",
+   "version": "f2e5e21",
+   "since": "2026-10-28T14:21:32Z",
    "note": "Ships on every Pages deploy; the version is the deploy's commit, read from GitHub.",
    "url": "https://archivewatch.org",
    "api": null,
@@ -2701,7 +2701,7 @@
     "firstBuild": "66",
     "lastBuild": "69",
     "api": "34-34",
-    "stale": false,
+    "stale": true,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/a6de15e9a91794d45b55e1a9282d0460/details",
     "fixedIn": null,
     "ours": null
@@ -2737,7 +2737,7 @@
     "firstBuild": "66",
     "lastBuild": "69",
     "api": "31-34",
-    "stale": false,
+    "stale": true,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/d1f2cb1856b94afba267c223e4504f35/details",
     "fixedIn": {
      "build": 2134,
@@ -2758,7 +2758,7 @@
     "firstBuild": "66",
     "lastBuild": "69",
     "api": "34-34",
-    "stale": false,
+    "stale": true,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/2508e2ae81cbc84f2269339a2da9988e/details",
     "fixedIn": null,
     "ours": null
@@ -2773,7 +2773,7 @@
     "firstBuild": "69",
     "lastBuild": "69",
     "api": "31-31",
-    "stale": false,
+    "stale": true,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/45b19ac65255471b61b908ca3cee6bc2/details",
     "fixedIn": null,
     "ours": "Exception java.lang.IllegalStateException: You need to use a Theme.AppCompat theme (or descendant) with this activity."
@@ -2833,7 +2833,7 @@
     "firstBuild": "69",
     "lastBuild": "69",
     "api": "34-34",
-    "stale": false,
+    "stale": true,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/4135eb0481b5a7d4c89d3b1f2f7b7e27/details",
     "fixedIn": null,
     "ours": "at app.archivewatch.android.app.AppContainer$special$$inlined$-addInterceptor$2.intercept (AppContainer.java:1399)"
@@ -2869,7 +2869,7 @@
     "firstBuild": "69",
     "lastBuild": "69",
     "api": "34-34",
-    "stale": false,
+    "stale": true,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/51552a0cedbbf1da702e6edb32d27aa2/details",
     "fixedIn": null,
     "ours": "at app.archivewatch.android.app.AppContainer$special$$inlined$-addInterceptor$1.intercept (AppContainer.java:1399)"
@@ -2884,7 +2884,7 @@
     "firstBuild": "69",
     "lastBuild": "69",
     "api": "34-34",
-    "stale": false,
+    "stale": true,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/68e5f7584864dc1b9209c6e4ab37207b/details",
     "fixedIn": null,
     "ours": "at app.archivewatch.android.app.AppContainer$special$$inlined$-addInterceptor$1.intercept (AppContainer.java:1399)"
@@ -2899,7 +2899,7 @@
     "firstBuild": "69",
     "lastBuild": "69",
     "api": "34-34",
-    "stale": false,
+    "stale": true,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/801e5ca6f7097649cd2a2bbc88c659ad/details",
     "fixedIn": null,
     "ours": null
@@ -2914,7 +2914,7 @@
     "firstBuild": "69",
     "lastBuild": "69",
     "api": "34-34",
-    "stale": false,
+    "stale": true,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/861d00dc2647192ac2e37b11695cfaef/details",
     "fixedIn": null,
     "ours": "at app.archivewatch.android.data.CatalogDatabase.queryRawOrThrow (CatalogDatabase.kt:977)"
@@ -2959,7 +2959,7 @@
     "firstBuild": "69",
     "lastBuild": "69",
     "api": "34-34",
-    "stale": false,
+    "stale": true,
     "url": "https://play.google.com/console/developers/7973176709446146294/app/4975776198955106385/vitals/crashes/df0e1dd19a31e299cb4668528c7c200b/details",
     "fixedIn": null,
     "ours": null
@@ -3001,7 +3001,7 @@
     "ours": "Exception java.lang.IllegalArgumentException:"
    }
   ],
-  "playLiveBuild": 69,
+  "playLiveBuild": 70,
   "playUsers": {
    "daily": [
     {
@@ -9157,7 +9157,7 @@
   "apple_stores": {
    "ok": true,
    "note": "3 Apple platform(s)",
-   "at": "2026-10-28T14:16:24+00:00"
+   "at": "2026-10-28T14:24:11+00:00"
   },
   "apple_reviews": {
    "ok": true,
@@ -9182,7 +9182,7 @@
   "play_stores": {
    "ok": true,
    "note": "3 track(s)",
-   "at": "2026-10-28T14:16:26+00:00"
+   "at": "2026-10-28T14:24:13+00:00"
   },
   "play_reviews": {
    "ok": true,
@@ -9196,8 +9196,8 @@
   },
   "play_crashes": {
    "ok": true,
-   "note": "19 cluster(s), 10 still on build 69",
-   "at": "2026-10-28T14:16:56+00:00"
+   "note": "19 cluster(s), 0 still on build 70",
+   "at": "2026-10-28T14:24:50+00:00"
   },
   "play_users": {
    "ok": true,
@@ -9242,17 +9242,17 @@
   "amazon_live": {
    "ok": true,
    "note": "versionCode 69 is live on Fire TV",
-   "at": "2026-10-28T14:17:05+00:00"
+   "at": "2026-10-28T14:24:58+00:00"
   },
   "roku_engagement": {
    "ok": true,
    "note": "no delivery waiting — the schedule fires daily at 06:00, so this is normal between runs",
-   "at": "2026-10-28T14:17:05+00:00"
+   "at": "2026-10-28T14:24:58+00:00"
   },
   "manual_stores": {
    "ok": true,
    "note": "5 declared store(s), 2 version(s) read rather than declared",
-   "at": "2026-10-28T14:17:06+00:00"
+   "at": "2026-10-28T14:24:59+00:00"
   },
   "social_program": {
    "ok": true,
@@ -10248,7 +10248,7 @@
    "urgent": 0
   }
  ],
- "generatedAt": "2026-10-28T14:17:06+00:00",
+ "generatedAt": "2026-10-28T14:24:59+00:00",
  "repoVersion": "1.47.5",
  "repoBuild": "2156",
  "_": "Written by tools/pulse_collect.py. `history` is the series and is append-only per day; everything else is the latest reading. A source that could not answer says so in `sources` — never assume a zero."
