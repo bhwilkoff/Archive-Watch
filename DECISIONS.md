@@ -264,6 +264,7 @@ into every session and the index alone carries every title.)
 - 171 — Top Rated ranks each title by the largest crowd that rated it, against that crowd's own average; every rating names its crowd
 - 172 — An identity must fit the file it is on, a fragment is never recommended, and a copyright claim belongs to the film, not the copy
 - 173 — The pipeline fails loudly: pipefail everywhere, nothing publishes from a cancelled or failed build, and a publish carries its deletions
+- 174 — A cartoon of racist caricature is never recommended and always findable, on a record a reader can open or the title's own tags
 
 ---
 
@@ -692,4 +693,31 @@ could skip while the commit still pushed (ENGINEERING-PROCESS §2).
 
 **How to apply**: a new workflow inherits the bash default; a new publish step
 uses `!cancelled()` and an explicit success condition, never `always()`.
+
+## 174 — A cartoon of racist caricature is never recommended and always findable, on a record a reader can open or the title's own tags
+*Date: 2026-10-28*
+
+`remediate_catalog.racist_caricature` sets `noRecommend` (reason "racist
+caricature — …", the Decision 149 mechanism) on a title named by a sourced list
+in `shared/editorial/racist_caricature.json` (the Censored Eleven Warner Bros.
+withdrew in 1968; Scrub Me Mama with a Boogie Beat, Little Black Sambo, Tokio
+Jokio from their own articles; the Bosko and Inki series), or on an ANIMATION
+item whose own TMDb keywords or archive.org subjects name racism, racial or
+ethnic stereotype, blackface or the Censored Eleven. It leaves Party Play,
+Cartoon Mode, Surprise, shelves, channels and More Like This, and stays in
+Search, Detail and Browse. 73 visible cards on 2026-10-28.
+
+**Why**: the owner, 2026-10-28: *"make it so that racist cartoons don't
+continually show up on the party play and cartoon features of the surprise
+surface"* — *"'scrub me mama with a boogie beat' has got to be the most racist
+cartoon I've ever seen and it has shown up repeatedly."* That title carried no
+tag in the catalog, so no rule over the data could have caught it: the worst
+offenders are often the least described. Bare "banned" was measured and left
+out: it also tags Betty Boop shorts cut for the Hays Code.
+
+**How to apply**: add a title with a source a reader can open (`add`, a list,
+or a `series` pattern), never on a hunch; exempt one in `not` with its reason.
+A picker that chooses for the viewer must skip `noRecommend` (the web Party
+Play now checks it as well as the pool builder). Uncertain cases left for the
+owner: Cannibal Capers, Jungle Drums, Uncle Tom and Little Eva.
 

@@ -2665,6 +2665,9 @@
           if (!id || !url || seen.has(id) || type === 'silent-film') continue;
           seen.add(id);
           const row = Data.byID.get(id);
+          // Never chosen for the viewer (Decisions 149, 174): a pool file built
+          // before a title was flagged must not put it on screen.
+          if (row && !Data.rec(row)) continue;
           all.push({ id, title, url, colour: row && row[14] === 'c' });
         }
       }

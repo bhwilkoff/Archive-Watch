@@ -1,0 +1,92 @@
+{
+  "_": "Cartoons that are never RECOMMENDED (Party Play, Cartoon Mode, Surprise, shelves) and stay findable by Search, Detail and Browse: the Decision 149 mechanism, reason 'racist caricature' (Decision 174). Evidence only, never a hunch: a list a reader can open, or the title's own TMDb keywords / archive.org subjects (tools/remediate_catalog.py RACIST_TAGS). `series` matches a character's title pattern on cartoons; `add` and `not` are {archiveID: reason with its source}.",
+  "lists": {
+    "censored-eleven": {
+      "source": "https://en.wikipedia.org/wiki/Censored_Eleven",
+      "why": "withheld from distribution by Warner Bros./United Artists in 1968 for their caricatures of Black people",
+      "titles": [
+        [
+          "Hittin' the Trail for Hallelujah Land",
+          1931
+        ],
+        [
+          "Sunday Go to Meetin' Time",
+          1936
+        ],
+        [
+          "Clean Pastures",
+          1937
+        ],
+        [
+          "Uncle Tom's Bungalow",
+          1937
+        ],
+        [
+          "Jungle Jitters",
+          1938
+        ],
+        [
+          "The Isle of Pingo Pongo",
+          1938
+        ],
+        [
+          "All This and Rabbit Stew",
+          1941
+        ],
+        [
+          "Coal Black and de Sebben Dwarfs",
+          1943
+        ],
+        [
+          "Tin Pan Alley Cats",
+          1943
+        ],
+        [
+          "Angel Puss",
+          1944
+        ],
+        [
+          "Goldilocks and the Jivin' Bears",
+          1944
+        ]
+      ]
+    },
+    "documented": {
+      "source": "each title's own article, below",
+      "why": "racial caricature documented in the record",
+      "titles": [
+        [
+          "Little Black Sambo",
+          1935
+        ],
+        [
+          "Scrub Me Mama with a Boogie Beat",
+          1941
+        ],
+        [
+          "Tokio Jokio",
+          1943
+        ]
+      ],
+      "sources": {
+        "Little Black Sambo": "https://en.wikipedia.org/wiki/The_Story_of_Little_Black_Sambo",
+        "Scrub Me Mama with a Boogie Beat": "https://en.wikipedia.org/wiki/Scrub_Me_Mama_with_a_Boogie_Beat",
+        "Tokio Jokio": "https://en.wikipedia.org/wiki/Tokio_Jokio"
+      }
+    }
+  },
+  "add": {},
+  "not": {},
+  "series": {
+    "bosko": {
+      "pattern": "^(a )?bosko\\b|\\bbosko\\b",
+      "source": "https://en.wikipedia.org/wiki/Bosko",
+      "why": "a character drawn from the blackface minstrel tradition"
+    },
+    "inki": {
+      "pattern": "\\binki\\b",
+      "source": "https://en.wikipedia.org/wiki/Inki",
+      "why": "an African caricature; Warner Bros. withheld the series"
+    }
+  }
+}

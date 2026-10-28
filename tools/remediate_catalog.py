@@ -2981,6 +2981,57 @@ def uraa_restored(it):
     return "original language " + lang
 
 
+# Decision 174. The title's OWN tags (TMDb keywords, archive.org subjects) that
+# name racism or racial caricature. Bare "banned" is NOT here: it also tags
+# Betty Boop shorts cut for the Hays Code and wartime shorts.
+RACIST_TAGS = {"racism", "racist", "racist stereotype", "racial stereotype",
+               "racial stereotypes", "african americans (racial stereotypes)",
+               "ethnic stereotype", "japanese stereotype", "blackface", "minstrel show",
+               "censored eleven", "stereotype cartoons", "racist caricature"}
+_RACIST_PATH = REPO / "shared" / "editorial" / "racist_caricature.json"
+_RACIST = None
+
+
+def _racist_table():
+    global _RACIST
+    if _RACIST is None:
+        try:
+            _RACIST = json.loads(_RACIST_PATH.read_text())
+        except Exception:
+            _RACIST = {}
+    return _RACIST
+
+
+def _title_key(t):
+    return re.sub(r"[^a-z0-9]+", " ", (t or "").lower().replace("\u2019", "'").replace("'", "")).strip()
+
+
+def racist_caricature(it, table=None):
+    """-> a reason when a CARTOON carries evidence of racist caricature, else None."""
+    table = table if table is not None else _racist_table()
+    aid = it.get("archiveID")
+    if aid in (table.get("not") or {}):
+        return None
+    if aid in (table.get("add") or {}):
+        return table["add"][aid]
+    title, year = _title_key(it.get("title")), it.get("year")
+    for name, lst in (table.get("lists") or {}).items():
+        for t, y in lst.get("titles") or []:
+            if _title_key(t) == title and (not isinstance(year, int) or abs(year - y) <= 1):
+                src = (lst.get("sources") or {}).get(t) or lst.get("source")
+                return f"{name.replace('-', ' ')} ({src})"
+    if it.get("contentType") != "animation":
+        return None
+    for name, ser in (table.get("series") or {}).items():
+        if re.search(ser.get("pattern") or "(?!)", it.get("title") or "", re.I):
+            return f"{name} series ({ser.get('source')})"
+    tags = set()
+    for v in (it.get("keywords") or []) + (it.get("subjects") or []):
+        tags.update(p.strip().lower() for p in re.split(r"[;,]", str(v)) if p.strip())
+    hit = sorted(tags & RACIST_TAGS)
+    return ("tagged " + ", ".join(hit)) if hit else None
+
+
 def flag_propaganda(items, stats, table=None):
     """Set (and clear) `noRecommend` every build, so evidence added or withdrawn
     takes effect on the next publish."""
@@ -2988,13 +3039,19 @@ def flag_propaganda(items, stats, table=None):
         table = json.loads(_PROPAGANDA_PATH.read_text()) if _PROPAGANDA_PATH.exists() else {}
     for it in items:
         why = propaganda_evidence(it, table)
-        uraa = None if why else uraa_restored(it)
-        frag = None if (why or uraa) else fragment_of(it)
+        racist = None if why else racist_caricature(it)
+        uraa = None if (why or racist) else uraa_restored(it)
+        frag = None if (why or racist or uraa) else fragment_of(it)
         if why:
             if not it.get("noRecommend"):
                 stats["propaganda_flagged"] += 1
             it["noRecommend"] = True
             it["noRecommendReason"] = "propaganda — " + why
+        elif racist:
+            if not it.get("noRecommend"):
+                stats["racist_caricature_flagged"] += 1
+            it["noRecommend"] = True
+            it["noRecommendReason"] = "racist caricature — " + racist
         elif uraa:
             if not it.get("noRecommend"):
                 stats["uraa_flagged"] += 1
