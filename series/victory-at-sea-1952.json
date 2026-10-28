@@ -100,5 +100,7 @@
  "tvmazeRating": null,
  "tvdbID": "84130",
  "artworkSource": "tvdb",
- "seriesImdbID": "tt0046658"
+ "seriesImdbID": "tt0046658",
+ "imdbRating": 8.6,
+ "imdbVotes": 710
 }

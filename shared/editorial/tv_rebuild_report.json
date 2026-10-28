@@ -3137,31 +3137,6 @@
    ]
   },
   {
-   "slug": "fawlty-towers-1975",
-   "tvmazeID": 577,
-   "title": "Fawlty Towers",
-   "matched": true,
-   "canonEps": 12,
-   "ourItems": 16,
-   "mappedEps": 12,
-   "extras": 2,
-   "repicked": 0,
-   "deadItems": 0,
-   "repickSkipped": 0,
-   "bundles": 1,
-   "availableEps": 14,
-   "kinds": [
-    "series"
-   ],
-   "mergedFrom": 1,
-   "consumedRefs": [
-    {
-     "kind": "series",
-     "ref": "fawlty-towers-1975"
-    }
-   ]
-  },
-  {
    "slug": "flash-gordon-1954",
    "tvmazeID": 34934,
    "title": "Flash Gordon",
@@ -3532,6 +3507,31 @@
     {
      "kind": "series",
      "ref": "electra-woman-and-dyna-girl-1976"
+    }
+   ]
+  },
+  {
+   "slug": "fawlty-towers-1975",
+   "tvmazeID": 577,
+   "title": "Fawlty Towers",
+   "matched": true,
+   "canonEps": 12,
+   "ourItems": 15,
+   "mappedEps": 12,
+   "extras": 2,
+   "repicked": 0,
+   "deadItems": 0,
+   "repickSkipped": 0,
+   "bundles": 1,
+   "availableEps": 14,
+   "kinds": [
+    "series"
+   ],
+   "mergedFrom": 1,
+   "consumedRefs": [
+    {
+     "kind": "series",
+     "ref": "fawlty-towers-1975"
     }
    ]
   },
