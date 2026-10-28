@@ -38,6 +38,24 @@
           "downloadURL": "https://archive.org/download/TheAdventuresOfKitCarsonTheOutlawsOfManzantia/The%20Adventures%20of%20Kit%20Carson%20-%20The%20Outlaws%20of%20Manzantia.mp4"
         },
         {
+          "archiveID": "KitCarsonDesperateSheriff1951",
+          "seasonNumber": 1,
+          "episodeNumber": 14,
+          "title": "The Desperate Sheriff",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uptHEepL0EjsK9pVfChzLxBnyHP.jpg",
+          "airDate": "1951-11-10",
+          "year": 1951,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "kitcarsonDesperateSheriff.mp4",
+            "format": "h.264",
+            "sizeBytes": 159926880,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/KitCarsonDesperateSheriff1951/kitcarsonDesperateSheriff.mp4"
+        },
+        {
           "archiveID": "BadmanOfBriscoe",
           "seasonNumber": 1,
           "episodeNumber": 19,
@@ -79,33 +97,11 @@
           "downloadURL": "https://archive.org/download/TheAdventuresOfKitCarsonSingingWires/The%20Adventures%20of%20Kit%20Carson%20-%20Singing%20Wires.mp4"
         }
       ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "KitCarsonDesperateSheriff1951",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Desperate Sheriff",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/uptHEepL0EjsK9pVfChzLxBnyHP.jpg",
-          "airDate": null,
-          "year": 1951,
-          "runtimeSeconds": 1538,
-          "videoFile": {
-            "name": "kitcarsonDesperateSheriff.mp4",
-            "format": "h.264",
-            "sizeBytes": 159926880,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/KitCarsonDesperateSheriff1951/kitcarsonDesperateSheriff.mp4"
-        }
-      ]
     }
   ],
   "episodesCount": 4,
   "canonicalEpisodesCount": 103,
+  "tvmazeRating": null,
   "tvdbID": "77512",
   "artworkSource": "tvdb",
   "cast": [

@@ -21,6 +21,24 @@
       "seasonNumber": 2,
       "episodes": [
         {
+          "archiveID": "MakeRoomForDaddy-ChildrensGoverness1955",
+          "seasonNumber": 2,
+          "episodeNumber": 19,
+          "title": "The Children's Governess",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/43/109171.jpg",
+          "airDate": "1955-02-01",
+          "year": 1955,
+          "runtimeSeconds": 1774,
+          "videoFile": {
+            "name": "Make_room_Childrens_governess_02_01_55.mp4",
+            "format": "h.264",
+            "sizeBytes": 173657513,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/MakeRoomForDaddy-ChildrensGoverness1955/Make_room_Childrens_governess_02_01_55.mp4"
+        },
+        {
           "archiveID": "rustygetsahaircut",
           "seasonNumber": 2,
           "episodeNumber": 22,
@@ -98,33 +116,11 @@
           "downloadURL": "https://archive.org/download/dontyellatyourchildren/dontyellatyourchildren.mp4"
         }
       ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "MakeRoomForDaddy-ChildrensGoverness1955",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Children's Governess",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/43/109171.jpg",
-          "airDate": null,
-          "year": 1955,
-          "runtimeSeconds": 1774,
-          "videoFile": {
-            "name": "Make_room_Childrens_governess_02_01_55.mp4",
-            "format": "h.264",
-            "sizeBytes": 173657513,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/MakeRoomForDaddy-ChildrensGoverness1955/Make_room_Childrens_governess_02_01_55.mp4"
-        }
-      ]
     }
   ],
   "episodesCount": 5,
   "canonicalEpisodesCount": 344,
+  "tvmazeRating": null,
   "tvdbID": "73496",
   "artworkSource": "tvdb",
   "cast": [

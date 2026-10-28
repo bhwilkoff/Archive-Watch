@@ -15,16 +15,16 @@
   "creator": null,
   "seasons": [
     {
-      "seasonNumber": null,
+      "seasonNumber": 1,
       "episodes": [
         {
           "archiveID": "theGeorgeGobelShow-2October1954",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "2 October 1954",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "October 9, 1954",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/388/971858.jpg",
-          "airDate": null,
+          "airDate": "1954-10-09",
           "year": 1954,
           "runtimeSeconds": 1763,
           "videoFile": {
@@ -34,7 +34,12 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/theGeorgeGobelShow-2October1954/TheGeorgeGobelShow2October1954.mp4"
-        },
+        }
+      ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
         {
           "archiveID": "GeorgeGobel22January1955",
           "seasonNumber": null,
@@ -130,6 +135,7 @@
   ],
   "episodesCount": 6,
   "canonicalEpisodesCount": 137,
+  "tvmazeRating": null,
   "tvdbID": "73128",
   "cast": [
     {

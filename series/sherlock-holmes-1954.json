@@ -40,24 +40,6 @@
           "downloadURL": "https://archive.org/download/SherlockHolmes-TheCaseoftheCunninghamHeritage/TheCaseoftheCunninghamHeritage.mp4"
         },
         {
-          "archiveID": "s01e01.The.Speckled.Band",
-          "seasonNumber": 1,
-          "episodeNumber": 1,
-          "title": "The Speckled Band",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/538/1346582.jpg",
-          "airDate": null,
-          "year": 1954,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "s01e01.The.Speckled.Band.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 105116138,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/s01e01.The.Speckled.Band/s01e01.The.Speckled.Band.mp4"
-        },
-        {
           "archiveID": "SherlockHolmes-TheCaseofLadyBeryl",
           "seasonNumber": 1,
           "episodeNumber": 2,
@@ -457,12 +439,31 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/SherlockHolmes-TheManWhoDisappearedfailedPilot/SherlockHolmes-TheManWhoDisappeared_512kb.mp4"
+        },
+        {
+          "archiveID": "s01e01.The.Speckled.Band",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Speckled Band",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/538/1346582.jpg",
+          "airDate": null,
+          "year": 1954,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "s01e01.The.Speckled.Band.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 105116138,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/s01e01.The.Speckled.Band/s01e01.The.Speckled.Band.mp4"
         }
       ]
     }
   ],
   "episodesCount": 24,
   "canonicalEpisodesCount": 39,
+  "tvmazeRating": null,
   "tvdbID": "73529",
   "artworkSource": "tvdb",
   "cast": [

@@ -22,6 +22,24 @@
       "seasonNumber": 1,
       "episodes": [
         {
+          "archiveID": "talesOfTomorrow-Blunder1951",
+          "seasonNumber": 1,
+          "episodeNumber": 2,
+          "title": "Blunder",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/TqlBxeIAkk6H1GrO4GK5Kx3HeZ.jpg",
+          "airDate": "1951-08-10",
+          "year": 1951,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "ToT_Blunder_08_10_1951.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 198023946,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/talesOfTomorrow-Blunder1951/ToT_Blunder_08_10_1951.ia.mp4"
+        },
+        {
           "archiveID": "TalesOfTomorrow-AChildIsCrying_607",
           "seasonNumber": 1,
           "episodeNumber": 3,
@@ -40,6 +58,24 @@
           "downloadURL": "https://archive.org/download/TalesOfTomorrow-AChildIsCrying_607/TalesOfTomorrow-AChildIsCrying_512kb.mp4"
         },
         {
+          "archiveID": "talesOfTomorrow-WhatYouNeed1952",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "What You Need",
+          "overview": "A desperate freelance writer tries to steal an unusual machine that can predict the future for its kind-hearted owner.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/25/62667.jpg",
+          "airDate": "1952-02-08",
+          "year": 1952,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "ToT_What_you_need_02_08_52.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 199457995,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/talesOfTomorrow-WhatYouNeed1952/ToT_What_you_need_02_08_52.ia.mp4"
+        },
+        {
           "archiveID": "TalesOfTomorrow20000LeaguesUnderTheSeaTheChasePart1",
           "seasonNumber": 1,
           "episodeNumber": 24,
@@ -56,6 +92,60 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/TalesOfTomorrow20000LeaguesUnderTheSeaTheChasePart1/Tales%20of%20Tomorrow%20-%20The%20Diamond%20Lens.ia.mp4"
+        },
+        {
+          "archiveID": "talesOfTomorrow-TheLittleBlackBag1952",
+          "seasonNumber": 1,
+          "episodeNumber": 35,
+          "title": "Little Black Bag",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/TqlBxeIAkk6H1GrO4GK5Kx3HeZ.jpg",
+          "airDate": "1952-05-30",
+          "year": 1952,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "ToT_Little_black_bag_05_30_52.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 199722347,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/talesOfTomorrow-TheLittleBlackBag1952/ToT_Little_black_bag_05_30_52.ia.mp4"
+        },
+        {
+          "archiveID": "UpdateTalesOfTomorrow-AllTheTimeInTheWorld1952",
+          "seasonNumber": 1,
+          "episodeNumber": 37,
+          "title": "All the Time in the World",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/TqlBxeIAkk6H1GrO4GK5Kx3HeZ.jpg",
+          "airDate": "1952-06-13",
+          "year": 1952,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "ToT_All_time_in_world_NEW_06_13_52.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 197611001,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/UpdateTalesOfTomorrow-AllTheTimeInTheWorld1952/ToT_All_time_in_world_NEW_06_13_52.ia.mp4"
+        },
+        {
+          "archiveID": "talesOfTomorrowMiraculousSerum1952",
+          "seasonNumber": 1,
+          "episodeNumber": 38,
+          "title": "The Miraculous Serum",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/TqlBxeIAkk6H1GrO4GK5Kx3HeZ.jpg",
+          "airDate": "1952-06-20",
+          "year": 1952,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "ToT_Miraculous_serum_06_20_52.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 201366919,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/talesOfTomorrowMiraculousSerum1952/ToT_Miraculous_serum_06_20_52.ia.mp4"
         },
         {
           "archiveID": "TalesOfTomorrow-IceFromSpace",
@@ -80,6 +170,24 @@
     {
       "seasonNumber": 2,
       "episodes": [
+        {
+          "archiveID": "Tales_of_Tomorrow--Youth_on_Tap",
+          "seasonNumber": 2,
+          "episodeNumber": 6,
+          "title": "Youth on Tap",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/TqlBxeIAkk6H1GrO4GK5Kx3HeZ.jpg",
+          "airDate": "1952-09-26",
+          "year": 1952,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "TalesOfTomorrow204_Youth_on_Tap.mp4",
+            "format": "h.264",
+            "sizeBytes": 117254591,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Tales_of_Tomorrow--Youth_on_Tap/TalesOfTomorrow204_Youth_on_Tap.mp4"
+        },
         {
           "archiveID": "TalesOfTomorrowTombOfKingTarus",
           "seasonNumber": 2,
@@ -153,123 +261,11 @@
           "downloadURL": "https://archive.org/download/Tales_of_Tomorrow--The_Spiders_Web/TalesOfTomorrow240_Spiders_Web.mp4"
         }
       ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "UpdateTalesOfTomorrow-AllTheTimeInTheWorld1952",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "All the time in the world",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/TqlBxeIAkk6H1GrO4GK5Kx3HeZ.jpg",
-          "airDate": null,
-          "year": 1952,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "ToT_All_time_in_world_NEW_06_13_52.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 197611001,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/UpdateTalesOfTomorrow-AllTheTimeInTheWorld1952/ToT_All_time_in_world_NEW_06_13_52.ia.mp4"
-        },
-        {
-          "archiveID": "talesOfTomorrow-Blunder1951",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Blunder",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/TqlBxeIAkk6H1GrO4GK5Kx3HeZ.jpg",
-          "airDate": null,
-          "year": 1951,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "ToT_Blunder_08_10_1951.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 198023946,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/talesOfTomorrow-Blunder1951/ToT_Blunder_08_10_1951.ia.mp4"
-        },
-        {
-          "archiveID": "talesOfTomorrowMiraculousSerum1952",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Miraculous serum",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/TqlBxeIAkk6H1GrO4GK5Kx3HeZ.jpg",
-          "airDate": null,
-          "year": 1952,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "ToT_Miraculous_serum_06_20_52.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 201366919,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/talesOfTomorrowMiraculousSerum1952/ToT_Miraculous_serum_06_20_52.ia.mp4"
-        },
-        {
-          "archiveID": "talesOfTomorrow-TheLittleBlackBag1952",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The little black bag",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/TqlBxeIAkk6H1GrO4GK5Kx3HeZ.jpg",
-          "airDate": null,
-          "year": 1952,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "ToT_Little_black_bag_05_30_52.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 199722347,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/talesOfTomorrow-TheLittleBlackBag1952/ToT_Little_black_bag_05_30_52.ia.mp4"
-        },
-        {
-          "archiveID": "talesOfTomorrow-WhatYouNeed1952",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "What you need",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/TqlBxeIAkk6H1GrO4GK5Kx3HeZ.jpg",
-          "airDate": null,
-          "year": 1952,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "ToT_What_you_need_02_08_52.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 199457995,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/talesOfTomorrow-WhatYouNeed1952/ToT_What_you_need_02_08_52.ia.mp4"
-        },
-        {
-          "archiveID": "Tales_of_Tomorrow--Youth_on_Tap",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Youth on Tap",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/TqlBxeIAkk6H1GrO4GK5Kx3HeZ.jpg",
-          "airDate": null,
-          "year": 1952,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "TalesOfTomorrow204_Youth_on_Tap.mp4",
-            "format": "h.264",
-            "sizeBytes": 117254591,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Tales_of_Tomorrow--Youth_on_Tap/TalesOfTomorrow204_Youth_on_Tap.mp4"
-        }
-      ]
     }
   ],
   "episodesCount": 13,
   "canonicalEpisodesCount": 85,
+  "tvmazeRating": null,
   "tvdbID": "77858",
   "artworkSource": "tvdb"
 }

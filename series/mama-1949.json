@@ -190,24 +190,6 @@
           "downloadURL": "https://archive.org/download/iRememberMama-MadameZodiak/Mama-MadameZodiak.mp4"
         },
         {
-          "archiveID": "Mama1955",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Mama's Nursery School",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "MamaNurserySchool1955.mp4",
-            "format": "h.264",
-            "sizeBytes": 153221012,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Mama1955/MamaNurserySchool1955.mp4"
-        },
-        {
           "archiveID": "Mama4",
           "seasonNumber": null,
           "episodeNumber": null,
@@ -242,12 +224,31 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/Mama5/TheParadeGrandstand1955.mp4"
+        },
+        {
+          "archiveID": "Mama1955",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "s Nursery School",
+          "overview": null,
+          "stillURL": null,
+          "airDate": null,
+          "year": null,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "MamaNurserySchool1955.mp4",
+            "format": "h.264",
+            "sizeBytes": 153221012,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Mama1955/MamaNurserySchool1955.mp4"
         }
       ]
     }
   ],
   "episodesCount": 12,
   "canonicalEpisodesCount": 1,
+  "tvmazeRating": null,
   "cast": [
     {
       "name": "Peggy Wood",

@@ -169,6 +169,24 @@
           "downloadURL": "https://archive.org/download/StudioOneHenryIv1949/Studio_One_Henry_IV_12_05_49.ia.mp4"
         },
         {
+          "archiveID": "StudioOneWillowcabin",
+          "seasonNumber": 2,
+          "episodeNumber": 25,
+          "title": "The Willow Cabin",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+          "airDate": "1950-02-27",
+          "year": 1950,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "StudioOne-willowcabin.mp4",
+            "format": "h.264",
+            "sizeBytes": 369722366,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/StudioOneWillowcabin/StudioOne-willowcabin.mp4"
+        },
+        {
           "archiveID": "StudioOneAPassengerToBail1950",
           "seasonNumber": 2,
           "episodeNumber": 29,
@@ -280,6 +298,24 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/StudioOneWintertime/StudioOne-wintertime.mp4"
+        },
+        {
+          "archiveID": "studioOneMr.MummerysSuspicion1951",
+          "seasonNumber": 3,
+          "episodeNumber": 54,
+          "title": "Mr. Mummery's Suspicion",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+          "airDate": "1951-09-03",
+          "year": 1951,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Studio_One_Mr_Mummerys_suspicion_09_03_51.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 352495571,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/studioOneMr.MummerysSuspicion1951/Studio_One_Mr_Mummerys_suspicion_09_03_51.ia.mp4"
         }
       ]
     },
@@ -470,6 +506,24 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/Studio_One--Mark_of_Cain/StudioOne519_Mark_of_Cain.mp4"
+        },
+        {
+          "archiveID": "Studio-One_The-Laugh-Maker_3D",
+          "seasonNumber": 5,
+          "episodeNumber": 34,
+          "title": "The Laugh Maker",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
+          "airDate": "1953-05-18",
+          "year": 1953,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Studio-One_The-Laugh-Maker_3d.mp4",
+            "format": "h.264",
+            "sizeBytes": 350766411,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Studio-One_The-Laugh-Maker_3D/Studio-One_The-Laugh-Maker_3d.mp4"
         },
         {
           "archiveID": "StudioOne-SentenceOfDeath",
@@ -690,42 +744,6 @@
           "downloadURL": "https://archive.org/download/StudioOneLittleWomenJosStory-LelaSwift/Studio_one_littleWomen_12_25_1950.mp4"
         },
         {
-          "archiveID": "studioOneMr.MummerysSuspicion1951",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Mr. Mummery's suspicion",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
-          "airDate": null,
-          "year": 1951,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Studio_One_Mr_Mummerys_suspicion_09_03_51.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 352495571,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/studioOneMr.MummerysSuspicion1951/Studio_One_Mr_Mummerys_suspicion_09_03_51.ia.mp4"
-        },
-        {
-          "archiveID": "Studio-One_The-Laugh-Maker_3D",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Laugh Maker in 3D",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
-          "airDate": null,
-          "year": 1953,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Studio-One_The-Laugh-Maker_3d.mp4",
-            "format": "h.264",
-            "sizeBytes": 350766411,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Studio-One_The-Laugh-Maker_3D/Studio-One_The-Laugh-Maker_3d.mp4"
-        },
-        {
           "archiveID": "StudioOne-TheNativity",
           "seasonNumber": null,
           "episodeNumber": null,
@@ -742,24 +760,6 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/StudioOne-TheNativity/StudioOne-TheNativity.mp4"
-        },
-        {
-          "archiveID": "StudioOneWillowcabin",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Willow Cabin",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/rTauMq9Zi9KM2gGzX0qO80JoBmS.jpg",
-          "airDate": null,
-          "year": 1950,
-          "runtimeSeconds": 3559,
-          "videoFile": {
-            "name": "StudioOne-willowcabin.mp4",
-            "format": "h.264",
-            "sizeBytes": 369722366,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/StudioOneWillowcabin/StudioOne-willowcabin.mp4"
         },
         {
           "archiveID": "studio-one-treasure-island-1952.",
@@ -784,6 +784,7 @@
   ],
   "episodesCount": 40,
   "canonicalEpisodesCount": 466,
+  "tvmazeRating": null,
   "tvdbID": "76505",
   "artworkSource": "tvdb",
   "cast": [

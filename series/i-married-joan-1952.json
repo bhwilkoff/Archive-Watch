@@ -180,6 +180,24 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/I_Married_Joan--Secrets/IMarriedJoan130_Secrets.mp4"
+        },
+        {
+          "archiveID": "I_Married_Joan",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "Talent Scout",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": "1953-06-17",
+          "year": 1953,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "IMarriedJoanTalentScout.mp4",
+            "format": "h.264",
+            "sizeBytes": 149076967,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan/IMarriedJoanTalentScout.mp4"
         }
       ]
     },
@@ -516,6 +534,24 @@
           "downloadURL": "https://archive.org/download/I_Married_Joan_EP61_Home_Movies/I_Married_Joan_EP61_Home_Movies.mp4"
         },
         {
+          "archiveID": "I_Married_Joan--Joan_the_Matchmaker",
+          "seasonNumber": 3,
+          "episodeNumber": 14,
+          "title": "Joan the Matchmaker",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
+          "airDate": "1954-12-29",
+          "year": 1954,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "IMarriedJoan314_Joan_the_Matchmaker.mp4",
+            "format": "h.264",
+            "sizeBytes": 143932405,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/I_Married_Joan--Joan_the_Matchmaker/IMarriedJoan314_Joan_the_Matchmaker.mp4"
+        },
+        {
           "archiveID": "I_Married_Joan--The_Wedding",
           "seasonNumber": 3,
           "episodeNumber": 15,
@@ -550,58 +586,17 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/I_Married_Joan--The_Letter/IMarriedJoan321_The_Letter.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "I_Married_Joan--Joan_the_Matchmaker",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Joan, the Matchmaker",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "IMarriedJoan314_Joan_the_Matchmaker.mp4",
-            "format": "h.264",
-            "sizeBytes": 143932405,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/I_Married_Joan--Joan_the_Matchmaker/IMarriedJoan314_Joan_the_Matchmaker.mp4"
-        },
-        {
-          "archiveID": "I_Married_Joan",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Talent Scout",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
-          "airDate": null,
-          "year": 1953,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "IMarriedJoanTalentScout.mp4",
-            "format": "h.264",
-            "sizeBytes": 149076967,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/I_Married_Joan/IMarriedJoanTalentScout.mp4"
         },
         {
           "archiveID": "JailJoan",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Jailbird",
+          "seasonNumber": 3,
+          "episodeNumber": 26,
+          "title": "The Jail Bird",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/uboG8WYeBGcBA2ok41ISf3lxE6S.jpg",
-          "airDate": null,
+          "airDate": "1955-03-23",
           "year": 1955,
-          "runtimeSeconds": 1490,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "Joan_Jailbird.ia.mp4",
             "format": "h.264 IA",
@@ -615,6 +610,7 @@
   ],
   "episodesCount": 32,
   "canonicalEpisodesCount": 98,
+  "tvmazeRating": null,
   "tvdbID": "77326",
   "artworkSource": "tvdb",
   "cast": [

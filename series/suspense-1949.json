@@ -175,6 +175,24 @@
       "seasonNumber": 4,
       "episodes": [
         {
+          "archiveID": "Suspense--Far-Off_House",
+          "seasonNumber": 4,
+          "episodeNumber": 14,
+          "title": "The Far-Off House",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
+          "airDate": "1951-12-04",
+          "year": 1951,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "Suspense412_Far-Off_House.mp4",
+            "format": "h.264",
+            "sizeBytes": 136309903,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Suspense--Far-Off_House/Suspense412_Far-Off_House.mp4"
+        },
+        {
           "archiveID": "Suspense--The_Spider",
           "seasonNumber": 4,
           "episodeNumber": 20,
@@ -417,30 +435,13 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/Suspense--Mr_Matches/Suspense--Mr_Matches.mp4"
-        },
-        {
-          "archiveID": "Suspense--Far-Off_House",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Far-Off House",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/9h8qVuMWqm7ptN7xati8GKYqnwJ.jpg",
-          "airDate": null,
-          "year": 1951,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Suspense412_Far-Off_House.mp4",
-            "format": "h.264",
-            "sizeBytes": 136309903,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Suspense--Far-Off_House/Suspense412_Far-Off_House.mp4"
         }
       ]
     }
   ],
   "episodesCount": 22,
   "canonicalEpisodesCount": 251,
+  "tvmazeRating": null,
   "tvdbID": "75716",
   "artworkSource": "tvdb",
   "cast": [

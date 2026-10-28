@@ -130,6 +130,24 @@
           "downloadURL": "https://archive.org/download/William_Tell--Voice_in_the_Night/WilliamTell06_Voice_in_the_Night.mp4"
         },
         {
+          "archiveID": "William_Tell--The_Assassins",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Assassin",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/74/186088.jpg",
+          "airDate": "1958-10-27",
+          "year": 1958,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "WilliamTell_07_Assassins.mp4",
+            "format": "h.264",
+            "sizeBytes": 141008705,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/William_Tell--The_Assassins/WilliamTell_07_Assassins.mp4"
+        },
+        {
           "archiveID": "William_Tell--The_Cuckoo",
           "seasonNumber": 1,
           "episodeNumber": 11,
@@ -164,40 +182,17 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/William_Tell--The_Manhunt/WilliamTell_21_Manhunt.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "William_Tell--The_Assassins",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Assassins",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/74/186088.jpg",
-          "airDate": null,
-          "year": 1958,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "WilliamTell_07_Assassins.mp4",
-            "format": "h.264",
-            "sizeBytes": 141008705,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/William_Tell--The_Assassins/WilliamTell_07_Assassins.mp4"
         },
         {
           "archiveID": "William_Tell--The_Ensign",
-          "seasonNumber": null,
-          "episodeNumber": null,
+          "seasonNumber": 1,
+          "episodeNumber": 24,
           "title": "The Ensign",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/74/186088.jpg",
-          "airDate": null,
+          "airDate": "1959-02-23",
           "year": 1959,
-          "runtimeSeconds": null,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "WilliamTell24_The_Ensign.mp4",
             "format": "h.264",
@@ -208,14 +203,14 @@
         },
         {
           "archiveID": "William_Tell--The_Spider",
-          "seasonNumber": null,
-          "episodeNumber": null,
+          "seasonNumber": 1,
+          "episodeNumber": 37,
           "title": "The Spider",
           "overview": null,
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/74/186088.jpg",
-          "airDate": null,
+          "airDate": "1959-06-01",
           "year": 1959,
-          "runtimeSeconds": 1517,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "WilliamTell37_The_Spider.mp4",
             "format": "h.264",
@@ -229,6 +224,7 @@
   ],
   "episodesCount": 11,
   "canonicalEpisodesCount": 39,
+  "tvmazeRating": null,
   "cast": [
     {
       "name": "Conrad Phillips",

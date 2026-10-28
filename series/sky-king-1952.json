@@ -74,22 +74,17 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/sky-king-tv-1952-s01e04-deadly-cargo/Sky%20King%20TV%201952%20colorized%20s01e04%20Deadly%20Cargo.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
+        },
         {
           "archiveID": "sky-king-tv-series",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "TV Series",
+          "seasonNumber": 1,
+          "episodeNumber": 19,
+          "title": "The Porcelain Lion",
           "overview": null,
           "stillURL": null,
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
+          "airDate": "1952-12-20",
+          "year": 1952,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "Sky King TV s1e19 The Porcelain Lion.ia.mp4",
             "format": "h.264 IA",
@@ -103,6 +98,7 @@
   ],
   "episodesCount": 4,
   "canonicalEpisodesCount": 72,
+  "tvmazeRating": 7.8,
   "tvdbID": "76541",
   "artworkSource": "tvdb",
   "cast": [

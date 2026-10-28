@@ -38,6 +38,42 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/theAdventuresOfElleryQueen-ManWhoEnjoyedDeath1951/Ellery_Queen_Man_who_enjoyed_death_03_29_51.mp4"
+        },
+        {
+          "archiveID": "theAdventuresOfElleryQueen-DeathSpinsAWheel1951",
+          "seasonNumber": 1,
+          "episodeNumber": 29,
+          "title": "Death Spins a Wheel",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/dbu2dNeMA8WdvemFsiWufSMJ1Au.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "EQ_Death_spins_wheel_05_10_51.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 204805990,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/theAdventuresOfElleryQueen-DeathSpinsAWheel1951/EQ_Death_spins_wheel_05_10_51.ia.mp4"
+        },
+        {
+          "archiveID": "theAdventuresOfElleryQueen-MurderToMusic1951",
+          "seasonNumber": 1,
+          "episodeNumber": 46,
+          "title": "Murder to Music",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/dbu2dNeMA8WdvemFsiWufSMJ1Au.jpg",
+          "airDate": null,
+          "year": 1951,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "EQ_Murder_to_music_11_08_51.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 227887137,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/theAdventuresOfElleryQueen-MurderToMusic1951/EQ_Murder_to_music_11_08_51.ia.mp4"
         }
       ]
     },
@@ -68,42 +104,6 @@
       "seasonNumber": null,
       "episodes": [
         {
-          "archiveID": "theAdventuresOfElleryQueen-DeathSpinsAWheel1951",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Death Spins a Wheel",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/dbu2dNeMA8WdvemFsiWufSMJ1Au.jpg",
-          "airDate": null,
-          "year": 1951,
-          "runtimeSeconds": 1503,
-          "videoFile": {
-            "name": "EQ_Death_spins_wheel_05_10_51.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 204805990,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/theAdventuresOfElleryQueen-DeathSpinsAWheel1951/EQ_Death_spins_wheel_05_10_51.ia.mp4"
-        },
-        {
-          "archiveID": "theAdventuresOfElleryQueen-MurderToMusic1951",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Murder to Music",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/dbu2dNeMA8WdvemFsiWufSMJ1Au.jpg",
-          "airDate": null,
-          "year": 1951,
-          "runtimeSeconds": 1770,
-          "videoFile": {
-            "name": "EQ_Murder_to_music_11_08_51.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 227887137,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/theAdventuresOfElleryQueen-MurderToMusic1951/EQ_Murder_to_music_11_08_51.ia.mp4"
-        },
-        {
           "archiveID": "Ellery_Queen_DuMont",
           "seasonNumber": null,
           "episodeNumber": null,
@@ -126,6 +126,7 @@
   ],
   "episodesCount": 5,
   "canonicalEpisodesCount": 93,
+  "tvmazeRating": null,
   "tvdbID": "236741",
   "artworkSource": "tvdb",
   "cast": [

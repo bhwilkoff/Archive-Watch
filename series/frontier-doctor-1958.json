@@ -130,6 +130,24 @@
           "downloadURL": "https://archive.org/download/FrontierDoctorIllegalEntry/Frontier%20Doctor%20-%20Illegal%20Entry.mp4"
         },
         {
+          "archiveID": "frontierdoctortwistedroad",
+          "seasonNumber": 1,
+          "episodeNumber": 21,
+          "title": "The Twisted Road",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/fcjSgqQnZgHtluOOq81KyxuT4O0.jpg",
+          "airDate": "1959-04-25",
+          "year": 1959,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "frontierdoctortwistedroad.mp4",
+            "format": "h.264",
+            "sizeBytes": 162114150,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/frontierdoctortwistedroad/frontierdoctortwistedroad.mp4"
+        },
+        {
           "archiveID": "FrontierDoctorGringoPete",
           "seasonNumber": 1,
           "episodeNumber": 22,
@@ -223,30 +241,13 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/FrontierDoctorTheHomesteaders/FrontierDoctor-The%20Homesteaders.mp4"
-        },
-        {
-          "archiveID": "frontierdoctortwistedroad",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Twisted Road",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/fcjSgqQnZgHtluOOq81KyxuT4O0.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1556,
-          "videoFile": {
-            "name": "frontierdoctortwistedroad.mp4",
-            "format": "h.264",
-            "sizeBytes": 162114150,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/frontierdoctortwistedroad/frontierdoctortwistedroad.mp4"
         }
       ]
     }
   ],
   "episodesCount": 12,
   "canonicalEpisodesCount": 28,
+  "tvmazeRating": null,
   "tvdbID": "74590",
   "artworkSource": "tvdb",
   "cast": [

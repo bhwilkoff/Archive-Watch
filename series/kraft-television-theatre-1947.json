@@ -17,6 +17,29 @@
   "creator": null,
   "seasons": [
     {
+      "seasonNumber": 3,
+      "episodes": [
+        {
+          "archiveID": "kraft-television-theatre-kelly-1951",
+          "seasonNumber": 3,
+          "episodeNumber": 19,
+          "title": "Kelly",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/kraft-television-theatre-kelly-1951",
+          "airDate": "1950-01-25",
+          "year": 1950,
+          "runtimeSeconds": 3600,
+          "videoFile": {
+            "name": "Kraft Television Theatre Kelly (1951).ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 378922411,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/kraft-television-theatre-kelly-1951/Kraft%20Television%20Theatre%20Kelly%20%281951%29.ia.mp4"
+        }
+      ]
+    },
+    {
       "seasonNumber": 7,
       "episodes": [
         {
@@ -36,40 +59,17 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/kraft-television-theatre-alice-in-wonderland-1954/Kraft%20Television%20Theatre%20Alice%20in%20Wonderland%20%281954%29.ia.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "kraft-television-theatre-kelly-1951",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Kelly",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/kraft-television-theatre-kelly-1951",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Kraft Television Theatre Kelly (1951).ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 378922411,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/kraft-television-theatre-kelly-1951/Kraft%20Television%20Theatre%20Kelly%20%281951%29.ia.mp4"
         },
         {
           "archiveID": "kraft-television-theatre-kidnapped-1954",
-          "seasonNumber": null,
-          "episodeNumber": null,
+          "seasonNumber": 7,
+          "episodeNumber": 53,
           "title": "Kidnapped",
           "overview": null,
           "stillURL": "https://archive.org/services/img/kraft-television-theatre-kidnapped-1954",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
+          "airDate": "1954-09-01",
+          "year": 1954,
+          "runtimeSeconds": 3600,
           "videoFile": {
             "name": "Kraft Television Theatre- Kidnapped (1954).mp4",
             "format": "MPEG4",
@@ -83,6 +83,7 @@
   ],
   "episodesCount": 3,
   "canonicalEpisodesCount": 526,
+  "tvmazeRating": null,
   "tvdbID": "76626",
   "cast": [
     {

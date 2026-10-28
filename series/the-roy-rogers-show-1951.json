@@ -75,6 +75,24 @@
           "downloadURL": "https://archive.org/download/roy-rogers-show-tv-1952-s01e05-train-robbery/Roy%20Rogers%20Show%20TV%201952%20colorized%20s01e05%20Train%20Robbery.mp4"
         },
         {
+          "archiveID": "TheRoyRogersShow-OutlawsGirl",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "Outlaw's Girl",
+          "overview": null,
+          "stillURL": "https://archive.org/services/img/TheRoyRogersShow-OutlawsGirl",
+          "airDate": "1952-02-17",
+          "year": 1952,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The_Roy_Rogers_Show_-_Outlaws_Girl_512kb.mp4",
+            "format": "512Kb MPEG4",
+            "sizeBytes": 117994692,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheRoyRogersShow-OutlawsGirl/The_Roy_Rogers_Show_-_Outlaws_Girl_512kb.mp4"
+        },
+        {
           "archiveID": "roy-rogers-show-tv-1952-s01e08-the-desert-fugitive",
           "seasonNumber": 1,
           "episodeNumber": 8,
@@ -216,33 +234,11 @@
           "downloadURL": "https://archive.org/download/roy-rogers-show-tv-1957-colorized-s06e10-junior-outlaw/Roy%20Rogers%20Show%20TV%201957%20colorized%20s06e10%20%22Junior%20Outlaw%22.mp4"
         }
       ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "TheRoyRogersShow-OutlawsGirl",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Outlaw's Girl",
-          "overview": null,
-          "stillURL": "https://archive.org/services/img/TheRoyRogersShow-OutlawsGirl",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1547,
-          "videoFile": {
-            "name": "The_Roy_Rogers_Show_-_Outlaws_Girl_512kb.mp4",
-            "format": "512Kb MPEG4",
-            "sizeBytes": 117994692,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/TheRoyRogersShow-OutlawsGirl/The_Roy_Rogers_Show_-_Outlaws_Girl_512kb.mp4"
-        }
-      ]
     }
   ],
   "episodesCount": 11,
   "canonicalEpisodesCount": 100,
+  "tvmazeRating": 7.9,
   "tvdbID": "77296",
   "artworkSource": "tvdb",
   "cast": [

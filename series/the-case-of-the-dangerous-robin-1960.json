@@ -38,11 +38,16 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/case-of-the-dangerous-robin-tv-1960-colorized-s01e10-the-zippered-notebook/Case%20of%20the%20Dangerous%20Robin%20TV%201960%20colorized%20s01e10%20The%20Zippered%20Notebook.mp4"
-        },
+        }
+      ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
         {
           "archiveID": "case-of-the-dangerous-robin-tv-1961-s01e26-tin-caper",
-          "seasonNumber": 1,
-          "episodeNumber": 26,
+          "seasonNumber": null,
+          "episodeNumber": null,
           "title": "Case of the Dangerous Robin TV 1961 colorized s01e26 Tin Caper",
           "overview": "Robin Scott travels to Hong Kong to investigate an insurance claim involving a cargo of tin allegedly lost overboard from the tramp freighter Natuna Star. Captain Thane, who holds a grudge against insurance companies, and his crew have stolen $100,000 worth of tin ingots en route from Singapore to Hong Kong, claiming they jettisoned the cargo to save the ship during a storm. Suspecting barratry, Robin enlists the help of skin diver Danny Wayne and gains the confidence of Thane, first mate Vernon, and Sparky Tanjong, the ship's mixed-race Malay radio operator. He then stages the kidnapping of Phyllis Collier, who happens to be in Hong Kong, and bribes his way aboard the Natuna Star, hoping to be led to the island where the stolen tin is hidden. Thane and his crew double-cross Robin, intending to keep the supposed ransom for themselves. After a deadly fight on the island, Robin defeats the villains and recovers the ingots—only to learn his fee will be paid in Hong Kong dollars, each worth less than 25 American cents.",
           "stillURL": "https://archive.org/services/img/case-of-the-dangerous-robin-tv-1961-s01e26-tin-caper",
@@ -62,6 +67,7 @@
   ],
   "episodesCount": 2,
   "canonicalEpisodesCount": 38,
+  "tvmazeRating": null,
   "tvdbID": "413603",
   "artworkSource": "tvdb",
   "cast": [

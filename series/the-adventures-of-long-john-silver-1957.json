@@ -116,27 +116,9 @@
       "seasonNumber": null,
       "episodes": [
         {
-          "archiveID": "TheAdventuresOfLongJohnSilver-Episode1theNecklace",
-          "seasonNumber": null,
-          "episodeNumber": 1,
-          "title": "The Necklace-limou3okxka",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
-          "airDate": null,
-          "year": 1957,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "TheAdventuresOfLongJohnSilver-TheNecklace-limou3okxka.mp4",
-            "format": "h.264",
-            "sizeBytes": 164929639,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode1theNecklace/TheAdventuresOfLongJohnSilver-TheNecklace-limou3okxka.mp4"
-        },
-        {
           "archiveID": "TheAdventuresOfLongJohnSilver-Episode5",
           "seasonNumber": null,
-          "episodeNumber": 5,
+          "episodeNumber": null,
           "title": "Long John Silver THE EVICTION-9f Ult V-F7g",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
@@ -152,9 +134,81 @@
           "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode5/Long%20John%20Silver%20THE%20EVICTION-9f_UltV-F7g.mp4"
         },
         {
+          "archiveID": "TheAdventuresOfLongJohnSilver-Episode11missPuritysBirthday",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Miss Puritys Birthday-t948txc6zay",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "TheAdventuresOfLongJohnSilver-MissPuritysBirthday-t948txc6zay.mp4",
+            "format": "h.264",
+            "sizeBytes": 166146921,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode11missPuritysBirthday/TheAdventuresOfLongJohnSilver-MissPuritysBirthday-t948txc6zay.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfLongJohnSilver-Episode9swordOfVengeance",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Sword Of Vengeance-wz0btc4zbmo",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "TheAdventuresOfLongJohnSilver-SwordOfVengeance-wz0btc4zbmo.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 100770787,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode9swordOfVengeance/TheAdventuresOfLongJohnSilver-SwordOfVengeance-wz0btc4zbmo.ia.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfLongJohnSilver-Episode13",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Devil's Stew-6g GVoec Fz LM",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "The Adventures of Long John Silver - The Devil's Stew-6gGVoecFzLM.mp4",
+            "format": "MPEG4",
+            "sizeBytes": 145533008,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode13/The%20Adventures%20of%20Long%20John%20Silver%20-%20The%20Devil%27s%20Stew-6gGVoecFzLM.mp4"
+        },
+        {
+          "archiveID": "TheAdventuresOfLongJohnSilver-Episode1theNecklace",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "The Necklace-limou3okxka",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
+          "airDate": null,
+          "year": 1957,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "TheAdventuresOfLongJohnSilver-TheNecklace-limou3okxka.mp4",
+            "format": "h.264",
+            "sizeBytes": 164929639,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode1theNecklace/TheAdventuresOfLongJohnSilver-TheNecklace-limou3okxka.mp4"
+        },
+        {
           "archiveID": "TheAdventuresOfLongJohnSilver-Episode6",
           "seasonNumber": null,
-          "episodeNumber": 6,
+          "episodeNumber": null,
           "title": "The Pink Pearl-Bnvs Kev Gkw U",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
@@ -172,7 +226,7 @@
         {
           "archiveID": "TheAdventuresOfLongJohnSilver-Episode7",
           "seasonNumber": null,
-          "episodeNumber": 7,
+          "episodeNumber": null,
           "title": "The Tale of the Tooth-MAEYu Ir U 1s",
           "overview": "Long John is falsely accused and imprisoned for robbery and murder, Miss Purity volunteers to save him if he sets their wedding date.",
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/154/385966.jpg",
@@ -188,27 +242,9 @@
           "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode7/The%20Adventures%20of%20Long%20John%20Silver%20-%20The%20Tale%20of%20the%20Tooth-MAEYuIrU_1s.mp4"
         },
         {
-          "archiveID": "TheAdventuresOfLongJohnSilver-Episode9swordOfVengeance",
-          "seasonNumber": null,
-          "episodeNumber": 9,
-          "title": "Sword Of Vengeance-wz0btc4zbmo",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
-          "airDate": null,
-          "year": 1957,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "TheAdventuresOfLongJohnSilver-SwordOfVengeance-wz0btc4zbmo.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 100770787,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode9swordOfVengeance/TheAdventuresOfLongJohnSilver-SwordOfVengeance-wz0btc4zbmo.ia.mp4"
-        },
-        {
           "archiveID": "TheAdventuresOfLongJohnSilver-Episode10",
           "seasonNumber": null,
-          "episodeNumber": 10,
+          "episodeNumber": null,
           "title": "Turnabout-v Oa BHo C19 k",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
@@ -222,48 +258,13 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode10/The%20Adventures%20of%20Long%20John%20Silver%20-%20Turnabout-vOaBHoC19_k.mp4"
-        },
-        {
-          "archiveID": "TheAdventuresOfLongJohnSilver-Episode11missPuritysBirthday",
-          "seasonNumber": null,
-          "episodeNumber": 11,
-          "title": "Miss Puritys Birthday-t948txc6zay",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
-          "airDate": null,
-          "year": 1957,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "TheAdventuresOfLongJohnSilver-MissPuritysBirthday-t948txc6zay.mp4",
-            "format": "h.264",
-            "sizeBytes": 166146921,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode11missPuritysBirthday/TheAdventuresOfLongJohnSilver-MissPuritysBirthday-t948txc6zay.mp4"
-        },
-        {
-          "archiveID": "TheAdventuresOfLongJohnSilver-Episode13",
-          "seasonNumber": null,
-          "episodeNumber": 13,
-          "title": "The Devil's Stew-6g GVoec Fz LM",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/kqrl6yfs0IDD1VwumMEVJNGQXlq.jpg",
-          "airDate": null,
-          "year": 1957,
-          "runtimeSeconds": 1800,
-          "videoFile": {
-            "name": "The Adventures of Long John Silver - The Devil's Stew-6gGVoecFzLM.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 145533008,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/TheAdventuresOfLongJohnSilver-Episode13/The%20Adventures%20of%20Long%20John%20Silver%20-%20The%20Devil%27s%20Stew-6gGVoecFzLM.mp4"
         }
       ]
     }
   ],
   "episodesCount": 13,
   "canonicalEpisodesCount": 26,
+  "tvmazeRating": null,
   "tvdbID": "117261",
   "artworkSource": "tvdb",
   "cast": [

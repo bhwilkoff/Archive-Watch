@@ -21,6 +21,24 @@
       "seasonNumber": 1,
       "episodes": [
         {
+          "archiveID": "Window_on_Main--Doctor_to_Town",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "A Doctor Comes to Town",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1961-10-16",
+          "year": 1961,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Window_on_Main--Doctor_to_Town.mp4",
+            "format": "h.264",
+            "sizeBytes": 159538876,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Window_on_Main--Doctor_to_Town/Window_on_Main--Doctor_to_Town.mp4"
+        },
+        {
           "archiveID": "Window_on_Main_St--Christmas_Memory",
           "seasonNumber": 1,
           "episodeNumber": 12,
@@ -43,24 +61,6 @@
     {
       "seasonNumber": null,
       "episodes": [
-        {
-          "archiveID": "Window_on_Main--Doctor_to_Town",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "A Doctor Comes to Town",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1961,
-          "runtimeSeconds": 1538,
-          "videoFile": {
-            "name": "Window_on_Main--Doctor_to_Town.mp4",
-            "format": "h.264",
-            "sizeBytes": 159538876,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Window_on_Main--Doctor_to_Town/Window_on_Main--Doctor_to_Town.mp4"
-        },
         {
           "archiveID": "Window_on_Main--Chambermaid",
           "seasonNumber": null,
@@ -102,6 +102,7 @@
   ],
   "episodesCount": 4,
   "canonicalEpisodesCount": 34,
+  "tvmazeRating": null,
   "tvdbID": "77105",
   "artworkSource": "tvdb",
   "cast": [

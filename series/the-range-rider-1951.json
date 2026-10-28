@@ -20,6 +20,24 @@
       "seasonNumber": 1,
       "episodes": [
         {
+          "archiveID": "RangeRider1951CrookedFork",
+          "seasonNumber": 1,
+          "episodeNumber": 7,
+          "title": "The Crooked Fork",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/be8c495WiNYBRLdNiJRzCl37Fe2.jpg",
+          "airDate": "1951-05-17",
+          "year": 1951,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "rangeriderCrookedFork.mp4",
+            "format": "h.264",
+            "sizeBytes": 164174266,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/RangeRider1951CrookedFork/rangeriderCrookedFork.mp4"
+        },
+        {
           "archiveID": "RangeRiderLastOfThePonyExpress",
           "seasonNumber": 1,
           "episodeNumber": 19,
@@ -282,24 +300,6 @@
           "downloadURL": "https://archive.org/download/RangeRiderTheChase/Range%20Rider%20-%20The%20Chase.mp4"
         },
         {
-          "archiveID": "RangeRider1951CrookedFork",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Crooked Fork",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/be8c495WiNYBRLdNiJRzCl37Fe2.jpg",
-          "airDate": null,
-          "year": 1951,
-          "runtimeSeconds": 1578,
-          "videoFile": {
-            "name": "rangeriderCrookedFork.mp4",
-            "format": "h.264",
-            "sizeBytes": 164174266,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/RangeRider1951CrookedFork/rangeriderCrookedFork.mp4"
-        },
-        {
           "archiveID": "RangeRiderTheHolyTerror",
           "seasonNumber": null,
           "episodeNumber": null,
@@ -376,6 +376,7 @@
   ],
   "episodesCount": 19,
   "canonicalEpisodesCount": 44,
+  "tvmazeRating": null,
   "tvdbID": "77463",
   "artworkSource": "tvdb",
   "cast": [

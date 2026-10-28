@@ -97,6 +97,24 @@
           "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e06%20Bobbys%20Comet%20Chap%203%20%5Blow%2C%20360p%5D-6.m4v"
         },
         {
+          "archiveID": "rockyJonesSpaceRangerRockysOdyssey1954",
+          "seasonNumber": 1,
+          "episodeNumber": 6,
+          "title": "Rocky's Odyssey (3)",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/hzehIOwKA7ZWUxKYh74rxNwSkTr.jpg",
+          "airDate": "1954-03-30",
+          "year": 1954,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Rocky_Jones_-_Rockys_Odyssey_II_09_26_1954.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 147781612,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/rockyJonesSpaceRangerRockysOdyssey1954/Rocky_Jones_-_Rockys_Odyssey_II_09_26_1954.ia.mp4"
+        },
+        {
           "archiveID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1@s1e08",
           "sourceID": "rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1",
           "seasonNumber": 1,
@@ -667,33 +685,11 @@
           "downloadURL": "https://archive.org/download/rocky-jones-space-rangers-1954-s-01e-01-beyond-the-curtain-of-space-chap-1-low-360p-1/Rocky%20Jones%2C%20Space%20Rangers%201954%20S01e37%20The%20Trial%20Of%20Rocky%20Jones%20Chap%201%20%5Blow%2C%20360p%5D-37.m4v"
         }
       ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
-        {
-          "archiveID": "rockyJonesSpaceRangerRockysOdyssey1954",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Rocky's Odyssey",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/hzehIOwKA7ZWUxKYh74rxNwSkTr.jpg",
-          "airDate": null,
-          "year": 1954,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Rocky_Jones_-_Rockys_Odyssey_II_09_26_1954.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 147781612,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/rockyJonesSpaceRangerRockysOdyssey1954/Rocky_Jones_-_Rockys_Odyssey_II_09_26_1954.ia.mp4"
-        }
-      ]
     }
   ],
   "episodesCount": 35,
   "canonicalEpisodesCount": 39,
+  "tvmazeRating": null,
   "tvdbID": "70515",
   "artworkSource": "tvdb",
   "cast": [

@@ -144,6 +144,42 @@
           "downloadURL": "https://archive.org/download/FourStarPlayhouse-TheManOnATrain/FourStarPlayhouse-ManOnaTrain.mp4"
         },
         {
+          "archiveID": "FourStarPlayhouse-SoundOffMyLove",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Sound Off, My Love",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/421/1054693.jpg",
+          "airDate": "1953-02-12",
+          "year": 1953,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "FourStar-SoundOff.mp4",
+            "format": "h.264",
+            "sizeBytes": 158036673,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FourStarPlayhouse-SoundOffMyLove/FourStar-SoundOff.mp4"
+        },
+        {
+          "archiveID": "FourStarPlayhouse-ManInTheBox",
+          "seasonNumber": 1,
+          "episodeNumber": 12,
+          "title": "The Man in the Box",
+          "overview": "Theater-goers are surprised to see actor Victor Sherman at the play, considering what happened a year earlier. As the play proceeds, the man in the box imagines himself playing each of the characters in the drama being performed onstage.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/421/1054693.jpg",
+          "airDate": "1953-02-26",
+          "year": 1953,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "FourStarPlayhouse-maninthebox.mp4",
+            "format": "h.264",
+            "sizeBytes": 156058807,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FourStarPlayhouse-ManInTheBox/FourStarPlayhouse-maninthebox.mp4"
+        },
+        {
           "archiveID": "FourStarPlayhouseNoIdentity",
           "seasonNumber": 1,
           "episodeNumber": 13,
@@ -216,6 +252,24 @@
           "downloadURL": "https://archive.org/download/FourStarPlayhouseNightRide/FourStarPlayhouse-NightRide.mp4"
         },
         {
+          "archiveID": "FourStarPlayhouse-LadiesOnHisMind",
+          "seasonNumber": 1,
+          "episodeNumber": 17,
+          "title": "The Ladies On His Mind",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/421/1054693.jpg",
+          "airDate": "1953-05-21",
+          "year": 1953,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "FourStarPlayhouse-Ladiesonhismind.mp4",
+            "format": "h.264",
+            "sizeBytes": 158901067,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FourStarPlayhouse-LadiesOnHisMind/FourStarPlayhouse-Ladiesonhismind.mp4"
+        },
+        {
           "archiveID": "FourStarPlayhouseShadowed",
           "seasonNumber": 1,
           "episodeNumber": 19,
@@ -255,6 +309,24 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/FourStarPlayhouseFinale/FourStarPlayhouse-Finale.mp4"
+        },
+        {
+          "archiveID": "fourStarPlayhouse-TheSqueeze",
+          "seasonNumber": 2,
+          "episodeNumber": 2,
+          "title": "The Squeeze",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/421/1054693.jpg",
+          "airDate": "1953-10-01",
+          "year": 1953,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "FourStarPlayhouse-TheSqueeze1953.mp4",
+            "format": "h.264",
+            "sizeBytes": 159879955,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/fourStarPlayhouse-TheSqueeze/FourStarPlayhouse-TheSqueeze1953.mp4"
         },
         {
           "archiveID": "Four_Star_Playhouse--The_Trial",
@@ -345,6 +417,24 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/FourStarPlayhouseForArtsSake/Four%20Star%20Playhouse%20-%20For%20Art%27s%20Sake.mp4"
+        },
+        {
+          "archiveID": "girlontheparkbench",
+          "seasonNumber": 2,
+          "episodeNumber": 11,
+          "title": "The Girl On The Park Bench",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/421/1054693.jpg",
+          "airDate": "1953-12-03",
+          "year": 1953,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "girlontheparkbench.mp4",
+            "format": "h.264",
+            "sizeBytes": 155386528,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/girlontheparkbench/girlontheparkbench.mp4"
         },
         {
           "archiveID": "FourStarPlayhouseTheRoom",
@@ -473,6 +563,24 @@
           "downloadURL": "https://archive.org/download/TheGun1954/FourStarPlayhouse-TheGun.mp4"
         },
         {
+          "archiveID": "TheBomb-FourStarPlayhouse",
+          "seasonNumber": 2,
+          "episodeNumber": 22,
+          "title": "The Bomb",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/421/1054693.jpg",
+          "airDate": "1954-02-18",
+          "year": 1954,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "thebombfourstarplayhouse.mp4",
+            "format": "h.264",
+            "sizeBytes": 156391623,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/TheBomb-FourStarPlayhouse/thebombfourstarplayhouse.mp4"
+        },
+        {
           "archiveID": "FourStarPlayhouseDetectivesHoliday",
           "seasonNumber": 2,
           "episodeNumber": 24,
@@ -563,6 +671,24 @@
           "downloadURL": "https://archive.org/download/FourStarPlayhouseAStudyInPanic/Four%20Star%20Playhouse%20-%20A%20Study%20in%20Panic.mp4"
         },
         {
+          "archiveID": "FourStarPlayhouseMasquerade",
+          "seasonNumber": 2,
+          "episodeNumber": 29,
+          "title": "Masquerade",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/421/1054693.jpg",
+          "airDate": "1954-04-15",
+          "year": 1954,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "fourstarplayhouse-masquerade.mp4",
+            "format": "h.264",
+            "sizeBytes": 158240000,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FourStarPlayhouseMasquerade/fourstarplayhouse-masquerade.mp4"
+        },
+        {
           "archiveID": "FourStarPlayhouseVillageInTheCity",
           "seasonNumber": 2,
           "episodeNumber": 30,
@@ -640,6 +766,24 @@
           "downloadURL": "https://archive.org/download/FourStarPlayhouseNeverExplain/FourStarPlayhouse-NeverExplain.mp4"
         },
         {
+          "archiveID": "fourstarplayhouse-thewallet",
+          "seasonNumber": 3,
+          "episodeNumber": 4,
+          "title": "The Wallet",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/421/1054693.jpg",
+          "airDate": "1954-10-21",
+          "year": 1954,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "fourstarplayhouse-thewallet.mp4",
+            "format": "h.264",
+            "sizeBytes": 158841738,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/fourstarplayhouse-thewallet/fourstarplayhouse-thewallet.mp4"
+        },
+        {
           "archiveID": "TheContest1954",
           "seasonNumber": 3,
           "episodeNumber": 6,
@@ -674,6 +818,24 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/FourStarPlayhouseVoteOfConfidence/Four%20Star%20Playhouse%20-%20Vote%20of%20Confidence.mp4"
+        },
+        {
+          "archiveID": "fourstarplayhouse-myowndeardragon",
+          "seasonNumber": 3,
+          "episodeNumber": 8,
+          "title": "My Own Dear Dragon",
+          "overview": null,
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/421/1054693.jpg",
+          "airDate": "1954-11-18",
+          "year": 1954,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "fourstarplayhouse-myowndeardragon.mp4",
+            "format": "h.264",
+            "sizeBytes": 159020997,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/fourstarplayhouse-myowndeardragon/fourstarplayhouse-myowndeardragon.mp4"
         },
         {
           "archiveID": "FourStarPlayhouseMeetalonelyman",
@@ -802,6 +964,42 @@
           "downloadURL": "https://archive.org/download/FourStarPlayhouseAKissForMr.Lincoln/Four%20Star%20Playhouse%20-%20A%20Kiss%20for%20Mr.%20Lincoln.mp4"
         },
         {
+          "archiveID": "fourstarplayhouse-fairtrial",
+          "seasonNumber": 3,
+          "episodeNumber": 20,
+          "title": "Fair Trial",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1955-02-10",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "fourstarplayhouse-fairtrial.mp4",
+            "format": "h.264",
+            "sizeBytes": 159827545,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/fourstarplayhouse-fairtrial/fourstarplayhouse-fairtrial.mp4"
+        },
+        {
+          "archiveID": "FourStarPlayhouse-TheWildBunch",
+          "seasonNumber": 3,
+          "episodeNumber": 21,
+          "title": "The Wild Bunch",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1955-02-17",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "fourstarplayhouse-wildbunch.mp4",
+            "format": "h.264",
+            "sizeBytes": 159516244,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FourStarPlayhouse-TheWildBunch/fourstarplayhouse-wildbunch.mp4"
+        },
+        {
           "archiveID": "FourStarPlayhouseTusitala",
           "seasonNumber": 3,
           "episodeNumber": 22,
@@ -818,6 +1016,24 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/FourStarPlayhouseTusitala/Four%20Star%20Playhouse%20-%20Tusitala.mp4"
+        },
+        {
+          "archiveID": "FourStarPlayhouse-EddiesPlace",
+          "seasonNumber": 3,
+          "episodeNumber": 24,
+          "title": "Eddie`s Place",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1955-03-10",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "fourstarplayhouse-eddiesplace.mp4",
+            "format": "h.264",
+            "sizeBytes": 156282407,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FourStarPlayhouse-EddiesPlace/fourstarplayhouse-eddiesplace.mp4"
         },
         {
           "archiveID": "FourStarPlayhouseHenryAndThePsychopathicHorse",
@@ -874,6 +1090,24 @@
           "downloadURL": "https://archive.org/download/FourStarPlayhouseTheCollar/Four%20Star%20Playhouse%20-%20The%20Collar.mp4"
         },
         {
+          "archiveID": "fourStarPlayhouse-WithAllMyHeart",
+          "seasonNumber": 3,
+          "episodeNumber": 30,
+          "title": "With All My Heart",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1955-04-21",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "fourstarplayhouse-withallmyheart.mp4",
+            "format": "h.264",
+            "sizeBytes": 158370194,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/fourStarPlayhouse-WithAllMyHeart/fourstarplayhouse-withallmyheart.mp4"
+        },
+        {
           "archiveID": "fourStarPlayhouse-TheHouseAlwaysWins",
           "seasonNumber": 3,
           "episodeNumber": 31,
@@ -908,6 +1142,24 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/unclefredflitsby/unclefredflitsby.mp4"
+        },
+        {
+          "archiveID": "FourStarPlayhouse-AliasMrHepp",
+          "seasonNumber": 3,
+          "episodeNumber": 33,
+          "title": "Alias Mr. Hepp",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1955-05-12",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "fourstarplayhouse-aliasmrhepp.mp4",
+            "format": "h.264",
+            "sizeBytes": 158561411,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FourStarPlayhouse-AliasMrHepp/fourstarplayhouse-aliasmrhepp.mp4"
         },
         {
           "archiveID": "FourStarPlayhouseTrudy",
@@ -986,6 +1238,42 @@
     {
       "seasonNumber": 4,
       "episodes": [
+        {
+          "archiveID": "fourstarplayhouse-thefiringsquad",
+          "seasonNumber": 4,
+          "episodeNumber": 1,
+          "title": "The Firing Squad",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1955-10-06",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "fourstarplayhouse-thefiringsquad.mp4",
+            "format": "h.264",
+            "sizeBytes": 153780200,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/fourstarplayhouse-thefiringsquad/fourstarplayhouse-thefiringsquad.mp4"
+        },
+        {
+          "archiveID": "FourStarPlayhouse-TheFaceOfDanger",
+          "seasonNumber": 4,
+          "episodeNumber": 2,
+          "title": "The Face of Danger",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1955-10-13",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "fourstarplayhouse-faceofdanger.mp4",
+            "format": "h.264",
+            "sizeBytes": 154856473,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FourStarPlayhouse-TheFaceOfDanger/fourstarplayhouse-faceofdanger.mp4"
+        },
         {
           "archiveID": "FourStarPlayhouseLetTheChipsFall",
           "seasonNumber": 4,
@@ -1167,6 +1455,24 @@
           "downloadURL": "https://archive.org/download/fourStarPlayhouse-HighStakes/FourStarPlayhouse-HighStakes.mp4"
         },
         {
+          "archiveID": "FourStarPlayhouse-TheListener",
+          "seasonNumber": 4,
+          "episodeNumber": 16,
+          "title": "The Listener",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1956-02-02",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "fourstarplayhouse-thelistener.mp4",
+            "format": "h.264",
+            "sizeBytes": 156471047,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FourStarPlayhouse-TheListener/fourstarplayhouse-thelistener.mp4"
+        },
+        {
           "archiveID": "FourStarPlayhouseSafeKeeping",
           "seasonNumber": 4,
           "episodeNumber": 17,
@@ -1221,6 +1527,24 @@
           "downloadURL": "https://archive.org/download/RedWineFourStarPlayhouse/FourStarPlayhouse-RedWine.mp4"
         },
         {
+          "archiveID": "fourstarplayhouse-todieatmidnight",
+          "seasonNumber": 4,
+          "episodeNumber": 22,
+          "title": "To Die at Midnight",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1956-03-15",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "fourstarplayhouse-todieatmidnight.mp4",
+            "format": "h.264",
+            "sizeBytes": 155258247,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/fourstarplayhouse-todieatmidnight/fourstarplayhouse-todieatmidnight.mp4"
+        },
+        {
           "archiveID": "FourStarPlayhouseDesertencounter",
           "seasonNumber": 4,
           "episodeNumber": 23,
@@ -1237,6 +1561,24 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/FourStarPlayhouseDesertencounter/FourStarPlayhouse-desertencounter.mp4"
+        },
+        {
+          "archiveID": "FourStarPlayhouseTheStoryOfEmilyCameron",
+          "seasonNumber": 4,
+          "episodeNumber": 24,
+          "title": "The Case of Emily Cameron",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1956-03-29",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Four Star Playhouse - The Story of Emily Cameron.mp4",
+            "format": "h.264",
+            "sizeBytes": 154910524,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FourStarPlayhouseTheStoryOfEmilyCameron/Four%20Star%20Playhouse%20-%20The%20Story%20of%20Emily%20Cameron.mp4"
         },
         {
           "archiveID": "FourStarPlayhouseAutumnCarousel",
@@ -1293,6 +1635,24 @@
           "downloadURL": "https://archive.org/download/Four_Star--Long_Way_from_Texas/FourStar--Long_Way_from_Texas.mp4"
         },
         {
+          "archiveID": "FourStarPlayhouse-TheOtherRoom",
+          "seasonNumber": 4,
+          "episodeNumber": 31,
+          "title": "The Other Room",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1956-05-17",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "fourstarplayhouse-theotherroom.mp4",
+            "format": "h.264",
+            "sizeBytes": 156079326,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FourStarPlayhouse-TheOtherRoom/fourstarplayhouse-theotherroom.mp4"
+        },
+        {
           "archiveID": "one-forty-two",
           "seasonNumber": 4,
           "episodeNumber": 32,
@@ -1347,6 +1707,42 @@
           "downloadURL": "https://archive.org/download/FourStarPlayhouseSecondChance/Four%20Star%20Playhouse%20-%20Second%20Chance.mp4"
         },
         {
+          "archiveID": "fourStarPlayhouse-TheStackedDeck",
+          "seasonNumber": 4,
+          "episodeNumber": 37,
+          "title": "The Stacked Deck",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1956-06-28",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "FourStarPlayhouse-TheStackedDeck1956.mp4",
+            "format": "h.264",
+            "sizeBytes": 156323557,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/fourStarPlayhouse-TheStackedDeck/FourStarPlayhouse-TheStackedDeck1956.mp4"
+        },
+        {
+          "archiveID": "FourStarPlayhouse-DistinguishedService",
+          "seasonNumber": 4,
+          "episodeNumber": 38,
+          "title": "Distinguished Service",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1956-07-05",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "fourstarplayhouse-distinguishedservice.mp4",
+            "format": "h.264",
+            "sizeBytes": 151279249,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FourStarPlayhouse-DistinguishedService/fourstarplayhouse-distinguishedservice.mp4"
+        },
+        {
           "archiveID": "yellowbelly",
           "seasonNumber": 4,
           "episodeNumber": 39,
@@ -1363,6 +1759,24 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/yellowbelly/yellowbelly.mp4"
+        },
+        {
+          "archiveID": "FourStarPlayhouse-TheStand-in",
+          "seasonNumber": 4,
+          "episodeNumber": 40,
+          "title": "The Stand-In",
+          "overview": null,
+          "stillURL": null,
+          "airDate": "1956-07-19",
+          "year": 1956,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "fourstarplayhouse-standin.mp4",
+            "format": "h.264",
+            "sizeBytes": 155975226,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FourStarPlayhouse-TheStand-in/fourstarplayhouse-standin.mp4"
         },
         {
           "archiveID": "FourStarPlayhouseSomethingVerySpecial",
@@ -1388,114 +1802,6 @@
       "seasonNumber": null,
       "episodes": [
         {
-          "archiveID": "FourStarPlayhouse-AliasMrHepp",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Alias Mr Hepp",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1955,
-          "runtimeSeconds": 1526,
-          "videoFile": {
-            "name": "fourstarplayhouse-aliasmrhepp.mp4",
-            "format": "h.264",
-            "sizeBytes": 158561411,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/FourStarPlayhouse-AliasMrHepp/fourstarplayhouse-aliasmrhepp.mp4"
-        },
-        {
-          "archiveID": "FourStarPlayhouse-DistinguishedService",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Distinguished Service",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1956,
-          "runtimeSeconds": 1456,
-          "videoFile": {
-            "name": "fourstarplayhouse-distinguishedservice.mp4",
-            "format": "h.264",
-            "sizeBytes": 151279249,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/FourStarPlayhouse-DistinguishedService/fourstarplayhouse-distinguishedservice.mp4"
-        },
-        {
-          "archiveID": "FourStarPlayhouse-EddiesPlace",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Eddie's Place",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1955,
-          "runtimeSeconds": 1505,
-          "videoFile": {
-            "name": "fourstarplayhouse-eddiesplace.mp4",
-            "format": "h.264",
-            "sizeBytes": 156282407,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/FourStarPlayhouse-EddiesPlace/fourstarplayhouse-eddiesplace.mp4"
-        },
-        {
-          "archiveID": "fourstarplayhouse-fairtrial",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Fair Trial",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1955,
-          "runtimeSeconds": 1537,
-          "videoFile": {
-            "name": "fourstarplayhouse-fairtrial.mp4",
-            "format": "h.264",
-            "sizeBytes": 159827545,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/fourstarplayhouse-fairtrial/fourstarplayhouse-fairtrial.mp4"
-        },
-        {
-          "archiveID": "FourStarPlayhouse-LadiesOnHisMind",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Ladies on his Mind",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/421/1054693.jpg",
-          "airDate": null,
-          "year": 1953,
-          "runtimeSeconds": 1525,
-          "videoFile": {
-            "name": "FourStarPlayhouse-Ladiesonhismind.mp4",
-            "format": "h.264",
-            "sizeBytes": 158901067,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/FourStarPlayhouse-LadiesOnHisMind/FourStarPlayhouse-Ladiesonhismind.mp4"
-        },
-        {
-          "archiveID": "FourStarPlayhouseMasquerade",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Masquerade",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/421/1054693.jpg",
-          "airDate": null,
-          "year": 1954,
-          "runtimeSeconds": 1520,
-          "videoFile": {
-            "name": "fourstarplayhouse-masquerade.mp4",
-            "format": "h.264",
-            "sizeBytes": 158240000,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/FourStarPlayhouseMasquerade/fourstarplayhouse-masquerade.mp4"
-        },
-        {
           "archiveID": "MeetMcGraw",
           "seasonNumber": null,
           "episodeNumber": null,
@@ -1512,24 +1818,6 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/MeetMcGraw/meetmcgraw1954.mp4"
-        },
-        {
-          "archiveID": "fourstarplayhouse-myowndeardragon",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "My Own Dear Dragon",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/421/1054693.jpg",
-          "airDate": null,
-          "year": 1954,
-          "runtimeSeconds": 1528,
-          "videoFile": {
-            "name": "fourstarplayhouse-myowndeardragon.mp4",
-            "format": "h.264",
-            "sizeBytes": 159020997,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/fourstarplayhouse-myowndeardragon/fourstarplayhouse-myowndeardragon.mp4"
         },
         {
           "archiveID": "FourStarPlayhouseSearchInTheNight",
@@ -1550,276 +1838,6 @@
           "downloadURL": "https://archive.org/download/FourStarPlayhouseSearchInTheNight/FourStarPlayhouse-SearchInTheNight.mp4"
         },
         {
-          "archiveID": "FourStarPlayhouse-SoundOffMyLove",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Sound Off My Love",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/421/1054693.jpg",
-          "airDate": null,
-          "year": 1953,
-          "runtimeSeconds": 1524,
-          "videoFile": {
-            "name": "FourStar-SoundOff.mp4",
-            "format": "h.264",
-            "sizeBytes": 158036673,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/FourStarPlayhouse-SoundOffMyLove/FourStar-SoundOff.mp4"
-        },
-        {
-          "archiveID": "TheBomb-FourStarPlayhouse",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Bomb",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/421/1054693.jpg",
-          "airDate": null,
-          "year": 1954,
-          "runtimeSeconds": 1493,
-          "videoFile": {
-            "name": "thebombfourstarplayhouse.mp4",
-            "format": "h.264",
-            "sizeBytes": 156391623,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/TheBomb-FourStarPlayhouse/thebombfourstarplayhouse.mp4"
-        },
-        {
-          "archiveID": "FourStarPlayhouse-TheFaceOfDanger",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Face of Danger",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1955,
-          "runtimeSeconds": 1490,
-          "videoFile": {
-            "name": "fourstarplayhouse-faceofdanger.mp4",
-            "format": "h.264",
-            "sizeBytes": 154856473,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/FourStarPlayhouse-TheFaceOfDanger/fourstarplayhouse-faceofdanger.mp4"
-        },
-        {
-          "archiveID": "fourstarplayhouse-thefiringsquad",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Firing Squad",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1955,
-          "runtimeSeconds": 1476,
-          "videoFile": {
-            "name": "fourstarplayhouse-thefiringsquad.mp4",
-            "format": "h.264",
-            "sizeBytes": 153780200,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/fourstarplayhouse-thefiringsquad/fourstarplayhouse-thefiringsquad.mp4"
-        },
-        {
-          "archiveID": "girlontheparkbench",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Girl on the Park Bench",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/421/1054693.jpg",
-          "airDate": null,
-          "year": 1953,
-          "runtimeSeconds": 1491,
-          "videoFile": {
-            "name": "girlontheparkbench.mp4",
-            "format": "h.264",
-            "sizeBytes": 155386528,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/girlontheparkbench/girlontheparkbench.mp4"
-        },
-        {
-          "archiveID": "FourStarPlayhouse-TheListener",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Listener",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1956,
-          "runtimeSeconds": 1505,
-          "videoFile": {
-            "name": "fourstarplayhouse-thelistener.mp4",
-            "format": "h.264",
-            "sizeBytes": 156471047,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/FourStarPlayhouse-TheListener/fourstarplayhouse-thelistener.mp4"
-        },
-        {
-          "archiveID": "FourStarPlayhouse-ManInTheBox",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Man in the Box",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/421/1054693.jpg",
-          "airDate": null,
-          "year": 1953,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "FourStarPlayhouse-maninthebox.mp4",
-            "format": "h.264",
-            "sizeBytes": 156058807,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/FourStarPlayhouse-ManInTheBox/FourStarPlayhouse-maninthebox.mp4"
-        },
-        {
-          "archiveID": "FourStarPlayhouse-TheOtherRoom",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Other Room",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1956,
-          "runtimeSeconds": 1499,
-          "videoFile": {
-            "name": "fourstarplayhouse-theotherroom.mp4",
-            "format": "h.264",
-            "sizeBytes": 156079326,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/FourStarPlayhouse-TheOtherRoom/fourstarplayhouse-theotherroom.mp4"
-        },
-        {
-          "archiveID": "fourStarPlayhouse-TheSqueeze",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Squeeze",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/421/1054693.jpg",
-          "airDate": null,
-          "year": 1953,
-          "runtimeSeconds": 1540,
-          "videoFile": {
-            "name": "FourStarPlayhouse-TheSqueeze1953.mp4",
-            "format": "h.264",
-            "sizeBytes": 159879955,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/fourStarPlayhouse-TheSqueeze/FourStarPlayhouse-TheSqueeze1953.mp4"
-        },
-        {
-          "archiveID": "fourStarPlayhouse-TheStackedDeck",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Stacked Deck",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1956,
-          "runtimeSeconds": 1508,
-          "videoFile": {
-            "name": "FourStarPlayhouse-TheStackedDeck1956.mp4",
-            "format": "h.264",
-            "sizeBytes": 156323557,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/fourStarPlayhouse-TheStackedDeck/FourStarPlayhouse-TheStackedDeck1956.mp4"
-        },
-        {
-          "archiveID": "FourStarPlayhouse-TheStand-in",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Stand-In",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1956,
-          "runtimeSeconds": 1498,
-          "videoFile": {
-            "name": "fourstarplayhouse-standin.mp4",
-            "format": "h.264",
-            "sizeBytes": 155975226,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/FourStarPlayhouse-TheStand-in/fourstarplayhouse-standin.mp4"
-        },
-        {
-          "archiveID": "FourStarPlayhouseTheStoryOfEmilyCameron",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Story Of Emily Cameron",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1956,
-          "runtimeSeconds": 1487,
-          "videoFile": {
-            "name": "Four Star Playhouse - The Story of Emily Cameron.mp4",
-            "format": "h.264",
-            "sizeBytes": 154910524,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/FourStarPlayhouseTheStoryOfEmilyCameron/Four%20Star%20Playhouse%20-%20The%20Story%20of%20Emily%20Cameron.mp4"
-        },
-        {
-          "archiveID": "fourstarplayhouse-thewallet",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Wallet",
-          "overview": null,
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/421/1054693.jpg",
-          "airDate": null,
-          "year": 1954,
-          "runtimeSeconds": 1524,
-          "videoFile": {
-            "name": "fourstarplayhouse-thewallet.mp4",
-            "format": "h.264",
-            "sizeBytes": 158841738,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/fourstarplayhouse-thewallet/fourstarplayhouse-thewallet.mp4"
-        },
-        {
-          "archiveID": "FourStarPlayhouse-TheWildBunch",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Wild Bunch",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1955,
-          "runtimeSeconds": 1525,
-          "videoFile": {
-            "name": "fourstarplayhouse-wildbunch.mp4",
-            "format": "h.264",
-            "sizeBytes": 159516244,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/FourStarPlayhouse-TheWildBunch/fourstarplayhouse-wildbunch.mp4"
-        },
-        {
-          "archiveID": "fourstarplayhouse-todieatmidnight",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "To Die at Midnight",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1956,
-          "runtimeSeconds": 1489,
-          "videoFile": {
-            "name": "fourstarplayhouse-todieatmidnight.mp4",
-            "format": "h.264",
-            "sizeBytes": 155258247,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/fourstarplayhouse-todieatmidnight/fourstarplayhouse-todieatmidnight.mp4"
-        },
-        {
           "archiveID": "ToWhomItMayConcern1953",
           "seasonNumber": null,
           "episodeNumber": null,
@@ -1836,30 +1854,13 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/ToWhomItMayConcern1953/ToWhomItMayConcern1953.mp4"
-        },
-        {
-          "archiveID": "fourStarPlayhouse-WithAllMyHeart",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "With All My Heart",
-          "overview": null,
-          "stillURL": null,
-          "airDate": null,
-          "year": 1955,
-          "runtimeSeconds": 1520,
-          "videoFile": {
-            "name": "fourstarplayhouse-withallmyheart.mp4",
-            "format": "h.264",
-            "sizeBytes": 158370194,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/fourStarPlayhouse-WithAllMyHeart/fourstarplayhouse-withallmyheart.mp4"
         }
       ]
     }
   ],
   "episodesCount": 101,
   "canonicalEpisodesCount": 130,
+  "tvmazeRating": null,
   "tvdbID": "76740",
   "artworkSource": "tvdb",
   "cast": [

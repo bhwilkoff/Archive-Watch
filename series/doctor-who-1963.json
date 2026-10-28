@@ -288,52 +288,6 @@
       ]
     },
     {
-      "seasonNumber": 3,
-      "episodes": [
-        {
-          "archiveID": "doctorwho_s03_v2",
-          "seasonNumber": 3,
-          "episodeNumber": 2,
-          "title": "season 3 doctor 1/Doctor Who - S03E02 - Mission to the Unknown - Parts 1-1/Doctor Who - S03E02 Bonus - Mission to the Unknown Reunion",
-          "overview": "Missing episode -animated recreation released by BBC.The Doctor, Vicki and Steven arrive on an arid planet where they meet the beautiful Drahvins and the hideous Rills. Each has crash-landed after a confrontation in space. The Rills are friendly, compassionate explorers. The Drahvins are dull-witted, cloned soldiers, terrorised by the intelligent, warlike matriarch Maaga.Both ships are damaged. The Drahvins' craft is irreparable, but the Rills' is almost ready to take off. Although unable to breathe the oxygen atmosphere, they employ efficient robot drones, which Vicki nicknames \"Chumblies\". Despite numerous offers by the Rills to take Maaga and her crew to safety, she refuses their aid. When the planet is discovered to be on the point of disintegration, Maaga tries to force the time travellers to help her steal the Rills' ship and kill the Rills. Instead, the Doctor allows the Rills to draw power from the TARDIS to refuel and escape, leaving the Drahvins to their fate.",
-          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/22/56269.jpg",
-          "airDate": null,
-          "year": 1965,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "season 3 doctor 1/Doctor Who - S03E02 (019) - Mission to the Unknown - Parts 1-1/Doctor Who - S03E02 (019) Bonus - Mission to the Unknown Reunion.mp4",
-            "format": "h.264",
-            "sizeBytes": 442947947,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/doctorwho_s03_v2/season%203%20doctor%201/Doctor%20Who%20-%20S03E02%20%28019%29%20-%20Mission%20to%20the%20Unknown%20-%20Parts%201-1/Doctor%20Who%20-%20S03E02%20%28019%29%20Bonus%20-%20Mission%20to%20the%20Unknown%20Reunion.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": 4,
-      "episodes": [
-        {
-          "archiveID": "doctorwho_s04",
-          "seasonNumber": 4,
-          "episodeNumber": 4,
-          "title": "season 4 doctor 1,2/Doctor Who - S04E04 - The Highlanders - Parts 1-4/Doctor Who - S04E04 Bonus - Interview with actor Michael Elwyn",
-          "overview": "The Doctor and his friends are at the mercy of Cherub, who is now seeking Avery's treasure for himself, while Pike prepares to attack the village.",
-          "stillURL": "https://image.tmdb.org/t/p/w500/w8enSKCf6Zm0topeQ2XPccDqsqp.jpg",
-          "airDate": null,
-          "year": 1966,
-          "runtimeSeconds": 1500,
-          "videoFile": {
-            "name": "season 4 doctor 1,2/Doctor Who - S04E04 (031) - The Highlanders - Parts 1-4/Doctor Who - S04E04 (031) Bonus - Interview with actor Michael Elwyn.mp4",
-            "format": "h.264",
-            "sizeBytes": 310015895,
-            "tier": 1
-          },
-          "downloadURL": "https://archive.org/download/doctorwho_s04/season%204%20doctor%201%2C2/Doctor%20Who%20-%20S04E04%20%28031%29%20-%20The%20Highlanders%20-%20Parts%201-4/Doctor%20Who%20-%20S04E04%20%28031%29%20Bonus%20-%20Interview%20with%20actor%20Michael%20Elwyn.mp4"
-        }
-      ]
-    },
-    {
       "seasonNumber": 7,
       "episodes": [
         {
@@ -646,24 +600,6 @@
       "seasonNumber": null,
       "episodes": [
         {
-          "archiveID": "the-daleks-master-plan-episodes-2-5-10",
-          "seasonNumber": null,
-          "episodeNumber": 2,
-          "title": "Episode 2 - Day of Armageddeon",
-          "overview": "The enigmatic Doctor, afraid that schoolteachers Ian Chesterton and Barbara Wright will reveal his secrets to the people of 20th century Earth, has taken them and his granddaughter Susan back to the dawn of human history. There, the four travellers are dragged into the savage politics of a tribe of cavemen who have lost the secret of making fire…",
-          "stillURL": "https://image.tmdb.org/t/p/w300/svg8CUTdkVVNqaJKWp6vd999ahO.jpg",
-          "airDate": null,
-          "year": 1965,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Episode 2 - Day of Armageddeon.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 478818077,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/the-daleks-master-plan-episodes-2-5-10/Episode%202%20-%20Day%20of%20Armageddeon.ia.mp4"
-        },
-        {
           "archiveID": "doctor-who-the-web-of-fear@e03",
           "sourceID": "doctor-who-the-web-of-fear",
           "seasonNumber": null,
@@ -681,12 +617,67 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/doctor-who-the-web-of-fear/Episode%203%20%5BANIMATED%5D.ia.mp4"
+        },
+        {
+          "archiveID": "the-daleks-master-plan-episodes-2-5-10",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Episode 2 - Day of Armageddeon",
+          "overview": "The enigmatic Doctor, afraid that schoolteachers Ian Chesterton and Barbara Wright will reveal his secrets to the people of 20th century Earth, has taken them and his granddaughter Susan back to the dawn of human history. There, the four travellers are dragged into the savage politics of a tribe of cavemen who have lost the secret of making fire…",
+          "stillURL": "https://image.tmdb.org/t/p/w300/svg8CUTdkVVNqaJKWp6vd999ahO.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": null,
+          "videoFile": {
+            "name": "Episode 2 - Day of Armageddeon.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 478818077,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/the-daleks-master-plan-episodes-2-5-10/Episode%202%20-%20Day%20of%20Armageddeon.ia.mp4"
+        },
+        {
+          "archiveID": "doctorwho_s03_v2",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "season 3 doctor 1/Doctor Who - S03E02 - Mission to the Unknown - Parts 1-1/Doctor Who - S03E02 Bonus - Mission to the Unknown Reunion",
+          "overview": "Missing episode -animated recreation released by BBC.The Doctor, Vicki and Steven arrive on an arid planet where they meet the beautiful Drahvins and the hideous Rills. Each has crash-landed after a confrontation in space. The Rills are friendly, compassionate explorers. The Drahvins are dull-witted, cloned soldiers, terrorised by the intelligent, warlike matriarch Maaga.Both ships are damaged. The Drahvins' craft is irreparable, but the Rills' is almost ready to take off. Although unable to breathe the oxygen atmosphere, they employ efficient robot drones, which Vicki nicknames \"Chumblies\". Despite numerous offers by the Rills to take Maaga and her crew to safety, she refuses their aid. When the planet is discovered to be on the point of disintegration, Maaga tries to force the time travellers to help her steal the Rills' ship and kill the Rills. Instead, the Doctor allows the Rills to draw power from the TARDIS to refuel and escape, leaving the Drahvins to their fate.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/22/56269.jpg",
+          "airDate": null,
+          "year": 1965,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "season 3 doctor 1/Doctor Who - S03E02 (019) - Mission to the Unknown - Parts 1-1/Doctor Who - S03E02 (019) Bonus - Mission to the Unknown Reunion.mp4",
+            "format": "h.264",
+            "sizeBytes": 442947947,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/doctorwho_s03_v2/season%203%20doctor%201/Doctor%20Who%20-%20S03E02%20%28019%29%20-%20Mission%20to%20the%20Unknown%20-%20Parts%201-1/Doctor%20Who%20-%20S03E02%20%28019%29%20Bonus%20-%20Mission%20to%20the%20Unknown%20Reunion.mp4"
+        },
+        {
+          "archiveID": "doctorwho_s04",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "season 4 doctor 1,2/Doctor Who - S04E04 - The Highlanders - Parts 1-4/Doctor Who - S04E04 Bonus - Interview with actor Michael Elwyn",
+          "overview": "The Doctor and his friends are at the mercy of Cherub, who is now seeking Avery's treasure for himself, while Pike prepares to attack the village.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/w8enSKCf6Zm0topeQ2XPccDqsqp.jpg",
+          "airDate": null,
+          "year": 1966,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "season 4 doctor 1,2/Doctor Who - S04E04 (031) - The Highlanders - Parts 1-4/Doctor Who - S04E04 (031) Bonus - Interview with actor Michael Elwyn.mp4",
+            "format": "h.264",
+            "sizeBytes": 310015895,
+            "tier": 1
+          },
+          "downloadURL": "https://archive.org/download/doctorwho_s04/season%204%20doctor%201%2C2/Doctor%20Who%20-%20S04E04%20%28031%29%20-%20The%20Highlanders%20-%20Parts%201-4/Doctor%20Who%20-%20S04E04%20%28031%29%20Bonus%20-%20Interview%20with%20actor%20Michael%20Elwyn.mp4"
         }
       ]
     }
   ],
   "episodesCount": 34,
   "canonicalEpisodesCount": 700,
+  "tvmazeRating": 8.4,
   "tvdbID": "76107",
   "artworkSource": "tvdb",
   "cast": [

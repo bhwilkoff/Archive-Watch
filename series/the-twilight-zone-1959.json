@@ -1780,7 +1780,8 @@
           "downloadURL": "https://archive.org/download/the-twilight-zone-s-3e-1-colorized-720p-hd/the%20twilight%20zone-s3e26-colorized-720p-hd.mp4"
         },
         {
-          "archiveID": "tz_promos_s3_1961-62",
+          "archiveID": "the-twilight-zone-s-3e-1-colorized-720p-hd@s3e27",
+          "sourceID": "the-twilight-zone-s-3e-1-colorized-720p-hd",
           "seasonNumber": 3,
           "episodeNumber": 27,
           "title": "Person or Persons Unknown",
@@ -1790,12 +1791,12 @@
           "year": 1962,
           "runtimeSeconds": 1800,
           "videoFile": {
-            "name": "Twilight Zone promo (S3E27 Person Or Persons Unknown).mp4",
+            "name": "the twilight zone-s3e27-colorized-720p-hd.mp4",
             "format": "h.264",
-            "sizeBytes": 4043000,
-            "tier": 2
+            "sizeBytes": 150361636,
+            "tier": 1
           },
-          "downloadURL": "https://archive.org/download/tz_promos_s3_1961-62/Twilight%20Zone%20promo%20%28S3E27%20Person%20Or%20Persons%20Unknown%29.mp4"
+          "downloadURL": "https://archive.org/download/the-twilight-zone-s-3e-1-colorized-720p-hd/the%20twilight%20zone-s3e27-colorized-720p-hd.mp4"
         },
         {
           "archiveID": "the-twilight-zone-s-3e-1-colorized-720p-hd@s3e28",
@@ -2337,16 +2338,16 @@
       ]
     },
     {
-      "seasonNumber": 5,
+      "seasonNumber": null,
       "episodes": [
         {
           "archiveID": "tz_promos_s5_1963-64",
-          "seasonNumber": 5,
-          "episodeNumber": 18,
-          "title": "Black Leather Jackets",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Promo: Black Leather Jackets",
           "overview": "A trio of aliens, dressed as \"hoodlums\" in black leather jackets, arrive in a small town, look to eradicate all life on Earth so their kind can expand on a new planet. However, one of the aliens falls in love with a local girl and is hesitant to go along with his friends' plans and ultimately tries to talk her into leaving town with him.",
           "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/308/772129.jpg",
-          "airDate": "1964-01-31",
+          "airDate": null,
           "year": 1964,
           "runtimeSeconds": 1800,
           "videoFile": {
@@ -2356,12 +2357,25 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/tz_promos_s5_1963-64/Twilight%20Zone%20promo%20%28S5E18%20Black%20Leather%20Jackets%29.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
+        },
+        {
+          "archiveID": "tz_promos_s3_1961-62",
+          "seasonNumber": null,
+          "episodeNumber": null,
+          "title": "Promo: Person or Persons Unknown",
+          "overview": "David Allen Gurney wakes up on morning and discovers that no one knows who he is and that he doesn't exist in the new world that he finds himself in.",
+          "stillURL": "https://static.tvmaze.com/uploads/images/original_untouched/308/772084.jpg",
+          "airDate": null,
+          "year": 1962,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Twilight Zone promo (S3E27 Person Or Persons Unknown).mp4",
+            "format": "h.264",
+            "sizeBytes": 4043000,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/tz_promos_s3_1961-62/Twilight%20Zone%20promo%20%28S3E27%20Person%20Or%20Persons%20Unknown%29.mp4"
+        },
         {
           "archiveID": "tz_promos_s4_1963",
           "seasonNumber": null,
@@ -2401,8 +2415,9 @@
       ]
     }
   ],
-  "episodesCount": 124,
+  "episodesCount": 125,
   "canonicalEpisodesCount": 156,
+  "tvmazeRating": 8.9,
   "tvdbID": "73587",
   "artworkSource": "tvdb",
   "cast": [

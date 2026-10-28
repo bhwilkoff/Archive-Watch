@@ -3882,23 +3882,22 @@
           "downloadURL": "https://archive.org/download/the-adventures-of-ozzie-and-harriet-the-complete-series/Season%2006/S06E27%20-%20The%20Record%20Trout.mp4"
         },
         {
-          "archiveID": "the-adventures-of-ozzie-and-harriet-the-complete-series@s6e28",
-          "sourceID": "the-adventures-of-ozzie-and-harriet-the-complete-series",
+          "archiveID": "OzzieandHarriet-Bachelor",
           "seasonNumber": 6,
           "episodeNumber": 28,
           "title": "The Bachelor",
           "overview": null,
-          "stillURL": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
           "airDate": "1958-04-16",
           "year": 1958,
           "runtimeSeconds": 1800,
           "videoFile": {
-            "name": "Season 06/S06E28 - The Bachelor.mp4",
-            "format": "MPEG4",
-            "sizeBytes": 515929031,
-            "tier": 1
+            "name": "ozziebachelor.mp4",
+            "format": "h.264",
+            "sizeBytes": 184440794,
+            "tier": 2
           },
-          "downloadURL": "https://archive.org/download/the-adventures-of-ozzie-and-harriet-the-complete-series/Season%2006/S06E28%20-%20The%20Bachelor.mp4"
+          "downloadURL": "https://archive.org/download/OzzieandHarriet-Bachelor/ozziebachelor.mp4"
         },
         {
           "archiveID": "the-adventures-of-ozzie-and-harriet-the-complete-series@s6e29",
@@ -8570,30 +8569,13 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/TheAdventuresOfOzzieAndHarriet_119/The-Adventures-of-Ozzie-and-Harriet-10-28-64.ia.mp4"
-        },
-        {
-          "archiveID": "OzzieandHarriet-Bachelor",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "The Bachelor",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/h9Kqsng08I3CtA5m2GVq52NVUIL.jpg",
-          "airDate": null,
-          "year": 1958,
-          "runtimeSeconds": 1760,
-          "videoFile": {
-            "name": "ozziebachelor.mp4",
-            "format": "h.264",
-            "sizeBytes": 184440794,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/OzzieandHarriet-Bachelor/ozziebachelor.mp4"
         }
       ]
     }
   ],
-  "episodesCount": 452,
+  "episodesCount": 451,
   "canonicalEpisodesCount": 435,
+  "tvmazeRating": null,
   "tvdbID": "71598",
   "artworkSource": "tvdb",
   "cast": [

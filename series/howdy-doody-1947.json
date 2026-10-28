@@ -779,7 +779,7 @@
           "archiveID": "HowdyDoodyForPresident",
           "seasonNumber": null,
           "episodeNumber": null,
-          "title": "Howdy Doody for President",
+          "title": "for President",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/7IhXgT22mmWp6zD1d0YoVuxXHj4.jpg",
           "airDate": null,
@@ -798,6 +798,7 @@
   ],
   "episodesCount": 43,
   "canonicalEpisodesCount": 21,
+  "tvmazeRating": null,
   "tvdbID": "72021",
   "artworkSource": "tvdb",
   "cast": [

@@ -39,6 +39,24 @@
           "downloadURL": "https://archive.org/download/DustysTrailTheresNothingLikeADame/Dusty%27s%20Trail%20There%27s%20Nothing%20Like%20A%20Dame.mp4"
         },
         {
+          "archiveID": "Dustys_Trail_4",
+          "seasonNumber": 1,
+          "episodeNumber": 3,
+          "title": "Horse of Another Color",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uuTwy8kWEA87IREkAMXrAf2lSnR.jpg",
+          "airDate": "1973-09-25",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Dustys_Trail_4.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 136108321,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Dustys_Trail_4/Dustys_Trail_4.ia.mp4"
+        },
+        {
           "archiveID": "DustysTrailTomahawkTerritory",
           "seasonNumber": 1,
           "episodeNumber": 8,
@@ -57,6 +75,24 @@
           "downloadURL": "https://archive.org/download/DustysTrailTomahawkTerritory/Dusty%27s%20Trail%20Tomahawk%20Territory.mp4"
         },
         {
+          "archiveID": "Dustys_Trail_3",
+          "seasonNumber": 1,
+          "episodeNumber": 11,
+          "title": "Here Come the Grooms",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/uuTwy8kWEA87IREkAMXrAf2lSnR.jpg",
+          "airDate": "1973-11-20",
+          "year": 1973,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "Dustys_Trail_3.ia.mp4",
+            "format": "h.264 IA",
+            "sizeBytes": 136184611,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/Dustys_Trail_3/Dustys_Trail_3.ia.mp4"
+        },
+        {
           "archiveID": "DustysTrailPhoneyExpress",
           "seasonNumber": 1,
           "episodeNumber": 19,
@@ -73,22 +109,17 @@
             "tier": 1
           },
           "downloadURL": "https://archive.org/download/DustysTrailPhoneyExpress/Dusty%27s%20Trail%20-%20Phoney%20Express.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
+        },
         {
           "archiveID": "Dusty_5",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Cavalry's Coming",
+          "seasonNumber": 1,
+          "episodeNumber": 23,
+          "title": "The Cavalry is Coming",
           "overview": null,
           "stillURL": "https://image.tmdb.org/t/p/w500/uuTwy8kWEA87IREkAMXrAf2lSnR.jpg",
-          "airDate": null,
-          "year": 1973,
-          "runtimeSeconds": null,
+          "airDate": "1974-02-26",
+          "year": 1974,
+          "runtimeSeconds": 1800,
           "videoFile": {
             "name": "Dustys_Trail_5.ia.mp4",
             "format": "h.264 IA",
@@ -96,48 +127,13 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/Dusty_5/Dustys_Trail_5.ia.mp4"
-        },
-        {
-          "archiveID": "Dustys_Trail_3",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Here Come the Grooms",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/uuTwy8kWEA87IREkAMXrAf2lSnR.jpg",
-          "airDate": null,
-          "year": 1973,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Dustys_Trail_3.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 136184611,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Dustys_Trail_3/Dustys_Trail_3.ia.mp4"
-        },
-        {
-          "archiveID": "Dustys_Trail_4",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Horse of Another Color",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/uuTwy8kWEA87IREkAMXrAf2lSnR.jpg",
-          "airDate": null,
-          "year": 1973,
-          "runtimeSeconds": null,
-          "videoFile": {
-            "name": "Dustys_Trail_4.ia.mp4",
-            "format": "h.264 IA",
-            "sizeBytes": 136108321,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/Dustys_Trail_4/Dustys_Trail_4.ia.mp4"
         }
       ]
     }
   ],
   "episodesCount": 6,
   "canonicalEpisodesCount": 26,
+  "tvmazeRating": null,
   "tvdbID": "72402",
   "artworkSource": "tvdb",
   "cast": [

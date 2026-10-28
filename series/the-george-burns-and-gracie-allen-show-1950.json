@@ -61,6 +61,24 @@
       "seasonNumber": 2,
       "episodes": [
         {
+          "archiveID": "GeorgeBurnsGracieAllen-Thanksgiving",
+          "seasonNumber": 2,
+          "episodeNumber": 5,
+          "title": "Thanksgiving",
+          "overview": "Gracie is having friends over for Thanksgiving dinner, including Harry Morton's business partner and his wife, Linda Lee. As it happens, a horse that Harry is betting on is also named Linda Lee, and Gracie gets the two \"Linda Lees\" confused.",
+          "stillURL": "https://image.tmdb.org/t/p/w500/kvCVEK1AeNTBbY5OREw2YdRa9bF.jpg",
+          "airDate": "1951-11-22",
+          "year": 1951,
+          "runtimeSeconds": 1500,
+          "videoFile": {
+            "name": "burnsallen-thanksgiving.mp4",
+            "format": "h.264",
+            "sizeBytes": 184086326,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/GeorgeBurnsGracieAllen-Thanksgiving/burnsallen-thanksgiving.mp4"
+        },
+        {
           "archiveID": "Burns-Allen-Show_S2E7_Christmas",
           "seasonNumber": 2,
           "episodeNumber": 7,
@@ -269,24 +287,6 @@
           "downloadURL": "https://archive.org/download/TheGeorgeBurnsAndGracieAllenShow-NewCoatssitcom1950s/BurnsAllenCoats.ia.mp4"
         },
         {
-          "archiveID": "GeorgeBurnsGracieAllen-Thanksgiving",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Thanksgiving",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/kvCVEK1AeNTBbY5OREw2YdRa9bF.jpg",
-          "airDate": null,
-          "year": 1951,
-          "runtimeSeconds": 1771,
-          "videoFile": {
-            "name": "burnsallen-thanksgiving.mp4",
-            "format": "h.264",
-            "sizeBytes": 184086326,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/GeorgeBurnsGracieAllen-Thanksgiving/burnsallen-thanksgiving.mp4"
-        },
-        {
           "archiveID": "DriversLicence",
           "seasonNumber": null,
           "episodeNumber": null,
@@ -309,6 +309,7 @@
   ],
   "episodesCount": 15,
   "canonicalEpisodesCount": 291,
+  "tvmazeRating": 7.6,
   "cast": [
     {
       "name": "Gracie Allen",

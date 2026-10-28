@@ -38,22 +38,17 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/matinee-theater-george-has-a-birthday-1956/Matinee%20Theater%20George%20Has%20A%20Birthday%20%281956%29.ia.mp4"
-        }
-      ]
-    },
-    {
-      "seasonNumber": null,
-      "episodes": [
+        },
         {
           "archiveID": "matinee-theatre-horsepower",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Horsepower",
+          "seasonNumber": 1,
+          "episodeNumber": 44,
+          "title": "Horse Power",
           "overview": null,
           "stillURL": "https://archive.org/services/img/matinee-theatre-horsepower",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": null,
+          "airDate": "1956-10-30",
+          "year": 1956,
+          "runtimeSeconds": 3600,
           "videoFile": {
             "name": "Matinee Theatre - Horsepower.ia.mp4",
             "format": "h.264 IA",
@@ -61,7 +56,12 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/matinee-theatre-horsepower/Matinee%20Theatre%20-%20Horsepower.ia.mp4"
-        },
+        }
+      ]
+    },
+    {
+      "seasonNumber": null,
+      "episodes": [
         {
           "archiveID": "matinee-theatre-jane-eyre-1957",
           "seasonNumber": null,
@@ -85,6 +85,7 @@
   ],
   "episodesCount": 3,
   "canonicalEpisodesCount": 74,
+  "tvmazeRating": null,
   "tvdbID": "72152",
   "cast": [
     {

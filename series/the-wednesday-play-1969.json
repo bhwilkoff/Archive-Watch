@@ -74,6 +74,24 @@
      "downloadURL": "https://archive.org/download/the-wednesday-play-cock-hen-and-courting-pit-1966/The%20Wednesday%20Play%20-%20Cock%2C%20Hen%20and%20Courting%20Pit%20%281966%29.ia.mp4"
     },
     {
+     "archiveID": "the-wednesday-play-calf-love-1966",
+     "seasonNumber": 1,
+     "episodeNumber": 93,
+     "title": "Calf Love",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/the-wednesday-play-calf-love-1966",
+     "airDate": "1966-01-26",
+     "year": 1966,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Wednesday Play - Calf Love (1966).ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 308859906,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-wednesday-play-calf-love-1966/The%20Wednesday%20Play%20-%20Calf%20Love%20%281966%29.ia.mp4"
+    },
+    {
      "archiveID": "the-wednesday-play-tap-on-the-shoulder-1965",
      "seasonNumber": 1,
      "episodeNumber": 108,
@@ -126,30 +144,30 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/the-wednesday-play-silent-song-1966/The%20Wednesday%20Play%20-%20Silent%20Song%20%281966%29.ia.mp4"
+    },
+    {
+     "archiveID": "the-wednesday-play-the-lump-1967",
+     "seasonNumber": 1,
+     "episodeNumber": 132,
+     "title": "The Lump",
+     "overview": null,
+     "stillURL": "https://archive.org/services/img/the-wednesday-play-the-lump-1967",
+     "airDate": "1967-02-01",
+     "year": 1967,
+     "runtimeSeconds": 3600,
+     "videoFile": {
+      "name": "The Wednesday Play - The Lump (1967).ia.mp4",
+      "format": "h.264 IA",
+      "sizeBytes": 314957271,
+      "tier": 2
+     },
+     "downloadURL": "https://archive.org/download/the-wednesday-play-the-lump-1967/The%20Wednesday%20Play%20-%20The%20Lump%20%281967%29.ia.mp4"
     }
    ]
   },
   {
    "seasonNumber": null,
    "episodes": [
-    {
-     "archiveID": "the-wednesday-play-calf-love-1966",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "Calf Love",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/the-wednesday-play-calf-love-1966",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "The Wednesday Play - Calf Love (1966).ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 308859906,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the-wednesday-play-calf-love-1966/The%20Wednesday%20Play%20-%20Calf%20Love%20%281966%29.ia.mp4"
-    },
     {
      "archiveID": "wednesday-play-in-camera-aka-no-exit-1964",
      "seasonNumber": null,
@@ -167,28 +185,11 @@
       "tier": 2
      },
      "downloadURL": "https://archive.org/download/wednesday-play-in-camera-aka-no-exit-1964/Wednesday%20Play%20-%20In%20Camera%20aka%20No%20Exit%20%281964%29.ia.mp4"
-    },
-    {
-     "archiveID": "the-wednesday-play-the-lump-1967",
-     "seasonNumber": null,
-     "episodeNumber": null,
-     "title": "The Lump",
-     "overview": null,
-     "stillURL": "https://archive.org/services/img/the-wednesday-play-the-lump-1967",
-     "airDate": null,
-     "year": null,
-     "runtimeSeconds": null,
-     "videoFile": {
-      "name": "The Wednesday Play - The Lump (1967).ia.mp4",
-      "format": "h.264 IA",
-      "sizeBytes": 314957271,
-      "tier": 2
-     },
-     "downloadURL": "https://archive.org/download/the-wednesday-play-the-lump-1967/The%20Wednesday%20Play%20-%20The%20Lump%20%281967%29.ia.mp4"
     }
    ]
   }
  ],
  "episodesCount": 9,
- "canonicalEpisodesCount": 173
+ "canonicalEpisodesCount": 173,
+ "tvmazeRating": null
 }

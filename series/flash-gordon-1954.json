@@ -128,6 +128,24 @@
             "tier": 2
           },
           "downloadURL": "https://archive.org/download/flash-gordon-s-01-e-23-the-water-world-mennace/Flash%20Gordon%20-%20S01E23%20-%20The%20Water%20World%20Mennace.mp4"
+        },
+        {
+          "archiveID": "FlashGordon-DeadlineAtNoon-1955",
+          "seasonNumber": 1,
+          "episodeNumber": 36,
+          "title": "Deadline at Noon",
+          "overview": null,
+          "stillURL": "https://image.tmdb.org/t/p/w500/9kKqbxsXSzW1H6Se46mOcZm7Rhy.jpg",
+          "airDate": "1955-06-24",
+          "year": 1955,
+          "runtimeSeconds": 1800,
+          "videoFile": {
+            "name": "FlashGordon136-DeadlineAtNoon.mp4",
+            "format": "h.264",
+            "sizeBytes": 149319061,
+            "tier": 2
+          },
+          "downloadURL": "https://archive.org/download/FlashGordon-DeadlineAtNoon-1955/FlashGordon136-DeadlineAtNoon.mp4"
         }
       ]
     },
@@ -153,24 +171,6 @@
           "downloadURL": "https://archive.org/download/FlashGordon-TheRaceAgainstTime-1955-Ep.1x19/FlashGordon119-TheRaceAgainstTime.mp4"
         },
         {
-          "archiveID": "FlashGordon-DeadlineAtNoon-1955",
-          "seasonNumber": null,
-          "episodeNumber": null,
-          "title": "Deadline at Noon - 1955",
-          "overview": null,
-          "stillURL": "https://image.tmdb.org/t/p/w500/9kKqbxsXSzW1H6Se46mOcZm7Rhy.jpg",
-          "airDate": null,
-          "year": null,
-          "runtimeSeconds": 1554,
-          "videoFile": {
-            "name": "FlashGordon136-DeadlineAtNoon.mp4",
-            "format": "h.264",
-            "sizeBytes": 149319061,
-            "tier": 2
-          },
-          "downloadURL": "https://archive.org/download/FlashGordon-DeadlineAtNoon-1955/FlashGordon136-DeadlineAtNoon.mp4"
-        },
-        {
           "archiveID": "FlashGordon-TheWitchOfNeptune-1955",
           "seasonNumber": null,
           "episodeNumber": null,
@@ -193,6 +193,7 @@
   ],
   "episodesCount": 9,
   "canonicalEpisodesCount": 39,
+  "tvmazeRating": null,
   "tvdbID": "70331",
   "artworkSource": "tvdb",
   "cast": [
